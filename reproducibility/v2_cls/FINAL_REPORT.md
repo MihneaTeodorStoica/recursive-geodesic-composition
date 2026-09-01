@@ -89,3 +89,8 @@ V2.1 (three-consecutive-step saturation persistence) completed all three fresh s
 ## V2.1 development (safe direct CLS spans)
 
 Development `[204000,213000)` was accessed after evaluator freeze. A first GPU/CPU device-placement evaluator bug was corrected and recorded before any metric; no source rescan was performed. On 100 safe direct-target documents per corpus, three-seed mean CLS teacher cosine was `0.98816099`; per-seed strongest logistic orientation-safe AUCs were `.5808375`, `.579425`, `.57245`. Full machine-readable result: `reproducibility/v2_cls/DEVELOPMENT_SAFE_RESULTS.json`.
+
+
+## Official preaccess status
+
+Official V2 evaluation and downstream evaluation were not run. `OFFICIAL_PREACCESS_BLOCKER.md` documents the missing V2 TRAIN-fitted probe/floor and complete two-arm official evaluator closure. The official range remains unopened.
