@@ -1,0 +1,7 @@
+{
+  "reason": "CPU cached leaves compared against CUDA decoder output",
+  "prior_freeze_sha256": "2a4bee67dbd9b32c41b7868f3798bc1f20a1b148ced3e329e2e03292a4a49285",
+  "fixed_evaluator_sha256": "611317616947cd64a36bd71c2e87d11c9383970a8d342749cb9c1240dfb3d90a",
+  "no_source_rescan": true,
+  "no_metric_produced_before_fix": true
+}

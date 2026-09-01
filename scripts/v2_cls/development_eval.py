@@ -49,7 +49,7 @@ def evaluate(device):
    with torch.inference_mode():
     for row in rows:
      root,_=recursive_reduce(model,row['leaves'].to(device)[None],row['lengths'].to(device)[None]); root=root[0]
-     f.append(root.cpu());r.append(row['target']); decoded=model.decode(root[None])[0,:len(row['lengths'])];rr.append(float(F.cosine_similarity(decoded,row['leaves'],dim=-1).mean()))
+     f.append(root.cpu());r.append(row['target']); decoded=model.decode(root[None])[0,:len(row['lengths'])];rr.append(float(F.cosine_similarity(decoded,row['leaves'].to(device),dim=-1).mean()))
    f=np.stack([x.numpy() for x in f]);r=np.stack([x.numpy() for x in r]);corp[cid]={'rows':len(rows),'teacher_cosine':float(np.mean(np.sum(f*r,axis=1))),'ordered_child_cosine':float(np.mean(rr))};fake.append(f);real.append(r);groups += [cid+':'+str(i) for i in range(len(rows))]
   fake=np.concatenate(fake);real=np.concatenate(real); attacks=evaluate_attacks(real,fake,groups,bootstrap=400)
   result['seeds'][str(seed)]={'checkpoint_sha256':sh(cp),'pooled_teacher_cosine':float(np.mean(np.sum(fake*real,axis=1))),'per_corpus':corp,'attacks':attacks}
