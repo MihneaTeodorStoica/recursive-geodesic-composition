@@ -1,0 +1,14 @@
+{
+  "development_range": [
+    204000,
+    213000
+  ],
+  "official_accessed": false,
+  "evaluator": "scripts/v2_cls/development_eval.py",
+  "sha256": "2a4bee67dbd9b32c41b7868f3798bc1f20a1b148ced3e329e2e03292a4a49285",
+  "checkpoints": {
+    "424242": "c2464e5f884887779f35f4dff193c25ec1b9d80dbc91eae7263610b9e8d55c19",
+    "271828": "0ced20f8619d46fb2c8be8acc6bcd7c751bdbf3d693885f500ed961a117c4ee8",
+    "314159": "0be4a8059b8e7673d563eada614ca95651c309bad07f6176b3919235f5253d27"
+  }
+}
