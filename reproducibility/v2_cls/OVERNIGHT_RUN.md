@@ -18,3 +18,9 @@ This file is append-only.
 - Historical V2.0 binary directories were moved intact to `/root/v2_cls_archive/` and replaced by same-path symlinks, freeing workspace volume. No artifact was altered.
 - Stage C 314159 was rerun from its exact Stage-B checkpoint using an explicitly documented retry config with only a new output directory; it reproduced the same final logged scalar values and checkpointed successfully.
 - Final V2.1 TRAIN-only 128-row audit cosines: 424242=.9818943, 271828=.9820268, 314159=.9822874. All roots finite/unit-normalized, effective ranks 85.84/85.85/86.14, no audited saturation.
+
+## 2026-04-26 — V2 development access
+
+- Development evaluator was frozen/committed before opening `[204000,213000)` and development access timestamp recorded.
+- A cache of first 100 source-order safe direct-target documents per corpus was prepared with CLS leaves/direct CLS targets. The first evaluation attempt found a CPU/GPU decoder comparison bug before producing a metric; fixed evaluator was committed and the already-prepared cache was evaluated without a source rescan.
+- Development safe teacher cosine mean across seeds: 0.98816099. Per seed: 424242=.98806107, 271828=.98815286, 314159=.98826903. Strongest logistic orientation-safe AUC: .5808375/.579425/.57245.

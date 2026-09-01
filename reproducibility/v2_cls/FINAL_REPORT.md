@@ -84,3 +84,8 @@ The fresh procedure demonstrates that the CLS cache, merger-first staging, stric
 ## V2.1 amendment outcome
 
 V2.1 (three-consecutive-step saturation persistence) completed all three fresh seeds. Final V2.1 checkpoint hashes are `c2464e5f884887779f35f4dff193c25ec1b9d80dbc91eae7263610b9e8d55c19` (424242), `0ced20f8619d46fb2c8be8acc6bcd7c751bdbf3d693885f500ed961a117c4ee8` (271828), and `0be4a8059b8e7673d563eada614ca95651c309bad07f6176b3919235f5253d27` (314159; documented ENOSPC checkpoint-write recovery). This is still TRAIN-only; no V2 development/official/downstream result is claimed here.
+
+
+## V2.1 development (safe direct CLS spans)
+
+Development `[204000,213000)` was accessed after evaluator freeze. A first GPU/CPU device-placement evaluator bug was corrected and recorded before any metric; no source rescan was performed. On 100 safe direct-target documents per corpus, three-seed mean CLS teacher cosine was `0.98816099`; per-seed strongest logistic orientation-safe AUCs were `.5808375`, `.579425`, `.57245`. Full machine-readable result: `reproducibility/v2_cls/DEVELOPMENT_SAFE_RESULTS.json`.

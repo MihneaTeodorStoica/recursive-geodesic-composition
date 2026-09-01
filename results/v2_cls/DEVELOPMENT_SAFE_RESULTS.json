@@ -1,0 +1,199 @@
+{
+  "role": "development_safe",
+  "cache_manifest_sha256": "edadb1e3a267137c4403f5d436e385f15209664fb80d2f36122ca6608074056f",
+  "seeds": {
+    "424242": {
+      "checkpoint_sha256": "c2464e5f884887779f35f4dff193c25ec1b9d80dbc91eae7263610b9e8d55c19",
+      "pooled_teacher_cosine": 0.9880610704421997,
+      "per_corpus": {
+        "fineweb_edu": {
+          "rows": 100,
+          "teacher_cosine": 0.9876705408096313,
+          "ordered_child_cosine": 0.9100417137145996
+        },
+        "fineweb": {
+          "rows": 100,
+          "teacher_cosine": 0.9895278215408325,
+          "ordered_child_cosine": 0.9200178611278534
+        },
+        "openwebtext": {
+          "rows": 100,
+          "teacher_cosine": 0.9900276064872742,
+          "ordered_child_cosine": 0.9185482114553452
+        },
+        "wikipedia_en_20231101": {
+          "rows": 100,
+          "teacher_cosine": 0.9850180149078369,
+          "ordered_child_cosine": 0.9155810743570327
+        }
+      },
+      "attacks": {
+        "attack_protocol": {
+          "protocol_version": 1,
+          "split_seed": 1729,
+          "model_seed": 1729,
+          "test_size": 0.5,
+          "logistic_c": 1.0,
+          "logistic_max_iter": 1000,
+          "rbf_c": 1.0,
+          "rbf_gamma": 0.0013020833333333333
+        },
+        "attacks": {
+          "standard_scaled_logistic": {
+            "auc": 0.5808375,
+            "auc_ci95": [
+              0.521750768159448,
+              0.629393859846496
+            ],
+            "pr_auc": 0.5846408177691913,
+            "balanced_accuracy": 0.55
+          },
+          "standard_scaled_rbf_svm": {
+            "auc": 0.55185,
+            "auc_ci95": [
+              0.4967427495312088,
+              0.6083976302011573
+            ],
+            "pr_auc": 0.5459369865300633,
+            "balanced_accuracy": 0.52
+          }
+        },
+        "strongest_attack": "standard_scaled_logistic",
+        "max_attack_auc": 0.5808375,
+        "disc_train_examples": 400,
+        "disc_test_examples": 400,
+        "disc_train_documents": 200,
+        "disc_test_documents": 200
+      }
+    },
+    "271828": {
+      "checkpoint_sha256": "0ced20f8619d46fb2c8be8acc6bcd7c751bdbf3d693885f500ed961a117c4ee8",
+      "pooled_teacher_cosine": 0.9881528615951538,
+      "per_corpus": {
+        "fineweb_edu": {
+          "rows": 100,
+          "teacher_cosine": 0.987591028213501,
+          "ordered_child_cosine": 0.9104691112041473
+        },
+        "fineweb": {
+          "rows": 100,
+          "teacher_cosine": 0.9895763993263245,
+          "ordered_child_cosine": 0.9206988060474396
+        },
+        "openwebtext": {
+          "rows": 100,
+          "teacher_cosine": 0.9900956153869629,
+          "ordered_child_cosine": 0.9191490173339844
+        },
+        "wikipedia_en_20231101": {
+          "rows": 100,
+          "teacher_cosine": 0.9853485226631165,
+          "ordered_child_cosine": 0.9156260144710541
+        }
+      },
+      "attacks": {
+        "attack_protocol": {
+          "protocol_version": 1,
+          "split_seed": 1729,
+          "model_seed": 1729,
+          "test_size": 0.5,
+          "logistic_c": 1.0,
+          "logistic_max_iter": 1000,
+          "rbf_c": 1.0,
+          "rbf_gamma": 0.0013020833333333333
+        },
+        "attacks": {
+          "standard_scaled_logistic": {
+            "auc": 0.579425,
+            "auc_ci95": [
+              0.5292827513562084,
+              0.631298556754011
+            ],
+            "pr_auc": 0.5853946358962646,
+            "balanced_accuracy": 0.5625
+          },
+          "standard_scaled_rbf_svm": {
+            "auc": 0.5506500000000001,
+            "auc_ci95": [
+              0.4940381279674534,
+              0.6099603103879644
+            ],
+            "pr_auc": 0.5483190764422425,
+            "balanced_accuracy": 0.535
+          }
+        },
+        "strongest_attack": "standard_scaled_logistic",
+        "max_attack_auc": 0.579425,
+        "disc_train_examples": 400,
+        "disc_test_examples": 400,
+        "disc_train_documents": 200,
+        "disc_test_documents": 200
+      }
+    },
+    "314159": {
+      "checkpoint_sha256": "0be4a8059b8e7673d563eada614ca95651c309bad07f6176b3919235f5253d27",
+      "pooled_teacher_cosine": 0.988269031047821,
+      "per_corpus": {
+        "fineweb_edu": {
+          "rows": 100,
+          "teacher_cosine": 0.9877182245254517,
+          "ordered_child_cosine": 0.9100036263465882
+        },
+        "fineweb": {
+          "rows": 100,
+          "teacher_cosine": 0.9897698163986206,
+          "ordered_child_cosine": 0.919611399769783
+        },
+        "openwebtext": {
+          "rows": 100,
+          "teacher_cosine": 0.9902128577232361,
+          "ordered_child_cosine": 0.9183801203966141
+        },
+        "wikipedia_en_20231101": {
+          "rows": 100,
+          "teacher_cosine": 0.9853753447532654,
+          "ordered_child_cosine": 0.9146208703517914
+        }
+      },
+      "attacks": {
+        "attack_protocol": {
+          "protocol_version": 1,
+          "split_seed": 1729,
+          "model_seed": 1729,
+          "test_size": 0.5,
+          "logistic_c": 1.0,
+          "logistic_max_iter": 1000,
+          "rbf_c": 1.0,
+          "rbf_gamma": 0.0013020833333333333
+        },
+        "attacks": {
+          "standard_scaled_logistic": {
+            "auc": 0.57245,
+            "auc_ci95": [
+              0.5204602239584118,
+              0.6224780314160762
+            ],
+            "pr_auc": 0.5754955850111108,
+            "balanced_accuracy": 0.5325
+          },
+          "standard_scaled_rbf_svm": {
+            "auc": 0.547675,
+            "auc_ci95": [
+              0.4897887301301395,
+              0.6029613660238832
+            ],
+            "pr_auc": 0.541428186958132,
+            "balanced_accuracy": 0.5225
+          }
+        },
+        "strongest_attack": "standard_scaled_logistic",
+        "max_attack_auc": 0.57245,
+        "disc_train_examples": 400,
+        "disc_test_examples": 400,
+        "disc_train_documents": 200,
+        "disc_test_documents": 200
+      }
+    }
+  },
+  "three_seed_mean_teacher_cosine": 0.9881609876950582
+}
