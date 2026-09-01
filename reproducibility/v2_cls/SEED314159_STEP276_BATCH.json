@@ -1,0 +1,204 @@
+{
+  "step": 276,
+  "batch": [
+    {
+      "batch_position": 0,
+      "corpus": "fineweb_edu",
+      "cache_row_index": 4503,
+      "id": "fineweb_edu:<urn:uuid:530d787c-54a2-411e-86e8-68abad549522>",
+      "segmentation": "train",
+      "leaves": 2,
+      "content_tokens": 1133,
+      "target_count": 1,
+      "levels": [
+        {
+          "nodes": 2,
+          "groups": [
+            [
+              0,
+              2
+            ]
+          ],
+          "genuine_merges": 1
+        }
+      ],
+      "genuine_merges": 1
+    },
+    {
+      "batch_position": 1,
+      "corpus": "wikipedia_en_20231101",
+      "cache_row_index": 2605,
+      "id": "wikipedia_en_20231101:5614164",
+      "segmentation": "train",
+      "leaves": 5,
+      "content_tokens": 3917,
+      "target_count": 2,
+      "levels": [
+        {
+          "nodes": 5,
+          "groups": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "genuine_merges": 1
+        },
+        {
+          "nodes": 2,
+          "groups": [
+            [
+              0,
+              2
+            ]
+          ],
+          "genuine_merges": 1
+        }
+      ],
+      "genuine_merges": 2
+    },
+    {
+      "batch_position": 2,
+      "corpus": "fineweb",
+      "cache_row_index": 3096,
+      "id": "fineweb:<urn:uuid:ab15e411-e99a-4142-8f83-79d8425bcd56>",
+      "segmentation": "train",
+      "leaves": 2,
+      "content_tokens": 1230,
+      "target_count": 1,
+      "levels": [
+        {
+          "nodes": 2,
+          "groups": [
+            [
+              0,
+              2
+            ]
+          ],
+          "genuine_merges": 1
+        }
+      ],
+      "genuine_merges": 1
+    },
+    {
+      "batch_position": 3,
+      "corpus": "openwebtext",
+      "cache_row_index": 3075,
+      "id": "openwebtext:196289",
+      "segmentation": "train",
+      "leaves": 2,
+      "content_tokens": 1066,
+      "target_count": 1,
+      "levels": [
+        {
+          "nodes": 2,
+          "groups": [
+            [
+              0,
+              2
+            ]
+          ],
+          "genuine_merges": 1
+        }
+      ],
+      "genuine_merges": 1
+    },
+    {
+      "batch_position": 4,
+      "corpus": "wikipedia_en_20231101",
+      "cache_row_index": 5367,
+      "id": "wikipedia_en_20231101:5653009",
+      "segmentation": "train",
+      "leaves": 2,
+      "content_tokens": 1064,
+      "target_count": 1,
+      "levels": [
+        {
+          "nodes": 2,
+          "groups": [
+            [
+              0,
+              2
+            ]
+          ],
+          "genuine_merges": 1
+        }
+      ],
+      "genuine_merges": 1
+    },
+    {
+      "batch_position": 5,
+      "corpus": "openwebtext",
+      "cache_row_index": 1152,
+      "id": "openwebtext:193627",
+      "segmentation": "train",
+      "leaves": 2,
+      "content_tokens": 1690,
+      "target_count": 1,
+      "levels": [
+        {
+          "nodes": 2,
+          "groups": [
+            [
+              0,
+              2
+            ]
+          ],
+          "genuine_merges": 1
+        }
+      ],
+      "genuine_merges": 1
+    },
+    {
+      "batch_position": 6,
+      "corpus": "fineweb",
+      "cache_row_index": 2973,
+      "id": "fineweb:<urn:uuid:f46bceeb-15e5-4e6c-b950-90cc1732557b>",
+      "segmentation": "train",
+      "leaves": 2,
+      "content_tokens": 1660,
+      "target_count": 1,
+      "levels": [
+        {
+          "nodes": 2,
+          "groups": [
+            [
+              0,
+              2
+            ]
+          ],
+          "genuine_merges": 1
+        }
+      ],
+      "genuine_merges": 1
+    },
+    {
+      "batch_position": 7,
+      "corpus": "fineweb_edu",
+      "cache_row_index": 3347,
+      "id": "fineweb_edu:<urn:uuid:0b112a77-583c-4360-aafe-16968ab72421>",
+      "segmentation": "train",
+      "leaves": 2,
+      "content_tokens": 1384,
+      "target_count": 1,
+      "levels": [
+        {
+          "nodes": 2,
+          "groups": [
+            [
+              0,
+              2
+            ]
+          ],
+          "genuine_merges": 1
+        }
+      ],
+      "genuine_merges": 1
+    }
+  ],
+  "genuine_merge_denominator": 9
+}

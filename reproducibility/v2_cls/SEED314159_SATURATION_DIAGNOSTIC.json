@@ -1,0 +1,50 @@
+{
+  "seed": 314159,
+  "stage": "stage_a",
+  "step": 276,
+  "status": "rejected",
+  "rejection_reason": "geodesic_saturation_nonzero_for_1_steps:0.111111112",
+  "implementation": {
+    "parameterization": "tangent_expmap",
+    "max_angle_radians": 0.5,
+    "saturation_fraction_expression": "mean(angle >= 0.95 * max_angle)",
+    "threshold_radians": 0.475,
+    "raw_to_bounded_relation": "angle=max_angle*tanh(raw_projected_tangent_norm/max_angle)"
+  },
+  "event": {
+    "genuine_merge_denominator": 9,
+    "saturated_merge_numerator": 1,
+    "saturation_fraction": 0.1111111119389534,
+    "angle_mean": 0.09064843505620956,
+    "angle_p95": 0.3393569886684418,
+    "angle_max_and_correction_norm_max": 0.49999988079071045,
+    "raw_tangent_norm_approx_from_displayed_max": 3.9855962584173614,
+    "raw_tangent_norm_at_threshold": 0.9158904115324114,
+    "exact_raw_tangent_available": false,
+    "exact_saturated_row_available": false
+  },
+  "logged_health": {
+    "loss": 0.05534292012453079,
+    "teacher": 0.035300519317388535,
+    "grad_norm": 1.073279619216919,
+    "distribution_mean": 0.020550023764371872,
+    "distribution_variance": 4.704558523371816e-05,
+    "delta": 0.20945796370506287,
+    "prior": 0.04886556789278984,
+    "slot": 0.026566006243228912,
+    "correction_saturation": 0.0,
+    "entropy_change": -0.10953524708747864,
+    "slot0_use": 0.7352818250656128,
+    "effective_token_ratio_p05": 0.553073525428772,
+    "effective_token_ratio_p95": 1.3064631223678589
+  },
+  "supporting_files": {
+    "reproducibility/v2_cls/SEED314159_STEP276_BATCH.json": "4f575431a063b5102fe99b3794dc5ca403431dfd5bac6a635f9080c2c20b7d76",
+    "reproducibility/v2_cls/SEED314159_COMPARISON_STEPS260_276.json": "73a886c45bd7225b0830eeb8e76d32a3fc27778f77de678e170259f8a5abfd28",
+    "results/v2_cls/final_seed314159/stage_a/encoder_seed314159.jsonl": "94affb156689afafd2ddc474f95a885ea6bb449f18fbc84d9344d8000d8f0a2a",
+    "configs/v2_cls/fresh_seed314159_stage_a.yaml": "96ca7333181dc5cc689558dba5b3bbfcc050cae28a1f2171228e0b4301ec3603",
+    "src/recursive_geodesic_composition/architecture.py": "a789a89786cbac66e5b7dbcd63c83145852e744f69154fa92052f1e209ee1940",
+    "src/recursive_geodesic_composition/train.py": "6d86c8b22b782f1cd4d979fab1a25c475844b3b97042094565c298531884ce7b"
+  },
+  "conclusion": "B_isolated_but_real_saturation_warrants_persistence_based_safety_rule"
+}
