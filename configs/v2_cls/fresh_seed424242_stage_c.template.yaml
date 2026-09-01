@@ -1,0 +1,142 @@
+study: v2_cls_fresh_stage_c_seed424242
+development_only: true
+protected_data_accessed: false
+seed: 424242
+arity: 4
+cache_dir: artifacts/v2_cls/cache_train_cls
+output_dir: results/v2_cls/final_seed424242/stage_c
+training_without_validation: true
+fixed_final_checkpoint_without_validation: true
+model_name: Alibaba-NLP/gte-modernbert-base
+model_revision: e7f32e3c00f91d699e8c43b53106206bcc72bb22
+corpora:
+- id: fineweb_edu
+  weight: 0.25
+  dataset_name: HuggingFaceFW/fineweb-edu
+  dataset_config: sample-10BT
+  dataset_revision: 87f09149ef4734204d70ed1d046ddc9ca3f2b8f9
+  train_start: 192000
+  train_documents: 12000
+- id: fineweb
+  weight: 0.25
+  dataset_name: HuggingFaceFW/fineweb
+  dataset_config: sample-10BT
+  dataset_revision: 9bb295ddab0e05d785b879661af7260fed5140fc
+  train_start: 192000
+  train_documents: 12000
+- id: openwebtext
+  weight: 0.25
+  dataset_name: Skylion007/openwebtext
+  dataset_config: null
+  dataset_revision: 79d93d786212f7344586290adb811d4ae6a1762c
+  train_start: 192000
+  train_documents: 12000
+- id: wikipedia_en_20231101
+  weight: 0.25
+  dataset_name: wikimedia/wikipedia
+  dataset_config: 20231101.en
+  dataset_revision: b04c8d1ceb2f5cd4588862100d08de323dccfbaa
+  train_start: 192000
+  train_documents: 12000
+teacher_max_tokens: 6144
+chunk_tokens: 1024
+leaf_batch_size: 32
+teacher_target_batch_size: 32
+teacher_target_max_padded_tokens: 32768
+random_training_spans: true
+train_span_length_buckets:
+- min: 512
+  max: 2048
+- min: 2049
+  max: 8192
+- min: 8193
+  max: 16384
+- min: 16385
+  max: 32768
+random_chunk_min: 512
+random_chunk_max: 1024
+train_max_tree_leaves: 96
+validation_max_tree_leaves: 16
+train_augmentations: 4
+validation_segmentations: 2
+batch_size: 8
+steps: 1200
+validation_every: 1200
+validation_metric_documents: 1000
+validation_root_batch_size: 64
+learning_rate: 0.0001
+encoder_learning_rate_scale: 1.0
+weight_decay: 0.001
+learning_rate_schedule: cosine
+warmup_steps: 160
+min_learning_rate: 1.0e-05
+max_geodesic_angle: 0.5
+encoder_hidden: 1024
+encoder_layers: 8
+decoder_layers: 1
+heads: 16
+mixed_precision: none
+geodesic_parameterization: tangent_expmap
+initialize_encoder_from_autoencoder_checkpoint: false
+decoder_mode: strict
+decoder_length_mode: predicted
+freeze_encoder_steps: 0
+decoder_only_require_full_arity_rows: false
+autoencoder_objective_start_step: 0
+autoencoder_objective_ramp_steps: 0
+reconstruction_weight: 0.15
+cycle_weight: 5.0
+distribution_mean_weight: 0.25
+distribution_variance_weight: 256.0
+distribution_min_samples: 8
+importance_mode: semantic
+importance_beta: 1.0
+importance_loss_weight: 0.025
+importance_prior_weight: 0.01
+delta_loss_weight: 0.01
+sharpness_loss_weight: 0.01
+slot_loss_weight: 0.01
+sharpness_margin: 0.1
+stratified_multicorpus_batches: true
+checkpoint_selection: fixed_final_step_without_validation
+checkpoint_moving_average_window: 1
+checkpoint_selection_start_step: 1200
+keep_only_best: true
+defer_selected_checkpoint_write_until_training_complete: true
+reject_on_geodesic_saturation: true
+reject_on_cosine_guard_failure: false
+tensorboard: false
+minimum_free_bytes_before_train: 0
+minimum_free_bytes_before_checkpoint: 0
+estimated_checkpoint_bytes: 0
+attack_config: configs/evaluator_attacks_v1.yaml
+bootstrap_replicates: 400
+bootstrap_seed: 66031740
+root_batch_size: 64
+collapse:
+  minimum_effective_rank: 8.0
+  minimum_unique_rounded_fraction: 0.99
+  minimum_pre_normalization_norm: 1.0e-06
+matched_probe:
+  fit_rows_per_corpus: 80
+  floor_rows_per_corpus: 80
+  hidden: 512
+  updates: 400
+  batch_size: 128
+  seed: 730241
+  learning_rate: 0.0003
+  weight_decay: 0.001
+  mse_weight: 0.25
+  floor_margin: 0.001
+teacher_pooling: cls
+trust_remote_code: true
+initialization: fresh_random_no_v1_learned_parameters
+fresh_protocol_note: Repository lacks exact pre-final lineage for v1 source checkpoints;
+  V2 trains all parameters jointly from random initialization for 400 steps under
+  CLS.
+fresh_protocol_version: 1
+v2_stage: stage_c
+geodesic_saturation_patience_steps: 1
+continue_after_quality_rejection: false
+v2_expected_source_variant: autoencoder
+v2_expected_source_stage: stage_b

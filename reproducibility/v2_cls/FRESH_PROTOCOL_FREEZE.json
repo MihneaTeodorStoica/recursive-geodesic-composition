@@ -1,0 +1,25 @@
+{
+  "protocol": "v2_cls_fresh_from_random",
+  "version": 1,
+  "frozen_before_final_training": true,
+  "development_accessed": false,
+  "official_accessed": false,
+  "cache_manifest_sha256": "5d97c2742663c47ad3d01a3f5ae6f6e93c7616984c3a81ab14098560f10af73d",
+  "files": {
+    "reproducibility/v2_cls/FRESH_TRAINING_PLAN.md": "3d8c831b1aa6fabd7a843239f2a74bf5bbae42f6419f2411f599f891e5cddae5",
+    "scripts/v2_cls/materialize_stage.py": "a31de1a67fa605b3f02499f82f28c5baff26a21314a5660381a24212b47c2d77",
+    "scripts/v2_cls/audit_train_only.py": "f2e534d096f4ff0681f49a3c35418a121dd0dfd6411d7ad4cf4331d5ff4ce13c",
+    "src/recursive_geodesic_composition/train.py": "6d86c8b22b782f1cd4d979fab1a25c475844b3b97042094565c298531884ce7b",
+    "src/recursive_geodesic_composition/data.py": "7f4dd548e76dd0ae06c6e3a1b09066d6a8885586d3934cc3b44645b4d9da8dd5",
+    "src/recursive_geodesic_composition/prepare_kary.py": "e9cd5912384048038041d618759af5c3d225dfa56571ba3e840e90e235852ec7",
+    "configs/v2_cls/fresh_seed271828_stage_a.yaml": "e642dbc389ab47724869e1057c06f66abc9b46fc17b94eeb28ae75c520578915",
+    "configs/v2_cls/fresh_seed271828_stage_b.template.yaml": "4031200fce039ca0e4a3f7c7895b8d2d06ce5660513829bc4b5db500e634bda5",
+    "configs/v2_cls/fresh_seed271828_stage_c.template.yaml": "b8276f93c84719634d8c3c6ceea49401190e1f4e60cd8c6d80c9e7492b77edf7",
+    "configs/v2_cls/fresh_seed314159_stage_a.yaml": "96ca7333181dc5cc689558dba5b3bbfcc050cae28a1f2171228e0b4301ec3603",
+    "configs/v2_cls/fresh_seed314159_stage_b.template.yaml": "c02170172b1f874002df933be42388a31b3f408eae7078bb831e87533b063f44",
+    "configs/v2_cls/fresh_seed314159_stage_c.template.yaml": "d8f33ab0ec0c1585cda7855a1164ee84e0e5277f98b2c4b973ec6295576ba9ff",
+    "configs/v2_cls/fresh_seed424242_stage_a.yaml": "d115d91a463a909881a46b5e9507ce9539662e46bb1b0678baa4a00b11d13447",
+    "configs/v2_cls/fresh_seed424242_stage_b.template.yaml": "c9addb5ae707dcbb0af7059b844a8325e7915e4d3ba0166e3112549d2ae8cace",
+    "configs/v2_cls/fresh_seed424242_stage_c.template.yaml": "625e0fac5804a365750710b9065adf51f334018ed698fd0e773023200ad78593"
+  }
+}

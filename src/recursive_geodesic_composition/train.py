@@ -245,6 +245,62 @@ def _load_encoder_initialization(model, checkpoint_path, expected_sha256=None, *
     }
 
 
+def _load_autoencoder_continuation(model, checkpoint_path, expected_sha256, *, expected_teacher):
+    """Load a full same-space autoencoder state while deliberately restarting AdamW.
+
+    Unlike encoder initialization, this path keeps the decoder learned in the
+    preceding V2 stage. Explicit pooling provenance is mandatory, preventing
+    accidental continuation from a legacy masked-mean checkpoint.
+    """
+    if expected_sha256 is None:
+        raise ValueError("continue_autoencoder_from_checkpoint_sha256 is required")
+    expected = str(expected_sha256)
+    if len(expected) != 64 or any(character not in '0123456789abcdefABCDEF' for character in expected):
+        raise ValueError("continue_autoencoder_from_checkpoint_sha256 must be a full SHA-256")
+    path = Path(checkpoint_path)
+    if not path.is_file():
+        raise FileNotFoundError(f"autoencoder continuation checkpoint not found: {path}")
+    actual_hash = _sha256_file(path)
+    if actual_hash.lower() != expected.lower():
+        raise ValueError(f"autoencoder continuation SHA-256 mismatch: expected {expected}, got {actual_hash}")
+    checkpoint = torch.load(path, map_location='cpu', weights_only=True)
+    if not isinstance(checkpoint, dict) or checkpoint.get('variant') != 'autoencoder':
+        raise ValueError("autoencoder continuation requires checkpoint variant='autoencoder'")
+    provenance = checkpoint.get('teacher_provenance')
+    if not isinstance(provenance, dict):
+        raise ValueError("autoencoder continuation lacks explicit teacher provenance")
+    for key, value in expected_teacher.items():
+        if provenance.get(key) != value:
+            raise ValueError(
+                f"autoencoder continuation teacher provenance mismatch for {key}: "
+                f"checkpoint={provenance.get(key)!r} expected={value!r}")
+    architecture = checkpoint.get('architecture') or {}
+    target_architecture = model.architecture_metadata()
+    for key in ('arity', 'importance_mode', 'decoder_mode', 'geodesic_parameterization'):
+        if architecture.get(key) != target_architecture.get(key):
+            raise ValueError(
+                f"autoencoder continuation architecture mismatch for {key}: "
+                f"checkpoint={architecture.get(key)!r} model={target_architecture.get(key)!r}")
+    state = checkpoint.get('state_dict')
+    own = model.state_dict()
+    if not isinstance(state, dict) or set(state) != set(own):
+        missing = sorted(set(own) - set(state or {}))[:8]
+        extra = sorted(set(state or {}) - set(own))[:8]
+        raise ValueError(f"autoencoder continuation state keys differ: missing={missing} extra={extra}")
+    for name, tensor in own.items():
+        if tensor.shape != state[name].shape:
+            raise ValueError(f"autoencoder continuation tensor shape mismatch: {name}")
+    model.load_state_dict(state, strict=True)
+    return {
+        'autoencoder_continuation_checkpoint': str(path),
+        'autoencoder_continuation_checkpoint_sha256': actual_hash,
+        'autoencoder_continuation_loaded_key_count': len(state),
+        'autoencoder_continuation_source_selected_step': checkpoint.get('selected_step'),
+        'autoencoder_continuation_optimizer_restarted': True,
+        'autoencoder_continuation_optimizer_state_loaded': False,
+    }
+
+
 def _load_encoder_continuation(model, checkpoint_path, expected_sha256):
     """Load an exact encoder checkpoint while deliberately restarting AdamW."""
     if expected_sha256 is None:
@@ -1239,6 +1295,8 @@ def run(cfg, variant, seed, device):
     allow_autoencoder_initialization = bool(cfg.get('initialize_encoder_from_autoencoder_checkpoint', False))
     continuation_path = cfg.get('continue_encoder_from_checkpoint')
     continuation_expected_hash = cfg.get('continue_encoder_from_checkpoint_sha256')
+    autoencoder_continuation_path = cfg.get('continue_autoencoder_from_checkpoint')
+    autoencoder_continuation_expected_hash = cfg.get('continue_autoencoder_from_checkpoint_sha256')
     if freeze_encoder_steps < 0 or objective_start_step < 0 or objective_ramp_steps < 0:
         raise ValueError("freeze/start/ramp steps must be non-negative")
     if not math.isfinite(encoder_learning_rate_scale) or encoder_learning_rate_scale <= 0:
@@ -1250,6 +1308,12 @@ def run(cfg, variant, seed, device):
         raise ValueError("continue_encoder_from_checkpoint requires variant='encoder'")
     if continuation_expected_hash and not continuation_path:
         raise ValueError("continue_encoder_from_checkpoint_sha256 requires its checkpoint")
+    if autoencoder_continuation_path and variant != 'autoencoder':
+        raise ValueError("continue_autoencoder_from_checkpoint requires variant='autoencoder'")
+    if autoencoder_continuation_expected_hash and not autoencoder_continuation_path:
+        raise ValueError("continue_autoencoder_from_checkpoint_sha256 requires its checkpoint")
+    if (continuation_path and autoencoder_continuation_path) or (initialization_path and autoencoder_continuation_path):
+        raise ValueError("encoder initialization/continuation and autoencoder continuation are mutually exclusive")
     if continuation_path and initialization_path:
         raise ValueError("encoder initialization and encoder continuation are mutually exclusive")
     if allow_autoencoder_initialization and (variant != 'autoencoder' or not initialization_path):
@@ -1314,6 +1378,17 @@ def run(cfg, variant, seed, device):
             model, continuation_path, continuation_expected_hash)
         print(f"Continued exact encoder state ({continuation_info['continuation_loaded_key_count']} keys) "
               f"from {continuation_path} sha256={continuation_info['continuation_checkpoint_sha256']}; "
+              "optimizer intentionally restarted.", flush=True)
+    if autoencoder_continuation_path:
+        continuation_info = _load_autoencoder_continuation(
+            model, autoencoder_continuation_path, autoencoder_continuation_expected_hash,
+            expected_teacher={
+                'teacher_id': cfg.get('model_name'),
+                'teacher_revision': cfg.get('model_revision'),
+                'teacher_pooling': cfg.get('teacher_pooling', 'masked_mean'),
+            })
+        print(f"Continued exact autoencoder state ({continuation_info['autoencoder_continuation_loaded_key_count']} keys) "
+              f"from {autoencoder_continuation_path} sha256={continuation_info['autoencoder_continuation_checkpoint_sha256']}; "
               "optimizer intentionally restarted.", flush=True)
     if freeze_encoder_steps:
         _set_encoder_trainable(model, False)
