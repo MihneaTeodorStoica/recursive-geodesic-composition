@@ -148,7 +148,14 @@ def _make_row(doc_id, chunks, teacher, cfg, *, cap_to_teacher=True, max_leaves=8
     if not torch.isfinite(leaves).all():
         raise FloatingPointError(f"teacher produced non-finite leaf embedding: doc_id={doc_id} leaves={len(chunks)}")
     lengths = torch.tensor([len(x) for x in chunks], dtype=torch.float32)
-    row = {"id": doc_id, "leaves": leaves, "lengths": lengths}
+    row = {
+        "id": doc_id,
+        "leaves": leaves,
+        "lengths": lengths,
+        "teacher_id": getattr(teacher, "name", cfg.get("model_name")),
+        "teacher_revision": getattr(teacher, "revision", cfg.get("model_revision")),
+        "teacher_pooling": getattr(teacher, "pooling", cfg.get("teacher_pooling", "masked_mean")),
+    }
     if tree_rng is not None:
         templates = cfg.get("tree_templates", ["balanced", "left", "right", "outside_in"])
         template = templates[tree_rng.randrange(len(templates))]
@@ -338,7 +345,10 @@ def main():
     if a.smoke and "corpora" not in cfg:
         cfg.update(train_documents=32, validation_documents=16, test_documents=16,
                    train_start=0, validation_start=100, test_start=200)
-    teacher = FrozenTeacher(cfg["model_name"], cfg.get("model_revision"), a.device)
+    teacher = FrozenTeacher(
+        cfg["model_name"], cfg.get("model_revision"), a.device,
+        pooling=cfg.get("teacher_pooling", "masked_mean"),
+        trust_remote_code=cfg.get("trust_remote_code"))
     if "corpora" in cfg:
         _prepare_multicorpus(cfg, teacher, a.smoke)
         return

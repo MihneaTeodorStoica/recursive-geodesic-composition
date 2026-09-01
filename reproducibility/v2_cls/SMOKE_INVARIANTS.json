@@ -1,0 +1,145 @@
+{
+  "device": "cuda",
+  "ranges": {
+    "official_v5": [
+      110000,
+      140000
+    ],
+    "clean_v6_train": [
+      140000,
+      152000
+    ],
+    "clean_v6_development": [
+      152000,
+      161000
+    ],
+    "clean_v6_buffer": [
+      161000,
+      162000
+    ],
+    "official_v6": [
+      162000,
+      192000
+    ],
+    "v2_cls_train": [
+      192000,
+      204000
+    ],
+    "v2_cls_development": [
+      204000,
+      213000
+    ],
+    "v2_cls_buffer": [
+      213000,
+      214000
+    ],
+    "v2_cls_future_official": [
+      214000,
+      244000
+    ]
+  },
+  "configs": {
+    "seed271828.yaml": {
+      "seed": 271828,
+      "sha256": "fb422f2df7a018f1ce8a6a4d6e2ce716236157b03d65534804c4db9cc93ff272"
+    },
+    "seed314159.yaml": {
+      "seed": 314159,
+      "sha256": "8c94318c8146b0c39de34109b2ef0711155e03727c0702f74fda324c0e1b99fc"
+    },
+    "seed424242.yaml": {
+      "seed": 424242,
+      "sha256": "466a84721f328a56962afba2dc15c49b80aa5bce8581fa65b0f950febaf01caf"
+    }
+  },
+  "contiguous_k4_groups": {
+    "1": [
+      [
+        0,
+        1
+      ]
+    ],
+    "2": [
+      [
+        0,
+        2
+      ]
+    ],
+    "3": [
+      [
+        0,
+        3
+      ]
+    ],
+    "4": [
+      [
+        0,
+        4
+      ]
+    ],
+    "5": [
+      [
+        0,
+        4
+      ],
+      [
+        4,
+        1
+      ]
+    ],
+    "6": [
+      [
+        0,
+        4
+      ],
+      [
+        4,
+        2
+      ]
+    ],
+    "7": [
+      [
+        0,
+        4
+      ],
+      [
+        4,
+        3
+      ]
+    ],
+    "8": [
+      [
+        0,
+        4
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "9": [
+      [
+        0,
+        4
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        8,
+        1
+      ]
+    ]
+  },
+  "recursive_root_norms": [
+    1.0,
+    1.0
+  ],
+  "levels_recorded": 2,
+  "first_level_sizes_recorded": false,
+  "cpu_gpu_cosine": [
+    1.0,
+    1.0
+  ]
+}

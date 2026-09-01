@@ -1,0 +1,3 @@
+base_commit: c6b3f28830e7965533e1d036c2a749836b7848b6
+branch: v2-paper-cls
+created_utc: 2026-09-01T16:03:56Z

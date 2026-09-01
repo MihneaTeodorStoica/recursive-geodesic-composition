@@ -401,6 +401,26 @@ def _validate_cache_arity(rows, arity, split):
             raise ValueError(f"{split} row {index} lacks target provenance")
 
 
+def _validate_cache_teacher(rows, cfg, split):
+    """Fail closed when a config declares teacher/pooling provenance."""
+    expected_pooling = cfg.get('teacher_pooling')
+    expected_teacher = cfg.get('model_name')
+    expected_revision = cfg.get('model_revision')
+    if expected_pooling is None and expected_revision is None:
+        return
+    for index, row in enumerate(rows):
+        pooling = row.get('teacher_pooling')
+        if expected_pooling is not None and pooling != expected_pooling:
+            raise ValueError(
+                f"{split} row {index} teacher_pooling mismatch: expected={expected_pooling!r} actual={pooling!r}")
+        if expected_teacher is not None and row.get('teacher_id', expected_teacher) != expected_teacher:
+            raise ValueError(
+                f"{split} row {index} teacher_id mismatch: expected={expected_teacher!r} actual={row.get('teacher_id')!r}")
+        if expected_revision is not None and row.get('teacher_revision', expected_revision) != expected_revision:
+            raise ValueError(
+                f"{split} row {index} teacher_revision mismatch: expected={expected_revision!r} actual={row.get('teacher_revision')!r}")
+
+
 def _assert_finite_cache(rows, split):
     try:
         _assert_finite_batch(list(enumerate(rows)))
@@ -988,10 +1008,14 @@ def _load_training_roles(cfg):
     train_only = bool(cfg.get('training_without_validation', False))
     if not corpora:
         rows = torch.load(Path(cfg['cache_dir']) / 'train.pt', weights_only=False)
+        _validate_cache_teacher(rows, cfg, 'train')
         val_path = Path(cfg['cache_dir']) / 'validation.pt'
         if train_only and val_path.exists():
             raise ValueError('train-only protocol refuses a validation artifact in its cache')
-        return rows, ({} if train_only else ({'all': torch.load(val_path, weights_only=False)} if val_path.exists() else {})), None
+        validation = {} if train_only else ({'all': torch.load(val_path, weights_only=False)} if val_path.exists() else {})
+        for split, split_rows in validation.items():
+            _validate_cache_teacher(split_rows, cfg, split)
+        return rows, validation, None
     weights, train_by, validation_by = {}, {}, {}
     for corpus in corpora:
         corpus_id = str(corpus['id'])
@@ -1006,6 +1030,10 @@ def _load_training_roles(cfg):
             validation_by[corpus_id] = torch.load(validation_path, weights_only=False)
     if any(not rows for rows in train_by.values()) or (not train_only and any(not rows for rows in validation_by.values())):
         raise RuntimeError('every declared corpus role must be non-empty')
+    for corpus_id, rows in train_by.items():
+        _validate_cache_teacher(rows, cfg, f'{corpus_id}/train')
+    for corpus_id, rows in validation_by.items():
+        _validate_cache_teacher(rows, cfg, f'{corpus_id}/validation')
     # A flat copy is useful for dimensions and finite guards; sampling below is
     # explicitly corpus-weighted and does not depend on corpus cache sizes.
     return [row for rows in train_by.values() for row in rows], validation_by, (train_by, weights)
@@ -1570,6 +1598,11 @@ def run(cfg, variant, seed, device):
                 checkpoint_payload = {
                     'state_dict': model.state_dict(), 'variant': variant, 'config': cfg,
                     'architecture': model.architecture_metadata(),
+                    'teacher_provenance': {
+                        'teacher_id': cfg.get('model_name'),
+                        'teacher_revision': cfg.get('model_revision'),
+                        'teacher_pooling': cfg.get('teacher_pooling', 'masked_mean'),
+                    },
                     'seed': seed, 'selected_step': s + 1,
                     'validation_loss': rec.get('validation_loss', rec.get('macro_validation_loss')),
                     'validation_metrics': {k: v for k, v in rec.items()
@@ -1636,6 +1669,11 @@ def run(cfg, variant, seed, device):
         payload = {
             'state_dict': model.state_dict(), 'variant': variant, 'config': cfg, 'seed': seed,
             'architecture': model.architecture_metadata(),
+            'teacher_provenance': {
+                'teacher_id': cfg.get('model_name'),
+                'teacher_revision': cfg.get('model_revision'),
+                'teacher_pooling': cfg.get('teacher_pooling', 'masked_mean'),
+            },
             'staged_training': {
                 'freeze_encoder_steps': freeze_encoder_steps,
                 'autoencoder_objective_start_step': objective_start_step,
