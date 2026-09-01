@@ -1,0 +1,60 @@
+{
+  "validation_only": true,
+  "official_test_evaluated": false,
+  "cache_manifest": "cache_kary8_leaf768_validation_v1/CACHE_MANIFEST.json",
+  "artifacts": {
+    "config": {
+      "path": "experiments/kary8_leaf768_validation_v1/configs/kary8_leaf768.yaml",
+      "sha256": "e3411de13bd855147d767ef30ad74f6f247b3db83d869c9359c6a5c6c2003e1b"
+    },
+    "evaluation": {
+      "path": "results_kary8_leaf768_validation_v1/KARY_VALIDATION_REPORT.json",
+      "sha256": "5227be3be45ae737efe2c02291c43f6590f8c8636d20007cbfcd22505a7e009c"
+    },
+    "checkpoint/kary4_reference": {
+      "path": "results_kary4_leaf510_vs1024_v1_leaf1024/encoder_seed424242.pt",
+      "sha256": "bb1b9127bf80e8d7c678568564bc37c949496b1b46767ddb59e7c50703c7059f"
+    },
+    "checkpoint/kary8": {
+      "path": "results_kary8_leaf768_validation_v1/encoder_seed424242.pt",
+      "sha256": "cfb4a34d833795a2a73081442c6f981853ecf311465549f2106a0889eb242144"
+    },
+    "checkpoint/binary_reference": {
+      "path": "results_geodesic_tangent_angle05_equal_encoder_1500/encoder_seed424242.pt",
+      "sha256": "ee1e492da929afeb6d1c4371384fa425ad7d8e7abe608ed823ee145061102a6b"
+    },
+    "retention_probe/kary4_reference": {
+      "path": "results_kary8_leaf768_validation_v1/retention_probes/parent_only_kary4_reference.pt",
+      "sha256": "603c635aee2f14e3d2e09582270749fb2afa517576acc1fd5babefb102b9cef5"
+    },
+    "retention_probe/kary8": {
+      "path": "results_kary8_leaf768_validation_v1/retention_probes/parent_only_kary8.pt",
+      "sha256": "a63f7d06cb3d2e8ce46695d7d47a76c49ce76583abe70f6a72263f6c166ed889"
+    },
+    "retention_probe/binary_reference": {
+      "path": "results_kary8_leaf768_validation_v1/retention_probes/parent_only_binary_reference.pt",
+      "sha256": "592a5d8343f46b6a0df840ca3b549ac7d5b4e7d22f04ab62e092a84c35652c1b"
+    },
+    "report": {
+      "path": "results_kary8_leaf768_validation_v1/REPORT.md",
+      "sha256": "586c70e8aa7d6216e54f47ffb5d7d7c4a65904dc6d05e693c17dd49fab3c1892"
+    },
+    "candidate_manifest": {
+      "path": "results_kary8_leaf768_validation_v1/CANDIDATE_VALIDATION_ONLY.json",
+      "sha256": "d8be432ca9f39c5cec8cc7c5b9b684bc1254c1c12a3550f6b3c79b212a9b5823"
+    },
+    "encoder_seed424242.jsonl": {
+      "path": "results_kary8_leaf768_validation_v1/encoder_seed424242.jsonl",
+      "sha256": "720baed8478121e444077c2ebce41d8b8070fcfb039a6894887e598838d472d3"
+    },
+    "encoder_seed424242_run_status.json": {
+      "path": "results_kary8_leaf768_validation_v1/encoder_seed424242_run_status.json",
+      "sha256": "67cb702bcc0597311b86531e1408c7bc8e383124cc5c9b9a0e5c26fddda90681"
+    },
+    "CUDA_SMOKE.json": {
+      "path": "results_kary8_leaf768_validation_v1/CUDA_SMOKE.json",
+      "sha256": "42cfc70bca81a0feaaf347830f0ba8a1c544f375650da8af06ddf770be13a9dd"
+    }
+  },
+  "cache_manifest_sha256": "bc5e0c8c02015100d2abae5fdd450bad7180823df025aa55547318572fa20310"
+}

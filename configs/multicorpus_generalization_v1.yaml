@@ -1,0 +1,89 @@
+# Dedicated train/validation-only generalization pipeline. There is deliberately
+# no test role or test path in this config. Dataset and teacher revisions are
+# immutable commits; IDs are also cache and metric namespaces.
+seed: 424242
+cache_dir: cache_multicorpus_generalization_v1
+output_dir: results_multicorpus_generalization_v1
+model_name: Alibaba-NLP/gte-modernbert-base
+model_revision: e7f32e3c00f91d699e8c43b53106206bcc72bb22
+
+corpora:
+  - id: fineweb_edu
+    weight: 0.40
+    dataset_name: HuggingFaceFW/fineweb-edu
+    dataset_config: sample-10BT
+    dataset_revision: 87f09149ef4734204d70ed1d046ddc9ca3f2b8f9
+    train_start: 0
+    train_documents: 8000
+    validation_start: 12000
+    validation_documents: 1000
+  - id: fineweb
+    weight: 0.30
+    dataset_name: HuggingFaceFW/fineweb
+    dataset_config: sample-10BT
+    dataset_revision: 9bb295ddab0e05d785b879661af7260fed5140fc
+    train_start: 0
+    train_documents: 8000
+    validation_start: 12000
+    validation_documents: 1000
+  - id: openwebtext
+    weight: 0.20
+    dataset_name: Skylion007/openwebtext
+    dataset_config: null
+    dataset_revision: 79d93d786212f7344586290adb811d4ae6a1762c
+    train_start: 0
+    train_documents: 8000
+    validation_start: 12000
+    validation_documents: 1000
+  - id: wikipedia_en_20231101
+    weight: 0.10
+    dataset_name: wikimedia/wikipedia
+    dataset_config: 20231101.en
+    dataset_revision: b04c8d1ceb2f5cd4588862100d08de323dccfbaa
+    train_start: 0
+    train_documents: 8000
+    validation_start: 12000
+    validation_documents: 1000
+
+teacher_max_tokens: 6144
+chunk_tokens: 510
+random_training_spans: true
+varied_training_trees: true
+tree_templates: [balanced, left, right, outside_in]
+teacher_target_batch_size: 32
+teacher_target_max_padded_tokens: 32768
+train_span_length_buckets:
+  - {min: 512, max: 2048}
+  - {min: 2049, max: 8192}
+  - {min: 8193, max: 16384}
+  - {min: 16385, max: 32768}
+random_chunk_min: 256
+random_chunk_max: 510
+train_max_tree_leaves: 96
+train_augmentations: 4
+validation_augmentations: 0
+max_tree_leaves: 8
+
+batch_size: 24
+steps: 4000
+validation_every: 100
+validation_metric_documents: 1000
+validation_root_batch_size: 128
+learning_rate: 0.0001
+weight_decay: 0.001
+max_geodesic_angle: 0.5
+encoder_hidden: 896
+encoder_layers: 7
+decoder_layers: 3
+heads: 14
+reconstruction_weight: 0.25
+cycle_weight: 0.05
+distribution_mean_weight: 0.25
+distribution_variance_weight: 256.0
+distribution_min_samples: 8
+mixed_precision: none
+
+# Lower generated-vs-teacher separability, equally averaged over corpora.
+checkpoint_selection: macro_validation_auc
+tensorboard: true
+tensorboard_dir: results_multicorpus_generalization_v1/tensorboard

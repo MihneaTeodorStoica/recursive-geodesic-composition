@@ -1,0 +1,190 @@
+stage: kary4_strict_autoencoder_official_test_v6
+protocol_version: 6
+implementation_parent_commit: f38f75d2d70a9af92d3bdeae959281173c7998ee
+frozen_before_official_access: true
+official_test_role: test
+cache_dir: cache_kary4_strict_autoencoder_official_test_v6
+output_dir: results_kary4_strict_autoencoder_official_test_v6
+
+model_name: Alibaba-NLP/gte-modernbert-base
+model_revision: e7f32e3c00f91d699e8c43b53106206bcc72bb22
+embedding_dimension: 768
+arity: 4
+reduction: deterministic_contiguous_k4_carry_singleton
+chunk_tokens: 1024
+eligible_documents_per_corpus: 1000
+selection: first_1000_safe_prefix_length_eligible_only
+scan_start: 162000
+scan_end_exclusive: 192000
+
+safe_arm:
+  prefix_min_tokens: 1025
+  prefix_max_tokens: 4096
+  teacher_max_tokens: 4096
+  direct_root_only: true
+  no_truncation_beyond_declared_prefix: true
+full_arm:
+  every_available_token: true
+  token_cap: null
+  maximum_leaves: null
+  recursion_depth_cap: null
+  truncation: false
+  full_root_teacher_target: false
+  auc: false
+  teacher_cosine: false
+  leaf_storage_dtype: float16
+  shard_per_source_document: true
+
+# This partition refuses every source index below the official window, including
+# the prior official population and all clean-v6 TRAIN/development/buffer rows.
+prior_ranges:
+  all_earlier_work_and_unallocated_gaps: [0, 110000]
+  official_v5: [110000, 140000]
+  clean_v6_fresh_train: [140000, 152000]
+  clean_v6_fresh_development: [152000, 161000]
+  mandatory_preaccess_buffer: [161000, 162000]
+
+corpora:
+  - id: fineweb_edu
+    weight: 0.25
+    dataset_name: HuggingFaceFW/fineweb-edu
+    dataset_config: sample-10BT
+    dataset_revision: 87f09149ef4734204d70ed1d046ddc9ca3f2b8f9
+  - id: fineweb
+    weight: 0.25
+    dataset_name: HuggingFaceFW/fineweb
+    dataset_config: sample-10BT
+    dataset_revision: 9bb295ddab0e05d785b879661af7260fed5140fc
+  - id: openwebtext
+    weight: 0.25
+    dataset_name: Skylion007/openwebtext
+    dataset_config: null
+    dataset_revision: 79d93d786212f7344586290adb811d4ae6a1762c
+  - id: wikipedia_en_20231101
+    weight: 0.25
+    dataset_name: wikimedia/wikipedia
+    dataset_config: 20231101.en
+    dataset_revision: b04c8d1ceb2f5cd4588862100d08de323dccfbaa
+
+# The final-results and seed-freeze hashes below identify normalized publication
+# copies; the original artifact hashes remain recorded in provenance manifests.
+development_provenance:
+  final_results: results/clean_v6_development/FINAL_RESULTS.json
+  final_results_sha256: a879106602e3b9f31517e29ca6cfccf80f86bbfb20589d263bbaf0a66e9a04bb
+  post_final_verification: results/clean_v6_development/POST_FINAL_VERIFICATION.json
+  post_final_verification_sha256: a095a61f1350b8ba347a1b88fd5260eb964cfa36ce4924623f2809e4de391b19
+  checkpoint_list: results/clean_v6_development/CHECKPOINTS.sha256
+  checkpoint_list_sha256: 7f82643c44146d8d3cb151fa547ba2f09aef63dc15f35210589f145dd73ca1f5
+  local_artifact_list: results/clean_v6_development/LOCAL_LARGE_ARTIFACTS.sha256
+  local_artifact_list_sha256: 6894a9304e74f991bdb28031a1ca813744e80e7403ea3db33aa1d547e3d59ab5
+  require_development_pass: true
+  require_no_protected_access: true
+  required_training_updates: 400
+  required_decoder_only_updates: 300
+  required_joint_updates: 100
+
+seeds:
+  - seed: 424242
+    checkpoint: results_kary4_strict_autoencoder_v6_clean_development_seed424242/autoencoder_seed424242.pt
+    checkpoint_sha256: 989f9bc496bea484974679cd181e43836caf3283ffdc8e66507046945e0902de
+    source_checkpoint: results_kary4_strict_autoencoder_seed424_dev_v2/autoencoder_seed424242.pt
+    source_checkpoint_sha256: 2365a789f61ba6dab9967041b8dcee2a19dc969fd97b71026bdee970f7ea4797
+    freeze: results/clean_v6_development/seeds/424242/PRE_DEVELOPMENT_FROZEN.json
+    freeze_sha256: 33610c1784945864cc102d83f58a4095679cc72e105417be8f8d9d728437549b
+    candidate_probe: results_kary4_strict_autoencoder_v6_clean_development_seed424242/train_fitted_matched_probes/candidate_parent_only.pt
+    candidate_probe_sha256: a9e30ac9df31af63c525bdf08e812d5562bf2ba7c4c60ea8f439f4e4492e1943
+    source_probe: results_kary4_strict_autoencoder_v6_clean_development_seed424242/train_fitted_matched_probes/source_parent_only.pt
+    source_probe_sha256: 7d71e0951ebace7c65dfbae7ca54a23f9c972d63ba308eb7d4b9f727d9a6e830
+    frozen_train_probe_floors:
+      pooled: 0.897565411567688
+      fineweb_edu: 0.8956167569160461
+      fineweb: 0.8919562568664551
+      openwebtext: 0.8993962278366089
+      wikipedia_en_20231101: 0.9032922854423523
+  - seed: 271828
+    checkpoint: results_kary4_strict_autoencoder_v6_clean_development_seed271828/autoencoder_seed271828.pt
+    checkpoint_sha256: a4cb1d79a7ae1bb0ca8855e3605c1ff50e761ca17ada39aa6b0237900dce7528
+    source_checkpoint: results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed271828/autoencoder_seed271828.pt
+    source_checkpoint_sha256: 63103ce0b940dab6eec02c62ae5e177b0f23941f1775624b2fe3b27f60105603
+    freeze: results/clean_v6_development/seeds/271828/PRE_DEVELOPMENT_FROZEN.json
+    freeze_sha256: 4666b6c263c54f71c5be0a78c37352ec6900d53eb5abfb535c80ad52d8be562c
+    candidate_probe: results_kary4_strict_autoencoder_v6_clean_development_seed271828/train_fitted_matched_probes/candidate_parent_only.pt
+    candidate_probe_sha256: 7eff7a553a7dc17d2f75127b6622067f2f11add3454884b0c532782428e98fb9
+    source_probe: results_kary4_strict_autoencoder_v6_clean_development_seed271828/train_fitted_matched_probes/source_parent_only.pt
+    source_probe_sha256: b3f422a0cc7c8ff5cb9ce1e066f38b51f004417d6d0d74f4e974f78eeeadbc8e
+    frozen_train_probe_floors:
+      pooled: 0.8975575437545776
+      fineweb_edu: 0.8955862393379211
+      fineweb: 0.8920076360702515
+      openwebtext: 0.8994596471786499
+      wikipedia_en_20231101: 0.9031767120361328
+  - seed: 314159
+    checkpoint: results_kary4_strict_autoencoder_v6_clean_development_seed314159/autoencoder_seed314159.pt
+    checkpoint_sha256: 45a80bc3005bdf79fcafe3fce65b927a8f39e7ec2c019a34c3e9d1c8ce327a07
+    source_checkpoint: results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed314159/autoencoder_seed314159.pt
+    source_checkpoint_sha256: 27116bb5dbe279750264147100b38323ec432329b385404f59db5bf753d4b3a2
+    freeze: results/clean_v6_development/seeds/314159/PRE_DEVELOPMENT_FROZEN.json
+    freeze_sha256: 4a510c25ad0287f1e38d9e0ab395beddc760c97b8254b08d466b95a79c07895c
+    candidate_probe: results_kary4_strict_autoencoder_v6_clean_development_seed314159/train_fitted_matched_probes/candidate_parent_only.pt
+    candidate_probe_sha256: 14736e8cbdc623cd004ef031f8af719dffa0e627c37425611e9ede6df2bd514a
+    source_probe: results_kary4_strict_autoencoder_v6_clean_development_seed314159/train_fitted_matched_probes/source_parent_only.pt
+    source_probe_sha256: 617cd5430ed9751121e3f222de942ea8f4e5f4164ce9a0514e36ae88bb954497
+    frozen_train_probe_floors:
+      pooled: 0.8975992670059204
+      fineweb_edu: 0.8955495228767395
+      fineweb: 0.8919384350776672
+      openwebtext: 0.8995260467529297
+      wikipedia_en_20231101: 0.9033831825256348
+
+attack_config: configs/evaluator_attacks_v1.yaml
+attack_config_sha256: 49e7a2996e33482239819430e92426fc1e4f9ff88628dfd2ac74f6da94726800
+bootstrap:
+  reps: 2000
+  per_seed_seeds:
+    424242: 10424242
+    271828: 10271828
+    314159: 10314159
+  three_seed_shared_seeds:
+    pooled: 10600001
+    fineweb_edu: 10600002
+    fineweb: 10600003
+    openwebtext: 10600004
+    wikipedia_en_20231101: 10600005
+
+train_probe:
+  protocol: frozen_candidate_specific_fresh_v6_train_parent_only_probe_exact_k4
+  exact_arity: 4
+  hidden: 512
+  fit_role: fresh_v6_train
+  updates_on_official: 0
+  batch_size: 512
+
+batches:
+  leaf_embedding: 16
+  teacher_target: 4
+  safe_root: 64
+  full_merge: 64
+  decoder: 512
+storage:
+  minimum_free_bytes_reserve: 536870912
+  per_shard_overhead_bytes: 1048576
+  result_minimum_free_bytes: 268435456
+  fail_instead_of_truncate: true
+collapse:
+  minimum_effective_rank: 8.0
+  minimum_unique_rounded_fraction: 0.99
+  minimum_pre_normalization_norm: 1.0e-6
+
+reporting_gate:
+  reporting_only: true
+  suppress_results: false
+  sole_auc_target: 0.60
+  per_seed_guard_margin: 0.01
+  every_seed_pooled_teacher_cosine_strictly_above: 0.98
+  every_seed_every_safe_scope_builtin_exact4_child_cosine_at_least: 0.90
+  require_every_seed_every_frozen_train_probe_floor_pass: true
+  require_no_safe_or_full_collapse_nonfinite_or_saturation: true
+  require_full_arm_complete: true
+reporting:
+  report_all_outcomes: true
+  post_access_tuning_selection_rerun_or_suppression: false

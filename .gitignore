@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Environments and local configuration
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Model/data artifacts intentionally excluded from Git
+checkpoints/
+cache*/
+artifacts/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.npy
+*.npz
+*.jsonl
+*.tfevents.*
+
+# Run outputs, markers, logs, and staging paths
+logs/
+*.log
+*.tmp
+*.temp
+*.RUN_STARTED
+*.PREPARATION_STARTED
+*.EVALUATION_STARTED
+*.EVALUATION_RECOVERY_STARTED
+*.staging.*
+results_kary4_strict_autoencoder_v6_clean_development_seed*/
+results_kary4_strict_autoencoder_v6_clean_development/
+results_kary4_strict_autoencoder_official_test_v6/
+cache_kary4_strict_autoencoder_v6_clean_train/
+cache_kary4_strict_autoencoder_v6_clean_development/
+cache_kary4_strict_autoencoder_official_test_v6/

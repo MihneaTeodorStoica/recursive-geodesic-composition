@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "release": {
+    "repository": "MihneaTeodorStoica/recursive-geodesic-composition",
+    "tag": "v1-paper",
+    "url": "https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/tag/v1-paper"
+  },
+  "paper": {
+    "title": "One Vector from Many: Hierarchical Long-Document Representation through Recursive Geodesic Transformer Composition",
+    "author": "Mihnea-Teodor Stoica"
+  },
+  "scientific_experiments": [
+    "clean-v6",
+    "official-v6"
+  ],
+  "verification": {
+    "recovered_manifest_sha256": "de4451cc57489619af4a4d788c71639de81968b42571280c3f6d85e519484fa0",
+    "all_artifacts_verified_by_manifest_role_seed_size_and_sha256_before_mirroring": true,
+    "probe_identity_determined_from_manifest_not_filename_alone": true,
+    "binary_forbidden-name_strings_found": false,
+    "verification_date": "2026-09-01"
+  },
+  "artifacts": [
+    {
+      "asset_filename": "autoencoder_seed424242.pt",
+      "artifact_type": "strict_autoencoder_checkpoint",
+      "seed": 424242,
+      "role": "final_clean_v6_checkpoint",
+      "protocol_path": "results_kary4_strict_autoencoder_v6_clean_development_seed424242/autoencoder_seed424242.pt",
+      "byte_size": 494519415,
+      "sha256": "989f9bc496bea484974679cd181e43836caf3283ffdc8e66507046945e0902de",
+      "required_for": {
+        "inference": true,
+        "continuation_training": true,
+        "official_evaluation": true
+      },
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_v6_clean_development_seed424242/autoencoder_seed424242.pt",
+      "exact_frozen_artifact_hash_match": true
+    },
+    {
+      "asset_filename": "source_seed424242.pt",
+      "artifact_type": "strict_autoencoder_checkpoint",
+      "seed": 424242,
+      "role": "continuation_initialization_source_checkpoint",
+      "protocol_path": "results_kary4_strict_autoencoder_seed424_dev_v2/autoencoder_seed424242.pt",
+      "byte_size": 494517367,
+      "sha256": "2365a789f61ba6dab9967041b8dcee2a19dc969fd97b71026bdee970f7ea4797",
+      "required_for": {
+        "inference": false,
+        "continuation_training": true,
+        "official_evaluation": false
+      },
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_seed424_dev_v2/autoencoder_seed424242.pt",
+      "exact_frozen_artifact_hash_match": true
+    },
+    {
+      "asset_filename": "autoencoder_seed271828.pt",
+      "artifact_type": "strict_autoencoder_checkpoint",
+      "seed": 271828,
+      "role": "final_clean_v6_checkpoint",
+      "protocol_path": "results_kary4_strict_autoencoder_v6_clean_development_seed271828/autoencoder_seed271828.pt",
+      "byte_size": 494519479,
+      "sha256": "a4cb1d79a7ae1bb0ca8855e3605c1ff50e761ca17ada39aa6b0237900dce7528",
+      "required_for": {
+        "inference": true,
+        "continuation_training": true,
+        "official_evaluation": true
+      },
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_v6_clean_development_seed271828/autoencoder_seed271828.pt",
+      "exact_frozen_artifact_hash_match": true
+    },
+    {
+      "asset_filename": "source_seed271828.pt",
+      "artifact_type": "strict_autoencoder_checkpoint",
+      "seed": 271828,
+      "role": "continuation_initialization_source_checkpoint",
+      "protocol_path": "results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed271828/autoencoder_seed271828.pt",
+      "byte_size": 494517431,
+      "sha256": "63103ce0b940dab6eec02c62ae5e177b0f23941f1775624b2fe3b27f60105603",
+      "required_for": {
+        "inference": false,
+        "continuation_training": true,
+        "official_evaluation": false
+      },
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed271828/autoencoder_seed271828.pt",
+      "exact_frozen_artifact_hash_match": true
+    },
+    {
+      "asset_filename": "autoencoder_seed314159.pt",
+      "artifact_type": "strict_autoencoder_checkpoint",
+      "seed": 314159,
+      "role": "final_clean_v6_checkpoint",
+      "protocol_path": "results_kary4_strict_autoencoder_v6_clean_development_seed314159/autoencoder_seed314159.pt",
+      "byte_size": 494519479,
+      "sha256": "45a80bc3005bdf79fcafe3fce65b927a8f39e7ec2c019a34c3e9d1c8ce327a07",
+      "required_for": {
+        "inference": true,
+        "continuation_training": true,
+        "official_evaluation": true
+      },
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_v6_clean_development_seed314159/autoencoder_seed314159.pt",
+      "exact_frozen_artifact_hash_match": true
+    },
+    {
+      "asset_filename": "source_seed314159.pt",
+      "artifact_type": "strict_autoencoder_checkpoint",
+      "seed": 314159,
+      "role": "continuation_initialization_source_checkpoint",
+      "protocol_path": "results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed314159/autoencoder_seed314159.pt",
+      "byte_size": 494517431,
+      "sha256": "27116bb5dbe279750264147100b38323ec432329b385404f59db5bf753d4b3a2",
+      "required_for": {
+        "inference": false,
+        "continuation_training": true,
+        "official_evaluation": false
+      },
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed314159/autoencoder_seed314159.pt",
+      "exact_frozen_artifact_hash_match": true
+    },
+    {
+      "asset_filename": "candidate_parent_only_probe_seed424242.pt",
+      "artifact_type": "fitted_parent_only_probe",
+      "seed": 424242,
+      "role": "candidate_parent_only_fitted_probe",
+      "protocol_path": "results_kary4_strict_autoencoder_v6_clean_development_seed424242/train_fitted_matched_probes/candidate_parent_only.pt",
+      "byte_size": 7889085,
+      "sha256": "a9e30ac9df31af63c525bdf08e812d5562bf2ba7c4c60ea8f439f4e4492e1943",
+      "required_for": {
+        "inference": false,
+        "continuation_training": false,
+        "official_evaluation": true
+      },
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_v6_clean_development_seed424242/train_fitted_matched_probes/candidate_parent_only.pt",
+      "exact_frozen_artifact_hash_match": true
+    },
+    {
+      "asset_filename": "source_parent_only_probe_seed424242.pt",
+      "artifact_type": "fitted_parent_only_probe",
+      "seed": 424242,
+      "role": "source_parent_only_fitted_probe",
+      "protocol_path": "results_kary4_strict_autoencoder_v6_clean_development_seed424242/train_fitted_matched_probes/source_parent_only.pt",
+      "byte_size": 7889049,
+      "sha256": "7d71e0951ebace7c65dfbae7ca54a23f9c972d63ba308eb7d4b9f727d9a6e830",
+      "required_for": {
+        "inference": false,
+        "continuation_training": false,
+        "official_evaluation": true
+      },
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_v6_clean_development_seed424242/train_fitted_matched_probes/source_parent_only.pt",
+      "exact_frozen_artifact_hash_match": true
+    },
+    {
+      "asset_filename": "candidate_parent_only_probe_seed271828.pt",
+      "artifact_type": "fitted_parent_only_probe",
+      "seed": 271828,
+      "role": "candidate_parent_only_fitted_probe",
+      "protocol_path": "results_kary4_strict_autoencoder_v6_clean_development_seed271828/train_fitted_matched_probes/candidate_parent_only.pt",
+      "byte_size": 7889085,
+      "sha256": "7eff7a553a7dc17d2f75127b6622067f2f11add3454884b0c532782428e98fb9",
+      "required_for": {
+        "inference": false,
+        "continuation_training": false,
+        "official_evaluation": true
+      },
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_v6_clean_development_seed271828/train_fitted_matched_probes/candidate_parent_only.pt",
+      "exact_frozen_artifact_hash_match": true
+    },
+    {
+      "asset_filename": "source_parent_only_probe_seed271828.pt",
+      "artifact_type": "fitted_parent_only_probe",
+      "seed": 271828,
+      "role": "source_parent_only_fitted_probe",
+      "protocol_path": "results_kary4_strict_autoencoder_v6_clean_development_seed271828/train_fitted_matched_probes/source_parent_only.pt",
+      "byte_size": 7889049,
+      "sha256": "b3f422a0cc7c8ff5cb9ce1e066f38b51f004417d6d0d74f4e974f78eeeadbc8e",
+      "required_for": {
+        "inference": false,
+        "continuation_training": false,
+        "official_evaluation": true
+      },
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_v6_clean_development_seed271828/train_fitted_matched_probes/source_parent_only.pt",
+      "exact_frozen_artifact_hash_match": true
+    },
+    {
+      "asset_filename": "candidate_parent_only_probe_seed314159.pt",
+      "artifact_type": "fitted_parent_only_probe",
+      "seed": 314159,
+      "role": "candidate_parent_only_fitted_probe",
+      "protocol_path": "results_kary4_strict_autoencoder_v6_clean_development_seed314159/train_fitted_matched_probes/candidate_parent_only.pt",
+      "byte_size": 7889085,
+      "sha256": "14736e8cbdc623cd004ef031f8af719dffa0e627c37425611e9ede6df2bd514a",
+      "required_for": {
+        "inference": false,
+        "continuation_training": false,
+        "official_evaluation": true
+      },
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_v6_clean_development_seed314159/train_fitted_matched_probes/candidate_parent_only.pt",
+      "exact_frozen_artifact_hash_match": true
+    },
+    {
+      "asset_filename": "source_parent_only_probe_seed314159.pt",
+      "artifact_type": "fitted_parent_only_probe",
+      "seed": 314159,
+      "role": "source_parent_only_fitted_probe",
+      "protocol_path": "results_kary4_strict_autoencoder_v6_clean_development_seed314159/train_fitted_matched_probes/source_parent_only.pt",
+      "byte_size": 7889049,
+      "sha256": "617cd5430ed9751121e3f222de942ea8f4e5f4164ce9a0514e36ae88bb954497",
+      "required_for": {
+        "inference": false,
+        "continuation_training": false,
+        "official_evaluation": true
+      },
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_v6_clean_development_seed314159/train_fitted_matched_probes/source_parent_only.pt",
+      "exact_frozen_artifact_hash_match": true
+    }
+  ],
+  "unpublished_regenerable_required_caches": [
+    {
+      "protocol_path": "cache_kary4_strict_autoencoder_official_test_v6",
+      "byte_size": 77225389,
+      "required_for": [
+        "official_evaluation"
+      ],
+      "published": false,
+      "regeneration": "deterministic from pinned inputs and frozen manifests",
+      "original_experiment_path": "5/cache_kary4_strict_autoencoder_official_test_v6"
+    },
+    {
+      "protocol_path": "cache_kary4_strict_autoencoder_v6_clean_train",
+      "byte_size": 363278219,
+      "required_for": [
+        "continuation_training",
+        "probe_fitting"
+      ],
+      "published": false,
+      "regeneration": "deterministic from pinned inputs and frozen manifests",
+      "original_experiment_path": "5/cache_kary4_strict_autoencoder_v6_clean_train"
+    }
+  ],
+  "status": {
+    "missing_required_binary_artifacts": [],
+    "caches_included": false,
+    "notes": "Exact checkpoints and fitted probes are release assets. Required caches are not assets and must be regenerated deterministically."
+  },
+  "security_review": {
+    "serialization_inspected_without_deserialization": true,
+    "secret_or_credential_material_found": false,
+    "benign_embedded_metadata": "Checkpoint pickle metadata contains dataset identifiers and training field names; no personal-machine paths were observed in the inspected metadata."
+  },
+  "experiment_lineage_commit": "32281e4a6836524448a61d87c5b4ed7eff32c0d3"
+}

@@ -1,0 +1,50 @@
+study: information_retention_validation
+validation_only: true
+official_test_evaluated: false
+seed: 424242
+probe_seed: 730241
+bootstrap_seed: 99173
+bootstrap_resamples: 1000
+source_config: configs/multicorpus_generalization_v1.yaml
+cache_dir: cache_multicorpus_generalization_v1
+output_dir: results_information_retention_validation
+frozen:
+  encoder:
+    checkpoint: results_geodesic_tangent_angle05_equal_encoder_1500/encoder_seed424242.pt
+    sha256: ee1e492da929afeb6d1c4371384fa425ad7d8e7abe608ed823ee145061102a6b
+    manifest: results_geodesic_tangent_angle05_equal_encoder_1500/CANDIDATE_VALIDATION_ONLY.json
+  autoencoder:
+    checkpoint: results_geodesic_tangent_angle05_equal_semantic_strict_autoencoder_staged_recovery/autoencoder_seed424242.pt
+    sha256: fb3256013f4b3b1a7644be3ac1651e2487468e97cece56585ea23f4ee6603bc4
+    manifest: results_geodesic_tangent_angle05_equal_semantic_strict_autoencoder_staged_recovery/CANDIDATE_VALIDATION_ONLY.json
+arms: [pooling, encoder, autoencoder]
+parent_token_buckets: [512, 1024, 2048, 4096, 8192, 16384, 32768]
+common_probe:
+  hidden: 1024
+  updates: 1200
+  batch_size: 128
+  per_corpus_batch: 32
+  learning_rate: 0.0003
+  weight_decay: 0.001
+  gradient_clip: 1.0
+  mse_weight: 0.25
+classifier_probes:
+  hidden: 512
+  updates: 600
+  batch_size: 256
+  positive_pairs_per_update: 128
+  learning_rate: 0.0003
+  weight_decay: 0.001
+  gradient_clip: 1.0
+retrieval:
+  panel_size: 64
+  neighbors_considered: 256
+long_validation:
+  source_start: 12000
+  source_count: 1000
+  token_buckets:
+    - {name: 8k-16k, min: 8192, max: 16383, documents: 50}
+    - {name: 16k-32k, min: 16384, max: 32768, documents: 50}
+  max_documents_per_corpus: 100
+  max_shard_bytes: 134217728
+  cache_dir: cache_information_retention_long_validation

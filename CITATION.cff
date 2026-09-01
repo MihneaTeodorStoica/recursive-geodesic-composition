@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software or its frozen result artifacts, please cite the accompanying paper and this repository."
+type: software
+title: "Recursive Geodesic Composition"
+authors:
+  - family-names: "Stoica"
+    given-names: "Mihnea-Teodor"
+repository-code: "https://github.com/MihneaTeodorStoica/recursive-geodesic-composition"
+date-released: 2026-09-01
+abstract: >-
+  Publication implementation and frozen evaluation artifacts for the final
+  K=4 clean-v6 strict-autoencoder system described in One Vector from Many:
+  Hierarchical Long-Document Representation through Recursive Geodesic
+  Transformer Composition.
+preferred-citation:
+  type: article
+  title: "One Vector from Many: Hierarchical Long-Document Representation through Recursive Geodesic Transformer Composition"
+  authors:
+    - family-names: "Stoica"
+      given-names: "Mihnea-Teodor"
+  year: 2026

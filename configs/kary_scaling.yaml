@@ -1,0 +1,139 @@
+# Authorized true K=8, 768-token-leaf validation-only scale experiment.
+validation_only: true
+official_test_evaluated: false
+seed: 424242
+arity: 8
+cache_dir: cache_kary8_leaf768_validation_v1
+output_dir: results_kary8_leaf768_validation_v1
+model_name: Alibaba-NLP/gte-modernbert-base
+model_revision: e7f32e3c00f91d699e8c43b53106206bcc72bb22
+
+# Same pinned, document-disjoint ranges and equal mixture as the K4/1024 arm.
+corpora:
+  - id: fineweb_edu
+    weight: 0.25
+    dataset_name: HuggingFaceFW/fineweb-edu
+    dataset_config: sample-10BT
+    dataset_revision: 87f09149ef4734204d70ed1d046ddc9ca3f2b8f9
+    train_start: 0
+    train_documents: 8000
+    validation_start: 12000
+    validation_documents: 1000
+  - id: fineweb
+    weight: 0.25
+    dataset_name: HuggingFaceFW/fineweb
+    dataset_config: sample-10BT
+    dataset_revision: 9bb295ddab0e05d785b879661af7260fed5140fc
+    train_start: 0
+    train_documents: 8000
+    validation_start: 12000
+    validation_documents: 1000
+  - id: openwebtext
+    weight: 0.25
+    dataset_name: Skylion007/openwebtext
+    dataset_config: null
+    dataset_revision: 79d93d786212f7344586290adb811d4ae6a1762c
+    train_start: 0
+    train_documents: 8000
+    validation_start: 12000
+    validation_documents: 1000
+  - id: wikipedia_en_20231101
+    weight: 0.25
+    dataset_name: wikimedia/wikipedia
+    dataset_config: 20231101.en
+    dataset_revision: b04c8d1ceb2f5cd4588862100d08de323dccfbaa
+    train_start: 0
+    train_documents: 8000
+    validation_start: 12000
+    validation_documents: 1000
+
+teacher_max_tokens: 6144
+chunk_tokens: 768
+random_chunk_min: 384
+random_chunk_max: 768
+output_dimension: 768
+leaf_batch_size: 32
+teacher_target_batch_size: 32
+teacher_target_max_padded_tokens: 32768
+random_training_spans: true
+train_span_length_buckets:
+  - {min: 512, max: 2048}
+  - {min: 2049, max: 8192}
+  - {min: 8193, max: 16384}
+  - {min: 16385, max: 32768}
+train_max_tree_leaves: 96
+validation_max_tree_leaves: 16
+train_augmentations: 4
+validation_segmentations: 2
+
+# Start at the predeclared safe batch. Validation and throughput use batch 32.
+batch_size: 8
+steps: 1200
+validation_every: 100
+validation_metric_documents: 1000
+validation_root_batch_size: 32
+learning_rate: 0.0001
+weight_decay: 0.001
+learning_rate_schedule: cosine
+warmup_steps: 160
+min_learning_rate: 0.00001
+stratified_multicorpus_batches: true
+
+encoder_hidden: 1024
+encoder_layers: 8
+heads: 16
+decoder_layers: 1
+reconstruction_weight: 0.0
+cycle_weight: 0.0
+distribution_mean_weight: 0.25
+distribution_variance_weight: 256.0
+distribution_min_samples: 8
+mixed_precision: none
+max_geodesic_angle: 0.5
+geodesic_parameterization: tangent_expmap
+importance_mode: semantic
+importance_beta: 1.0
+importance_prior_weight: 0.01
+delta_loss_weight: 0.01
+sharpness_loss_weight: 0.01
+slot_loss_weight: 0.01
+sharpness_margin: 0.1
+
+validation_attacks: true
+checkpoint_selection: macro_validation_max_attack_auc
+checkpoint_moving_average_window: 3
+minimum_validation_teacher_cosine: 0.97
+minimum_per_corpus_validation_teacher_cosine: 0.97
+reject_on_geodesic_saturation: true
+geodesic_saturation_patience_steps: 1
+# A saturation event permanently rejects the run/checkpoint stream, but finish
+# the declared 1,200-step budget so the scale experiment remains complete.
+continue_after_quality_rejection: true
+# Early ineligible checkpoints are skipped; cosine recovery never terminates training.
+reject_on_cosine_guard_failure: false
+keep_only_best: true
+
+# Common exact-8-child, parent-only ordered retention probes for K4 and K8.
+retention_probe_enabled: true
+retention_probe_arity: 8
+retention_probe_seed: 730241
+retention_probe_hidden: 512
+retention_probe_updates: 400
+retention_probe_batch_size: 128
+retention_probe_learning_rate: 0.0003
+retention_probe_weight_decay: 0.001
+retention_probe_mse_weight: 0.25
+retention_probe_train_rows_per_corpus: 512
+retention_probe_validation_rows_per_corpus: 256
+retention_probe_minimum_rows: 32
+throughput_warmup: 2
+throughput_repeats: 5
+
+# Immutable cache plus explicit free-space guards for preparation/checkpoint writes.
+refuse_overwrite_cache: true
+minimum_free_bytes_before_prepare: 1610612736
+minimum_free_bytes_before_train: 1342177280
+minimum_free_bytes_before_checkpoint: 681574400
+
+tensorboard: true
+tensorboard_dir: results_kary8_leaf768_validation_v1/tensorboard
