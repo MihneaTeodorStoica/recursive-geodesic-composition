@@ -1,0 +1,29 @@
+{
+  "role": "train_only",
+  "cache_manifest_sha256": "5d97c2742663c47ad3d01a3f5ae6f6e93c7616984c3a81ab14098560f10af73d",
+  "config": "configs/v2_cls/amended_v2_1_seed424242_stage_c.bound.yaml",
+  "config_sha256": "313e69dc48a70f4600a665152a8a57895e14d19db085163d20ce91704b632839",
+  "variant": "autoencoder",
+  "seed": 424242,
+  "rows": 128,
+  "initial": false,
+  "checkpoint": {
+    "path": "results/v2_cls/amended_v2_1_seed424242/stage_c/autoencoder_seed424242.pt",
+    "sha256": "c2464e5f884887779f35f4dff193c25ec1b9d80dbc91eae7263610b9e8d55c19",
+    "selected_step": 1200
+  },
+  "metrics": {
+    "matched_teacher_loss": 0.01810571923851967,
+    "matched_teacher_cosine": 0.9818942546844482,
+    "reconstruction_loss": 0.01011466234922409,
+    "cycle_loss": 2.194040717995449e-07,
+    "geodesic_angle_max": 0.0566469170153141,
+    "geodesic_saturation_fraction": 0.0,
+    "importance_correction_saturation_fraction": 0.0,
+    "root_finite": true,
+    "root_norm_min": 0.9999998211860657,
+    "root_norm_max": 1.0000001192092896,
+    "root_effective_rank": 85.8371353149414,
+    "exact_recursive_mass_health": true
+  }
+}

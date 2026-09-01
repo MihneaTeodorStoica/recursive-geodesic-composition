@@ -79,3 +79,8 @@ The final code/config plan was frozen before full training in `reproducibility/v
 ## Remaining concerns and decision
 
 The fresh procedure demonstrates that the CLS cache, merger-first staging, strict decoder warm start, and full same-space continuation run stably for two seeds. It does **not** establish a viable three-seed protocol because the third declared seed saturated under the predeclared hard criterion. The correct next action is not development evaluation: preserve and analyze this TRAIN-only failure, then obtain separate approval for any new predeclared robustness protocol. No `v2-paper` release or PR should be made from these incomplete results.
+
+
+## V2.1 amendment outcome
+
+V2.1 (three-consecutive-step saturation persistence) completed all three fresh seeds. Final V2.1 checkpoint hashes are `c2464e5f884887779f35f4dff193c25ec1b9d80dbc91eae7263610b9e8d55c19` (424242), `0ced20f8619d46fb2c8be8acc6bcd7c751bdbf3d693885f500ed961a117c4ee8` (271828), and `0be4a8059b8e7673d563eada614ca95651c309bad07f6176b3919235f5253d27` (314159; documented ENOSPC checkpoint-write recovery). This is still TRAIN-only; no V2 development/official/downstream result is claimed here.
