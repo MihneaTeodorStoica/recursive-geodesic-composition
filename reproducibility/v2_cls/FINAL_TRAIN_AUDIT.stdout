@@ -1,0 +1,279 @@
+{
+  "role": "train_only_audit",
+  "development_accessed": false,
+  "official_accessed": false,
+  "teacher": {
+    "teacher_id": "Alibaba-NLP/gte-modernbert-base",
+    "teacher_revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22",
+    "teacher_pooling": "cls"
+  },
+  "cache": {
+    "manifest_sha256": "5d97c2742663c47ad3d01a3f5ae6f6e93c7616984c3a81ab14098560f10af73d",
+    "rows": 25555,
+    "leaves": 74322,
+    "content_tokens": 51401940,
+    "per_corpus": {
+      "fineweb_edu": {
+        "rows": 6303,
+        "target_span_tokens_checked": 18164891
+      },
+      "fineweb": {
+        "rows": 4003,
+        "target_span_tokens_checked": 10606793
+      },
+      "openwebtext": {
+        "rows": 8248,
+        "target_span_tokens_checked": 19966475
+      },
+      "wikipedia_en_20231101": {
+        "rows": 7001,
+        "target_span_tokens_checked": 17023796
+      }
+    }
+  },
+  "seeds": [
+    {
+      "seed": 424242,
+      "stage_a_status": {
+        "status": "completed",
+        "variant": "encoder",
+        "seed": 424242,
+        "final_step": 1200,
+        "configured_steps": 1200,
+        "rejection_reason": null,
+        "best_checkpoint_preserved": true,
+        "best_checkpoint_selection_value": null,
+        "freeze_encoder_steps": 0,
+        "autoencoder_objective_start_step": 0,
+        "autoencoder_objective_ramp_steps": 0,
+        "encoder_learning_rate_scale": 1.0,
+        "decoder_only_require_full_arity_rows": false,
+        "checkpoint_selection_start_step": 1200,
+        "continued_after_quality_rejection": false
+      },
+      "stage_b_status": {
+        "status": "completed",
+        "variant": "autoencoder",
+        "seed": 424242,
+        "final_step": 300,
+        "configured_steps": 300,
+        "rejection_reason": null,
+        "best_checkpoint_preserved": true,
+        "best_checkpoint_selection_value": null,
+        "freeze_encoder_steps": 300,
+        "autoencoder_objective_start_step": 300,
+        "autoencoder_objective_ramp_steps": 0,
+        "encoder_learning_rate_scale": 1.0,
+        "decoder_only_require_full_arity_rows": true,
+        "checkpoint_selection_start_step": 300,
+        "continued_after_quality_rejection": false,
+        "initialization_checkpoint": "results/v2_cls/final_seed424242/stage_a/encoder_seed424242.pt",
+        "initialization_checkpoint_sha256": "8469baf70f3082955ce3bf1525434c6e9ca53c362f07db03dc4b1c40d6279435",
+        "initialization_shared_key_count": 113,
+        "initialization_key_migrations": [],
+        "initialization_source_selected_step": 1200,
+        "initialization_source_variant": "encoder",
+        "initialization_ignored_decoder_key_count": 0,
+        "continued_autoencoder_retraining": false
+      },
+      "stage_c_status": {
+        "status": "completed",
+        "variant": "autoencoder",
+        "seed": 424242,
+        "final_step": 1200,
+        "configured_steps": 1200,
+        "rejection_reason": null,
+        "best_checkpoint_preserved": true,
+        "best_checkpoint_selection_value": null,
+        "freeze_encoder_steps": 0,
+        "autoencoder_objective_start_step": 0,
+        "autoencoder_objective_ramp_steps": 0,
+        "encoder_learning_rate_scale": 1.0,
+        "decoder_only_require_full_arity_rows": false,
+        "checkpoint_selection_start_step": 1200,
+        "continued_after_quality_rejection": false,
+        "autoencoder_continuation_checkpoint": "results/v2_cls/final_seed424242/stage_b/autoencoder_seed424242.pt",
+        "autoencoder_continuation_checkpoint_sha256": "2e61098fb7de53d48849c6f9a43f0c4c9551e8966b9e46f60e893c1eb88c7837",
+        "autoencoder_continuation_loaded_key_count": 132,
+        "autoencoder_continuation_source_selected_step": 300,
+        "autoencoder_continuation_optimizer_restarted": true,
+        "autoencoder_continuation_optimizer_state_loaded": false
+      },
+      "final_checkpoint": {
+        "path": "results/v2_cls/final_seed424242/stage_c/autoencoder_seed424242.pt",
+        "sha256": "5a9641ad79d7d8631aa7ac07c0201d935bf3d8e0b2b407031c1c0a496e61e893",
+        "bytes": 494520183
+      },
+      "ready": true
+    },
+    {
+      "seed": 271828,
+      "stage_a_status": {
+        "status": "completed",
+        "variant": "encoder",
+        "seed": 271828,
+        "final_step": 1200,
+        "configured_steps": 1200,
+        "rejection_reason": null,
+        "best_checkpoint_preserved": true,
+        "best_checkpoint_selection_value": null,
+        "freeze_encoder_steps": 0,
+        "autoencoder_objective_start_step": 0,
+        "autoencoder_objective_ramp_steps": 0,
+        "encoder_learning_rate_scale": 1.0,
+        "decoder_only_require_full_arity_rows": false,
+        "checkpoint_selection_start_step": 1200,
+        "continued_after_quality_rejection": false
+      },
+      "stage_b_status": {
+        "status": "completed",
+        "variant": "autoencoder",
+        "seed": 271828,
+        "final_step": 300,
+        "configured_steps": 300,
+        "rejection_reason": null,
+        "best_checkpoint_preserved": true,
+        "best_checkpoint_selection_value": null,
+        "freeze_encoder_steps": 300,
+        "autoencoder_objective_start_step": 300,
+        "autoencoder_objective_ramp_steps": 0,
+        "encoder_learning_rate_scale": 1.0,
+        "decoder_only_require_full_arity_rows": true,
+        "checkpoint_selection_start_step": 300,
+        "continued_after_quality_rejection": false,
+        "initialization_checkpoint": "results/v2_cls/final_seed271828/stage_a/encoder_seed271828.pt",
+        "initialization_checkpoint_sha256": "4b1c2bbab5eaa20aaaf7b8f90661b6eee8f5ddfbe9fd581ddecd24cce04e294f",
+        "initialization_shared_key_count": 113,
+        "initialization_key_migrations": [],
+        "initialization_source_selected_step": 1200,
+        "initialization_source_variant": "encoder",
+        "initialization_ignored_decoder_key_count": 0,
+        "continued_autoencoder_retraining": false
+      },
+      "stage_c_status": {
+        "status": "completed",
+        "variant": "autoencoder",
+        "seed": 271828,
+        "final_step": 1200,
+        "configured_steps": 1200,
+        "rejection_reason": null,
+        "best_checkpoint_preserved": true,
+        "best_checkpoint_selection_value": null,
+        "freeze_encoder_steps": 0,
+        "autoencoder_objective_start_step": 0,
+        "autoencoder_objective_ramp_steps": 0,
+        "encoder_learning_rate_scale": 1.0,
+        "decoder_only_require_full_arity_rows": false,
+        "checkpoint_selection_start_step": 1200,
+        "continued_after_quality_rejection": false,
+        "autoencoder_continuation_checkpoint": "results/v2_cls/final_seed271828/stage_b/autoencoder_seed271828.pt",
+        "autoencoder_continuation_checkpoint_sha256": "46bc70ca8905c1b09b931e92c692d8450a95ba944348d90d40de88f30943f787",
+        "autoencoder_continuation_loaded_key_count": 132,
+        "autoencoder_continuation_source_selected_step": 300,
+        "autoencoder_continuation_optimizer_restarted": true,
+        "autoencoder_continuation_optimizer_state_loaded": false
+      },
+      "final_checkpoint": {
+        "path": "results/v2_cls/final_seed271828/stage_c/autoencoder_seed271828.pt",
+        "sha256": "e126c442d47748c942e1c2074daccf356025c51a2dc64af72e11a0e6183dca04",
+        "bytes": 494520183
+      },
+      "ready": true
+    },
+    {
+      "seed": 314159,
+      "stage_a_status": {
+        "status": "rejected",
+        "variant": "encoder",
+        "seed": 314159,
+        "final_step": 276,
+        "configured_steps": 1200,
+        "rejection_reason": "geodesic_saturation_nonzero_for_1_steps:0.111111112",
+        "best_checkpoint_preserved": false,
+        "best_checkpoint_selection_value": null,
+        "freeze_encoder_steps": 0,
+        "autoencoder_objective_start_step": 0,
+        "autoencoder_objective_ramp_steps": 0,
+        "encoder_learning_rate_scale": 1.0,
+        "decoder_only_require_full_arity_rows": false,
+        "checkpoint_selection_start_step": 1200,
+        "continued_after_quality_rejection": false
+      },
+      "final_checkpoint": null,
+      "ready": false
+    }
+  ],
+  "timings": [
+    {
+      "path": "results/v2_cls/final_seed271828/stage_a_timing.json",
+      "start_epoch": 1788282480,
+      "end_epoch": 1788282654,
+      "elapsed_seconds": 174,
+      "exit_code": 0
+    },
+    {
+      "path": "results/v2_cls/final_seed271828/stage_b_timing.json",
+      "start_epoch": 1788282964,
+      "end_epoch": 1788283004,
+      "elapsed_seconds": 40,
+      "exit_code": 0
+    },
+    {
+      "path": "results/v2_cls/final_seed271828/stage_c_timing.json",
+      "start_epoch": 1788283007,
+      "end_epoch": 1788283193,
+      "elapsed_seconds": 186,
+      "exit_code": 0
+    },
+    {
+      "path": "results/v2_cls/final_seed314159/stage_a_timing.json",
+      "start_epoch": 1788282654,
+      "end_epoch": 1788282702,
+      "elapsed_seconds": 48,
+      "exit_code": 0
+    },
+    {
+      "path": "results/v2_cls/final_seed424242/stage_a_timing.json",
+      "start_epoch": 1788282306,
+      "end_epoch": 1788282480,
+      "elapsed_seconds": 174,
+      "exit_code": 0
+    },
+    {
+      "path": "results/v2_cls/final_seed424242/stage_b_timing.json",
+      "start_epoch": 1788282729,
+      "end_epoch": 1788282772,
+      "elapsed_seconds": 43,
+      "exit_code": 0
+    },
+    {
+      "path": "results/v2_cls/final_seed424242/stage_c_timing.json",
+      "start_epoch": 1788282774,
+      "end_epoch": 1788282961,
+      "elapsed_seconds": 187,
+      "exit_code": 0
+    },
+    {
+      "path": "results/v2_cls/pilot_seed424242/stage_a_timing.json",
+      "start_epoch": 1788282037,
+      "end_epoch": 1788282066,
+      "elapsed_seconds": 29,
+      "exit_code": 0
+    },
+    {
+      "path": "results/v2_cls/pilot_seed424242/stage_b_timing.json",
+      "start_epoch": 1788282076,
+      "end_epoch": 1788282093,
+      "elapsed_seconds": 17,
+      "exit_code": 0
+    },
+    {
+      "path": "results/v2_cls/pilot_seed424242/stage_c_timing.json",
+      "start_epoch": 1788282103,
+      "end_epoch": 1788282134,
+      "elapsed_seconds": 31,
+      "exit_code": 0
+    }
+  ],
+  "all_three_ready": false
+}

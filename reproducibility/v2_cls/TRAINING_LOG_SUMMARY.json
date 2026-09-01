@@ -1,0 +1,264 @@
+{
+  "pilot": {
+    "424242": {
+      "stage_a": {
+        "first": {
+          "step": 1,
+          "loss": 0.05079241096973419,
+          "teacher": 0.03917246311903,
+          "reconstruction": null,
+          "cycle": null,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.0,
+          "importance": 0.0
+        },
+        "last": {
+          "step": 120,
+          "loss": 0.048323679715394974,
+          "teacher": 0.03896016627550125,
+          "reconstruction": null,
+          "cycle": null,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.04554407298564911,
+          "importance": 0.0
+        },
+        "steps_logged": 120
+      },
+      "stage_b": {
+        "first": {
+          "step": 1,
+          "loss": 0.012212984263896942,
+          "teacher": 0.04306905344128609,
+          "reconstruction": 0.0740775316953659,
+          "cycle": 0.0,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.047750093042850494,
+          "importance": 0.044054221361875534
+        },
+        "last": {
+          "step": 40,
+          "loss": 0.010400623083114624,
+          "teacher": 0.04452374577522278,
+          "reconstruction": 0.06608691066503525,
+          "cycle": 0.0,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.046337079256772995,
+          "importance": 0.019503463059663773
+        },
+        "steps_logged": 40
+      },
+      "stage_c": {
+        "first": {
+          "step": 1,
+          "loss": 0.05313345417380333,
+          "teacher": 0.03776140511035919,
+          "reconstruction": 0.024518609046936035,
+          "cycle": 0.00019517913460731506,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.04697044566273689,
+          "importance": 0.021316399797797203
+        },
+        "last": {
+          "step": 120,
+          "loss": 0.03887837380170822,
+          "teacher": 0.027524016797542572,
+          "reconstruction": 0.009623870253562927,
+          "cycle": 1.1175870895385742e-07,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.045414090156555176,
+          "importance": 0.0639980137348175
+        },
+        "steps_logged": 120
+      }
+    }
+  },
+  "final": {
+    "424242": {
+      "stage_a": {
+        "first": {
+          "step": 1,
+          "loss": 0.05079241096973419,
+          "teacher": 0.03917246311903,
+          "reconstruction": null,
+          "cycle": null,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.0,
+          "importance": 0.0
+        },
+        "last": {
+          "step": 1200,
+          "loss": 0.01922055147588253,
+          "teacher": 0.01316926721483469,
+          "reconstruction": null,
+          "cycle": null,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.05494673550128937,
+          "importance": 0.0
+        },
+        "steps_logged": 1200
+      },
+      "stage_b": {
+        "first": {
+          "step": 1,
+          "loss": 0.01496320590376854,
+          "teacher": 0.03431074693799019,
+          "reconstruction": 0.07905463874340057,
+          "cycle": 0.0,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.054420821368694305,
+          "importance": 0.12420044094324112
+        },
+        "last": {
+          "step": 300,
+          "loss": 0.009305598214268684,
+          "teacher": 0.024257361888885498,
+          "reconstruction": 0.06043332815170288,
+          "cycle": 0.0,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.05231700837612152,
+          "importance": 0.009623939171433449
+        },
+        "steps_logged": 300
+      },
+      "stage_c": {
+        "first": {
+          "step": 1,
+          "loss": 0.03669311851263046,
+          "teacher": 0.022884592413902283,
+          "reconstruction": 0.025639250874519348,
+          "cycle": 0.0001894049346446991,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.05093122273683548,
+          "importance": 0.01580960676074028
+        },
+        "last": {
+          "step": 1200,
+          "loss": 0.02093677967786789,
+          "teacher": 0.013481276109814644,
+          "reconstruction": 0.007553376257419586,
+          "cycle": 4.023313522338867e-07,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.05507216230034828,
+          "importance": 0.01454060897231102
+        },
+        "steps_logged": 1200
+      }
+    },
+    "271828": {
+      "stage_a": {
+        "first": {
+          "step": 1,
+          "loss": 0.03404765948653221,
+          "teacher": 0.02773217484354973,
+          "reconstruction": null,
+          "cycle": null,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.0,
+          "importance": 0.0
+        },
+        "last": {
+          "step": 1200,
+          "loss": 0.023068638518452644,
+          "teacher": 0.017039209604263306,
+          "reconstruction": null,
+          "cycle": null,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.05211757868528366,
+          "importance": 0.0
+        },
+        "steps_logged": 1200
+      },
+      "stage_b": {
+        "first": {
+          "step": 1,
+          "loss": 0.01090905349701643,
+          "teacher": 0.02687136083841324,
+          "reconstruction": 0.05785321816802025,
+          "cycle": 0.0,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.051362067461013794,
+          "importance": 0.0892428383231163
+        },
+        "last": {
+          "step": 300,
+          "loss": 0.012189467437565327,
+          "teacher": 0.02024119347333908,
+          "reconstruction": 0.07926138490438461,
+          "cycle": 0.0,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.05102083832025528,
+          "importance": 0.012010343372821808
+        },
+        "steps_logged": 300
+      },
+      "stage_c": {
+        "first": {
+          "step": 1,
+          "loss": 0.02818157896399498,
+          "teacher": 0.01760183647274971,
+          "reconstruction": 0.023641038686037064,
+          "cycle": 0.00024459511041641235,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.05022739619016647,
+          "importance": 0.018889596685767174
+        },
+        "last": {
+          "step": 1200,
+          "loss": 0.024811958894133568,
+          "teacher": 0.016851156949996948,
+          "reconstruction": 0.010491248220205307,
+          "cycle": 2.384185791015625e-07,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.05135552957653999,
+          "importance": 0.012938261963427067
+        },
+        "steps_logged": 1200
+      }
+    },
+    "314159": {
+      "stage_a": {
+        "first": {
+          "step": 1,
+          "loss": 0.06517015397548676,
+          "teacher": 0.041927922517061234,
+          "reconstruction": null,
+          "cycle": null,
+          "geodesic_saturation_fraction": 0.0,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.0,
+          "importance": 0.0
+        },
+        "last": {
+          "step": 276,
+          "loss": 0.05534292012453079,
+          "teacher": 0.035300519317388535,
+          "reconstruction": null,
+          "cycle": null,
+          "geodesic_saturation_fraction": 0.1111111119389534,
+          "correction_saturation": 0.0,
+          "geodesic_angle_max": 0.49999988079071045,
+          "importance": 0.0
+        },
+        "steps_logged": 276
+      }
+    }
+  }
+}

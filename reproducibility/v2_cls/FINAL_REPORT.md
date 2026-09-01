@@ -1,79 +1,81 @@
-# V2 CLS interim final report (fail-closed stop before development/official)
+# V2 CLS report — TRAIN-only fresh-from-random run
 
-## Scientific usability
+## Stop status
 
-The corrected CLS extraction implementation and predeclared V2 protocol are scientifically usable as a starting point, but a complete V2 experimental result is **not yet scientifically usable** because training, development evaluation, probes, downstream evaluation, and official evaluation have not been run. The run stopped before any development/official access because the repository does not contain enough information to reproduce the v1 pre-final lineage that produced the continuation source checkpoints.
+**STOPPED before V2 development, official, or downstream access.** The fresh protocol was implemented and piloted on V2 TRAIN only, then frozen before full training. Two seeds completed all three stages; seed `314159` was permanently rejected at Stage A by the predeclared geodesic-saturation stop. Therefore there are not three final V2 checkpoints and these models are **not ready for a separately approved V2 development evaluation**.
 
-## What changed from v1
+This is not a reportable V2 performance claim. All reported numbers below are training-only engineering diagnostics on `[192000,204000)`.
 
-- `FrozenTeacher` now has explicit `pooling` with two paths:
-  - `masked_mean` (legacy default) preserves v1 behavior for existing code/configs;
-  - `cls` implements documented GTE ModernBERT usage: add special tokens, run the teacher, take `outputs.last_hidden_state[:, 0]`, float32 normalize.
-- K-ary/base cache rows and sidecars record teacher ID, revision, tokenizer/model class, and pooling.
-- Training refuses declared teacher/pooling mismatches in caches.
-- V2 configs live under `configs/v2_cls/` and explicitly require `teacher_pooling: cls` and fresh random initialization.
-- V2 protocol/range guards live under `scripts/v2_cls/` and `reproducibility/v2_cls/`.
+## Why V2 changed
 
-No v1 artifact, checkpoint, official-v6 result, release asset, or existing downstream diagnostic was intentionally modified.
+The inherited `FrozenTeacher` used masked mean pooling, while GTE ModernBERT documents normalized CLS embedding. V2 adds explicit pooling controls, preserving `masked_mean` as the legacy default for v1 reproduction and requiring `cls` in every V2 config/cache/checkpoint provenance chain. The CLS path adds normal special tokens to raw stored content IDs, uses `outputs.last_hidden_state[:,0]`, float32 casts and L2-normalizes.
 
-## Teacher validation
+Direct reference validation passed before cache/training: `reproducibility/v2_cls/CLS_REFERENCE_VALIDATION.json` has max absolute difference `0.0` on four texts against direct reference-style GTE usage.
 
-`/venv/main/bin/python scripts/v2_cls/validate_cls_reference.py --device cuda` passed before training. Recorded artifact: `reproducibility/v2_cls/CLS_REFERENCE_VALIDATION.json`.
+## Reconstructed versus newly specified training procedure
 
-- Teacher: `Alibaba-NLP/gte-modernbert-base`
-- Revision: `e7f32e3c00f91d699e8c43b53106206bcc72bb22`
-- Pooling: `cls`
-- Max absolute difference against direct model-card-style reference: `0.0`
-- Cosines: all reported as `>= 1.0` within float display.
+`reproducibility/v2_cls/FRESH_TRAINING_PLAN.md` is the predeclared detail.
 
-## V1 lineage inspection result
+Inherited from published code/configuration: final 768/1024/8-layer/16-head K=4 strict architecture; contiguous K=4 reduction/singleton carry; raw token masses; 1024 and random 512--1024 leaf chunking; max teacher span 6144; four pinned corpora/revisions and equal mixture; semantic/tangent-expmap regularizers; direct teacher cosine, strict reconstruction/cycle, moment matching, AdamW/cosine and finite guards; seeds `424242`, `271828`, `314159`.
 
-The repository records that clean-v6 final checkpoints continue from source checkpoints such as `results_kary4_strict_autoencoder_seed424_dev_v2/autoencoder_seed424242.pt`. It does not include the exact earlier multi-stage training configs/ranges required to regenerate those source checkpoints from scratch, nor proof that their learned merger/decoder parameters were never trained against masked-mean teacher representations. Therefore V2 must not initialize from those learned v1 checkpoints. The V2 plan predeclares a distinct fresh-random 400-step training protocol rather than pretending to be an exact v1 rerun.
+New because source-lineage information is missing: Stage A fresh merger-only training for 1200 steps at LR `1e-4`; Stage B 300-step decoder-only warm start from **the same V2 Stage-A checkpoint** at LR `2e-5`; Stage C 1200-step all-parameter training from the exact V2 Stage-B autoencoder state at LR `1e-4`. Stage C uses a checked full-autoencoder continuation implementation with mandatory matching explicit CLS provenance and a restarted optimizer. Fixed Stage-C step 1200 was predeclared as the sole final selection rule.
 
-## Declared V2 ranges
+No learned v1 checkpoint was accessed for initialization.
 
-Per pinned corpus, guarded by `scripts/v2_cls/protocol.py`:
+## Pilot
 
-- prior spent/refused: official-v5 `[110000,140000)`, clean-v6 train/development/buffer `[140000,162000)`, official-v6 `[162000,192000)`;
-- V2 TRAIN `[192000,204000)`;
-- V2 development `[204000,213000)`;
-- V2 buffer `[213000,214000)`;
-- future V2 official `[214000,244000)`.
+Seed `424242`, V2 TRAIN cache only, shortened structurally identical A/B/C `120/40/120` steps:
 
-Programmatic non-overlap audit passed in `reproducibility/v2_cls/PROTOCOL_AUDIT.json`.
+- Stage A fixed-row matched teacher cosine: `0.973206 -> 0.973723`.
+- Stage B reconstruction (logged first/last): `0.074078 -> 0.066087`.
+- Stage C fixed-row matched teacher cosine: `0.979051` after joint training; reconstruction `0.009798`.
+- All inspected values finite; root norms `[0.9999998, 1.0000002]`; no geodesic or semantic-correction saturation; root effective rank `85.68` on 128 fixed TRAIN rows.
+- Pilot stage wall times: A 29 s, B 17 s, C 31 s.
 
-## Training/evaluation metrics
+The pilot passed the declared implementation sanity criteria. Raw logs/checkpoints remain under ignored `results/v2_cls/pilot_seed424242/`; concise log summaries are in `reproducibility/v2_cls/TRAINING_LOG_SUMMARY.json`.
 
-Not run. No V2 development or official metrics exist. No V2 checkpoints or probes exist. No downstream V2 results exist.
+## Full frozen-run outcome
 
-## Validation results
+### Seed 424242 — completed
 
-See `reproducibility/v2_cls/VALIDATION.md`.
+- Stage A checkpoint: `8469baf70f3082955ce3bf1525434c6e9ca53c362f07db03dc4b1c40d6279435`
+- Stage B checkpoint: `2e61098fb7de53d48849c6f9a43f0c4c9551e8966b9e46f60e893c1eb88c7837`
+- Final Stage C checkpoint: `5a9641ad79d7d8631aa7ac07c0201d935bf3d8e0b2b407031c1c0a496e61e893`
+- Fixed TRAIN-row Stage-A initialization/final cosine: `0.973206 -> 0.981894` (final Stage-C diagnostic).
+- Final fixed-row teacher loss `0.018106`; reconstruction `0.010115`; cycle `2.19e-7`; effective rank `85.84`; max audited angle `0.05665`; no audited saturation.
+- Wall time: A 174 s, B 43 s, C 187 s.
 
-- Protocol audit: PASS.
-- Smoke invariants: PASS (`reproducibility/v2_cls/SMOKE_INVARIANTS.json`).
-- Compileall: PASS.
-- Pytest subset: `20 passed in 5.92s`.
+### Seed 271828 — completed
 
-## Remaining concerns
+- Stage A checkpoint: `4b1c2bbab5eaa20aaaf7b8f90661b6eee8f5ddfbe9fd581ddecd24cce04e294f`
+- Stage B checkpoint: `46bc70ca8905c1b09b931e92c692d8450a95ba944348d90d40de88f30943f787`
+- Final Stage C checkpoint: `e126c442d47748c942e1c2074daccf356025c51a2dc64af72e11a0e6183dca04`
+- Fixed TRAIN-row Stage-A initialization/final cosine: `0.973206 -> 0.982027`.
+- Final fixed-row teacher loss `0.017973`; reconstruction `0.010137`; cycle `2.26e-7`; effective rank `85.85`; max audited angle `0.05199`; no audited saturation.
+- Wall time: A 174 s, B 40 s, C 186 s.
 
-1. Exact v1 pre-final lineage is missing from this publication repository.
-2. The proposed fresh V2 protocol is not an exact rerun of v1 and should be reviewed/accepted before expensive training.
-3. Development/official evaluators and downstream V2 scripts still need to be implemented/frozen before accessing V2 development/official ranges.
-4. Official data must remain unopened until models, checkpoint selection, attacks, probes, evaluator code, and downstream protocol are frozen and hash-recorded.
+### Seed 314159 — failed/preserved
 
-## Artifact hashes
+- Stage A stopped at step 276/1200.
+- Predeclared hard stop: `geodesic_saturation_nonzero_for_1_steps:0.111111112`.
+- Last observed angle max `0.49999988` (the configured 0.5 rad bound); no Stage-A checkpoint was selected and Stages B/C were not run.
+- Wall time before stop: 48 s.
+- No restart, cherry-pick, seed replacement, or post-hoc hyperparameter change was performed.
 
-Implementation/provenance hashes are recorded in `reproducibility/v2_cls/V2_IMPLEMENTATION_SHA256SUMS`.
+Total full-run process time was 852 s (14 m 12 s), excluding cache construction; pilot process time was 77 s. Training log first/last values are machine-readable in `reproducibility/v2_cls/TRAINING_LOG_SUMMARY.json`.
 
-## Future release/PR contents proposed
+## TRAIN-only provenance/audit
 
-A future `v2-paper` release/PR should include, after successful training/audit only:
+`reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json` records:
 
-- V2 CLS source code/config/protocol files;
-- three V2 step-400 fresh checkpoints and SHA-256 hashes;
-- V2 TRAIN/development/official cache manifests (not necessarily raw caches if too large);
-- V2-fitted parent-only probes and hashes;
-- machine-readable development, official, and downstream results;
-- V2 figures generated only from V2 result files;
-- final audit proving no v1 artifacts changed and official access happened after freeze.
+- V2 TRAIN cache manifest SHA-256 `5d97c2742663c47ad3d01a3f5ae6f6e93c7616984c3a81ab14098560f10af73d`;
+- explicit CLS teacher/revision in cache rows and completed checkpoints;
+- 25,555 cached rows, 51,401,940 raw content tokens, and target-span token-accounting checks;
+- completed checkpoint identities/selected step 1200 and Stage-B ancestry;
+- `all_three_ready: false`.
+
+The final code/config plan was frozen before full training in `reproducibility/v2_cls/FRESH_PROTOCOL_FREEZE.json`. Bound stage configs record exact V2 source checkpoint hashes. No V2 development, official, or downstream source was opened.
+
+## Remaining concerns and decision
+
+The fresh procedure demonstrates that the CLS cache, merger-first staging, strict decoder warm start, and full same-space continuation run stably for two seeds. It does **not** establish a viable three-seed protocol because the third declared seed saturated under the predeclared hard criterion. The correct next action is not development evaluation: preserve and analyze this TRAIN-only failure, then obtain separate approval for any new predeclared robustness protocol. No `v2-paper` release or PR should be made from these incomplete results.
