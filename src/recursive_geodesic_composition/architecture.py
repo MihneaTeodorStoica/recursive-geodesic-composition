@@ -139,11 +139,15 @@ class GeodesicMerge(nn.Module):
             self.strict_decoder = _StrictDecoder(d, hidden, heads, decoder_layers, dropout, arity)
         self._collect_aux = False
         self._merge_aux, self._decode_aux, self._geodesic_angles = [], [], []
+        # V2.1 TRAIN-only saturation diagnostics.  Values are detached and are
+        # emitted only when a caller observes a saturation event.
+        self._geodesic_details = []
         self._last_merge_aux = None
 
     def begin_aux_collection(self):
         self._collect_aux = True
         self._merge_aux.clear(); self._decode_aux.clear(); self._geodesic_angles.clear()
+        self._geodesic_details.clear()
 
     def end_aux_collection(self, zero, auxiliary_multiplier=1.0, importance_multiplier=None):
         """Finish one loss collection with optional training-time coefficient scaling.
@@ -255,6 +259,13 @@ class GeodesicMerge(nn.Module):
         self._last_merge_aux = aux
         if self._collect_aux:
             self._geodesic_angles.append(aux["angle"].detach().reshape(-1))
+            self._geodesic_details.append({
+                "raw_projected_tangent_norm": aux["raw_tangent_norm"].detach().reshape(-1).cpu(),
+                "bounded_correction_norm": aux["correction_norm"].detach().reshape(-1).cpu(),
+                "angle": aux["angle"].detach().reshape(-1).cpu(),
+                "active_arity": active.sum(1).detach().reshape(-1).cpu(),
+                "saturated": aux["geodesic_saturated"].detach().reshape(-1).cpu(),
+            })
             if self.salience is not None: self._merge_aux.append(aux)
         if single: root = root[0]
         if return_aux:
@@ -268,6 +279,16 @@ class GeodesicMerge(nn.Module):
     @staticmethod
     def compose_anchor(children, weights):
         return F.normalize((F.normalize(children, dim=-1) * weights[..., None]).sum(1), dim=-1)
+
+    def geodesic_diagnostics(self):
+        """Return detached per-merge telemetry from the current aux window."""
+        result = []
+        for group in self._geodesic_details:
+            for index in range(group["angle"].numel()):
+                result.append({key: (bool(value[index]) if key == "saturated" else
+                                     int(value[index]) if key == "active_arity" else float(value[index]))
+                               for key, value in group.items()})
+        return result
 
     def importance_regularizers(self, aux):
         q, w, delta, active = (aux[k] for k in ("token_fractions", "effective_weights", "corrections", "active_mask"))

@@ -1576,6 +1576,17 @@ def run(cfg, variant, seed, device):
             'adversarial_discriminator_learning_rate': adversarial_discriminator_learning_rate,
             'adversarial_discriminator_updates': adversarial_discriminator_updates,
         }
+        # Keep event records compact: full per-merge values are serialized only
+        # for an actual saturation, alongside all source rows sampled in the
+        # batch. Batched recursive grouping prevents assigning one merge to one
+        # row without a larger structural refactor, so no false pairing is made.
+        geodesic_details = model.geodesic_diagnostics()
+        if any(item['saturated'] for item in geodesic_details):
+            rec['geodesic_saturation_event'] = {
+                'threshold_radians': .95 * float(model.max_angle),
+                'per_merge': geodesic_details,
+                'batch_rows': [_row_context(index, row) for index, row in indexed_batch],
+            }
         final_step = s + 1
         saturation_streak = (saturation_streak + 1 if
                              float(rec.get('geodesic_saturation_fraction', 0.0)) > 0.0 else 0)

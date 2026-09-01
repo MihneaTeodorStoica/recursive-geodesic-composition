@@ -31,13 +31,14 @@ def main():
     cfg = yaml.safe_load(template.read_text())
     expected_variant = cfg.pop("v2_expected_source_variant")
     expected_stage = cfg.pop("v2_expected_source_stage")
+    expected_protocol_version = int(cfg.pop("v2_expected_source_protocol_version"))
     checkpoint = torch.load(source, map_location="cpu", weights_only=True)
     if checkpoint.get("variant") != expected_variant:
         raise ValueError(f"source variant mismatch: {checkpoint.get('variant')} != {expected_variant}")
     if checkpoint.get("teacher_provenance") != {"teacher_id": TEACHER_ID, "teacher_revision": TEACHER_REVISION, "teacher_pooling": TEACHER_POOLING}:
         raise ValueError("source checkpoint is not explicit V2 CLS provenance")
     source_cfg = checkpoint.get("config") or {}
-    if source_cfg.get("v2_stage") != expected_stage or source_cfg.get("fresh_protocol_version") != 1:
+    if source_cfg.get("v2_stage") != expected_stage or source_cfg.get("fresh_protocol_version") != expected_protocol_version:
         raise ValueError("source does not have expected frozen V2 stage identity")
     source_hash = sha256(source)
     if expected_variant == "encoder":

@@ -1,0 +1,21 @@
+{
+  "protocol_version": 2,
+  "frozen_before_training": true,
+  "teacher_pooling": "cls",
+  "files": {
+    "reproducibility/v2_cls/AMENDMENT_V2_1.md": "05001d22309ce445f3f8d1ee263784a5d8f9430b18c7ade3f4c43cbc36b313f8",
+    "reproducibility/v2_cls/SEED314159_SATURATION_DIAGNOSTIC.md": "f00c60ce0d60f34ce9d386ccea608253c2fa1b700394b1f847a4e34a9ed535db",
+    "scripts/v2_cls/materialize_stage.py": "cf0fa3967c19e713eec8c33a0a327d54be865092d5587362f2a9c4f8e6d4f023",
+    "src/recursive_geodesic_composition/architecture.py": "9b2e585e21557d4636ad86933e56e446dfd71bdd6068660a559429e2ba207bf1",
+    "src/recursive_geodesic_composition/train.py": "dd224dd84a1075d95c366798b6060cb02a8adfc935ccf98d1c555d4c74be4526",
+    "configs/v2_cls/amended_v2_1_seed271828_stage_a.yaml": "d1e525f7ba844d7dc498cfcf594ce8e55ead7b84b9bb4e58880ceec3d673366f",
+    "configs/v2_cls/amended_v2_1_seed271828_stage_b.template.yaml": "a3689a66259d5fe3e08d0e76dbe39f81bab1399277847f9d3474ec198391ca5e",
+    "configs/v2_cls/amended_v2_1_seed271828_stage_c.template.yaml": "9b58e3b6ad66f4e39c7a2cf2db3943f2971c9a24c4023a03d7d19d5cba83e365",
+    "configs/v2_cls/amended_v2_1_seed314159_stage_a.yaml": "93c8dfbca8d5e017aa1961b557c2218e13ab3dc31524bdeccafe6919a315980b",
+    "configs/v2_cls/amended_v2_1_seed314159_stage_b.template.yaml": "b9a336059f78c4bfbeec3c07a15a0a9c0caac6b2844e1884bb9d46aff2527484",
+    "configs/v2_cls/amended_v2_1_seed314159_stage_c.template.yaml": "0daa0c8e20afd92dfb47a0c161b93b26a2b40df3428c288fc093ef87f2c928c1",
+    "configs/v2_cls/amended_v2_1_seed424242_stage_a.yaml": "1b6c5df6b8ee30285da169177fd851951ee0d16ed05644c242099a4c134fc40f",
+    "configs/v2_cls/amended_v2_1_seed424242_stage_b.template.yaml": "278ec5b30b305ca2017f2424f4b7aa8c649b057ca66820d5c9a6636db3c50e2f",
+    "configs/v2_cls/amended_v2_1_seed424242_stage_c.template.yaml": "1aa3089675bbd6741f82e56e3a22193393142176e145922d39174d2e12d7ce78"
+  }
+}
