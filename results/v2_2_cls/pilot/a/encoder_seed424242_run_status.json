@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "variant": "encoder",
+  "seed": 424242,
+  "final_step": 250,
+  "configured_steps": 250,
+  "rejection_reason": null,
+  "best_checkpoint_preserved": true,
+  "best_checkpoint_selection_value": null,
+  "freeze_encoder_steps": 0,
+  "autoencoder_objective_start_step": 0,
+  "autoencoder_objective_ramp_steps": 0,
+  "encoder_learning_rate_scale": 1.0,
+  "decoder_only_require_full_arity_rows": false,
+  "checkpoint_selection_start_step": 250,
+  "continued_after_quality_rejection": false
+}

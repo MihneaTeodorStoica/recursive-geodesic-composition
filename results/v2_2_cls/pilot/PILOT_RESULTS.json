@@ -1,0 +1,33 @@
+{
+  "arms": {
+    "C": {
+      "status": {
+        "status": "completed",
+        "variant": "encoder",
+        "seed": 424242,
+        "final_step": 250,
+        "configured_steps": 250,
+        "rejection_reason": null,
+        "best_checkpoint_preserved": true,
+        "best_checkpoint_selection_value": null,
+        "freeze_encoder_steps": 0,
+        "autoencoder_objective_start_step": 0,
+        "autoencoder_objective_ramp_steps": 0,
+        "encoder_learning_rate_scale": 1.0,
+        "decoder_only_require_full_arity_rows": false,
+        "checkpoint_selection_start_step": 250,
+        "continued_after_quality_rejection": false
+      },
+      "final": {
+        "teacher": 0.031108511611819267,
+        "covariance": 349318.6875,
+        "residual_mean": 1.8741204257821664e-05,
+        "distribution_variance": 3.090313475695439e-05,
+        "covariance_condition": 5736491.5,
+        "grad_norm": 226104432.0
+      }
+    }
+  },
+  "seed": 424242,
+  "train_only": true
+}

@@ -1,0 +1,7 @@
+{
+  "selected": "A",
+  "selection_rule": "health, cosine >= baseline-.002, minimum covariance mismatch",
+  "results_sha256": "8b9ac42a397535bde201d9f14a1f1842db08cf5a1083ff86e5b92dbf34dccae0",
+  "checkpoint_sha256": "b331ca474992dd67364c73dbedb2b9f92e65589696dc37d34fee18b8bb73fc0f",
+  "amendment_freeze_sha256": "181d199dee4bb7a58ede77a88501f3834a635086f89ea5fa1005c7571bc97982"
+}
