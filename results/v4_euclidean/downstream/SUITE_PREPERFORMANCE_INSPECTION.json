@@ -1,0 +1,860 @@
+{
+  "schema": "v4_downstream_suite_preperformance_inspection_v1",
+  "created_unix": 1788362351.9178984,
+  "restriction": "No representation model, retrieval score, ranking, or task performance was computed.",
+  "dataset": {
+    "id": "dwzhu/LongEmbed",
+    "revision": "10039a580487dacecf79db69166e17ace3ede392"
+  },
+  "teacher": {
+    "id": "Alibaba-NLP/gte-modernbert-base",
+    "revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22",
+    "pooling": "normalized last_hidden_state[:,0]"
+  },
+  "predeclared_bins": {
+    "tokens": [
+      [
+        1,
+        1024
+      ],
+      [
+        1025,
+        4096
+      ],
+      [
+        4097,
+        8190
+      ],
+      [
+        8191,
+        16384
+      ],
+      [
+        16385,
+        32768
+      ],
+      [
+        32769,
+        65536
+      ],
+      [
+        65537,
+        null
+      ]
+    ],
+    "leaves": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        9,
+        16
+      ],
+      [
+        17,
+        32
+      ],
+      [
+        33,
+        64
+      ],
+      [
+        65,
+        null
+      ]
+    ],
+    "depth": "exact integer",
+    "synthetic": "official context_length field"
+  },
+  "tasks": {
+    "narrativeqa": {
+      "schema": {
+        "corpus": {
+          "rows": 355,
+          "columns": [
+            "doc_id",
+            "text",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'qid': Value('string')}"
+        },
+        "queries": {
+          "rows": 10449,
+          "columns": [
+            "doc_id",
+            "text",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'qid': Value('string')}"
+        },
+        "qrels": {
+          "rows": 10449,
+          "columns": [
+            "doc_id",
+            "text",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'qid': Value('string')}"
+        }
+      },
+      "qrel_pairs": 10449,
+      "id_audit": {
+        "query_set_equals_qrel_set": true,
+        "all_qrel_documents_exist": true,
+        "duplicates": 0,
+        "malformed": 0
+      },
+      "documents": {
+        "tokens": {
+          "min": 5210,
+          "p10": 35152.0,
+          "median": 66219.0,
+          "p90": 158134.40000000005,
+          "p99": 318578.29999999976,
+          "max": 488429,
+          "mean": 85672.69295774648
+        },
+        "leaves": {
+          "min": 6,
+          "p10": 34.4,
+          "median": 65.0,
+          "p90": 154.80000000000007,
+          "p99": 311.5999999999998,
+          "max": 477,
+          "mean": 84.17464788732394
+        },
+        "depth": {
+          "min": 2,
+          "p10": 3.0,
+          "median": 4.0,
+          "p90": 4.0,
+          "p99": 5.0,
+          "max": 5,
+          "mean": 3.4985915492957744
+        },
+        "merges": {
+          "min": 3,
+          "p10": 12.0,
+          "median": 22.0,
+          "p90": 52.60000000000002,
+          "p99": 104.37999999999994,
+          "max": 160,
+          "mean": 28.72394366197183
+        },
+        "total_tokens": 30413806,
+        "total_leaves": 29882
+      },
+      "queries": {
+        "tokens": {
+          "min": 4,
+          "p10": 7.0,
+          "median": 11.0,
+          "p90": 16.0,
+          "p99": 23.0,
+          "max": 63,
+          "mean": 11.246913580246913
+        },
+        "all_directly_encodable": true
+      },
+      "direct_teacher_entire_task_eligible": false
+    },
+    "qmsum": {
+      "schema": {
+        "corpus": {
+          "rows": 197,
+          "columns": [
+            "doc_id",
+            "text",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'qid': Value('string')}"
+        },
+        "queries": {
+          "rows": 1527,
+          "columns": [
+            "doc_id",
+            "text",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'qid': Value('string')}"
+        },
+        "qrels": {
+          "rows": 1527,
+          "columns": [
+            "doc_id",
+            "text",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'qid': Value('string')}"
+        }
+      },
+      "qrel_pairs": 1527,
+      "id_audit": {
+        "query_set_equals_qrel_set": true,
+        "all_qrel_documents_exist": true,
+        "duplicates": 0,
+        "malformed": 0
+      },
+      "documents": {
+        "tokens": {
+          "min": 1707,
+          "p10": 5648.6,
+          "median": 12783.0,
+          "p90": 23924.2,
+          "p99": 31592.48,
+          "max": 37555,
+          "mean": 13953.131979695432
+        },
+        "leaves": {
+          "min": 2,
+          "p10": 6.0,
+          "median": 13.0,
+          "p90": 24.0,
+          "p99": 31.0,
+          "max": 37,
+          "mean": 14.116751269035532
+        },
+        "depth": {
+          "min": 1,
+          "p10": 2.0,
+          "median": 2.0,
+          "p90": 3.0,
+          "p99": 3.0,
+          "max": 3,
+          "mean": 2.284263959390863
+        },
+        "merges": {
+          "min": 1,
+          "p10": 3.0,
+          "median": 4.0,
+          "p90": 9.0,
+          "p99": 11.0,
+          "max": 13,
+          "mean": 5.096446700507614
+        },
+        "total_tokens": 2748767,
+        "total_leaves": 2781
+      },
+      "queries": {
+        "tokens": {
+          "min": 17,
+          "p10": 41.0,
+          "median": 77.0,
+          "p90": 131.0,
+          "p99": 187.74,
+          "max": 289,
+          "mean": 82.14276358873609
+        },
+        "all_directly_encodable": true
+      },
+      "direct_teacher_entire_task_eligible": false
+    },
+    "2wikimqa": {
+      "schema": {
+        "corpus": {
+          "rows": 300,
+          "columns": [
+            "doc_id",
+            "text",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'qid': Value('string')}"
+        },
+        "queries": {
+          "rows": 300,
+          "columns": [
+            "doc_id",
+            "text",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'qid': Value('string')}"
+        },
+        "qrels": {
+          "rows": 300,
+          "columns": [
+            "doc_id",
+            "text",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'qid': Value('string')}"
+        }
+      },
+      "qrel_pairs": 300,
+      "id_audit": {
+        "query_set_equals_qrel_set": true,
+        "all_qrel_documents_exist": true,
+        "duplicates": 0,
+        "malformed": 0
+      },
+      "documents": {
+        "tokens": {
+          "min": 1372,
+          "p10": 4118.0,
+          "median": 7924.0,
+          "p90": 15667.300000000001,
+          "p99": 16478.01,
+          "max": 16725,
+          "mean": 8942.83
+        },
+        "leaves": {
+          "min": 2,
+          "p10": 5.0,
+          "median": 8.0,
+          "p90": 16.0,
+          "p99": 17.0,
+          "max": 17,
+          "mean": 9.226666666666667
+        },
+        "depth": {
+          "min": 1,
+          "p10": 2.0,
+          "median": 2.0,
+          "p90": 2.0,
+          "p99": 3.0,
+          "max": 3,
+          "mean": 1.92
+        },
+        "merges": {
+          "min": 1,
+          "p10": 2.0,
+          "median": 3.0,
+          "p90": 5.0,
+          "p99": 6.0,
+          "max": 6,
+          "mean": 3.3233333333333333
+        },
+        "total_tokens": 2682849,
+        "total_leaves": 2768
+      },
+      "queries": {
+        "tokens": {
+          "min": 9,
+          "p10": 12.0,
+          "median": 16.0,
+          "p90": 24.0,
+          "p99": 31.00999999999999,
+          "max": 33,
+          "mean": 17.16
+        },
+        "all_directly_encodable": true
+      },
+      "direct_teacher_entire_task_eligible": false
+    },
+    "summ_screen_fd": {
+      "schema": {
+        "corpus": {
+          "rows": 336,
+          "columns": [
+            "doc_id",
+            "text",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'qid': Value('string')}"
+        },
+        "queries": {
+          "rows": 336,
+          "columns": [
+            "doc_id",
+            "text",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'qid': Value('string')}"
+        },
+        "qrels": {
+          "rows": 336,
+          "columns": [
+            "doc_id",
+            "text",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'qid': Value('string')}"
+        }
+      },
+      "qrel_pairs": 336,
+      "id_audit": {
+        "query_set_equals_qrel_set": true,
+        "all_qrel_documents_exist": true,
+        "duplicates": 0,
+        "malformed": 0
+      },
+      "documents": {
+        "tokens": {
+          "min": 2742,
+          "p10": 4805.5,
+          "median": 8482.0,
+          "p90": 14029.5,
+          "p99": 18052.1,
+          "max": 24688,
+          "mean": 8931.889880952382
+        },
+        "leaves": {
+          "min": 3,
+          "p10": 5.0,
+          "median": 9.0,
+          "p90": 14.0,
+          "p99": 18.0,
+          "max": 25,
+          "mean": 9.199404761904763
+        },
+        "depth": {
+          "min": 1,
+          "p10": 2.0,
+          "median": 2.0,
+          "p90": 2.0,
+          "p99": 3.0,
+          "max": 3,
+          "mean": 2.0029761904761907
+        },
+        "merges": {
+          "min": 1,
+          "p10": 2.0,
+          "median": 3.0,
+          "p90": 5.0,
+          "p99": 7.0,
+          "max": 9,
+          "mean": 3.425595238095238
+        },
+        "total_tokens": 3001115,
+        "total_leaves": 3091
+      },
+      "queries": {
+        "tokens": {
+          "min": 32,
+          "p10": 50.0,
+          "median": 106.0,
+          "p90": 246.5,
+          "p99": 450.64999999999907,
+          "max": 585,
+          "mean": 130.17857142857142
+        },
+        "all_directly_encodable": true
+      },
+      "direct_teacher_entire_task_eligible": false
+    },
+    "needle": {
+      "schema": {
+        "corpus": {
+          "rows": 800,
+          "columns": [
+            "doc_id",
+            "text",
+            "context_length",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'context_length': Value('int64'), 'qid': Value('string')}"
+        },
+        "queries": {
+          "rows": 400,
+          "columns": [
+            "doc_id",
+            "text",
+            "context_length",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'context_length': Value('int64'), 'qid': Value('string')}"
+        },
+        "qrels": {
+          "rows": 400,
+          "columns": [
+            "doc_id",
+            "text",
+            "context_length",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'context_length': Value('int64'), 'qid': Value('string')}"
+        }
+      },
+      "qrel_pairs": 400,
+      "id_audit": {
+        "query_set_equals_qrel_set": true,
+        "all_qrel_documents_exist": true,
+        "duplicates": 0,
+        "malformed": 0
+      },
+      "documents": {
+        "tokens": {
+          "min": 216,
+          "p10": 235.9,
+          "median": 2773.5,
+          "p90": 30149.0,
+          "p99": 30164.01,
+          "max": 30174,
+          "mean": 7493.625
+        },
+        "leaves": {
+          "min": 1,
+          "p10": 1.0,
+          "median": 3.0,
+          "p90": 30.0,
+          "p99": 30.0,
+          "max": 30,
+          "mean": 7.75
+        },
+        "depth": {
+          "min": 0,
+          "p10": 0.0,
+          "median": 1.0,
+          "p90": 3.0,
+          "p99": 3.0,
+          "max": 3,
+          "mean": 1.125
+        },
+        "merges": {
+          "min": 0,
+          "p10": 0.0,
+          "median": 1.0,
+          "p90": 11.0,
+          "p99": 11.0,
+          "max": 11,
+          "mean": 2.625
+        },
+        "total_tokens": 5994900,
+        "total_leaves": 6200
+      },
+      "queries": {
+        "tokens": {
+          "min": 6,
+          "p10": 8.0,
+          "median": 14.0,
+          "p90": 18.0,
+          "p99": 20.0,
+          "max": 20,
+          "mean": 13.4375
+        },
+        "all_directly_encodable": true
+      },
+      "direct_teacher_entire_task_eligible": false,
+      "context_length_conditions": {
+        "256": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 216,
+            "p10": 224.0,
+            "median": 229.0,
+            "p90": 239.10000000000002,
+            "p99": 250.0,
+            "max": 250,
+            "mean": 230.14
+          }
+        },
+        "512": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 444,
+            "p10": 452.0,
+            "median": 457.0,
+            "p90": 468.0,
+            "p99": 477.01,
+            "max": 478,
+            "mean": 458.01
+          }
+        },
+        "1024": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 901,
+            "p10": 909.0,
+            "median": 914.0,
+            "p90": 924.1,
+            "p99": 934.01,
+            "max": 935,
+            "mean": 914.98
+          }
+        },
+        "2048": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 1837,
+            "p10": 1845.0,
+            "median": 1850.0,
+            "p90": 1860.1,
+            "p99": 1870.01,
+            "max": 1871,
+            "mean": 1850.98
+          }
+        },
+        "4096": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 3676,
+            "p10": 3684.0,
+            "median": 3689.0,
+            "p90": 3699.1,
+            "p99": 3709.01,
+            "max": 3710,
+            "mean": 3689.99
+          }
+        },
+        "8192": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 7488,
+            "p10": 7496.0,
+            "median": 7501.0,
+            "p90": 7511.1,
+            "p99": 7521.01,
+            "max": 7522,
+            "mean": 7501.95
+          }
+        },
+        "16384": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 15135,
+            "p10": 15143.0,
+            "median": 15148.0,
+            "p90": 15158.1,
+            "p99": 15168.01,
+            "max": 15169,
+            "mean": 15148.99
+          }
+        },
+        "32768": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 30140,
+            "p10": 30148.0,
+            "median": 30153.0,
+            "p90": 30163.1,
+            "p99": 30173.01,
+            "max": 30174,
+            "mean": 30153.96
+          }
+        }
+      }
+    },
+    "passkey": {
+      "schema": {
+        "corpus": {
+          "rows": 800,
+          "columns": [
+            "doc_id",
+            "text",
+            "context_length",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'context_length': Value('int64'), 'qid': Value('string')}"
+        },
+        "queries": {
+          "rows": 400,
+          "columns": [
+            "doc_id",
+            "text",
+            "context_length",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'context_length': Value('int64'), 'qid': Value('string')}"
+        },
+        "qrels": {
+          "rows": 400,
+          "columns": [
+            "doc_id",
+            "text",
+            "context_length",
+            "qid"
+          ],
+          "features": "{'doc_id': Value('string'), 'text': Value('string'), 'context_length': Value('int64'), 'qid': Value('string')}"
+        }
+      },
+      "qrel_pairs": 400,
+      "id_audit": {
+        "query_set_equals_qrel_set": true,
+        "all_qrel_documents_exist": true,
+        "duplicates": 0,
+        "malformed": 0
+      },
+      "documents": {
+        "tokens": {
+          "min": 235,
+          "p10": 241.0,
+          "median": 2905.5,
+          "p90": 31036.0,
+          "p99": 31041.0,
+          "max": 31043,
+          "mean": 7725.88875
+        },
+        "leaves": {
+          "min": 1,
+          "p10": 1.0,
+          "median": 3.0,
+          "p90": 31.0,
+          "p99": 31.0,
+          "max": 31,
+          "mean": 8.0
+        },
+        "depth": {
+          "min": 0,
+          "p10": 0.0,
+          "median": 1.0,
+          "p90": 3.0,
+          "p99": 3.0,
+          "max": 3,
+          "mean": 1.125
+        },
+        "merges": {
+          "min": 0,
+          "p10": 0.0,
+          "median": 1.0,
+          "p90": 11.0,
+          "p99": 11.0,
+          "max": 11,
+          "mean": 2.625
+        },
+        "total_tokens": 6180711,
+        "total_leaves": 6400
+      },
+      "queries": {
+        "tokens": {
+          "min": 9,
+          "p10": 9.0,
+          "median": 10.0,
+          "p90": 12.0,
+          "p99": 12.009999999999991,
+          "max": 13,
+          "mean": 10.405
+        },
+        "all_directly_encodable": true
+      },
+      "direct_teacher_entire_task_eligible": false,
+      "context_length_conditions": {
+        "256": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 235,
+            "p10": 237.0,
+            "median": 239.0,
+            "p90": 242.0,
+            "p99": 243.01,
+            "max": 244,
+            "mean": 239.15
+          }
+        },
+        "512": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 476,
+            "p10": 478.0,
+            "median": 480.0,
+            "p90": 483.0,
+            "p99": 484.01,
+            "max": 485,
+            "mean": 480.15
+          }
+        },
+        "1024": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 961,
+            "p10": 963.0,
+            "median": 965.0,
+            "p90": 968.0,
+            "p99": 969.01,
+            "max": 970,
+            "mean": 965.14
+          }
+        },
+        "2048": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 1931,
+            "p10": 1933.0,
+            "median": 1935.0,
+            "p90": 1938.0,
+            "p99": 1939.01,
+            "max": 1940,
+            "mean": 1935.15
+          }
+        },
+        "4096": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 3871,
+            "p10": 3873.0,
+            "median": 3875.0,
+            "p90": 3878.0,
+            "p99": 3879.01,
+            "max": 3880,
+            "mean": 3875.13
+          }
+        },
+        "8192": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 7752,
+            "p10": 7754.0,
+            "median": 7756.0,
+            "p90": 7759.0,
+            "p99": 7760.01,
+            "max": 7761,
+            "mean": 7756.13
+          }
+        },
+        "16384": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 15514,
+            "p10": 15516.0,
+            "median": 15518.0,
+            "p90": 15521.0,
+            "p99": 15522.01,
+            "max": 15523,
+            "mean": 15518.13
+          }
+        },
+        "32768": {
+          "documents": 100,
+          "queries": 50,
+          "qrels": 50,
+          "token_counts": {
+            "min": 31034,
+            "p10": 31036.0,
+            "median": 31038.0,
+            "p90": 31041.0,
+            "p99": 31042.01,
+            "max": 31043,
+            "mean": 31038.13
+          }
+        }
+      }
+    }
+  }
+}

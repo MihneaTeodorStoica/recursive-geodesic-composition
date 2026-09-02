@@ -1,0 +1,201 @@
+{
+  "schema": "longembed_revision_audit_v1",
+  "created_unix": 1788362687.2579343,
+  "suite_revision": "10039a580487dacecf79db69166e17ace3ede392",
+  "mteb_task_metadata_revision": "6e346642246bfb4928c560ee08640dc84d074e8c",
+  "revisions": {
+    "10039a580487dacecf79db69166e17ace3ede392": {
+      "api_url": "https://huggingface.co/api/datasets/dwzhu/LongEmbed/tree/10039a580487dacecf79db69166e17ace3ede392?recursive=true&expand=true&limit=100",
+      "api_response_sha256": "4dac8e0026694eeda828d3db0b0f3f770c05742a2bae639eb9796ab2b6b86ff7",
+      "files": {
+        "2wikimqa/corpus.jsonl": {
+          "size": 11384376,
+          "lfs_oid": "f50e7df1dbd5bdf27d8c16a7e85390a1485c2c13b7e4f3e147d7718d52ae787b",
+          "blob_id": "b1fdca42abce6b41b5e16afdeccf8c251aad1f23"
+        },
+        "2wikimqa/qrels.jsonl": {
+          "size": 15980,
+          "lfs_oid": "ae65eec5dfbcd0169d0af92b19e732ab4c07d875061343b317804ed4dc226aea",
+          "blob_id": "2fee50b52140b2722e03f88c51329568c741ab11"
+        },
+        "2wikimqa/queries.jsonl": {
+          "size": 34293,
+          "lfs_oid": null,
+          "blob_id": "0180979453a7aa5c20e31f80b9237782fe5cc340"
+        },
+        "narrativeqa/corpus.jsonl": {
+          "size": 119531708,
+          "lfs_oid": "f777811da9373dedc464e4c9bccad63d2dfcf6460f6195d4bfb2661502fc6aea",
+          "blob_id": "d8789a021837cf0e61c3f81eef3126de5140600f"
+        },
+        "narrativeqa/qrels.jsonl": {
+          "size": 570785,
+          "lfs_oid": "d498af1c2ffad0f14e6fe58ba00bd063f9e686f90fd8107d93266fa3e0fd3ddb",
+          "blob_id": "e5f914b450f3f407693c5509d79ab551065404f5"
+        },
+        "narrativeqa/queries.jsonl": {
+          "size": 1001559,
+          "lfs_oid": null,
+          "blob_id": "3c405d028db203c6efb50214de2a920433d656c0"
+        },
+        "needle/corpus.jsonl": {
+          "size": 28300196,
+          "lfs_oid": "27a67c08a72de2e02fe8278e6a8fb85d825f4f3736e793ace38c5d4ab725d4d2",
+          "blob_id": "f1691759379af1a730ad0b7ba8fe817f980db934"
+        },
+        "needle/qrels.jsonl": {
+          "size": 35916,
+          "lfs_oid": "01857630f24d9a26297d48f06066f22fba524614c8d7bb9f8afd6ed59d7a6dde",
+          "blob_id": "97fc3514704e0358493b028f78ed98080d66ba13"
+        },
+        "needle/queries.jsonl": {
+          "size": 54449,
+          "lfs_oid": null,
+          "blob_id": "6021d8cdf84759234c63dfe2a9f6ad82c5cb0fed"
+        },
+        "passkey/corpus.jsonl": {
+          "size": 23227066,
+          "lfs_oid": "0b75d2ecd00324b40949ecd7d5d343908a057ac0df83f4bd49a33bac698b0bbe",
+          "blob_id": "f16b0fda151e4651cd75100bb4b9be4a084b82f9"
+        },
+        "passkey/qrels.jsonl": {
+          "size": 35912,
+          "lfs_oid": "d67c04043d14b08c4dec2878644edb37db9ecfda6cd8cf4ee99e5cfbbb66af0c",
+          "blob_id": "eb2f3b0f5bc91fa1719df404d30b7de134674578"
+        },
+        "passkey/queries.jsonl": {
+          "size": 45875,
+          "lfs_oid": null,
+          "blob_id": "afcafd643450b2a9bc340d348e5f14ac6e9c6a2a"
+        },
+        "qmsum/corpus.jsonl": {
+          "size": 10633507,
+          "lfs_oid": "ce495b73ba31bb5203a8f1f3b086a5f0e6421de05d921b6c0727368fa128b02b",
+          "blob_id": "d112c126cacd6dd97d6371799c843f648bf653cd"
+        },
+        "qmsum/qrels.jsonl": {
+          "size": 82040,
+          "lfs_oid": "65a2dc5c1db95d7a0a7c0e49eb10f62d9ffd4e885c9fac84c300f00a954f22a3",
+          "blob_id": "af9af82e3e21e9d7033c9e5b1139aa5c2b812fc3"
+        },
+        "qmsum/queries.jsonl": {
+          "size": 734324,
+          "lfs_oid": null,
+          "blob_id": "2d26b3cd704d401d399b3056d8f76f41b7a3f255"
+        },
+        "summ_screen_fd/corpus.jsonl": {
+          "size": 10539725,
+          "lfs_oid": "89a2e4e414bf8017e3ec6aacc97fc8047649f0f062c4592459953e1c8cd4a06f",
+          "blob_id": "40997d46148640f1116d223b011ee2d27f193572"
+        },
+        "summ_screen_fd/qrels.jsonl": {
+          "size": 17924,
+          "lfs_oid": "227049e80653fb63996ee1754a5e85e4c6b5b2149ae7e9654154ccc1e946ec27",
+          "blob_id": "7f49b15e632d0b6134b91f527f9b9d459bab813b"
+        },
+        "summ_screen_fd/queries.jsonl": {
+          "size": 214544,
+          "lfs_oid": null,
+          "blob_id": "cdb731c46aa96a08b3e547fa818dc65378aa5eb5"
+        }
+      }
+    },
+    "6e346642246bfb4928c560ee08640dc84d074e8c": {
+      "api_url": "https://huggingface.co/api/datasets/dwzhu/LongEmbed/tree/6e346642246bfb4928c560ee08640dc84d074e8c?recursive=true&expand=true&limit=100",
+      "api_response_sha256": "c90ea3b0ecd57a398e636a4317a0d704be87b029696dfdc7199653df73d47a62",
+      "files": {
+        "2wikimqa/corpus.jsonl": {
+          "size": 11384376,
+          "lfs_oid": "f50e7df1dbd5bdf27d8c16a7e85390a1485c2c13b7e4f3e147d7718d52ae787b",
+          "blob_id": "b1fdca42abce6b41b5e16afdeccf8c251aad1f23"
+        },
+        "2wikimqa/qrels.jsonl": {
+          "size": 15980,
+          "lfs_oid": "ae65eec5dfbcd0169d0af92b19e732ab4c07d875061343b317804ed4dc226aea",
+          "blob_id": "2fee50b52140b2722e03f88c51329568c741ab11"
+        },
+        "2wikimqa/queries.jsonl": {
+          "size": 34293,
+          "lfs_oid": null,
+          "blob_id": "0180979453a7aa5c20e31f80b9237782fe5cc340"
+        },
+        "narrativeqa/corpus.jsonl": {
+          "size": 119531708,
+          "lfs_oid": "f777811da9373dedc464e4c9bccad63d2dfcf6460f6195d4bfb2661502fc6aea",
+          "blob_id": "d8789a021837cf0e61c3f81eef3126de5140600f"
+        },
+        "narrativeqa/qrels.jsonl": {
+          "size": 570785,
+          "lfs_oid": "d498af1c2ffad0f14e6fe58ba00bd063f9e686f90fd8107d93266fa3e0fd3ddb",
+          "blob_id": "e5f914b450f3f407693c5509d79ab551065404f5"
+        },
+        "narrativeqa/queries.jsonl": {
+          "size": 1001559,
+          "lfs_oid": null,
+          "blob_id": "3c405d028db203c6efb50214de2a920433d656c0"
+        },
+        "needle/corpus.jsonl": {
+          "size": 28300196,
+          "lfs_oid": "27a67c08a72de2e02fe8278e6a8fb85d825f4f3736e793ace38c5d4ab725d4d2",
+          "blob_id": "f1691759379af1a730ad0b7ba8fe817f980db934"
+        },
+        "needle/qrels.jsonl": {
+          "size": 35916,
+          "lfs_oid": "01857630f24d9a26297d48f06066f22fba524614c8d7bb9f8afd6ed59d7a6dde",
+          "blob_id": "97fc3514704e0358493b028f78ed98080d66ba13"
+        },
+        "needle/queries.jsonl": {
+          "size": 54449,
+          "lfs_oid": null,
+          "blob_id": "6021d8cdf84759234c63dfe2a9f6ad82c5cb0fed"
+        },
+        "passkey/corpus.jsonl": {
+          "size": 23227066,
+          "lfs_oid": "0b75d2ecd00324b40949ecd7d5d343908a057ac0df83f4bd49a33bac698b0bbe",
+          "blob_id": "f16b0fda151e4651cd75100bb4b9be4a084b82f9"
+        },
+        "passkey/qrels.jsonl": {
+          "size": 35912,
+          "lfs_oid": "d67c04043d14b08c4dec2878644edb37db9ecfda6cd8cf4ee99e5cfbbb66af0c",
+          "blob_id": "eb2f3b0f5bc91fa1719df404d30b7de134674578"
+        },
+        "passkey/queries.jsonl": {
+          "size": 45875,
+          "lfs_oid": null,
+          "blob_id": "afcafd643450b2a9bc340d348e5f14ac6e9c6a2a"
+        },
+        "qmsum/corpus.jsonl": {
+          "size": 10633507,
+          "lfs_oid": "ce495b73ba31bb5203a8f1f3b086a5f0e6421de05d921b6c0727368fa128b02b",
+          "blob_id": "d112c126cacd6dd97d6371799c843f648bf653cd"
+        },
+        "qmsum/qrels.jsonl": {
+          "size": 82040,
+          "lfs_oid": "65a2dc5c1db95d7a0a7c0e49eb10f62d9ffd4e885c9fac84c300f00a954f22a3",
+          "blob_id": "af9af82e3e21e9d7033c9e5b1139aa5c2b812fc3"
+        },
+        "qmsum/queries.jsonl": {
+          "size": 734324,
+          "lfs_oid": null,
+          "blob_id": "2d26b3cd704d401d399b3056d8f76f41b7a3f255"
+        },
+        "summ_screen_fd/corpus.jsonl": {
+          "size": 10539725,
+          "lfs_oid": "89a2e4e414bf8017e3ec6aacc97fc8047649f0f062c4592459953e1c8cd4a06f",
+          "blob_id": "40997d46148640f1116d223b011ee2d27f193572"
+        },
+        "summ_screen_fd/qrels.jsonl": {
+          "size": 17924,
+          "lfs_oid": "227049e80653fb63996ee1754a5e85e4c6b5b2149ae7e9654154ccc1e946ec27",
+          "blob_id": "7f49b15e632d0b6134b91f527f9b9d459bab813b"
+        },
+        "summ_screen_fd/queries.jsonl": {
+          "size": 214544,
+          "lfs_oid": null,
+          "blob_id": "cdb731c46aa96a08b3e547fa818dc65378aa5eb5"
+        }
+      }
+    }
+  },
+  "all_benchmark_files_content_identical_between_revisions": true
+}
