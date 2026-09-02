@@ -891,7 +891,8 @@ def step_loss_batch(model, rows, autoencoder, device, recon_weight, cycle_weight
                     auxiliary_weight_multiplier=1.0, importance_weight_multiplier=None,
                     detach_decoder_parent=False, covariance_mode='none',
                     covariance_weight=0.0, covariance_ridge=1e-4,
-                    residual_mean_weight=0.0, corpus_labels=None):
+                    residual_mean_weight=0.0, corpus_labels=None,
+                    covariance_accumulator=None):
     """Add minibatch teacher-distribution matching to the existing base loss.
 
     The collected vectors span every teacher-supervised merge in the sampled
@@ -939,16 +940,28 @@ def step_loss_batch(model, rows, autoencoder, device, recon_weight, cycle_weight
             covariance, condition = whitened_covariance(prediction, target, covariance_ridge)
         else:
             names = sorted(set(labels))
-            if None in names or len(names) != 4:
-                raise ValueError("balanced covariance requires four labeled corpora")
-            losses, conditions = [], []
+            if None in names or len(names) != 4 or covariance_accumulator is None:
+                raise ValueError("balanced covariance requires four labeled corpora and accumulator")
+            losses, conditions, current = [], [], {}
+            ready = True
             for name in names:
                 mask = torch.tensor([label == name for label in labels], device=prediction.device)
-                if int(mask.sum()) < 4:
-                    raise ValueError(f"balanced covariance requires four matched parents for {name}")
-                loss, item_condition = whitened_covariance(prediction[mask], target[mask], covariance_ridge)
-                losses.append(loss); conditions.append(item_condition)
-            covariance, condition = balanced(losses), torch.stack(conditions).max()
+                current[name] = (prediction[mask], target[mask])
+                old = covariance_accumulator.get(name)
+                ready &= int(mask.sum()) + (0 if old is None else old[0].shape[0]) >= 4
+            if ready:
+                for name in names:
+                    pg, tg = current[name]; old = covariance_accumulator.get(name)
+                    if old is not None:
+                        pg = torch.cat((old[0].to(pg), pg)); tg = torch.cat((old[1].to(tg), tg))
+                    loss, item_condition = whitened_covariance(pg, tg, covariance_ridge)
+                    losses.append(loss); conditions.append(item_condition)
+                covariance, condition = balanced(losses), torch.stack(conditions).max()
+                covariance_accumulator.clear()
+            else:
+                for name, (pg, tg) in current.items():
+                    old = covariance_accumulator.get(name)
+                    covariance_accumulator[name] = (pg.detach() if old is None else torch.cat((old[0], pg.detach())), tg.detach() if old is None else torch.cat((old[1], tg.detach())))
             residual_mean = (prediction - target).mean(0).square().mean()
         if not torch.isfinite(covariance + residual_mean + condition) or condition > 1e8:
             raise FloatingPointError("covariance objective health failure")
@@ -1539,6 +1552,7 @@ def run(cfg, variant, seed, device):
     final_step = 0
     model.train(); best = float('inf'); every = max(1, int(cfg.get('validation_every', cfg['steps'] // 10)))
     encoder_was_frozen = bool(freeze_encoder_steps)
+    covariance_accumulator = {} if covariance_mode == 'balanced_whitened' else None
     for s in range(cfg['steps']):
         step = s + 1
         encoder_frozen = variant == 'autoencoder' and step <= freeze_encoder_steps
@@ -1585,7 +1599,8 @@ def run(cfg, variant, seed, device):
                 detach_decoder_parent=encoder_frozen,
                 covariance_mode=covariance_mode, covariance_weight=covariance_weight,
                 covariance_ridge=covariance_ridge, residual_mean_weight=residual_mean_weight,
-                corpus_labels=[corpus for corpus, _ in indexed_batch])
+                corpus_labels=[corpus for corpus, _ in indexed_batch],
+                covariance_accumulator=covariance_accumulator)
         if adversarial_active:
             prediction, target = pair_collector.pairs()
             if prediction is None or prediction.shape[0] < adversarial_min_samples:

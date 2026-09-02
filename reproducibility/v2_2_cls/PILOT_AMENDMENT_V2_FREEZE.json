@@ -1,0 +1,10 @@
+{
+  "scope": "C-only post-TRAIN engineering amendment",
+  "original_arms_preserved": true,
+  "files": {
+    "src/recursive_geodesic_composition/train.py": "541c79174875bbff1f7621d3e13481c0ef3cfa752382011af4758ff506ec8496",
+    "tests/test_v2_2_c_accumulator.py": "244eeaecba14b493f094e8af44ccd4564f4b8a0785603a88a1f1e0755c2baf03",
+    "reproducibility/v2_2_cls/PILOT_AMENDMENT_V2_C_ACCUMULATOR.md": "d2778bf6bcfce2acb97b3106b376d0e67b320c4c3adba65a749c308c180c2164",
+    "configs/v2_2_cls/pilot.yaml": "be302975a04d3b39a9e353d4929872bdce2e1c996d36f9c6045b975ab9f3ac40"
+  }
+}

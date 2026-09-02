@@ -3,7 +3,7 @@
 from __future__ import annotations
 import argparse, copy, json, sys
 from pathlib import Path
-import yaml
+import yaml, torch
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(ROOT), str(ROOT / 'src')]
@@ -48,7 +48,7 @@ def run_pilot(config_path, device='cuda', arms=ARMS):
         # run() resets both Python and Torch RNG. Thus every arm has identical
         # fresh initialization and sampling; only the frozen objective differs.
         if Path(arm_cfg['output_dir']).exists(): raise FileExistsError(f'create-only pilot output exists: {arm_cfg["output_dir"]}')
-        run(arm_cfg, 'encoder', int(cfg['seed']), device)
+        run(arm_cfg, 'encoder', int(cfg['seed']), torch.device(device))
         status = json.loads((Path(arm_cfg['output_dir']) / f'encoder_seed{cfg["seed"]}_run_status.json').read_text())
         record = _last_record(arm_cfg['output_dir'])
         results[arm] = {'status': status, 'final': {key: record.get(key) for key in ('teacher', 'covariance', 'residual_mean', 'distribution_variance', 'covariance_condition', 'grad_norm')}}

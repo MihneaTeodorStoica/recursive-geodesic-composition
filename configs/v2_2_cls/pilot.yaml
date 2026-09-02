@@ -61,7 +61,7 @@ train_augmentations: 4
 validation_segmentations: 2
 batch_size: 8
 steps: 250
-validation_every: 400
+validation_every: 250
 validation_metric_documents: 1000
 validation_root_batch_size: 64
 learning_rate: 2.0e-05
@@ -98,9 +98,9 @@ sharpness_loss_weight: 0.01
 slot_loss_weight: 0.01
 sharpness_margin: 0.1
 stratified_multicorpus_batches: true
-checkpoint_selection: fixed_final_step_400_train_only_predevelopment
+checkpoint_selection: fixed_final_step_250_train_only_predevelopment
 checkpoint_moving_average_window: 1
-checkpoint_selection_start_step: 400
+checkpoint_selection_start_step: 250
 keep_only_best: true
 defer_selected_checkpoint_write_until_training_complete: true
 reject_on_geodesic_saturation: false
