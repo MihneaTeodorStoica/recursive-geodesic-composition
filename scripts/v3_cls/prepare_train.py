@@ -56,14 +56,12 @@ def main():
     try:
         teacher=FrozenTeacher(cfg['model_name'], cfg['model_revision'], args.device, pooling='cls', trust_remote_code=cfg.get('teacher_trust_remote_code', True))
         stage_cfg=copy.deepcopy(cfg); stage_cfg['cache_dir']=str(stage)
-        if args.smoke:
-            count=min(4, TRAIN_RANGE[1]-TRAIN_RANGE[0])
-        else:
-            count=TRAIN_RANGE[1]-TRAIN_RANGE[0]
         audits={}
         for corpus in cfg['corpora']:
-            if int(corpus['train_start']) != TRAIN_RANGE[0] or int(corpus['train_documents']) > count:
+            requested = int(corpus['train_documents'])
+            if int(corpus['train_start']) != TRAIN_RANGE[0] or requested > (TRAIN_RANGE[1] - TRAIN_RANGE[0]):
                 raise ValueError('corpus train range must match frozen V3 allocation')
+            count = min(4, requested) if args.smoke else requested
             docs=stream_document_ranges(corpus['dataset_name'], corpus.get('dataset_config'), corpus['dataset_revision'], {'train': (TRAIN_RANGE[0], count)})['train']
             local=dict(corpus); local['train_start']=TRAIN_RANGE[0]; local['train_documents']=count
             prepare_kary_split(stage_cfg, teacher, local, 'train', docs)

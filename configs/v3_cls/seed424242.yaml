@@ -81,7 +81,7 @@ initialize_encoder_from_autoencoder_checkpoint: false
 decoder_mode: strict
 decoder_length_mode: predicted
 freeze_encoder_steps: 0
-decoder_only_require_full_arity_rows: true
+decoder_only_require_full_arity_rows: false
 autoencoder_objective_start_step: 300
 autoencoder_objective_ramp_steps: 300
 reconstruction_weight: 0.15
