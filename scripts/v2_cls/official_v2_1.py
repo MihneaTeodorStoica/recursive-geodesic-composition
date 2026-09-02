@@ -107,7 +107,11 @@ def evaluate(device):
    rows=torch.load(cache/f'{cid}_safe.pt',map_location='cpu',weights_only=False);fs=[];rs=[];dec=[];ret=[]
    with torch.inference_mode():
     for r in rows:
-     root,_=recursive_reduce(model,r['leaves'].to(device)[None],r['lengths'].to(device)[None]);root=root[0];fs.append(root.cpu());rs.append(r['teacher_target']);dec.append(float(F.cosine_similarity(model.decode(root[None])[0,:len(r['lengths'])],r['leaves'].to(device),dim=-1).mean()));ret.append(float(F.cosine_similarity(probe(root[None]),r['leaves'].to(device)[None],dim=-1).mean()))
+     root,_=recursive_reduce(model,r['leaves'].to(device)[None],r['lengths'].to(device)[None]);root=root[0]
+     fs.append(root.cpu());rs.append(r['teacher_target'])
+     dec.append(float(F.cosine_similarity(model.decode(root[None])[0,:len(r['lengths'])],r['leaves'].to(device),dim=-1).mean()))
+     if len(r['lengths'])==4:
+      ret.append(float(F.cosine_similarity(probe(root[None]),r['leaves'].to(device)[None],dim=-1).mean()))
    f=np.stack([x.numpy() for x in fs]);r=np.stack([x.numpy() for x in rs]);per[cid]={'teacher_cosine':float(np.mean(np.sum(f*r,1))),'decoder_child_cosine':float(np.mean(dec)),'probe_retention':float(np.mean(ret))};fake.append(f);real.append(r);groups += [x['id'] for x in rows]
    for sp in sorted((cache/cid).glob('*.pt')):
     x=torch.load(sp,map_location='cpu',weights_only=False)

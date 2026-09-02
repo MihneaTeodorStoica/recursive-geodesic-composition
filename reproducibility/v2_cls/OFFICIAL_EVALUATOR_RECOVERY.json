@@ -1,0 +1,7 @@
+{
+  "scope": "safe-arm parent probe comparison restricted to exact-K4 fitted domain",
+  "reason": "partial-arity probe output was compared to 2/3-child targets",
+  "pre_metric_failure": true,
+  "cache_reused_no_source_rescan": true,
+  "evaluator_sha256": "f1146690362d5d8166177ddae26ffde5ab0913c615f3e35863043c1e3d092f86"
+}
