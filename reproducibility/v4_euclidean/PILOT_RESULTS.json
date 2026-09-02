@@ -1,0 +1,26 @@
+{
+  "geodesic": {
+    "first20_teacher": 0.029696370707824826,
+    "last20_teacher": 0.02769993171095848,
+    "max_grad_norm": 0.856238842010498,
+    "max_saturation": 0.0,
+    "history_sha256": "3ec4e839f4a452f67d6ccd086f6ef50ec97211d9999ae58f369442534a987898",
+    "passed": true
+  },
+  "euclidean_residual": {
+    "first20_teacher": 0.029866297263652086,
+    "last20_teacher": 0.027707942016422748,
+    "max_grad_norm": 0.9254481196403503,
+    "max_saturation": 0.0,
+    "history_sha256": "b37927c346d2d361008da42065ac130d288bc0c17538a48a928a133cf7e153fd",
+    "passed": true
+  },
+  "free_euclidean": {
+    "first20_teacher": 0.4843224540352821,
+    "last20_teacher": 0.36264088153839114,
+    "max_grad_norm": 6.1243367195129395,
+    "max_saturation": 0.0,
+    "history_sha256": "2df713ca189b9f95e6a7997a2c5be31b5a9a3ecda76ac3139413ca9e399d21b7",
+    "passed": true
+  }
+}

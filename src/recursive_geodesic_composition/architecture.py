@@ -176,7 +176,9 @@ class GeodesicMerge(nn.Module):
             values["geodesic_angle_mean"] = angles.mean()
             values["geodesic_angle_p95"] = torch.quantile(angles, .95)
             values["geodesic_angle_max"] = angles.max()
-            values["geodesic_saturation_fraction"] = (angles >= .95 * self.max_angle).float().mean()
+            values["geodesic_saturation_fraction"] = ((angles >= .95 * self.max_angle).float().mean()
+                                                        if self.composition_geometry == "geodesic"
+                                                        else angles.new_zeros(()))
         for key in ("prior", "delta", "sharpness", "slot", "importance"):
             values.setdefault(key, zero)
         for key in ("geodesic_angle_mean", "geodesic_angle_p95", "geodesic_angle_max",

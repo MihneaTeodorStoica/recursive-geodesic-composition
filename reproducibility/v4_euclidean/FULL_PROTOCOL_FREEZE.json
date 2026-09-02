@@ -1,0 +1,29 @@
+{
+  "study": "v4_euclidean",
+  "stage": "full_architecture_comparison_frozen",
+  "source_cache_manifest_sha256": "06b959c74aca0031a95392c5d844ccc0205ff81992bd97f7c0e0a67b2598114e",
+  "same_cache_all_arms": true,
+  "same_python_minibatch_seed_schedule": true,
+  "parameter_count_each": 123616258,
+  "training_code_sha256": "a28a04f8fa1145c1aed63b74aacc63f3effb31368ee493509b3e02466edfa604",
+  "architecture_code_sha256": "1a4379eaff1aa631e7ef11b9ded17eac336a174d1a03cdecd5c653a89933df1e",
+  "configs": {
+    "geodesic": {
+      "424242": "a9aa4be186663677766ab47da3c3083f583da1ef64e71385b5b5887481bd19aa",
+      "271828": "fc845cdcdd4b9db5db50bee64ad21745f3cba963e8119f898cc9b023625b7b5b",
+      "314159": "9920c935158a99acdbe6b19e8923b1121be7ca154257e99059146c0cdc2783c2"
+    },
+    "euclidean_residual": {
+      "424242": "8058cce87583afb7ca4978f1617c18b4d733f3776e10e53006554d06984d5ae1",
+      "271828": "44fb661a82d7f1dae53be581770ae51563f75478cc9eb6b1aa3658dba1d6264c",
+      "314159": "439237388ed017b046bb13673069bc5d646ef5de50a311ef02a2caf77dc84416"
+    },
+    "free_euclidean": {
+      "424242": "0fcb6961357ab1ff97b2367e9eb8f6c0a9ea55e6c4293d7e9146e51ebb56dd19",
+      "271828": "7fc00b274e677f241863f142173dab885d71600aa535892ad4aceac3aae848b0",
+      "314159": "8d91f1ee04e9aeecb533b4a665ac4db3be83e0fa859cd7716fe25a60763d0440"
+    }
+  },
+  "pilot_results_sha256": "5e1b5cc8b97f546ad4d44bdf38dbf24c7b845fea540005213c3c0c23e5d57505",
+  "development_opened": false
+}

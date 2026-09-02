@@ -1,0 +1,30 @@
+{
+  "cache_namespace": "kary_geodesic_v1",
+  "split": "train",
+  "validation_only_experiment": true,
+  "official_test_evaluated": false,
+  "arity": 4,
+  "reduction": "contiguous_balanced",
+  "teacher_max_tokens": 6144,
+  "target_provenance": "per-target exact leaf/token interval and token SHA-256",
+  "source_start": 348000,
+  "requested": 12000,
+  "usable": 8499,
+  "corpus_id": "openwebtext",
+  "dataset": "Skylion007/openwebtext",
+  "config": null,
+  "revision": "79d93d786212f7344586290adb811d4ae6a1762c",
+  "model": "Alibaba-NLP/gte-modernbert-base",
+  "model_revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22",
+  "teacher_pooling": "cls",
+  "teacher_provenance": {
+    "teacher_id": "Alibaba-NLP/gte-modernbert-base",
+    "teacher_revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22",
+    "teacher_pooling": "cls",
+    "tokenizer_class": "TokenizersBackend",
+    "model_class": "ModernBertModel",
+    "trust_remote_code": true,
+    "max_position_embeddings": 8192,
+    "hidden_size": 768
+  }
+}
