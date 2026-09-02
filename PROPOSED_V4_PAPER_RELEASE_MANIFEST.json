@@ -2,7 +2,7 @@
   "schema": "proposed_v4_paper_release_manifest_v1",
   "release_published": false,
   "branch": "v4-paper-euclidean",
-  "source_commit_before_manifest": "20a85bf2ec54954423f64c1eb1076610407a7bde",
+  "source_commit_before_manifest": "82424a28948b77f0b5e8a6bac694640abeb3aea5",
   "selected_architecture": "euclidean_residual",
   "files": [
     {
@@ -372,8 +372,8 @@
     },
     {
       "path": "scripts/v4_euclidean/downstream/final_suite_audit.py",
-      "sha256": "286776fe0cf8b9b679cecd0a8ee41a2a5ee98bcb880b6ea6eb4c4d717f767c87",
-      "bytes": 4350
+      "sha256": "edd3b471920f1020cfd481d73ea14a72a1c7aad7146ca1fb3c0799cba25fbed7",
+      "bytes": 4377
     },
     {
       "path": "scripts/v4_euclidean/downstream/generate_suite_figures.py",
@@ -672,8 +672,8 @@
     },
     {
       "path": "results/v4_euclidean/downstream/SUITE_FINAL_AUDIT.json",
-      "sha256": "755eb5e4163bd7ba0b31d48c8bcc80f7bec10b257471b18c3b2e92dc7fc50646",
-      "bytes": 4826
+      "sha256": "998f4b938a793af46d19a82d9ee8774247c8fb6d0d8c9a27b235ec9ebb07960c",
+      "bytes": 4733
     },
     {
       "path": "results/v4_euclidean/downstream/SUITE_PRECOMMIT.json",
