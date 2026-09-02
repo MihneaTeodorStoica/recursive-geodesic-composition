@@ -1,0 +1,84 @@
+{
+  "role": "v2_train_only_parent_probe",
+  "cache_manifest_sha256": "5d97c2742663c47ad3d01a3f5ae6f6e93c7616984c3a81ab14098560f10af73d",
+  "selection": {
+    "fineweb_edu": {
+      "fit": "e8d4ca0c5ea9147d1f5e86c009dde88dc47bdd4aa82ac9387a76fc14477fce9e",
+      "floor": "fc21850fe86d877196767f11f68df221f3f98db7dc41d7e7cd26b9f98b272bbd"
+    },
+    "fineweb": {
+      "fit": "6756ee7cc253f1452e33e696737b28f1ba09a8c7570ab4456f47d55a46d24ef4",
+      "floor": "4ba2dbe32a09769b44051b3d0529898434dc1c70b6e2348d4d30b8c55aebb273"
+    },
+    "openwebtext": {
+      "fit": "4aaffabb0b045fe0b95b8dd75c9a8987760f6039103d0e9271c1284eefb966fc",
+      "floor": "a34c70f13963ea10f14d67956abcc251e1142137c680f53a9f2c2813933ebac3"
+    },
+    "wikipedia_en_20231101": {
+      "fit": "ae53cfdbc87612f30182e38a98d2c9fbbaf2b0b74e3332ceaa36d30be8feb375",
+      "floor": "bc0a84c2e295812adcf4914c46dfd67b992b38a1a2e49c3c73f9d28571677c89"
+    }
+  },
+  "seeds": {
+    "424242": {
+      "checkpoint": "results/v2_cls/amended_v2_1_seed424242/stage_c/autoencoder_seed424242.pt",
+      "checkpoint_sha256": "c2464e5f884887779f35f4dff193c25ec1b9d80dbc91eae7263610b9e8d55c19",
+      "probe": "artifacts/v2_cls/train_probes_v2_1/parent_only_seed424242.pt",
+      "probe_sha256": "f582947461f7dc8f37663e7e67efbe63e6830d6f0d111109e6493452f376f95d",
+      "train_scores": {
+        "pooled": 0.9007978439331055,
+        "fineweb_edu": 0.8961734771728516,
+        "fineweb": 0.8993167877197266,
+        "openwebtext": 0.9029194116592407,
+        "wikipedia_en_20231101": 0.904781699180603
+      },
+      "floors": {
+        "pooled": 0.8997978439331055,
+        "fineweb_edu": 0.8951734771728516,
+        "fineweb": 0.8983167877197266,
+        "openwebtext": 0.9019194116592407,
+        "wikipedia_en_20231101": 0.903781699180603
+      }
+    },
+    "271828": {
+      "checkpoint": "results/v2_cls/amended_v2_1_seed271828/stage_c/autoencoder_seed271828.pt",
+      "checkpoint_sha256": "0ced20f8619d46fb2c8be8acc6bcd7c751bdbf3d693885f500ed961a117c4ee8",
+      "probe": "artifacts/v2_cls/train_probes_v2_1/parent_only_seed271828.pt",
+      "probe_sha256": "8f4c836fdad5b3f974a910d54deb63f4223d8c456573995883f538dcf4fef5cb",
+      "train_scores": {
+        "pooled": 0.9007717370986938,
+        "fineweb_edu": 0.8961795568466187,
+        "fineweb": 0.8995974659919739,
+        "openwebtext": 0.9031205177307129,
+        "wikipedia_en_20231101": 0.9041892290115356
+      },
+      "floors": {
+        "pooled": 0.8997717370986938,
+        "fineweb_edu": 0.8951795568466187,
+        "fineweb": 0.8985974659919739,
+        "openwebtext": 0.9021205177307129,
+        "wikipedia_en_20231101": 0.9031892290115356
+      }
+    },
+    "314159": {
+      "checkpoint": "results/v2_cls/amended_v2_1_seed314159/stage_c_retry_after_enospc/autoencoder_seed314159.pt",
+      "checkpoint_sha256": "0be4a8059b8e7673d563eada614ca95651c309bad07f6176b3919235f5253d27",
+      "probe": "artifacts/v2_cls/train_probes_v2_1/parent_only_seed314159.pt",
+      "probe_sha256": "49148e1d2ada575395e9863f7bc9d5bef913b7e654903acde8665b5ddbdd2159",
+      "train_scores": {
+        "pooled": 0.900131106376648,
+        "fineweb_edu": 0.8956262469291687,
+        "fineweb": 0.8988996744155884,
+        "openwebtext": 0.9025877714157104,
+        "wikipedia_en_20231101": 0.9034109115600586
+      },
+      "floors": {
+        "pooled": 0.899131106376648,
+        "fineweb_edu": 0.8946262469291687,
+        "fineweb": 0.8978996744155884,
+        "openwebtext": 0.9015877714157104,
+        "wikipedia_en_20231101": 0.9024109115600586
+      }
+    }
+  }
+}
