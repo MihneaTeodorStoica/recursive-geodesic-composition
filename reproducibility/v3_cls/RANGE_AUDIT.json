@@ -1,0 +1,4538 @@
+{
+  "observations": [
+    {
+      "branch": "origin/main",
+      "path": "README.md",
+      "line": 39,
+      "text": "Per-corpus three-seed AUC means are FineWeb 0.572271, FineWeb-Edu 0.566317, OpenWebText 0.583503, and Wikipedia 0.636689. Each unrestricted full-document seed accounts for all 4,000 documents, 9,142,043 tokens, 11,356 leaves, and 4,789 internal merges, with maxima of 58,731 tokens, 58 leaves, and depth 3. These values are parsed from the frozen JSON, not recomputed metrics."
+    },
+    {
+      "branch": "origin/main",
+      "path": "README.md",
+      "line": 265,
+      "text": "Clean-v6 used TRAIN `[140000,152000)`, development `[152000,161000)`, untouched buffer `[161000,162000)`, and official scan `[162000,192000)` in source-index space for each corpus."
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/final_v6/seed271828.yaml",
+      "line": 13,
+      "text": "- {id: fineweb_edu, weight: 0.25, dataset_name: HuggingFaceFW/fineweb-edu, dataset_config: sample-10BT, dataset_revision: 87f09149ef4734204d70ed1d046ddc9ca3f2b8f9, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/final_v6/seed271828.yaml",
+      "line": 14,
+      "text": "- {id: fineweb, weight: 0.25, dataset_name: HuggingFaceFW/fineweb, dataset_config: sample-10BT, dataset_revision: 9bb295ddab0e05d785b879661af7260fed5140fc, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/final_v6/seed271828.yaml",
+      "line": 15,
+      "text": "- {id: openwebtext, weight: 0.25, dataset_name: Skylion007/openwebtext, dataset_config: null, dataset_revision: 79d93d786212f7344586290adb811d4ae6a1762c, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/final_v6/seed271828.yaml",
+      "line": 16,
+      "text": "- {id: wikipedia_en_20231101, weight: 0.25, dataset_name: wikimedia/wikipedia, dataset_config: 20231101.en, dataset_revision: b04c8d1ceb2f5cd4588862100d08de323dccfbaa, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/final_v6/seed271828.yaml",
+      "line": 37,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/final_v6/seed314159.yaml",
+      "line": 13,
+      "text": "- {id: fineweb_edu, weight: 0.25, dataset_name: HuggingFaceFW/fineweb-edu, dataset_config: sample-10BT, dataset_revision: 87f09149ef4734204d70ed1d046ddc9ca3f2b8f9, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/final_v6/seed314159.yaml",
+      "line": 14,
+      "text": "- {id: fineweb, weight: 0.25, dataset_name: HuggingFaceFW/fineweb, dataset_config: sample-10BT, dataset_revision: 9bb295ddab0e05d785b879661af7260fed5140fc, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/final_v6/seed314159.yaml",
+      "line": 15,
+      "text": "- {id: openwebtext, weight: 0.25, dataset_name: Skylion007/openwebtext, dataset_config: null, dataset_revision: 79d93d786212f7344586290adb811d4ae6a1762c, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/final_v6/seed314159.yaml",
+      "line": 16,
+      "text": "- {id: wikipedia_en_20231101, weight: 0.25, dataset_name: wikimedia/wikipedia, dataset_config: 20231101.en, dataset_revision: b04c8d1ceb2f5cd4588862100d08de323dccfbaa, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/final_v6/seed314159.yaml",
+      "line": 37,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/final_v6/seed424242.yaml",
+      "line": 13,
+      "text": "- {id: fineweb_edu, weight: 0.25, dataset_name: HuggingFaceFW/fineweb-edu, dataset_config: sample-10BT, dataset_revision: 87f09149ef4734204d70ed1d046ddc9ca3f2b8f9, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/final_v6/seed424242.yaml",
+      "line": 14,
+      "text": "- {id: fineweb, weight: 0.25, dataset_name: HuggingFaceFW/fineweb, dataset_config: sample-10BT, dataset_revision: 9bb295ddab0e05d785b879661af7260fed5140fc, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/final_v6/seed424242.yaml",
+      "line": 15,
+      "text": "- {id: openwebtext, weight: 0.25, dataset_name: Skylion007/openwebtext, dataset_config: null, dataset_revision: 79d93d786212f7344586290adb811d4ae6a1762c, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/final_v6/seed424242.yaml",
+      "line": 16,
+      "text": "- {id: wikipedia_en_20231101, weight: 0.25, dataset_name: wikimedia/wikipedia, dataset_config: 20231101.en, dataset_revision: b04c8d1ceb2f5cd4588862100d08de323dccfbaa, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/final_v6/seed424242.yaml",
+      "line": 37,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/information_retention_validation.yaml",
+      "line": 43,
+      "text": "  source_start: 12000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/information_retention_validation.yaml",
+      "line": 46,
+      "text": "    - {name: 8k-16k, min: 8192, max: 16383, documents: 50}"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/information_retention_validation.yaml",
+      "line": 47,
+      "text": "    - {name: 16k-32k, min: 16384, max: 32768, documents: 50}"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary4_reference.yaml",
+      "line": 20,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary4_reference.yaml",
+      "line": 21,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary4_reference.yaml",
+      "line": 22,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary4_reference.yaml",
+      "line": 29,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary4_reference.yaml",
+      "line": 30,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary4_reference.yaml",
+      "line": 31,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary4_reference.yaml",
+      "line": 38,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary4_reference.yaml",
+      "line": 39,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary4_reference.yaml",
+      "line": 40,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary4_reference.yaml",
+      "line": 47,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary4_reference.yaml",
+      "line": 48,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary4_reference.yaml",
+      "line": 49,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary4_reference.yaml",
+      "line": 75,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary_scaling.yaml",
+      "line": 11,
+      "text": "# Same pinned, document-disjoint ranges and equal mixture as the K4/1024 arm."
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary_scaling.yaml",
+      "line": 19,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary_scaling.yaml",
+      "line": 20,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary_scaling.yaml",
+      "line": 21,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary_scaling.yaml",
+      "line": 28,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary_scaling.yaml",
+      "line": 29,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary_scaling.yaml",
+      "line": 30,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary_scaling.yaml",
+      "line": 37,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary_scaling.yaml",
+      "line": 38,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary_scaling.yaml",
+      "line": 39,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary_scaling.yaml",
+      "line": 46,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary_scaling.yaml",
+      "line": 47,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary_scaling.yaml",
+      "line": 48,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/kary_scaling.yaml",
+      "line": 73,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 17,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 18,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 19,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 26,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 27,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 28,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 35,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 36,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 37,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 44,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 45,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 46,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 70,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/official_v6.yaml",
+      "line": 15,
+      "text": "eligible_documents_per_corpus: 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/official_v6.yaml",
+      "line": 17,
+      "text": "scan_start: 162000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "configs/official_v6.yaml",
+      "line": 18,
+      "text": "scan_end_exclusive: 192000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "reproducibility/protocols/final_v6/PLAN.md",
+      "line": 9,
+      "text": "- fresh AE TRAIN scan: `[140000,152000)`;"
+    },
+    {
+      "branch": "origin/main",
+      "path": "reproducibility/protocols/final_v6/PLAN.md",
+      "line": 10,
+      "text": "- fresh development scan: `[152000,161000)`;"
+    },
+    {
+      "branch": "origin/main",
+      "path": "reproducibility/protocols/final_v6/PLAN.md",
+      "line": 12,
+      "text": "- future protected range: `[162000,192000)`."
+    },
+    {
+      "branch": "origin/main",
+      "path": "reproducibility/protocols/final_v6/PLAN.md",
+      "line": 26,
+      "text": "Selection is the first 1000 source-order documents per corpus eligible for a safe fixed direct K4 prefix. Eligibility uses only deterministic length/structure. The primary arm is one direct K4 merge over 1025\u20134096 tokens with a direct frozen-teacher target."
+    },
+    {
+      "branch": "origin/main",
+      "path": "reproducibility/protocols/official_v6/PLAN.md",
+      "line": 7,
+      "text": "The only authorized corpus scan is `[162000,192000)` for each pinned corpus. The stream guard refuses every other interval before importing the corpus loader. The declared contiguous refusal partition covers `[0,162000)`, explicitly including official v5, clean-v6 fresh TRAIN, clean-v6 fresh development, and `[161000,162000)` as a mandatory buffer."
+    },
+    {
+      "branch": "origin/main",
+      "path": "reproducibility/protocols/official_v6/PLAN.md",
+      "line": 11,
+      "text": "For each of the same four pinned corpora, scan in source order and accept the first 1000 nonblank documents whose deterministic safe prefix contains 1025--4096 teacher tokens. Eligibility uses no model output. Once eligible, a document cannot be skipped, shortened, or replaced after an operational failure. Both arms use the identical accepted source IDs and order."
+    },
+    {
+      "branch": "origin/main",
+      "path": "reproducibility/protocols/official_v6/PREACCESS_AUDIT.md",
+      "line": 5,
+      "text": "- Authorized future scan: `[162000,192000)` only."
+    },
+    {
+      "branch": "origin/main",
+      "path": "reproducibility/protocols/official_v6/PREACCESS_AUDIT.md",
+      "line": 7,
+      "text": "- Population: first 1000 safe-prefix-length-eligible documents per pinned corpus, same documents in both arms."
+    },
+    {
+      "branch": "origin/main",
+      "path": "reproducibility/protocols/official_v6/PREACCESS_TESTS.md",
+      "line": 10,
+      "text": "The tests cover the exact scan/refusal partition, lazy corpus import, deterministic eligibility, exact tail coverage, direct/full validators, unrestricted deep recursion, every-internal-merge decoder telemetry, grouped fixed attacks, exact 2000-replicate source-group bootstrap, shared three-seed units, all gate components, atomic claims/storage failure, and the sole-target text invariant."
+    },
+    {
+      "branch": "origin/main",
+      "path": "reproducibility/provenance.md",
+      "line": 14,
+      "text": "2. Commit `b499e93` and annotated tag `official-k4-strict-ae-v6-preaccess` froze the official protocol before scanning `[162000,192000)` for each corpus."
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 48,
+      "text": "        \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 333,
+      "text": "              \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 334,
+      "text": "              \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 492,
+      "text": "        \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 777,
+      "text": "              \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 778,
+      "text": "              \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 936,
+      "text": "        \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 1221,
+      "text": "              \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 1222,
+      "text": "              \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/seeds/271828/DEVELOPMENT_EVALUATION.json",
+      "line": 11,
+      "text": "    \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/seeds/271828/DEVELOPMENT_EVALUATION.json",
+      "line": 296,
+      "text": "          \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/seeds/271828/DEVELOPMENT_EVALUATION.json",
+      "line": 297,
+      "text": "          \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/seeds/314159/DEVELOPMENT_EVALUATION.json",
+      "line": 11,
+      "text": "    \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/seeds/314159/DEVELOPMENT_EVALUATION.json",
+      "line": 296,
+      "text": "          \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/seeds/314159/DEVELOPMENT_EVALUATION.json",
+      "line": 297,
+      "text": "          \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/seeds/424242/DEVELOPMENT_EVALUATION.json",
+      "line": 11,
+      "text": "    \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/seeds/424242/DEVELOPMENT_EVALUATION.json",
+      "line": 296,
+      "text": "          \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/clean_v6_development/seeds/424242/DEVELOPMENT_EVALUATION.json",
+      "line": 297,
+      "text": "          \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/kary_scaling/KARY_VALIDATION_REPORT.json",
+      "line": 269,
+      "text": "        \"documents\": 2926,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/kary_scaling/KARY_VALIDATION_REPORT.json",
+      "line": 272,
+      "text": "        \"documents_per_second\": 5256.6140705931275,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/kary_scaling/KARY_VALIDATION_REPORT.json",
+      "line": 542,
+      "text": "        \"documents\": 2926,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/kary_scaling/KARY_VALIDATION_REPORT.json",
+      "line": 545,
+      "text": "        \"documents_per_second\": 5255.495702171609,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/kary_scaling/KARY_VALIDATION_REPORT.json",
+      "line": 811,
+      "text": "        \"documents\": 2926,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/kary_scaling/KARY_VALIDATION_REPORT.json",
+      "line": 814,
+      "text": "        \"documents_per_second\": 4811.133808532671,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/REPORT.md",
+      "line": 3,
+      "text": "This atomic one-shot evaluates the three confirmed decoder-bearing AE checkpoints on one untouched test population. The same first 1000 safe-prefix-length-eligible source documents per corpus feed both mandatory arms. No post-access tuning, selection, rerun, suppression, or updates occur."
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 59,
+      "text": "          \"documents_per_second\": 21.56187457331741,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 81,
+      "text": "          \"scanned\": 6174"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 121,
+      "text": "          \"documents_per_second\": 20.28481852230963,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 143,
+      "text": "          \"scanned\": 3090"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 183,
+      "text": "          \"documents_per_second\": 21.706217790916387,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 205,
+      "text": "          \"scanned\": 3033"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 245,
+      "text": "          \"documents_per_second\": 20.100249290835766,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 267,
+      "text": "          \"scanned\": 3597"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 3817,
+      "text": "          \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 3818,
+      "text": "          \"documents_per_second\": 130.92672940592132,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 4056,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 4115,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 4174,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 4199,
+      "text": "              \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 4200,
+      "text": "              \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 4233,
+      "text": "            \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 4292,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 4326,
+      "text": "          \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 4327,
+      "text": "          \"documents_per_second\": 4409.5195000565145,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 7637,
+      "text": "          \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 7638,
+      "text": "          \"documents_per_second\": 127.79507953769355,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 7876,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 7935,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 7994,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 8019,
+      "text": "              \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 8020,
+      "text": "              \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 8053,
+      "text": "            \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 8112,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 8146,
+      "text": "          \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 8147,
+      "text": "          \"documents_per_second\": 10961.82163698654,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 11457,
+      "text": "          \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 11458,
+      "text": "          \"documents_per_second\": 131.44678099136127,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 11696,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 11755,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 11814,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 11839,
+      "text": "              \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 11840,
+      "text": "              \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 11873,
+      "text": "            \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 11932,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 11966,
+      "text": "          \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 11967,
+      "text": "          \"documents_per_second\": 8474.300072680846,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "results/official_v6/results.json",
+      "line": 12007,
+      "text": "  \"started_unix\": 1788174420.2269337,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "scripts/official_v6/evaluate_official_test_v6_initial.py",
+      "line": 237,
+      "text": "                f\"{corpus} must contain exactly 1000 documents in both arms\""
+    },
+    {
+      "branch": "origin/main",
+      "path": "scripts/official_v6/evaluate_official_test_v6_initial.py",
+      "line": 1284,
+      "text": "        \"This atomic one-shot evaluates the three confirmed decoder-bearing AE checkpoints on one untouched test population. The same first 1000 safe-prefix-length-eligible source documents per corpus feed both mandatory arms. No post-access tuning, selection, rerun, suppression, or updates occur.\","
+    },
+    {
+      "branch": "origin/main",
+      "path": "scripts/official_v6/evaluate_official_test_v6_recovery.py",
+      "line": 243,
+      "text": "                f\"{corpus} must contain exactly 1000 documents in both arms\""
+    },
+    {
+      "branch": "origin/main",
+      "path": "scripts/official_v6/evaluate_official_test_v6_recovery.py",
+      "line": 1290,
+      "text": "        \"This atomic one-shot evaluates the three confirmed decoder-bearing AE checkpoints on one untouched test population. The same first 1000 safe-prefix-length-eligible source documents per corpus feed both mandatory arms. No post-access tuning, selection, rerun, suppression, or updates occur.\","
+    },
+    {
+      "branch": "origin/main",
+      "path": "src/recursive_geodesic_composition/deployment_regime_study.py",
+      "line": 839,
+      "text": "        \"\", \"Every opened cache tensor/sidecar, checkpoint, probe, transform, config, and attack config hash is recorded in the JSON artifacts. Source sidecars were rejected unless their complete half-open ranges ended below 20000. No future deployment outcome was used for fitting or selection.\","
+    },
+    {
+      "branch": "origin/main",
+      "path": "src/recursive_geodesic_composition/evaluate_retention_long.py",
+      "line": 84,
+      "text": "        if sidecar[\"source_start\"] != 12000 or sidecar[\"source_count\"] != 1000:"
+    },
+    {
+      "branch": "origin/main",
+      "path": "src/recursive_geodesic_composition/information_retention.py",
+      "line": 132,
+      "text": "        if int(corpus[\"train_start\"]) != 0 or int(corpus[\"train_documents\"]) != 8000:"
+    },
+    {
+      "branch": "origin/main",
+      "path": "src/recursive_geodesic_composition/information_retention.py",
+      "line": 135,
+      "text": "            int(corpus[\"validation_start\"]) != 12000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "src/recursive_geodesic_composition/information_retention.py",
+      "line": 136,
+      "text": "            or int(corpus[\"validation_documents\"]) != 1000"
+    },
+    {
+      "branch": "origin/main",
+      "path": "src/recursive_geodesic_composition/prepare_retention_long.py",
+      "line": 26,
+      "text": "    if int(long_cfg[\"source_start\"]) != 12000 or int(long_cfg[\"source_count\"]) != 1000:"
+    },
+    {
+      "branch": "origin/main",
+      "path": "src/recursive_geodesic_composition/prepare_retention_long.py",
+      "line": 37,
+      "text": "        \"source_start\": 12000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "src/recursive_geodesic_composition/prepare_retention_long.py",
+      "line": 92,
+      "text": "                    \"source_start\": 12000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "src/recursive_geodesic_composition/prepare_retention_long.py",
+      "line": 116,
+      "text": "            \"source_start\": 12000,"
+    },
+    {
+      "branch": "origin/main",
+      "path": "tests/test_kary_scaling.py",
+      "line": 117,
+      "text": "    token_ids = list(range(6144))"
+    },
+    {
+      "branch": "origin/main",
+      "path": "tests/test_kary_scaling.py",
+      "line": 213,
+      "text": "    exact = make_kary_row(\"exact-6144\", [list(range(i * 768, (i + 1) * 768)) for i in range(8)],"
+    },
+    {
+      "branch": "origin/main",
+      "path": "tests/test_kary_scaling.py",
+      "line": 218,
+      "text": "    above = make_kary_row(\"above-6144\", [list(range(i * 769, (i + 1) * 769)) for i in range(8)],"
+    },
+    {
+      "branch": "origin/main",
+      "path": "tests/test_official_v6_protocol.py",
+      "line": 36,
+      "text": "    assert cfg[\"prior_ranges\"][\"official_v5\"] == [110000, 140000]"
+    },
+    {
+      "branch": "origin/main",
+      "path": "tests/test_official_v6_protocol.py",
+      "line": 37,
+      "text": "    assert cfg[\"prior_ranges\"][\"clean_v6_fresh_train\"] == [140000, 152000]"
+    },
+    {
+      "branch": "origin/main",
+      "path": "tests/test_official_v6_protocol.py",
+      "line": 38,
+      "text": "    assert cfg[\"prior_ranges\"][\"clean_v6_fresh_development\"] == [152000, 161000]"
+    },
+    {
+      "branch": "origin/main",
+      "path": "tests/test_official_v6_protocol.py",
+      "line": 39,
+      "text": "    assert cfg[\"prior_ranges\"][\"mandatory_preaccess_buffer\"] == [161000, 162000]"
+    },
+    {
+      "branch": "origin/main",
+      "path": "tests/test_official_v6_protocol.py",
+      "line": 270,
+      "text": "            np.tile([0, 1], 4), np.arange(8), np.repeat(np.arange(4), 2), 1999, 1"
+    },
+    {
+      "branch": "origin/main",
+      "path": "tests/test_official_v6_recovery.py",
+      "line": 39,
+      "text": "    assert \"scan_start: 162000\" in config"
+    },
+    {
+      "branch": "origin/main",
+      "path": "tests/test_official_v6_recovery.py",
+      "line": 40,
+      "text": "    assert \"scan_end_exclusive: 192000\" in config"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "README.md",
+      "line": 39,
+      "text": "Per-corpus three-seed AUC means are FineWeb 0.572271, FineWeb-Edu 0.566317, OpenWebText 0.583503, and Wikipedia 0.636689. Each unrestricted full-document seed accounts for all 4,000 documents, 9,142,043 tokens, 11,356 leaves, and 4,789 internal merges, with maxima of 58,731 tokens, 58 leaves, and depth 3. These values are parsed from the frozen JSON, not recomputed metrics."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "README.md",
+      "line": 265,
+      "text": "Clean-v6 used TRAIN `[140000,152000)`, development `[152000,161000)`, untouched buffer `[161000,162000)`, and official scan `[162000,192000)` in source-index space for each corpus."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/final_v6/seed271828.yaml",
+      "line": 13,
+      "text": "- {id: fineweb_edu, weight: 0.25, dataset_name: HuggingFaceFW/fineweb-edu, dataset_config: sample-10BT, dataset_revision: 87f09149ef4734204d70ed1d046ddc9ca3f2b8f9, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/final_v6/seed271828.yaml",
+      "line": 14,
+      "text": "- {id: fineweb, weight: 0.25, dataset_name: HuggingFaceFW/fineweb, dataset_config: sample-10BT, dataset_revision: 9bb295ddab0e05d785b879661af7260fed5140fc, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/final_v6/seed271828.yaml",
+      "line": 15,
+      "text": "- {id: openwebtext, weight: 0.25, dataset_name: Skylion007/openwebtext, dataset_config: null, dataset_revision: 79d93d786212f7344586290adb811d4ae6a1762c, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/final_v6/seed271828.yaml",
+      "line": 16,
+      "text": "- {id: wikipedia_en_20231101, weight: 0.25, dataset_name: wikimedia/wikipedia, dataset_config: 20231101.en, dataset_revision: b04c8d1ceb2f5cd4588862100d08de323dccfbaa, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/final_v6/seed271828.yaml",
+      "line": 37,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/final_v6/seed314159.yaml",
+      "line": 13,
+      "text": "- {id: fineweb_edu, weight: 0.25, dataset_name: HuggingFaceFW/fineweb-edu, dataset_config: sample-10BT, dataset_revision: 87f09149ef4734204d70ed1d046ddc9ca3f2b8f9, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/final_v6/seed314159.yaml",
+      "line": 14,
+      "text": "- {id: fineweb, weight: 0.25, dataset_name: HuggingFaceFW/fineweb, dataset_config: sample-10BT, dataset_revision: 9bb295ddab0e05d785b879661af7260fed5140fc, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/final_v6/seed314159.yaml",
+      "line": 15,
+      "text": "- {id: openwebtext, weight: 0.25, dataset_name: Skylion007/openwebtext, dataset_config: null, dataset_revision: 79d93d786212f7344586290adb811d4ae6a1762c, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/final_v6/seed314159.yaml",
+      "line": 16,
+      "text": "- {id: wikipedia_en_20231101, weight: 0.25, dataset_name: wikimedia/wikipedia, dataset_config: 20231101.en, dataset_revision: b04c8d1ceb2f5cd4588862100d08de323dccfbaa, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/final_v6/seed314159.yaml",
+      "line": 37,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/final_v6/seed424242.yaml",
+      "line": 13,
+      "text": "- {id: fineweb_edu, weight: 0.25, dataset_name: HuggingFaceFW/fineweb-edu, dataset_config: sample-10BT, dataset_revision: 87f09149ef4734204d70ed1d046ddc9ca3f2b8f9, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/final_v6/seed424242.yaml",
+      "line": 14,
+      "text": "- {id: fineweb, weight: 0.25, dataset_name: HuggingFaceFW/fineweb, dataset_config: sample-10BT, dataset_revision: 9bb295ddab0e05d785b879661af7260fed5140fc, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/final_v6/seed424242.yaml",
+      "line": 15,
+      "text": "- {id: openwebtext, weight: 0.25, dataset_name: Skylion007/openwebtext, dataset_config: null, dataset_revision: 79d93d786212f7344586290adb811d4ae6a1762c, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/final_v6/seed424242.yaml",
+      "line": 16,
+      "text": "- {id: wikipedia_en_20231101, weight: 0.25, dataset_name: wikimedia/wikipedia, dataset_config: 20231101.en, dataset_revision: b04c8d1ceb2f5cd4588862100d08de323dccfbaa, train_start: 140000, train_documents: 12000}"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/final_v6/seed424242.yaml",
+      "line": 37,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/information_retention_validation.yaml",
+      "line": 43,
+      "text": "  source_start: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/information_retention_validation.yaml",
+      "line": 46,
+      "text": "    - {name: 8k-16k, min: 8192, max: 16383, documents: 50}"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/information_retention_validation.yaml",
+      "line": 47,
+      "text": "    - {name: 16k-32k, min: 16384, max: 32768, documents: 50}"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary4_reference.yaml",
+      "line": 20,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary4_reference.yaml",
+      "line": 21,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary4_reference.yaml",
+      "line": 22,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary4_reference.yaml",
+      "line": 29,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary4_reference.yaml",
+      "line": 30,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary4_reference.yaml",
+      "line": 31,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary4_reference.yaml",
+      "line": 38,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary4_reference.yaml",
+      "line": 39,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary4_reference.yaml",
+      "line": 40,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary4_reference.yaml",
+      "line": 47,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary4_reference.yaml",
+      "line": 48,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary4_reference.yaml",
+      "line": 49,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary4_reference.yaml",
+      "line": 75,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary_scaling.yaml",
+      "line": 11,
+      "text": "# Same pinned, document-disjoint ranges and equal mixture as the K4/1024 arm."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary_scaling.yaml",
+      "line": 19,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary_scaling.yaml",
+      "line": 20,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary_scaling.yaml",
+      "line": 21,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary_scaling.yaml",
+      "line": 28,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary_scaling.yaml",
+      "line": 29,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary_scaling.yaml",
+      "line": 30,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary_scaling.yaml",
+      "line": 37,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary_scaling.yaml",
+      "line": 38,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary_scaling.yaml",
+      "line": 39,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary_scaling.yaml",
+      "line": 46,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary_scaling.yaml",
+      "line": 47,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary_scaling.yaml",
+      "line": 48,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/kary_scaling.yaml",
+      "line": 73,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 17,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 18,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 19,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 26,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 27,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 28,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 35,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 36,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 37,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 44,
+      "text": "    train_documents: 8000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 45,
+      "text": "    validation_start: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 46,
+      "text": "    validation_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/multicorpus_generalization_v1.yaml",
+      "line": 70,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/official_v6.yaml",
+      "line": 15,
+      "text": "eligible_documents_per_corpus: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/official_v6.yaml",
+      "line": 17,
+      "text": "scan_start: 162000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/official_v6.yaml",
+      "line": 18,
+      "text": "scan_end_exclusive: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_2_cls/covariance_refinement_v1.yaml",
+      "line": 2,
+      "text": "range: [244000, 256000]"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_2_cls/pilot.yaml",
+      "line": 18,
+      "text": "  train_start: 244000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_2_cls/pilot.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_2_cls/pilot.yaml",
+      "line": 25,
+      "text": "  train_start: 244000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_2_cls/pilot.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_2_cls/pilot.yaml",
+      "line": 32,
+      "text": "  train_start: 244000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_2_cls/pilot.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_2_cls/pilot.yaml",
+      "line": 39,
+      "text": "  train_start: 244000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_2_cls/pilot.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_2_cls/pilot.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_2_cls/pilot_frozen.yaml",
+      "line": 2,
+      "text": "range: [244000, 256000]"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_a.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_a.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_a.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_a.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_a.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_a.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_a.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_a.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_a.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_a.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.bound.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.bound.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.bound.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.bound.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.bound.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.bound.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.bound.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.bound.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.bound.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.template.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.template.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.template.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.template.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.template.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.template.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.template.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.template.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_b.template.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.bound.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.bound.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.bound.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.bound.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.bound.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.bound.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.bound.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.bound.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.bound.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.bound.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.template.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.template.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.template.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.template.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.template.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.template.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.template.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.template.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.template.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed271828_stage_c.template.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_a.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_a.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_a.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_a.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_a.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_a.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_a.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_a.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_a.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_a.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.bound.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.bound.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.bound.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.bound.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.bound.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.bound.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.bound.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.bound.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.bound.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.template.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.template.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.template.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.template.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.template.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.template.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.template.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.template.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_b.template.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.bound.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.bound.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.bound.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.bound.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.bound.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.bound.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.bound.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.bound.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.bound.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.bound.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.retry_after_enospc.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.retry_after_enospc.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.retry_after_enospc.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.retry_after_enospc.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.retry_after_enospc.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.retry_after_enospc.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.retry_after_enospc.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.retry_after_enospc.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.retry_after_enospc.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.retry_after_enospc.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.template.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.template.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.template.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.template.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.template.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.template.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.template.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.template.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.template.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed314159_stage_c.template.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_a.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_a.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_a.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_a.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_a.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_a.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_a.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_a.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_a.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_a.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.bound.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.bound.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.bound.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.bound.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.bound.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.bound.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.bound.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.bound.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.bound.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.template.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.template.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.template.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.template.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.template.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.template.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.template.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.template.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_b.template.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.bound.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.bound.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.bound.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.bound.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.bound.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.bound.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.bound.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.bound.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.bound.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.bound.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.template.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.template.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.template.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.template.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.template.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.template.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.template.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.template.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.template.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/amended_v2_1_seed424242_stage_c.template.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_a.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_a.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_a.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_a.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_a.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_a.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_a.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_a.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_a.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_a.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.bound.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.bound.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.bound.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.bound.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.bound.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.bound.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.bound.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.bound.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.bound.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.template.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.template.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.template.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.template.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.template.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.template.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.template.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.template.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_b.template.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.bound.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.bound.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.bound.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.bound.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.bound.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.bound.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.bound.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.bound.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.bound.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.bound.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.template.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.template.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.template.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.template.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.template.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.template.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.template.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.template.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.template.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed271828_stage_c.template.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_a.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_a.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_a.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_a.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_a.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_a.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_a.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_a.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_a.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_a.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_b.template.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_b.template.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_b.template.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_b.template.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_b.template.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_b.template.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_b.template.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_b.template.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_b.template.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_c.template.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_c.template.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_c.template.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_c.template.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_c.template.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_c.template.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_c.template.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_c.template.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_c.template.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed314159_stage_c.template.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_a.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_a.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_a.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_a.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_a.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_a.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_a.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_a.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_a.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_a.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.bound.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.bound.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.bound.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.bound.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.bound.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.bound.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.bound.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.bound.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.bound.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.template.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.template.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.template.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.template.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.template.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.template.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.template.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.template.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_b.template.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.bound.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.bound.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.bound.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.bound.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.bound.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.bound.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.bound.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.bound.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.bound.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.bound.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.template.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.template.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.template.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.template.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.template.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.template.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.template.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.template.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.template.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/fresh_seed424242_stage_c.template.yaml",
+      "line": 103,
+      "text": "checkpoint_selection_start_step: 1200"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/official_v2_1.yaml",
+      "line": 4,
+      "text": "scan: [214000, 244000]"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/official_v2_1.yaml",
+      "line": 6,
+      "text": "selected_documents_per_corpus: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_a.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_a.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_a.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_a.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_a.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_a.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_a.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_a.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_a.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.template.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.template.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.template.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.template.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.template.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.template.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.template.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.template.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.template.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_b.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.template.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.template.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.template.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.template.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.template.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.template.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.template.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.template.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.template.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/pilot_seed424242_stage_c.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed271828.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed271828.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed271828.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed271828.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed271828.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed271828.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed271828.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed271828.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed271828.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed314159.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed314159.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed314159.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed314159.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed314159.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed314159.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed314159.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed314159.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed314159.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed424242.yaml",
+      "line": 18,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed424242.yaml",
+      "line": 19,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed424242.yaml",
+      "line": 25,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed424242.yaml",
+      "line": 26,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed424242.yaml",
+      "line": 32,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed424242.yaml",
+      "line": 33,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed424242.yaml",
+      "line": 39,
+      "text": "  train_start: 192000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed424242.yaml",
+      "line": 40,
+      "text": "  train_documents: 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "configs/v2_cls/seed424242.yaml",
+      "line": 65,
+      "text": "validation_metric_documents: 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/protocols/final_v6/PLAN.md",
+      "line": 9,
+      "text": "- fresh AE TRAIN scan: `[140000,152000)`;"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/protocols/final_v6/PLAN.md",
+      "line": 10,
+      "text": "- fresh development scan: `[152000,161000)`;"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/protocols/final_v6/PLAN.md",
+      "line": 12,
+      "text": "- future protected range: `[162000,192000)`."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/protocols/final_v6/PLAN.md",
+      "line": 26,
+      "text": "Selection is the first 1000 source-order documents per corpus eligible for a safe fixed direct K4 prefix. Eligibility uses only deterministic length/structure. The primary arm is one direct K4 merge over 1025\u20134096 tokens with a direct frozen-teacher target."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/protocols/official_v6/PLAN.md",
+      "line": 7,
+      "text": "The only authorized corpus scan is `[162000,192000)` for each pinned corpus. The stream guard refuses every other interval before importing the corpus loader. The declared contiguous refusal partition covers `[0,162000)`, explicitly including official v5, clean-v6 fresh TRAIN, clean-v6 fresh development, and `[161000,162000)` as a mandatory buffer."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/protocols/official_v6/PLAN.md",
+      "line": 11,
+      "text": "For each of the same four pinned corpora, scan in source order and accept the first 1000 nonblank documents whose deterministic safe prefix contains 1025--4096 teacher tokens. Eligibility uses no model output. Once eligible, a document cannot be skipped, shortened, or replaced after an operational failure. Both arms use the identical accepted source IDs and order."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/protocols/official_v6/PREACCESS_AUDIT.md",
+      "line": 5,
+      "text": "- Authorized future scan: `[162000,192000)` only."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/protocols/official_v6/PREACCESS_AUDIT.md",
+      "line": 7,
+      "text": "- Population: first 1000 safe-prefix-length-eligible documents per pinned corpus, same documents in both arms."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/protocols/official_v6/PREACCESS_TESTS.md",
+      "line": 10,
+      "text": "The tests cover the exact scan/refusal partition, lazy corpus import, deterministic eligibility, exact tail coverage, direct/full validators, unrestricted deep recursion, every-internal-merge decoder telemetry, grouped fixed attacks, exact 2000-replicate source-group bootstrap, shared three-seed units, all gate components, atomic claims/storage failure, and the sole-target text invariant."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/provenance.md",
+      "line": 14,
+      "text": "2. Commit `b499e93` and annotated tag `official-k4-strict-ae-v6-preaccess` froze the official protocol before scanning `[162000,192000)` for each corpus."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_2_cls/PILOT_PROTOCOL.md",
+      "line": 3,
+      "text": "No source range has been accessed at this freeze. Pilot seed is 424242; every formulation must use identical fresh initialization, deterministic TRAIN subset/order, optimizer, 250 merger steps, batch size 8, and no decoder stage. The baseline objective remains teacher cosine + existing mean/diagonal-variance/regularizers."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/AMENDMENT_V2_1.md",
+      "line": 15,
+      "text": "V2.1 restarts all three seeds (`424242`, `271828`, `314159`) from random Stage-A initialization and uses the unchanged three-stage A=1200/B=300/C=1200 schedule, data/cache, objectives, teacher CLS revision, architecture, and fixed final checkpoint rule. No V2.0 checkpoint may be resumed or used as initialization. A further amendment is allowed only if V2.1 demonstrates persistent instability and must again apply to all seeds from fresh initialization."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_REPORT.md",
+      "line": 21,
+      "text": "New because source-lineage information is missing: Stage A fresh merger-only training for 1200 steps at LR `1e-4`; Stage B 300-step decoder-only warm start from **the same V2 Stage-A checkpoint** at LR `2e-5`; Stage C 1200-step all-parameter training from the exact V2 Stage-B autoencoder state at LR `1e-4`. Stage C uses a checked full-autoencoder continuation implementation with mandatory matching explicit CLS provenance and a restarted optimizer. Fixed Stage-C step 1200 was predeclared as the s"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_REPORT.md",
+      "line": 91,
+      "text": "Development `[204000,213000)` was accessed after evaluator freeze. A first GPU/CPU device-placement evaluator bug was corrected and recorded before any metric; no source rescan was performed. On 100 safe direct-target documents per corpus, three-seed mean CLS teacher cosine was `0.98816099`; per-seed strongest logistic orientation-safe AUCs were `.5808375`, `.579425`, `.57245`. Full machine-readable result: `reproducibility/v2_cls/DEVELOPMENT_SAFE_RESULTS.json`."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 51,
+      "text": "        \"checkpoint_selection_start_step\": 1200,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 93,
+      "text": "        \"checkpoint_selection_start_step\": 1200,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 125,
+      "text": "        \"checkpoint_selection_start_step\": 1200,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 167,
+      "text": "        \"checkpoint_selection_start_step\": 1200,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 199,
+      "text": "        \"checkpoint_selection_start_step\": 1200,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 209,
+      "text": "      \"start_epoch\": 1788282480,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 216,
+      "text": "      \"start_epoch\": 1788282964,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 223,
+      "text": "      \"start_epoch\": 1788283007,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 230,
+      "text": "      \"start_epoch\": 1788282654,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 237,
+      "text": "      \"start_epoch\": 1788282306,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 244,
+      "text": "      \"start_epoch\": 1788282729,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 251,
+      "text": "      \"start_epoch\": 1788282774,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 258,
+      "text": "      \"start_epoch\": 1788282037,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 265,
+      "text": "      \"start_epoch\": 1788282076,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 272,
+      "text": "      \"start_epoch\": 1788282103,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/FRESH_TRAINING_PLAN.md",
+      "line": 34,
+      "text": "- ranges: `[192000,204000)` only, 12,000 source rows scanned per corpus;"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/OFFICIAL_PREACCESS_AUDIT.md",
+      "line": 13,
+      "text": "V2 official implementation/config/probe closure has been built and hash-frozen in `OFFICIAL_V2_1_FREEZE.json`. Corpus-free smoke checks passed: exact 1024 chunk coverage including remainder, K4 depth/singleton arithmetic, V2 checkpoint CLS provenance, V2 TRAIN-probe/checkpoint hashes, and refusal of an existing cache/output namespace. No `prepare` invocation occurred. The one-shot command is now explicitly bound in the freeze manifest. Official range remains unopened at this point."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/OFFICIAL_PREACCESS_BLOCKER.md",
+      "line": 3,
+      "text": "**Status: STOP BEFORE OFFICIAL ACCESS.** The V2 official range `[214000,244000)` has not been opened or streamed."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/OFFICIAL_PROTOCOL.md",
+      "line": 12,
+      "text": "Official range remains `[214000,244000)` and unopened. Safe rows must be selected source-order, same rows all seeds, direct CLS target only on complete 1025--4096-token prefix; exact K=4 chunking. Full arm must recursively embed every token in each selected document with 1024-token leaves and no full-root target/AUC/cosine. Logistic/RBF attacks use `configs/evaluator_attacks_v1.yaml`, orientation-safe semantics, grouped bootstrap 400 replicates."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/OFFICIAL_PROTOCOL.md",
+      "line": 20,
+      "text": "`configs/v2_cls/official_v2_1.yaml` and `scripts/v2_cls/official_v2_1.py` implement create-only preparation/evaluation. Preparation is the sole corpus entrypoint; import, preflight, chunk/depth tests, and checkpoint/probe identity checks do not import `datasets` or call the official range. Preparation claims a one-shot spent marker before streaming, selects the first 1000 source-order documents per corpus with complete 1025--4096 safe prefix, derives both arms from each accepted document, and at"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/OVERNIGHT_RUN.md",
+      "line": 30,
+      "text": "- Official range `[214000,244000)` remains unopened."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "reproducibility/v2_cls/SEED314159_SATURATION_DIAGNOSTIC.md",
+      "line": 21,
+      "text": "For this run, `max_angle=0.5`, therefore the diagnostic threshold is **0.475 radians**. The recorded fraction was `0.1111111119389534`, which is float32 `1/9`: exactly **one of nine genuine K=4 merges** in the eight-row batch had bounded correction angle at or above 0.475 rad. It is not 11% of documents, tokens, slots, or training steps."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 48,
+      "text": "        \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 333,
+      "text": "              \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 334,
+      "text": "              \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 492,
+      "text": "        \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 777,
+      "text": "              \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 778,
+      "text": "              \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 936,
+      "text": "        \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 1221,
+      "text": "              \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "line": 1222,
+      "text": "              \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/seeds/271828/DEVELOPMENT_EVALUATION.json",
+      "line": 11,
+      "text": "    \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/seeds/271828/DEVELOPMENT_EVALUATION.json",
+      "line": 296,
+      "text": "          \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/seeds/271828/DEVELOPMENT_EVALUATION.json",
+      "line": 297,
+      "text": "          \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/seeds/314159/DEVELOPMENT_EVALUATION.json",
+      "line": 11,
+      "text": "    \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/seeds/314159/DEVELOPMENT_EVALUATION.json",
+      "line": 296,
+      "text": "          \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/seeds/314159/DEVELOPMENT_EVALUATION.json",
+      "line": 297,
+      "text": "          \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/seeds/424242/DEVELOPMENT_EVALUATION.json",
+      "line": 11,
+      "text": "    \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/seeds/424242/DEVELOPMENT_EVALUATION.json",
+      "line": 296,
+      "text": "          \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/clean_v6_development/seeds/424242/DEVELOPMENT_EVALUATION.json",
+      "line": 297,
+      "text": "          \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/kary_scaling/KARY_VALIDATION_REPORT.json",
+      "line": 269,
+      "text": "        \"documents\": 2926,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/kary_scaling/KARY_VALIDATION_REPORT.json",
+      "line": 272,
+      "text": "        \"documents_per_second\": 5256.6140705931275,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/kary_scaling/KARY_VALIDATION_REPORT.json",
+      "line": 542,
+      "text": "        \"documents\": 2926,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/kary_scaling/KARY_VALIDATION_REPORT.json",
+      "line": 545,
+      "text": "        \"documents_per_second\": 5255.495702171609,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/kary_scaling/KARY_VALIDATION_REPORT.json",
+      "line": 811,
+      "text": "        \"documents\": 2926,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/kary_scaling/KARY_VALIDATION_REPORT.json",
+      "line": 814,
+      "text": "        \"documents_per_second\": 4811.133808532671,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/REPORT.md",
+      "line": 3,
+      "text": "This atomic one-shot evaluates the three confirmed decoder-bearing AE checkpoints on one untouched test population. The same first 1000 safe-prefix-length-eligible source documents per corpus feed both mandatory arms. No post-access tuning, selection, rerun, suppression, or updates occur."
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 59,
+      "text": "          \"documents_per_second\": 21.56187457331741,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 81,
+      "text": "          \"scanned\": 6174"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 121,
+      "text": "          \"documents_per_second\": 20.28481852230963,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 143,
+      "text": "          \"scanned\": 3090"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 183,
+      "text": "          \"documents_per_second\": 21.706217790916387,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 205,
+      "text": "          \"scanned\": 3033"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 245,
+      "text": "          \"documents_per_second\": 20.100249290835766,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 267,
+      "text": "          \"scanned\": 3597"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 3817,
+      "text": "          \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 3818,
+      "text": "          \"documents_per_second\": 130.92672940592132,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 4056,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 4115,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 4174,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 4199,
+      "text": "              \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 4200,
+      "text": "              \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 4233,
+      "text": "            \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 4292,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 4326,
+      "text": "          \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 4327,
+      "text": "          \"documents_per_second\": 4409.5195000565145,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 7637,
+      "text": "          \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 7638,
+      "text": "          \"documents_per_second\": 127.79507953769355,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 7876,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 7935,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 7994,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 8019,
+      "text": "              \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 8020,
+      "text": "              \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 8053,
+      "text": "            \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 8112,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 8146,
+      "text": "          \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 8147,
+      "text": "          \"documents_per_second\": 10961.82163698654,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 11457,
+      "text": "          \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 11458,
+      "text": "          \"documents_per_second\": 131.44678099136127,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 11696,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 11755,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 11814,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 11839,
+      "text": "              \"attack_holdout_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 11840,
+      "text": "              \"attack_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 11873,
+      "text": "            \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 11932,
+      "text": "            \"documents\": 1000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 11966,
+      "text": "          \"documents\": 4000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 11967,
+      "text": "          \"documents_per_second\": 8474.300072680846,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/official_v6/results.json",
+      "line": 12007,
+      "text": "  \"started_unix\": 1788174420.2269337,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 51,
+      "text": "        \"checkpoint_selection_start_step\": 1200,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 93,
+      "text": "        \"checkpoint_selection_start_step\": 1200,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 125,
+      "text": "        \"checkpoint_selection_start_step\": 1200,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 167,
+      "text": "        \"checkpoint_selection_start_step\": 1200,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 199,
+      "text": "        \"checkpoint_selection_start_step\": 1200,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 209,
+      "text": "      \"start_epoch\": 1788282480,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 216,
+      "text": "      \"start_epoch\": 1788282964,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 223,
+      "text": "      \"start_epoch\": 1788283007,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 230,
+      "text": "      \"start_epoch\": 1788282654,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 237,
+      "text": "      \"start_epoch\": 1788282306,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 244,
+      "text": "      \"start_epoch\": 1788282729,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 251,
+      "text": "      \"start_epoch\": 1788282774,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 258,
+      "text": "      \"start_epoch\": 1788282037,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 265,
+      "text": "      \"start_epoch\": 1788282076,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/FINAL_TRAIN_AUDIT.json",
+      "line": 272,
+      "text": "      \"start_epoch\": 1788282103,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/official_v2_1/RESULTS.json",
+      "line": 62,
+      "text": "        \"disc_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/official_v2_1/RESULTS.json",
+      "line": 63,
+      "text": "        \"disc_test_documents\": 2000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/official_v2_1/RESULTS.json",
+      "line": 125,
+      "text": "        \"disc_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/official_v2_1/RESULTS.json",
+      "line": 126,
+      "text": "        \"disc_test_documents\": 2000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/official_v2_1/RESULTS.json",
+      "line": 188,
+      "text": "        \"disc_train_documents\": 2000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "results/v2_cls/official_v2_1/RESULTS.json",
+      "line": 189,
+      "text": "        \"disc_test_documents\": 2000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "scripts/official_v6/evaluate_official_test_v6_initial.py",
+      "line": 237,
+      "text": "                f\"{corpus} must contain exactly 1000 documents in both arms\""
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "scripts/official_v6/evaluate_official_test_v6_initial.py",
+      "line": 1284,
+      "text": "        \"This atomic one-shot evaluates the three confirmed decoder-bearing AE checkpoints on one untouched test population. The same first 1000 safe-prefix-length-eligible source documents per corpus feed both mandatory arms. No post-access tuning, selection, rerun, suppression, or updates occur.\","
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "scripts/official_v6/evaluate_official_test_v6_recovery.py",
+      "line": 243,
+      "text": "                f\"{corpus} must contain exactly 1000 documents in both arms\""
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "scripts/official_v6/evaluate_official_test_v6_recovery.py",
+      "line": 1290,
+      "text": "        \"This atomic one-shot evaluates the three confirmed decoder-bearing AE checkpoints on one untouched test population. The same first 1000 safe-prefix-length-eligible source documents per corpus feed both mandatory arms. No post-access tuning, selection, rerun, suppression, or updates occur.\","
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "scripts/v2_2_cls/pilot.py",
+      "line": 38,
+      "text": "    if tuple(cfg.get('source_scan', ())) != (244000, 256000): raise ValueError('pilot config is not V2.2 TRAIN-only')"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "scripts/v2_cls/official_v2_1.py",
+      "line": 32,
+      "text": " if c['scan']!=[214000,244000] or c['teacher']['pooling']!='cls':raise ValueError('official config')"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "src/recursive_geodesic_composition/deployment_regime_study.py",
+      "line": 839,
+      "text": "        \"\", \"Every opened cache tensor/sidecar, checkpoint, probe, transform, config, and attack config hash is recorded in the JSON artifacts. Source sidecars were rejected unless their complete half-open ranges ended below 20000. No future deployment outcome was used for fitting or selection.\","
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "src/recursive_geodesic_composition/evaluate_retention_long.py",
+      "line": 84,
+      "text": "        if sidecar[\"source_start\"] != 12000 or sidecar[\"source_count\"] != 1000:"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "src/recursive_geodesic_composition/information_retention.py",
+      "line": 132,
+      "text": "        if int(corpus[\"train_start\"]) != 0 or int(corpus[\"train_documents\"]) != 8000:"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "src/recursive_geodesic_composition/information_retention.py",
+      "line": 135,
+      "text": "            int(corpus[\"validation_start\"]) != 12000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "src/recursive_geodesic_composition/information_retention.py",
+      "line": 136,
+      "text": "            or int(corpus[\"validation_documents\"]) != 1000"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "src/recursive_geodesic_composition/prepare_retention_long.py",
+      "line": 26,
+      "text": "    if int(long_cfg[\"source_start\"]) != 12000 or int(long_cfg[\"source_count\"]) != 1000:"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "src/recursive_geodesic_composition/prepare_retention_long.py",
+      "line": 37,
+      "text": "        \"source_start\": 12000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "src/recursive_geodesic_composition/prepare_retention_long.py",
+      "line": 92,
+      "text": "                    \"source_start\": 12000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "src/recursive_geodesic_composition/prepare_retention_long.py",
+      "line": 116,
+      "text": "            \"source_start\": 12000,"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "tests/test_kary_scaling.py",
+      "line": 117,
+      "text": "    token_ids = list(range(6144))"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "tests/test_kary_scaling.py",
+      "line": 213,
+      "text": "    exact = make_kary_row(\"exact-6144\", [list(range(i * 768, (i + 1) * 768)) for i in range(8)],"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "tests/test_kary_scaling.py",
+      "line": 218,
+      "text": "    above = make_kary_row(\"above-6144\", [list(range(i * 769, (i + 1) * 769)) for i in range(8)],"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "tests/test_official_v6_protocol.py",
+      "line": 36,
+      "text": "    assert cfg[\"prior_ranges\"][\"official_v5\"] == [110000, 140000]"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "tests/test_official_v6_protocol.py",
+      "line": 37,
+      "text": "    assert cfg[\"prior_ranges\"][\"clean_v6_fresh_train\"] == [140000, 152000]"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "tests/test_official_v6_protocol.py",
+      "line": 38,
+      "text": "    assert cfg[\"prior_ranges\"][\"clean_v6_fresh_development\"] == [152000, 161000]"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "tests/test_official_v6_protocol.py",
+      "line": 39,
+      "text": "    assert cfg[\"prior_ranges\"][\"mandatory_preaccess_buffer\"] == [161000, 162000]"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "tests/test_official_v6_protocol.py",
+      "line": 270,
+      "text": "            np.tile([0, 1], 4), np.arange(8), np.repeat(np.arange(4), 2), 1999, 1"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "tests/test_official_v6_recovery.py",
+      "line": 39,
+      "text": "    assert \"scan_start: 162000\" in config"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "tests/test_official_v6_recovery.py",
+      "line": 40,
+      "text": "    assert \"scan_end_exclusive: 192000\" in config"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "tests/test_v2_2_pilot.py",
+      "line": 10,
+      "text": "    return {'namespace': 'v2_2_cls', 'role': 'train', 'source_scan': [244000, 256000],"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "tests/test_v2_2_pilot.py",
+      "line": 30,
+      "text": "    cfg = {'source_scan': [244000, 256000], 'cache_dir': str(cache), 'output_dir': str(tmp_path / 'out'),"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "tests/test_v2_cls_protocol.py",
+      "line": 20,
+      "text": "    assert ranges[\"official_v6\"] == [162000, 192000]"
+    },
+    {
+      "branch": "origin/v2-paper-cls",
+      "path": "tests/test_v2_official_full_arm.py",
+      "line": 28,
+      "text": " assert [len(x) for x in m.chunks(list(range(2051)))]==[1024,1024,3]"
+    }
+  ],
+  "protected_ranges": {
+    "official_v5": [
+      110000,
+      140000
+    ],
+    "v6_train": [
+      140000,
+      152000
+    ],
+    "v6_development": [
+      152000,
+      161000
+    ],
+    "v6_buffer": [
+      161000,
+      162000
+    ],
+    "v6_official": [
+      162000,
+      192000
+    ],
+    "v2_1_train": [
+      192000,
+      204000
+    ],
+    "v2_1_development": [
+      204000,
+      213000
+    ],
+    "v2_1_buffer": [
+      213000,
+      214000
+    ],
+    "v2_1_official": [
+      214000,
+      244000
+    ],
+    "v2_2_train": [
+      244000,
+      256000
+    ],
+    "v2_2_development": [
+      256000,
+      265000
+    ],
+    "v2_2_buffer": [
+      265000,
+      266000
+    ],
+    "v2_2_official": [
+      266000,
+      296000
+    ]
+  },
+  "protected_highest_exclusive": 296000,
+  "v3_allocation": {
+    "train": [
+      296000,
+      308000
+    ],
+    "development": [
+      308000,
+      317000
+    ],
+    "buffer_unused": [
+      317000,
+      318000
+    ],
+    "future_official_one_shot": [
+      318000,
+      348000
+    ]
+  },
+  "v3_after_highest": true,
+  "collisions": [],
+  "non_overlap": true
+}

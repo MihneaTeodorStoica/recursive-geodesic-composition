@@ -977,6 +977,46 @@ def _amp_dtype(cfg, device):
     return None
 
 
+def _enforce_v3_cls_guards(cfg):
+    """Hard safety rails for the isolated V3 CLS experiment namespace."""
+    if not bool(cfg.get('v3_cls_experiment', False)):
+        return
+    if cfg.get('teacher_pooling') != 'cls':
+        raise ValueError("V3 requires teacher_pooling: cls")
+    if cfg.get('model_name') != 'Alibaba-NLP/gte-modernbert-base':
+        raise ValueError("V3 requires pinned Alibaba-NLP/gte-modernbert-base teacher")
+    if cfg.get('model_revision') != 'e7f32e3c00f91d699e8c43b53106206bcc72bb22':
+        raise ValueError("V3 requires the frozen GTE ModernBERT revision")
+    cache_dir = str(cfg.get('cache_dir', ''))
+    output_dir = str(cfg.get('output_dir', ''))
+    if 'v3_cls' not in cache_dir or 'v3_cls' not in output_dir:
+        raise ValueError("V3 cache_dir and output_dir must live in v3_cls namespaces")
+    forbidden = [
+        'initialize_encoder_from_autoencoder_checkpoint',
+        'initialize_from_encoder_checkpoint',
+        'encoder_initialization_checkpoint',
+        'continue_encoder_from_checkpoint',
+    ]
+    present = [key for key in forbidden if cfg.get(key)]
+    if present:
+        raise ValueError(f"V3 fresh-from-random protocol forbids learned initialization/continuation: {present}")
+
+
+def _assert_v3_cache_sidecar(cfg, path):
+    if not bool(cfg.get('v3_cls_experiment', False)):
+        return
+    sidecar_path = Path(str(path) + '.json')
+    if not sidecar_path.is_file():
+        raise FileNotFoundError(f"V3 refuses cache tensor without sidecar: {sidecar_path}")
+    sidecar = json.loads(sidecar_path.read_text())
+    if sidecar.get('teacher_pooling') != 'cls':
+        raise ValueError(f"V3 refuses non-CLS teacher cache: {sidecar_path}")
+    if sidecar.get('model') != cfg.get('model_name') or sidecar.get('model_revision') != cfg.get('model_revision'):
+        raise ValueError(f"V3 teacher identity mismatch in cache sidecar: {sidecar_path}")
+    if 'v3_cls' not in str(path):
+        raise ValueError(f"V3 refuses cache outside v3_cls namespace: {path}")
+
+
 def _load_training_roles(cfg):
     """Load corpus-separated roles without any protected-data fallback.
 
@@ -984,10 +1024,13 @@ def _load_training_roles(cfg):
     a fixed final checkpoint before a separately prepared development cache is
     opened. It never substitutes TRAIN rows for validation rows.
     """
+    _enforce_v3_cls_guards(cfg)
     corpora = cfg.get('corpora')
     train_only = bool(cfg.get('training_without_validation', False))
     if not corpora:
-        rows = torch.load(Path(cfg['cache_dir']) / 'train.pt', weights_only=False)
+        train_path = Path(cfg['cache_dir']) / 'train.pt'
+        _assert_v3_cache_sidecar(cfg, train_path)
+        rows = torch.load(train_path, weights_only=False)
         val_path = Path(cfg['cache_dir']) / 'validation.pt'
         if train_only and val_path.exists():
             raise ValueError('train-only protocol refuses a validation artifact in its cache')
@@ -997,12 +1040,15 @@ def _load_training_roles(cfg):
         corpus_id = str(corpus['id'])
         weights[corpus_id] = float(corpus['weight'])
         root = Path(cfg['cache_dir']) / corpus_id
-        train_by[corpus_id] = torch.load(root / 'train.pt', weights_only=False)
+        train_path = root / 'train.pt'
+        _assert_v3_cache_sidecar(cfg, train_path)
+        train_by[corpus_id] = torch.load(train_path, weights_only=False)
         validation_path = root / 'validation.pt'
         if train_only:
             if validation_path.exists():
                 raise ValueError(f'train-only protocol refuses validation artifact: {validation_path}')
         else:
+            _assert_v3_cache_sidecar(cfg, validation_path)
             validation_by[corpus_id] = torch.load(validation_path, weights_only=False)
     if any(not rows for rows in train_by.values()) or (not train_only and any(not rows for rows in validation_by.values())):
         raise RuntimeError('every declared corpus role must be non-empty')
@@ -1685,6 +1731,7 @@ def main():
     ap.add_argument('--smoke', action='store_true')
     a = ap.parse_args()
     cfg = yaml.safe_load(Path(a.config).read_text())
+    _enforce_v3_cls_guards(cfg)
     if a.smoke:
         cfg['output_dir'] = f"{cfg['output_dir']}_smoke"
         if cfg.get('tensorboard_dir'):

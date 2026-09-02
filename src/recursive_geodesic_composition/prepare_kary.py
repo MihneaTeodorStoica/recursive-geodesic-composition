@@ -234,6 +234,8 @@ def prepare_kary_split(cfg, teacher, corpus, role, documents):
         "revision": corpus["dataset_revision"],
         "model": cfg["model_name"],
         "model_revision": cfg["model_revision"],
+        "teacher_pooling": cfg.get("teacher_pooling", "masked_mean"),
+        "teacher_provenance": teacher.provenance() if hasattr(teacher, "provenance") else None,
     }
     Path(str(destination) + ".json").write_text(json.dumps(sidecar, indent=2) + "\n")
     print(f"{corpus_id}/{role}: {len(rows)} -> {destination}", flush=True)
@@ -259,7 +261,10 @@ def prepare_kary(cfg, device="cuda", smoke=False):
         raise ValueError("positive corpus weights must sum to one")
     if any(float(c["weight"]) <= 0 for c in corpora):
         raise ValueError("corpus weights must be positive")
-    teacher = FrozenTeacher(cfg["model_name"], cfg["model_revision"], device)
+    teacher = FrozenTeacher(
+        cfg["model_name"], cfg["model_revision"], device,
+        pooling=cfg.get("teacher_pooling", "masked_mean"),
+        trust_remote_code=cfg.get("teacher_trust_remote_code"))
     for corpus in corpora:
         train_range = (int(corpus["train_start"]), int(corpus["train_documents"]))
         validation_range = (int(corpus["validation_start"]), int(corpus["validation_documents"]))
@@ -288,6 +293,8 @@ def prepare_kary(cfg, device="cuda", smoke=False):
         "random_chunk_min": int(cfg["random_chunk_min"]),
         "random_chunk_max": int(cfg["random_chunk_max"]),
         "teacher_max_tokens": int(cfg.get("teacher_max_tokens", SAFE_TEACHER_MAX)),
+        "teacher_pooling": cfg.get("teacher_pooling", "masked_mean"),
+        "teacher_provenance": teacher.provenance() if hasattr(teacher, "provenance") else None,
         "full_first_level_tokens": int(cfg["arity"]) * int(cfg["chunk_tokens"]),
         "config_sha256": hashlib.sha256(
             yaml.safe_dump(cfg, sort_keys=True).encode()).hexdigest(),

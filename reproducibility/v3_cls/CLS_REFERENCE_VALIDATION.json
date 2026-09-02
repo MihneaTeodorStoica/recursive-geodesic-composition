@@ -1,0 +1,21 @@
+{
+  "teacher_provenance": {
+    "teacher_id": "Alibaba-NLP/gte-modernbert-base",
+    "teacher_revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22",
+    "teacher_pooling": "cls",
+    "tokenizer_class": "TokenizersBackend",
+    "model_class": "ModernBertModel",
+    "trust_remote_code": true,
+    "max_position_embeddings": 8192,
+    "hidden_size": 768
+  },
+  "texts_sha256": "c5ed5fd65bb17eec0e483222ee439f37f92fd04591cfd3f658aeb96f4044721e",
+  "max_abs_diff": 0.0,
+  "mean_abs_diff": 0.0,
+  "cosine_min": 0.9999999403953552,
+  "passed": true,
+  "implementation_hashes": {
+    "data_py_sha256": "35832a20717df98eafde62fe21baf258512e6c9575c9c723dc3b718260373970",
+    "validation_script_sha256": "5850812370f6c49544f7924839eee4fddb9899a09818d5804ba20e3e1af83248"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "allocation_frozen_utc": "2026-09-02T00:00:00Z",
+  "unit": "source dataset indices per corpus/revision",
+  "basis": "strictly after highest protected V2.2 official end index found in repository/range audit",
+  "protected_highest_exclusive": 296000,
+  "v3_cls": {
+    "train": [296000, 308000],
+    "development": [308000, 317000],
+    "buffer_unused": [317000, 318000],
+    "future_official_one_shot": [318000, 348000]
+  },
+  "non_overlap_policy": "All V3 access must use these exact half-open ranges; no silent shifting after any result is observed."
+}
