@@ -1,0 +1,24 @@
+{
+  "train_unopened": true,
+  "range": [
+    244000,
+    256000
+  ],
+  "teacher": {
+    "id": "Alibaba-NLP/gte-modernbert-base",
+    "revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22",
+    "pooling": "cls"
+  },
+  "files": {
+    "scripts/v2_2_cls/prepare_train.py": "341f47a67f9daad5e51d2fab5994418ee360fcbb45253bc59b83534b32d1bcb6",
+    "scripts/v2_2_cls/pilot.py": "e189441d94da5ff6cf347e07c8229343930623d2edfd72611e3b968789f6d301",
+    "src/recursive_geodesic_composition/train.py": "a1e1a515c2e57c94ab77cd544fc30da3a0891c5132081dbe70185854f37c3b40",
+    "src/recursive_geodesic_composition/v2_2_covariance.py": "ce8c2f0fd18994fab20d00186af0b7e50ca6e6891331bf0b9a3214533e28faa2",
+    "configs/v2_2_cls/pilot.yaml": "82eabbc04bd15d20f9000ab8299b66d0ba4784f04db5e9b1743254d2c8c6784f",
+    "configs/v2_2_cls/pilot_frozen.yaml": "fe572168214d1519af842da91537fc2619d7a7b23fb246232e54d4e18e717912",
+    "configs/v2_2_cls/pilot_amendment_v1.yaml": "5cb56215cc021f45a573b225ecd1591bdb281333ad47f4fe4e9f11e88648b327",
+    "scripts/v2_2_cls/protocol.py": "bf6ddfad6640bd7d0349f7911021eafd9159f08123d6207b6e73ad0c81ecb42d",
+    "tests/test_v2_2_covariance.py": "9cad88a116f2384bea902a4f627c221604f3d81ae6d1d56cee0d0f382fb51a2f",
+    "tests/test_v2_2_pilot.py": "97500f0c187e7ba8afeed29feada132ec6b3270b8da80d76f05304388a64ba05"
+  }
+}
