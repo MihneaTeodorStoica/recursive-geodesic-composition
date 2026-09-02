@@ -1,0 +1,111 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]Loading weights: 100%|██████████| 134/134 [00:00<00:00, 5411.43it/s]
+qmsum cache 100 / 197
+2wikimqa cache 100 / 300
+2wikimqa cache 200 / 300
+2wikimqa cache 300 / 300
+summ_screen_fd cache 100 / 336
+summ_screen_fd cache 200 / 336
+summ_screen_fd cache 300 / 336
+needle cache 100 / 800
+needle cache 200 / 800
+needle cache 300 / 800
+needle cache 400 / 800
+needle cache 500 / 800
+needle cache 600 / 800
+needle cache 700 / 800
+needle cache 800 / 800
+passkey cache 100 / 800
+passkey cache 200 / 800
+passkey cache 300 / 800
+passkey cache 400 / 800
+passkey cache 500 / 800
+passkey cache 600 / 800
+passkey cache 700 / 800
+passkey cache 800 / 800
+qmsum seed 424242 100 / 197
+Traceback (most recent call last):
+  File "/workspace/recursive-geodesic-composition-v3/scripts/v4_euclidean/downstream/run_longembed_suite.py", line 151, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/recursive-geodesic-composition-v3/scripts/v4_euclidean/downstream/run_longembed_suite.py", line 150, in main
+    summary={c:evaluate(c,*tasks[c],man[c],pre,a.device) for c in a.tasks};write(OUT/'LONGEMBED_SUITE_NEW_TASKS_SUMMARY.json',{'schema':'v4_longembed_new_tasks_summary_v1','suite_precommit_sha256':sha(PRE),'tasks':{c:{'result':f'results/v4_euclidean/downstream/{c}/SUITE_RESULTS.json','sha256':sha(OUT/c/'SUITE_RESULTS.json')} for c in summary}})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/recursive-geodesic-composition-v3/scripts/v4_euclidean/downstream/run_longembed_suite.py", line 117, in evaluate
+    for seed,e in pre['checkpoints'].items():methods[f'recursive_seed{seed}'],prov[f'recursive_seed{seed}']=recursive(cache,m,seed,e,device)
+                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/recursive-geodesic-composition-v3/scripts/v4_euclidean/downstream/run_longembed_suite.py", line 80, in recursive
+    sec=time.time()-t;report=_finish_telemetry(tel,len(out),m['counts']['leaves'],deps,sec) if m['counts']['leaves']>len(out) else {'documents':len(out),'leaves':len(out),'seconds':sec,'depth':{'minimum':0,'mean':0,'maximum':0}};del model;torch.cuda.empty_cache();return norm(np.stack(out)),{**prov,'telemetry':report}
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: _finish_telemetry() takes 1 positional argument but 5 were given
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]Loading weights: 100%|██████████| 134/134 [00:00<00:00, 6628.57it/s]
+qmsum seed 424242 100 / 197
+qmsum seed 271828 100 / 197
+qmsum seed 314159 100 / 197
+2wikimqa seed 424242 100 / 300
+2wikimqa seed 424242 200 / 300
+2wikimqa seed 424242 300 / 300
+2wikimqa seed 271828 100 / 300
+2wikimqa seed 271828 200 / 300
+2wikimqa seed 271828 300 / 300
+2wikimqa seed 314159 100 / 300
+2wikimqa seed 314159 200 / 300
+2wikimqa seed 314159 300 / 300
+summ_screen_fd seed 424242 100 / 336
+summ_screen_fd seed 424242 200 / 336
+summ_screen_fd seed 424242 300 / 336
+summ_screen_fd seed 271828 100 / 336
+summ_screen_fd seed 271828 200 / 336
+summ_screen_fd seed 271828 300 / 336
+summ_screen_fd seed 314159 100 / 336
+summ_screen_fd seed 314159 200 / 336
+summ_screen_fd seed 314159 300 / 336
+needle seed 424242 100 / 800
+needle seed 424242 200 / 800
+needle seed 424242 300 / 800
+needle seed 424242 400 / 800
+needle seed 424242 500 / 800
+needle seed 424242 600 / 800
+needle seed 424242 700 / 800
+needle seed 424242 800 / 800
+needle seed 271828 100 / 800
+needle seed 271828 200 / 800
+needle seed 271828 300 / 800
+needle seed 271828 400 / 800
+needle seed 271828 500 / 800
+needle seed 271828 600 / 800
+needle seed 271828 700 / 800
+needle seed 271828 800 / 800
+needle seed 314159 100 / 800
+needle seed 314159 200 / 800
+needle seed 314159 300 / 800
+needle seed 314159 400 / 800
+needle seed 314159 500 / 800
+needle seed 314159 600 / 800
+needle seed 314159 700 / 800
+needle seed 314159 800 / 800
+passkey seed 424242 100 / 800
+passkey seed 424242 200 / 800
+passkey seed 424242 300 / 800
+passkey seed 424242 400 / 800
+passkey seed 424242 500 / 800
+passkey seed 424242 600 / 800
+passkey seed 424242 700 / 800
+passkey seed 424242 800 / 800
+passkey seed 271828 100 / 800
+passkey seed 271828 200 / 800
+passkey seed 271828 300 / 800
+passkey seed 271828 400 / 800
+passkey seed 271828 500 / 800
+passkey seed 271828 600 / 800
+passkey seed 271828 700 / 800
+passkey seed 271828 800 / 800
+passkey seed 314159 100 / 800
+passkey seed 314159 200 / 800
+passkey seed 314159 300 / 800
+passkey seed 314159 400 / 800
+passkey seed 314159 500 / 800
+passkey seed 314159 600 / 800
+passkey seed 314159 700 / 800
+passkey seed 314159 800 / 800

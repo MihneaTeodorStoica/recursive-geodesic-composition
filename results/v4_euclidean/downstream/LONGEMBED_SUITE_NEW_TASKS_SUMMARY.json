@@ -1,0 +1,26 @@
+{
+  "schema": "v4_longembed_new_tasks_summary_v1",
+  "suite_precommit_sha256": "a626f08092fde9990c092ecde06226cc1952eb476501340b60065482b2438254",
+  "tasks": {
+    "2wikimqa": {
+      "result": "results/v4_euclidean/downstream/2wikimqa/SUITE_RESULTS.json",
+      "sha256": "591ababffb2bf347d024418171f035b86e81f7cb722adec72dec49db2e2aaa1c"
+    },
+    "needle": {
+      "result": "results/v4_euclidean/downstream/needle/SUITE_RESULTS.json",
+      "sha256": "7b6e7120b0952172ff553e4124a209c438f1e78cfc2529c5e51481669cb787a0"
+    },
+    "passkey": {
+      "result": "results/v4_euclidean/downstream/passkey/SUITE_RESULTS.json",
+      "sha256": "bf6d70520e8e5392dc30ea994e8ed9512a0e6bae9512f8cb9de369fefa480f1b"
+    },
+    "qmsum": {
+      "result": "results/v4_euclidean/downstream/qmsum/SUITE_RESULTS.json",
+      "sha256": "5c5e9e716a711dfa5f76b5466f8334cbd09b97214b4e69ae3d22e8b53bd2be93"
+    },
+    "summ_screen_fd": {
+      "result": "results/v4_euclidean/downstream/summ_screen_fd/SUITE_RESULTS.json",
+      "sha256": "49b40d079a8652db108d8babef8e690986a12185a9f149e6b90933ba5d303814"
+    }
+  }
+}

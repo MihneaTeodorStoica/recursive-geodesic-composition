@@ -1,0 +1,256 @@
+{
+  "schema": "v4_downstream_suite_final_audit_v1",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "branch",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "immutable dataset revision",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "MTEB revision content identity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "inspection frozen",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "all qrels prevalidated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "frozen checkpoint 424242",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "frozen checkpoint 271828",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "frozen checkpoint 314159",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "qmsum cache complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "qmsum document fields",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "qmsum all shard hashes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "qmsum query hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "qmsum result complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "qmsum no count exclusion",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "qmsum all methods",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "2wikimqa cache complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "2wikimqa document fields",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "2wikimqa all shard hashes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "2wikimqa query hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "2wikimqa result complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "2wikimqa no count exclusion",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "2wikimqa all methods",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "summ_screen_fd cache complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "summ_screen_fd document fields",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "summ_screen_fd all shard hashes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "summ_screen_fd query hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "summ_screen_fd result complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "summ_screen_fd no count exclusion",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "summ_screen_fd all methods",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "needle cache complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "needle document fields",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "needle all shard hashes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "needle query hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "needle result complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "needle no count exclusion",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "needle standard contexts",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "passkey cache complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "passkey document fields",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "passkey all shard hashes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "passkey query hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "passkey result complete",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "passkey no count exclusion",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "passkey standard contexts",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "all requested retrieval tasks",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "all scale analyses",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "prior classification/cache audit",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "publication figures",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure sources",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "per-document metadata",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "tests",
+      "pass": true,
+      "detail": ".....................................................................    [100%]\n69 passed in 21.03s\n"
+    }
+  ]
+}

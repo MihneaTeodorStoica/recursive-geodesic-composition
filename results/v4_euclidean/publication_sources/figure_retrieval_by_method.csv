@@ -1,0 +1,17 @@
+method,nDCG@10,task
+recursive_three_seed_mean,0.34817048954630886,nfcorpus
+token_weighted_leaf_mean,0.34816233649598244,nfcorpus
+unweighted_leaf_mean,0.3476814190232585,nfcorpus
+direct_teacher,0.3482917438256538,nfcorpus
+recursive_three_seed_mean,0.5496187760893588,narrativeqa
+token_weighted_leaf_mean,0.5608805471012135,narrativeqa
+unweighted_leaf_mean,0.5601525287051979,narrativeqa
+recursive_three_seed_mean,0.4633009439777101,qmsum
+token_weighted_leaf_mean,0.4812712952823175,qmsum
+unweighted_leaf_mean,0.47538570867115676,qmsum
+recursive_three_seed_mean,0.8304902467133818,2wikimqa
+token_weighted_leaf_mean,0.8186142413660733,2wikimqa
+unweighted_leaf_mean,0.8203703548055319,2wikimqa
+recursive_three_seed_mean,0.9716687364479905,summ_screen_fd
+token_weighted_leaf_mean,0.9679893397090007,summ_screen_fd
+unweighted_leaf_mean,0.9694770085187964,summ_screen_fd

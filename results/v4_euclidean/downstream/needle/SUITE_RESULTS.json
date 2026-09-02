@@ -1,0 +1,3091 @@
+{
+  "counts": {
+    "documents": 800,
+    "qrels": 400,
+    "queries": 400
+  },
+  "metrics_implementation": "pytrec_eval ndcg_cut.1/10 recall.10/100 plus explicit positive-qrel MRR@10",
+  "provenance": {
+    "cache_manifest_sha256": "0d4b682eef6814a375af2c25bd9b994d470b9d5cc14c1a28f812f666f1dd8cfd",
+    "checkpoints": {
+      "recursive_seed271828": {
+        "architecture": "euclidean_residual",
+        "checkpoint": "results/v4_euclidean/euclidean_residual_seed271828/autoencoder_seed271828.pt",
+        "checkpoint_sha256": "2fe260688e4dee17f9161effe375108d085503ba1f1220ab5b73e2844b7b1b7b",
+        "fresh_v4_euclidean": true,
+        "seed": 271828,
+        "telemetry": {
+          "depth": {
+            "maximum": 3,
+            "mean": 1.125,
+            "minimum": 0
+          },
+          "documents": 800,
+          "documents_per_second": 199.47442014559888,
+          "geodesic_angle_radians": {
+            "count": 2100,
+            "maximum": 0.05170249938964844,
+            "mean": 0.04502369090914726,
+            "minimum": 0.028776463121175766
+          },
+          "geodesic_saturation_count": 0,
+          "importance_active_slots": 7500,
+          "importance_correction_absolute": {
+            "count": 7500,
+            "maximum": 0.8270860314369202,
+            "mean": 0.3639788031578064,
+            "minimum": 0.0029159274417907
+          },
+          "importance_saturation_count": 0,
+          "internal_merges": 2100,
+          "leaves": 6200,
+          "leaves_per_second": 1545.9267561283914,
+          "seconds": 4.010539293289185
+        },
+        "training_cache_manifest": "artifacts/v4_euclidean/cache_train_cls/CACHE_MANIFEST.json",
+        "training_cache_manifest_sha256": "06b959c74aca0031a95392c5d844ccc0205ff81992bd97f7c0e0a67b2598114e"
+      },
+      "recursive_seed314159": {
+        "architecture": "euclidean_residual",
+        "checkpoint": "results/v4_euclidean/euclidean_residual_seed314159/autoencoder_seed314159.pt",
+        "checkpoint_sha256": "936c47c3e7f34848feafeb1740ae5a0743cbc0bd2562d3a72f17ba2139aaa39f",
+        "fresh_v4_euclidean": true,
+        "seed": 314159,
+        "telemetry": {
+          "depth": {
+            "maximum": 3,
+            "mean": 1.125,
+            "minimum": 0
+          },
+          "documents": 800,
+          "documents_per_second": 201.04324968562307,
+          "geodesic_angle_radians": {
+            "count": 2100,
+            "maximum": 0.04969237744808197,
+            "mean": 0.04385948181152344,
+            "minimum": 0.029267385601997375
+          },
+          "geodesic_saturation_count": 0,
+          "importance_active_slots": 7500,
+          "importance_correction_absolute": {
+            "count": 7500,
+            "maximum": 0.7265255451202393,
+            "mean": 0.29364636540412903,
+            "minimum": 0.00023587793111801147
+          },
+          "importance_saturation_count": 0,
+          "internal_merges": 2100,
+          "leaves": 6200,
+          "leaves_per_second": 1558.0851850635788,
+          "seconds": 3.979243278503418
+        },
+        "training_cache_manifest": "artifacts/v4_euclidean/cache_train_cls/CACHE_MANIFEST.json",
+        "training_cache_manifest_sha256": "06b959c74aca0031a95392c5d844ccc0205ff81992bd97f7c0e0a67b2598114e"
+      },
+      "recursive_seed424242": {
+        "architecture": "euclidean_residual",
+        "checkpoint": "results/v4_euclidean/euclidean_residual_seed424242/autoencoder_seed424242.pt",
+        "checkpoint_sha256": "762f9799c83b6e9dc6ca35c22dda1f952b410efbbebced628caa29f249a70946",
+        "fresh_v4_euclidean": true,
+        "seed": 424242,
+        "telemetry": {
+          "depth": {
+            "maximum": 3,
+            "mean": 1.125,
+            "minimum": 0
+          },
+          "documents": 800,
+          "documents_per_second": 195.77589508964974,
+          "geodesic_angle_radians": {
+            "count": 2100,
+            "maximum": 0.05413539707660675,
+            "mean": 0.04697683826088905,
+            "minimum": 0.027425143867731094
+          },
+          "geodesic_saturation_count": 0,
+          "importance_active_slots": 7500,
+          "importance_correction_absolute": {
+            "count": 7500,
+            "maximum": 0.7136873006820679,
+            "mean": 0.3057934045791626,
+            "minimum": 0.0005563520244322717
+          },
+          "importance_saturation_count": 0,
+          "internal_merges": 2100,
+          "leaves": 6200,
+          "leaves_per_second": 1517.2631869447853,
+          "seconds": 4.0863049030303955
+        },
+        "training_cache_manifest": "artifacts/v4_euclidean/cache_train_cls/CACHE_MANIFEST.json",
+        "training_cache_manifest_sha256": "06b959c74aca0031a95392c5d844ccc0205ff81992bd97f7c0e0a67b2598114e"
+      }
+    },
+    "software": {
+      "numpy": "2.5.2",
+      "python": "3.12.14",
+      "torch": "2.10.0+cu128"
+    },
+    "suite_precommit_sha256": "a626f08092fde9990c092ecde06226cc1952eb476501340b60065482b2438254"
+  },
+  "results": {
+    "context_unweighted_mean": {
+      "recursive_seed271828": {
+        "MRR@10": 0.3476954365079365,
+        "Recall@10": 0.5275,
+        "Recall@100": 1.0,
+        "nDCG@1": 0.27249999999999996,
+        "nDCG@10": 0.39050154955150007
+      },
+      "recursive_seed314159": {
+        "MRR@10": 0.35448511904761904,
+        "Recall@10": 0.5425,
+        "Recall@100": 1.0,
+        "nDCG@1": 0.27749999999999997,
+        "nDCG@10": 0.3991398947836675
+      },
+      "recursive_seed424242": {
+        "MRR@10": 0.3521696428571428,
+        "Recall@10": 0.5425,
+        "Recall@100": 1.0,
+        "nDCG@1": 0.27499999999999997,
+        "nDCG@10": 0.39729454768176364
+      },
+      "token_weighted_leaf_mean": {
+        "MRR@10": 0.36492559523809526,
+        "Recall@10": 0.5549999999999999,
+        "Recall@100": 1.0,
+        "nDCG@1": 0.29,
+        "nDCG@10": 0.4097354304870556
+      },
+      "unweighted_leaf_mean": {
+        "MRR@10": 0.36262003968253964,
+        "Recall@10": 0.5575,
+        "Recall@100": 1.0,
+        "nDCG@1": 0.27999999999999997,
+        "nDCG@10": 0.4088278936597336
+      }
+    },
+    "contexts": {
+      "1024": {
+        "direct_teacher": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.17457142857142857,
+              0.39
+            ],
+            "Recall@10": [
+              0.34,
+              0.6
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.12,
+              0.34
+            ],
+            "nDCG@10": [
+              0.20937537461887754,
+              0.4384227446639393
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.2800793650793651,
+            "Recall@10": 0.46,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.22,
+            "nDCG@10": 0.32226162517584994
+          },
+          "per_query": {
+            "path": "suite_per_query/direct_teacher__context_1024.jsonl",
+            "sha256": "1506634789a0bbd28362a7a8cea27a56235e3dd844c648e469b7783975ebf821"
+          }
+        },
+        "recursive_seed271828": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.1711626984126984,
+              0.3950833333333333
+            ],
+            "Recall@10": [
+              0.32,
+              0.6
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.12,
+              0.34
+            ],
+            "nDCG@10": [
+              0.21343311626141726,
+              0.43337975702751347
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.2800793650793651,
+            "Recall@10": 0.46,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.22,
+            "nDCG@10": 0.32226162517584994
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed271828__context_1024.jsonl",
+            "sha256": "1506634789a0bbd28362a7a8cea27a56235e3dd844c648e469b7783975ebf821"
+          },
+          "stratified": {
+            "depth": {
+              "0": {
+                "MRR@10": 0.2800793650793651,
+                "Recall@10": 0.46,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.32226162517584994,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "1-1": {
+                "MRR@10": 0.2800793650793651,
+                "Recall@10": 0.46,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.32226162517584994,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1-1024": {
+                "MRR@10": 0.2800793650793651,
+                "Recall@10": 0.46,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.32226162517584994,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed314159": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.17458531746031747,
+              0.39337698412698413
+            ],
+            "Recall@10": [
+              0.32,
+              0.6
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.12,
+              0.34
+            ],
+            "nDCG@10": [
+              0.20907271172934477,
+              0.4319982854104591
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.2800793650793651,
+            "Recall@10": 0.46,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.22,
+            "nDCG@10": 0.32226162517584994
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed314159__context_1024.jsonl",
+            "sha256": "1506634789a0bbd28362a7a8cea27a56235e3dd844c648e469b7783975ebf821"
+          },
+          "stratified": {
+            "depth": {
+              "0": {
+                "MRR@10": 0.2800793650793651,
+                "Recall@10": 0.46,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.32226162517584994,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "1-1": {
+                "MRR@10": 0.2800793650793651,
+                "Recall@10": 0.46,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.32226162517584994,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1-1024": {
+                "MRR@10": 0.2800793650793651,
+                "Recall@10": 0.46,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.32226162517584994,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed424242": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.17385119047619046,
+              0.38953571428571426
+            ],
+            "Recall@10": [
+              0.32,
+              0.6
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.1,
+              0.34
+            ],
+            "nDCG@10": [
+              0.22221006222303674,
+              0.4361378276432893
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.2800793650793651,
+            "Recall@10": 0.46,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.22,
+            "nDCG@10": 0.32226162517584994
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed424242__context_1024.jsonl",
+            "sha256": "1506634789a0bbd28362a7a8cea27a56235e3dd844c648e469b7783975ebf821"
+          },
+          "stratified": {
+            "depth": {
+              "0": {
+                "MRR@10": 0.2800793650793651,
+                "Recall@10": 0.46,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.32226162517584994,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "1-1": {
+                "MRR@10": 0.2800793650793651,
+                "Recall@10": 0.46,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.32226162517584994,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1-1024": {
+                "MRR@10": 0.2800793650793651,
+                "Recall@10": 0.46,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.32226162517584994,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "token_weighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.17721230158730158,
+              0.3978829365079365
+            ],
+            "Recall@10": [
+              0.32,
+              0.6
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.12,
+              0.34
+            ],
+            "nDCG@10": [
+              0.2123055989837397,
+              0.446002306018487
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.2800793650793651,
+            "Recall@10": 0.46,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.22,
+            "nDCG@10": 0.32226162517584994
+          },
+          "per_query": {
+            "path": "suite_per_query/token_weighted_leaf_mean__context_1024.jsonl",
+            "sha256": "1506634789a0bbd28362a7a8cea27a56235e3dd844c648e469b7783975ebf821"
+          },
+          "stratified": {
+            "depth": {
+              "0": {
+                "MRR@10": 0.2800793650793651,
+                "Recall@10": 0.46,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.32226162517584994,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "1-1": {
+                "MRR@10": 0.2800793650793651,
+                "Recall@10": 0.46,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.32226162517584994,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1-1024": {
+                "MRR@10": 0.2800793650793651,
+                "Recall@10": 0.46,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.32226162517584994,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "unweighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.17840674603174606,
+              0.4001071428571428
+            ],
+            "Recall@10": [
+              0.32,
+              0.6
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.12,
+              0.36
+            ],
+            "nDCG@10": [
+              0.2050646334294562,
+              0.4307341778547726
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.2800793650793651,
+            "Recall@10": 0.46,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.22,
+            "nDCG@10": 0.32226162517584994
+          },
+          "per_query": {
+            "path": "suite_per_query/unweighted_leaf_mean__context_1024.jsonl",
+            "sha256": "1506634789a0bbd28362a7a8cea27a56235e3dd844c648e469b7783975ebf821"
+          },
+          "stratified": {
+            "depth": {
+              "0": {
+                "MRR@10": 0.2800793650793651,
+                "Recall@10": 0.46,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.32226162517584994,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "1-1": {
+                "MRR@10": 0.2800793650793651,
+                "Recall@10": 0.46,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.32226162517584994,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1-1024": {
+                "MRR@10": 0.2800793650793651,
+                "Recall@10": 0.46,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.32226162517584994,
+                "queries": 50
+              }
+            }
+          }
+        }
+      },
+      "16384": {
+        "recursive_seed271828": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.06589523809523809,
+              0.1960333333333333
+            ],
+            "Recall@10": [
+              0.18,
+              0.42
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.0,
+              0.06
+            ],
+            "nDCG@10": [
+              0.10321258961865182,
+              0.2443823869337265
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.12585714285714286,
+            "Recall@10": 0.3,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.02,
+            "nDCG@10": 0.16882721443110985
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed271828__context_16384.jsonl",
+            "sha256": "d3176415fc3b9ac87b9969ea1ce3bd730a16b39df653760ca29a51b7c073ff67"
+          },
+          "stratified": {
+            "depth": {
+              "2": {
+                "MRR@10": 0.12585714285714286,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.02,
+                "nDCG@10": 0.16882721443110985,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "9-16": {
+                "MRR@10": 0.12585714285714286,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.02,
+                "nDCG@10": 0.16882721443110985,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "8191-16384": {
+                "MRR@10": 0.12585714285714286,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.02,
+                "nDCG@10": 0.16882721443110985,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed314159": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.076325,
+              0.21167916666666664
+            ],
+            "Recall@10": [
+              0.18,
+              0.44
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.0,
+              0.1
+            ],
+            "nDCG@10": [
+              0.104876385182242,
+              0.26039265048318094
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.14216666666666666,
+            "Recall@10": 0.3,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.04,
+            "nDCG@10": 0.1813457015579973
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed314159__context_16384.jsonl",
+            "sha256": "ea0d13eb48d4818fa51c62948f8019ac04c436ac24370cda3c756b97f1e57284"
+          },
+          "stratified": {
+            "depth": {
+              "2": {
+                "MRR@10": 0.14216666666666666,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.1813457015579973,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "9-16": {
+                "MRR@10": 0.14216666666666666,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.1813457015579973,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "8191-16384": {
+                "MRR@10": 0.14216666666666666,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.1813457015579973,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed424242": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.07299166666666666,
+              0.19501666666666664
+            ],
+            "Recall@10": [
+              0.2,
+              0.44
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.0,
+              0.06
+            ],
+            "nDCG@10": [
+              0.10308866661231483,
+              0.2594109713385122
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.13016666666666668,
+            "Recall@10": 0.32,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.02,
+            "nDCG@10": 0.1765140856818247
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed424242__context_16384.jsonl",
+            "sha256": "af3ddb56c5cb3a45a7bae7e11191d865a30ff27b44ed338d20e1056575069911"
+          },
+          "stratified": {
+            "depth": {
+              "2": {
+                "MRR@10": 0.13016666666666668,
+                "Recall@10": 0.32,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.02,
+                "nDCG@10": 0.1765140856818247,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "9-16": {
+                "MRR@10": 0.13016666666666668,
+                "Recall@10": 0.32,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.02,
+                "nDCG@10": 0.1765140856818247,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "8191-16384": {
+                "MRR@10": 0.13016666666666668,
+                "Recall@10": 0.32,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.02,
+                "nDCG@10": 0.1765140856818247,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "token_weighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.06061468253968254,
+              0.19312103174603173
+            ],
+            "Recall@10": [
+              0.22,
+              0.5
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.0,
+              0.1
+            ],
+            "nDCG@10": [
+              0.10901202467553243,
+              0.25513377067836407
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.11982539682539682,
+            "Recall@10": 0.36,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.04,
+            "nDCG@10": 0.17489130145660514
+          },
+          "per_query": {
+            "path": "suite_per_query/token_weighted_leaf_mean__context_16384.jsonl",
+            "sha256": "20a61572f7bac942e090cd738c4528411fa0ae2b23d8b7195bfb539694803549"
+          },
+          "stratified": {
+            "depth": {
+              "2": {
+                "MRR@10": 0.11982539682539682,
+                "Recall@10": 0.36,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.17489130145660514,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "9-16": {
+                "MRR@10": 0.11982539682539682,
+                "Recall@10": 0.36,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.17489130145660514,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "8191-16384": {
+                "MRR@10": 0.11982539682539682,
+                "Recall@10": 0.36,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.17489130145660514,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "unweighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.05681031746031746,
+              0.1890480158730159
+            ],
+            "Recall@10": [
+              0.22,
+              0.46
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.0,
+              0.1
+            ],
+            "nDCG@10": [
+              0.09462200957248909,
+              0.24413533505531426
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.11604761904761904,
+            "Recall@10": 0.34,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.04,
+            "nDCG@10": 0.16739354869883616
+          },
+          "per_query": {
+            "path": "suite_per_query/unweighted_leaf_mean__context_16384.jsonl",
+            "sha256": "4ae5091e5c00224c5d0641a2bd9cb30f093ecfc9e730be3eee81e8a4efaafa5c"
+          },
+          "stratified": {
+            "depth": {
+              "2": {
+                "MRR@10": 0.11604761904761904,
+                "Recall@10": 0.34,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.16739354869883616,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "9-16": {
+                "MRR@10": 0.11604761904761904,
+                "Recall@10": 0.34,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.16739354869883616,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "8191-16384": {
+                "MRR@10": 0.11604761904761904,
+                "Recall@10": 0.34,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.16739354869883616,
+                "queries": 50
+              }
+            }
+          }
+        }
+      },
+      "2048": {
+        "direct_teacher": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.18434940476190473,
+              0.3787148809523809
+            ],
+            "Recall@10": [
+              0.36,
+              0.64
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.06,
+              0.28
+            ],
+            "nDCG@10": [
+              0.22173448640339616,
+              0.4417246519789781
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.2760238095238095,
+            "Recall@10": 0.5,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.16,
+            "nDCG@10": 0.33001805089356273
+          },
+          "per_query": {
+            "path": "suite_per_query/direct_teacher__context_2048.jsonl",
+            "sha256": "43e3a7ee18a35f17c1b309f0b5796ee256d7afaa4219576d47d4b4eed3009e98"
+          }
+        },
+        "recursive_seed271828": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.23207539682539685,
+              0.45313988095238095
+            ],
+            "Recall@10": [
+              0.44,
+              0.72
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.12,
+              0.36
+            ],
+            "nDCG@10": [
+              0.2938298631505844,
+              0.5084733230625598
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.3437698412698413,
+            "Recall@10": 0.58,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.24,
+            "nDCG@10": 0.4003344745275052
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed271828__context_2048.jsonl",
+            "sha256": "f3a6008738039875be4be959fb9fdc26088f637f099e5e383cef185aac9b44d3"
+          },
+          "stratified": {
+            "depth": {
+              "1": {
+                "MRR@10": 0.3437698412698413,
+                "Recall@10": 0.58,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.24,
+                "nDCG@10": 0.4003344745275052,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "2-4": {
+                "MRR@10": 0.3437698412698413,
+                "Recall@10": 0.58,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.24,
+                "nDCG@10": 0.4003344745275052,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1025-4096": {
+                "MRR@10": 0.3437698412698413,
+                "Recall@10": 0.58,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.24,
+                "nDCG@10": 0.4003344745275052,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed314159": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.24668333333333334,
+              0.45019226190476197
+            ],
+            "Recall@10": [
+              0.5,
+              0.7604999999999995
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.12,
+              0.34
+            ],
+            "nDCG@10": [
+              0.31980682605789224,
+              0.5298632799418119
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.3474047619047619,
+            "Recall@10": 0.64,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.22,
+            "nDCG@10": 0.41748094264162033
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed314159__context_2048.jsonl",
+            "sha256": "4823ef8a75ea3e2f3e6366d907782638581180727e3ec938367d0cb4e7b57816"
+          },
+          "stratified": {
+            "depth": {
+              "1": {
+                "MRR@10": 0.3474047619047619,
+                "Recall@10": 0.64,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.41748094264162033,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "2-4": {
+                "MRR@10": 0.3474047619047619,
+                "Recall@10": 0.64,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.41748094264162033,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1025-4096": {
+                "MRR@10": 0.3474047619047619,
+                "Recall@10": 0.64,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.41748094264162033,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed424242": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.22706984126984125,
+              0.44353849206349205
+            ],
+            "Recall@10": [
+              0.46,
+              0.7204999999999995
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.11950000000000002,
+              0.34
+            ],
+            "nDCG@10": [
+              0.29004636778935095,
+              0.5179916230844076
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.33724603174603174,
+            "Recall@10": 0.6,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.22,
+            "nDCG@10": 0.400425470407977
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed424242__context_2048.jsonl",
+            "sha256": "b8d9b6cbc7352d7c400d1fd16124760758e88a40843f212da4b39b02478169af"
+          },
+          "stratified": {
+            "depth": {
+              "1": {
+                "MRR@10": 0.33724603174603174,
+                "Recall@10": 0.6,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.400425470407977,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "2-4": {
+                "MRR@10": 0.33724603174603174,
+                "Recall@10": 0.6,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.400425470407977,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1025-4096": {
+                "MRR@10": 0.33724603174603174,
+                "Recall@10": 0.6,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.400425470407977,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "token_weighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.22191309523809524,
+              0.4184603174603174
+            ],
+            "Recall@10": [
+              0.48,
+              0.76
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.06,
+              0.26
+            ],
+            "nDCG@10": [
+              0.29160755493898133,
+              0.4919737221707079
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.31941269841269837,
+            "Recall@10": 0.62,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.16,
+            "nDCG@10": 0.3925833695147862
+          },
+          "per_query": {
+            "path": "suite_per_query/token_weighted_leaf_mean__context_2048.jsonl",
+            "sha256": "f8d834f7bc93a4bdf9ab795ab69400da3e23dc053603065909a3ee5f7448460c"
+          },
+          "stratified": {
+            "depth": {
+              "1": {
+                "MRR@10": 0.31941269841269837,
+                "Recall@10": 0.62,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.16,
+                "nDCG@10": 0.3925833695147862,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "2-4": {
+                "MRR@10": 0.31941269841269837,
+                "Recall@10": 0.62,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.16,
+                "nDCG@10": 0.3925833695147862,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1025-4096": {
+                "MRR@10": 0.31941269841269837,
+                "Recall@10": 0.62,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.16,
+                "nDCG@10": 0.3925833695147862,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "unweighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.2149,
+              0.41009642857142853
+            ],
+            "Recall@10": [
+              0.44,
+              0.72
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.06,
+              0.24
+            ],
+            "nDCG@10": [
+              0.2839381537513473,
+              0.4749497780158371
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.30752380952380953,
+            "Recall@10": 0.58,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.14,
+            "nDCG@10": 0.37461651904415855
+          },
+          "per_query": {
+            "path": "suite_per_query/unweighted_leaf_mean__context_2048.jsonl",
+            "sha256": "2e2ac6db01ec80d0569f195154762898c10f0b4d297ed801a4dc9a7a7a8bb9c8"
+          },
+          "stratified": {
+            "depth": {
+              "1": {
+                "MRR@10": 0.30752380952380953,
+                "Recall@10": 0.58,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.14,
+                "nDCG@10": 0.37461651904415855,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "2-4": {
+                "MRR@10": 0.30752380952380953,
+                "Recall@10": 0.58,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.14,
+                "nDCG@10": 0.37461651904415855,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1025-4096": {
+                "MRR@10": 0.30752380952380953,
+                "Recall@10": 0.58,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.14,
+                "nDCG@10": 0.37461651904415855,
+                "queries": 50
+              }
+            }
+          }
+        }
+      },
+      "256": {
+        "direct_teacher": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.8499761904761904,
+              0.975
+            ],
+            "Recall@10": [
+              1.0,
+              1.0
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.78,
+              0.96
+            ],
+            "nDCG@10": [
+              0.887057634633762,
+              0.9826185950714291
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.9161904761904762,
+            "Recall@10": 1.0,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.88,
+            "nDCG@10": 0.9365123240610316
+          },
+          "per_query": {
+            "path": "suite_per_query/direct_teacher__context_256.jsonl",
+            "sha256": "b58443fd26266f9a458356cb894077256fcfa3101d36dd06a1c7d783ee4b1fe3"
+          }
+        },
+        "recursive_seed271828": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.8456726190476189,
+              0.9733749999999999
+            ],
+            "Recall@10": [
+              1.0,
+              1.0
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.8,
+              0.96
+            ],
+            "nDCG@10": [
+              0.8869082257853997,
+              0.9786135311614679
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.9161904761904762,
+            "Recall@10": 1.0,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.88,
+            "nDCG@10": 0.9365123240610316
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed271828__context_256.jsonl",
+            "sha256": "b58443fd26266f9a458356cb894077256fcfa3101d36dd06a1c7d783ee4b1fe3"
+          },
+          "stratified": {
+            "depth": {
+              "0": {
+                "MRR@10": 0.9161904761904762,
+                "Recall@10": 1.0,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.88,
+                "nDCG@10": 0.9365123240610316,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "1-1": {
+                "MRR@10": 0.9161904761904762,
+                "Recall@10": 1.0,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.88,
+                "nDCG@10": 0.9365123240610316,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1-1024": {
+                "MRR@10": 0.9161904761904762,
+                "Recall@10": 1.0,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.88,
+                "nDCG@10": 0.9365123240610316,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed314159": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.8440357142857142,
+              0.975
+            ],
+            "Recall@10": [
+              1.0,
+              1.0
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.8,
+              0.96
+            ],
+            "nDCG@10": [
+              0.8823518423533033,
+              0.98
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.9161904761904762,
+            "Recall@10": 1.0,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.88,
+            "nDCG@10": 0.9365123240610316
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed314159__context_256.jsonl",
+            "sha256": "b58443fd26266f9a458356cb894077256fcfa3101d36dd06a1c7d783ee4b1fe3"
+          },
+          "stratified": {
+            "depth": {
+              "0": {
+                "MRR@10": 0.9161904761904762,
+                "Recall@10": 1.0,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.88,
+                "nDCG@10": 0.9365123240610316,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "1-1": {
+                "MRR@10": 0.9161904761904762,
+                "Recall@10": 1.0,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.88,
+                "nDCG@10": 0.9365123240610316,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1-1024": {
+                "MRR@10": 0.9161904761904762,
+                "Recall@10": 1.0,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.88,
+                "nDCG@10": 0.9365123240610316,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed424242": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.8461666666666665,
+              0.9733333333333333
+            ],
+            "Recall@10": [
+              1.0,
+              1.0
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.78,
+              0.96
+            ],
+            "nDCG@10": [
+              0.880346252100942,
+              0.981232126232897
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.9161904761904762,
+            "Recall@10": 1.0,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.88,
+            "nDCG@10": 0.9365123240610316
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed424242__context_256.jsonl",
+            "sha256": "b58443fd26266f9a458356cb894077256fcfa3101d36dd06a1c7d783ee4b1fe3"
+          },
+          "stratified": {
+            "depth": {
+              "0": {
+                "MRR@10": 0.9161904761904762,
+                "Recall@10": 1.0,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.88,
+                "nDCG@10": 0.9365123240610316,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "1-1": {
+                "MRR@10": 0.9161904761904762,
+                "Recall@10": 1.0,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.88,
+                "nDCG@10": 0.9365123240610316,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1-1024": {
+                "MRR@10": 0.9161904761904762,
+                "Recall@10": 1.0,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.88,
+                "nDCG@10": 0.9365123240610316,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "token_weighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.849279761904762,
+              0.9750416666666666
+            ],
+            "Recall@10": [
+              1.0,
+              1.0
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.78,
+              0.96
+            ],
+            "nDCG@10": [
+              0.8772025519282384,
+              0.9786135311614679
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.9161904761904762,
+            "Recall@10": 1.0,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.88,
+            "nDCG@10": 0.9365123240610316
+          },
+          "per_query": {
+            "path": "suite_per_query/token_weighted_leaf_mean__context_256.jsonl",
+            "sha256": "b58443fd26266f9a458356cb894077256fcfa3101d36dd06a1c7d783ee4b1fe3"
+          },
+          "stratified": {
+            "depth": {
+              "0": {
+                "MRR@10": 0.9161904761904762,
+                "Recall@10": 1.0,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.88,
+                "nDCG@10": 0.9365123240610316,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "1-1": {
+                "MRR@10": 0.9161904761904762,
+                "Recall@10": 1.0,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.88,
+                "nDCG@10": 0.9365123240610316,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1-1024": {
+                "MRR@10": 0.9161904761904762,
+                "Recall@10": 1.0,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.88,
+                "nDCG@10": 0.9365123240610316,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "unweighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.8435714285714286,
+              0.975
+            ],
+            "Recall@10": [
+              1.0,
+              1.0
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.78,
+              0.96
+            ],
+            "nDCG@10": [
+              0.8849715126168644,
+              0.9786481928824311
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.9161904761904762,
+            "Recall@10": 1.0,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.88,
+            "nDCG@10": 0.9365123240610316
+          },
+          "per_query": {
+            "path": "suite_per_query/unweighted_leaf_mean__context_256.jsonl",
+            "sha256": "b58443fd26266f9a458356cb894077256fcfa3101d36dd06a1c7d783ee4b1fe3"
+          },
+          "stratified": {
+            "depth": {
+              "0": {
+                "MRR@10": 0.9161904761904762,
+                "Recall@10": 1.0,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.88,
+                "nDCG@10": 0.9365123240610316,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "1-1": {
+                "MRR@10": 0.9161904761904762,
+                "Recall@10": 1.0,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.88,
+                "nDCG@10": 0.9365123240610316,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1-1024": {
+                "MRR@10": 0.9161904761904762,
+                "Recall@10": 1.0,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.88,
+                "nDCG@10": 0.9365123240610316,
+                "queries": 50
+              }
+            }
+          }
+        }
+      },
+      "32768": {
+        "recursive_seed271828": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.055826984126984135,
+              0.1824434523809523
+            ],
+            "Recall@10": [
+              0.18,
+              0.42
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.0,
+              0.1
+            ],
+            "nDCG@10": [
+              0.09073993612593217,
+              0.24119026182227093
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.1169126984126984,
+            "Recall@10": 0.3,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.04,
+            "nDCG@10": 0.16011344081458648
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed271828__context_32768.jsonl",
+            "sha256": "43515681a296f308d7117d300e5e7a5a10be09545ed7eb2e16fe3c3717694c90"
+          },
+          "stratified": {
+            "depth": {
+              "3": {
+                "MRR@10": 0.1169126984126984,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.16011344081458648,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "17-32": {
+                "MRR@10": 0.1169126984126984,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.16011344081458648,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "16385-32768": {
+                "MRR@10": 0.1169126984126984,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.16011344081458648,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed314159": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.055994642857142854,
+              0.16972619047619042
+            ],
+            "Recall@10": [
+              0.18,
+              0.42
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.0,
+              0.1
+            ],
+            "nDCG@10": [
+              0.08234454062060304,
+              0.22354830094973405
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.1059047619047619,
+            "Recall@10": 0.3,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.04,
+            "nDCG@10": 0.15133051626260657
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed314159__context_32768.jsonl",
+            "sha256": "0de18f1a10bc75b74924ad7f3a323432e17a4472bb69e88563df268d3514ab51"
+          },
+          "stratified": {
+            "depth": {
+              "3": {
+                "MRR@10": 0.1059047619047619,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.15133051626260657,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "17-32": {
+                "MRR@10": 0.1059047619047619,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.15133051626260657,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "16385-32768": {
+                "MRR@10": 0.1059047619047619,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.15133051626260657,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed424242": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.05533809523809523,
+              0.16963035714285712
+            ],
+            "Recall@10": [
+              0.2,
+              0.44
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.0,
+              0.12
+            ],
+            "nDCG@10": [
+              0.0903199534077667,
+              0.23166609783435826
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.10926190476190475,
+            "Recall@10": 0.32,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.04,
+            "nDCG@10": 0.15834565693669347
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed424242__context_32768.jsonl",
+            "sha256": "bd109c947e112ac6457b93da28a9a190ae5fa9c0c0e1eb2fa76fe31f7025f8b7"
+          },
+          "stratified": {
+            "depth": {
+              "3": {
+                "MRR@10": 0.10926190476190475,
+                "Recall@10": 0.32,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.15834565693669347,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "17-32": {
+                "MRR@10": 0.10926190476190475,
+                "Recall@10": 0.32,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.15834565693669347,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "16385-32768": {
+                "MRR@10": 0.10926190476190475,
+                "Recall@10": 0.32,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.04,
+                "nDCG@10": 0.15834565693669347,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "token_weighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.07464166666666668,
+              0.24948888888888884
+            ],
+            "Recall@10": [
+              0.18,
+              0.44
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.04,
+              0.22
+            ],
+            "nDCG@10": [
+              0.10489078567546978,
+              0.29341846984998293
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.15688888888888886,
+            "Recall@10": 0.3,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.12,
+            "nDCG@10": 0.18985098217771873
+          },
+          "per_query": {
+            "path": "suite_per_query/token_weighted_leaf_mean__context_32768.jsonl",
+            "sha256": "2af9caec6bacce16c8ac75d78bed069ea8396efded649470e4cdcdffd9b57303"
+          },
+          "stratified": {
+            "depth": {
+              "3": {
+                "MRR@10": 0.15688888888888886,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.18985098217771873,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "17-32": {
+                "MRR@10": 0.15688888888888886,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.18985098217771873,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "16385-32768": {
+                "MRR@10": 0.15688888888888886,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.18985098217771873,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "unweighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.07187857142857143,
+              0.24365238095238098
+            ],
+            "Recall@10": [
+              0.18,
+              0.44
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.04,
+              0.22
+            ],
+            "nDCG@10": [
+              0.10535589119864325,
+              0.2783255376769433
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.15610317460317458,
+            "Recall@10": 0.3,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.12,
+            "nDCG@10": 0.18913796183064666
+          },
+          "per_query": {
+            "path": "suite_per_query/unweighted_leaf_mean__context_32768.jsonl",
+            "sha256": "1776be0c6d053efe149988dc081ccca81b5dea09604e8d5f9bf187f2900d0548"
+          },
+          "stratified": {
+            "depth": {
+              "3": {
+                "MRR@10": 0.15610317460317458,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.18913796183064666,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "17-32": {
+                "MRR@10": 0.15610317460317458,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.18913796183064666,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "16385-32768": {
+                "MRR@10": 0.15610317460317458,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.18913796183064666,
+                "queries": 50
+              }
+            }
+          }
+        }
+      },
+      "4096": {
+        "direct_teacher": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.05138472222222222,
+              0.19761666666666666
+            ],
+            "Recall@10": [
+              0.14,
+              0.4
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.0,
+              0.14
+            ],
+            "nDCG@10": [
+              0.08150733483883392,
+              0.22813109976323248
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.11988888888888889,
+            "Recall@10": 0.26,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.06,
+            "nDCG@10": 0.15263192794147395
+          },
+          "per_query": {
+            "path": "suite_per_query/direct_teacher__context_4096.jsonl",
+            "sha256": "49664c0b20d8015f679831f9fc96bb688011fb0d4e01681f65e654ce77b16396"
+          }
+        },
+        "recursive_seed271828": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.11899999999999998,
+              0.3018690476190476
+            ],
+            "Recall@10": [
+              0.26,
+              0.54
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.04,
+              0.22
+            ],
+            "nDCG@10": [
+              0.16742028409567694,
+              0.36380431722999707
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.21019047619047618,
+            "Recall@10": 0.4,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.12,
+            "nDCG@10": 0.2567136326715164
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed271828__context_4096.jsonl",
+            "sha256": "575e897fcb3a294e412b2e303c64c71338e835ef762d376be29ea2be1683e110"
+          },
+          "stratified": {
+            "depth": {
+              "1": {
+                "MRR@10": 0.21019047619047618,
+                "Recall@10": 0.4,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.2567136326715164,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "2-4": {
+                "MRR@10": 0.21019047619047618,
+                "Recall@10": 0.4,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.2567136326715164,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1025-4096": {
+                "MRR@10": 0.21019047619047618,
+                "Recall@10": 0.4,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.2567136326715164,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed314159": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.14628055555555555,
+              0.34834999999999994
+            ],
+            "Recall@10": [
+              0.3,
+              0.58
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.06,
+              0.28
+            ],
+            "nDCG@10": [
+              0.18730241680486903,
+              0.4030401992663502
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.2448888888888889,
+            "Recall@10": 0.44,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.16,
+            "nDCG@10": 0.29174594386371183
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed314159__context_4096.jsonl",
+            "sha256": "a9e882aaa7615276bba454f26bdf3d97dbce6945d630908d31eefa2ab69d0a87"
+          },
+          "stratified": {
+            "depth": {
+              "1": {
+                "MRR@10": 0.2448888888888889,
+                "Recall@10": 0.44,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.16,
+                "nDCG@10": 0.29174594386371183,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "2-4": {
+                "MRR@10": 0.2448888888888889,
+                "Recall@10": 0.44,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.16,
+                "nDCG@10": 0.29174594386371183,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1025-4096": {
+                "MRR@10": 0.2448888888888889,
+                "Recall@10": 0.44,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.16,
+                "nDCG@10": 0.29174594386371183,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed424242": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.1479916666666667,
+              0.34534166666666666
+            ],
+            "Recall@10": [
+              0.3,
+              0.54
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.08,
+              0.26
+            ],
+            "nDCG@10": [
+              0.18822363711673237,
+              0.38764482800072136
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.2426666666666667,
+            "Recall@10": 0.42,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.16,
+            "nDCG@10": 0.2857253439504322
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed424242__context_4096.jsonl",
+            "sha256": "b5dc8cce3ec6171dc52202c930248d08049bcb7e44f1d6ba03561358becd7383"
+          },
+          "stratified": {
+            "depth": {
+              "1": {
+                "MRR@10": 0.2426666666666667,
+                "Recall@10": 0.42,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.16,
+                "nDCG@10": 0.2857253439504322,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "2-4": {
+                "MRR@10": 0.2426666666666667,
+                "Recall@10": 0.42,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.16,
+                "nDCG@10": 0.2857253439504322,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1025-4096": {
+                "MRR@10": 0.2426666666666667,
+                "Recall@10": 0.42,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.16,
+                "nDCG@10": 0.2857253439504322,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "token_weighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.1818410714285714,
+              0.40974285714285713
+            ],
+            "Recall@10": [
+              0.34,
+              0.62
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.12,
+              0.34
+            ],
+            "nDCG@10": [
+              0.22582678010725635,
+              0.4488825381514647
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.2907142857142857,
+            "Recall@10": 0.48,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.22,
+            "nDCG@10": 0.33490877982915424
+          },
+          "per_query": {
+            "path": "suite_per_query/token_weighted_leaf_mean__context_4096.jsonl",
+            "sha256": "0622551952e18825f9a5abd909a9d06f97d699b7d4e29b86c2fea8b42c9f75c5"
+          },
+          "stratified": {
+            "depth": {
+              "1": {
+                "MRR@10": 0.2907142857142857,
+                "Recall@10": 0.48,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.33490877982915424,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "2-4": {
+                "MRR@10": 0.2907142857142857,
+                "Recall@10": 0.48,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.33490877982915424,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1025-4096": {
+                "MRR@10": 0.2907142857142857,
+                "Recall@10": 0.48,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.22,
+                "nDCG@10": 0.33490877982915424,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "unweighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.1846972222222222,
+              0.38975972222222216
+            ],
+            "Recall@10": [
+              0.38,
+              0.66
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.08,
+              0.3
+            ],
+            "nDCG@10": [
+              0.24099329022724403,
+              0.44733166519741807
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.2827222222222222,
+            "Recall@10": 0.52,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.18,
+            "nDCG@10": 0.33920183104571927
+          },
+          "per_query": {
+            "path": "suite_per_query/unweighted_leaf_mean__context_4096.jsonl",
+            "sha256": "696388c207efd826ab8a494dde61cb79add996107a577e6c2f29cc42f87c8455"
+          },
+          "stratified": {
+            "depth": {
+              "1": {
+                "MRR@10": 0.2827222222222222,
+                "Recall@10": 0.52,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.18,
+                "nDCG@10": 0.33920183104571927,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "2-4": {
+                "MRR@10": 0.2827222222222222,
+                "Recall@10": 0.52,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.18,
+                "nDCG@10": 0.33920183104571927,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1025-4096": {
+                "MRR@10": 0.2827222222222222,
+                "Recall@10": 0.52,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.18,
+                "nDCG@10": 0.33920183104571927,
+                "queries": 50
+              }
+            }
+          }
+        }
+      },
+      "512": {
+        "direct_teacher": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.5370575396825397,
+              0.7631875
+            ],
+            "Recall@10": [
+              0.8195,
+              0.98
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.42,
+              0.68
+            ],
+            "nDCG@10": [
+              0.6134906613997292,
+              0.7994928568537516
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.6454126984126983,
+            "Recall@10": 0.9,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.54,
+            "nDCG@10": 0.7058582929269146
+          },
+          "per_query": {
+            "path": "suite_per_query/direct_teacher__context_512.jsonl",
+            "sha256": "9374b89d3a2fec2422544a1e020db1de4f55560470013977f8257896e61b3c7a"
+          }
+        },
+        "recursive_seed271828": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.535156746031746,
+              0.7488626984126985
+            ],
+            "Recall@10": [
+              0.82,
+              0.98
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.4,
+              0.68
+            ],
+            "nDCG@10": [
+              0.6128298672519402,
+              0.7969384764161783
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.6454126984126983,
+            "Recall@10": 0.9,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.54,
+            "nDCG@10": 0.7058582929269146
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed271828__context_512.jsonl",
+            "sha256": "9374b89d3a2fec2422544a1e020db1de4f55560470013977f8257896e61b3c7a"
+          },
+          "stratified": {
+            "depth": {
+              "0": {
+                "MRR@10": 0.6454126984126983,
+                "Recall@10": 0.9,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.54,
+                "nDCG@10": 0.7058582929269146,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "1-1": {
+                "MRR@10": 0.6454126984126983,
+                "Recall@10": 0.9,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.54,
+                "nDCG@10": 0.7058582929269146,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1-1024": {
+                "MRR@10": 0.6454126984126983,
+                "Recall@10": 0.9,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.54,
+                "nDCG@10": 0.7058582929269146,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed314159": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.53055,
+              0.7530603174603174
+            ],
+            "Recall@10": [
+              0.8195,
+              0.98
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.4,
+              0.68
+            ],
+            "nDCG@10": [
+              0.6058898962196846,
+              0.7975768006763084
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.6454126984126983,
+            "Recall@10": 0.9,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.54,
+            "nDCG@10": 0.7058582929269146
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed314159__context_512.jsonl",
+            "sha256": "9374b89d3a2fec2422544a1e020db1de4f55560470013977f8257896e61b3c7a"
+          },
+          "stratified": {
+            "depth": {
+              "0": {
+                "MRR@10": 0.6454126984126983,
+                "Recall@10": 0.9,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.54,
+                "nDCG@10": 0.7058582929269146,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "1-1": {
+                "MRR@10": 0.6454126984126983,
+                "Recall@10": 0.9,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.54,
+                "nDCG@10": 0.7058582929269146,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1-1024": {
+                "MRR@10": 0.6454126984126983,
+                "Recall@10": 0.9,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.54,
+                "nDCG@10": 0.7058582929269146,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed424242": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.5397202380952381,
+              0.7573388888888889
+            ],
+            "Recall@10": [
+              0.8,
+              0.98
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.4,
+              0.68
+            ],
+            "nDCG@10": [
+              0.6061265931120122,
+              0.8018025357122307
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.6454126984126983,
+            "Recall@10": 0.9,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.54,
+            "nDCG@10": 0.7058582929269146
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed424242__context_512.jsonl",
+            "sha256": "9374b89d3a2fec2422544a1e020db1de4f55560470013977f8257896e61b3c7a"
+          },
+          "stratified": {
+            "depth": {
+              "0": {
+                "MRR@10": 0.6454126984126983,
+                "Recall@10": 0.9,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.54,
+                "nDCG@10": 0.7058582929269146,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "1-1": {
+                "MRR@10": 0.6454126984126983,
+                "Recall@10": 0.9,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.54,
+                "nDCG@10": 0.7058582929269146,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1-1024": {
+                "MRR@10": 0.6454126984126983,
+                "Recall@10": 0.9,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.54,
+                "nDCG@10": 0.7058582929269146,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "token_weighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.5423043650793651,
+              0.7567255952380953
+            ],
+            "Recall@10": [
+              0.82,
+              0.98
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.4,
+              0.68
+            ],
+            "nDCG@10": [
+              0.6029099982812591,
+              0.8016630368201096
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.6454126984126983,
+            "Recall@10": 0.9,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.54,
+            "nDCG@10": 0.7058582929269146
+          },
+          "per_query": {
+            "path": "suite_per_query/token_weighted_leaf_mean__context_512.jsonl",
+            "sha256": "9374b89d3a2fec2422544a1e020db1de4f55560470013977f8257896e61b3c7a"
+          },
+          "stratified": {
+            "depth": {
+              "0": {
+                "MRR@10": 0.6454126984126983,
+                "Recall@10": 0.9,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.54,
+                "nDCG@10": 0.7058582929269146,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "1-1": {
+                "MRR@10": 0.6454126984126983,
+                "Recall@10": 0.9,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.54,
+                "nDCG@10": 0.7058582929269146,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1-1024": {
+                "MRR@10": 0.6454126984126983,
+                "Recall@10": 0.9,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.54,
+                "nDCG@10": 0.7058582929269146,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "unweighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.5296400793650793,
+              0.7460454365079365
+            ],
+            "Recall@10": [
+              0.8195,
+              0.98
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.4,
+              0.68
+            ],
+            "nDCG@10": [
+              0.5940046376371612,
+              0.8038369165043888
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.6454126984126983,
+            "Recall@10": 0.9,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.54,
+            "nDCG@10": 0.7058582929269146
+          },
+          "per_query": {
+            "path": "suite_per_query/unweighted_leaf_mean__context_512.jsonl",
+            "sha256": "9374b89d3a2fec2422544a1e020db1de4f55560470013977f8257896e61b3c7a"
+          },
+          "stratified": {
+            "depth": {
+              "0": {
+                "MRR@10": 0.6454126984126983,
+                "Recall@10": 0.9,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.54,
+                "nDCG@10": 0.7058582929269146,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "1-1": {
+                "MRR@10": 0.6454126984126983,
+                "Recall@10": 0.9,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.54,
+                "nDCG@10": 0.7058582929269146,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "1-1024": {
+                "MRR@10": 0.6454126984126983,
+                "Recall@10": 0.9,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.54,
+                "nDCG@10": 0.7058582929269146,
+                "queries": 50
+              }
+            }
+          }
+        }
+      },
+      "8192": {
+        "direct_teacher": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.028975,
+              0.1720833333333333
+            ],
+            "Recall@10": [
+              0.12,
+              0.34
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.0,
+              0.12
+            ],
+            "nDCG@10": [
+              0.05756745137555987,
+              0.20426799207457794
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.09344444444444445,
+            "Recall@10": 0.22,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.06,
+            "nDCG@10": 0.12213958985626881
+          },
+          "per_query": {
+            "path": "suite_per_query/direct_teacher__context_8192.jsonl",
+            "sha256": "b0794f0eaa1738b828b765c04811f8089075bbbcc581be40a7aa179fcbdcc8cc"
+          }
+        },
+        "recursive_seed271828": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.06163829365079365,
+              0.23711309523809518
+            ],
+            "Recall@10": [
+              0.16,
+              0.4
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.04,
+              0.22
+            ],
+            "nDCG@10": [
+              0.08529142677025368,
+              0.27015047105576256
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.14315079365079367,
+            "Recall@10": 0.28,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.12,
+            "nDCG@10": 0.1733913918034865
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed271828__context_8192.jsonl",
+            "sha256": "8e7c43935bdf1130499b2f763afba21f1a31c12b91832830f5e7ab03ef7c29cc"
+          },
+          "stratified": {
+            "depth": {
+              "2": {
+                "MRR@10": 0.14315079365079367,
+                "Recall@10": 0.28,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.1733913918034865,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "5-8": {
+                "MRR@10": 0.14315079365079367,
+                "Recall@10": 0.28,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.1733913918034865,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "4097-8190": {
+                "MRR@10": 0.14315079365079367,
+                "Recall@10": 0.28,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.1733913918034865,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed314159": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.06481666666666668,
+              0.2573833333333333
+            ],
+            "Recall@10": [
+              0.18,
+              0.44
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.04,
+              0.22
+            ],
+            "nDCG@10": [
+              0.09805273902511755,
+              0.28655921970340154
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.15383333333333332,
+            "Recall@10": 0.3,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.12,
+            "nDCG@10": 0.18658381177960753
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed314159__context_8192.jsonl",
+            "sha256": "0697dfa3d30bc5e156b9717c44473a56c12498f9fb0558fda0a8362a9aabad55"
+          },
+          "stratified": {
+            "depth": {
+              "2": {
+                "MRR@10": 0.15383333333333332,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.18658381177960753,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "5-8": {
+                "MRR@10": 0.15383333333333332,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.18658381177960753,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "4097-8190": {
+                "MRR@10": 0.15383333333333332,
+                "Recall@10": 0.3,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.18658381177960753,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "recursive_seed424242": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.07346250000000001,
+              0.24916666666666668
+            ],
+            "Recall@10": [
+              0.2,
+              0.46
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.04,
+              0.22
+            ],
+            "nDCG@10": [
+              0.11066220676868803,
+              0.2829736694180666
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.15633333333333332,
+            "Recall@10": 0.32,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.12,
+            "nDCG@10": 0.1927135823133855
+          },
+          "per_query": {
+            "path": "suite_per_query/recursive_seed424242__context_8192.jsonl",
+            "sha256": "fec4a80a5f2a659da9cdef092589d4e9641431cb434e8d407f7c3c6690c35474"
+          },
+          "stratified": {
+            "depth": {
+              "2": {
+                "MRR@10": 0.15633333333333332,
+                "Recall@10": 0.32,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.1927135823133855,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "5-8": {
+                "MRR@10": 0.15633333333333332,
+                "Recall@10": 0.32,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.1927135823133855,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "4097-8190": {
+                "MRR@10": 0.15633333333333332,
+                "Recall@10": 0.32,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.1927135823133855,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "token_weighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.09917202380952381,
+              0.29803095238095234
+            ],
+            "Recall@10": [
+              0.2,
+              0.44
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.06,
+              0.24
+            ],
+            "nDCG@10": [
+              0.12666494875183457,
+              0.3206503828528878
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.19088095238095237,
+            "Recall@10": 0.32,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.14,
+            "nDCG@10": 0.22101676875438397
+          },
+          "per_query": {
+            "path": "suite_per_query/token_weighted_leaf_mean__context_8192.jsonl",
+            "sha256": "4e6b611c77c4a8feb36bd05ba601a2d764475c026469f4b19f1673101fdc5da6"
+          },
+          "stratified": {
+            "depth": {
+              "2": {
+                "MRR@10": 0.19088095238095237,
+                "Recall@10": 0.32,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.14,
+                "nDCG@10": 0.22101676875438397,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "5-8": {
+                "MRR@10": 0.19088095238095237,
+                "Recall@10": 0.32,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.14,
+                "nDCG@10": 0.22101676875438397,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "4097-8190": {
+                "MRR@10": 0.19088095238095237,
+                "Recall@10": 0.32,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.14,
+                "nDCG@10": 0.22101676875438397,
+                "queries": 50
+              }
+            }
+          }
+        },
+        "unweighted_leaf_mean": {
+          "ci95_query_bootstrap": {
+            "MRR@10": [
+              0.11436904761904762,
+              0.29154821428571426
+            ],
+            "Recall@10": [
+              0.24,
+              0.5
+            ],
+            "Recall@100": [
+              1.0,
+              1.0
+            ],
+            "nDCG@1": [
+              0.04,
+              0.22
+            ],
+            "nDCG@10": [
+              0.1411164288810576,
+              0.3356833262732646
+            ]
+          },
+          "metrics": {
+            "MRR@10": 0.19688095238095238,
+            "Recall@10": 0.36,
+            "Recall@100": 1.0,
+            "nDCG@1": 0.12,
+            "nDCG@10": 0.23564104649471182
+          },
+          "per_query": {
+            "path": "suite_per_query/unweighted_leaf_mean__context_8192.jsonl",
+            "sha256": "258daeb9b653f7570874cbd31ae80d5aa5d7f1cf23b0a484732f5d00f5ea1a84"
+          },
+          "stratified": {
+            "depth": {
+              "2": {
+                "MRR@10": 0.19688095238095238,
+                "Recall@10": 0.36,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.23564104649471182,
+                "queries": 50
+              }
+            },
+            "leaves": {
+              "5-8": {
+                "MRR@10": 0.19688095238095238,
+                "Recall@10": 0.36,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.23564104649471182,
+                "queries": 50
+              }
+            },
+            "tokens": {
+              "4097-8190": {
+                "MRR@10": 0.19688095238095238,
+                "Recall@10": 0.36,
+                "Recall@100": 1.0,
+                "nDCG@1": 0.12,
+                "nDCG@10": 0.23564104649471182,
+                "queries": 50
+              }
+            }
+          }
+        }
+      }
+    },
+    "evaluation": "separate retrieval corpus/query/qrels per official context_length condition",
+    "main_synthetic_score": "nDCG@1"
+  },
+  "schema": "v4_longembed_suite_results_v2",
+  "source": {
+    "config": "needle",
+    "dataset": "dwzhu/LongEmbed",
+    "revision": "10039a580487dacecf79db69166e17ace3ede392",
+    "splits": {
+      "corpus": 800,
+      "qrels": 400,
+      "queries": 400
+    }
+  },
+  "task": "needle"
+}

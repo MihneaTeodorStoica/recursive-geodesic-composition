@@ -12,8 +12,11 @@ def main():
  for base in ('reproducibility/v4_euclidean','configs/v4_euclidean','scripts/v4_euclidean','figures/v4_euclidean','results/v4_euclidean/publication_sources'):
   for p in sorted((ROOT/base).rglob('*')):
    if p.is_file():files.append({'path':str(p.relative_to(ROOT)),'sha256':sha(p),'bytes':p.stat().st_size})
- for rel in ('results/v4_euclidean/FINAL_METRICS_SUMMARY.json','results/v4_euclidean/FINAL_AUDIT.json','results/v4_euclidean/DEVELOPMENT_ARCHITECTURE_COMPARISON.json','results/v4_euclidean/downstream/DOWNSTREAM_AUDIT.json'):
+ for rel in ('results/v4_euclidean/FINAL_METRICS_SUMMARY.json','results/v4_euclidean/FINAL_AUDIT.json','results/v4_euclidean/DEVELOPMENT_ARCHITECTURE_COMPARISON.json','results/v4_euclidean/downstream/DOWNSTREAM_AUDIT.json','results/v4_euclidean/downstream/CONSOLIDATED_SUITE_RESULTS.json','results/v4_euclidean/downstream/SUITE_FINAL_AUDIT.json','results/v4_euclidean/downstream/SUITE_PRECOMMIT.json','results/v4_euclidean/downstream/LONGEMBED_REVISION_AUDIT.json'):
   p=ROOT/rel;files.append({'path':rel,'sha256':sha(p),'bytes':p.stat().st_size})
+ for task in ('qmsum','2wikimqa','summ_screen_fd','needle','passkey'):
+  for name in ('SUITE_RESULTS.json','SUITE_COMPLETE','leaf_cache/MANIFEST.json','leaf_cache/COMPLETE'):
+   p=ROOT/f'results/v4_euclidean/downstream/{task}/{name}';files.append({'path':str(p.relative_to(ROOT)),'sha256':sha(p),'bytes':p.stat().st_size})
  official=[]
  for s in (424242,271828,314159):
   for name in ('TWO_ARM_EVALUATION.json','TWO_ARM_EVALUATION_COMPLETE','TWO_ARM_EVALUATION_STARTED'):

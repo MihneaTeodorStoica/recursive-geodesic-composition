@@ -1,0 +1,11 @@
+method,metric,value
+recursive_seed271828,macro_f1,0.5183919953116365
+recursive_seed271828,micro_f1,0.6438979963570127
+recursive_seed314159,macro_f1,0.541832642025753
+recursive_seed314159,micro_f1,0.646843549862763
+recursive_seed424242,macro_f1,0.5338609038682471
+recursive_seed424242,micro_f1,0.6410958904109589
+token_weighted_mean,macro_f1,0.5052164430979565
+token_weighted_mean,micro_f1,0.6359021688970927
+unweighted_mean,macro_f1,0.5154697941757492
+unweighted_mean,micro_f1,0.6348912540490513
