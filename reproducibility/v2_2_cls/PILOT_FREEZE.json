@@ -1,0 +1,10 @@
+{
+  "no_train_access": true,
+  "files": {
+    "configs/v2_2_cls/pilot_frozen.yaml": "fe572168214d1519af842da91537fc2619d7a7b23fb246232e54d4e18e717912",
+    "src/recursive_geodesic_composition/v2_2_covariance.py": "ce8c2f0fd18994fab20d00186af0b7e50ca6e6891331bf0b9a3214533e28faa2",
+    "tests/test_v2_2_covariance.py": "9cad88a116f2384bea902a4f627c221604f3d81ae6d1d56cee0d0f382fb51a2f",
+    "reproducibility/v2_2_cls/PILOT_PROTOCOL.md": "ef9d132d1a666d369c89e9243fafe0d2c3176df2f2acce0935429d6233a8791f",
+    "scripts/v2_2_cls/protocol.py": "bf6ddfad6640bd7d0349f7911021eafd9159f08123d6207b6e73ad0c81ecb42d"
+  }
+}

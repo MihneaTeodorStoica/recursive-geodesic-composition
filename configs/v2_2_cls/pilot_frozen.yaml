@@ -1,0 +1,15 @@
+stage: v2_2_train_pilot
+range: [244000, 256000]
+seed: 424242
+steps: 250
+same_initialization_and_batch_order: true
+batch_size: 8
+minimum_covariance_samples: 4
+teacher: {id: Alibaba-NLP/gte-modernbert-base, revision: e7f32e3c00f91d699e8c43b53106206bcc72bb22, pooling: cls}
+base: {teacher_cosine: 1.0, mean: 0.25, diagonal_variance: 256.0, existing_regularizers: retained}
+formulations:
+  A: {covariance_frobenius_weight: 64.0, whitened_covariance_weight: 0.0, corpus_balanced: false, residual_mean_weight: 0.0}
+  B: {covariance_frobenius_weight: 0.0, whitened_covariance_weight: 64.0, whitening_ridge_relative: 0.0001, corpus_balanced: false, residual_mean_weight: 0.0}
+  C: {covariance_frobenius_weight: 0.0, whitened_covariance_weight: 64.0, whitening_ridge_relative: 0.0001, corpus_balanced: true, residual_mean_weight: 0.01}
+health: {finite_required: true, maximum_condition_number: 100000000.0, maximum_gradient_norm: 1000.0, saturation_patience_steps: 3}
+selection: [health_and_no_persistent_saturation, teacher_cosine_within_0.002_of_baseline, minimum_covariance_mismatch, minimum_residual_mean_norm, minimum_diagonal_variance_mismatch]
