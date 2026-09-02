@@ -1,0 +1,19 @@
+v4_euclidean_experiment: true
+role: development
+architecture: free_euclidean
+seed: 271828
+checkpoint: results/v4_euclidean/free_euclidean_seed271828/autoencoder_seed271828.pt
+checkpoint_sha256: be8c1676877d37f6db2ed69354cdfd43bfedd066d7b126b3f59fea9a23d4ef34
+training_cache_manifest: artifacts/v4_euclidean/cache_train_cls/CACHE_MANIFEST.json
+training_cache_manifest_sha256: 06b959c74aca0031a95392c5d844ccc0205ff81992bd97f7c0e0a67b2598114e
+cache_manifest: artifacts/v4_euclidean/development_two_arm_cls/CACHE_MANIFEST.json
+cache_manifest_sha256: 1a9fe76e58986ea277f3049f6998f4dbb73ae776220296007b2d02ff6537c82b
+probe: artifacts/v4_euclidean/probes/free_euclidean_seed271828.pt
+probe_sha256: d9eab634a18a33b5c217afab3112e57cc63b0dfb1178cb9a6d19d3860ba45763
+probe_floors:
+  pooled: 0.8190685381889343
+  fineweb_edu: 0.8126264681816101
+  fineweb: 0.8239467611312866
+  openwebtext: 0.8278514018058777
+  wikipedia_en_20231101: 0.8118496408462524
+output_dir: results/v4_euclidean/development_free_euclidean_seed271828

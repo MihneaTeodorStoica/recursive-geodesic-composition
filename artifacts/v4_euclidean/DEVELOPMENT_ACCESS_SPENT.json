@@ -1,0 +1,18 @@
+{
+  "role": "development",
+  "allocated_source_range": [
+    360000,
+    369000
+  ],
+  "accessed_source_subrange": [
+    360000,
+    369000
+  ],
+  "development_round": 1,
+  "selection": "first eligible source-order documents with >=1025 tokens",
+  "documents_per_corpus": 1000,
+  "config": "configs/v4_euclidean/geodesic_seed424242.yaml",
+  "config_sha256": "a9aa4be186663677766ab47da3c3083f583da1ef64e71385b5b5887481bd19aa",
+  "protocol": "configs/v4_euclidean/evaluator_two_arm.yaml",
+  "protocol_sha256": "dbc265635d7b4a2ba2649bc800dc2206248b57f544bc2c94c43c05b5e7069fd2"
+}

@@ -1,0 +1,383 @@
+{
+  "geodesic": {
+    "seeds": {
+      "424242": {
+        "cosine": 0.9869754314422607,
+        "logistic_auc": 0.699451375,
+        "rbf_auc": 0.5980669999999999,
+        "strongest_auc": 0.699451375,
+        "effective_rank": 119.89255061406705,
+        "decoder_cosine": 0.9133187532424927,
+        "probe_cosine": 0.9034565091133118,
+        "probe_floor_pass": false,
+        "full_saturation_count": 0,
+        "geometry": {
+          "anchor_final_angle_mean": 0.0344802625477314,
+          "anchor_final_angle_p95": 0.04840949922800064,
+          "anchor_to_teacher_cosine": 0.9868261814117432,
+          "final_minus_anchor_cosine": 0.00014925199502613395,
+          "final_to_teacher_cosine": 0.9869754314422607,
+          "residual_norm_mean": 0.042550791054964066,
+          "residual_norm_p95": 0.057103369385004044
+        },
+        "per_corpus": {
+          "fineweb_edu": {
+            "cosine": 0.987183690071106,
+            "auc": 0.6179220000000001
+          },
+          "fineweb": {
+            "cosine": 0.9876671433448792,
+            "auc": 0.6074879999999999
+          },
+          "openwebtext": {
+            "cosine": 0.9874556660652161,
+            "auc": 0.62722
+          },
+          "wikipedia_en_20231101": {
+            "cosine": 0.9855951070785522,
+            "auc": 0.760076
+          }
+        }
+      },
+      "271828": {
+        "cosine": 0.9870190620422363,
+        "logistic_auc": 0.694918375,
+        "rbf_auc": 0.59603825,
+        "strongest_auc": 0.694918375,
+        "effective_rank": 119.99440674939603,
+        "decoder_cosine": 0.912858784198761,
+        "probe_cosine": 0.902987539768219,
+        "probe_floor_pass": false,
+        "full_saturation_count": 0,
+        "geometry": {
+          "anchor_final_angle_mean": 0.03422141820192337,
+          "anchor_final_angle_p95": 0.047297410666942596,
+          "anchor_to_teacher_cosine": 0.9868754744529724,
+          "final_minus_anchor_cosine": 0.0001435690646758303,
+          "final_to_teacher_cosine": 0.9870190620422363,
+          "residual_norm_mean": 0.04243093729019165,
+          "residual_norm_p95": 0.05641508847475052
+        },
+        "per_corpus": {
+          "fineweb_edu": {
+            "cosine": 0.9872122406959534,
+            "auc": 0.624982
+          },
+          "fineweb": {
+            "cosine": 0.9877272844314575,
+            "auc": 0.612016
+          },
+          "openwebtext": {
+            "cosine": 0.9874906539916992,
+            "auc": 0.622486
+          },
+          "wikipedia_en_20231101": {
+            "cosine": 0.98564612865448,
+            "auc": 0.753098
+          }
+        }
+      },
+      "314159": {
+        "cosine": 0.8666472434997559,
+        "logistic_auc": 0.9484288750000002,
+        "rbf_auc": 1.0,
+        "strongest_auc": 1.0,
+        "effective_rank": 8.862405975419708,
+        "decoder_cosine": 0.8285646438598633,
+        "probe_cosine": 0.8837053775787354,
+        "probe_floor_pass": false,
+        "full_saturation_count": 4959,
+        "geometry": {
+          "anchor_final_angle_mean": 0.5,
+          "anchor_final_angle_p95": 0.5,
+          "anchor_to_teacher_cosine": 0.986558198928833,
+          "final_minus_anchor_cosine": -0.11991104483604431,
+          "final_to_teacher_cosine": 0.8666472434997559,
+          "residual_norm_mean": 170.77053833007812,
+          "residual_norm_p95": 205.70504760742188
+        },
+        "per_corpus": {
+          "fineweb_edu": {
+            "cosine": 0.8665078282356262,
+            "auc": 1.0
+          },
+          "fineweb": {
+            "cosine": 0.8670870065689087,
+            "auc": 1.0
+          },
+          "openwebtext": {
+            "cosine": 0.8667667508125305,
+            "auc": 1.0
+          },
+          "wikipedia_en_20231101": {
+            "cosine": 0.8662270903587341,
+            "auc": 1.0
+          }
+        }
+      }
+    },
+    "cosine_mean": 0.946880578994751,
+    "logistic_auc_mean": 0.7809328750000001,
+    "rbf_auc_mean": 0.7313684166666666,
+    "strongest_auc_mean": 0.79812325,
+    "effective_rank_mean": 82.91645444629427,
+    "decoder_cosine_mean": 0.8849140604337057,
+    "probe_cosine_mean": 0.8967164754867554
+  },
+  "euclidean_residual": {
+    "seeds": {
+      "424242": {
+        "cosine": 0.9869762063026428,
+        "logistic_auc": 0.6981707500000001,
+        "rbf_auc": 0.5971325000000001,
+        "strongest_auc": 0.6981707500000001,
+        "effective_rank": 119.92319827736407,
+        "decoder_cosine": 0.9132610559463501,
+        "probe_cosine": 0.9034414887428284,
+        "probe_floor_pass": false,
+        "full_saturation_count": 0,
+        "geometry": {
+          "anchor_final_angle_mean": 0.0343191921710968,
+          "anchor_final_angle_p95": 0.04913098365068436,
+          "anchor_to_teacher_cosine": 0.986815333366394,
+          "final_minus_anchor_cosine": 0.0001609049504622817,
+          "final_to_teacher_cosine": 0.9869762063026428,
+          "residual_norm_mean": 0.03951691463589668,
+          "residual_norm_p95": 0.05211029201745987
+        },
+        "per_corpus": {
+          "fineweb_edu": {
+            "cosine": 0.9871742129325867,
+            "auc": 0.618376
+          },
+          "fineweb": {
+            "cosine": 0.9876677989959717,
+            "auc": 0.606288
+          },
+          "openwebtext": {
+            "cosine": 0.9874194860458374,
+            "auc": 0.6275519999999999
+          },
+          "wikipedia_en_20231101": {
+            "cosine": 0.9856433272361755,
+            "auc": 0.75628
+          }
+        }
+      },
+      "271828": {
+        "cosine": 0.9871058464050293,
+        "logistic_auc": 0.6957236250000001,
+        "rbf_auc": 0.5963425,
+        "strongest_auc": 0.6957236250000001,
+        "effective_rank": 120.06203936965184,
+        "decoder_cosine": 0.9120004177093506,
+        "probe_cosine": 0.902213990688324,
+        "probe_floor_pass": false,
+        "full_saturation_count": 0,
+        "geometry": {
+          "anchor_final_angle_mean": 0.03454774245619774,
+          "anchor_final_angle_p95": 0.04814011603593826,
+          "anchor_to_teacher_cosine": 0.9869678020477295,
+          "final_minus_anchor_cosine": 0.00013804486661683768,
+          "final_to_teacher_cosine": 0.9871058464050293,
+          "residual_norm_mean": 0.03995461389422417,
+          "residual_norm_p95": 0.05151675269007683
+        },
+        "per_corpus": {
+          "fineweb_edu": {
+            "cosine": 0.9872605204582214,
+            "auc": 0.6239699999999999
+          },
+          "fineweb": {
+            "cosine": 0.9877921342849731,
+            "auc": 0.612514
+          },
+          "openwebtext": {
+            "cosine": 0.9876495599746704,
+            "auc": 0.623254
+          },
+          "wikipedia_en_20231101": {
+            "cosine": 0.9857212901115417,
+            "auc": 0.757852
+          }
+        }
+      },
+      "314159": {
+        "cosine": 0.9869444966316223,
+        "logistic_auc": 0.6993028749999999,
+        "rbf_auc": 0.604221,
+        "strongest_auc": 0.6993028749999999,
+        "effective_rank": 119.88208039733922,
+        "decoder_cosine": 0.9136679172515869,
+        "probe_cosine": 0.9037123322486877,
+        "probe_floor_pass": false,
+        "full_saturation_count": 0,
+        "geometry": {
+          "anchor_final_angle_mean": 0.034770190715789795,
+          "anchor_final_angle_p95": 0.04590805247426033,
+          "anchor_to_teacher_cosine": 0.9868043661117554,
+          "final_minus_anchor_cosine": 0.00014013962936587632,
+          "final_to_teacher_cosine": 0.9869444966316223,
+          "residual_norm_mean": 0.040176015347242355,
+          "residual_norm_p95": 0.04916074126958847
+        },
+        "per_corpus": {
+          "fineweb_edu": {
+            "cosine": 0.9871375560760498,
+            "auc": 0.624184
+          },
+          "fineweb": {
+            "cosine": 0.987648069858551,
+            "auc": 0.616726
+          },
+          "openwebtext": {
+            "cosine": 0.9874104857444763,
+            "auc": 0.6308900000000001
+          },
+          "wikipedia_en_20231101": {
+            "cosine": 0.9855819940567017,
+            "auc": 0.7610079999999999
+          }
+        }
+      }
+    },
+    "cosine_mean": 0.9870088497797648,
+    "logistic_auc_mean": 0.6977324166666666,
+    "rbf_auc_mean": 0.599232,
+    "strongest_auc_mean": 0.6977324166666666,
+    "effective_rank_mean": 119.9557726814517,
+    "decoder_cosine_mean": 0.9129764636357626,
+    "probe_cosine_mean": 0.90312260389328
+  },
+  "free_euclidean": {
+    "seeds": {
+      "424242": {
+        "cosine": 0.8538615107536316,
+        "logistic_auc": 0.9967097500000001,
+        "rbf_auc": 0.99984625,
+        "strongest_auc": 0.99984625,
+        "effective_rank": 49.567808126047396,
+        "decoder_cosine": 0.8134375810623169,
+        "probe_cosine": 0.8083614706993103,
+        "probe_floor_pass": false,
+        "full_saturation_count": 0,
+        "geometry": {
+          "anchor_final_angle_mean": 0.509658932685852,
+          "anchor_final_angle_p95": 0.6169070601463318,
+          "anchor_to_teacher_cosine": 0.9822157025337219,
+          "final_minus_anchor_cosine": -0.12835422158241272,
+          "final_to_teacher_cosine": 0.8538615107536316,
+          "residual_norm_mean": 29.37755012512207,
+          "residual_norm_p95": 35.86838912963867
+        },
+        "per_corpus": {
+          "fineweb_edu": {
+            "cosine": 0.8612685799598694,
+            "auc": 0.994164
+          },
+          "fineweb": {
+            "cosine": 0.8506767153739929,
+            "auc": 0.993132
+          },
+          "openwebtext": {
+            "cosine": 0.8605391979217529,
+            "auc": 0.993708
+          },
+          "wikipedia_en_20231101": {
+            "cosine": 0.8429614901542664,
+            "auc": 0.9992519999999999
+          }
+        }
+      },
+      "271828": {
+        "cosine": 0.8554511070251465,
+        "logistic_auc": 0.99509475,
+        "rbf_auc": 0.99972625,
+        "strongest_auc": 0.99972625,
+        "effective_rank": 50.37709082131843,
+        "decoder_cosine": 0.8154923319816589,
+        "probe_cosine": 0.810068666934967,
+        "probe_floor_pass": false,
+        "full_saturation_count": 0,
+        "geometry": {
+          "anchor_final_angle_mean": 0.5061391592025757,
+          "anchor_final_angle_p95": 0.6145297884941101,
+          "anchor_to_teacher_cosine": 0.9822180867195129,
+          "final_minus_anchor_cosine": -0.12676696479320526,
+          "final_to_teacher_cosine": 0.8554511070251465,
+          "residual_norm_mean": 29.571266174316406,
+          "residual_norm_p95": 36.11491775512695
+        },
+        "per_corpus": {
+          "fineweb_edu": {
+            "cosine": 0.8634936809539795,
+            "auc": 0.9919920000000001
+          },
+          "fineweb": {
+            "cosine": 0.8522144556045532,
+            "auc": 0.994024
+          },
+          "openwebtext": {
+            "cosine": 0.8620818853378296,
+            "auc": 0.9926200000000001
+          },
+          "wikipedia_en_20231101": {
+            "cosine": 0.8440144062042236,
+            "auc": 0.9981679999999999
+          }
+        }
+      },
+      "314159": {
+        "cosine": 0.8523522019386292,
+        "logistic_auc": 0.9946895000000001,
+        "rbf_auc": 0.99980075,
+        "strongest_auc": 0.99980075,
+        "effective_rank": 49.05956091250609,
+        "decoder_cosine": 0.8136704564094543,
+        "probe_cosine": 0.8082355856895447,
+        "probe_floor_pass": false,
+        "full_saturation_count": 0,
+        "geometry": {
+          "anchor_final_angle_mean": 0.5121581554412842,
+          "anchor_final_angle_p95": 0.6216650605201721,
+          "anchor_to_teacher_cosine": 0.9822155833244324,
+          "final_minus_anchor_cosine": -0.1298634558916092,
+          "final_to_teacher_cosine": 0.8523522019386292,
+          "residual_norm_mean": 29.002731323242188,
+          "residual_norm_p95": 36.02705001831055
+        },
+        "per_corpus": {
+          "fineweb_edu": {
+            "cosine": 0.8600543737411499,
+            "auc": 0.994572
+          },
+          "fineweb": {
+            "cosine": 0.8490219116210938,
+            "auc": 0.993684
+          },
+          "openwebtext": {
+            "cosine": 0.8589423894882202,
+            "auc": 0.996476
+          },
+          "wikipedia_en_20231101": {
+            "cosine": 0.841390073299408,
+            "auc": 0.999428
+          }
+        }
+      }
+    },
+    "cosine_mean": 0.8538882732391357,
+    "logistic_auc_mean": 0.9954980000000001,
+    "rbf_auc_mean": 0.9997910833333333,
+    "strongest_auc_mean": 0.9997910833333333,
+    "effective_rank_mean": 49.668153286623976,
+    "decoder_cosine_mean": 0.8142001231511434,
+    "probe_cosine_mean": 0.808888574441274
+  },
+  "selection": {
+    "winner": "euclidean_residual",
+    "rule": "numerical validity first, then cosine/AUC/rank/retention",
+    "reason": "Geodesic control invalid because seed314159 saturated cap, rank collapsed, and AUC=1. Free Euclidean failed cosine/rank/AUC gates. Euclidean residual is the only family valid for all three seeds; however its AUC is not meaningfully lower than the two healthy geodesic seeds, so no spherical-bottleneck benefit is supported.",
+    "no_revision": true
+  }
+}

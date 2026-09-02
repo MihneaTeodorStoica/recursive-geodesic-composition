@@ -1,0 +1,19 @@
+v4_euclidean_experiment: true
+role: development
+architecture: geodesic
+seed: 271828
+checkpoint: results/v4_euclidean/geodesic_seed271828/autoencoder_seed271828.pt
+checkpoint_sha256: 5b49eee1ee6bb231baf0db188fb9ba0d9c0c076673bd723cc10979513baf1575
+training_cache_manifest: artifacts/v4_euclidean/cache_train_cls/CACHE_MANIFEST.json
+training_cache_manifest_sha256: 06b959c74aca0031a95392c5d844ccc0205ff81992bd97f7c0e0a67b2598114e
+cache_manifest: artifacts/v4_euclidean/development_two_arm_cls/CACHE_MANIFEST.json
+cache_manifest_sha256: 1a9fe76e58986ea277f3049f6998f4dbb73ae776220296007b2d02ff6537c82b
+probe: artifacts/v4_euclidean/probes/geodesic_seed271828.pt
+probe_sha256: 50029a3102b03f53c09812cf13e26925bfc95548d12b5f73f22ca7e73b6a1f36
+probe_floors:
+  pooled: 0.8990250101089478
+  fineweb_edu: 0.8946108093261719
+  fineweb: 0.8989063372612
+  openwebtext: 0.904620276927948
+  wikipedia_en_20231101: 0.8979623785018921
+output_dir: results/v4_euclidean/development_geodesic_seed271828

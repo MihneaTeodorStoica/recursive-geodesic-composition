@@ -1,0 +1,66 @@
+{
+  "study": "v4_euclidean",
+  "selected_architecture": "euclidean_residual",
+  "selection_result_sha256": "b7f61888eb5bb6b9b7e8e5b832a292b525fcc6c88647d7d547d42df260ca7b72",
+  "official_accessed": false,
+  "official_range": [
+    370000,
+    400000
+  ],
+  "seeds": {
+    "424242": {
+      "checkpoint": "results/v4_euclidean/euclidean_residual_seed424242/autoencoder_seed424242.pt",
+      "checkpoint_sha256": "762f9799c83b6e9dc6ca35c22dda1f952b410efbbebced628caa29f249a70946",
+      "history": "results/v4_euclidean/euclidean_residual_seed424242/autoencoder_seed424242.jsonl",
+      "history_sha256": "b043032c2889ce134c210f7c7c8ccd4945ab1d5eeb7d9d13e244563a0f922728",
+      "probe": "artifacts/v4_euclidean/probes/euclidean_residual_seed424242.pt",
+      "probe_sha256": "f66b6002ce97cf23ac0a2730ec1cea58c09d0548eb8cc2f446df4013a9587d85",
+      "max_grad_norm": 0.9689145088195801,
+      "max_saturation": 0.0,
+      "all_finite": true,
+      "runtime_seconds": 378
+    },
+    "271828": {
+      "checkpoint": "results/v4_euclidean/euclidean_residual_seed271828/autoencoder_seed271828.pt",
+      "checkpoint_sha256": "2fe260688e4dee17f9161effe375108d085503ba1f1220ab5b73e2844b7b1b7b",
+      "history": "results/v4_euclidean/euclidean_residual_seed271828/autoencoder_seed271828.jsonl",
+      "history_sha256": "6db26bd8110db3877f449f739708d1ad1ed3b185cb10ba4ccd5f655a7fda39fc",
+      "probe": "artifacts/v4_euclidean/probes/euclidean_residual_seed271828.pt",
+      "probe_sha256": "a30e71b5efa4b9431351c4e0c5e2f6a3f3f1a8e31abd67595e933a7df96b9721",
+      "max_grad_norm": 0.9244353771209717,
+      "max_saturation": 0.0,
+      "all_finite": true,
+      "runtime_seconds": 378
+    },
+    "314159": {
+      "checkpoint": "results/v4_euclidean/euclidean_residual_seed314159/autoencoder_seed314159.pt",
+      "checkpoint_sha256": "936c47c3e7f34848feafeb1740ae5a0743cbc0bd2562d3a72f17ba2139aaa39f",
+      "history": "results/v4_euclidean/euclidean_residual_seed314159/autoencoder_seed314159.jsonl",
+      "history_sha256": "5c7ac09a34b0b3ef855af0da4a9306e395dd16956bfc22c3a230878fb25a9d33",
+      "probe": "artifacts/v4_euclidean/probes/euclidean_residual_seed314159.pt",
+      "probe_sha256": "31ebd56ce12a9e7086ceaecd10db4c79f2ed2f30002114638214f63b821616d0",
+      "max_grad_norm": 1.0614923238754272,
+      "max_saturation": 0.0,
+      "all_finite": true,
+      "runtime_seconds": 378
+    }
+  },
+  "hashes": {
+    "src/recursive_geodesic_composition/data.py": "35832a20717df98eafde62fe21baf258512e6c9575c9c723dc3b718260373970",
+    "src/recursive_geodesic_composition/architecture.py": "1a4379eaff1aa631e7ef11b9ded17eac336a174d1a03cdecd5c653a89933df1e",
+    "src/recursive_geodesic_composition/train.py": "a28a04f8fa1145c1aed63b74aacc63f3effb31368ee493509b3e02466edfa604",
+    "src/recursive_geodesic_composition/evaluate_v4_euclidean.py": "588cc78889dcec5fa41f1bfaa3e096bd619a1cb7393681bd256fe57625fbd44a",
+    "scripts/v4_euclidean/evaluate_two_arm.py": "fa8c024d551c5b9ab098347befe0409c41b1ddad2f11bb5c9bb45a41028dff7e",
+    "scripts/v4_euclidean/prepare_two_arm_cache.py": "2be862e9149d787619c0d17e2c695baa5d515e36c45051b018b47d82fcd909fd",
+    "configs/v4_euclidean/evaluator_two_arm.yaml": "dbc265635d7b4a2ba2649bc800dc2206248b57f544bc2c94c43c05b5e7069fd2",
+    "configs/evaluator_attacks_v1.yaml": "49e7a2996e33482239819430e92426fc1e4f9ff88628dfd2ac74f6da94726800",
+    "artifacts/v4_euclidean/cache_train_cls/CACHE_MANIFEST.json": "06b959c74aca0031a95392c5d844ccc0205ff81992bd97f7c0e0a67b2598114e"
+  },
+  "bootstrap": {
+    "replicates": 400,
+    "seed": 66031740
+  },
+  "safe_full_semantics_frozen": true,
+  "source_selection": "first 1000 eligible source-order documents/corpus",
+  "tests": "69 pass"
+}
