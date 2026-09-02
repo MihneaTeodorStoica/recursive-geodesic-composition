@@ -1,0 +1,11 @@
+{
+  "train_only": true,
+  "files": {
+    "configs/v2_2_cls/covariance_refinement_v1.yaml": "63fa7be4b66fabc41f7d512f22f8f87330d66ed8e07727f0fb2873d5bd904226",
+    "reproducibility/v2_2_cls/COVARIANCE_REFINEMENT_V1_PROTOCOL.md": "fe48b4555757a6eed1d20af3b5ab9d63e172ed0d76d1921b961245ab19cdaf01",
+    "scripts/v2_2_cls/run_covariance_refinement.py": "0a3bce5eb1a043d94d2806ac00cdb00a352f2c20cfc6dc2a4dab3a1e8f07fcd9",
+    "src/recursive_geodesic_composition/train.py": "541c79174875bbff1f7621d3e13481c0ef3cfa752382011af4758ff506ec8496",
+    "src/recursive_geodesic_composition/v2_2_covariance.py": "ce8c2f0fd18994fab20d00186af0b7e50ca6e6891331bf0b9a3214533e28faa2",
+    "configs/v2_2_cls/pilot.yaml": "be302975a04d3b39a9e353d4929872bdce2e1c996d36f9c6045b975ab9f3ac40"
+  }
+}

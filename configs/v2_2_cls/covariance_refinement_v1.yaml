@@ -1,0 +1,15 @@
+base_config: configs/v2_2_cls/pilot.yaml
+range: [244000, 256000]
+seed: 424242
+steps: 250
+batch_size: 8
+arms:
+  BASELINE_R: {covariance_mode: none, covariance_weight: 0.0}
+  F8192: {covariance_mode: frobenius, covariance_weight: 8192.0}
+  F32768: {covariance_mode: frobenius, covariance_weight: 32768.0}
+  F131072: {covariance_mode: frobenius, covariance_weight: 131072.0}
+  F524288: {covariance_mode: frobenius, covariance_weight: 524288.0}
+normalization: mean_squared_covariance_element_difference_existing_v2_2_covariance_frobenius
+whitening: prohibited
+health: {finite: true, gradient_norm_max: 1000.0, saturation_patience: 3}
+selection: {cosine_delta_min: -0.002, covariance_improvement_min_percent: 5.0, rank: maximum_covariance_reduction}
