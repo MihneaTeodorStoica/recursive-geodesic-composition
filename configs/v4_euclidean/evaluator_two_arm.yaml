@@ -1,0 +1,45 @@
+stage: v4_euclidean_two_arm_evaluator
+protocol_version: 1
+v4_euclidean_experiment: true
+model_name: Alibaba-NLP/gte-modernbert-base
+model_revision: e7f32e3c00f91d699e8c43b53106206bcc72bb22
+teacher_pooling: cls
+architecture_variants: [geodesic, euclidean_residual, free_euclidean]
+arity: 4
+chunk_tokens: 1024
+reduction: deterministic_contiguous_k4_carry_singleton
+corpora:
+- fineweb_edu
+- fineweb
+- openwebtext
+- wikipedia_en_20231101
+source_ranges:
+  development: [360000, 369000]
+  official: [370000, 400000]
+safe_arm:
+  minimum_tokens: 1025
+  maximum_tokens: 4096
+  direct_single_merge: true
+  teacher_target: normalized_cls_of_exact_safe_prefix
+full_arm:
+  every_available_token: true
+  leaf_tokens: 1024
+  retain_final_short_leaf: true
+  token_cap: null
+  leaf_cap: null
+  depth_cap: null
+  truncation: false
+  teacher_target: false
+  teacher_metrics: false
+  attacks: false
+attack_config: configs/evaluator_attacks_v1.yaml
+attack_config_sha256: 49e7a2996e33482239819430e92426fc1e4f9ff88628dfd2ac74f6da94726800
+bootstrap_replicates: 400
+bootstrap_seed: 66031740
+batches:
+  safe_root: 64
+  full_merge: 64
+collapse:
+  minimum_effective_rank: 8.0
+  minimum_unique_rounded_fraction: 0.99
+  minimum_pre_normalization_norm: 1.0e-6
