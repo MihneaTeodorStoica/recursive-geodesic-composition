@@ -1,0 +1,98 @@
+{
+  "study": "v3_cls",
+  "role": "train",
+  "source_range": [
+    296000,
+    308000
+  ],
+  "development_range": [
+    308000,
+    317000
+  ],
+  "buffer_range": [
+    317000,
+    318000
+  ],
+  "future_official_range": [
+    318000,
+    348000
+  ],
+  "teacher_provenance": {
+    "teacher_id": "Alibaba-NLP/gte-modernbert-base",
+    "teacher_revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22",
+    "teacher_pooling": "cls",
+    "tokenizer_class": "TokenizersBackend",
+    "model_class": "ModernBertModel",
+    "trust_remote_code": true,
+    "max_position_embeddings": 8192,
+    "hidden_size": 768
+  },
+  "teacher_pooling": "cls",
+  "config": "configs/v3_cls/seed424242.yaml",
+  "config_sha256": "0b68895856fbbc8efc9c8e3b05fc98a63617e375729f0519ee743b4e0d7a92e4",
+  "preparer_sha256": "162a2b8ce7e3ad3e50aafb874bc73d88ffde60b1767de81aee7030ab6c120929",
+  "corpus_audit": {
+    "fineweb_edu": {
+      "source_range": [
+        296000,
+        308000
+      ],
+      "usable_sidecar": 6898
+    },
+    "fineweb": {
+      "source_range": [
+        296000,
+        308000
+      ],
+      "usable_sidecar": 3760
+    },
+    "openwebtext": {
+      "source_range": [
+        296000,
+        308000
+      ],
+      "usable_sidecar": 8228
+    },
+    "wikipedia_en_20231101": {
+      "source_range": [
+        296000,
+        308000
+      ],
+      "usable_sidecar": 6282
+    }
+  },
+  "artifacts": {
+    "fineweb/train.pt": {
+      "bytes": 49971925,
+      "sha256": "cda616c8fed23ad14dd842791fd2828f75b0b4b74ea70ea904219e8f6a2ef400"
+    },
+    "fineweb/train.pt.json": {
+      "bytes": 1009,
+      "sha256": "7f1a74ad703facb4b3ef62f2bb07a43c5a8543bb67b772a95d441b7485638f67"
+    },
+    "fineweb_edu/train.pt": {
+      "bytes": 91732419,
+      "sha256": "f093cdfc8152107898817b7d566ff5f90d934ef30ddfb8d2994b04ec120f4929"
+    },
+    "fineweb_edu/train.pt.json": {
+      "bytes": 1017,
+      "sha256": "499ded374a2aff601f12d2ede77c5d8bb9ceb555172b2055f59c638d9007a581"
+    },
+    "openwebtext/train.pt": {
+      "bytes": 110444885,
+      "sha256": "2b070036f8176dd3dfc0f5e491bffa245ff847fc38b98d822564ef88a25dfe4f"
+    },
+    "openwebtext/train.pt.json": {
+      "bytes": 1005,
+      "sha256": "d6aec08732fa1a4cc31d3f3528261b0cc35e0cb7ecf0062572d143c5ebf930ae"
+    },
+    "wikipedia_en_20231101/train.pt": {
+      "bytes": 81649145,
+      "sha256": "a1b40d8a5d7f38c8cbd004c320bf726d06f4834dcea57c21a0ad02b3ebc40d4c"
+    },
+    "wikipedia_en_20231101/train.pt.json": {
+      "bytes": 1021,
+      "sha256": "13934f490abe7e0418a77d29109877493ef0a0a6c460e7b4c173c5c639bcb084"
+    }
+  }
+}

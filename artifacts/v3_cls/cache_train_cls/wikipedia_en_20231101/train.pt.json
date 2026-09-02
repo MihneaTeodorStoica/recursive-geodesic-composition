@@ -1,0 +1,30 @@
+{
+  "cache_namespace": "kary_geodesic_v1",
+  "split": "train",
+  "validation_only_experiment": true,
+  "official_test_evaluated": false,
+  "arity": 4,
+  "reduction": "contiguous_balanced",
+  "teacher_max_tokens": 6144,
+  "target_provenance": "per-target exact leaf/token interval and token SHA-256",
+  "source_start": 296000,
+  "requested": 12000,
+  "usable": 6282,
+  "corpus_id": "wikipedia_en_20231101",
+  "dataset": "wikimedia/wikipedia",
+  "config": "20231101.en",
+  "revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+  "model": "Alibaba-NLP/gte-modernbert-base",
+  "model_revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22",
+  "teacher_pooling": "cls",
+  "teacher_provenance": {
+    "teacher_id": "Alibaba-NLP/gte-modernbert-base",
+    "teacher_revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22",
+    "teacher_pooling": "cls",
+    "tokenizer_class": "TokenizersBackend",
+    "model_class": "ModernBertModel",
+    "trust_remote_code": true,
+    "max_position_embeddings": 8192,
+    "hidden_size": 768
+  }
+}

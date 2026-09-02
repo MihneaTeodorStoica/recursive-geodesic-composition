@@ -996,6 +996,7 @@ def _enforce_v3_cls_guards(cfg):
         'initialize_from_encoder_checkpoint',
         'encoder_initialization_checkpoint',
         'continue_encoder_from_checkpoint',
+        'continue_autoencoder_from_checkpoint',
     ]
     present = [key for key in forbidden if cfg.get(key)]
     if present:

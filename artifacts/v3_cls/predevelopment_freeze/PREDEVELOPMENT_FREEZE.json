@@ -1,0 +1,150 @@
+{
+  "study": "v3_cls",
+  "freeze": "predevelopment_candidates_and_train_parent_probes",
+  "development_accessed": false,
+  "source_range": [
+    296000,
+    308000
+  ],
+  "teacher_pooling": "cls",
+  "selection": "fixed final step 2400",
+  "identical_protocol_except_seed_output": true,
+  "probe_selection_audit": {
+    "fineweb_edu": {
+      "fit": 80,
+      "floor": 80,
+      "fit_ids_sha256": "ab17edbe795ebe1f0ab1ae5d06a638ecef8f0be733f699e8827abdfa22efdac1",
+      "floor_ids_sha256": "2c1161e422653f1ff782de1c03ef442bb2e9f2bf76076f66c8dc2f73a260d448"
+    },
+    "fineweb": {
+      "fit": 80,
+      "floor": 80,
+      "fit_ids_sha256": "a1a7d5f144c17eefbfb655ed1cde2bed4c8025102e3cabb1b470ffbfe7653946",
+      "floor_ids_sha256": "e106ca17463ce93f02cd951effb37762b6220811a140f72f0a59ceb7467af37d"
+    },
+    "openwebtext": {
+      "fit": 80,
+      "floor": 80,
+      "fit_ids_sha256": "3b68da6d877548829be097d56423fd597ac0040406b891631bd3f8e88f5095c8",
+      "floor_ids_sha256": "691b4cd38ff2748145c6886ba29f3e2e825e31e05fad3a38b4abd296d5515409"
+    },
+    "wikipedia_en_20231101": {
+      "fit": 80,
+      "floor": 80,
+      "fit_ids_sha256": "d54dd7f7d1554a5a848a8e2d6475e0c8d71ede39f47035f03448e11c7d108f9f",
+      "floor_ids_sha256": "f44de38b567b5390e541fe3e69b879f74179793e4e05f5e625c562badee251e5"
+    }
+  },
+  "seeds": {
+    "424242": {
+      "checkpoint": "results/v3_cls/final_seed424242/autoencoder_seed424242.pt",
+      "checkpoint_sha256": "c0785285c2377bd29f6a652b02384ef9a7579deecb7095eba42d3b00db89d128",
+      "config": "configs/v3_cls/seed424242.yaml",
+      "config_sha256": "9a562f106f2db85bf60dda457d6e2ad1ccfacce687e2b482907af45a24f2e4b8",
+      "history_sha256": "a6f9ab040b2ace23a9d0ca83665cfe0130d12ca0177409ea51b0bf09ce2ed404",
+      "probe": "artifacts/v3_cls/predevelopment_freeze/parent_only_seed424242.pt",
+      "probe_sha256": "9cdde48e7af89a7491a6cdd9bdcf22fac6c1ca14532f6607d7b8bbaac93e04dd",
+      "probe_fit_final": {
+        "loss": 0.051658205687999725,
+        "cosine_loss": 0.051624596118927,
+        "mse": 0.0001344391785096377
+      },
+      "train_floor_scores": {
+        "pooled": 0.8979768753051758,
+        "fineweb_edu": 0.8988077044487,
+        "fineweb": 0.8978303670883179,
+        "openwebtext": 0.8980671167373657,
+        "wikipedia_en_20231101": 0.89720219373703
+      },
+      "frozen_floors": {
+        "pooled": 0.8969768753051758,
+        "fineweb_edu": 0.8978077044487,
+        "fineweb": 0.8968303670883179,
+        "openwebtext": 0.8970671167373657,
+        "wikipedia_en_20231101": 0.89620219373703
+      },
+      "training_health": {
+        "max_grad_norm": 4.14450740814209,
+        "max_geodesic_saturation_fraction": 0.875,
+        "max_geodesic_angle": 0.5000000596046448,
+        "all_finite": true
+      }
+    },
+    "271828": {
+      "checkpoint": "results/v3_cls/final_seed271828/autoencoder_seed271828.pt",
+      "checkpoint_sha256": "13756ffb9be108fb74cb1a0baaed375e37e6e114912d83090f4639ba4b1c126b",
+      "config": "configs/v3_cls/seed271828.yaml",
+      "config_sha256": "169a75e031920624470b1eefaee0c44d5ac9a47f5164945aa6513f281646908e",
+      "history_sha256": "b6cb9af4f7bd8da6f2b2f36d6c20a08f1421372144b0cb6986110f1787624be7",
+      "probe": "artifacts/v3_cls/predevelopment_freeze/parent_only_seed271828.pt",
+      "probe_sha256": "93560d59986f5cc0cbc56fbc5a7c7b69bdb3d55a9e2e18eecf0e2c9b093b651d",
+      "probe_fit_final": {
+        "loss": 0.05147372931241989,
+        "cosine_loss": 0.05144023895263672,
+        "mse": 0.0001339592126896605
+      },
+      "train_floor_scores": {
+        "pooled": 0.8981474041938782,
+        "fineweb_edu": 0.8992217779159546,
+        "fineweb": 0.8980123400688171,
+        "openwebtext": 0.8983662724494934,
+        "wikipedia_en_20231101": 0.8969890475273132
+      },
+      "frozen_floors": {
+        "pooled": 0.8971474041938782,
+        "fineweb_edu": 0.8982217779159546,
+        "fineweb": 0.8970123400688171,
+        "openwebtext": 0.8973662724494934,
+        "wikipedia_en_20231101": 0.8959890475273132
+      },
+      "training_health": {
+        "max_grad_norm": 1.1038427352905273,
+        "max_geodesic_saturation_fraction": 0.0,
+        "max_geodesic_angle": 0.08021480590105057,
+        "all_finite": true
+      }
+    },
+    "314159": {
+      "checkpoint": "results/v3_cls/final_seed314159/autoencoder_seed314159.pt",
+      "checkpoint_sha256": "33c36553afe2c34568d82273fd15afb7bca7415413cdbbe1b7c1a1d03f619c14",
+      "config": "configs/v3_cls/seed314159.yaml",
+      "config_sha256": "3c5861ef75ece02281eaaff9a635475791a17827da8be4c1ed484d2c1fd9444b",
+      "history_sha256": "e82d8ebbfc01e26a5ae6fc608990b2ff12055a7178906ff548612707abac2564",
+      "probe": "artifacts/v3_cls/predevelopment_freeze/parent_only_seed314159.pt",
+      "probe_sha256": "2b9723a4f4a253dda0be1a65103a4ea0f6a14e2e56d9dcf57edc9b0ece9fcea3",
+      "probe_fit_final": {
+        "loss": 0.05210690200328827,
+        "cosine_loss": 0.052073001861572266,
+        "mse": 0.00013560682418756187
+      },
+      "train_floor_scores": {
+        "pooled": 0.8974257707595825,
+        "fineweb_edu": 0.8985946774482727,
+        "fineweb": 0.8970072865486145,
+        "openwebtext": 0.8973919749259949,
+        "wikipedia_en_20231101": 0.8967088460922241
+      },
+      "frozen_floors": {
+        "pooled": 0.8964257707595825,
+        "fineweb_edu": 0.8975946774482727,
+        "fineweb": 0.8960072865486145,
+        "openwebtext": 0.8963919749259949,
+        "wikipedia_en_20231101": 0.8957088460922241
+      },
+      "training_health": {
+        "max_grad_norm": 0.9570369720458984,
+        "max_geodesic_saturation_fraction": 0.0,
+        "max_geodesic_angle": 0.23496533930301666,
+        "all_finite": true
+      }
+    }
+  },
+  "hashes": {
+    "training_cache_manifest_sha256": "39f70e6107249e0122a0cc06441824c637ccf0fdea2e4c185a474d066ab54024",
+    "training_code_sha256": "9cf9ab928277ec8c7a29d5ed71b8bbca76cd164119e19c37b71349b88ead2138",
+    "evaluator_code_sha256": "1fe595a373bc4aa903a9d9f6a275ee75d22776deb56b09826b096b1f5df9daa8",
+    "evaluator_protocol_sha256": "cd79eb678211dc34f383cc3c144857c67ba2ec92323606fd78e3e3ced74835e1",
+    "attack_config_sha256": "49e7a2996e33482239819430e92426fc1e4f9ff88628dfd2ac74f6da94726800",
+    "cache_preparer_sha256": "812fec738e5820b680bc84b2a55af2de6ef8f918f1246f023f570d28b360f4c0"
+  }
+}
