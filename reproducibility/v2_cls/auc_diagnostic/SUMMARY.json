@@ -1,0 +1,232 @@
+{
+  "seeds": {
+    "424242": {
+      "pooled": {
+        "stats": {
+          "n": 4000,
+          "cosine": 0.9868254661560059,
+          "mean_diff_norm": 0.012454579584300518,
+          "var_diff_norm": 0.0002736290916800499,
+          "cov_fro": 0.004815645331541496,
+          "effective_rank_generated": 519.0003051757812
+        }
+      },
+      "per_corpus": {
+        "fineweb_edu": {
+          "n": 1000,
+          "cosine": 0.9863848686218262,
+          "mean_diff_norm": 0.014953642152249813,
+          "var_diff_norm": 0.00044139736564829946,
+          "cov_fro": 0.006886976870515891,
+          "effective_rank_generated": 459.954833984375,
+          "attack": 0.6283479999999999
+        },
+        "fineweb": {
+          "n": 1000,
+          "cosine": 0.9880157709121704,
+          "mean_diff_norm": 0.014217178337275982,
+          "var_diff_norm": 0.0003206381807103753,
+          "cov_fro": 0.006110398892087059,
+          "effective_rank_generated": 459.2441101074219,
+          "attack": 0.616568
+        },
+        "openwebtext": {
+          "n": 1000,
+          "cosine": 0.9876828789710999,
+          "mean_diff_norm": 0.014662666246294975,
+          "var_diff_norm": 0.0003356665838509798,
+          "cov_fro": 0.0066666135403831124,
+          "effective_rank_generated": 455.6122741699219,
+          "attack": 0.6546339999999999
+        },
+        "wikipedia_en_20231101": {
+          "n": 1000,
+          "cosine": 0.9852181673049927,
+          "mean_diff_norm": 0.02559649385511875,
+          "var_diff_norm": 0.0005162458401173353,
+          "cov_fro": 0.007661133848614453,
+          "effective_rank_generated": 460.72088623046875,
+          "attack": 0.748522
+        }
+      },
+      "logistic": {
+        "auc": 0.6537201562500001,
+        "coefficient_norm": 11.969252586364746,
+        "top_coordinates": [
+          156,
+          748,
+          749,
+          583,
+          704,
+          251,
+          572,
+          445,
+          396,
+          246
+        ]
+      },
+      "residual": {
+        "mean_norm": 0.0124546829611063,
+        "mean_sample_norm": 0.1500123292207718,
+        "mean_alignment": 0.08067280799150467
+      },
+      "internal": {
+        "angle_mean": 0.03429008800676093,
+        "angle_max": 0.06490740925073624,
+        "raw_tangent_mean": 0.03435845590569079
+      }
+    },
+    "271828": {
+      "pooled": {
+        "stats": {
+          "n": 4000,
+          "cosine": 0.9868027567863464,
+          "mean_diff_norm": 0.01214234996587038,
+          "var_diff_norm": 0.00034029403468593955,
+          "cov_fro": 0.00489472925692534,
+          "effective_rank_generated": 518.9374389648438
+        }
+      },
+      "per_corpus": {
+        "fineweb_edu": {
+          "n": 1000,
+          "cosine": 0.9863961338996887,
+          "mean_diff_norm": 0.015360744670033455,
+          "var_diff_norm": 0.0004596365033648908,
+          "cov_fro": 0.006770005396765336,
+          "effective_rank_generated": 459.9625244140625,
+          "attack": 0.6366240000000001
+        },
+        "fineweb": {
+          "n": 1000,
+          "cosine": 0.9879762530326843,
+          "mean_diff_norm": 0.014795538038015366,
+          "var_diff_norm": 0.00040559994522482157,
+          "cov_fro": 0.006064480856824833,
+          "effective_rank_generated": 459.14691162109375,
+          "attack": 0.6264179999999999
+        },
+        "openwebtext": {
+          "n": 1000,
+          "cosine": 0.9876272678375244,
+          "mean_diff_norm": 0.015309426933526993,
+          "var_diff_norm": 0.0003839008277282119,
+          "cov_fro": 0.006582907765739532,
+          "effective_rank_generated": 455.4949645996094,
+          "attack": 0.6532279999999999
+        },
+        "wikipedia_en_20231101": {
+          "n": 1000,
+          "cosine": 0.9852114915847778,
+          "mean_diff_norm": 0.02724599279463291,
+          "var_diff_norm": 0.0005276078591123223,
+          "cov_fro": 0.007675978761095705,
+          "effective_rank_generated": 460.6097717285156,
+          "attack": 0.758716
+        }
+      },
+      "logistic": {
+        "auc": 0.65972165625,
+        "coefficient_norm": 12.235328674316406,
+        "top_coordinates": [
+          7,
+          589,
+          35,
+          396,
+          119,
+          704,
+          583,
+          740,
+          572,
+          445
+        ]
+      },
+      "residual": {
+        "mean_norm": 0.012142359279096127,
+        "mean_sample_norm": 0.1501670926809311,
+        "mean_alignment": 0.0776686742901802
+      },
+      "internal": {
+        "angle_mean": 0.031224515084177257,
+        "angle_max": 0.0665198341012001,
+        "raw_tangent_mean": 0.031277019634377214
+      }
+    },
+    "314159": {
+      "pooled": {
+        "stats": {
+          "n": 4000,
+          "cosine": 0.986916184425354,
+          "mean_diff_norm": 0.0119357043877244,
+          "var_diff_norm": 0.00036463813739828765,
+          "cov_fro": 0.004926729427078298,
+          "effective_rank_generated": 519.2503051757812
+        }
+      },
+      "per_corpus": {
+        "fineweb_edu": {
+          "n": 1000,
+          "cosine": 0.9864844679832458,
+          "mean_diff_norm": 0.014688687399029732,
+          "var_diff_norm": 0.000430776592111215,
+          "cov_fro": 0.006764830463737038,
+          "effective_rank_generated": 460.17333984375,
+          "attack": 0.625372
+        },
+        "fineweb": {
+          "n": 1000,
+          "cosine": 0.9881197214126587,
+          "mean_diff_norm": 0.014340663328766823,
+          "var_diff_norm": 0.00037667041760869324,
+          "cov_fro": 0.0060281955322725005,
+          "effective_rank_generated": 459.44891357421875,
+          "attack": 0.62404
+        },
+        "openwebtext": {
+          "n": 1000,
+          "cosine": 0.9878467917442322,
+          "mean_diff_norm": 0.014560488983988762,
+          "var_diff_norm": 0.00036142533645033836,
+          "cov_fro": 0.006517622828405189,
+          "effective_rank_generated": 455.8360595703125,
+          "attack": 0.639454
+        },
+        "wikipedia_en_20231101": {
+          "n": 1000,
+          "cosine": 0.9852137565612793,
+          "mean_diff_norm": 0.028341757133603096,
+          "var_diff_norm": 0.000584235938731581,
+          "cov_fro": 0.007670686331412218,
+          "effective_rank_generated": 460.9923400878906,
+          "attack": 0.751252
+        }
+      },
+      "logistic": {
+        "auc": 0.65383115625,
+        "coefficient_norm": 11.676888465881348,
+        "top_coordinates": [
+          254,
+          426,
+          630,
+          304,
+          670,
+          572,
+          119,
+          156,
+          740,
+          445
+        ]
+      },
+      "residual": {
+        "mean_norm": 0.011935805901885033,
+        "mean_sample_norm": 0.14948812127113342,
+        "mean_alignment": 0.07909123599529266
+      },
+      "internal": {
+        "angle_mean": 0.03212280307384208,
+        "angle_max": 0.057044245302677155,
+        "raw_tangent_mean": 0.03217965997382998
+      }
+    }
+  }
+}
