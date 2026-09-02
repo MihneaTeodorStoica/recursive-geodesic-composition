@@ -1,0 +1,177 @@
+{
+  "protocol_freeze_commit": "55c2eaf",
+  "coefficients": [
+    8192,
+    32768,
+    131072,
+    524288
+  ],
+  "metrics": {
+    "baseline_r": {
+      "cosine": 0.9771044850349426,
+      "covariance_mismatch": 3.696129236008261e-10,
+      "covariance_fro": 0.014764959923923016,
+      "residual_mean_norm": 0.021061910316348076,
+      "variance_mismatch": 1.240149649639477e-09,
+      "effective_rank": 230.03543090820312,
+      "covariance_change_percent": 0.0,
+      "cosine_delta": 0.0,
+      "gradient": {
+        "teacher": 0.14732001721858978,
+        "covariance": 0.0,
+        "ratio": 0.0
+      }
+    },
+    "f8192": {
+      "cosine": 0.9771080017089844,
+      "covariance_mismatch": 3.693821082340065e-10,
+      "covariance_fro": 0.01476034801453352,
+      "residual_mean_norm": 0.021087083965539932,
+      "variance_mismatch": 1.243321778865436e-09,
+      "effective_rank": 230.0419158935547,
+      "covariance_change_percent": -0.06244786155498172,
+      "cosine_delta": 3.516674041748047e-06,
+      "gradient": {
+        "teacher": 0.1475352793931961,
+        "covariance": 0.0008411745075136423,
+        "ratio": 0.005701514315581625
+      }
+    },
+    "f32768": {
+      "cosine": 0.9771181344985962,
+      "covariance_mismatch": 3.686987382067741e-10,
+      "covariance_fro": 0.014746676199138165,
+      "residual_mean_norm": 0.02116326242685318,
+      "variance_mismatch": 1.2527193726796781e-09,
+      "effective_rank": 230.06121826171875,
+      "covariance_change_percent": -0.24733588456427036,
+      "cosine_delta": 1.3649463653564453e-05,
+      "gradient": {
+        "teacher": 0.1481778919696808,
+        "covariance": 0.003389040008187294,
+        "ratio": 0.022871428140445793
+      }
+    },
+    "f131072": {
+      "cosine": 0.9771568179130554,
+      "covariance_mismatch": 3.660950709249988e-10,
+      "covariance_fro": 0.014694547280669212,
+      "residual_mean_norm": 0.02146126702427864,
+      "variance_mismatch": 1.2896820278385235e-09,
+      "effective_rank": 230.1372528076172,
+      "covariance_change_percent": -0.9517666864988894,
+      "cosine_delta": 5.233287811279297e-05,
+      "gradient": {
+        "teacher": 0.1505756974220276,
+        "covariance": 0.013906029984354973,
+        "ratio": 0.09235241956329582
+      }
+    },
+    "f524288": {
+      "cosine": 0.9772732257843018,
+      "covariance_mismatch": 3.5800371001037945e-10,
+      "covariance_fro": 0.014531240798532963,
+      "residual_mean_norm": 0.022625170648097992,
+      "variance_mismatch": 1.4309748941343514e-09,
+      "effective_rank": 230.389892578125,
+      "covariance_change_percent": -3.1409111665652523,
+      "cosine_delta": 0.00016874074935913086,
+      "gradient": {
+        "teacher": 0.15680955350399017,
+        "covariance": 0.0587029904127121,
+        "ratio": 0.3743585075077606
+      }
+    }
+  },
+  "health": {
+    "baseline_r": {
+      "passed": true,
+      "persistent_saturation": false
+    },
+    "f8192": {
+      "passed": true,
+      "persistent_saturation": false
+    },
+    "f32768": {
+      "passed": true,
+      "persistent_saturation": false
+    },
+    "f131072": {
+      "passed": true,
+      "persistent_saturation": false
+    },
+    "f524288": {
+      "passed": true,
+      "persistent_saturation": false
+    }
+  },
+  "eligible_5_percent": [],
+  "outcome": "REJECT direct minibatch full covariance matching: best reduction below 5%",
+  "checkpoint_and_log_files": {
+    "results/v2_2_cls/covariance_refinement_v1/baseline_r/encoder_seed424242.jsonl": {
+      "sha256": "b25a5c672a1e2f62b07db53f5876fefa34bdd0eec6582eb3c5ade327ab11cacd",
+      "bytes": 694501
+    },
+    "results/v2_2_cls/covariance_refinement_v1/baseline_r/encoder_seed424242_run_status.json": {
+      "sha256": "44cf6b176b27cf1b9e87981b9e22905b65bc46107a4327749f3ffdf10da09696",
+      "bytes": 512
+    },
+    "results/v2_2_cls/covariance_refinement_v1/baseline_r/encoder_seed424242.pt": {
+      "sha256": "faf24f25d24dd9074de6d2db9ed8fc443600dfc1578c7fa2584d8108ed06a197",
+      "bytes": 446200797
+    },
+    "results/v2_2_cls/covariance_refinement_v1/f8192/encoder_seed424242.jsonl": {
+      "sha256": "3e51a0c7e06d410eef1d330b084587532e8651fdaf15e85c6fe08ba5e810e547",
+      "bytes": 706566
+    },
+    "results/v2_2_cls/covariance_refinement_v1/f8192/encoder_seed424242_run_status.json": {
+      "sha256": "44cf6b176b27cf1b9e87981b9e22905b65bc46107a4327749f3ffdf10da09696",
+      "bytes": 512
+    },
+    "results/v2_2_cls/covariance_refinement_v1/f8192/encoder_seed424242.pt": {
+      "sha256": "b512d801e4761e3651e203f9518615a4f9ba855908c6eb8a3c8d37d5c6d50e0d",
+      "bytes": 446200797
+    },
+    "results/v2_2_cls/covariance_refinement_v1/f32768_failed_checkpoint_write/encoder_seed424242.jsonl": {
+      "sha256": "699d800d4a375a71f11ba0fe5baeb46555010f2d11594ec7505a0601c7efe9a6",
+      "bytes": 707012
+    },
+    "results/v2_2_cls/covariance_refinement_v1/f32768/encoder_seed424242.jsonl": {
+      "sha256": "699d800d4a375a71f11ba0fe5baeb46555010f2d11594ec7505a0601c7efe9a6",
+      "bytes": 707012
+    },
+    "results/v2_2_cls/covariance_refinement_v1/f32768/encoder_seed424242.pt": {
+      "sha256": "31897c3598611281773c1a074a2955443a9eaa0b7e918a4d0c5bb7b9819cd60c",
+      "bytes": 446200797
+    },
+    "results/v2_2_cls/covariance_refinement_v1/f32768/encoder_seed424242_run_status.json": {
+      "sha256": "44cf6b176b27cf1b9e87981b9e22905b65bc46107a4327749f3ffdf10da09696",
+      "bytes": 512
+    },
+    "results/v2_2_cls/covariance_refinement_v1/f131072/encoder_seed424242.jsonl": {
+      "sha256": "460eedc46934c39c3d5a3ad26bb2c2e7805a235aaf806d853c4285256bdb140e",
+      "bytes": 707360
+    },
+    "results/v2_2_cls/covariance_refinement_v1/f131072/encoder_seed424242.pt": {
+      "sha256": "2f050deb431d902344b747ee5a77f3fe95320bc0feee423b1fef1a5c660f2845",
+      "bytes": 446200797
+    },
+    "results/v2_2_cls/covariance_refinement_v1/f131072/encoder_seed424242_run_status.json": {
+      "sha256": "44cf6b176b27cf1b9e87981b9e22905b65bc46107a4327749f3ffdf10da09696",
+      "bytes": 512
+    },
+    "results/v2_2_cls/covariance_refinement_v1/f524288/encoder_seed424242.jsonl": {
+      "sha256": "e44b8447bca5bcb7fd1dce7b8b17fe9333f13d14509c9cd6d19f103114e1f090",
+      "bytes": 707185
+    },
+    "results/v2_2_cls/covariance_refinement_v1/f524288/encoder_seed424242.pt": {
+      "sha256": "c416f7aadc383d2efa6f9d9a35f318f4fa909f045b4d0cdb102fe24ae56070ec",
+      "bytes": 446200797
+    },
+    "results/v2_2_cls/covariance_refinement_v1/f524288/encoder_seed424242_run_status.json": {
+      "sha256": "44cf6b176b27cf1b9e87981b9e22905b65bc46107a4327749f3ffdf10da09696",
+      "bytes": 512
+    }
+  },
+  "engineering_recovery": "F32768 fixed checkpoint regenerated identically after ENOSPC; original completed log preserved in f32768_failed_checkpoint_write"
+}
