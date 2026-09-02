@@ -1,0 +1,7 @@
+{
+  "schema": "v3_cls_downstream_precommit_amendment_v1",
+  "created_after_model_results": false,
+  "trigger": "The first fail-closed run stopped before teacher/model construction because the BEIR NFCorpus queries.jsonl contains 3,237 queries across all splits while test qrels identify 323 test queries.",
+  "change": "For NFCorpus only, explicitly select queries whose IDs occur in test.tsv, require every test-qrel query to exist exactly once, and report all 2,914 non-test query rows as structurally excluded. Corpus documents and test qrels are never filtered. LongEmbed still requires exact query/qrel ID equality.",
+  "unchanged": "All benchmark, model, cache, ranking, metric, stratification, checkpoint, and malformed-qrels decisions in PRECOMMIT.json remain unchanged. No model had been loaded and no embedding or retrieval result existed when this amendment was written."
+}

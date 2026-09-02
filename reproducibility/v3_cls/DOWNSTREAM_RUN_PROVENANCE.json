@@ -1,0 +1,94 @@
+{
+  "cache_completion": "2133ef47cd1c59699749eea6e625188aaf7ed37ed6096340597a943b43d33633  CACHE_MANIFEST.json",
+  "checkpoint_sha256": {
+    "recursive_seed271828": "3f9efe8cfdabd0d8997319969581fa2220c123c27abff3848ce1e0e7a0769fec",
+    "recursive_seed314159": "9677f5ac5078856457d91ca0df2ddc222c76a2752bcb698cbd570e7ed1bebbc7",
+    "recursive_seed424242": "5f44f72a48d64830dc411e8f5559c9a89a9737fcabd8a6bf6bd37bff9fc5c0d8"
+  },
+  "dataset_rows": {
+    "20_newsgroups": {
+      "test": 7532,
+      "train": 11314
+    },
+    "ecthr_a": {
+      "test": 1000,
+      "train": 9000,
+      "validation": 1000
+    }
+  },
+  "direct_teacher_coverage": {
+    "20_newsgroups": {
+      "exclusion_reason": "at least one task row exceeds pinned teacher context; identical-sample policy forbids subset evaluation",
+      "included_in_task": false,
+      "test": {
+        "invalid": 21,
+        "rows": 7532,
+        "valid": 7511
+      },
+      "train": {
+        "invalid": 54,
+        "rows": 11314,
+        "valid": 11260
+      }
+    },
+    "ecthr_a": {
+      "exclusion_reason": "at least one task row exceeds pinned teacher context; identical-sample policy forbids subset evaluation",
+      "included_in_task": false,
+      "test": {
+        "invalid": 37,
+        "rows": 1000,
+        "valid": 963
+      },
+      "train": {
+        "invalid": 279,
+        "rows": 9000,
+        "valid": 8721
+      },
+      "validation": {
+        "invalid": 28,
+        "rows": 1000,
+        "valid": 972
+      }
+    }
+  },
+  "files": {
+    "reproducibility/v3_cls/DOWNSTREAM_PROTOCOL.md": "3198d8873d15a55f3190ab20648c6fe60a849775e7f7354906fba2109558ed88",
+    "reproducibility/v3_cls/DOWNSTREAM_REPORT.md": "f6df32a9ddae270153ddf4cc26045c7c40858ede5dcc867dab5ff7daa1a18770",
+    "results/v3_cls/downstream/DOWNSTREAM_RESULTS.json": "b1805c626541915dbe3a70256110d43e058bedb13789184564376142b5e91f62",
+    "results/v3_cls/downstream/leaf_cache/CACHE_MANIFEST.json": "2133ef47cd1c59699749eea6e625188aaf7ed37ed6096340597a943b43d33633",
+    "scripts/v3_cls/downstream/evaluate.py": "90900520921aa0a93f5bc003892ad9f2e00c5eb26d3602f13013e174b7e63837",
+    "scripts/v3_cls/downstream/prepare_leaf_cache.py": "9b7f6f0fbd6a28d19ed093394ce5585f5c831ed9d37c392f4f5fc3ca7c26bac0",
+    "scripts/v3_cls/downstream/protocol.json": "83c741acaea70ce74afd3dd9e27685a7854fa985f7fdd48b25d959c5c7909ba5"
+  },
+  "git_head": "1bf1cd7849e67c344ec1b0c78b2fcc3a64a1c2c8",
+  "leaf_tensor_sha256": {
+    "20_newsgroups": {
+      "test": "26df078c79141c349e18b281a92efc27aa50a45e7dbb4d8d686fe7941a49e28f",
+      "train": "43b1e74e9984039ce7c8c239626de520878d97e0cf01fa16e39f97d16e8c6129"
+    },
+    "ecthr_a": {
+      "test": "e4266076ab9e0c442d4b3f3a6278c399bb90677536ccc0bc0638a624577368f1",
+      "train": "f5b7c0a323ed77e230ead993f5ba7d7ffc9eb62a4e9818ac364554e3a3220833",
+      "validation": "48da4f6b3f7e0c01000a05372afb523eceee4703cc9f915ab5fa0d3675d55c0e"
+    }
+  },
+  "results_completion": "b1805c626541915dbe3a70256110d43e058bedb13789184564376142b5e91f62  DOWNSTREAM_RESULTS.json",
+  "schema": "v3_cls_downstream_run_provenance_v1",
+  "status": "complete",
+  "successful_runtime_seconds": {
+    "cache": 1825.0906405597925,
+    "evaluation": 290.68949288874865,
+    "total": 2115.780133448541
+  },
+  "zero_token_rows_retained": {
+    "20_newsgroups": {
+      "test": 162,
+      "train": 218
+    },
+    "ecthr_a": {
+      "test": 0,
+      "train": 0,
+      "validation": 0
+    }
+  }
+}

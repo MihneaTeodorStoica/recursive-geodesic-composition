@@ -42,3 +42,8 @@
 - Verified every hash in `OFFICIAL_PREACCESS_FREEZE.json`, then created `OFFICIAL_ACCESS_SPENT.json` before opening any official source row. Prepared exactly 1000 eligible source-order documents/corpus from frozen `[318000,348000)`; no rows shifted or dropped after outcomes.
 - Bound only the newly created cache-manifest hash into frozen official spec templates and ran each frozen seed exactly once. No evaluator recovery was needed.
 - Official pooled cosine: 0.987013/0.986954/0.987041. Strongest logistic AUC: 0.691513/0.690579/0.694055; RBF: 0.602185/0.601159/0.598578. Wikipedia remained most detectable (AUC 0.775–0.783). All TRAIN probe floors passed. Full arm represented up to 79,674 tokens, 78 leaves, depth 4; no geodesic or importance saturation and all outputs finite.
+
+## 2026-09-02T12:00:00Z downstream completion and final audit
+- Precommitted retrieval benchmark selection after blind length inspection. Selected pinned LongEmbed NarrativeQA as the feasible established long-document benchmark; represented 30.4M tokens, max 488,429 tokens/477 leaves/depth 5. NFCorpus and NarrativeQA retained every required query/qrel/document; standard metrics and source-selection audit preserved.
+- Completed ECtHR-A canonical multilabel OvR and 20 Newsgroups fixed-KMeans evaluations on one shared hash-pinned leaf cache. No canonical rows dropped; direct teacher omitted fail-closed where complete benchmark coverage was impossible.
+- Generated publication figures only from preserved JSON/CSV, prepared but did not publish proposed v3-paper manifest, and ran independent `final_audit.py`: PASS on all lineage, CLS, source, seed, hash, freeze/access, downstream identity/metric/exclusion checks.

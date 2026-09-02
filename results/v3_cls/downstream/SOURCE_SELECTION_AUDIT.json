@@ -1,0 +1,11 @@
+{
+  "all_query_ids_sha256": "567380e64521464829cf8c3101e2f00ad5fc6ed6b8bef6794e26fc5dce46ff6e",
+  "all_test_queries_present_exactly_once": true,
+  "dataset": "nfcorpus",
+  "non_test_query_rows_structurally_excluded": 2914,
+  "policy": "Explicit test.tsv membership; no corpus document or test qrel dropped. Implements PRECOMMIT_AMENDMENT_1.json.",
+  "query_rows_total_all_splits": 3237,
+  "schema": "v3_cls_downstream_source_selection_audit_v1",
+  "selected_test_query_ids_sha256": "6778186887db52ede15d04f15607996335fa40e40492404290b378c7c2b7b374",
+  "test_qrel_query_ids": 323
+}

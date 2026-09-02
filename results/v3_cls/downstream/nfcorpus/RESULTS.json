@@ -1,0 +1,451 @@
+{
+  "counts": {
+    "corpus": 3633,
+    "qrel_pairs": 12334,
+    "qrel_queries": 323,
+    "queries": 323
+  },
+  "dataset": "nfcorpus",
+  "direct_teacher_included": true,
+  "methods": {
+    "direct_teacher": {
+      "artifacts": {
+        "document_embeddings": {
+          "path": "direct_teacher_document_embeddings.npz",
+          "sha256": "5c1d0276f89f851157dce0ddbc5a8a77138ce6eb8209cab22b901c920ea52081"
+        },
+        "per_query": {
+          "path": "direct_teacher_per_query.jsonl",
+          "sha256": "738f2d262773fc3b8fec4115c19bce02d81ed50f9557c48ece7f02e8ad1b7e86"
+        },
+        "top100_run": {
+          "path": "rankings/direct_teacher.trec",
+          "sha256": "bc0a0f54637b0a737e3ca7c62a6d92e687013f202cccef685ff826b3994596a9"
+        }
+      },
+      "metrics": {
+        "MRR@10": 0.5490048651039363,
+        "Recall@10": 0.16933537582288247,
+        "Recall@100": 0.31751981152105274,
+        "nDCG@10": 0.3482917438256538
+      },
+      "stratified": {
+        "depth": {
+          "0": {
+            "MRR@10": 0.5490048651039363,
+            "Recall@10": 0.16933537582288247,
+            "Recall@100": 0.31751981152105274,
+            "nDCG@10": 0.3482917438256538,
+            "queries": 323
+          }
+        },
+        "leaves": {
+          "1-1": {
+            "MRR@10": 0.5490048651039363,
+            "Recall@10": 0.16933537582288247,
+            "Recall@100": 0.31751981152105274,
+            "nDCG@10": 0.3482917438256538,
+            "queries": 323
+          }
+        },
+        "tokens": {
+          "1-1024": {
+            "MRR@10": 0.5490048651039363,
+            "Recall@10": 0.16933537582288247,
+            "Recall@100": 0.31751981152105274,
+            "nDCG@10": 0.3482917438256538,
+            "queries": 323
+          }
+        }
+      }
+    },
+    "recursive_seed271828": {
+      "artifacts": {
+        "document_embeddings": {
+          "path": "recursive_seed271828_document_embeddings.npz",
+          "sha256": "53f91ec4af4073d6df0809fc5ae39e800c5a2fd6b8bea9c06cba7947df143e44"
+        },
+        "per_query": {
+          "path": "recursive_seed271828_per_query.jsonl",
+          "sha256": "d9f2e74b7e6af371fc25126e1de60f24a0f1efef82a7648173b290dacc769a2e"
+        },
+        "top100_run": {
+          "path": "rankings/recursive_seed271828.trec",
+          "sha256": "105d078d0038111063d65873d6c39bfb897c24a0e87dac08b56d23cdea63586d"
+        }
+      },
+      "metrics": {
+        "MRR@10": 0.5502432551968156,
+        "Recall@10": 0.16830338407881643,
+        "Recall@100": 0.31752716538146175,
+        "nDCG@10": 0.34817048954630886
+      },
+      "stratified": {
+        "depth": {
+          "0": {
+            "MRR@10": 0.5502432551968156,
+            "Recall@10": 0.16830338407881643,
+            "Recall@100": 0.31752716538146175,
+            "nDCG@10": 0.34817048954630886,
+            "queries": 323
+          }
+        },
+        "leaves": {
+          "1-1": {
+            "MRR@10": 0.5502432551968156,
+            "Recall@10": 0.16830338407881643,
+            "Recall@100": 0.31752716538146175,
+            "nDCG@10": 0.34817048954630886,
+            "queries": 323
+          }
+        },
+        "tokens": {
+          "1-1024": {
+            "MRR@10": 0.5502432551968156,
+            "Recall@10": 0.16830338407881643,
+            "Recall@100": 0.31752716538146175,
+            "nDCG@10": 0.34817048954630886,
+            "queries": 323
+          }
+        }
+      }
+    },
+    "recursive_seed314159": {
+      "artifacts": {
+        "document_embeddings": {
+          "path": "recursive_seed314159_document_embeddings.npz",
+          "sha256": "0b3b3e9607103cacf457e2971098e279339d806c5030de157ba966df8987c240"
+        },
+        "per_query": {
+          "path": "recursive_seed314159_per_query.jsonl",
+          "sha256": "d9f2e74b7e6af371fc25126e1de60f24a0f1efef82a7648173b290dacc769a2e"
+        },
+        "top100_run": {
+          "path": "rankings/recursive_seed314159.trec",
+          "sha256": "0e053156110fcd3c55a5c8824602e3c249a16c6148bf175f2d8652d5db5bd6d3"
+        }
+      },
+      "metrics": {
+        "MRR@10": 0.5502432551968156,
+        "Recall@10": 0.16830338407881643,
+        "Recall@100": 0.31752716538146175,
+        "nDCG@10": 0.34817048954630886
+      },
+      "stratified": {
+        "depth": {
+          "0": {
+            "MRR@10": 0.5502432551968156,
+            "Recall@10": 0.16830338407881643,
+            "Recall@100": 0.31752716538146175,
+            "nDCG@10": 0.34817048954630886,
+            "queries": 323
+          }
+        },
+        "leaves": {
+          "1-1": {
+            "MRR@10": 0.5502432551968156,
+            "Recall@10": 0.16830338407881643,
+            "Recall@100": 0.31752716538146175,
+            "nDCG@10": 0.34817048954630886,
+            "queries": 323
+          }
+        },
+        "tokens": {
+          "1-1024": {
+            "MRR@10": 0.5502432551968156,
+            "Recall@10": 0.16830338407881643,
+            "Recall@100": 0.31752716538146175,
+            "nDCG@10": 0.34817048954630886,
+            "queries": 323
+          }
+        }
+      }
+    },
+    "recursive_seed424242": {
+      "artifacts": {
+        "document_embeddings": {
+          "path": "recursive_seed424242_document_embeddings.npz",
+          "sha256": "24981000fd30185747a55f6910d78663d987bb0e10ef307b45fc1a11bce92c7d"
+        },
+        "per_query": {
+          "path": "recursive_seed424242_per_query.jsonl",
+          "sha256": "d9f2e74b7e6af371fc25126e1de60f24a0f1efef82a7648173b290dacc769a2e"
+        },
+        "top100_run": {
+          "path": "rankings/recursive_seed424242.trec",
+          "sha256": "e47161c5152ff5452e910c66a250ac8d0876bda9afd4be432d2a91f42d2cc85f"
+        }
+      },
+      "metrics": {
+        "MRR@10": 0.5502432551968156,
+        "Recall@10": 0.16830338407881643,
+        "Recall@100": 0.31752716538146175,
+        "nDCG@10": 0.34817048954630886
+      },
+      "stratified": {
+        "depth": {
+          "0": {
+            "MRR@10": 0.5502432551968156,
+            "Recall@10": 0.16830338407881643,
+            "Recall@100": 0.31752716538146175,
+            "nDCG@10": 0.34817048954630886,
+            "queries": 323
+          }
+        },
+        "leaves": {
+          "1-1": {
+            "MRR@10": 0.5502432551968156,
+            "Recall@10": 0.16830338407881643,
+            "Recall@100": 0.31752716538146175,
+            "nDCG@10": 0.34817048954630886,
+            "queries": 323
+          }
+        },
+        "tokens": {
+          "1-1024": {
+            "MRR@10": 0.5502432551968156,
+            "Recall@10": 0.16830338407881643,
+            "Recall@100": 0.31752716538146175,
+            "nDCG@10": 0.34817048954630886,
+            "queries": 323
+          }
+        }
+      }
+    },
+    "token_weighted_leaf_mean": {
+      "artifacts": {
+        "document_embeddings": {
+          "path": "token_weighted_leaf_mean_document_embeddings.npz",
+          "sha256": "2a09c1988975dcb6084feb4a9048f90112fb81ad8a323e0b18c7e4a5fc90d2db"
+        },
+        "per_query": {
+          "path": "token_weighted_leaf_mean_per_query.jsonl",
+          "sha256": "5ec27e4d886d140123ca38c8319d625abad5d1a05efc0460bf3972bfdfa0d819"
+        },
+        "top100_run": {
+          "path": "rankings/token_weighted_leaf_mean.trec",
+          "sha256": "61b32686b9a6a16a78c9b68a75123695a548c4c3b4cbd10db96605627a8d1540"
+        }
+      },
+      "metrics": {
+        "MRR@10": 0.5502432551968156,
+        "Recall@10": 0.16830338407881643,
+        "Recall@100": 0.31741853467156006,
+        "nDCG@10": 0.34816233649598244
+      },
+      "stratified": {
+        "depth": {
+          "0": {
+            "MRR@10": 0.5502432551968156,
+            "Recall@10": 0.16830338407881643,
+            "Recall@100": 0.31741853467156006,
+            "nDCG@10": 0.34816233649598244,
+            "queries": 323
+          }
+        },
+        "leaves": {
+          "1-1": {
+            "MRR@10": 0.5502432551968156,
+            "Recall@10": 0.16830338407881643,
+            "Recall@100": 0.31741853467156006,
+            "nDCG@10": 0.34816233649598244,
+            "queries": 323
+          }
+        },
+        "tokens": {
+          "1-1024": {
+            "MRR@10": 0.5502432551968156,
+            "Recall@10": 0.16830338407881643,
+            "Recall@100": 0.31741853467156006,
+            "nDCG@10": 0.34816233649598244,
+            "queries": 323
+          }
+        }
+      }
+    },
+    "unweighted_leaf_mean": {
+      "artifacts": {
+        "document_embeddings": {
+          "path": "unweighted_leaf_mean_document_embeddings.npz",
+          "sha256": "8bdde79039f791e127c580d664ffbabe90f308f88c23a3e725a3fb6d722b27e0"
+        },
+        "per_query": {
+          "path": "unweighted_leaf_mean_per_query.jsonl",
+          "sha256": "9635ba8a819f076b571206a97054a3fc3ad81f35f4088e7383164bc829eb8e5b"
+        },
+        "top100_run": {
+          "path": "rankings/unweighted_leaf_mean.trec",
+          "sha256": "3743fa80efcb7e8e8a4c450a3eccaa6c0adab72b6c1bdf44515f0a4782f4e625"
+        }
+      },
+      "metrics": {
+        "MRR@10": 0.5498046587055875,
+        "Recall@10": 0.16824267868210668,
+        "Recall@100": 0.3173063221251199,
+        "nDCG@10": 0.3476814190232585
+      },
+      "stratified": {
+        "depth": {
+          "0": {
+            "MRR@10": 0.5498046587055875,
+            "Recall@10": 0.16824267868210668,
+            "Recall@100": 0.3173063221251199,
+            "nDCG@10": 0.3476814190232585,
+            "queries": 323
+          }
+        },
+        "leaves": {
+          "1-1": {
+            "MRR@10": 0.5498046587055875,
+            "Recall@10": 0.16824267868210668,
+            "Recall@100": 0.3173063221251199,
+            "nDCG@10": 0.3476814190232585,
+            "queries": 323
+          }
+        },
+        "tokens": {
+          "1-1024": {
+            "MRR@10": 0.5498046587055875,
+            "Recall@10": 0.16824267868210668,
+            "Recall@100": 0.3173063221251199,
+            "nDCG@10": 0.3476814190232585,
+            "queries": 323
+          }
+        }
+      }
+    }
+  },
+  "metrics_scale": "0..1",
+  "provenance": {
+    "checkpoints": {
+      "recursive_seed271828": {
+        "checkpoint": "results/v3_cls/adversarial_v2_final_seed271828/autoencoder_seed271828.pt",
+        "checkpoint_sha256": "3f9efe8cfdabd0d8997319969581fa2220c123c27abff3848ce1e0e7a0769fec",
+        "fresh_v3_cls": true,
+        "seed": 271828,
+        "telemetry": {
+          "depth": {
+            "maximum": 1,
+            "mean": 0.002202036884117809,
+            "minimum": 0
+          },
+          "documents": 3633,
+          "documents_per_second": 1543.0029099638464,
+          "geodesic_angle_radians": {
+            "count": 8,
+            "maximum": 0.04355941712856293,
+            "mean": 0.03073222190141678,
+            "minimum": 0.026451818645000458
+          },
+          "geodesic_saturation_count": 0,
+          "importance_active_slots": 17,
+          "importance_correction_absolute": {
+            "count": 17,
+            "maximum": 0.3597540557384491,
+            "mean": 0.21008586883544922,
+            "minimum": 0.0796399936079979
+          },
+          "importance_saturation_count": 0,
+          "internal_merges": 8,
+          "leaves": 3642,
+          "leaves_per_second": 1546.825377948893,
+          "seconds": 2.3544997721910477
+        },
+        "training_cache_manifest": "artifacts/v3_cls/cache_train_cls/CACHE_MANIFEST.json",
+        "training_cache_manifest_sha256": "39f70e6107249e0122a0cc06441824c637ccf0fdea2e4c185a474d066ab54024"
+      },
+      "recursive_seed314159": {
+        "checkpoint": "results/v3_cls/adversarial_v2_final_seed314159/autoencoder_seed314159.pt",
+        "checkpoint_sha256": "9677f5ac5078856457d91ca0df2ddc222c76a2752bcb698cbd570e7ed1bebbc7",
+        "fresh_v3_cls": true,
+        "seed": 314159,
+        "telemetry": {
+          "depth": {
+            "maximum": 1,
+            "mean": 0.002202036884117809,
+            "minimum": 0
+          },
+          "documents": 3633,
+          "documents_per_second": 2447.5989409909375,
+          "geodesic_angle_radians": {
+            "count": 8,
+            "maximum": 0.04462657496333122,
+            "mean": 0.03157871216535568,
+            "minimum": 0.027530604973435402
+          },
+          "geodesic_saturation_count": 0,
+          "importance_active_slots": 17,
+          "importance_correction_absolute": {
+            "count": 17,
+            "maximum": 0.3835109770298004,
+            "mean": 0.22328703105449677,
+            "minimum": 0.014273801818490028
+          },
+          "importance_saturation_count": 0,
+          "internal_merges": 8,
+          "leaves": 3642,
+          "leaves_per_second": 2453.6623570297256,
+          "seconds": 1.484311804175377
+        },
+        "training_cache_manifest": "artifacts/v3_cls/cache_train_cls/CACHE_MANIFEST.json",
+        "training_cache_manifest_sha256": "39f70e6107249e0122a0cc06441824c637ccf0fdea2e4c185a474d066ab54024"
+      },
+      "recursive_seed424242": {
+        "checkpoint": "results/v3_cls/adversarial_v2_candidate_seed424242/autoencoder_seed424242.pt",
+        "checkpoint_sha256": "5f44f72a48d64830dc411e8f5559c9a89a9737fcabd8a6bf6bd37bff9fc5c0d8",
+        "fresh_v3_cls": true,
+        "seed": 424242,
+        "telemetry": {
+          "depth": {
+            "maximum": 1,
+            "mean": 0.002202036884117809,
+            "minimum": 0
+          },
+          "documents": 3633,
+          "documents_per_second": 2384.0716239718013,
+          "geodesic_angle_radians": {
+            "count": 8,
+            "maximum": 0.04429766535758972,
+            "mean": 0.031131859868764877,
+            "minimum": 0.027028165757656097
+          },
+          "geodesic_saturation_count": 0,
+          "importance_active_slots": 17,
+          "importance_correction_absolute": {
+            "count": 17,
+            "maximum": 0.3869607448577881,
+            "mean": 0.19798065721988678,
+            "minimum": 0.05396464467048645
+          },
+          "importance_saturation_count": 0,
+          "internal_merges": 8,
+          "leaves": 3642,
+          "leaves_per_second": 2389.9776643284613,
+          "seconds": 1.5238636136054993
+        },
+        "training_cache_manifest": "artifacts/v3_cls/cache_train_cls/CACHE_MANIFEST.json",
+        "training_cache_manifest_sha256": "39f70e6107249e0122a0cc06441824c637ccf0fdea2e4c185a474d066ab54024"
+      }
+    },
+    "leaf_cache_manifest_sha256": "cae58590f89ecd71e5c8b2f807a572f83bee30023f51f96680882bf6a5e443fe",
+    "precommit_sha256": "a5aec09c0199b286d7c702915f345b03b32f0f0109db4fde126c11b87ec392df",
+    "script_sha256": "8c6894691b819fd8c62e245212463d3f55041355ade77fc178f7e418e8afd904",
+    "software": {
+      "numpy": "2.5.2",
+      "python": "3.12.14",
+      "pytrec_eval": "0.5.10",
+      "torch": "2.10.0+cu128"
+    },
+    "training_cache_manifest_sha256": "39f70e6107249e0122a0cc06441824c637ccf0fdea2e4c185a474d066ab54024"
+  },
+  "runtime_seconds": 22.850121319293976,
+  "schema": "v3_cls_downstream_retrieval_results_v1",
+  "source": {
+    "precommit_amendment": "results/v3_cls/downstream/PRECOMMIT_AMENDMENT_1.json",
+    "precommit_amendment_sha256": "e65d4d70e202d1a8c9749bbbcdd698cdfb6810366d79b75e2a727039741d922a",
+    "qrels_sha256": "f8fba6ef3d4dd9c3a242a8ba4ae38276fc3622fce7dcbae764766d564542fd2a",
+    "query_rows_selected_test": 323,
+    "query_rows_structurally_excluded_non_test": 2914,
+    "query_rows_total_all_splits": 3237
+  }
+}

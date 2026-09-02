@@ -1,0 +1,55 @@
+{
+  "schema": "v3_cls_downstream_protocol_v1",
+  "teacher": {
+    "id": "Alibaba-NLP/gte-modernbert-base",
+    "revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22",
+    "pooling": "normalized_cls",
+    "chunk_tokens": 1024
+  },
+  "datasets": {
+    "ecthr_a": {
+      "id": "coastalcph/lex_glue",
+      "config": "ecthr_a",
+      "revision": "c23fdff1a6bf74e0e1a71cb86f1e781d37da888c",
+      "splits": ["train", "validation", "test"],
+      "text": "paragraphs joined by two newline characters",
+      "labels": "10 stored violation indicators plus derived no_violation indicator"
+    },
+    "20_newsgroups": {
+      "id": "SetFit/20_newsgroups",
+      "config": null,
+      "revision": "f1b91292074e7cfb69be58b642d583ec262f30ed",
+      "splits": ["train", "test"],
+      "text": "dataset's pre-cleaned text (headers, footers, and quotes removed); canonical empty rows are retained as one CLS/SEP-only empty-sequence leaf with zero raw-token mass",
+      "labels": "20 stored topic integers"
+    }
+  },
+  "checkpoints": [
+    {"name": "recursive_seed424242", "seed": 424242, "role": "adversarial_v2_candidate", "path": "results/v3_cls/adversarial_v2_candidate_seed424242/autoencoder_seed424242.pt", "sha256": "5f44f72a48d64830dc411e8f5559c9a89a9737fcabd8a6bf6bd37bff9fc5c0d8"},
+    {"name": "recursive_seed271828", "seed": 271828, "role": "adversarial_v2_final", "path": "results/v3_cls/adversarial_v2_final_seed271828/autoencoder_seed271828.pt", "sha256": "3f9efe8cfdabd0d8997319969581fa2220c123c27abff3848ce1e0e7a0769fec"},
+    {"name": "recursive_seed314159", "seed": 314159, "role": "adversarial_v2_final", "path": "results/v3_cls/adversarial_v2_final_seed314159/autoencoder_seed314159.pt", "sha256": "9677f5ac5078856457d91ca0df2ddc222c76a2752bcb698cbd570e7ed1bebbc7"}
+  ],
+  "classification": {
+    "estimator": "sklearn.multiclass.OneVsRestClassifier(sklearn.linear_model.LogisticRegression)",
+    "C_grid": [0.01, 0.1, 1.0, 10.0, 100.0],
+    "selection_metric": "validation_micro_f1 over 11 labels; ties choose smaller C",
+    "threshold": 0.5,
+    "solver": "lbfgs",
+    "max_iter": 2000,
+    "random_state": 20260902,
+    "refit": "train plus validation at selected C, exactly one test evaluation"
+  },
+  "clustering": {
+    "samples": "concatenated canonical train then test splits",
+    "estimator": "sklearn.cluster.KMeans",
+    "n_clusters": 20,
+    "init": "k-means++",
+    "n_init": 20,
+    "max_iter": 300,
+    "algorithm": "lloyd",
+    "random_state": 20260902,
+    "metrics": ["normalized_mutual_info_score(average_method=arithmetic)", "adjusted_rand_score"]
+  },
+  "direct_teacher_policy": "Computed only for raw-token length <= max_position_embeddings-2. Included in a downstream task only if every task row is valid; otherwise coverage is reported and it is not evaluated, preserving identical samples and forbidding silent drops.",
+  "cache_policy": "Each nonempty document's exact contiguous 1024-raw-token normalized-CLS leaf tensor is materialized once. Canonical empty cleaned documents are retained as one normalized CLS/SEP-only leaf with zero raw-token mass. Every recursive checkpoint and both averaging baselines load the same tensor bytes and offsets."
+}

@@ -1,0 +1,143 @@
+{
+  "artifacts": {
+    "20_newsgroups/test.pt": {
+      "bytes": 49252081,
+      "sha256": "d3540872df827908984c215b31f7ac5c3a53a09deefb0951ad381cb0fd53e02e"
+    },
+    "20_newsgroups/train.pt": {
+      "bytes": 75905405,
+      "sha256": "54bf2b81bab864584846d107e4005632e0cff08046119d34f7b7cf18497a34ef"
+    },
+    "ecthr_a/test.pt": {
+      "bytes": 12094897,
+      "sha256": "9e5bf1b2b98b04ed4c2ef6b5a087fa64fef137c3def4af2dc1772fbfe9d957f3"
+    },
+    "ecthr_a/train.pt": {
+      "bytes": 98809533,
+      "sha256": "82f5e06e8d981be969db85d25aca5467b45fd7d1ee8c6d3b5bbbf7269d04bb46"
+    },
+    "ecthr_a/validation.pt": {
+      "bytes": 11516729,
+      "sha256": "c9b9d32bf1355d7505a06da8bf0353515ab1dc61216e9f81315a06aef635e4f2"
+    }
+  },
+  "datasets": {
+    "20_newsgroups": {
+      "config": null,
+      "id": "SetFit/20_newsgroups",
+      "revision": "f1b91292074e7cfb69be58b642d583ec262f30ed",
+      "splits": {
+        "test": {
+          "artifact_sha256": "d3540872df827908984c215b31f7ac5c3a53a09deefb0951ad381cb0fd53e02e",
+          "bytes": 49252081,
+          "dataset_fingerprint": "8ac909ee662e1d7a",
+          "direct_invalid": 21,
+          "direct_valid": 7511,
+          "features": "{'text': Value('string'), 'label': Value('int64'), 'label_text': Value('string')}",
+          "leaves": 8396,
+          "leaves_tensor_sha256": "26df078c79141c349e18b281a92efc27aa50a45e7dbb4d8d686fe7941a49e28f",
+          "lengths_tensor_sha256": "ad9d0fd6609244a74d3c35634dbabe61bde63e4af689d502f68268860f139bc8",
+          "maximum_tokens": 126224,
+          "minimum_tokens": 0,
+          "raw_tokens": 2291137,
+          "rows": 7532,
+          "rows_sha256": "c7b5e1349b1753c6d472088753b6a0845797ba2606cc461df9fb911e4af0728a",
+          "seconds": 228.8946438729763
+        },
+        "train": {
+          "artifact_sha256": "54bf2b81bab864584846d107e4005632e0cff08046119d34f7b7cf18497a34ef",
+          "bytes": 75905405,
+          "dataset_fingerprint": "73bc186ce6d719f5",
+          "direct_invalid": 54,
+          "direct_valid": 11260,
+          "features": "{'text': Value('string'), 'label': Value('int64'), 'label_text': Value('string')}",
+          "leaves": 13233,
+          "leaves_tensor_sha256": "43b1e74e9984039ce7c8c239626de520878d97e0cf01fa16e39f97d16e8c6129",
+          "lengths_tensor_sha256": "5cf97134e9f457d4185b8920d669cc478b0d3b0a6a557c21875bf70def98053b",
+          "maximum_tokens": 46498,
+          "minimum_tokens": 0,
+          "raw_tokens": 4115243,
+          "rows": 11314,
+          "rows_sha256": "8607c8a0c50faad719f857889b64f98397b6f0f87bcce206b7fdcdb9e496c890",
+          "seconds": 361.09124829620123
+        }
+      }
+    },
+    "ecthr_a": {
+      "config": "ecthr_a",
+      "id": "coastalcph/lex_glue",
+      "revision": "c23fdff1a6bf74e0e1a71cb86f1e781d37da888c",
+      "splits": {
+        "test": {
+          "artifact_sha256": "9e5bf1b2b98b04ed4c2ef6b5a087fa64fef137c3def4af2dc1772fbfe9d957f3",
+          "bytes": 12094897,
+          "dataset_fingerprint": "04a4b750d35564b4",
+          "direct_invalid": 37,
+          "direct_valid": 963,
+          "features": "{'text': List(Value('string')), 'labels': List(ClassLabel(names=['2', '3', '5', '6', '8', '9', '10', '11', '14', 'P1-1']))}",
+          "leaves": 2918,
+          "leaves_tensor_sha256": "e4266076ab9e0c442d4b3f3a6278c399bb90677536ccc0bc0638a624577368f1",
+          "lengths_tensor_sha256": "c545681bb96c3e6bdd64656663818f29341f048bee6f16acf2a331886bbfa350",
+          "maximum_tokens": 21302,
+          "minimum_tokens": 148,
+          "raw_tokens": 2479295,
+          "rows": 1000,
+          "rows_sha256": "a704d7284aa4d50a3a65c1b29e6576b840618c518496879131ed9d22957e9fc4",
+          "seconds": 127.80266482383013
+        },
+        "train": {
+          "artifact_sha256": "82f5e06e8d981be969db85d25aca5467b45fd7d1ee8c6d3b5bbbf7269d04bb46",
+          "bytes": 98809533,
+          "dataset_fingerprint": "a90b76fc49495909",
+          "direct_invalid": 279,
+          "direct_valid": 8721,
+          "features": "{'text': List(Value('string')), 'labels': List(ClassLabel(names=['2', '3', '5', '6', '8', '9', '10', '11', '14', 'P1-1']))}",
+          "leaves": 22997,
+          "leaves_tensor_sha256": "f5b7c0a323ed77e230ead993f5ba7d7ffc9eb62a4e9818ac364554e3a3220833",
+          "lengths_tensor_sha256": "a089ad50cc49a4129732a8a03cd3b21da4fde1d153b75c02440dae75e14bf351",
+          "maximum_tokens": 49218,
+          "minimum_tokens": 99,
+          "raw_tokens": 18894986,
+          "rows": 9000,
+          "rows_sha256": "ffa30e1ce17acfda502b2008e334357fc077006f45a3f0ffa8d69565867cec84",
+          "seconds": 978.5830680578947
+        },
+        "validation": {
+          "artifact_sha256": "c9b9d32bf1355d7505a06da8bf0353515ab1dc61216e9f81315a06aef635e4f2",
+          "bytes": 11516729,
+          "dataset_fingerprint": "1f18b9ff2b0d0f4e",
+          "direct_invalid": 28,
+          "direct_valid": 972,
+          "features": "{'text': List(Value('string')), 'labels': List(ClassLabel(names=['2', '3', '5', '6', '8', '9', '10', '11', '14', 'P1-1']))}",
+          "leaves": 2728,
+          "leaves_tensor_sha256": "48da4f6b3f7e0c01000a05372afb523eceee4703cc9f915ab5fa0d3675d55c0e",
+          "lengths_tensor_sha256": "21a8b7ec34d81067fae1570f32002c6235eade0cf30c9d1a9612af4a07264d03",
+          "maximum_tokens": 19098,
+          "minimum_tokens": 123,
+          "raw_tokens": 2290146,
+          "rows": 1000,
+          "rows_sha256": "7c4c0975655df76c56e5402a2bc7461383e0d5ec0bf92d9e8f5df93e0447d3fb",
+          "seconds": 121.0286760404706
+        }
+      }
+    }
+  },
+  "exact_shared_leaf_contract": "one materialized contiguous 1024-token leaf tensor per split; offsets select tensor-identical leaves for every method",
+  "protocol": "scripts/v3_cls/downstream/protocol.json",
+  "protocol_sha256": "83c741acaea70ce74afd3dd9e27685a7854fa985f7fdd48b25d959c5c7909ba5",
+  "runtime_seconds": 1825.0906405597925,
+  "schema": "v3_cls_downstream_leaf_cache_manifest_v1",
+  "teacher_provenance": {
+    "hidden_size": 768,
+    "max_position_embeddings": 8192,
+    "model_class": "ModernBertModel",
+    "teacher_id": "Alibaba-NLP/gte-modernbert-base",
+    "teacher_pooling": "cls",
+    "teacher_revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22",
+    "tokenizer_class": "TokenizersBackend",
+    "trust_remote_code": true
+  },
+  "versions": {
+    "torch": "2.10.0+cu128"
+  }
+}

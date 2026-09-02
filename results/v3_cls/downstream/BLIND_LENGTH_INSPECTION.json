@@ -1,0 +1,50 @@
+{
+  "created_unix": 1788346951.2724319,
+  "datasets": {
+    "longembed_narrativeqa": {
+      "characters": {
+        "max": 1874086,
+        "mean": 326753.5323943662,
+        "median": 252633,
+        "min": 21216,
+        "p90": 600354
+      },
+      "documents_inspected": 355,
+      "expected_documents": 355,
+      "revision": "10039a580487dacecf79db69166e17ace3ede392"
+    },
+    "mldr_en_sample": {
+      "characters": {
+        "max": 88021,
+        "mean": 34087.4453125,
+        "median": 28394,
+        "min": 14800,
+        "p90": 52930
+      },
+      "compressed_corpus_bytes": 984905843,
+      "documents_inspected": 128,
+      "immutable_corpus_url": "https://huggingface.co/datasets/Shitao/MLDR/resolve/d67138e705d963e346253a80e59676ddb418810a/mldr-v1.0-en/corpus.jsonl.gz",
+      "published_average_document_length": 3308,
+      "published_corpus_documents": 200000,
+      "revision": "d67138e705d963e346253a80e59676ddb418810a",
+      "sample": "first 128 corpus rows only"
+    },
+    "nfcorpus": {
+      "characters": {
+        "max": 10090,
+        "mean": 1590.783925130746,
+        "median": 1615,
+        "min": 123,
+        "p90": 2123
+      },
+      "documents_inspected": 3633
+    },
+    "nfcorpus_source": {
+      "archive_sha256": "efe5be03f8c5b86a5870102d0599d227c8c6e2484328e68c6522560385671b0b",
+      "corpus_bytes": 6219364,
+      "url": "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/nfcorpus.zip"
+    }
+  },
+  "restriction": "Only dataset metadata and corpus text character lengths were inspected; no queries, qrels, model, embeddings, or retrieval results were opened.",
+  "schema": "v3_cls_downstream_blind_corpus_inspection_v1"
+}

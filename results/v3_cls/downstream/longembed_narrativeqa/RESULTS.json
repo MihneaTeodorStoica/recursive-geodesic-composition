@@ -1,0 +1,645 @@
+{
+  "counts": {
+    "corpus": 355,
+    "qrel_pairs": 10449,
+    "qrel_queries": 10449,
+    "queries": 10449
+  },
+  "dataset": "longembed_narrativeqa",
+  "direct_teacher_included": false,
+  "methods": {
+    "recursive_seed271828": {
+      "artifacts": {
+        "document_embeddings": {
+          "path": "recursive_seed271828_document_embeddings.npz",
+          "sha256": "e13dd9b17832c9d3fa2f648a66d010101d28182fa9f02bf2139369a5d719c0c8"
+        },
+        "per_query": {
+          "path": "recursive_seed271828_per_query.jsonl",
+          "sha256": "7f637a7c5fd771cfa95474f09f724685b52e7a0b5de90cddb4ae58317ae02704"
+        },
+        "top100_run": {
+          "path": "rankings/recursive_seed271828.trec",
+          "sha256": "04e0e8614bdcfc0e0e7b4a821b75cae00550a550ea2098b58dc8d49b872d7480"
+        }
+      },
+      "metrics": {
+        "MRR@10": 0.5144324208134143,
+        "Recall@10": 0.6704947841898746,
+        "Recall@100": 0.8922384917216959,
+        "nDCG@10": 0.5517760616670269
+      },
+      "stratified": {
+        "depth": {
+          "2": {
+            "MRR@10": 0.17781418377748653,
+            "Recall@10": 0.3119266055045872,
+            "Recall@100": 0.6536697247706422,
+            "nDCG@10": 0.20938192618005003,
+            "queries": 436
+          },
+          "3": {
+            "MRR@10": 0.5178626203790783,
+            "Recall@10": 0.6646846464217456,
+            "Recall@100": 0.8904225950307921,
+            "nDCG@10": 0.5530266288871635,
+            "queries": 4709
+          },
+          "4": {
+            "MRR@10": 0.534269366925805,
+            "Recall@10": 0.7009626955475331,
+            "Recall@100": 0.9137585238668271,
+            "nDCG@10": 0.5741585954227106,
+            "queries": 4986
+          },
+          "5": {
+            "MRR@10": 0.61413596885295,
+            "Recall@10": 0.7704402515723271,
+            "Recall@100": 0.9088050314465409,
+            "nDCG@10": 0.6517622526319947,
+            "queries": 318
+          }
+        },
+        "leaves": {
+          "33-inf": {
+            "MRR@10": 0.5311899795273788,
+            "Recall@10": 0.6895417904115401,
+            "Recall@100": 0.9064488756894358,
+            "nDCG@10": 0.5691044704879453,
+            "queries": 9428
+          },
+          "5-8": {
+            "MRR@10": 0.07270214353547687,
+            "Recall@10": 0.19658119658119658,
+            "Recall@100": 0.47863247863247865,
+            "nDCG@10": 0.10181335674854777,
+            "queries": 234
+          },
+          "9-32": {
+            "MRR@10": 0.4450227909884835,
+            "Recall@10": 0.5832274459974587,
+            "Recall@100": 0.8449809402795425,
+            "nDCG@10": 0.47797559735610484,
+            "queries": 787
+          }
+        },
+        "tokens": {
+          "32769-inf": {
+            "MRR@10": 0.5311899795273788,
+            "Recall@10": 0.6895417904115401,
+            "Recall@100": 0.9064488756894358,
+            "nDCG@10": 0.5691044704879453,
+            "queries": 9428
+          },
+          "4097-8190": {
+            "MRR@10": 0.07270214353547687,
+            "Recall@10": 0.19658119658119658,
+            "Recall@100": 0.47863247863247865,
+            "nDCG@10": 0.10181335674854777,
+            "queries": 234
+          },
+          "8191-32768": {
+            "MRR@10": 0.4450227909884835,
+            "Recall@10": 0.5832274459974587,
+            "Recall@100": 0.8449809402795425,
+            "nDCG@10": 0.47797559735610484,
+            "queries": 787
+          }
+        }
+      }
+    },
+    "recursive_seed314159": {
+      "artifacts": {
+        "document_embeddings": {
+          "path": "recursive_seed314159_document_embeddings.npz",
+          "sha256": "832554d8aa8b153bc1d5ea3d2f8b20af232db05a6f18e6edb149af7f6dffe446"
+        },
+        "per_query": {
+          "path": "recursive_seed314159_per_query.jsonl",
+          "sha256": "ab4fd3eccad602ef318c05325557a4aed555dd5803ebab29d64b5e0f24a2d1b2"
+        },
+        "top100_run": {
+          "path": "rankings/recursive_seed314159.trec",
+          "sha256": "7f8209861feff71c6d93d4301785c6a0549c7977ce3b2733dd4906a83f6b66e9"
+        }
+      },
+      "metrics": {
+        "MRR@10": 0.511948132045749,
+        "Recall@10": 0.6663795578524261,
+        "Recall@100": 0.8917599770312948,
+        "nDCG@10": 0.54892635480034
+      },
+      "stratified": {
+        "depth": {
+          "2": {
+            "MRR@10": 0.1824559487403524,
+            "Recall@10": 0.3165137614678899,
+            "Recall@100": 0.6605504587155964,
+            "nDCG@10": 0.21406610854096442,
+            "queries": 436
+          },
+          "3": {
+            "MRR@10": 0.5135856869823742,
+            "Recall@10": 0.6598003822467615,
+            "Recall@100": 0.8899978764068804,
+            "nDCG@10": 0.5486075670600223,
+            "queries": 4709
+          },
+          "4": {
+            "MRR@10": 0.5329784507732763,
+            "Recall@10": 0.6969514640994785,
+            "Recall@100": 0.9125551544324108,
+            "nDCG@10": 0.5722449141478074,
+            "queries": 4986
+          },
+          "5": {
+            "MRR@10": 0.6097159828291904,
+            "Recall@10": 0.7641509433962265,
+            "Recall@100": 0.9088050314465409,
+            "nDCG@10": 0.6471461721958456,
+            "queries": 318
+          }
+        },
+        "leaves": {
+          "33-inf": {
+            "MRR@10": 0.528077627600326,
+            "Recall@10": 0.6845566397963513,
+            "Recall@100": 0.9053882053457786,
+            "nDCG@10": 0.5655715122615913,
+            "queries": 9428
+          },
+          "5-8": {
+            "MRR@10": 0.08096933930267264,
+            "Recall@10": 0.21367521367521367,
+            "Recall@100": 0.49145299145299143,
+            "nDCG@10": 0.11201700708488327,
+            "queries": 234
+          },
+          "9-32": {
+            "MRR@10": 0.446865734858111,
+            "Recall@10": 0.5832274459974587,
+            "Recall@100": 0.8475222363405337,
+            "nDCG@10": 0.4794298399601091,
+            "queries": 787
+          }
+        },
+        "tokens": {
+          "32769-inf": {
+            "MRR@10": 0.528077627600326,
+            "Recall@10": 0.6845566397963513,
+            "Recall@100": 0.9053882053457786,
+            "nDCG@10": 0.5655715122615913,
+            "queries": 9428
+          },
+          "4097-8190": {
+            "MRR@10": 0.08096933930267264,
+            "Recall@10": 0.21367521367521367,
+            "Recall@100": 0.49145299145299143,
+            "nDCG@10": 0.11201700708488327,
+            "queries": 234
+          },
+          "8191-32768": {
+            "MRR@10": 0.446865734858111,
+            "Recall@10": 0.5832274459974587,
+            "Recall@100": 0.8475222363405337,
+            "nDCG@10": 0.4794298399601091,
+            "queries": 787
+          }
+        }
+      }
+    },
+    "recursive_seed424242": {
+      "artifacts": {
+        "document_embeddings": {
+          "path": "recursive_seed424242_document_embeddings.npz",
+          "sha256": "52768b015ced528c2d416885b3daa1a6af6f46c58431482b7ac54ff4e7ce37a2"
+        },
+        "per_query": {
+          "path": "recursive_seed424242_per_query.jsonl",
+          "sha256": "b670374a5c3f263c9124d3182469ae5e0371a00a3996b23635a8c340c1dc2dad"
+        },
+        "top100_run": {
+          "path": "rankings/recursive_seed424242.trec",
+          "sha256": "a114672dc397e7e5bec219e44b0f074a0d5179d5d4d3b9808e49ee9d856eae78"
+        }
+      },
+      "metrics": {
+        "MRR@10": 0.5130907947445414,
+        "Recall@10": 0.6664752607905062,
+        "Recall@100": 0.8906115417743324,
+        "nDCG@10": 0.5498818241281761
+      },
+      "stratified": {
+        "depth": {
+          "2": {
+            "MRR@10": 0.16418923838648608,
+            "Recall@10": 0.2706422018348624,
+            "Recall@100": 0.6307339449541285,
+            "nDCG@10": 0.18955599938545944,
+            "queries": 436
+          },
+          "3": {
+            "MRR@10": 0.5173363569254417,
+            "Recall@10": 0.6636228498619664,
+            "Recall@100": 0.890634954342748,
+            "nDCG@10": 0.5524098036072709,
+            "queries": 4709
+          },
+          "4": {
+            "MRR@10": 0.5337339789505854,
+            "Recall@10": 0.6977537103890894,
+            "Recall@100": 0.9121540312876053,
+            "nDCG@10": 0.5730794494158676,
+            "queries": 4986
+          },
+          "5": {
+            "MRR@10": 0.6049203853449137,
+            "Recall@10": 0.7610062893081762,
+            "Recall@100": 0.9088050314465409,
+            "nDCG@10": 0.6427574358776627,
+            "queries": 318
+          }
+        },
+        "leaves": {
+          "33-inf": {
+            "MRR@10": 0.5300189910499626,
+            "Recall@10": 0.6863597793805685,
+            "Recall@100": 0.9048578701739499,
+            "nDCG@10": 0.5675403229429258,
+            "queries": 9428
+          },
+          "5-8": {
+            "MRR@10": 0.05476360059693393,
+            "Recall@10": 0.1581196581196581,
+            "Recall@100": 0.4444444444444444,
+            "nDCG@10": 0.07919248449527465,
+            "queries": 234
+          },
+          "9-32": {
+            "MRR@10": 0.44657177144470667,
+            "Recall@10": 0.579415501905972,
+            "Recall@100": 0.8526048284625158,
+            "nDCG@10": 0.4782896750159014,
+            "queries": 787
+          }
+        },
+        "tokens": {
+          "32769-inf": {
+            "MRR@10": 0.5300189910499626,
+            "Recall@10": 0.6863597793805685,
+            "Recall@100": 0.9048578701739499,
+            "nDCG@10": 0.5675403229429258,
+            "queries": 9428
+          },
+          "4097-8190": {
+            "MRR@10": 0.05476360059693393,
+            "Recall@10": 0.1581196581196581,
+            "Recall@100": 0.4444444444444444,
+            "nDCG@10": 0.07919248449527465,
+            "queries": 234
+          },
+          "8191-32768": {
+            "MRR@10": 0.44657177144470667,
+            "Recall@10": 0.579415501905972,
+            "Recall@100": 0.8526048284625158,
+            "nDCG@10": 0.4782896750159014,
+            "queries": 787
+          }
+        }
+      }
+    },
+    "token_weighted_leaf_mean": {
+      "artifacts": {
+        "document_embeddings": {
+          "path": "token_weighted_leaf_mean_document_embeddings.npz",
+          "sha256": "a691ddc73c5eeb0054982e322637ed0330852246fdb51e6ac2d22ccb0d99d9eb"
+        },
+        "per_query": {
+          "path": "token_weighted_leaf_mean_per_query.jsonl",
+          "sha256": "3a7a8cd312a7650ba4b83f433a8442671f2b36595c31605349dbfb5d7f6544ad"
+        },
+        "top100_run": {
+          "path": "rankings/token_weighted_leaf_mean.trec",
+          "sha256": "40a1e384562efbecc87c539e0851aa40d485340fee3ef702f3cdf02fb1e68dda"
+        }
+      },
+      "metrics": {
+        "MRR@10": 0.5250442056428275,
+        "Recall@10": 0.6744186046511628,
+        "Recall@100": 0.8867834242511246,
+        "nDCG@10": 0.5608805471012135
+      },
+      "stratified": {
+        "depth": {
+          "2": {
+            "MRR@10": 0.13668996650648027,
+            "Recall@10": 0.19495412844036697,
+            "Recall@100": 0.49311926605504586,
+            "nDCG@10": 0.15038984855185106,
+            "queries": 436
+          },
+          "3": {
+            "MRR@10": 0.529609798191238,
+            "Recall@10": 0.6712677850923763,
+            "Recall@100": 0.8838394563601614,
+            "nDCG@10": 0.5635946770723623,
+            "queries": 4709
+          },
+          "4": {
+            "MRR@10": 0.5469351485747393,
+            "Recall@10": 0.7109907741676694,
+            "Recall@100": 0.9211793020457281,
+            "nDCG@10": 0.5863146384592084,
+            "queries": 4986
+          },
+          "5": {
+            "MRR@10": 0.6466631726065689,
+            "Recall@10": 0.8050314465408805,
+            "Recall@100": 0.9308176100628931,
+            "nDCG@10": 0.684713022014482,
+            "queries": 318
+          }
+        },
+        "leaves": {
+          "33-inf": {
+            "MRR@10": 0.5448457734812211,
+            "Recall@10": 0.698663555366992,
+            "Recall@100": 0.9068731438268987,
+            "nDCG@10": 0.5817471297154243,
+            "queries": 9428
+          },
+          "5-8": {
+            "MRR@10": 0.018226834893501558,
+            "Recall@10": 0.05555555555555555,
+            "Recall@100": 0.26495726495726496,
+            "nDCG@10": 0.02674291534809705,
+            "queries": 234
+          },
+          "9-32": {
+            "MRR@10": 0.4385208043403723,
+            "Recall@10": 0.567979669631512,
+            "Recall@100": 0.8310038119440915,
+            "nDCG@10": 0.46972179861766705,
+            "queries": 787
+          }
+        },
+        "tokens": {
+          "32769-inf": {
+            "MRR@10": 0.5448457734812211,
+            "Recall@10": 0.698663555366992,
+            "Recall@100": 0.9068731438268987,
+            "nDCG@10": 0.5817471297154243,
+            "queries": 9428
+          },
+          "4097-8190": {
+            "MRR@10": 0.018226834893501558,
+            "Recall@10": 0.05555555555555555,
+            "Recall@100": 0.26495726495726496,
+            "nDCG@10": 0.02674291534809705,
+            "queries": 234
+          },
+          "8191-32768": {
+            "MRR@10": 0.4385208043403723,
+            "Recall@10": 0.567979669631512,
+            "Recall@100": 0.8310038119440915,
+            "nDCG@10": 0.46972179861766705,
+            "queries": 787
+          }
+        }
+      }
+    },
+    "unweighted_leaf_mean": {
+      "artifacts": {
+        "document_embeddings": {
+          "path": "unweighted_leaf_mean_document_embeddings.npz",
+          "sha256": "8aed304aba2ac62e4ac6f4bc2dfdb8cb625c23d84b3db0628ec2c99c676e032a"
+        },
+        "per_query": {
+          "path": "unweighted_leaf_mean_per_query.jsonl",
+          "sha256": "c0d3677a205e030b8a48cdf2bd22d012013476262a352f536016a1ed4077100d"
+        },
+        "top100_run": {
+          "path": "rankings/unweighted_leaf_mean.trec",
+          "sha256": "36bb93df2d995532316b63b6135d7435f6f63df6d2b2d91dd923a33acfc91dcd"
+        }
+      },
+      "metrics": {
+        "MRR@10": 0.5245651972467936,
+        "Recall@10": 0.6727916547037994,
+        "Recall@100": 0.8852521772418414,
+        "nDCG@10": 0.5601525287051979
+      },
+      "stratified": {
+        "depth": {
+          "2": {
+            "MRR@10": 0.13093690840250474,
+            "Recall@10": 0.17660550458715596,
+            "Recall@100": 0.4541284403669725,
+            "nDCG@10": 0.14176320982369878,
+            "queries": 436
+          },
+          "3": {
+            "MRR@10": 0.5286441532088166,
+            "Recall@10": 0.6702059885325972,
+            "Recall@100": 0.8842641749840731,
+            "nDCG@10": 0.5626202530831389,
+            "queries": 4709
+          },
+          "4": {
+            "MRR@10": 0.5472446660172292,
+            "Recall@10": 0.7101885278780585,
+            "Recall@100": 0.9209787404733253,
+            "nDCG@10": 0.5863884924945018,
+            "queries": 4986
+          },
+          "5": {
+            "MRR@10": 0.6482579614655086,
+            "Recall@10": 0.8050314465408805,
+            "Recall@100": 0.9308176100628931,
+            "nDCG@10": 0.685890621419479,
+            "queries": 318
+          }
+        },
+        "leaves": {
+          "33-inf": {
+            "MRR@10": 0.5452413782653494,
+            "Recall@10": 0.6977089520577004,
+            "Recall@100": 0.9072974119643614,
+            "nDCG@10": 0.5818483411524554,
+            "queries": 9428
+          },
+          "5-8": {
+            "MRR@10": 0.012037037037037035,
+            "Recall@10": 0.029914529914529916,
+            "Recall@100": 0.23504273504273504,
+            "nDCG@10": 0.01633525156749322,
+            "queries": 234
+          },
+          "9-32": {
+            "MRR@10": 0.42926221738165826,
+            "Recall@10": 0.565438373570521,
+            "Recall@100": 0.8144853875476493,
+            "nDCG@10": 0.46193794560161455,
+            "queries": 787
+          }
+        },
+        "tokens": {
+          "32769-inf": {
+            "MRR@10": 0.5452413782653494,
+            "Recall@10": 0.6977089520577004,
+            "Recall@100": 0.9072974119643614,
+            "nDCG@10": 0.5818483411524554,
+            "queries": 9428
+          },
+          "4097-8190": {
+            "MRR@10": 0.012037037037037035,
+            "Recall@10": 0.029914529914529916,
+            "Recall@100": 0.23504273504273504,
+            "nDCG@10": 0.01633525156749322,
+            "queries": 234
+          },
+          "8191-32768": {
+            "MRR@10": 0.42926221738165826,
+            "Recall@10": 0.565438373570521,
+            "Recall@100": 0.8144853875476493,
+            "nDCG@10": 0.46193794560161455,
+            "queries": 787
+          }
+        }
+      }
+    }
+  },
+  "metrics_scale": "0..1",
+  "provenance": {
+    "checkpoints": {
+      "recursive_seed271828": {
+        "checkpoint": "results/v3_cls/adversarial_v2_final_seed271828/autoencoder_seed271828.pt",
+        "checkpoint_sha256": "3f9efe8cfdabd0d8997319969581fa2220c123c27abff3848ce1e0e7a0769fec",
+        "fresh_v3_cls": true,
+        "seed": 271828,
+        "telemetry": {
+          "depth": {
+            "maximum": 5,
+            "mean": 3.4985915492957744,
+            "minimum": 2
+          },
+          "documents": 355,
+          "documents_per_second": 11.586620694987676,
+          "geodesic_angle_radians": {
+            "count": 10197,
+            "maximum": 0.05064507573843002,
+            "mean": 0.04405594244599342,
+            "minimum": 0.018858078867197037
+          },
+          "geodesic_saturation_count": 0,
+          "importance_active_slots": 39724,
+          "importance_correction_absolute": {
+            "count": 39724,
+            "maximum": 0.7779455780982971,
+            "mean": 0.3041536509990692,
+            "minimum": 0.00013811211101710796
+          },
+          "importance_saturation_count": 0,
+          "internal_merges": 10197,
+          "leaves": 29882,
+          "leaves_per_second": 975.2997172045683,
+          "seconds": 30.63878669589758
+        },
+        "training_cache_manifest": "artifacts/v3_cls/cache_train_cls/CACHE_MANIFEST.json",
+        "training_cache_manifest_sha256": "39f70e6107249e0122a0cc06441824c637ccf0fdea2e4c185a474d066ab54024"
+      },
+      "recursive_seed314159": {
+        "checkpoint": "results/v3_cls/adversarial_v2_final_seed314159/autoencoder_seed314159.pt",
+        "checkpoint_sha256": "9677f5ac5078856457d91ca0df2ddc222c76a2752bcb698cbd570e7ed1bebbc7",
+        "fresh_v3_cls": true,
+        "seed": 314159,
+        "telemetry": {
+          "depth": {
+            "maximum": 5,
+            "mean": 3.4985915492957744,
+            "minimum": 2
+          },
+          "documents": 355,
+          "documents_per_second": 10.934122394704824,
+          "geodesic_angle_radians": {
+            "count": 10197,
+            "maximum": 0.05487562343478203,
+            "mean": 0.045313384383916855,
+            "minimum": 0.02060922235250473
+          },
+          "geodesic_saturation_count": 0,
+          "importance_active_slots": 39724,
+          "importance_correction_absolute": {
+            "count": 39724,
+            "maximum": 0.7605682015419006,
+            "mean": 0.3388470411300659,
+            "minimum": 0.0008800977375358343
+          },
+          "importance_saturation_count": 0,
+          "internal_merges": 10197,
+          "leaves": 29882,
+          "leaves_per_second": 920.3759025311819,
+          "seconds": 32.467169031500816
+        },
+        "training_cache_manifest": "artifacts/v3_cls/cache_train_cls/CACHE_MANIFEST.json",
+        "training_cache_manifest_sha256": "39f70e6107249e0122a0cc06441824c637ccf0fdea2e4c185a474d066ab54024"
+      },
+      "recursive_seed424242": {
+        "checkpoint": "results/v3_cls/adversarial_v2_candidate_seed424242/autoencoder_seed424242.pt",
+        "checkpoint_sha256": "5f44f72a48d64830dc411e8f5559c9a89a9737fcabd8a6bf6bd37bff9fc5c0d8",
+        "fresh_v3_cls": true,
+        "seed": 424242,
+        "telemetry": {
+          "depth": {
+            "maximum": 5,
+            "mean": 3.4985915492957744,
+            "minimum": 2
+          },
+          "documents": 355,
+          "documents_per_second": 11.736154163362722,
+          "geodesic_angle_radians": {
+            "count": 10197,
+            "maximum": 0.052649226039648056,
+            "mean": 0.04465552046895027,
+            "minimum": 0.020246749743819237
+          },
+          "geodesic_saturation_count": 0,
+          "importance_active_slots": 39724,
+          "importance_correction_absolute": {
+            "count": 39724,
+            "maximum": 0.7959110736846924,
+            "mean": 0.32194197177886963,
+            "minimum": 0.00020070315804332495
+          },
+          "importance_saturation_count": 0,
+          "internal_merges": 10197,
+          "leaves": 29882,
+          "leaves_per_second": 987.8866442524079,
+          "seconds": 30.248409748077393
+        },
+        "training_cache_manifest": "artifacts/v3_cls/cache_train_cls/CACHE_MANIFEST.json",
+        "training_cache_manifest_sha256": "39f70e6107249e0122a0cc06441824c637ccf0fdea2e4c185a474d066ab54024"
+      }
+    },
+    "leaf_cache_manifest_sha256": "fb8b60a9a1c4554f4901662207226d4d513bdd6436305be08df1571301a88146",
+    "precommit_sha256": "a5aec09c0199b286d7c702915f345b03b32f0f0109db4fde126c11b87ec392df",
+    "script_sha256": "8c6894691b819fd8c62e245212463d3f55041355ade77fc178f7e418e8afd904",
+    "software": {
+      "numpy": "2.5.2",
+      "python": "3.12.14",
+      "pytrec_eval": "0.5.10",
+      "torch": "2.10.0+cu128"
+    },
+    "training_cache_manifest_sha256": "39f70e6107249e0122a0cc06441824c637ccf0fdea2e4c185a474d066ab54024"
+  },
+  "runtime_seconds": 119.54044064879417,
+  "schema": "v3_cls_downstream_retrieval_results_v1",
+  "source": {
+    "dataset_revision": "10039a580487dacecf79db69166e17ace3ede392",
+    "rows": {
+      "corpus": 355,
+      "qrels": 10449,
+      "queries": 10449
+    }
+  }
+}

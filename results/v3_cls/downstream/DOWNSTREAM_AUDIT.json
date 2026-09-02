@@ -1,0 +1,26 @@
+{
+  "schema": "v3_cls_downstream_audit_v1",
+  "tensor_identical_leaf_cache": true,
+  "leaf_cache_evidence": [
+    "results/v3_cls/downstream/nfcorpus/leaf_cache/MANIFEST.json",
+    "results/v3_cls/downstream/longembed_narrativeqa/leaf_cache/MANIFEST.json",
+    "results/v3_cls/downstream/leaf_cache/CACHE_MANIFEST.json"
+  ],
+  "no_silent_exclusions": true,
+  "exclusion_accounting": {
+    "nfcorpus": "323/323 test queries, all qrels and all 3633 corpus documents retained; 2914 non-test query rows explicitly audited",
+    "longembed_narrativeqa": "10449/10449 queries and qrels, 355/355 documents retained",
+    "ecthr_a": "9000/1000/1000 canonical train/validation/test rows retained",
+    "20_newsgroups": "11314/7532 canonical train/test rows retained, including empty cleaned documents"
+  },
+  "standard_metrics": true,
+  "metric_implementations": {
+    "retrieval": "pytrec_eval nDCG@10/Recall@10/Recall@100 plus explicit standard MRR@10",
+    "ecthr_a": "sklearn one-vs-rest logistic regression with validation C selection, train+validation refit, micro/macro F1",
+    "20_newsgroups": "sklearn fixed KMeans, normalized mutual information and adjusted Rand index"
+  },
+  "direct_teacher_fail_closed": "Direct teacher reported only for full NFCorpus benchmark; omitted for NarrativeQA, ECtHR-A, and 20 Newsgroups because at least one document exceeded context.",
+  "long_benchmark": "LongEmbed NarrativeQA revision 10039a580487dacecf79db69166e17ace3ede392",
+  "long_benchmark_health": {"documents": 355, "queries": 10449, "tokens": 30413806, "leaves": 29882, "max_depth": 5, "max_tokens": 488429},
+  "passed": true
+}

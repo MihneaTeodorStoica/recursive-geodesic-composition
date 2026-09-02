@@ -1,0 +1,3232 @@
+{
+  "chunking": {
+    "contiguous": true,
+    "dtype": "float32",
+    "final_short_leaf_retained": true,
+    "raw_tokens": 1024
+  },
+  "counts": {
+    "documents": 355,
+    "leaves": 29882,
+    "max_depth": 5,
+    "max_leaves": 477,
+    "max_tokens": 488429,
+    "queries": 10449,
+    "tokens": 30413806
+  },
+  "dataset": "longembed_narrativeqa",
+  "direct_teacher": {
+    "eligible_for_entire_benchmark": false,
+    "path": null,
+    "rule": "all documents and queries <=8190 raw tokens",
+    "sha256": null
+  },
+  "documents": [
+    {
+      "depth": 3,
+      "id": "doc_0",
+      "leaf_tensor_sha256": "b0bbe26425097c50230bd4c4a64da17c621d4022c06c84db4aecc6f9218b3c6b",
+      "leaves": 57,
+      "sha256": "5bb7c657cc9932c9786023dc89454da03f2c603d9df52de5634cda5ec5b21497",
+      "shard": "documents/000000.pt",
+      "tokens": 57386
+    },
+    {
+      "depth": 4,
+      "id": "doc_1",
+      "leaf_tensor_sha256": "d53667c53e06148f28e7fedfcae4cee7ae8fb21b986ec375f45f766353038e33",
+      "leaves": 153,
+      "sha256": "b422a1f03bbb9dd9e48339d3c80c45e96797bc914fd7824ccdbf9f3b9e1dc0d4",
+      "shard": "documents/000001.pt",
+      "tokens": 156560
+    },
+    {
+      "depth": 3,
+      "id": "doc_2",
+      "leaf_tensor_sha256": "108adbab6ec58f1649bb583d5be36ca405a486c51a796435696398468604ea50",
+      "leaves": 51,
+      "sha256": "972491e2fd415812bb3515c3b63640de82be47acc5e2e8e0e96f87842e8768c3",
+      "shard": "documents/000002.pt",
+      "tokens": 51560
+    },
+    {
+      "depth": 3,
+      "id": "doc_3",
+      "leaf_tensor_sha256": "3b048622f9148c1ef85759c55961c032369589974102baea9ea1f505bc49a196",
+      "leaves": 63,
+      "sha256": "876fdc6766a1a279cd83fa7702989ce53bd4588c3011bcef70415194ef189891",
+      "shard": "documents/000003.pt",
+      "tokens": 64388
+    },
+    {
+      "depth": 4,
+      "id": "doc_4",
+      "leaf_tensor_sha256": "4b578e2ce657a730401cedbc92ce73e6d44a10ae14abc25d93d7d0b0bd09370b",
+      "leaves": 82,
+      "sha256": "8482bb0d6483d2abb23f39494ed3c0538ffd4683ce940258fa2d7267193e01a1",
+      "shard": "documents/000004.pt",
+      "tokens": 83594
+    },
+    {
+      "depth": 2,
+      "id": "doc_5",
+      "leaf_tensor_sha256": "54cfd272147e5e22be013775012d739660d1f8a3661251fbc90b4d10a2feb615",
+      "leaves": 6,
+      "sha256": "56e941e562d5ec25d8d6b6bb49bf0ecf60c016143c3fec387c973f3eb9cbe5b5",
+      "shard": "documents/000005.pt",
+      "tokens": 5210
+    },
+    {
+      "depth": 3,
+      "id": "doc_6",
+      "leaf_tensor_sha256": "e88fadb1d3b71f2b2d5c0a3560dce067be4846add762149f8d727499f26a74f5",
+      "leaves": 61,
+      "sha256": "a5a44d969cea4c6eac1b79ffc1a67d537ec88b03de85637bee5ef1997f563bbc",
+      "shard": "documents/000006.pt",
+      "tokens": 62377
+    },
+    {
+      "depth": 3,
+      "id": "doc_7",
+      "leaf_tensor_sha256": "6aa5d20d1289e91cf47e284ae579e417a1d74c4039d2d9e049536ebf9bf579bb",
+      "leaves": 63,
+      "sha256": "de33e55ef5203f605e8b12ae7e77fcda5c93c8f63f92c846dca9f644e7cacc69",
+      "shard": "documents/000007.pt",
+      "tokens": 64389
+    },
+    {
+      "depth": 4,
+      "id": "doc_8",
+      "leaf_tensor_sha256": "2131a23859ec21fa9fa379ca66523cca6921bdb61a9883ef289c09e71f2c9657",
+      "leaves": 75,
+      "sha256": "66b63b9bab950e930186ca4388f34a9c938733918c694b8c3a234e12852ba6b0",
+      "shard": "documents/000008.pt",
+      "tokens": 75966
+    },
+    {
+      "depth": 5,
+      "id": "doc_9",
+      "leaf_tensor_sha256": "aad5ab51dabfbdef7006c4b13438142adaa0c5f4e0d18026674efe1ad0332528",
+      "leaves": 477,
+      "sha256": "f6f4289ed8bbd9c676f35d4efaa1bbdb67e94a2505af89a386ddea2b2ff0d2bc",
+      "shard": "documents/000009.pt",
+      "tokens": 488429
+    },
+    {
+      "depth": 4,
+      "id": "doc_10",
+      "leaf_tensor_sha256": "49573a6a738e748238197b2babede8db7b57310104d10e1d229589feef1012c6",
+      "leaves": 72,
+      "sha256": "16c3c385d61db4da010a91212162ae2e15b8aeef092926defcce0d18510e109e",
+      "shard": "documents/000010.pt",
+      "tokens": 73728
+    },
+    {
+      "depth": 3,
+      "id": "doc_11",
+      "leaf_tensor_sha256": "2abad458291e35c2ac83867d48e51ec8be903d7404346ee86caed1ea8ec07ec8",
+      "leaves": 52,
+      "sha256": "428c4321d33b8c4e563f18bfe2e5cabec3b4a89d9c5ca610906f2b805049bb97",
+      "shard": "documents/000011.pt",
+      "tokens": 52880
+    },
+    {
+      "depth": 4,
+      "id": "doc_12",
+      "leaf_tensor_sha256": "7b9c735112bfc3c9559d7bf3c2df7b99be7dec45b15ebfa5edb2fe46f4dede64",
+      "leaves": 195,
+      "sha256": "4e726bf227ce6f3ed9d8ecf90eaaa00d4a483d4925b80a2e01568d2bc6402585",
+      "shard": "documents/000012.pt",
+      "tokens": 199522
+    },
+    {
+      "depth": 2,
+      "id": "doc_13",
+      "leaf_tensor_sha256": "bb3cc9ed2b592a5eae7dd8e8445515f63b8e644ba7fb90a1f404331a67ce656b",
+      "leaves": 8,
+      "sha256": "3fef06900b968498096dec4b86e6b76002b73c09c915280ba858832191ebf9c5",
+      "shard": "documents/000013.pt",
+      "tokens": 7297
+    },
+    {
+      "depth": 4,
+      "id": "doc_14",
+      "leaf_tensor_sha256": "30c21ed549aac5a01a6de88335e8aa5196a4435d7392bb31d5657e12c8454efe",
+      "leaves": 194,
+      "sha256": "39dc547578839fe44f234c42f9fbcb78e5220eb8cf0120e167cf687a54860e2b",
+      "shard": "documents/000014.pt",
+      "tokens": 198199
+    },
+    {
+      "depth": 3,
+      "id": "doc_15",
+      "leaf_tensor_sha256": "bcfdb98e48fe9d306006a85b1aba7f960641985eea082b387ea833874ef15a91",
+      "leaves": 57,
+      "sha256": "a0884c2ac0e1b6402b066997f91b0f133442fd7e57063ad2bfde98f46ea106bd",
+      "shard": "documents/000015.pt",
+      "tokens": 57738
+    },
+    {
+      "depth": 3,
+      "id": "doc_16",
+      "leaf_tensor_sha256": "07aeb7eaedb9a1a56edbfb713f99f0911af2ea2cdc2058fa05c163aa9dfdd966",
+      "leaves": 50,
+      "sha256": "7d2ce621c08659f86349482208119f427d3b1315c67f0894d9b16ea3490ee58f",
+      "shard": "documents/000016.pt",
+      "tokens": 50792
+    },
+    {
+      "depth": 4,
+      "id": "doc_17",
+      "leaf_tensor_sha256": "0fe6395523d015e960f8e43da4424535a9de3ec9702cb7eee85dfdc740b50ebc",
+      "leaves": 110,
+      "sha256": "910512d30b9df1874f3637ec9665fe9b496658df0c884929aaa38dcbcdbfc000",
+      "shard": "documents/000017.pt",
+      "tokens": 112348
+    },
+    {
+      "depth": 4,
+      "id": "doc_18",
+      "leaf_tensor_sha256": "6fd16e4a1928218150351fb4f567547efbd85bea11b12389e48894ae37a1e994",
+      "leaves": 83,
+      "sha256": "abddcf0ee87a84d3ceb19186c82fb834a25b4a130350ae004cdf51a4fd33b950",
+      "shard": "documents/000018.pt",
+      "tokens": 84943
+    },
+    {
+      "depth": 3,
+      "id": "doc_19",
+      "leaf_tensor_sha256": "41a312fbbf8148d16426323da1ef985b00d2ff31b0a55ac4ee844004526ce773",
+      "leaves": 42,
+      "sha256": "c4b1416f84d2cf163bd2087515abe5eead000512ee08355dec1352cfcad81659",
+      "shard": "documents/000019.pt",
+      "tokens": 42058
+    },
+    {
+      "depth": 4,
+      "id": "doc_20",
+      "leaf_tensor_sha256": "9dfb47d986262717c58e9a5333c12f0a878e0fac229afe177b2eec6003268e98",
+      "leaves": 158,
+      "sha256": "0b59d3344656bdc0ee904417a506311566c6a788b051d16851e485c28e94e452",
+      "shard": "documents/000020.pt",
+      "tokens": 161232
+    },
+    {
+      "depth": 4,
+      "id": "doc_21",
+      "leaf_tensor_sha256": "77f4e806f4fde5c2a0980e74bb310b250235cf62c8cd4f7dadbf167947a3249b",
+      "leaves": 94,
+      "sha256": "b192ff20b5cefd846c88d07e786c81ca0ead42d708616af06d648a52d05f27ba",
+      "shard": "documents/000021.pt",
+      "tokens": 96096
+    },
+    {
+      "depth": 4,
+      "id": "doc_22",
+      "leaf_tensor_sha256": "6e97f4960dea5d8795b0ed104b55009d3972213b1707306afe187fe2dd5bc618",
+      "leaves": 72,
+      "sha256": "b172a00a71284268bb18a8081f3af53a9a67d30e8b72d814bad6a457c528c4ed",
+      "shard": "documents/000022.pt",
+      "tokens": 73713
+    },
+    {
+      "depth": 4,
+      "id": "doc_23",
+      "leaf_tensor_sha256": "1c2002b0f2d32e0b0a4811f05751c6286059d3665e7cd7bc3a2599c09ff4aff9",
+      "leaves": 68,
+      "sha256": "af7271d9414563acc5425fc8a5be8cd8c3d2cb5bfd6bf7a84691429d479f325d",
+      "shard": "documents/000023.pt",
+      "tokens": 68708
+    },
+    {
+      "depth": 3,
+      "id": "doc_24",
+      "leaf_tensor_sha256": "313425a314fc8ddc66b68a2ee06c4ab1c118caa84f66b000e9fdcbea17dfaa43",
+      "leaves": 31,
+      "sha256": "d9fbeb63a98711981ddebf8546e4a26141278be2f8175bfb0a5eed16342736d7",
+      "shard": "documents/000024.pt",
+      "tokens": 31726
+    },
+    {
+      "depth": 4,
+      "id": "doc_25",
+      "leaf_tensor_sha256": "87d491ae9a4ce71d7de873d99445fcb7ef890ad8cb99aea5452e0a797301b8e1",
+      "leaves": 194,
+      "sha256": "b7fcf73ef2c8780641b378b34bc89f27166a47234493714aeee417028cfc1ad7",
+      "shard": "documents/000025.pt",
+      "tokens": 197645
+    },
+    {
+      "depth": 3,
+      "id": "doc_26",
+      "leaf_tensor_sha256": "ac6457c1306e8bce59a060acac7fd565ee948ab0ee3df4b2b3ac8f61ae6d4883",
+      "leaves": 61,
+      "sha256": "1234bd6e847dff6c5bb8fb22d966a6252f8a27b6a9f0c1b1cbaaefb935204209",
+      "shard": "documents/000026.pt",
+      "tokens": 62007
+    },
+    {
+      "depth": 3,
+      "id": "doc_27",
+      "leaf_tensor_sha256": "f32d0cfc8d96cc453a3df8637f6c659e754b84dedf8e88278a578e8b3e4fa1ab",
+      "leaves": 22,
+      "sha256": "6b0e9284a379ac0c44f444805ea561f131625d19a89dfecb91aa2abb74661d94",
+      "shard": "documents/000027.pt",
+      "tokens": 21673
+    },
+    {
+      "depth": 4,
+      "id": "doc_28",
+      "leaf_tensor_sha256": "e58fc8a2c962f1fcb71e18048e2621d45b488cfbdde0c37b438eb28eb8a8622b",
+      "leaves": 69,
+      "sha256": "a5f007f5348c110460f636b82e0568aeefd373d6a7790eb1cc1396295b490738",
+      "shard": "documents/000028.pt",
+      "tokens": 69747
+    },
+    {
+      "depth": 4,
+      "id": "doc_29",
+      "leaf_tensor_sha256": "649fcf2e17efa9dc07950124a1110f0deb82eda3e316e3dbf28e59138dfc1264",
+      "leaves": 121,
+      "sha256": "17e855d90e49a9a394bfc43ee42fe54e516a1f54a190f0ed52ab389b75117ac6",
+      "shard": "documents/000029.pt",
+      "tokens": 123278
+    },
+    {
+      "depth": 4,
+      "id": "doc_30",
+      "leaf_tensor_sha256": "4bf76cfb1f233c39c9143a3a54c04313f2bad025e91db0897cafac6a8f06ddd9",
+      "leaves": 66,
+      "sha256": "ab906ad7476f62fc7ad18c59d8c13c4ef4bfac3f6e9eeceaf7b919de8b7de467",
+      "shard": "documents/000030.pt",
+      "tokens": 66800
+    },
+    {
+      "depth": 3,
+      "id": "doc_31",
+      "leaf_tensor_sha256": "b3dc505b229c58f7a47cae90c8d086c92df1162c159dd4847f8accc57bcac15e",
+      "leaves": 62,
+      "sha256": "3a61f2eb2769b0fd7b25a8ebcfddee2ac5233bba65df7aa615fcb9bce75e924e",
+      "shard": "documents/000031.pt",
+      "tokens": 63344
+    },
+    {
+      "depth": 4,
+      "id": "doc_32",
+      "leaf_tensor_sha256": "a716eb90a602957f75fbb8e08b61976ee9bb2a24a4a75f3914b3219400be1c2d",
+      "leaves": 156,
+      "sha256": "2ef0394c94792bbb88089d35535a1245e9d08eb81be6969702c486a247473dfc",
+      "shard": "documents/000032.pt",
+      "tokens": 159184
+    },
+    {
+      "depth": 4,
+      "id": "doc_33",
+      "leaf_tensor_sha256": "1aac07ab2400d32b4319b0a292076a923255e15fb72f9787376d354056bdb25d",
+      "leaves": 109,
+      "sha256": "294390f9292d2433bf0326b31e1b1a6eaa6d9e1d15ecc7cbedf97cdf429436ed",
+      "shard": "documents/000033.pt",
+      "tokens": 111579
+    },
+    {
+      "depth": 4,
+      "id": "doc_34",
+      "leaf_tensor_sha256": "064045d2fe6c2fcce9f03cc873b4cad5724db74c73983227815e76b905d3a206",
+      "leaves": 80,
+      "sha256": "c960fe07c56b67612566f33499510903d4a4a4d57cbdac70215eb6e40508b30d",
+      "shard": "documents/000034.pt",
+      "tokens": 80975
+    },
+    {
+      "depth": 4,
+      "id": "doc_35",
+      "leaf_tensor_sha256": "f98c5c49ac508247edd7b2f7a0c2b3b06d5b919c67d020e6a99c967888e6555b",
+      "leaves": 97,
+      "sha256": "4ca886646fce6ac90bdb4ca674c98abf75bab6cdf77ab865cf1be9f4a0995a08",
+      "shard": "documents/000035.pt",
+      "tokens": 99309
+    },
+    {
+      "depth": 3,
+      "id": "doc_36",
+      "leaf_tensor_sha256": "caf1ff70d8d50a0f5d27ff9a43a01d53711dfb3dd42d27af79f9ec831c3319c2",
+      "leaves": 57,
+      "sha256": "f162b211e4fdaa03aa70b6347f3c9497878f8842b2754ddaf390e271b6e4f2a5",
+      "shard": "documents/000036.pt",
+      "tokens": 57817
+    },
+    {
+      "depth": 4,
+      "id": "doc_37",
+      "leaf_tensor_sha256": "493b0e3461d692a1aa621ce54a7685b508296acc010e1586daa87a360503a762",
+      "leaves": 126,
+      "sha256": "2209e88ae45b746e341fe0c94b458b1aca2ce3441bbc3a52a3644bd4e2d86693",
+      "shard": "documents/000037.pt",
+      "tokens": 128205
+    },
+    {
+      "depth": 3,
+      "id": "doc_38",
+      "leaf_tensor_sha256": "7682207d6f2e51dca28720601239ec77d2a176ba6ae259cc4719cd7ed832a7f8",
+      "leaves": 39,
+      "sha256": "3cdce1feab41a0002a859573c573479556709eb6f884eb08541795af6c839592",
+      "shard": "documents/000038.pt",
+      "tokens": 39066
+    },
+    {
+      "depth": 3,
+      "id": "doc_39",
+      "leaf_tensor_sha256": "6f0ad9163c0b57d68d65a2f1206034cbe30abd902779e491a4742e5cb0288014",
+      "leaves": 55,
+      "sha256": "7cbd49726af0c9d248ed65476e2026575061918ea0919a2b262031183684be92",
+      "shard": "documents/000039.pt",
+      "tokens": 55333
+    },
+    {
+      "depth": 4,
+      "id": "doc_40",
+      "leaf_tensor_sha256": "d55ed560be643c1914c94bccb0d7eebd82697023d18d7553214a2cfbfed188fd",
+      "leaves": 87,
+      "sha256": "6dc54a54e73b9aad83d28452a5ef5d3c04c271364bf7733ac52b22d6bbdf4017",
+      "shard": "documents/000040.pt",
+      "tokens": 88341
+    },
+    {
+      "depth": 3,
+      "id": "doc_41",
+      "leaf_tensor_sha256": "c407125efdb42b796cf993c2581aebd2c7f739dc399cdb0a962f9d6d493f363c",
+      "leaves": 42,
+      "sha256": "229250af8bc5e34ec5102893fc733c4f2737bb41e2e3b59d9c36c9a0176b7276",
+      "shard": "documents/000041.pt",
+      "tokens": 42811
+    },
+    {
+      "depth": 4,
+      "id": "doc_42",
+      "leaf_tensor_sha256": "47f3c27781905d3610271298dadb7ddefb8c23751f21a82433c1032bb22b077c",
+      "leaves": 73,
+      "sha256": "5b84c4d70982dfbac9518b18f5da9ed6e0e76d5dd2a15c2466490e7b459b5a4d",
+      "shard": "documents/000042.pt",
+      "tokens": 73994
+    },
+    {
+      "depth": 3,
+      "id": "doc_43",
+      "leaf_tensor_sha256": "4b4127c05a092ddd4250790ea1ddaf24fbac79b73df2b0b565f1c47d3898a9a3",
+      "leaves": 60,
+      "sha256": "0ce8fa7be185f2dc3a3d72102ead7f0fedd16c1830f540d00c0ce0f76dd8dc6a",
+      "shard": "documents/000043.pt",
+      "tokens": 61389
+    },
+    {
+      "depth": 4,
+      "id": "doc_44",
+      "leaf_tensor_sha256": "a6ec9bc7f8e3e5427528c9cb6075cab3fdbbc70ca11efe41a610a552bbd821d1",
+      "leaves": 152,
+      "sha256": "08158a5a674c52c291b31fc4065efe11dfdb6b4873a8cd1381543991ef2454c5",
+      "shard": "documents/000044.pt",
+      "tokens": 154692
+    },
+    {
+      "depth": 3,
+      "id": "doc_45",
+      "leaf_tensor_sha256": "71ad938c9be722fa6f1a58381aad0e1016a2ab8efee847c5a38eb3c20f327c97",
+      "leaves": 37,
+      "sha256": "32540f399935b04d95d697fefb345a9366a89074a9c961194ed81f927789f5e3",
+      "shard": "documents/000045.pt",
+      "tokens": 37709
+    },
+    {
+      "depth": 3,
+      "id": "doc_46",
+      "leaf_tensor_sha256": "d5abc81b681b2ca227ce065d5c27c606bf4f518be71dc3fdc0e2c788a0d3cbe4",
+      "leaves": 54,
+      "sha256": "7d2f5c8b01d14a9170a60fa2a6056df97ee779c6468eb0cf54a6e4d1a2e47df9",
+      "shard": "documents/000046.pt",
+      "tokens": 54666
+    },
+    {
+      "depth": 4,
+      "id": "doc_47",
+      "leaf_tensor_sha256": "637285aca6bac1bc7cad2e1754f3ae2bbc6c58687231ccbc7d44f0c50d1081c0",
+      "leaves": 118,
+      "sha256": "8a0a870f40c8010cedc72ec49495bf00c8fa7481204f250d13a7cb791544e2ea",
+      "shard": "documents/000047.pt",
+      "tokens": 120198
+    },
+    {
+      "depth": 3,
+      "id": "doc_48",
+      "leaf_tensor_sha256": "b6b88f51b4b3435c4f0a152d11fbb96e5deb3bad6f309361d6b8c724f21cc29b",
+      "leaves": 57,
+      "sha256": "a60d8ba87fb874921181ae943ab6dae7d12e72bc6b28d0eb9da550a10b350aee",
+      "shard": "documents/000048.pt",
+      "tokens": 57599
+    },
+    {
+      "depth": 4,
+      "id": "doc_49",
+      "leaf_tensor_sha256": "b38f3dc72e71440a4178125896dceb731c417aa2c2651e2e2626daef0553af2e",
+      "leaves": 66,
+      "sha256": "d3c0257d270f7ef9a07ee562eb9c64a787fb6b58fe0f51835cbf67898c2c2606",
+      "shard": "documents/000049.pt",
+      "tokens": 67485
+    },
+    {
+      "depth": 4,
+      "id": "doc_50",
+      "leaf_tensor_sha256": "fde9f5ff8721afe2da59a77808999270a3c67b7aaa64388123fa93699210981b",
+      "leaves": 126,
+      "sha256": "fe26fb6bd86bbd7b3fead110f7efabf1790f72b8153751569db481a238b01322",
+      "shard": "documents/000050.pt",
+      "tokens": 128316
+    },
+    {
+      "depth": 4,
+      "id": "doc_51",
+      "leaf_tensor_sha256": "3abd60046df7b4391f9d07775bf42844c02e886eb5066de1399f764d9a44d965",
+      "leaves": 96,
+      "sha256": "9cc55019ed5b7cb8211e02579e8f4c6abf396ce281337fe1a4d833859c4c0f60",
+      "shard": "documents/000051.pt",
+      "tokens": 98302
+    },
+    {
+      "depth": 4,
+      "id": "doc_52",
+      "leaf_tensor_sha256": "f707b513870d2f8dbf374286645c51ebf413ee7e73ea4619e23cfbaf3b35abf5",
+      "leaves": 171,
+      "sha256": "1fdfbe203a7508e6f89cc422d5ca87cea095c18cdf60b3a39068356264b7e058",
+      "shard": "documents/000052.pt",
+      "tokens": 174308
+    },
+    {
+      "depth": 3,
+      "id": "doc_53",
+      "leaf_tensor_sha256": "496f6a8122b65a908db1a0fffdfae45af19a815d763c1b3f428b9b0159115f17",
+      "leaves": 44,
+      "sha256": "8d14012cd454544cae5cb742452c65488c477e03cdd09686dac2e7b3e20f1fbf",
+      "shard": "documents/000053.pt",
+      "tokens": 44207
+    },
+    {
+      "depth": 2,
+      "id": "doc_54",
+      "leaf_tensor_sha256": "a6a906591ce253af4b304d852476178596af3e1328512fde9fb48853ccd115cb",
+      "leaves": 16,
+      "sha256": "ecd0524aa6926a64febe70dd4b2e011dbc1d72ca7291139de2d0cffaa18a84fa",
+      "shard": "documents/000054.pt",
+      "tokens": 15570
+    },
+    {
+      "depth": 5,
+      "id": "doc_55",
+      "leaf_tensor_sha256": "4fa9e8dbf36e07a53ef2fc8841ae491ff90fb413e54566cb8090bd9573cae0d7",
+      "leaves": 287,
+      "sha256": "39cfd016baa4502e926a39c95584e22a5a89f21ca9ad4203700dc7343c5a4fca",
+      "shard": "documents/000055.pt",
+      "tokens": 293595
+    },
+    {
+      "depth": 4,
+      "id": "doc_56",
+      "leaf_tensor_sha256": "a1601fc218f70d2ac827caa786e4812359fe8920d8c12c9ab10ab126fa1efa6d",
+      "leaves": 98,
+      "sha256": "5383abaa98f66645fd7ec9deb9bc185440bc71f13bd30673590a141d6a5053e6",
+      "shard": "documents/000056.pt",
+      "tokens": 100005
+    },
+    {
+      "depth": 2,
+      "id": "doc_57",
+      "leaf_tensor_sha256": "c7e493c687ad8d7362bb488df36e858213fb6d55e7e4a34752d085d6aee14187",
+      "leaves": 7,
+      "sha256": "73bab456911ab340d8c34cbf90c25f3b5f4fcc39964fc4f705672c1912bab800",
+      "shard": "documents/000057.pt",
+      "tokens": 6420
+    },
+    {
+      "depth": 2,
+      "id": "doc_58",
+      "leaf_tensor_sha256": "84c598a75209b1a77ddb68777ad2ba8c945d311b7633847b83ceed2cde2c0bca",
+      "leaves": 7,
+      "sha256": "ff6c18058aa7283a68e343bb2284c6a3f09dab800fa2b855ce0b4e9ac6937d78",
+      "shard": "documents/000058.pt",
+      "tokens": 6717
+    },
+    {
+      "depth": 4,
+      "id": "doc_59",
+      "leaf_tensor_sha256": "27ab6be123f47b3411a73edc40ed981b67c1f6241ca5a6bf2aa978f75596328e",
+      "leaves": 225,
+      "sha256": "3cc6552d406e9fda26b5bc14b19da5fa31eb2b74e130b8be2ba4e8999af7792c",
+      "shard": "documents/000059.pt",
+      "tokens": 229882
+    },
+    {
+      "depth": 4,
+      "id": "doc_60",
+      "leaf_tensor_sha256": "29482b69d4c9e08e4324c5e67d1209a331e40794642cdf962482065287f677da",
+      "leaves": 66,
+      "sha256": "111e529a790b1f87a2049a11ac05a6c624b7781a70ce26b31fb8658b8d9bb75c",
+      "shard": "documents/000060.pt",
+      "tokens": 66565
+    },
+    {
+      "depth": 4,
+      "id": "doc_61",
+      "leaf_tensor_sha256": "dea07137bda13c00e28f407a9dd61c3c0be3e16ae60e6594dce1d5c0e77a5de8",
+      "leaves": 122,
+      "sha256": "143993e64c4b5886cf7a7502dbbc2faf79469f97cde516e81530652b64e57240",
+      "shard": "documents/000061.pt",
+      "tokens": 124179
+    },
+    {
+      "depth": 4,
+      "id": "doc_62",
+      "leaf_tensor_sha256": "821ab854756783bfda3b99672fb9d31dedea7d47a1563b06ff9ea35d269941d3",
+      "leaves": 67,
+      "sha256": "0fc113da3ea0925dbf5e8303b58ee0064bc681bf81d5a82f34e4ad55d77059e1",
+      "shard": "documents/000062.pt",
+      "tokens": 67738
+    },
+    {
+      "depth": 4,
+      "id": "doc_63",
+      "leaf_tensor_sha256": "ebc9475303ecb35f6fbf4e3b88290866ab8ded1251ed1150c1b112e1d7300ae1",
+      "leaves": 124,
+      "sha256": "81a565bd1eb5ee708a9c9245d63c66633dede451852f5fc279b50e63e471df9a",
+      "shard": "documents/000063.pt",
+      "tokens": 126268
+    },
+    {
+      "depth": 2,
+      "id": "doc_64",
+      "leaf_tensor_sha256": "7128f5bc3272e78c653a77b68cdc57e659181674bdcd64f9e7b82ef03811a7b9",
+      "leaves": 6,
+      "sha256": "27888e057323af1084bf0f0439e67e1767e6906fc0dd6a0d5719a4a69442295e",
+      "shard": "documents/000064.pt",
+      "tokens": 6038
+    },
+    {
+      "depth": 4,
+      "id": "doc_65",
+      "leaf_tensor_sha256": "4ed315737da0c3106d7e8081a0e723b9b659fa14c7ddfac6534d53be91efe18f",
+      "leaves": 109,
+      "sha256": "3ec8f49997bfb161e82e4478b2ea016ba5aaa4cfebcba0f96680b508fa92b628",
+      "shard": "documents/000065.pt",
+      "tokens": 110644
+    },
+    {
+      "depth": 5,
+      "id": "doc_66",
+      "leaf_tensor_sha256": "6074ff9f8779cf5aaec21463bf5e7234fbd16b05977ae65596953aa6b8fc706b",
+      "leaves": 307,
+      "sha256": "54c0043a00d0c410c854fb6c96e83f470d9ce763e439e5832801bf85b6fc9fe3",
+      "shard": "documents/000066.pt",
+      "tokens": 313539
+    },
+    {
+      "depth": 4,
+      "id": "doc_67",
+      "leaf_tensor_sha256": "53e6a2bd2dfa7087a8736fbd9429e2c172ed3f16b5f4e6529a4248c09028121d",
+      "leaves": 75,
+      "sha256": "aa3e10641cccf98d6bb94eaec754e32a0331dce80357ac59855cb88b37edb5b1",
+      "shard": "documents/000067.pt",
+      "tokens": 76384
+    },
+    {
+      "depth": 4,
+      "id": "doc_68",
+      "leaf_tensor_sha256": "f3ae40aba9b112fefdd294db5eec6748fda3f73a71271d2ae3d249413fe02c71",
+      "leaves": 244,
+      "sha256": "225a0eb4818d748e0f90e61c74db282b6690c09b39958aac6cdea95ce54765a9",
+      "shard": "documents/000068.pt",
+      "tokens": 249597
+    },
+    {
+      "depth": 3,
+      "id": "doc_69",
+      "leaf_tensor_sha256": "9a421b8dc086ccb32c6450096a37226257eada1dae4a2e049e573aa613257e3c",
+      "leaves": 22,
+      "sha256": "8dc3b675c39d458d1877aee95bac8d6ce719d2ed6b530bf654153e512fa1035c",
+      "shard": "documents/000069.pt",
+      "tokens": 21720
+    },
+    {
+      "depth": 3,
+      "id": "doc_70",
+      "leaf_tensor_sha256": "f6e60edd76668f4b886bec99238231660850e5a52e27bc93505d1bbd990a5c20",
+      "leaves": 17,
+      "sha256": "887e9aa8ff231e546b57c7150b02178c003647d10723a2160173dc46cc641432",
+      "shard": "documents/000070.pt",
+      "tokens": 16419
+    },
+    {
+      "depth": 4,
+      "id": "doc_71",
+      "leaf_tensor_sha256": "ec5423ad99b7188e4ebfd0cd3c578df56db3917976aaa81d4587229f616c5242",
+      "leaves": 69,
+      "sha256": "6d2abe4347b3a45bc8b5e6173db3b15ee844976df2f819e1a25dea49e596aa37",
+      "shard": "documents/000071.pt",
+      "tokens": 70151
+    },
+    {
+      "depth": 4,
+      "id": "doc_72",
+      "leaf_tensor_sha256": "34b07a0a219320dacc66c6c35cf82dae6b56ccca835cecaf0871c813c0af76ae",
+      "leaves": 68,
+      "sha256": "8f6dc3eb7fca8c37a037715d1da32846e821fa346918fe9f08600b52a5c9ef3d",
+      "shard": "documents/000072.pt",
+      "tokens": 69295
+    },
+    {
+      "depth": 4,
+      "id": "doc_73",
+      "leaf_tensor_sha256": "f330ee40642ed57dc9deaa7738140e952239425c430073d01e79600ac973460f",
+      "leaves": 65,
+      "sha256": "7d5e0e995a0d006e3c021ee907764aa062aab138cfe03a32c80c799db809c811",
+      "shard": "documents/000073.pt",
+      "tokens": 66333
+    },
+    {
+      "depth": 3,
+      "id": "doc_74",
+      "leaf_tensor_sha256": "a2adeb03cb8850c9f9acb12857a44a60b113ae60430ad3d7c4be0b7424ace7d5",
+      "leaves": 46,
+      "sha256": "4c369e0caa0b643e884d8f53b48bb0524f24eb0dd0412b7554d2f2ee6119d946",
+      "shard": "documents/000074.pt",
+      "tokens": 46783
+    },
+    {
+      "depth": 4,
+      "id": "doc_75",
+      "leaf_tensor_sha256": "f72beb83b2dcd848174cf175c3889553ac9e279133ef986ab13ecd9f2bb5faf4",
+      "leaves": 100,
+      "sha256": "326fffbb2f0a5a0c89b032b833e082cbf584656c4011523574035c8889fbee11",
+      "shard": "documents/000075.pt",
+      "tokens": 101721
+    },
+    {
+      "depth": 4,
+      "id": "doc_76",
+      "leaf_tensor_sha256": "feaea6a762c4864fd4734e27c49c91739c6262149aa699b0b676ad2c877f30a9",
+      "leaves": 67,
+      "sha256": "2a91d055cb01b7355b25392323297cd6c660822bc8f3d72912987b1f505e9d80",
+      "shard": "documents/000076.pt",
+      "tokens": 68522
+    },
+    {
+      "depth": 4,
+      "id": "doc_77",
+      "leaf_tensor_sha256": "2ce9c79abf1cd4dedc522e0354f61953dd6664eb37968c808700aee6f4f708a4",
+      "leaves": 67,
+      "sha256": "3ad5b2b748abcf99c651cc2b37655b9366731f90a6e5805bb30c36ddf7409fb3",
+      "shard": "documents/000077.pt",
+      "tokens": 68202
+    },
+    {
+      "depth": 3,
+      "id": "doc_78",
+      "leaf_tensor_sha256": "223311336363cda54e5b49cf2f57d1265240fae60c8b266fe7bb4d41a2ee51f7",
+      "leaves": 60,
+      "sha256": "c9e063ff24e4bd6158b9720f40b967472a1496e9ea931ce18ab9f3dad28a62e8",
+      "shard": "documents/000078.pt",
+      "tokens": 60438
+    },
+    {
+      "depth": 3,
+      "id": "doc_79",
+      "leaf_tensor_sha256": "e78dfbbf59d10f3ad1d85f088e4e2a4700018108414df3935d6dde2b38642d35",
+      "leaves": 61,
+      "sha256": "e91dfaffba87578fb2f19a663aaf28bf6a7010bdfe4258da13a79626500895b1",
+      "shard": "documents/000079.pt",
+      "tokens": 62178
+    },
+    {
+      "depth": 3,
+      "id": "doc_80",
+      "leaf_tensor_sha256": "736c8b5200925e8466e847afa67fc83b7718feda509f6121e5313dc8bb78918f",
+      "leaves": 64,
+      "sha256": "58512904b75645f8ce3a89455aaaa3c4c37f4a7e065bd5be219517616d2acf77",
+      "shard": "documents/000080.pt",
+      "tokens": 65484
+    },
+    {
+      "depth": 3,
+      "id": "doc_81",
+      "leaf_tensor_sha256": "5671e84694fcb4b7875dba9c2f8e5bb1980d10a84853be56461ed7a0bdacc1a7",
+      "leaves": 56,
+      "sha256": "04385b084cd056e216664248b8ee6a063cdc72c2ec7bffe88f461283eae984f5",
+      "shard": "documents/000081.pt",
+      "tokens": 56395
+    },
+    {
+      "depth": 4,
+      "id": "doc_82",
+      "leaf_tensor_sha256": "61c9fb5d98fb2da24b7b0fb7993805a9aa0a2202817d905a8690df38982c29ae",
+      "leaves": 67,
+      "sha256": "c013f91b670f0c07df5764e69defeee34155378c60bea298983df2c6b19fe62f",
+      "shard": "documents/000082.pt",
+      "tokens": 67704
+    },
+    {
+      "depth": 4,
+      "id": "doc_83",
+      "leaf_tensor_sha256": "ea1494771f3b5793bc9433ef1aa9f1aa1b4226f2849e2fe29be635b0ef180a9c",
+      "leaves": 139,
+      "sha256": "fe58c3495c0065da657d826fe014140625204a036ff8573f049a0b70014aff76",
+      "shard": "documents/000083.pt",
+      "tokens": 141761
+    },
+    {
+      "depth": 4,
+      "id": "doc_84",
+      "leaf_tensor_sha256": "ff2ffdc8df851bc5ecc0c85523d77914af3ca1ec8bbd3478638b90c7a3f351b8",
+      "leaves": 65,
+      "sha256": "35741fff55117e6fc1da60f878c3da27af1e59009d999ad3bf1e6e2bb4176503",
+      "shard": "documents/000084.pt",
+      "tokens": 66219
+    },
+    {
+      "depth": 5,
+      "id": "doc_85",
+      "leaf_tensor_sha256": "3b8c57a328bb8912678fa759fe33432d6b80caecc754ac35155dd58b2dc089a3",
+      "leaves": 354,
+      "sha256": "16a944c48ea3dee713037528ac739c37ad8e7d7c4643ab1a39dcfee727d46374",
+      "shard": "documents/000085.pt",
+      "tokens": 361503
+    },
+    {
+      "depth": 3,
+      "id": "doc_86",
+      "leaf_tensor_sha256": "d18ca9bdb96bc7eaa011136542009aa99a8e7a97bcd0e12ca6ce59400c18b728",
+      "leaves": 50,
+      "sha256": "541a6ba78f81c8dba91273d38189a2ef9dcee72c3612253958f2ad02fb0e12b3",
+      "shard": "documents/000086.pt",
+      "tokens": 50652
+    },
+    {
+      "depth": 4,
+      "id": "doc_87",
+      "leaf_tensor_sha256": "d1ac432c7e3aecbecca8ebf0a94a2a30107c541a8e9b9078b308267ee8e4ec90",
+      "leaves": 120,
+      "sha256": "2d2d632df8676d8e7fb8055fc231c7b73a9c99acc80d4600472b63dfee72b957",
+      "shard": "documents/000087.pt",
+      "tokens": 122716
+    },
+    {
+      "depth": 4,
+      "id": "doc_88",
+      "leaf_tensor_sha256": "7144bac41ff892b3c593e7338c93b5bbe5b63f78202d7ee5925a00dda2e4c5a4",
+      "leaves": 88,
+      "sha256": "b654290e6e32ae1dc1f265454b8d55e053279da4ba29c7882435d45a9e3ba4be",
+      "shard": "documents/000088.pt",
+      "tokens": 89103
+    },
+    {
+      "depth": 4,
+      "id": "doc_89",
+      "leaf_tensor_sha256": "69673b9ef4a1089d0aae67db2268c7d2c198b4cfbc435145f0418967ca82e9a2",
+      "leaves": 214,
+      "sha256": "e479b0a3172b6de2a8db149cd533b83e66198402047f4b7960384499b03694a8",
+      "shard": "documents/000089.pt",
+      "tokens": 219022
+    },
+    {
+      "depth": 3,
+      "id": "doc_90",
+      "leaf_tensor_sha256": "c693204f6125252a29826d339ff10083cd3142ca95c52466740f7636294c984e",
+      "leaves": 64,
+      "sha256": "0dfff25bc97055edfa31bc72717e759270591ae7c87eede75303207091e0da76",
+      "shard": "documents/000090.pt",
+      "tokens": 64805
+    },
+    {
+      "depth": 3,
+      "id": "doc_91",
+      "leaf_tensor_sha256": "75cc6b33226b9b14a14971f95e9607ee1cadd4ee9e4d6448cb3cda4634085821",
+      "leaves": 29,
+      "sha256": "1bbeeebf82114d1a39f3aef4f75527a0ae631d40ae82a905cbd55320ee75d7ec",
+      "shard": "documents/000091.pt",
+      "tokens": 28978
+    },
+    {
+      "depth": 3,
+      "id": "doc_92",
+      "leaf_tensor_sha256": "0b95b82cd96d0109e4ecf984a39c00ebd39410ba2c1d3d4f4157f8d0dc6edf93",
+      "leaves": 37,
+      "sha256": "040d5f9277c1f2e8640e7aa5b2629adc8e2ad36713a02dc23a96e82f73d7d51b",
+      "shard": "documents/000092.pt",
+      "tokens": 37744
+    },
+    {
+      "depth": 3,
+      "id": "doc_93",
+      "leaf_tensor_sha256": "202e89af2217230a32f145d6f945f7c54fbced80c06c875c5a0df6df3304f3f2",
+      "leaves": 45,
+      "sha256": "d396443b091ce6bbb635402351fe7ec494375e32c08579eb93cd32db62d15b28",
+      "shard": "documents/000093.pt",
+      "tokens": 45841
+    },
+    {
+      "depth": 4,
+      "id": "doc_94",
+      "leaf_tensor_sha256": "1d56da04b7ae24e075b0bc0930d7ecc4f7316c9b832859e93c45f8d6e719e723",
+      "leaves": 114,
+      "sha256": "27c4efe1f26bbd9ecb577faae8bd6dba853eeb58928955b11c334027f303d8a6",
+      "shard": "documents/000094.pt",
+      "tokens": 115723
+    },
+    {
+      "depth": 4,
+      "id": "doc_95",
+      "leaf_tensor_sha256": "2aa8b39b20e2a0bb131a2851fac36f4477f1c6ad57c496b538294922514c386a",
+      "leaves": 73,
+      "sha256": "d78e20af3ff33ae0f1495ef9f1d68a03c97697e1068c80eeb46a992ae529324d",
+      "shard": "documents/000095.pt",
+      "tokens": 74449
+    },
+    {
+      "depth": 3,
+      "id": "doc_96",
+      "leaf_tensor_sha256": "02fbf2454baa733844a53b91e3ca067f3981dbb18a713c0e9163848f1384a274",
+      "leaves": 39,
+      "sha256": "bc1e0e237fe3f0933ba000756ade4a0816b5c504a3d3acf138105410cb8a2508",
+      "shard": "documents/000096.pt",
+      "tokens": 39361
+    },
+    {
+      "depth": 5,
+      "id": "doc_97",
+      "leaf_tensor_sha256": "dee67ee62a532ba3f4c4cc718bc1eba4718172a64864ba86b63daa0fcc885031",
+      "leaves": 290,
+      "sha256": "f3e4eaec577f46650d5e174b4fdbc2f7b4441751bafdbcc62eec5157f939d2f9",
+      "shard": "documents/000097.pt",
+      "tokens": 296912
+    },
+    {
+      "depth": 3,
+      "id": "doc_98",
+      "leaf_tensor_sha256": "7e9fb5aa9ab4cf20df57730d474fd9f40d2ac8d9899fea3c7f186685981915bc",
+      "leaves": 51,
+      "sha256": "9a4ce7b2d3e6b917e36167f30e832805353714ce12f3421aba986eaa4ff76036",
+      "shard": "documents/000098.pt",
+      "tokens": 52024
+    },
+    {
+      "depth": 3,
+      "id": "doc_99",
+      "leaf_tensor_sha256": "f71729ba33be2abfe5d34cb6951401ad617768a676dc9040b1923b1a4d1610c6",
+      "leaves": 59,
+      "sha256": "2e3ba4cb65ac1d8b2ab793dbd63693720883d5be5a2945735e1267716686fb3a",
+      "shard": "documents/000099.pt",
+      "tokens": 60054
+    },
+    {
+      "depth": 3,
+      "id": "doc_100",
+      "leaf_tensor_sha256": "b2e7a01dad4791231aec5b252ebfb768e51186addeceaec80d0cba46052cecef",
+      "leaves": 57,
+      "sha256": "cb75b4ff55093aeb2f5ac0601d76800360abfb31c65b5d9e423f209e6b81d01e",
+      "shard": "documents/000100.pt",
+      "tokens": 57738
+    },
+    {
+      "depth": 3,
+      "id": "doc_101",
+      "leaf_tensor_sha256": "dc59fee967134c447c90fa46fbf576a1fe1fcf85f85d89bf3e380aec97b316ed",
+      "leaves": 43,
+      "sha256": "79cd17fcf9c9a30caedaf447d3741a8e68857a2c4df8fcf183bf141e67c83450",
+      "shard": "documents/000101.pt",
+      "tokens": 43438
+    },
+    {
+      "depth": 3,
+      "id": "doc_102",
+      "leaf_tensor_sha256": "673eac5cd0cbbce39f0c8b6854919afd7b24f941731941542dca543702603a9e",
+      "leaves": 55,
+      "sha256": "a7f947bbef620c90424ee771fd7b7be1a663760cc0b6bbd6972793b5e848c6dc",
+      "shard": "documents/000102.pt",
+      "tokens": 55962
+    },
+    {
+      "depth": 3,
+      "id": "doc_103",
+      "leaf_tensor_sha256": "9ce1804b42dcb65b5ef8a224e5d9756f609498653119a5abd9f9acb0d9e68742",
+      "leaves": 53,
+      "sha256": "7955198bc0bd0ad982ef27e79fbe410a1323f24612f2325cdcccb80f78a756c5",
+      "shard": "documents/000103.pt",
+      "tokens": 53550
+    },
+    {
+      "depth": 4,
+      "id": "doc_104",
+      "leaf_tensor_sha256": "b7d53a521e9dcfbee15d70496778927c014d367243f67082dceef2d7bc88170f",
+      "leaves": 73,
+      "sha256": "6d4a6dc265bdb7c467c69b16400570911543bc130fe5ebe35edfea3bddfd02e7",
+      "shard": "documents/000104.pt",
+      "tokens": 74650
+    },
+    {
+      "depth": 4,
+      "id": "doc_105",
+      "leaf_tensor_sha256": "a565a19116fcde77f42d901ec466ccd5929f4a796810cdc6a2238d2325296f9f",
+      "leaves": 161,
+      "sha256": "185c1dc2e91a4b048974dd6822042f52e7f4c11ed645fc63cbf8e3e6359f84ad",
+      "shard": "documents/000105.pt",
+      "tokens": 164844
+    },
+    {
+      "depth": 3,
+      "id": "doc_106",
+      "leaf_tensor_sha256": "c9e5a6ee60a984b0b1b7d9066798fd61cc06b439aa4eef56f8013e12f0c73b6c",
+      "leaves": 56,
+      "sha256": "faf19047955830c727d074c17be15d315b9a7b3bfdfa492a746d4a629529e484",
+      "shard": "documents/000106.pt",
+      "tokens": 57340
+    },
+    {
+      "depth": 4,
+      "id": "doc_107",
+      "leaf_tensor_sha256": "f1a8244fbe9cb2e40ec26673afa318f1d630c11cd793d4654dff3c717696e270",
+      "leaves": 70,
+      "sha256": "8f4cebdd88663478ab040feaad5667deb63fb330a31b94d53652acea8746ccbc",
+      "shard": "documents/000107.pt",
+      "tokens": 71459
+    },
+    {
+      "depth": 4,
+      "id": "doc_108",
+      "leaf_tensor_sha256": "0777b1ef5dff031473aed317b7a1e68f99f607f9f7f3603211cfc967f22a8b2c",
+      "leaves": 105,
+      "sha256": "75a6d7412888e09c64dc23cc2ead9fb78788998452712b642f7d50cf9430895b",
+      "shard": "documents/000108.pt",
+      "tokens": 106763
+    },
+    {
+      "depth": 3,
+      "id": "doc_109",
+      "leaf_tensor_sha256": "713042943fd2aca46af4c5956d0e94e7b3cfd7c9ef05128e0dfecbc17dabdf3e",
+      "leaves": 49,
+      "sha256": "4a1021020c3f3189a69d4fff0d48ff1729033b7b719aeb1552b838f77677ff80",
+      "shard": "documents/000109.pt",
+      "tokens": 49650
+    },
+    {
+      "depth": 3,
+      "id": "doc_110",
+      "leaf_tensor_sha256": "cbe3a5a03f22801cb32c3e064229a09b504747e8990d4555efedce9b8e82ed1a",
+      "leaves": 60,
+      "sha256": "ad38135ba627f93f6928d60ca3cd48d10b46dd601a1ef8f7482907b07eae68c6",
+      "shard": "documents/000110.pt",
+      "tokens": 60494
+    },
+    {
+      "depth": 4,
+      "id": "doc_111",
+      "leaf_tensor_sha256": "cf4dd65ca5cce18c2201ff005b00ca7806e2cb58d1f574208413253197836f85",
+      "leaves": 134,
+      "sha256": "f3a466e039c21c4f03eae9fa0cdb58cb1bdceedafc6863ea20330bff6713a740",
+      "shard": "documents/000111.pt",
+      "tokens": 136637
+    },
+    {
+      "depth": 3,
+      "id": "doc_112",
+      "leaf_tensor_sha256": "b73e29003c1480441d4dd9d6c2df1291d9079851320a8260fc682bdca54d275f",
+      "leaves": 61,
+      "sha256": "59b5b952e767be49c414f7f2b38633d870e846d4f30fb7d303ce039b434e89b9",
+      "shard": "documents/000112.pt",
+      "tokens": 61537
+    },
+    {
+      "depth": 3,
+      "id": "doc_113",
+      "leaf_tensor_sha256": "d11af6510fac634f2b1086f19dc98254b112402f2addb64ff874153b8f2a9799",
+      "leaves": 58,
+      "sha256": "a4a56450c802d637ab464411041eb5da28dfb46a191740926ecf117d8f2b139d",
+      "shard": "documents/000113.pt",
+      "tokens": 58476
+    },
+    {
+      "depth": 3,
+      "id": "doc_114",
+      "leaf_tensor_sha256": "fdada85ca2eb1685c98f502c22bb636981876bb3d19069facaed7f9155b37c1d",
+      "leaves": 50,
+      "sha256": "f2474dbccba8008a1d0df06950973c16a771da6b946dbd1ecd9bc0f3e742c17e",
+      "shard": "documents/000114.pt",
+      "tokens": 51097
+    },
+    {
+      "depth": 4,
+      "id": "doc_115",
+      "leaf_tensor_sha256": "55798be5a5d798ddfbd1a7bcdfd19eefd9c9ba7082c14f6b036640eed0aa60eb",
+      "leaves": 204,
+      "sha256": "ef21c6c73c7ed890dc48f31787ea13a7904e14ec6fa67d30f1ca6b7743ceb1a0",
+      "shard": "documents/000115.pt",
+      "tokens": 208773
+    },
+    {
+      "depth": 3,
+      "id": "doc_116",
+      "leaf_tensor_sha256": "4e8e71026db7f70aff6bb4eac417fca996182aba66f028b6819c46ce25999784",
+      "leaves": 50,
+      "sha256": "0d950215b84fbd5c5554c00701b2d1d6f3a040883cef9136610906237f92705e",
+      "shard": "documents/000116.pt",
+      "tokens": 50384
+    },
+    {
+      "depth": 3,
+      "id": "doc_117",
+      "leaf_tensor_sha256": "84c3d54575d12a6e07ac6353cf277784e19c2bcee7168acad4947f1ab0db4f5e",
+      "leaves": 23,
+      "sha256": "d6a899b12ec28d13578d08f756dbd67042fee1ad18cb3a6dfa9acb1c7611f24c",
+      "shard": "documents/000117.pt",
+      "tokens": 23392
+    },
+    {
+      "depth": 3,
+      "id": "doc_118",
+      "leaf_tensor_sha256": "ed60769851906ae561eee74c87d4fc54530fad63ab9fc9544f904d94bada6fc2",
+      "leaves": 56,
+      "sha256": "809a89c99fa418d21ee07979880ab397b9ce92c3976859667bfeb8e8c0d50ad9",
+      "shard": "documents/000118.pt",
+      "tokens": 56703
+    },
+    {
+      "depth": 3,
+      "id": "doc_119",
+      "leaf_tensor_sha256": "594b84d9c5321b170626299125a1e33fc769e640b8bcaddec38d4d4b828adefe",
+      "leaves": 46,
+      "sha256": "e66d05a1830c280ceff288c4c69ffe578e269ed9903d16fde6a51423d3369986",
+      "shard": "documents/000119.pt",
+      "tokens": 46224
+    },
+    {
+      "depth": 4,
+      "id": "doc_120",
+      "leaf_tensor_sha256": "fbb330a42cbe8bd757ee46eb7a9540d69cb7e4d15f0038712c72ae2e00abfab9",
+      "leaves": 84,
+      "sha256": "106c0a2e783fb9c115cf8234497fbcf3a4f2748806091f511e55d85a8bd6675d",
+      "shard": "documents/000120.pt",
+      "tokens": 85779
+    },
+    {
+      "depth": 4,
+      "id": "doc_121",
+      "leaf_tensor_sha256": "23bf0541f1dfdf078d2a115878b1162ad9ebd89ea43543c1507dfb8c559d00b9",
+      "leaves": 94,
+      "sha256": "754b498295b6d7fd0140d73eee021ffe0ac064c76e1ad11cdaab3e6f97e5e03b",
+      "shard": "documents/000121.pt",
+      "tokens": 95471
+    },
+    {
+      "depth": 4,
+      "id": "doc_122",
+      "leaf_tensor_sha256": "a2cad0e1261aeb4bcf4594a4a9fec8d98f12b867c933de235969c9dd6fd518b2",
+      "leaves": 110,
+      "sha256": "115b62ed4850fe461de25054c0bca50ef18a4d489820659b3f38d80ac65effec",
+      "shard": "documents/000122.pt",
+      "tokens": 112580
+    },
+    {
+      "depth": 3,
+      "id": "doc_123",
+      "leaf_tensor_sha256": "65db052f18bcf123762c9c8183fad2d1e0cfa6e340c062def89a91684cee6bbe",
+      "leaves": 56,
+      "sha256": "876e789c33200c95f352e23bd644a07cc560fd1b06a1f9a0ff57b8c49e85ad41",
+      "shard": "documents/000123.pt",
+      "tokens": 57170
+    },
+    {
+      "depth": 4,
+      "id": "doc_124",
+      "leaf_tensor_sha256": "47febbe6d658538371a7d666bff8489ef743fab7fd90ead57d8c029f8cbc932c",
+      "leaves": 71,
+      "sha256": "48bd556871437480bf5add3d38ecff75ba4fa3c890da95250c004ca1371de962",
+      "shard": "documents/000124.pt",
+      "tokens": 72679
+    },
+    {
+      "depth": 4,
+      "id": "doc_125",
+      "leaf_tensor_sha256": "bf230a3b3bdf5df56127402dfd9cd964ee2cfd910159bd75b3a8fc8bd9281ebd",
+      "leaves": 128,
+      "sha256": "72cf486200db97d9019b6ec83766a21d5b54e4d0b3c04d55dc91fccc82363ac4",
+      "shard": "documents/000125.pt",
+      "tokens": 130055
+    },
+    {
+      "depth": 3,
+      "id": "doc_126",
+      "leaf_tensor_sha256": "45bcda1fe3f9f150bbdb59781d602150d5401fa67dcdc66e10cfb81c2113283c",
+      "leaves": 52,
+      "sha256": "073871da6bcaafe9468d074958adf7d3c7ad4d78c5fe1b3845077b19026f6f5c",
+      "shard": "documents/000126.pt",
+      "tokens": 52605
+    },
+    {
+      "depth": 3,
+      "id": "doc_127",
+      "leaf_tensor_sha256": "8eda17cc4c8a52fc905025e4418c79c8432893ed83a63f4d326a76866a46fc12",
+      "leaves": 63,
+      "sha256": "463c0a90edc00077dbd7739472be22bb6d0d2f4ec12219f91116a343f0568ab3",
+      "shard": "documents/000127.pt",
+      "tokens": 63818
+    },
+    {
+      "depth": 3,
+      "id": "doc_128",
+      "leaf_tensor_sha256": "062305227dbff25f0807b97a12de67f8043bf6e1963adfc078a27e7a83225d79",
+      "leaves": 34,
+      "sha256": "f5ec6748142c0a166c0348a8e5726a680fe25af4627e50bd2978cce73fba8207",
+      "shard": "documents/000128.pt",
+      "tokens": 34780
+    },
+    {
+      "depth": 4,
+      "id": "doc_129",
+      "leaf_tensor_sha256": "290de337761d061e2fd175ebbe55aacb08c190a481d73d108b027d390ce541a4",
+      "leaves": 86,
+      "sha256": "73b65c45542ec05964661a1fb07395d08e52400bc4e7252bd67025ea760c280f",
+      "shard": "documents/000129.pt",
+      "tokens": 87398
+    },
+    {
+      "depth": 4,
+      "id": "doc_130",
+      "leaf_tensor_sha256": "80bafc41b848de4a1c15529fb6b90c2956c5a34a1f90e9ac9dc66b3ddba247ee",
+      "leaves": 88,
+      "sha256": "8ad8e316d5cd7e0e9a00f3660b4265fe48afe7861b027059937037c09df6c5a7",
+      "shard": "documents/000130.pt",
+      "tokens": 89657
+    },
+    {
+      "depth": 3,
+      "id": "doc_131",
+      "leaf_tensor_sha256": "e3caa3821a9b05093b82a4e64d0aff6b4a9abbd948b9655c8064ffbc35c6d669",
+      "leaves": 57,
+      "sha256": "162f9c65d13d8fd7dfe025a696d79a50defc051449546194893ff417b9960024",
+      "shard": "documents/000131.pt",
+      "tokens": 57477
+    },
+    {
+      "depth": 3,
+      "id": "doc_132",
+      "leaf_tensor_sha256": "51e963209a74d9341168ae7189ac7eef612bd883d1a512ab3514178a1f294bd3",
+      "leaves": 17,
+      "sha256": "e019776de82a1d60636c64d07f5b806e0cd36c576bdc747c60199e39d8f53713",
+      "shard": "documents/000132.pt",
+      "tokens": 16882
+    },
+    {
+      "depth": 3,
+      "id": "doc_133",
+      "leaf_tensor_sha256": "53f4c58605dc80a02857dcd3c2557117b0ef73d0f30d22a7faebc31c0f52aa08",
+      "leaves": 61,
+      "sha256": "6929439d0306eca7c7cb544f56ed68fa3831df781cedfce5c5b98b302cd7cf47",
+      "shard": "documents/000133.pt",
+      "tokens": 62231
+    },
+    {
+      "depth": 3,
+      "id": "doc_134",
+      "leaf_tensor_sha256": "365461f859d9fff98fe373caf58910101a9ab24b8a1564e814387ca4e09c63c8",
+      "leaves": 50,
+      "sha256": "ae052b4e59dd0c7f7bcee7f89c5f6388ebf36311adfce6ad20b51d7d44d817cc",
+      "shard": "documents/000134.pt",
+      "tokens": 50592
+    },
+    {
+      "depth": 3,
+      "id": "doc_135",
+      "leaf_tensor_sha256": "d6c03174ca9556726a012b71998b9759aa36cb011702d9d5f7cbbf45a2ca71a1",
+      "leaves": 64,
+      "sha256": "7f8a5403fad07569d006307bccc040f94fcd5c5137068a8ccc9cea300b82374f",
+      "shard": "documents/000135.pt",
+      "tokens": 64966
+    },
+    {
+      "depth": 4,
+      "id": "doc_136",
+      "leaf_tensor_sha256": "940d71965945a99c1e7b6db327a4796d72bd7e0f52a3ea97f6c2fb6a77f14611",
+      "leaves": 74,
+      "sha256": "922a86076e415dfb98a8812427568e41c91ce5afa97742349793835dbe5c44da",
+      "shard": "documents/000136.pt",
+      "tokens": 74868
+    },
+    {
+      "depth": 4,
+      "id": "doc_137",
+      "leaf_tensor_sha256": "af8d357c0f15e72a399f6ab9817621477f44ab77d303147a8efb1eda9aeb4fea",
+      "leaves": 84,
+      "sha256": "674eedb922d83450376ada59423bfab2df8e4c271a41d0b21e3abf56ed79872e",
+      "shard": "documents/000137.pt",
+      "tokens": 85086
+    },
+    {
+      "depth": 4,
+      "id": "doc_138",
+      "leaf_tensor_sha256": "61e1cde50a5269eaaf46ea2aa6a74e5a49e712a3dbc7cb37013e67e3273dcdce",
+      "leaves": 67,
+      "sha256": "2879025fbbcb88fa941c3cb918621dde7015bb71c3755079b6ab9128716d02c7",
+      "shard": "documents/000138.pt",
+      "tokens": 67932
+    },
+    {
+      "depth": 4,
+      "id": "doc_139",
+      "leaf_tensor_sha256": "34bb7f1f0ce329f364024887b0b1556591523de450e6ff13f0176a29ebf28975",
+      "leaves": 120,
+      "sha256": "0579da650dc24f17d12570dd4af6e2869ce37e4b2eaf7e7feea74a0a65fe6999",
+      "shard": "documents/000139.pt",
+      "tokens": 121957
+    },
+    {
+      "depth": 4,
+      "id": "doc_140",
+      "leaf_tensor_sha256": "da728a0299e16187eebd6a42963ffba3e279180ac7e916a3e25125c2e70d0a76",
+      "leaves": 196,
+      "sha256": "2541dce9d607c2f0a9ab8b623dac0d569aab015b4e7d97fecc1f1298ab978af1",
+      "shard": "documents/000140.pt",
+      "tokens": 200689
+    },
+    {
+      "depth": 4,
+      "id": "doc_141",
+      "leaf_tensor_sha256": "5ab13251804eab9e4ef467431e35adccd66c5fff608f71866317ed748a062ce2",
+      "leaves": 89,
+      "sha256": "7bc958c4d4618ce20faccace404c26c3d6babce3ba7da60e874263bdf0aaf85b",
+      "shard": "documents/000141.pt",
+      "tokens": 90780
+    },
+    {
+      "depth": 4,
+      "id": "doc_142",
+      "leaf_tensor_sha256": "c508f11e3e3855490fd2d1eea712836cb388941ef9d5a995066be29865077b05",
+      "leaves": 83,
+      "sha256": "700dc64fb26167d7e980ab91bc7539447d9002575286cb646fe0d5b3a9e32fc5",
+      "shard": "documents/000142.pt",
+      "tokens": 84599
+    },
+    {
+      "depth": 4,
+      "id": "doc_143",
+      "leaf_tensor_sha256": "bce06efc098b05ec857032e91ca37577a108d13f4247fe74461fa90e8b0709d7",
+      "leaves": 148,
+      "sha256": "31733827911c4d8080178ca20970f6e3868e428b888f7137bb37bd24b76c7012",
+      "shard": "documents/000143.pt",
+      "tokens": 150617
+    },
+    {
+      "depth": 2,
+      "id": "doc_144",
+      "leaf_tensor_sha256": "f1f349df02f6cf18e978067bed0cb3965fb49fc3f2ce41cca26d42eb12c65626",
+      "leaves": 12,
+      "sha256": "b38d3183d86331154bbff7be5fba495e7ae5ca6434a57a514e5529e7b98a48df",
+      "shard": "documents/000144.pt",
+      "tokens": 11838
+    },
+    {
+      "depth": 3,
+      "id": "doc_145",
+      "leaf_tensor_sha256": "753129a3448c2aae8675e87c65f87c418bb6324dd5e3a47fdeaf6617ef0e8693",
+      "leaves": 56,
+      "sha256": "e5e0502231fced70b259d29c7911ba14dc3f6321b3a4f4b06111f059c90bce58",
+      "shard": "documents/000145.pt",
+      "tokens": 56566
+    },
+    {
+      "depth": 3,
+      "id": "doc_146",
+      "leaf_tensor_sha256": "8f8a861bea32ec49097e4b92584d6e084b8ea4dff99912635b7d0c3c3d3e6e8e",
+      "leaves": 60,
+      "sha256": "021ec09ee661c4d7bc59b0e32d0bced53d2e0c416f74565db57610752e671623",
+      "shard": "documents/000146.pt",
+      "tokens": 61303
+    },
+    {
+      "depth": 4,
+      "id": "doc_147",
+      "leaf_tensor_sha256": "99ec595bcf3e2425b74f8e123e5c77ac289430c9d475dac04ff395a4881c968d",
+      "leaves": 85,
+      "sha256": "6eaf9272cf86b7461c9741d3f50cfc56485f26e0fc4782e8af0af4502ecb6df6",
+      "shard": "documents/000147.pt",
+      "tokens": 86870
+    },
+    {
+      "depth": 3,
+      "id": "doc_148",
+      "leaf_tensor_sha256": "cc427c5ccdc741117ed4095e41590d40d514d144087fd2034b40e06071005b9e",
+      "leaves": 60,
+      "sha256": "4d40bb6577cc834246eb4356a5b1df778de108c8420348b8fc3139261d826f4e",
+      "shard": "documents/000148.pt",
+      "tokens": 60688
+    },
+    {
+      "depth": 3,
+      "id": "doc_149",
+      "leaf_tensor_sha256": "075370f0658a3f789082a3630afe1b23ce0290b2bca339dc42988d0b7d35519b",
+      "leaves": 43,
+      "sha256": "da4749bbaade0be8bb20c72ea2f58574aaf1c7006bfec4014f3b0d4a43111e5f",
+      "shard": "documents/000149.pt",
+      "tokens": 43494
+    },
+    {
+      "depth": 3,
+      "id": "doc_150",
+      "leaf_tensor_sha256": "d59db67f8ea944775f545524bfcd8f624e4ecdfca86341e811247e9d2ad91fe4",
+      "leaves": 56,
+      "sha256": "5bd4e0a9c46fd621b88ff1281b9005b59c6fda8b742c12bf1ac02cfd8de3f41b",
+      "shard": "documents/000150.pt",
+      "tokens": 56790
+    },
+    {
+      "depth": 4,
+      "id": "doc_151",
+      "leaf_tensor_sha256": "b1434a53e08194207ca131d9c4e56ac8ee070bed9924fc27221b06fb906a9f0b",
+      "leaves": 68,
+      "sha256": "c947cf156274ab5e4f0d612481e944ec605349cd77657b25b5ae91668a833ba8",
+      "shard": "documents/000151.pt",
+      "tokens": 68876
+    },
+    {
+      "depth": 2,
+      "id": "doc_152",
+      "leaf_tensor_sha256": "0273b03a53a93e57f6da27efb514236510515eeeb4d8a958c0cf8f5f723756e4",
+      "leaves": 9,
+      "sha256": "a09dbf2cbabb638ca8b2169570304fd3723d4a4241570a7d30e18b84ee6c483e",
+      "shard": "documents/000152.pt",
+      "tokens": 8417
+    },
+    {
+      "depth": 3,
+      "id": "doc_153",
+      "leaf_tensor_sha256": "2207fc07cc5c0cb8895bb6ed349c6bfdb7ba07548ae240f7425cfa3b4e725213",
+      "leaves": 45,
+      "sha256": "f3a2dd86b4e54ba82039df9188bc0135fc572efd38695d2fe5da71d1c77f33b8",
+      "shard": "documents/000153.pt",
+      "tokens": 45625
+    },
+    {
+      "depth": 4,
+      "id": "doc_154",
+      "leaf_tensor_sha256": "1f86393c2b88e27839841aa6ffde13c1f4bdb3357cfd60e4d871420e97218041",
+      "leaves": 129,
+      "sha256": "68f83baaf4dbc4ab431310f1230a3e01861064dcd25d33304adfe26a63317f8a",
+      "shard": "documents/000154.pt",
+      "tokens": 131714
+    },
+    {
+      "depth": 3,
+      "id": "doc_155",
+      "leaf_tensor_sha256": "cceb3f51f7745c350f5fa58ab70d2c09062e83ac618d77704c8a21679f955a6b",
+      "leaves": 53,
+      "sha256": "9ee9fc9cf3925bd67e07e1f86ba79f0ab4d528b859bc2e98b04304b945f1269f",
+      "shard": "documents/000155.pt",
+      "tokens": 53740
+    },
+    {
+      "depth": 3,
+      "id": "doc_156",
+      "leaf_tensor_sha256": "cf47cc6891c59f7de34a092d80d9d5d62ed86ef20679071fdc2b154c2ca1c99f",
+      "leaves": 49,
+      "sha256": "443524aa909c5eff4435b83df11d82651ba0ee8336bdb6417b3e37f1c3b2ec7f",
+      "shard": "documents/000156.pt",
+      "tokens": 49308
+    },
+    {
+      "depth": 4,
+      "id": "doc_157",
+      "leaf_tensor_sha256": "21ac7463bebab939bbfe647d6d54061d2ddd6c44d994ca38cccef9aa10803256",
+      "leaves": 65,
+      "sha256": "c7f3231aea5ab8ea68f4da6d7b6d069394dd1894a323f17010f21046cb871269",
+      "shard": "documents/000157.pt",
+      "tokens": 65981
+    },
+    {
+      "depth": 4,
+      "id": "doc_158",
+      "leaf_tensor_sha256": "085044a61282433e10543cf04ccf3e7f007b0376665b42ef88ce5aa9f90dc5bd",
+      "leaves": 130,
+      "sha256": "a882952684ba77017f24a6bfb44ef6be96588da4e655e53b57544438b63e0393",
+      "shard": "documents/000158.pt",
+      "tokens": 132256
+    },
+    {
+      "depth": 4,
+      "id": "doc_159",
+      "leaf_tensor_sha256": "b8c92471b216a73ad676d432111f3a4526fe30756637a8f3fd2d100f85213b05",
+      "leaves": 159,
+      "sha256": "aa5d18ad17e791472337d9b131c52f0cec6ed856b0d3940d77a7a5bff372eba5",
+      "shard": "documents/000159.pt",
+      "tokens": 162302
+    },
+    {
+      "depth": 4,
+      "id": "doc_160",
+      "leaf_tensor_sha256": "0ae0a1d8747beafb351f6b826229015a8690c59038226cd755f27f2069dcca04",
+      "leaves": 74,
+      "sha256": "440e19a1bca776f6bfdc2a34708f19972029a2cb051b66551469ca3ac925ca21",
+      "shard": "documents/000160.pt",
+      "tokens": 74989
+    },
+    {
+      "depth": 4,
+      "id": "doc_161",
+      "leaf_tensor_sha256": "b0f57ddcb9c882a1e4d63e3e69e1f05c1373ecfba775aeee3d1047b522ca9aa9",
+      "leaves": 81,
+      "sha256": "9d5669c73006c1adc155a1ff4f17590a9f365c8df5ad6fb0a4483268b0c5b338",
+      "shard": "documents/000161.pt",
+      "tokens": 82532
+    },
+    {
+      "depth": 4,
+      "id": "doc_162",
+      "leaf_tensor_sha256": "852598852f06ed2f8a3340f87b1b8dc438308b660fd8e0908c0b5f9d2f3d8b57",
+      "leaves": 69,
+      "sha256": "579ed004737f322bd1c36b1b9279dbd282dd78f00640cf60fb49a8a90b872f13",
+      "shard": "documents/000162.pt",
+      "tokens": 70072
+    },
+    {
+      "depth": 4,
+      "id": "doc_163",
+      "leaf_tensor_sha256": "7a0291c9e8252742b70893f4ffad094ece8d14472c1ecf53be627d8b5209781d",
+      "leaves": 74,
+      "sha256": "49c76ab60353350bf2ab80cbad66d10bb4066e23d6617b190d04a9af59f60f81",
+      "shard": "documents/000163.pt",
+      "tokens": 74883
+    },
+    {
+      "depth": 3,
+      "id": "doc_164",
+      "leaf_tensor_sha256": "e0c7cbc359b79274d432842024a6f88713e03f39a6a1676aade9eaf1041497a5",
+      "leaves": 53,
+      "sha256": "dd7cf910534627c025030fa65e1782e86ba36c33f8629c8d49552a8124389919",
+      "shard": "documents/000164.pt",
+      "tokens": 53989
+    },
+    {
+      "depth": 3,
+      "id": "doc_165",
+      "leaf_tensor_sha256": "8d651c68ad864111d71adf3fa807fe9c93ca7964cd19e532b97c5142202d4cd5",
+      "leaves": 64,
+      "sha256": "310f2e5bbac77e276318fc4d57ae02e5925133420e5f805eb280a7c017ae352c",
+      "shard": "documents/000165.pt",
+      "tokens": 64887
+    },
+    {
+      "depth": 4,
+      "id": "doc_166",
+      "leaf_tensor_sha256": "d624a76efe31d5876141b5a2e5a8da209c4a46edaf48168e74141f3685ec1c0d",
+      "leaves": 73,
+      "sha256": "599209091a6012db1ef42cdbae8deb163923a5fd0cc03f1333ae7c060a060367",
+      "shard": "documents/000166.pt",
+      "tokens": 73879
+    },
+    {
+      "depth": 4,
+      "id": "doc_167",
+      "leaf_tensor_sha256": "b6f08d41253c9081934d4852946265ec33161ffaf49237c214977f8441496e4a",
+      "leaves": 68,
+      "sha256": "311ce0ef9bd061e105683a5d98a28b03ff13d71d7b985ed9fbadd6045c9bf16e",
+      "shard": "documents/000167.pt",
+      "tokens": 68697
+    },
+    {
+      "depth": 3,
+      "id": "doc_168",
+      "leaf_tensor_sha256": "cb33ca60f5340dca932783211ec744f79a0d280de093eb781b7571b0f2049496",
+      "leaves": 54,
+      "sha256": "5a8119a4731c97bc3ae631eab2a1cac37a3c88bc3b9068745c7fc4d8a566fbb0",
+      "shard": "documents/000168.pt",
+      "tokens": 54463
+    },
+    {
+      "depth": 3,
+      "id": "doc_169",
+      "leaf_tensor_sha256": "cc1614512f1b07ae2c5f7e410597ab08ed794d9a43cc6a8549135c841031f3db",
+      "leaves": 22,
+      "sha256": "e59abc1cdf7c06121033119425afc2b2531baef639eb9e197ee5c032ea02c4b6",
+      "shard": "documents/000169.pt",
+      "tokens": 22188
+    },
+    {
+      "depth": 4,
+      "id": "doc_170",
+      "leaf_tensor_sha256": "ac710de9a669a0dc4c9f7aa2ace2b5dfba9942c875ee5fc9e0c95b77c0305ee7",
+      "leaves": 170,
+      "sha256": "dd6e31a67f4de9543e776b6c2770e92aa673d78ea8236572aacc606bfc7d650e",
+      "shard": "documents/000170.pt",
+      "tokens": 173484
+    },
+    {
+      "depth": 3,
+      "id": "doc_171",
+      "leaf_tensor_sha256": "d21863eac1af8973e7fa629458c9354e64d4844012069fcf1d9e79df77fb76a8",
+      "leaves": 36,
+      "sha256": "f6b5b973068dc13c63c575b3c80e4748fec7035cba234d7894e0a1d9c91d7d3c",
+      "shard": "documents/000171.pt",
+      "tokens": 36843
+    },
+    {
+      "depth": 3,
+      "id": "doc_172",
+      "leaf_tensor_sha256": "b23f26cc9ff7340f017f01f7541fd89c8b928c39ee1e0c5190b1c7b27d5787e9",
+      "leaves": 54,
+      "sha256": "98d5074fba25dcd3d18fc861eda1f40f7954fc0804344405615a73303c5a66a0",
+      "shard": "documents/000172.pt",
+      "tokens": 54662
+    },
+    {
+      "depth": 4,
+      "id": "doc_173",
+      "leaf_tensor_sha256": "1102c207b270a6ea0342ee0e83c471f136358c6aea1ff8fc60202a92b0fd37b8",
+      "leaves": 74,
+      "sha256": "99aa912f89d9daafbf02939b91f6fafd50da2b6add652f130b03a9fc3c83b8f3",
+      "shard": "documents/000173.pt",
+      "tokens": 75638
+    },
+    {
+      "depth": 3,
+      "id": "doc_174",
+      "leaf_tensor_sha256": "43c4b48326eeee1606c792283dd76bcc25a3ba90cfda8b2c17201cf55a9996d2",
+      "leaves": 48,
+      "sha256": "4df7493473619ba2dce2a2dd195e47d8a5362b6b9abe357e09c4d6825b67efd6",
+      "shard": "documents/000174.pt",
+      "tokens": 48818
+    },
+    {
+      "depth": 4,
+      "id": "doc_175",
+      "leaf_tensor_sha256": "af628eea6fec95eb0c123f1df944b855591855bae9618b537b682f2cedabb531",
+      "leaves": 128,
+      "sha256": "b7672fb12007d75a2da2d537544da3fa8c29d24a495f441617f56f9dcd82bb4d",
+      "shard": "documents/000175.pt",
+      "tokens": 130058
+    },
+    {
+      "depth": 3,
+      "id": "doc_176",
+      "leaf_tensor_sha256": "d78d1b74cd22a02d65637d962ad9f5be505ec7d4e3b1353f52e045a0d883b503",
+      "leaves": 42,
+      "sha256": "baae224a54570eed30a6d8064f1ac4005e6bf636e6853ba613ac138d2968ba5c",
+      "shard": "documents/000176.pt",
+      "tokens": 42423
+    },
+    {
+      "depth": 3,
+      "id": "doc_177",
+      "leaf_tensor_sha256": "d8c439ba0dd65dd15106f9e6a1c7911bddf521dcea72dfaa898db980158bf08d",
+      "leaves": 51,
+      "sha256": "d7c83e9cbbb29c3781ad8ce3dbfedf0d5a3e38b0a36d4d353683fd160c87ea7b",
+      "shard": "documents/000177.pt",
+      "tokens": 51352
+    },
+    {
+      "depth": 3,
+      "id": "doc_178",
+      "leaf_tensor_sha256": "7984c3e2259ef215e29a538b896825b68dc69309178e2984e06789defb7e564f",
+      "leaves": 56,
+      "sha256": "a9be0da46aa83896e28635e6f0d81e0fb70f8112bb281292484d1eb448dbb01a",
+      "shard": "documents/000178.pt",
+      "tokens": 57195
+    },
+    {
+      "depth": 3,
+      "id": "doc_179",
+      "leaf_tensor_sha256": "7bc5407eb1efcb08afb3f705ebb8da01b16db4bc9ec44600d2140345c08b61cf",
+      "leaves": 47,
+      "sha256": "9b5ee6352158212efdfe5e6687f8d895f1540f35ee66da58b4429b5bd9d5e812",
+      "shard": "documents/000179.pt",
+      "tokens": 48095
+    },
+    {
+      "depth": 3,
+      "id": "doc_180",
+      "leaf_tensor_sha256": "a0bd4588d25d0188084b51dc7ef594017c71144c2c75a5280e2445250aa8cb90",
+      "leaves": 64,
+      "sha256": "89335136169e4e3d21e421333f0a5c4945b3f858a55157ef1f42361e5de65d58",
+      "shard": "documents/000180.pt",
+      "tokens": 65468
+    },
+    {
+      "depth": 4,
+      "id": "doc_181",
+      "leaf_tensor_sha256": "15d65b8249ed93da46e3dcf100e4995414958ff4fd878e8f5d0cc231496c40c7",
+      "leaves": 77,
+      "sha256": "9879896db8526d1984e3faea26cd1ba3ba239532daddabebfbce6a141aaf59da",
+      "shard": "documents/000181.pt",
+      "tokens": 77880
+    },
+    {
+      "depth": 4,
+      "id": "doc_182",
+      "leaf_tensor_sha256": "8214642c06ea82aa197d5aab7ab612477a10f53f5ef8a94625875efb6b49b061",
+      "leaves": 110,
+      "sha256": "01b54228cca35715b1d5ba6ccc8d5a26a81047674e2434b9f204010324b5c85f",
+      "shard": "documents/000182.pt",
+      "tokens": 111814
+    },
+    {
+      "depth": 2,
+      "id": "doc_183",
+      "leaf_tensor_sha256": "04dc585d3e3ac4851d9f92127259fc8423c1fa3e85eec3094f52e9cf1c86b4c6",
+      "leaves": 14,
+      "sha256": "5621609906abf492b9c0685adfbf909399de8ea39c195f33cd8874c57db3f4d0",
+      "shard": "documents/000183.pt",
+      "tokens": 13339
+    },
+    {
+      "depth": 4,
+      "id": "doc_184",
+      "leaf_tensor_sha256": "f1caaea5c5e3d4bfd321509fe44efc59dd5427c7ce315595a6b1d356166cc0fe",
+      "leaves": 204,
+      "sha256": "f5c2a290f11a6647397cb7f4f8d1f97c72bfb4b51793a0cdf75f2270f2a9dd50",
+      "shard": "documents/000184.pt",
+      "tokens": 208849
+    },
+    {
+      "depth": 3,
+      "id": "doc_185",
+      "leaf_tensor_sha256": "c5d89de8c712150108676f9907770819045ac59845c9bc3052d1fff99fd2dbd8",
+      "leaves": 58,
+      "sha256": "b2070f797c3362291dad45d0cd8d2157051ff3e72eddce393ddee419b9d10684",
+      "shard": "documents/000185.pt",
+      "tokens": 58972
+    },
+    {
+      "depth": 4,
+      "id": "doc_186",
+      "leaf_tensor_sha256": "1c541c28ffd91c21ce135ac5401455e5031c2bbd87ec9ada24ff0595039fa5db",
+      "leaves": 137,
+      "sha256": "593a6cd9d6731d9d3c418cb1def008b80825f8076a1ab9ee1d0416bad072567d",
+      "shard": "documents/000186.pt",
+      "tokens": 140056
+    },
+    {
+      "depth": 4,
+      "id": "doc_187",
+      "leaf_tensor_sha256": "4dcb894b083c253047c24d6d248457d0ebe50305a33e7c28d4338781a18c28ce",
+      "leaves": 216,
+      "sha256": "b1abd1fa29401186db28a600ee2713dba94d67806c3af1c3e88ec784ba072f39",
+      "shard": "documents/000187.pt",
+      "tokens": 221154
+    },
+    {
+      "depth": 4,
+      "id": "doc_188",
+      "leaf_tensor_sha256": "ec9acde7eff72f0bb68d6814463ec956b1d21e981ef4f2307f1e205719d4506f",
+      "leaves": 120,
+      "sha256": "b0c05c03ec147a47e10fcc604dc6fa4088cf6b7028eb0a8d49dfc16663940e44",
+      "shard": "documents/000188.pt",
+      "tokens": 122145
+    },
+    {
+      "depth": 4,
+      "id": "doc_189",
+      "leaf_tensor_sha256": "c8cf9f2c923ebf6f93257c00e087784fa0f0fe3d983b0cb794a7fe31e3cd130e",
+      "leaves": 109,
+      "sha256": "8f44a98c72a512fc4203d14890738448f2eae2effd2a9b3395d5fd4e1f3d5273",
+      "shard": "documents/000189.pt",
+      "tokens": 111432
+    },
+    {
+      "depth": 3,
+      "id": "doc_190",
+      "leaf_tensor_sha256": "f570fbb7fc9045eebc7ebbc615ca4180cee69791d3ba701bdc89e82479a18617",
+      "leaves": 61,
+      "sha256": "2f3b8089b042655ef6914e627ce5acb0208294a3141d1b6bb5ba5bce96b4c903",
+      "shard": "documents/000190.pt",
+      "tokens": 62329
+    },
+    {
+      "depth": 4,
+      "id": "doc_191",
+      "leaf_tensor_sha256": "32af385911a1d2e78a3d9a3795fe094bd6692822894f754f491ecb4e710c2d7d",
+      "leaves": 147,
+      "sha256": "a7be99f61706de76c8efc590b34a32da7b641e01b37031b7914f3a1e746daa47",
+      "shard": "documents/000191.pt",
+      "tokens": 149641
+    },
+    {
+      "depth": 4,
+      "id": "doc_192",
+      "leaf_tensor_sha256": "92c74f9d01b8b18846b1d44fbe0f8d39c017ebe097cd89b457b0a258d20eeefd",
+      "leaves": 78,
+      "sha256": "9babbd33deff8e774a9e75cc4e5324b4541be4ef05262944067a09b43a6dcecb",
+      "shard": "documents/000192.pt",
+      "tokens": 79746
+    },
+    {
+      "depth": 4,
+      "id": "doc_193",
+      "leaf_tensor_sha256": "32516207ff49da79644e07fcebea5cdc077d6763c6236b873f9257497045d762",
+      "leaves": 76,
+      "sha256": "d01e122deaf10db7cbc65f9048db7cad208ec2204bcee37b3d7c442b00432451",
+      "shard": "documents/000193.pt",
+      "tokens": 77221
+    },
+    {
+      "depth": 3,
+      "id": "doc_194",
+      "leaf_tensor_sha256": "e0126acc0c9666dfa33ecff3705ca52c266355788abddb742418afe82a615ffa",
+      "leaves": 22,
+      "sha256": "334f6dd429b2636ed0f674e7f2994c6be22af55406a4df913a5f25875bb31aed",
+      "shard": "documents/000194.pt",
+      "tokens": 21872
+    },
+    {
+      "depth": 3,
+      "id": "doc_195",
+      "leaf_tensor_sha256": "ace247435374dd0648bc7a02efaba4e223686e988bd7a9f2022d5b8178a766fb",
+      "leaves": 64,
+      "sha256": "60feae0888afd92caec50c7377a6bc0ed38f021404a960fa7f9835e619bee30a",
+      "shard": "documents/000195.pt",
+      "tokens": 64600
+    },
+    {
+      "depth": 4,
+      "id": "doc_196",
+      "leaf_tensor_sha256": "5f5b8c10c2a1e36b8031cf5489084d7edc1959722a1290cc609dd02a1eaff883",
+      "leaves": 147,
+      "sha256": "2ec27f3e54236c410e4b92d44ac01fb8d7019da10807699204b4d8599d60a223",
+      "shard": "documents/000196.pt",
+      "tokens": 150085
+    },
+    {
+      "depth": 4,
+      "id": "doc_197",
+      "leaf_tensor_sha256": "9572676ee3242556253fd93b26255f905ca05b99992bbb1b4695e7c4a93a09b3",
+      "leaves": 130,
+      "sha256": "5ac952a21137367b05bde1bb3340a06ce21eff350693fa0ee6b0c14692068fe8",
+      "shard": "documents/000197.pt",
+      "tokens": 132646
+    },
+    {
+      "depth": 4,
+      "id": "doc_198",
+      "leaf_tensor_sha256": "7b6b64b20c3b5486fa8448f2a88413041380d898bf5c58b846fa0b23167e4919",
+      "leaves": 66,
+      "sha256": "f2f417a3e47a646400042e036227c0902e0f797b004d8a1060dc46b4ddeb83d3",
+      "shard": "documents/000198.pt",
+      "tokens": 66585
+    },
+    {
+      "depth": 4,
+      "id": "doc_199",
+      "leaf_tensor_sha256": "2d18c8ae4648bbee8c94c6b66871e616eadaf935abfec2162d6e5089da3a61ee",
+      "leaves": 65,
+      "sha256": "9c8087015d42488f3eb562508821b00bc7921fa61f5d6556a638c51a745c2344",
+      "shard": "documents/000199.pt",
+      "tokens": 65817
+    },
+    {
+      "depth": 2,
+      "id": "doc_200",
+      "leaf_tensor_sha256": "715d7ab629073fd29890bb5f39cb080eb46c3a3bfaf33e8fe995871f0ca9c7ed",
+      "leaves": 7,
+      "sha256": "4afa06b8799acae7669164035c7ad6c5adb1dda14757f0dd152b63994f64a415",
+      "shard": "documents/000200.pt",
+      "tokens": 6981
+    },
+    {
+      "depth": 3,
+      "id": "doc_201",
+      "leaf_tensor_sha256": "ed0dee7d58ac900de00b932d4034fa92d666aadb9f4af01cda3b779443558e5e",
+      "leaves": 64,
+      "sha256": "adc68c3a9dc0635fe079c1d65c1db7370f9f86eeb53af62ebe71110b8193cd02",
+      "shard": "documents/000201.pt",
+      "tokens": 65036
+    },
+    {
+      "depth": 3,
+      "id": "doc_202",
+      "leaf_tensor_sha256": "a7edb003313f8f479721207f555548e9e039bef2db423c1e5a1a1eb682b34065",
+      "leaves": 24,
+      "sha256": "e73ed6dba551f4a3cb7e0a45b360227c542f762d781a379d9f19cebcc8b6905b",
+      "shard": "documents/000202.pt",
+      "tokens": 23950
+    },
+    {
+      "depth": 3,
+      "id": "doc_203",
+      "leaf_tensor_sha256": "5e2bd89bcff174abd9ce8bd6d847580b965c68447198701d89f764c73a3a9d31",
+      "leaves": 42,
+      "sha256": "db2b715a2d9ad239d944000f2001d9fc66b7179dd0d5d76bf8f8a7fdb4579f06",
+      "shard": "documents/000203.pt",
+      "tokens": 42820
+    },
+    {
+      "depth": 3,
+      "id": "doc_204",
+      "leaf_tensor_sha256": "57fe8136c1531eb051bb3aaa4d158542c8184f1f7874dcdd58079c273a5ba204",
+      "leaves": 57,
+      "sha256": "f8c6e376d21982ebce0707b6e3b4c800fe0e8ddfecb8fb8927b6737a884c3438",
+      "shard": "documents/000204.pt",
+      "tokens": 58003
+    },
+    {
+      "depth": 4,
+      "id": "doc_205",
+      "leaf_tensor_sha256": "ca8609e1ac21f0c7a1d3b22169e088d2e1d6af76225483fa28f53537c13d47e9",
+      "leaves": 65,
+      "sha256": "0e02077d8c6a9406291f63d46c9d92793073cc0f4f2441d2b3ce613bb617f9c7",
+      "shard": "documents/000205.pt",
+      "tokens": 65629
+    },
+    {
+      "depth": 4,
+      "id": "doc_206",
+      "leaf_tensor_sha256": "b011fae3b052e931eb8ef2b6fd28737f28b1b184febf69b7545a7e208cdc7e42",
+      "leaves": 65,
+      "sha256": "a321c27873fd4b4efaaf34ee67c6d8ebb9f39b330a6716c84c6023b1563816b8",
+      "shard": "documents/000206.pt",
+      "tokens": 66461
+    },
+    {
+      "depth": 3,
+      "id": "doc_207",
+      "leaf_tensor_sha256": "aa2c0c371329eece3d2a066ec7a37b9cbc677ee85ed31feb00e1444c2a498c1a",
+      "leaves": 23,
+      "sha256": "84c31d78d163eb030718ed209fd25fa3dd7c3d2a3b5f4d92426f2f7a4c8926a5",
+      "shard": "documents/000207.pt",
+      "tokens": 23248
+    },
+    {
+      "depth": 3,
+      "id": "doc_208",
+      "leaf_tensor_sha256": "f1a143433aa1ce1550187782e9cd7b67dc23a432475568eea986541a2f9203ca",
+      "leaves": 25,
+      "sha256": "6b1f333ba1af21dd39eedc3da43d746789ef0670b6bc8d2e0b0369c6d38ba5bc",
+      "shard": "documents/000208.pt",
+      "tokens": 25033
+    },
+    {
+      "depth": 4,
+      "id": "doc_209",
+      "leaf_tensor_sha256": "adaf0bd4ec595ed15eb6988f06f0281dfee1b681f20c15f8bb9383a4b1ff4e08",
+      "leaves": 83,
+      "sha256": "fbed390284c716e30dc8f09330057fbe607ea4aa88d677d958d87d5f36d2d945",
+      "shard": "documents/000209.pt",
+      "tokens": 84380
+    },
+    {
+      "depth": 3,
+      "id": "doc_210",
+      "leaf_tensor_sha256": "226e29631739eb89bfb5c6b19f012b25f3b1ec299d26d61024b4675049b89036",
+      "leaves": 57,
+      "sha256": "0c629d4a4d54bbb37e85ed983ea9797dfa8eab705688b973741917e0250ed2da",
+      "shard": "documents/000210.pt",
+      "tokens": 57497
+    },
+    {
+      "depth": 3,
+      "id": "doc_211",
+      "leaf_tensor_sha256": "8fb3b4da1c3d0a565423843cb2725398449d32f6353a77def61fcf5962a28470",
+      "leaves": 56,
+      "sha256": "3337756403162b46bf97ad9583340b7f489e747aaf2e76bbc1410ddefe7ef091",
+      "shard": "documents/000211.pt",
+      "tokens": 57144
+    },
+    {
+      "depth": 3,
+      "id": "doc_212",
+      "leaf_tensor_sha256": "12f3728cd630d02cf0f26f8eaa7462a25a567946de59fa9d5d3a817ec8a8012d",
+      "leaves": 61,
+      "sha256": "0856bf9861ef2a622b3ffea150c38861eb5f806e685688cc7ff0e29e117b2618",
+      "shard": "documents/000212.pt",
+      "tokens": 61616
+    },
+    {
+      "depth": 4,
+      "id": "doc_213",
+      "leaf_tensor_sha256": "9cd8902b40ad982a13cd372a85c0abfbd2d387872d72ef08178e3fc81a7a1084",
+      "leaves": 83,
+      "sha256": "9216ec3b77d258c854882b8c043266eb8a2a597bc5d44c0c38d0cb58cd0904b8",
+      "shard": "documents/000213.pt",
+      "tokens": 84251
+    },
+    {
+      "depth": 3,
+      "id": "doc_214",
+      "leaf_tensor_sha256": "b56abf26063f387eae1764b346ae072817657d160c11655b5385a0f2a51552c0",
+      "leaves": 56,
+      "sha256": "5ad86d692842e1d4d4b30961815edbe873a0266d4eb22d8a6d9e6d97de296df4",
+      "shard": "documents/000214.pt",
+      "tokens": 56449
+    },
+    {
+      "depth": 4,
+      "id": "doc_215",
+      "leaf_tensor_sha256": "158e90ede245a1729b8e94c87c3740f9988700eaffc71f4c633240e8e59d1096",
+      "leaves": 74,
+      "sha256": "cb5a80e4ef42b771b7f54c651a3b070702c35ed1ad79cc1325fa7e617519c167",
+      "shard": "documents/000215.pt",
+      "tokens": 75174
+    },
+    {
+      "depth": 4,
+      "id": "doc_216",
+      "leaf_tensor_sha256": "80d6282a8a3060ef819d25570f02fcfd4560b2ef75d84ce4f10f063af060fa16",
+      "leaves": 70,
+      "sha256": "98c02d4b6509e48d526b3c5f87979442e8d2f56a866ad1a77658bf5c31703c42",
+      "shard": "documents/000216.pt",
+      "tokens": 71151
+    },
+    {
+      "depth": 4,
+      "id": "doc_217",
+      "leaf_tensor_sha256": "fea7693839bcc261b85ae28f9be1388ee19c401877faae78abef8a2665e71b28",
+      "leaves": 109,
+      "sha256": "08402802ea471cbcc518895514eebc13b8ecf1d21c6c36bcd3a0e8afacbf9140",
+      "shard": "documents/000217.pt",
+      "tokens": 111063
+    },
+    {
+      "depth": 3,
+      "id": "doc_218",
+      "leaf_tensor_sha256": "749f5ab76ee2feb802bd4a9dbdd6655c6a0cf0f364c3849a2f42f9e8330bf091",
+      "leaves": 61,
+      "sha256": "3e0c4bffe6b79a04daafcfa1ad83f0b347b9d9fae8f89cca7e0e93b05daeb486",
+      "shard": "documents/000218.pt",
+      "tokens": 61697
+    },
+    {
+      "depth": 4,
+      "id": "doc_219",
+      "leaf_tensor_sha256": "8c3e5baac56c9a6ef5ee700d9235ecdc456218769b34d66056d9476bd9bf1724",
+      "leaves": 79,
+      "sha256": "65aa82e5cd96ab3818a44ae89fa46d41569c919d82462f7346c1b28fa932476b",
+      "shard": "documents/000219.pt",
+      "tokens": 80497
+    },
+    {
+      "depth": 2,
+      "id": "doc_220",
+      "leaf_tensor_sha256": "880377ab6df47a64651bebd60498e3546505d71974430627045385c3cc41e975",
+      "leaves": 9,
+      "sha256": "02e2b113b8c37d84253cbae72611d4596073f5481041d24875203e1db07fea5a",
+      "shard": "documents/000220.pt",
+      "tokens": 8238
+    },
+    {
+      "depth": 3,
+      "id": "doc_221",
+      "leaf_tensor_sha256": "bd48a336a54366d9fe87e48bcb206d2a8c35d10e74c489e342ce67c5a17f003f",
+      "leaves": 56,
+      "sha256": "605155363892169a97bbecd44d6338163069f1977ef2abd673baecdd7831941f",
+      "shard": "documents/000221.pt",
+      "tokens": 56650
+    },
+    {
+      "depth": 4,
+      "id": "doc_222",
+      "leaf_tensor_sha256": "779649b7d38bdadc2e66a77b5f70b9d90b2c74f5bd1249140590c6b009f9002f",
+      "leaves": 91,
+      "sha256": "117eb6641d636323d2aeeebce29cdb3f7e15798bd5adc50233d6c31011fe7b2d",
+      "shard": "documents/000222.pt",
+      "tokens": 92642
+    },
+    {
+      "depth": 3,
+      "id": "doc_223",
+      "leaf_tensor_sha256": "2074e924a226435835927a6034086bfc239da62296c302528bef322b15953bd2",
+      "leaves": 40,
+      "sha256": "15a5f353af3babe68ebf9dfd170a4519166583e70758d09ab504675b7cc86445",
+      "shard": "documents/000223.pt",
+      "tokens": 40600
+    },
+    {
+      "depth": 4,
+      "id": "doc_224",
+      "leaf_tensor_sha256": "7a7ef90dde5a01cd9727c0d148f1911eefde305aae202a6d2af9eabe47bc0827",
+      "leaves": 108,
+      "sha256": "8e77da644fb2071e053ab485357e157f7982e5516519dbcba546a8997ec43107",
+      "shard": "documents/000224.pt",
+      "tokens": 109722
+    },
+    {
+      "depth": 4,
+      "id": "doc_225",
+      "leaf_tensor_sha256": "a9a749c13ef2b5ee4944570c396a1f372bf5d0195c56774b4b68facbb9cfaec6",
+      "leaves": 233,
+      "sha256": "95e5d145f35014b8368101e7866957d30ca92207c5d2b0f8e37c2b35448953f8",
+      "shard": "documents/000225.pt",
+      "tokens": 237972
+    },
+    {
+      "depth": 3,
+      "id": "doc_226",
+      "leaf_tensor_sha256": "2245a4a400080588e03ba94b131b6189e8ffafd8b4cae072dca80afdd4c0156c",
+      "leaves": 62,
+      "sha256": "dc33ba5811792bf422e428f8da919d099a5075a3409d227fc54549c6f9164299",
+      "shard": "documents/000226.pt",
+      "tokens": 62743
+    },
+    {
+      "depth": 4,
+      "id": "doc_227",
+      "leaf_tensor_sha256": "ca51afb894020358715b3c43299ce6da06628824d26b494b3d4635f0f9558afa",
+      "leaves": 74,
+      "sha256": "5ae8c349a0cbfc77bac3e9a3295769c1011d3cf968d4a1629ad408935b0ea1a9",
+      "shard": "documents/000227.pt",
+      "tokens": 75437
+    },
+    {
+      "depth": 4,
+      "id": "doc_228",
+      "leaf_tensor_sha256": "1602234f427020861c87f39bac78ca91f5474fb98ad2136b2ba1c96204f35085",
+      "leaves": 117,
+      "sha256": "0e7a44cd27d7c8e7ea312b2c29d19278359dd852b8eafb2445a35cc1eab63823",
+      "shard": "documents/000228.pt",
+      "tokens": 119061
+    },
+    {
+      "depth": 5,
+      "id": "doc_229",
+      "leaf_tensor_sha256": "8b304d498a7b2d4373482414ec3d10d7fdea62ef0b16480795ee4ce61963a41a",
+      "leaves": 284,
+      "sha256": "49924d6a3f11f174827875b6c906e69eddbd416f8b63f515372a51d104653526",
+      "shard": "documents/000229.pt",
+      "tokens": 289876
+    },
+    {
+      "depth": 4,
+      "id": "doc_230",
+      "leaf_tensor_sha256": "e09e8adfee75f4b740cc66dc348c6ec4f41b7e2727186ad3659749972c921bf4",
+      "leaves": 253,
+      "sha256": "09a57770c32aae450a3083ed10f6053a8dbc52177fc40364b6f5ef3eff24ffe1",
+      "shard": "documents/000230.pt",
+      "tokens": 258441
+    },
+    {
+      "depth": 3,
+      "id": "doc_231",
+      "leaf_tensor_sha256": "b73076f5795aae057d9fac290e784998e9ef63d995ab39382d123168d1362cda",
+      "leaves": 55,
+      "sha256": "90d84a5525c90aec6f0a85d6b4e21a16dda99e7f8a330e14c69b40e0311f9fe7",
+      "shard": "documents/000231.pt",
+      "tokens": 55888
+    },
+    {
+      "depth": 3,
+      "id": "doc_232",
+      "leaf_tensor_sha256": "db3f38869ed09a7c2b8d7463c786db3ce73ece5befa67496cf3bc5acb11053c3",
+      "leaves": 49,
+      "sha256": "dd6c5b117ae285a67cf1d5f021cb7c4d300bba02ec96708b96f9d87877b0275d",
+      "shard": "documents/000232.pt",
+      "tokens": 49252
+    },
+    {
+      "depth": 2,
+      "id": "doc_233",
+      "leaf_tensor_sha256": "7c088be59d746ea98ff974bb8aa1fd9290f89273ec8a960f4a79dbeff63dad34",
+      "leaves": 16,
+      "sha256": "a287eff36399d1eaf3c93f2d70f3a6cc893044cd7ecd4a99521b2d90273ebc88",
+      "shard": "documents/000233.pt",
+      "tokens": 15429
+    },
+    {
+      "depth": 3,
+      "id": "doc_234",
+      "leaf_tensor_sha256": "3795e37bbffd8a940b70449d4798cc15d2ed9cb980ae0acf0287a84178d283ae",
+      "leaves": 23,
+      "sha256": "0f2f79b445b40bd21327d4b10eb399cdd3495e3e168a4f7cf0b566b89eccaa93",
+      "shard": "documents/000234.pt",
+      "tokens": 22746
+    },
+    {
+      "depth": 3,
+      "id": "doc_235",
+      "leaf_tensor_sha256": "8d53115770e5e740e91f018e48f7ed10cda9c2e56b6c8c6c09985c9fa9db42ab",
+      "leaves": 60,
+      "sha256": "f5c84fe8766562742f1b3894123e78280e41befa8784be5bf197fe7c49255852",
+      "shard": "documents/000235.pt",
+      "tokens": 61341
+    },
+    {
+      "depth": 4,
+      "id": "doc_236",
+      "leaf_tensor_sha256": "5d6185b4c03df04ad5a2f68ce399c8f4279a45f16a0c07036800bec130c67ba5",
+      "leaves": 79,
+      "sha256": "152f93cc4194473c1c70a3d31c5195bfac66f1fa6e427c8cbc34a967d7bdd092",
+      "shard": "documents/000236.pt",
+      "tokens": 79907
+    },
+    {
+      "depth": 3,
+      "id": "doc_237",
+      "leaf_tensor_sha256": "d4966e29ac5c8c621f0cbb4d021070725bf81aecfbbb9a62b94c859722052103",
+      "leaves": 55,
+      "sha256": "3abfc6bd6a81711351287e75d23b60b32cb43ca6b3585cb296f659c17fce67e9",
+      "shard": "documents/000237.pt",
+      "tokens": 55508
+    },
+    {
+      "depth": 3,
+      "id": "doc_238",
+      "leaf_tensor_sha256": "1ac320ab4d2312231ed54540fb95ee14dd9656ed2c2b9e35dfc0f7bb834aabce",
+      "leaves": 46,
+      "sha256": "e367090e0abfb141cca56389bab2685c563b53de63f94fe138fbe79c0b697387",
+      "shard": "documents/000238.pt",
+      "tokens": 46303
+    },
+    {
+      "depth": 4,
+      "id": "doc_239",
+      "leaf_tensor_sha256": "ff7e809e8b3a0d6fdd9563910401b518ff37cff16cf3fa07d8362e8058b1ee0c",
+      "leaves": 96,
+      "sha256": "985b6f33410c4113be113bac29e3a32355ae33a2595e56ec65d880fcc465196a",
+      "shard": "documents/000239.pt",
+      "tokens": 98264
+    },
+    {
+      "depth": 3,
+      "id": "doc_240",
+      "leaf_tensor_sha256": "6be38eb2e40bebe1460f1694d1f1c9d702200b6e1348756d989f5d34cd44665e",
+      "leaves": 55,
+      "sha256": "df3fdd2ea5dedae7f24b08592919da0533b32b51a290ec093cb233b00e0a6f62",
+      "shard": "documents/000240.pt",
+      "tokens": 55299
+    },
+    {
+      "depth": 4,
+      "id": "doc_241",
+      "leaf_tensor_sha256": "3517a22eca9d93630d06308e0e40fe47ee9b7184f791c5a2d2d916f2ddbab3a5",
+      "leaves": 162,
+      "sha256": "bce7e1b65a635acd844c34845546002e644e9fa27d233f2b2dbde148c9bffed0",
+      "shard": "documents/000241.pt",
+      "tokens": 165453
+    },
+    {
+      "depth": 3,
+      "id": "doc_242",
+      "leaf_tensor_sha256": "7346aff0766326cb356966b525e34e508f97d4718e13bd91a64e64866a247b3d",
+      "leaves": 54,
+      "sha256": "d4ed07510dc892c9fda670808212b2fe1c494d9a1a533129f8848d12b1a859a5",
+      "shard": "documents/000242.pt",
+      "tokens": 55097
+    },
+    {
+      "depth": 3,
+      "id": "doc_243",
+      "leaf_tensor_sha256": "4892dac6543301c0547ec19755e1985d1a7902c5cd81c8dadc259dfc8509d0ff",
+      "leaves": 62,
+      "sha256": "355cfb8ccee9c3622691d271d636eba5708911b0b3bd1c39953e31da7fb8f136",
+      "shard": "documents/000243.pt",
+      "tokens": 63139
+    },
+    {
+      "depth": 3,
+      "id": "doc_244",
+      "leaf_tensor_sha256": "96e562c0c77a8dd4590ce8cb5c075098916bfad4d896a80cae89afa3872a70a2",
+      "leaves": 37,
+      "sha256": "8b6a2cca1de8ffc14868bc23d00f3f00e6091311011c73dd06b70c487e2cc14c",
+      "shard": "documents/000244.pt",
+      "tokens": 37671
+    },
+    {
+      "depth": 4,
+      "id": "doc_245",
+      "leaf_tensor_sha256": "d8928daeaf32a3aade173b6aac2be67433687c0a2d8fa306496f0db565e87ecc",
+      "leaves": 73,
+      "sha256": "934a4651b4b34cf75aa7360a4c86efc3f041927e6ef3a91a58cea210dcdfad68",
+      "shard": "documents/000245.pt",
+      "tokens": 73736
+    },
+    {
+      "depth": 4,
+      "id": "doc_246",
+      "leaf_tensor_sha256": "e9322bf83128178f0a466325e1b464b073a1d92ab46f040a3f398888b53191fc",
+      "leaves": 122,
+      "sha256": "593410b7275676ecf842e760e97d48debef5984a17bc85ce2da764bd4568cb76",
+      "shard": "documents/000246.pt",
+      "tokens": 124788
+    },
+    {
+      "depth": 4,
+      "id": "doc_247",
+      "leaf_tensor_sha256": "5b50f7abca6315b506415d30509bb0fddf927d6803a4053ec7f7aeeded58b358",
+      "leaves": 85,
+      "sha256": "5f759685afa639cf98e2d573586156a286d54f54d920d0bf5c5c6dd449ee9927",
+      "shard": "documents/000247.pt",
+      "tokens": 86741
+    },
+    {
+      "depth": 3,
+      "id": "doc_248",
+      "leaf_tensor_sha256": "37de084c14173a1d5b662f7cba619239b9c97561d71f4255aa65ac413b84b101",
+      "leaves": 55,
+      "sha256": "73c09b3aeadf47c906d2c533bd45acd7770b4c0ef8bcebaf09c65d557888fbde",
+      "shard": "documents/000248.pt",
+      "tokens": 55611
+    },
+    {
+      "depth": 3,
+      "id": "doc_249",
+      "leaf_tensor_sha256": "a7b4b5e00ef6f601601d905d8dc594b04f3c9c5da1fea187fe53930bb590b996",
+      "leaves": 63,
+      "sha256": "48869ab071d5b8817a602735eab5db9f650643804b1eac01544f42d5f443df31",
+      "shard": "documents/000249.pt",
+      "tokens": 63517
+    },
+    {
+      "depth": 3,
+      "id": "doc_250",
+      "leaf_tensor_sha256": "752adea8cc73b77e590bdcf8682642f91561621c73231a67781f27a9a3299832",
+      "leaves": 63,
+      "sha256": "00ec584082741c56916269c3779871940a157793ec00a5769f78db0f253c4f21",
+      "shard": "documents/000250.pt",
+      "tokens": 63984
+    },
+    {
+      "depth": 3,
+      "id": "doc_251",
+      "leaf_tensor_sha256": "799a612c2b07b446762a2cb58ea2c35b9dabb6c21189b85c7cc818b19e87247a",
+      "leaves": 19,
+      "sha256": "e59ef28e0a5a90b237705501febf51b083ca47f0a3edd1833de5f418b780ef01",
+      "shard": "documents/000251.pt",
+      "tokens": 18630
+    },
+    {
+      "depth": 3,
+      "id": "doc_252",
+      "leaf_tensor_sha256": "1332e73e470a3f5c977375af92f1a32118bd414ff72621ce6dff2e2d4c8deb62",
+      "leaves": 17,
+      "sha256": "34cee346928f485beddb79673b4cd50c2e87c62b5a267235c1bf332dfd469198",
+      "shard": "documents/000252.pt",
+      "tokens": 17040
+    },
+    {
+      "depth": 3,
+      "id": "doc_253",
+      "leaf_tensor_sha256": "9bf53df3176d444d1218fcdc15549cc858345836d89190e3fc777c2934443d05",
+      "leaves": 43,
+      "sha256": "3f9a9c776a3c0d78c3a9573d5e3c9728cc3fecfaa5c93349a7642e57ffa169d5",
+      "shard": "documents/000253.pt",
+      "tokens": 43712
+    },
+    {
+      "depth": 4,
+      "id": "doc_254",
+      "leaf_tensor_sha256": "dfa2b510ff4179912d2717d1c871fa45aee69de4fcb70524ba7ace5d522d2e67",
+      "leaves": 66,
+      "sha256": "01bc2cc18c025f3f484e30993a3ad29b4e81319373225282737da690e8408d7e",
+      "shard": "documents/000254.pt",
+      "tokens": 67183
+    },
+    {
+      "depth": 3,
+      "id": "doc_255",
+      "leaf_tensor_sha256": "fbdce497f5670a2c046ba6982a5741def1e43c61bb3e465a4f915cab81ae4831",
+      "leaves": 51,
+      "sha256": "90c3543ade7c1f45ae6de984ea0b8352a0cc62d6d5468603f3844420688673b6",
+      "shard": "documents/000255.pt",
+      "tokens": 51859
+    },
+    {
+      "depth": 3,
+      "id": "doc_256",
+      "leaf_tensor_sha256": "b0ee863792c8b40cfda8e4703d868dc6627d44fcd9e21a84332c13acf6fb89ad",
+      "leaves": 48,
+      "sha256": "d3a43ffb98fe7a1b077bb11e4024727a177b50f3a9f53a3ac865f076810e5cc7",
+      "shard": "documents/000256.pt",
+      "tokens": 48933
+    },
+    {
+      "depth": 4,
+      "id": "doc_257",
+      "leaf_tensor_sha256": "1388f8815657eb8be7030af6eeefe7bda3ae314f669bea1eca0b296fbb2ff04d",
+      "leaves": 66,
+      "sha256": "9c9a37a37016c86bd0418852e5a474b576846b5deea52955edcaad5b0e98df0d",
+      "shard": "documents/000257.pt",
+      "tokens": 67004
+    },
+    {
+      "depth": 4,
+      "id": "doc_258",
+      "leaf_tensor_sha256": "a819a27f73d3aa440950c7e909ce23a581b16888507785addfd3584c1e066fa4",
+      "leaves": 66,
+      "sha256": "64bc7fddc38efffe72e9ec00e219f2f074c8383fc3fff5baa2113afcef687e29",
+      "shard": "documents/000258.pt",
+      "tokens": 66850
+    },
+    {
+      "depth": 4,
+      "id": "doc_259",
+      "leaf_tensor_sha256": "a2e5646c610c0f2d7e3d35673f5106eacbe86a9ed0ed54885d389bd0a11a6e53",
+      "leaves": 148,
+      "sha256": "176af6adc410fcac4b7d2ae70538d9b09d0846d8467d20f3e95ab93a03115142",
+      "shard": "documents/000259.pt",
+      "tokens": 151351
+    },
+    {
+      "depth": 3,
+      "id": "doc_260",
+      "leaf_tensor_sha256": "740f8c7551ddebab3e2756df12b54f9a3c9297e705823223dbdc179b9a5f06a0",
+      "leaves": 46,
+      "sha256": "601197bf01aafc671be46844e1b197fa29f1fcebe7b2b17b757993869d7654a5",
+      "shard": "documents/000260.pt",
+      "tokens": 46626
+    },
+    {
+      "depth": 3,
+      "id": "doc_261",
+      "leaf_tensor_sha256": "3d9e00a51477307190646244c824062954ee070053dbdec8aaed14345d0d5062",
+      "leaves": 52,
+      "sha256": "95cabd24f2f84ab6049d4c7f52dbd24bb3efa7914f80e6834fa727ff4edec639",
+      "shard": "documents/000261.pt",
+      "tokens": 52655
+    },
+    {
+      "depth": 4,
+      "id": "doc_262",
+      "leaf_tensor_sha256": "661a04318d9e54484cd898a6ab8a1e246fef396895d4581b4c8087ca48712e44",
+      "leaves": 66,
+      "sha256": "8d36802936b0a5ed98f8279ac2fa23d41bb2f7c9ca9bdb46dc2438231cafb0de",
+      "shard": "documents/000262.pt",
+      "tokens": 66784
+    },
+    {
+      "depth": 4,
+      "id": "doc_263",
+      "leaf_tensor_sha256": "6cb61ecf709fa46c3faceb64b42c747176989bbcf2e567900d8acbb7e388d92f",
+      "leaves": 71,
+      "sha256": "d79f440a5dd2218ae72f166c38878d750dc10221ca1a04e34ec57014de8d2b1a",
+      "shard": "documents/000263.pt",
+      "tokens": 71820
+    },
+    {
+      "depth": 3,
+      "id": "doc_264",
+      "leaf_tensor_sha256": "02520715953345201f60eda8e8c9f17c6376eed7482e5ef5d3cb184fc796f9f4",
+      "leaves": 53,
+      "sha256": "aa24a30c752f8a9fc4905ff340d8ea1b083ac7e803f1c11eb043e3a4491e5235",
+      "shard": "documents/000264.pt",
+      "tokens": 53407
+    },
+    {
+      "depth": 3,
+      "id": "doc_265",
+      "leaf_tensor_sha256": "873fbb68b79fbaef847ff8c5f6628b83f95a692c17c714b62e9e2f55d4aa0904",
+      "leaves": 64,
+      "sha256": "b200fa385f486fdb7751a929d0e2fa22dd52c8a1f0b108d3b85cbcebf409a82e",
+      "shard": "documents/000265.pt",
+      "tokens": 64688
+    },
+    {
+      "depth": 3,
+      "id": "doc_266",
+      "leaf_tensor_sha256": "8a811a54e7f4d9d03f4130b94dd4e12e92d3671a75461af967614fa55d5ab676",
+      "leaves": 60,
+      "sha256": "3cca21cb2332a9e46497abdfb182111f7a5dbde05f48045182a3de66a842b69d",
+      "shard": "documents/000266.pt",
+      "tokens": 60723
+    },
+    {
+      "depth": 3,
+      "id": "doc_267",
+      "leaf_tensor_sha256": "0fad83943dce40551d42a496da6e302fa48cf89dde8fd1319a81a0739da99ce5",
+      "leaves": 54,
+      "sha256": "b93d9caa0dfc58f3a9e6baf56750ef6ce02101d49b346d26756067415662c820",
+      "shard": "documents/000267.pt",
+      "tokens": 54630
+    },
+    {
+      "depth": 3,
+      "id": "doc_268",
+      "leaf_tensor_sha256": "608f28faac3cb499a3b57a567758332df8881889d5ffc4dcd5359e0d86707c26",
+      "leaves": 57,
+      "sha256": "88938dcea8588b7b5e1fa0e55349e5dde996da88144074a24e7e31fd083248a4",
+      "shard": "documents/000268.pt",
+      "tokens": 58298
+    },
+    {
+      "depth": 3,
+      "id": "doc_269",
+      "leaf_tensor_sha256": "3c34a14fbd5ab651ef295193c60a31eed4e3764f3efa73ea7e0fb2f417ff106f",
+      "leaves": 52,
+      "sha256": "069722c2b5d09a2575544019518c4c13d4e8a5631d56ee5f948a2af5fa3b5bca",
+      "shard": "documents/000269.pt",
+      "tokens": 52389
+    },
+    {
+      "depth": 4,
+      "id": "doc_270",
+      "leaf_tensor_sha256": "36f87962dd182091d4f0a7090b90c5247788626546345df88c2a5e51668a881d",
+      "leaves": 94,
+      "sha256": "9fc6ef40cb0967af7a96b57caa22a9d624f58321457c1da2d7fca97e5c636e1e",
+      "shard": "documents/000270.pt",
+      "tokens": 95603
+    },
+    {
+      "depth": 3,
+      "id": "doc_271",
+      "leaf_tensor_sha256": "f6d38e7e53630692c7309087641ff010473f6e41b3c411c287b630061e71cf46",
+      "leaves": 61,
+      "sha256": "abf76c40c2339c13027b44adeb8449eec282fff4599de14b507c1d6aca4efaaa",
+      "shard": "documents/000271.pt",
+      "tokens": 61789
+    },
+    {
+      "depth": 2,
+      "id": "doc_272",
+      "leaf_tensor_sha256": "b1244a8d0f94bc9b2c72526ab70a27f5f31f9ca6846b325dbe3d6454f0daf6c8",
+      "leaves": 6,
+      "sha256": "878c470d9483b5da94ac36e3c630de871cf1b97ce14832772f5d0b563f88f369",
+      "shard": "documents/000272.pt",
+      "tokens": 6072
+    },
+    {
+      "depth": 3,
+      "id": "doc_273",
+      "leaf_tensor_sha256": "4b750100f7943e9f4182eb1e9bb743f445ebc017559d530ee7b68a320b14c82e",
+      "leaves": 54,
+      "sha256": "934913ce42df87974dbb6913687813b65116229020d5bff7a61b624eadeb248e",
+      "shard": "documents/000273.pt",
+      "tokens": 55216
+    },
+    {
+      "depth": 4,
+      "id": "doc_274",
+      "leaf_tensor_sha256": "7cd3372c398d49f96f6f7e98d56697759208389cdc19c30f9411280feefc092c",
+      "leaves": 226,
+      "sha256": "6642a8643cb1175361b718b6c338375c40aba5dea242104cc5fd149a1eddc4bd",
+      "shard": "documents/000274.pt",
+      "tokens": 230547
+    },
+    {
+      "depth": 4,
+      "id": "doc_275",
+      "leaf_tensor_sha256": "c490dd32a11e1e17b3549b819b3d5512b0cc224c319d2b174bf8ac5030ce019f",
+      "leaves": 115,
+      "sha256": "e3b9eeeb1232c943c101fffe267fc5f479cb33713358845aa93858c0cedb9e95",
+      "shard": "documents/000275.pt",
+      "tokens": 117376
+    },
+    {
+      "depth": 3,
+      "id": "doc_276",
+      "leaf_tensor_sha256": "9e46831fd599f96b2e0256a5d17582dccaddc159974ecb16d9898b820a3fda33",
+      "leaves": 61,
+      "sha256": "92646ef562d0bba9676e619bc893317a68993c177b893f2e9474c9c40b5f030c",
+      "shard": "documents/000276.pt",
+      "tokens": 62029
+    },
+    {
+      "depth": 4,
+      "id": "doc_277",
+      "leaf_tensor_sha256": "0b9a4c7b1a537c4c624d4913fdf06b1a42efa2485d526fc203b80f8bfbf9ddc5",
+      "leaves": 164,
+      "sha256": "395fe1ea6476c452e63fa3d6070d7e36edfb961bf562efcd3b83fda4d9a10d72",
+      "shard": "documents/000277.pt",
+      "tokens": 167022
+    },
+    {
+      "depth": 4,
+      "id": "doc_278",
+      "leaf_tensor_sha256": "a88043dc1e4c1744f6dbeb5163c297a4326400c4c82d5d6df5ba1fb8dfc949ce",
+      "leaves": 120,
+      "sha256": "7b7a27234dfbe5e2e4d5ef3902809e3c93a698af29e34667be33ec3ffeb9e10b",
+      "shard": "documents/000278.pt",
+      "tokens": 122347
+    },
+    {
+      "depth": 3,
+      "id": "doc_279",
+      "leaf_tensor_sha256": "9aab88c08ef1b3e4a39f7a29d509646b0d1a9315efc90450f65879c2a57d5b91",
+      "leaves": 54,
+      "sha256": "2e0d02a66bf847476607e42b37473ea0f66785272c75457154549f6aba6e2c57",
+      "shard": "documents/000279.pt",
+      "tokens": 54963
+    },
+    {
+      "depth": 4,
+      "id": "doc_280",
+      "leaf_tensor_sha256": "f6a7c32098d3ac4ee4c24e6a2ad07146bd9f72811672c3253e2071ad709a72ac",
+      "leaves": 71,
+      "sha256": "a43705b283978473d3e3deb291fbd41ed68eb683044b5515f44f7e242f68a987",
+      "shard": "documents/000280.pt",
+      "tokens": 72124
+    },
+    {
+      "depth": 3,
+      "id": "doc_281",
+      "leaf_tensor_sha256": "ac5b4cf5f439ddde38413667f7cd95cdfdf7d0ec7f569675f6df857ec4343c61",
+      "leaves": 64,
+      "sha256": "ac2ed58ca1bb01f78f7c98998dd9243f454999f1b0d1124f896d41d685d51fcb",
+      "shard": "documents/000281.pt",
+      "tokens": 64525
+    },
+    {
+      "depth": 3,
+      "id": "doc_282",
+      "leaf_tensor_sha256": "db3b4a4ac7089cb4753b4f054bb79fcc6b01600bc709693d8827fc5d627ea280",
+      "leaves": 35,
+      "sha256": "c7cdbaaa013f8689ad29540f9ed96afc2e582d2e30e1080cec3270a2e404f950",
+      "shard": "documents/000282.pt",
+      "tokens": 35710
+    },
+    {
+      "depth": 4,
+      "id": "doc_283",
+      "leaf_tensor_sha256": "d1d8c04b623ef14623fdd0992b329917fd5be22a263e5a18556492ba5b1c5317",
+      "leaves": 118,
+      "sha256": "adc9e0f4f05f6485f2e13cc5c66091bcbd8e011ff540fc38bc9ed810be0ed18a",
+      "shard": "documents/000283.pt",
+      "tokens": 119975
+    },
+    {
+      "depth": 4,
+      "id": "doc_284",
+      "leaf_tensor_sha256": "d3b8fff887ebb09e9e8914fdc3f2a7e58b837e45886e0ac8cd98fcd25aedd8b5",
+      "leaves": 99,
+      "sha256": "29ee79e575b4e128c1854d0e80dec8dfa7f9304be4064638615f393a6bd1830f",
+      "shard": "documents/000284.pt",
+      "tokens": 100720
+    },
+    {
+      "depth": 4,
+      "id": "doc_285",
+      "leaf_tensor_sha256": "ad110840cb578d6a2b36a4a555a6e319bc1189687dcbfbed593bb8115208e894",
+      "leaves": 152,
+      "sha256": "efbaf7fa86c2a9fde978d4e39cb0dfae7571a459b203f1986f571a546917afed",
+      "shard": "documents/000285.pt",
+      "tokens": 155380
+    },
+    {
+      "depth": 4,
+      "id": "doc_286",
+      "leaf_tensor_sha256": "9dae919da430ca28df90160264eaedba72d93d1bdce83f1de623c635e911174c",
+      "leaves": 69,
+      "sha256": "12900cda64ba2bdf5a02f2a311ad7ef03e876a307dac698e7f4b7d72709ea033",
+      "shard": "documents/000286.pt",
+      "tokens": 70405
+    },
+    {
+      "depth": 4,
+      "id": "doc_287",
+      "leaf_tensor_sha256": "eec1da0dab259c4e4eedfefb38f8106faac4128f055ce608e753f897f5aca831",
+      "leaves": 70,
+      "sha256": "bae177d15ff9c86050bc28d2de7f89042dd8c4cf01b38dd7438ad0008d38463d",
+      "shard": "documents/000287.pt",
+      "tokens": 71237
+    },
+    {
+      "depth": 4,
+      "id": "doc_288",
+      "leaf_tensor_sha256": "9e8f247fe65d8d31e0d5e4b27cd894ea3ccf8414b025edd6ff93a4d582e76778",
+      "leaves": 75,
+      "sha256": "a51dc509b33737cf676e610cbee7daf7c2afe79c1ecccc3584f775b8e384690b",
+      "shard": "documents/000288.pt",
+      "tokens": 76786
+    },
+    {
+      "depth": 3,
+      "id": "doc_289",
+      "leaf_tensor_sha256": "a20b169a4faa83a2de6adea2a9ae041b68ea3cb573029ee5514595e59a5e893d",
+      "leaves": 62,
+      "sha256": "aebaf4ecbc2cac03eb824ef7e225f958cc0eff1d80b66ba02673390417984695",
+      "shard": "documents/000289.pt",
+      "tokens": 62741
+    },
+    {
+      "depth": 4,
+      "id": "doc_290",
+      "leaf_tensor_sha256": "0aa48cd23d100ff46e130665ca33aa71f552ca7bc4c2c252b0cb1c71011758e9",
+      "leaves": 69,
+      "sha256": "e2a383359c0889d8dd1988f047b795b2e16bd9d0f9a39e0c824bea04e572e93d",
+      "shard": "documents/000290.pt",
+      "tokens": 69971
+    },
+    {
+      "depth": 3,
+      "id": "doc_291",
+      "leaf_tensor_sha256": "34336aff890730bbe25eece2fccb142f5d4f9fdb53c518915f066aa6d43a9f06",
+      "leaves": 39,
+      "sha256": "341bec7118bb2b23989ce0586b87569f1faf4c90371419630004b37d6d76f6e1",
+      "shard": "documents/000291.pt",
+      "tokens": 39767
+    },
+    {
+      "depth": 3,
+      "id": "doc_292",
+      "leaf_tensor_sha256": "b014047ef41b870f737884b068012734c27de30283cd7babbf7714bb025aade4",
+      "leaves": 50,
+      "sha256": "ee4c745febfb090cdaf9220e360fba33b8a24061b8ec9d487dd9ac937625584d",
+      "shard": "documents/000292.pt",
+      "tokens": 50439
+    },
+    {
+      "depth": 4,
+      "id": "doc_293",
+      "leaf_tensor_sha256": "7b965f764fc6753624df028bb61806a4f968a7a89547f2bc44228cc01e22ec7c",
+      "leaves": 85,
+      "sha256": "099c80903074bfff5512a6694ee5cc8abaed007b3b3192972863eb3bf2d3e180",
+      "shard": "documents/000293.pt",
+      "tokens": 86983
+    },
+    {
+      "depth": 4,
+      "id": "doc_294",
+      "leaf_tensor_sha256": "c34e78e8d2516e91e54be9d2aa2c546d01e1d2133a39a4154c69065b5fc4c3a9",
+      "leaves": 111,
+      "sha256": "2b14d33a2d2823894d2cacf169c5463bd8ac36d51583f86a6be89f322b3c32d2",
+      "shard": "documents/000294.pt",
+      "tokens": 113018
+    },
+    {
+      "depth": 3,
+      "id": "doc_295",
+      "leaf_tensor_sha256": "63b36a20417a1682905fda3cf6d872b2ee4bb460a30d64a6552d32a9874a4b52",
+      "leaves": 56,
+      "sha256": "f6e3e4766cc33a693fc881d448fdfa81f99664ed72d87494644ed7c41b5846b6",
+      "shard": "documents/000295.pt",
+      "tokens": 56577
+    },
+    {
+      "depth": 3,
+      "id": "doc_296",
+      "leaf_tensor_sha256": "551287f06ce3bf1adce7c7100ecbb26fb9bb9c22a52677d5891f902d858fdc55",
+      "leaves": 64,
+      "sha256": "c117409bc651275002d8feeda7982ec6267136ea87c3d741ce5e57e8314a8447",
+      "shard": "documents/000296.pt",
+      "tokens": 65055
+    },
+    {
+      "depth": 3,
+      "id": "doc_297",
+      "leaf_tensor_sha256": "58033ad6689200911bddcbcc9a413deada0f127e558632c2d764dd90871d21cc",
+      "leaves": 63,
+      "sha256": "bfb864a991df98b72a4c79ab7f2139db14818fd919d90a509318d7e4003e7f39",
+      "shard": "documents/000297.pt",
+      "tokens": 64070
+    },
+    {
+      "depth": 3,
+      "id": "doc_298",
+      "leaf_tensor_sha256": "274e04b5983632b766fda5701dbaa9e8faeb5d820df6a8a277f6f55d7482a23b",
+      "leaves": 56,
+      "sha256": "e9531441d7a58e70c66f07a84fd8d2bed85fa9ae049faaba90b20faccecfab99",
+      "shard": "documents/000298.pt",
+      "tokens": 56488
+    },
+    {
+      "depth": 3,
+      "id": "doc_299",
+      "leaf_tensor_sha256": "35f3dc6f9c7fa1961c250c656086002c4bccfe7c7e8d352868ade6dbe6fe4805",
+      "leaves": 53,
+      "sha256": "ae262306ad76f1dc3917424a85c555e8d6093c854e2cd3d67a7c13de210f96e1",
+      "shard": "documents/000299.pt",
+      "tokens": 53907
+    },
+    {
+      "depth": 5,
+      "id": "doc_300",
+      "leaf_tensor_sha256": "62ec8367f01fa4ddfa25b50dd8d79ba07e024a5639587e8e517fdae9211a0152",
+      "leaves": 285,
+      "sha256": "cb2ca8936a460179882378a58d93ca60025c3a1f253c8806cb76ca48a36fd040",
+      "shard": "documents/000300.pt",
+      "tokens": 291821
+    },
+    {
+      "depth": 4,
+      "id": "doc_301",
+      "leaf_tensor_sha256": "4218b9e443f825cbd4af239ff723519ef79b38cfc579e89c0d5c4a4bd5ffa8fa",
+      "leaves": 68,
+      "sha256": "0d6eda97b59c04d3b48241fd004a681ce225399c7494a657036d12aa89ab5275",
+      "shard": "documents/000301.pt",
+      "tokens": 68898
+    },
+    {
+      "depth": 3,
+      "id": "doc_302",
+      "leaf_tensor_sha256": "798d706af203ef6fcd59278462ada895ac9c8d2e626264a318bd9fd79ef3b0c0",
+      "leaves": 57,
+      "sha256": "981b360889e82ea98445976cdb7e934a62eff343de9b3e25964ee82ecc61ee0e",
+      "shard": "documents/000302.pt",
+      "tokens": 58267
+    },
+    {
+      "depth": 3,
+      "id": "doc_303",
+      "leaf_tensor_sha256": "269f27a97899c492631c807b89ead4c5e78175d7eb9c89b0c71b294973f0d244",
+      "leaves": 50,
+      "sha256": "6e1fb7fabc41febad1af7b48f2ee789bc168a5377f8dae8d49ab0e479eb4ef52",
+      "shard": "documents/000303.pt",
+      "tokens": 50447
+    },
+    {
+      "depth": 4,
+      "id": "doc_304",
+      "leaf_tensor_sha256": "c29951101b55d530bf02de80b303de44b395f9bca23199892bc5152684811be7",
+      "leaves": 254,
+      "sha256": "dca5a53539ddd9e8744dceb604b0010f6f74e9c57a64a12adf92d989029e39ed",
+      "shard": "documents/000304.pt",
+      "tokens": 259800
+    },
+    {
+      "depth": 4,
+      "id": "doc_305",
+      "leaf_tensor_sha256": "737e033430c5e5ddf5820c9fee4c989dc8befe1156358297c79e2bf46c3b6a8c",
+      "leaves": 106,
+      "sha256": "44d744279fa23f7b0d4c3276e039b97ab6d0112b1486bc3a6355b7aef6ac49bb",
+      "shard": "documents/000305.pt",
+      "tokens": 108263
+    },
+    {
+      "depth": 3,
+      "id": "doc_306",
+      "leaf_tensor_sha256": "2a124594a6c1a66266008df57d02f6e9fef8b13b18503f71522fc03b88635421",
+      "leaves": 64,
+      "sha256": "9a8ea9cd604708bd93cb74897e51dc106d80d5ce309a6b58dd90e2e88e8cd8af",
+      "shard": "documents/000306.pt",
+      "tokens": 64975
+    },
+    {
+      "depth": 4,
+      "id": "doc_307",
+      "leaf_tensor_sha256": "a047b761686f2e374caac813ddc09043c30dbd03212b9effddf13e39d5316781",
+      "leaves": 93,
+      "sha256": "fc950644a4005a0fd6ddd231366095d45a06144a6e8708009be92c8fe917acce",
+      "shard": "documents/000307.pt",
+      "tokens": 95193
+    },
+    {
+      "depth": 3,
+      "id": "doc_308",
+      "leaf_tensor_sha256": "e2784683f55776da319b1b7bf45fe444e1aa5e32cdf731ed2585507096fafcff",
+      "leaves": 26,
+      "sha256": "bcda4bc755f94afb910a45d6c5e8dab6f6eabc6e0b1d9cfd60578d87d489541e",
+      "shard": "documents/000308.pt",
+      "tokens": 26009
+    },
+    {
+      "depth": 4,
+      "id": "doc_309",
+      "leaf_tensor_sha256": "f0aa8b8b2f4c0b123b737ac1845414d29612af7bb3c1c60a6e22ae13d8c4b620",
+      "leaves": 85,
+      "sha256": "a8153edcbc430e62c3164f3acd7275fd8bdbf9576c0f5860ea28603be9f7e202",
+      "shard": "documents/000309.pt",
+      "tokens": 86913
+    },
+    {
+      "depth": 3,
+      "id": "doc_310",
+      "leaf_tensor_sha256": "599adc51ebc1eb67e6a5d385847f45147f8e61fb51e1eebbbf7acf7a49b3b007",
+      "leaves": 54,
+      "sha256": "40abf0ccbcd73d5ca99d77979aadbd87b2263ec357c2a0729abdfaf8c5c21642",
+      "shard": "documents/000310.pt",
+      "tokens": 54923
+    },
+    {
+      "depth": 3,
+      "id": "doc_311",
+      "leaf_tensor_sha256": "f5da31131f79f440411baccd1ff01da54da43a21ef1ca92e5647a8597a1e0060",
+      "leaves": 55,
+      "sha256": "a2fefd5d274b601d6425a57474760586e8a662ea734602c1d731f9170312ad3b",
+      "shard": "documents/000311.pt",
+      "tokens": 55447
+    },
+    {
+      "depth": 3,
+      "id": "doc_312",
+      "leaf_tensor_sha256": "ce24e9fe07f1853075b3466da4ffc16617ab438428cf4263335ad15711dc9772",
+      "leaves": 53,
+      "sha256": "ad3d26fd72da6c1cfd2d1f3303c7029fb82139b05dadca4e8a54b525f45f5de8",
+      "shard": "documents/000312.pt",
+      "tokens": 54054
+    },
+    {
+      "depth": 3,
+      "id": "doc_313",
+      "leaf_tensor_sha256": "51d32f798bd174db35a892771ddcae012608c2549260916cd38b117d9ee77d78",
+      "leaves": 29,
+      "sha256": "3ef5ef674b909ac09b8a647c2bfab5e18aedbcc44afd40c786aac4377bff3e69",
+      "shard": "documents/000313.pt",
+      "tokens": 29124
+    },
+    {
+      "depth": 5,
+      "id": "doc_314",
+      "leaf_tensor_sha256": "71e49699079c44c2cce9e6142974c33de6f198d15a9c0a4357702e3c8feed887",
+      "leaves": 262,
+      "sha256": "c6fb02d36f5d0e13aed1164495ecd32fbd8fe4fb71c7229be69f05b4d0e0cb2d",
+      "shard": "documents/000314.pt",
+      "tokens": 267423
+    },
+    {
+      "depth": 4,
+      "id": "doc_315",
+      "leaf_tensor_sha256": "d5248759661c67466fac90141225508e646432a68c1e2ff8ed927a0683fce0cd",
+      "leaves": 169,
+      "sha256": "c1ec0591749e3fa857b0d843152c71ecc07074de281e875bae4c43c19b71742d",
+      "shard": "documents/000315.pt",
+      "tokens": 172914
+    },
+    {
+      "depth": 5,
+      "id": "doc_316",
+      "leaf_tensor_sha256": "2ad5757bd1a8d6f13c6b11f95163738916ac69ab15132edf474a2db5fc7cb5dd",
+      "leaves": 317,
+      "sha256": "42ced064190c6fa79b143a4313d623f9310315fcb05e8c8dd3097de786331821",
+      "shard": "documents/000316.pt",
+      "tokens": 324494
+    },
+    {
+      "depth": 4,
+      "id": "doc_317",
+      "leaf_tensor_sha256": "0e769518e24980be5adbf243ce223fda757801031461ea0ec387e5099ebe2cf1",
+      "leaves": 68,
+      "sha256": "c87aa2aeff677560f1539b2e327b078e75f11d7902d372245cb9cf50583375f4",
+      "shard": "documents/000317.pt",
+      "tokens": 69042
+    },
+    {
+      "depth": 3,
+      "id": "doc_318",
+      "leaf_tensor_sha256": "ab1e8ea0e15e85db6f83cb46bccee5870832def8610db2b0b3838e96ad0738ac",
+      "leaves": 60,
+      "sha256": "473094a10e650ae5f2014261825eec91b66e89f27fd006aef46dc7f5eb2823ae",
+      "shard": "documents/000318.pt",
+      "tokens": 61260
+    },
+    {
+      "depth": 3,
+      "id": "doc_319",
+      "leaf_tensor_sha256": "8aff718290140ae111e2f12d4a388e6c642cf67bbd626152f217d8e47f74d137",
+      "leaves": 51,
+      "sha256": "d93ae91060d69422c69bfb970653c04dc4aac48452e30872fb31555fb5dd210e",
+      "shard": "documents/000319.pt",
+      "tokens": 52159
+    },
+    {
+      "depth": 4,
+      "id": "doc_320",
+      "leaf_tensor_sha256": "9261797bf30b15c030f9c6942a2fe0da155c47e3a726baef6bca311b98e24e82",
+      "leaves": 73,
+      "sha256": "38b2c037239385ae602d7afd07d43902e95ecdcd6991134fd113c794726f190f",
+      "shard": "documents/000320.pt",
+      "tokens": 74124
+    },
+    {
+      "depth": 4,
+      "id": "doc_321",
+      "leaf_tensor_sha256": "e1513b63ddfb1d3fa10ebfbd767f6e3b3a37499584ee5cba8f4df018c2a66e1a",
+      "leaves": 102,
+      "sha256": "869b33379e039a35614dfc8d8f2c2ff01247ca9fe3a7df9b59564174bc428cee",
+      "shard": "documents/000321.pt",
+      "tokens": 103874
+    },
+    {
+      "depth": 4,
+      "id": "doc_322",
+      "leaf_tensor_sha256": "99ad173b75b5b578353934ad966d90566cb5508cf249363e424f6429250f5b19",
+      "leaves": 66,
+      "sha256": "1f993866a1183f1463c56bf82f9c9a9372fb7ff826fbe4ed3c91776758b7f334",
+      "shard": "documents/000322.pt",
+      "tokens": 66844
+    },
+    {
+      "depth": 4,
+      "id": "doc_323",
+      "leaf_tensor_sha256": "2c1f7b93a55e8a44aa59cc6c92c320dd139e49468ba8efa16d1305b8b2430f0e",
+      "leaves": 132,
+      "sha256": "4ac479b3a77d0ce7426d0e294e78bcb0dbd6d062f999610503a9fc944818dba3",
+      "shard": "documents/000323.pt",
+      "tokens": 134244
+    },
+    {
+      "depth": 4,
+      "id": "doc_324",
+      "leaf_tensor_sha256": "c9302bc5c744ef7cd9e5e78e69e568f14bdb7e95391d9667f270a44457c91f38",
+      "leaves": 71,
+      "sha256": "85f3b79a8a1cd1d735848f1fb7af1d43d22051ef19e86b37834482a060051070",
+      "shard": "documents/000324.pt",
+      "tokens": 72058
+    },
+    {
+      "depth": 5,
+      "id": "doc_325",
+      "leaf_tensor_sha256": "1d92d5f00dbb55ecb2673281004098f43d47e41be7928abb0dfd20bc2832e9f8",
+      "leaves": 411,
+      "sha256": "f509a43a816096098b2db6f51ede40dd2dcd8b4b6eee4bd17028eb36112dcdad",
+      "shard": "documents/000325.pt",
+      "tokens": 420180
+    },
+    {
+      "depth": 2,
+      "id": "doc_326",
+      "leaf_tensor_sha256": "09b61c835f0e0aa537683ea761cbc666cc1eaad2966049e631647c91e62f71ea",
+      "leaves": 12,
+      "sha256": "044fa8d5f48e8ceac0c7e47cdcd421721b01226cbcf327fbca2adef3f090e2af",
+      "shard": "documents/000326.pt",
+      "tokens": 12073
+    },
+    {
+      "depth": 4,
+      "id": "doc_327",
+      "leaf_tensor_sha256": "28dc2a527f0291aef35b43c36a547b1d89e77a388fa0fd7f91f740354f29e01d",
+      "leaves": 76,
+      "sha256": "871a5ab537c11e48c28920b696d6491e76bc74d3685444d244decb92dc3c18e1",
+      "shard": "documents/000327.pt",
+      "tokens": 77615
+    },
+    {
+      "depth": 3,
+      "id": "doc_328",
+      "leaf_tensor_sha256": "50c85ec63ab5fd37b627f714574fb475d6a2feafa763932368d22ec498ecdbad",
+      "leaves": 59,
+      "sha256": "823bb511aa1cf3df16ed5a6e0812545d649a7c32e844b123e4cb38ec726b5893",
+      "shard": "documents/000328.pt",
+      "tokens": 59570
+    },
+    {
+      "depth": 4,
+      "id": "doc_329",
+      "leaf_tensor_sha256": "8f81a820e1ceb3f73827281ca7a3cb06c277d6210e538517072ff37cae6c8b49",
+      "leaves": 91,
+      "sha256": "f9c08842366b2953084dfaad2cfb1acbfc00bc39b3e2c8a4386d7a25219237c5",
+      "shard": "documents/000329.pt",
+      "tokens": 92368
+    },
+    {
+      "depth": 2,
+      "id": "doc_330",
+      "leaf_tensor_sha256": "93de63ccf71e27382b309c00b12bc59b75734833c4b0921c6c2f62e892008c49",
+      "leaves": 7,
+      "sha256": "522d79961123d7d23d821b8f458b9ac2a5652cb11a6f40dd03d83a040014a04f",
+      "shard": "documents/000330.pt",
+      "tokens": 6511
+    },
+    {
+      "depth": 3,
+      "id": "doc_331",
+      "leaf_tensor_sha256": "c986d11ce905978cfa8b0d45562e22163d889f268404cc2e0ae19175069014b1",
+      "leaves": 22,
+      "sha256": "0e97858f7077cc2be31ce2dabc20879a5fe431e1700ef92d1ff4fc45c6605526",
+      "shard": "documents/000331.pt",
+      "tokens": 21688
+    },
+    {
+      "depth": 3,
+      "id": "doc_332",
+      "leaf_tensor_sha256": "ab1227dceb311bb46123f4fafec8a504cefa8173a42760d12147afd89f752dd1",
+      "leaves": 54,
+      "sha256": "51614acac80e52d6bdd83883a81a166c79801eccba3a1e0ffb24169944b53960",
+      "shard": "documents/000332.pt",
+      "tokens": 55046
+    },
+    {
+      "depth": 3,
+      "id": "doc_333",
+      "leaf_tensor_sha256": "ca3a6d804e544824fe13724a73e44e0c3edb34a5bd040f8ad0c0f2409a00628b",
+      "leaves": 60,
+      "sha256": "9ce873baa697e327350bae0afd361cce0b89bb36b1b65273f7b7f320b17c51a2",
+      "shard": "documents/000333.pt",
+      "tokens": 61078
+    },
+    {
+      "depth": 4,
+      "id": "doc_334",
+      "leaf_tensor_sha256": "3695dc286dc396f2f8dc22ebaf823629a33eccc3c18a0e7fffb13ea231862214",
+      "leaves": 83,
+      "sha256": "7c7c2625830e4dd4da4abe370085aedae63cd9f16b39ba225439cade9cab7786",
+      "shard": "documents/000334.pt",
+      "tokens": 84598
+    },
+    {
+      "depth": 3,
+      "id": "doc_335",
+      "leaf_tensor_sha256": "1682ae726fcbc73996612a9f7e9eba6547ccb187cb86cb97ed106cc79d798809",
+      "leaves": 64,
+      "sha256": "8d49b3430f7a85eb133087363ff160f1bfbbd8045e52074fa58fdd3ff15d4000",
+      "shard": "documents/000335.pt",
+      "tokens": 64571
+    },
+    {
+      "depth": 4,
+      "id": "doc_336",
+      "leaf_tensor_sha256": "a6a018b8bd268e262d2b3cc33a6b1ef0b86879d0224ce95617f934776419ce3b",
+      "leaves": 73,
+      "sha256": "8962ade486b14e56b296f9950198ef578ec95f4e29625b843ca2f0f0cdfcfa4e",
+      "shard": "documents/000336.pt",
+      "tokens": 74173
+    },
+    {
+      "depth": 4,
+      "id": "doc_337",
+      "leaf_tensor_sha256": "19c37f8e009c8b7636ceaca6e018af564ca55f31d8daad3f67bf85bebc5eee66",
+      "leaves": 72,
+      "sha256": "f3bb69ae408a7c37b7cbfc09cb4a97bde3c4be5a2f4386c33e3fdd2aab098625",
+      "shard": "documents/000337.pt",
+      "tokens": 72736
+    },
+    {
+      "depth": 4,
+      "id": "doc_338",
+      "leaf_tensor_sha256": "3b27ceb3864f65599bf9f08b82a4b3c4f363e4b4ef47dcac39212ad709e3596b",
+      "leaves": 117,
+      "sha256": "7fc2806ab219debe6a8ddd856b2d0afef66d502432ab4952d099bad19e93330e",
+      "shard": "documents/000338.pt",
+      "tokens": 118948
+    },
+    {
+      "depth": 4,
+      "id": "doc_339",
+      "leaf_tensor_sha256": "6133aafbf53185108e7f0ced72bd99a9d259f16ba216ea72822cd493c33022bd",
+      "leaves": 93,
+      "sha256": "a7841ab4ed92682e47f95774720e4b783ea3fefcae5be949a65098bede204057",
+      "shard": "documents/000339.pt",
+      "tokens": 94818
+    },
+    {
+      "depth": 4,
+      "id": "doc_340",
+      "leaf_tensor_sha256": "57fac888fc2610a884b52cc78b46684463f071fdf429df656d1598b1d5b69dc3",
+      "leaves": 84,
+      "sha256": "538c7fb661f9737afa1e67c359f37e897aa00ac34927f8550df12f1aada41e2b",
+      "shard": "documents/000340.pt",
+      "tokens": 85858
+    },
+    {
+      "depth": 4,
+      "id": "doc_341",
+      "leaf_tensor_sha256": "37d7dcb483573978c32c05a35ac6435d3ef3ea9db2cf0fbf3e8429c5ac329bb9",
+      "leaves": 91,
+      "sha256": "c206e22a6d206dad74d687505801072b48c9f790e2159197f150041341d1b767",
+      "shard": "documents/000341.pt",
+      "tokens": 92968
+    },
+    {
+      "depth": 3,
+      "id": "doc_342",
+      "leaf_tensor_sha256": "f4e259ed0ad1fe72081ed1e4261015fdb51becc7fcad38af474bd92dfcf28911",
+      "leaves": 46,
+      "sha256": "b09807eebb740f6d7a8a26a34a77bab21bc4c1350e66e81dbb3c8deb6c01f5c3",
+      "shard": "documents/000342.pt",
+      "tokens": 46751
+    },
+    {
+      "depth": 4,
+      "id": "doc_343",
+      "leaf_tensor_sha256": "49115606b9f806e92e2ab862531a2d8d023d4ef94042cbe0ae2a36547669b64c",
+      "leaves": 231,
+      "sha256": "7b26ae3f75e24fe39fa96c53ef52abf2225250f22fc3161f1023f087a84bd3dc",
+      "shard": "documents/000343.pt",
+      "tokens": 235970
+    },
+    {
+      "depth": 4,
+      "id": "doc_344",
+      "leaf_tensor_sha256": "38ef5df1f6ab9f9e461c707b657193dba147c87b8cd0e0b90e6a4c6f65fcb250",
+      "leaves": 87,
+      "sha256": "6b7364965f84f1c15020244a3c0cbf3411acdaf5fe9ea56fc779829b48cf3483",
+      "shard": "documents/000344.pt",
+      "tokens": 88960
+    },
+    {
+      "depth": 3,
+      "id": "doc_345",
+      "leaf_tensor_sha256": "68c583ea07ce76a67ba5a4566091d6dac67c89f2d09edb07202ee274c38650cc",
+      "leaves": 59,
+      "sha256": "645e618bf6608aa8878aedc139562798be220aa2f2315231709755da40ed82c4",
+      "shard": "documents/000345.pt",
+      "tokens": 60366
+    },
+    {
+      "depth": 5,
+      "id": "doc_346",
+      "leaf_tensor_sha256": "c29f1e20a04cdf8f91cf0cf972420b29a887021874bc3d71d3cd1fc97ca28be2",
+      "leaves": 273,
+      "sha256": "3cca051fc6b64fb24df72bfb69fff31d25ea8a3e654087b1df8f71c0e4f1ac06",
+      "shard": "documents/000346.pt",
+      "tokens": 279238
+    },
+    {
+      "depth": 3,
+      "id": "doc_347",
+      "leaf_tensor_sha256": "7e5e80096bab9e51de87b6ea5f663d1f59331d17ca1b62489973a93578db9afd",
+      "leaves": 48,
+      "sha256": "ba2ee50b30f5d4180497f06c5a42aa18cf87f93f4f057cfc6d1f931643730a4d",
+      "shard": "documents/000347.pt",
+      "tokens": 48818
+    },
+    {
+      "depth": 4,
+      "id": "doc_348",
+      "leaf_tensor_sha256": "8b6dd49508cba9904d104405690763b772ee5b266674e7b75e845c1dfaf895c3",
+      "leaves": 86,
+      "sha256": "e68173136de6ed86a2142c247e86122174cd8c34584dd1ddca8335055d5e3eed",
+      "shard": "documents/000348.pt",
+      "tokens": 87822
+    },
+    {
+      "depth": 4,
+      "id": "doc_349",
+      "leaf_tensor_sha256": "5a4d60e8f06906438decc0f5121de5e4b2d19fcad10ac7b09096726d0ed60ae8",
+      "leaves": 150,
+      "sha256": "5efbd94e3ed8f5f1a1b408e75fb4317f4774aa8e8a5ca3f2d0b6855d9bcc41a6",
+      "shard": "documents/000349.pt",
+      "tokens": 153485
+    },
+    {
+      "depth": 4,
+      "id": "doc_350",
+      "leaf_tensor_sha256": "3cdb760baec6d6c8ebf0ea42ec4d2952919e79f36017b40b3fb17c257f597fce",
+      "leaves": 182,
+      "sha256": "c5212abd76580c5c0394a8c9e260d41efb14ddcb074d2862aa62a02a25eafac3",
+      "shard": "documents/000350.pt",
+      "tokens": 186289
+    },
+    {
+      "depth": 4,
+      "id": "doc_351",
+      "leaf_tensor_sha256": "bcfed9a3820be2599d970e78ec974da8e85899bb5cc6543e7b9475ef3751a62a",
+      "leaves": 74,
+      "sha256": "7fdb4fa2d9b362add04ea51e367c0f5a6fd8bb282e6f676b8b212d01a2f0114a",
+      "shard": "documents/000351.pt",
+      "tokens": 75478
+    },
+    {
+      "depth": 3,
+      "id": "doc_352",
+      "leaf_tensor_sha256": "2c0b65c93c87af1626b68e1ad167c181514278d4ce4842b6777942fd6a51ea8c",
+      "leaves": 61,
+      "sha256": "d059f1bfa6574e275ead9aaca4839e4f2412193688d2398d9cf0f6a472d36e95",
+      "shard": "documents/000352.pt",
+      "tokens": 62256
+    },
+    {
+      "depth": 3,
+      "id": "doc_353",
+      "leaf_tensor_sha256": "0f8c44acd5230280d48ca93d8dfba8bf1149f753f084f0a9c5ae542e97eb6afe",
+      "leaves": 22,
+      "sha256": "581cb2ca348326d079e61fce7439def7a89040b6269f84d6234b948b78d4a09d",
+      "shard": "documents/000353.pt",
+      "tokens": 22395
+    },
+    {
+      "depth": 3,
+      "id": "doc_354",
+      "leaf_tensor_sha256": "42444e2e26c6e4741a15fb459cffd4482993be3f44e94c632566c06cc28e064c",
+      "leaves": 18,
+      "sha256": "1ee48befed308ed95d74125ffe755902f250a6c8eced7826c7459e828ee43a9d",
+      "shard": "documents/000354.pt",
+      "tokens": 17533
+    }
+  ],
+  "query_cache": {
+    "path": "queries.pt",
+    "sha256": "c457e996d3b90ceb5e72d5f744d142872333ea881279ae8d8649ff0655204631"
+  },
+  "schema": "v3_cls_downstream_leaf_cache_v1",
+  "seconds": 1141.522130459547,
+  "teacher": {
+    "id": "Alibaba-NLP/gte-modernbert-base",
+    "pooling": "normalized_cls",
+    "revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22"
+  }
+}
