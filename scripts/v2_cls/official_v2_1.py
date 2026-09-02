@@ -100,7 +100,7 @@ def summarize_full_merges(entries):
  return {'ordered_child_cosine_overall':float(np.mean(vals)) if vals else None,'ordered_child_cosine_leaf_children':float(np.mean(leaf)) if leaf else None,'ordered_child_cosine_recursive_children':float(np.mean(rec)) if rec else None,'genuine_merges':len(entries),'leaf_child_slots':len(leaf),'recursive_child_slots':len(rec),'probe_exact4_parent_retention':float(np.mean(probe)) if probe else None,'probe_exact4_parent_merges':len(probe)}
 
 def evaluate(device):
- c=cfg();cache=ROOT/c['cache_dir'];m=json.loads((cache/'CACHE_MANIFEST.json').read_text());probes=json.loads((ROOT/c['probe_manifest']).read_text());out=ROOT/c['output_dir'];out.mkdir(parents=True);result={'safe':{},'full':{},'cache_manifest_sha256':sh(cache/'CACHE_MANIFEST.json')}
+ c=cfg();cache=ROOT/c['cache_dir'];m=json.loads((cache/'CACHE_MANIFEST.json').read_text());probes=json.loads((ROOT/c['probe_manifest']).read_text());out=ROOT/c['output_dir'];out.mkdir(parents=True,exist_ok=True);result={'safe':{},'full':{},'cache_manifest_sha256':sh(cache/'CACHE_MANIFEST.json')}
  for seed,cp in c['checkpoints'].items():
   model,_=build_model(ROOT/cp,torch.device(device));probe=ParentOnlyRetentionProbe(768,4,512).to(device);probe.load_state_dict(torch.load(ROOT/probes['seeds'][seed]['probe'],map_location='cpu',weights_only=True)['state_dict']);fake=[];real=[];groups=[];per={};fullstats=[]
   for cid,*_ in CORPORA:

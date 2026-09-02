@@ -1,0 +1,8 @@
+{
+  "results_sha256": "c4eb7b74a160cc54dc8ea661767db41ba7f1f47c820eed3db2ae21ea1a8de2d4",
+  "cache_reused_no_source_rescan": true,
+  "recovery_commits": [
+    "0e75cc1"
+  ],
+  "note": "output-directory recovery allowed only because no RESULTS.json existed before successful evaluator completion"
+}
