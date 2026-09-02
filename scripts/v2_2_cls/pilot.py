@@ -1,36 +1,68 @@
 #!/usr/bin/env python3
-"""V2.2 pilot CLI. Synthetic mode is the only enabled mode in this milestone."""
-import argparse,hashlib,json
+"""Run the frozen four-arm V2.2 TRAIN-only covariance pilot."""
+from __future__ import annotations
+import argparse, copy, json, sys
 from pathlib import Path
-import torch,torch.nn.functional as F
-from recursive_geodesic_composition.v2_2_covariance import covariance_frobenius,whitened_covariance,balanced
-ARMS=('BASELINE','A','B','C')
-def provenance(m):
- req={'teacher_pooling':'cls','teacher_id':'Alibaba-NLP/gte-modernbert-base','teacher_revision':'e7f32e3c00f91d699e8c43b53106206bcc72bb22','namespace':'v2_2_cls'}
- if any(m.get(k)!=v for k,v in req.items()):raise ValueError('V2.2 CLS provenance rejection')
-def objective(g,t,corpus,arm):
- """Distribution additions only; base legacy terms are supplied by training path."""
- if g.shape[0]<4:raise ValueError('fewer than four matched rows')
- cov=torch.zeros((),device=g.device);res=torch.zeros((),device=g.device);cond=torch.tensor(0.,device=g.device)
- if arm=='A':cov=covariance_frobenius(g,t)
- if arm in ('B','C'):
-  if arm=='B':cov,cond=whitened_covariance(g,t)
-  else:
-   terms=[];conds=[]
-   for c in range(4):
-    x=(corpus==c)
-    if x.sum()<4:raise ValueError('C requires four valid rows per corpus')
-    z,q=whitened_covariance(g[x],t[x]);terms.append(z);conds.append(q)
-   cov=balanced(terms);cond=torch.stack(conds).max();res=(g-t).mean(0).square().mean()
- if not torch.isfinite(cov+res+cond) or cond>1e8:raise FloatingPointError('covariance health')
- return {'covariance':cov,'residual_mean':res,'condition':cond,'addition':64*cov+(.01*res if arm=='C' else 0*res)}
-def synthetic(arm,steps=3):
- torch.manual_seed(424242);t=F.normalize(torch.arange(128,dtype=torch.float32).reshape(16,8)+1,dim=-1);p=torch.nn.Parameter(t+.01*torch.randn_like(t));initial=hashlib.sha256(p.detach().numpy().tobytes()).hexdigest();opt=torch.optim.AdamW([p],lr=1e-3);corp=torch.tensor([0]*4+[1]*4+[2]*4+[3]*4);log=[]
- for _ in range(steps):
-  g=F.normalize(p,dim=-1);base=(1-(g*t).sum(1)).mean()+.25*(g.mean(0)-t.mean(0)).square().mean()+256*(g.var(0)-t.var(0)).square().mean();q=objective(g,t,corp,arm);loss=base+q['addition'];opt.zero_grad();loss.backward();gn=torch.nn.utils.clip_grad_norm_([p],1000);assert torch.isfinite(gn) and torch.isfinite(p.grad).all();opt.step();log.append({'total':loss.detach().item(),'covariance':q['covariance'].detach().item(),'gradient_norm':gn.detach().item()})
- return {'arm':arm,'initial_hash':initial,'log':log}
+import yaml
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path[:0] = [str(ROOT), str(ROOT / 'src')]
+from recursive_geodesic_composition.train import run
+from scripts.v2_2_cls.prepare_train import prepare, validate_manifest
+
+ARMS = ('BASELINE', 'A', 'B', 'C')
+ARM_OBJECTIVES = {
+    'BASELINE': {'covariance_mode': 'none', 'covariance_weight': 0., 'residual_mean_weight': 0.},
+    'A': {'covariance_mode': 'frobenius', 'covariance_weight': 64., 'residual_mean_weight': 0.},
+    'B': {'covariance_mode': 'whitened', 'covariance_weight': 64., 'residual_mean_weight': 0.},
+    'C': {'covariance_mode': 'balanced_whitened', 'covariance_weight': 64., 'residual_mean_weight': .01},
+}
+
+def provenance(manifest):
+    return validate_manifest(manifest)
+
+def _manifest(cache_dir):
+    path = Path(cache_dir) / 'CACHE_MANIFEST.json'
+    if not path.is_file() or not (path.parent / 'COMPLETE').is_file():
+        raise FileNotFoundError('V2.2 TRAIN cache is incomplete')
+    data = json.loads(path.read_text()); provenance(data); return data
+
+def _last_record(output_dir):
+    logs = sorted(Path(output_dir).glob('encoder_seed*.jsonl'))
+    if not logs: return {}
+    lines = [line for line in logs[-1].read_text().splitlines() if line.strip()]
+    return json.loads(lines[-1]) if lines else {}
+
+def run_pilot(config_path, device='cuda', arms=ARMS):
+    cfg = yaml.safe_load(Path(config_path).read_text())
+    if tuple(cfg.get('source_scan', ())) != (244000, 256000): raise ValueError('pilot config is not V2.2 TRAIN-only')
+    _manifest(cfg['cache_dir'])
+    requested = tuple(arms)
+    if not requested or any(arm not in ARMS for arm in requested): raise ValueError('unknown pilot arm')
+    results = {}
+    for arm in requested:
+        arm_cfg = copy.deepcopy(cfg)
+        arm_cfg.update(ARM_OBJECTIVES[arm])
+        arm_cfg['output_dir'] = str(Path(cfg['output_dir']) / arm.lower())
+        arm_cfg['v2_2_pilot_arm'] = arm
+        # run() resets both Python and Torch RNG. Thus every arm has identical
+        # fresh initialization and sampling; only the frozen objective differs.
+        if Path(arm_cfg['output_dir']).exists(): raise FileExistsError(f'create-only pilot output exists: {arm_cfg["output_dir"]}')
+        run(arm_cfg, 'encoder', int(cfg['seed']), device)
+        status = json.loads((Path(arm_cfg['output_dir']) / f'encoder_seed{cfg["seed"]}_run_status.json').read_text())
+        record = _last_record(arm_cfg['output_dir'])
+        results[arm] = {'status': status, 'final': {key: record.get(key) for key in ('teacher', 'covariance', 'residual_mean', 'distribution_variance', 'covariance_condition', 'grad_norm')}}
+    out = Path(cfg['output_dir']) / 'PILOT_RESULTS.json'
+    out.parent.mkdir(parents=True, exist_ok=True); out.write_text(json.dumps({'arms': results, 'seed': cfg['seed'], 'train_only': True}, indent=2) + '\n')
+    return results
+
 def main():
- p=argparse.ArgumentParser();p.add_argument('command',choices=('synthetic','prepare','run-pilot'));p.add_argument('--arm',choices=ARMS,default='BASELINE');a=p.parse_args()
- if a.command!='synthetic':raise RuntimeError('TRAIN access intentionally disabled until separate authorization')
- print(json.dumps(synthetic(a.arm),indent=2))
-if __name__=='__main__':main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('command', choices=('prepare', 'run-pilot'))
+    parser.add_argument('--config', default=str(ROOT / 'configs/v2_2_cls/pilot.yaml'))
+    parser.add_argument('--device', default='cuda')
+    parser.add_argument('--arm', choices=ARMS, action='append')
+    args = parser.parse_args()
+    if args.command == 'prepare': print(prepare(Path(args.config).resolve(), args.device))
+    else: print(json.dumps(run_pilot(Path(args.config).resolve(), args.device, tuple(args.arm or ARMS)), indent=2))
+if __name__ == '__main__': main()

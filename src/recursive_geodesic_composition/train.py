@@ -10,6 +10,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import average_precision_score, balanced_accuracy_score, roc_auc_score
 from sklearn.model_selection import GroupShuffleSplit
 from .architecture import GeodesicMerge, contiguous_reduction_groups
+from .v2_2_covariance import balanced, covariance_frobenius, whitened_covariance
 
 try:
     from torch.utils.tensorboard import SummaryWriter
@@ -344,6 +345,8 @@ def _effective_training_weights(cfg, autoencoder, encoder_frozen, multiplier=1.0
         'cycle': float(cfg.get('cycle_weight', 0.0)),
         'distribution_mean': float(cfg.get('distribution_mean_weight', 0.0)),
         'distribution_variance': float(cfg.get('distribution_variance_weight', 0.0)),
+        'covariance': float(cfg.get('covariance_weight', 0.0)),
+        'residual_mean': float(cfg.get('residual_mean_weight', 0.0)),
         'prior': float(cfg.get('importance_prior_weight', 0.0)),
         'delta': float(cfg.get('delta_loss_weight', 0.0)),
         'sharpness': float(cfg.get('sharpness_loss_weight', 0.0)),
@@ -546,17 +549,27 @@ class _DistributionMomentCollector:
         self.minimum_samples = int(minimum_samples)
         self.predictions = []
         self.targets = []
+        self.corpora = []
 
-    def add(self, predictions, targets):
+    def add(self, predictions, targets, corpora=None):
         if predictions.numel():
-            self.predictions.append(predictions.reshape(-1, predictions.shape[-1]))
-            self.targets.append(targets.reshape(-1, targets.shape[-1]))
+            prediction = predictions.reshape(-1, predictions.shape[-1])
+            target = targets.reshape(-1, targets.shape[-1])
+            if prediction.shape[0] != target.shape[0]:
+                raise ValueError("distribution collector prediction/target mismatch")
+            self.predictions.append(prediction)
+            self.targets.append(target)
+            self.corpora.extend([None] * prediction.shape[0] if corpora is None else list(corpora))
 
     def pairs(self):
         """Return all graph-connected generated/teacher pairs, if any."""
         if not self.predictions:
             return None, None
         return torch.cat(self.predictions, dim=0), torch.cat(self.targets, dim=0)
+
+    def labeled_pairs(self):
+        prediction, target = self.pairs()
+        return prediction, target, self.corpora
 
     def losses(self, zero, minimum_samples=None):
         prediction, target = self.pairs()
@@ -679,7 +692,7 @@ def _step_loss_plan(model, row, autoencoder, device, recon_weight, cycle_weight=
             target = target.to(device)
             teacher_losses.append((1 - F.cosine_similarity(parent[0], target, dim=-1)).mean())
             if collector is not None:
-                collector.add(parent, target.unsqueeze(0))
+                collector.add(parent, target.unsqueeze(0), [row.get('_v2_2_corpus')])
         if autoencoder:
             reconstruction, cycle = _autoencoder_losses(
                 model, parent, child, child_sizes, cycle_weight, detach_decoder_parent)
@@ -715,7 +728,9 @@ def _step_loss_template_batch(model, rows, autoencoder, device, recon_weight, cy
             matched_target = target[mask]
             teacher_levels.append((1 - F.cosine_similarity(matched_parent, matched_target, dim=-1)).mean())
             if collector is not None:
-                collector.add(matched_parent, matched_target)
+                labels = [row.get('_v2_2_corpus') for row in rows for _ in positions]
+                collector.add(matched_parent, matched_target,
+                              [label for label, keep in zip(labels, mask_list) if keep])
         if autoencoder:
             reconstruction, cycle = _autoencoder_losses(
                 model, parent.reshape(-1, model.d), child, child_sizes, cycle_weight,
@@ -843,7 +858,9 @@ def _step_loss_batch_base(model, rows, autoencoder, device, recon_weight, cycle_
                 teacher_loss = 1 - F.cosine_similarity(matched_parent, matched_target, dim=-1)
                 teacher_levels.append(teacher_loss.mean())
                 if collector is not None:
-                    collector.add(matched_parent, matched_target)
+                    labels = [r.get('_v2_2_corpus') for r in group for _ in range(pairs_per_doc)]
+                    collector.add(matched_parent, matched_target,
+                                  [label for label, keep in zip(labels, target_mask) if keep])
             if autoencoder:
                 reconstruction, cycle = _autoencoder_losses(
                     model, parent, child, child_sizes, cycle_weight, detach_decoder_parent)
@@ -872,7 +889,9 @@ def step_loss_batch(model, rows, autoencoder, device, recon_weight, cycle_weight
                     distribution_mean_weight=0.0, distribution_variance_weight=0.0,
                     distribution_min_samples=2, collector=None, teacher_weight=1.0,
                     auxiliary_weight_multiplier=1.0, importance_weight_multiplier=None,
-                    detach_decoder_parent=False):
+                    detach_decoder_parent=False, covariance_mode='none',
+                    covariance_weight=0.0, covariance_ridge=1e-4,
+                    residual_mean_weight=0.0, corpus_labels=None):
     """Add minibatch teacher-distribution matching to the existing base loss.
 
     The collected vectors span every teacher-supervised merge in the sampled
@@ -889,6 +908,16 @@ def step_loss_batch(model, rows, autoencoder, device, recon_weight, cycle_weight
                                  importance_weight_multiplier)
     if not all(math.isfinite(weight) and weight >= 0 for weight in all_multipliers):
         raise ValueError(f"objective weights/multipliers must be finite and non-negative, got {all_multipliers}")
+    if covariance_mode not in ('none', 'frobenius', 'whitened', 'balanced_whitened'):
+        raise ValueError(f"unknown covariance_mode {covariance_mode!r}")
+    if not all(math.isfinite(float(value)) and float(value) >= 0
+               for value in (covariance_weight, covariance_ridge, residual_mean_weight)):
+        raise ValueError("covariance weights/ridge must be finite and non-negative")
+    if corpus_labels is not None:
+        if len(corpus_labels) != len(rows):
+            raise ValueError("corpus labels must match rows")
+        for row, label in zip(rows, corpus_labels):
+            row['_v2_2_corpus'] = label
     collector = collector or _DistributionMomentCollector(distribution_min_samples)
     # Geodesic angle telemetry is collected for every parameterization. The
     # same collection window also carries opt-in semantic/strict losses.
@@ -897,8 +926,36 @@ def step_loss_batch(model, rows, autoencoder, device, recon_weight, cycle_weight
         model, rows, autoencoder, device, recon_weight, cycle_weight, collector,
         teacher_weight, detach_decoder_parent)
     mean, variance = collector.losses(total * 0.0, distribution_min_samples)
-    total = total + weights[0] * mean + weights[1] * variance
-    parts.update({'distribution_mean': mean.detach(), 'distribution_variance': variance.detach()})
+    prediction, target, labels = collector.labeled_pairs()
+    covariance = total * 0.0
+    residual_mean = total * 0.0
+    condition = total.detach() * 0.0
+    if covariance_mode != 'none' and prediction is not None:
+        if prediction.shape[0] < 4:
+            raise ValueError("covariance objective requires four matched parents")
+        if covariance_mode == 'frobenius':
+            covariance = covariance_frobenius(prediction, target)
+        elif covariance_mode == 'whitened':
+            covariance, condition = whitened_covariance(prediction, target, covariance_ridge)
+        else:
+            names = sorted(set(labels))
+            if None in names or len(names) != 4:
+                raise ValueError("balanced covariance requires four labeled corpora")
+            losses, conditions = [], []
+            for name in names:
+                mask = torch.tensor([label == name for label in labels], device=prediction.device)
+                if int(mask.sum()) < 4:
+                    raise ValueError(f"balanced covariance requires four matched parents for {name}")
+                loss, item_condition = whitened_covariance(prediction[mask], target[mask], covariance_ridge)
+                losses.append(loss); conditions.append(item_condition)
+            covariance, condition = balanced(losses), torch.stack(conditions).max()
+            residual_mean = (prediction - target).mean(0).square().mean()
+        if not torch.isfinite(covariance + residual_mean + condition) or condition > 1e8:
+            raise FloatingPointError("covariance objective health failure")
+    total = total + weights[0] * mean + weights[1] * variance + float(covariance_weight) * covariance + float(residual_mean_weight) * residual_mean
+    parts.update({'distribution_mean': mean.detach(), 'distribution_variance': variance.detach(),
+                  'covariance': covariance.detach(), 'residual_mean': residual_mean.detach(),
+                  'covariance_condition': condition.detach()})
     auxiliary, auxiliary_parts = model.end_aux_collection(
         total * 0.0, auxiliary_weight_multiplier, importance_weight_multiplier)
     total = total + auxiliary
@@ -1278,6 +1335,10 @@ def run(cfg, variant, seed, device):
     distribution_mean_weight = float(cfg.get('distribution_mean_weight', 0.0))
     distribution_variance_weight = float(cfg.get('distribution_variance_weight', 0.0))
     distribution_min_samples = int(cfg.get('distribution_min_samples', 2))
+    covariance_mode = str(cfg.get('covariance_mode', 'none'))
+    covariance_weight = float(cfg.get('covariance_weight', 0.0))
+    covariance_ridge = float(cfg.get('covariance_ridge', 1e-4))
+    residual_mean_weight = float(cfg.get('residual_mean_weight', 0.0))
     adversarial_alignment_weight = float(cfg.get('adversarial_alignment_weight', 0.0))
     adversarial_discriminator_learning_rate = float(cfg.get('adversarial_discriminator_learning_rate', 0.0))
     adversarial_discriminator_weight_decay = float(cfg.get('adversarial_discriminator_weight_decay', 0.0))
@@ -1521,7 +1582,10 @@ def run(cfg, variant, seed, device):
                 teacher_weight=effective_weights['teacher'],
                 auxiliary_weight_multiplier=auxiliary_multiplier,
                 importance_weight_multiplier=importance_multiplier,
-                detach_decoder_parent=encoder_frozen)
+                detach_decoder_parent=encoder_frozen,
+                covariance_mode=covariance_mode, covariance_weight=covariance_weight,
+                covariance_ridge=covariance_ridge, residual_mean_weight=residual_mean_weight,
+                corpus_labels=[corpus for corpus, _ in indexed_batch])
         if adversarial_active:
             prediction, target = pair_collector.pairs()
             if prediction is None or prediction.shape[0] < adversarial_min_samples:
@@ -1572,6 +1636,9 @@ def run(cfg, variant, seed, device):
             **continuation_info,
             'distribution_mean_weight': distribution_mean_weight,
             'distribution_variance_weight': distribution_variance_weight,
+            'covariance_mode': covariance_mode,
+            'covariance_weight': covariance_weight,
+            'residual_mean_weight': residual_mean_weight,
             'adversarial_alignment_weight': adversarial_alignment_weight,
             'adversarial_discriminator_learning_rate': adversarial_discriminator_learning_rate,
             'adversarial_discriminator_updates': adversarial_discriminator_updates,
