@@ -1,0 +1,83 @@
+{
+  "stage": "v2_cls_official_v2_1",
+  "frozen_before_access": true,
+  "official_range": [
+    214000,
+    244000
+  ],
+  "teacher": {
+    "id": "Alibaba-NLP/gte-modernbert-base",
+    "revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22",
+    "pooling": "cls"
+  },
+  "checkpoints": {
+    "424242": {
+      "checkpoint": "results/v2_cls/amended_v2_1_seed424242/stage_c/autoencoder_seed424242.pt",
+      "checkpoint_sha256": "c2464e5f884887779f35f4dff193c25ec1b9d80dbc91eae7263610b9e8d55c19",
+      "probe": "artifacts/v2_cls/train_probes_v2_1/parent_only_seed424242.pt",
+      "probe_sha256": "f582947461f7dc8f37663e7e67efbe63e6830d6f0d111109e6493452f376f95d",
+      "train_scores": {
+        "pooled": 0.9007978439331055,
+        "fineweb_edu": 0.8961734771728516,
+        "fineweb": 0.8993167877197266,
+        "openwebtext": 0.9029194116592407,
+        "wikipedia_en_20231101": 0.904781699180603
+      },
+      "floors": {
+        "pooled": 0.8997978439331055,
+        "fineweb_edu": 0.8951734771728516,
+        "fineweb": 0.8983167877197266,
+        "openwebtext": 0.9019194116592407,
+        "wikipedia_en_20231101": 0.903781699180603
+      }
+    },
+    "271828": {
+      "checkpoint": "results/v2_cls/amended_v2_1_seed271828/stage_c/autoencoder_seed271828.pt",
+      "checkpoint_sha256": "0ced20f8619d46fb2c8be8acc6bcd7c751bdbf3d693885f500ed961a117c4ee8",
+      "probe": "artifacts/v2_cls/train_probes_v2_1/parent_only_seed271828.pt",
+      "probe_sha256": "8f4c836fdad5b3f974a910d54deb63f4223d8c456573995883f538dcf4fef5cb",
+      "train_scores": {
+        "pooled": 0.9007717370986938,
+        "fineweb_edu": 0.8961795568466187,
+        "fineweb": 0.8995974659919739,
+        "openwebtext": 0.9031205177307129,
+        "wikipedia_en_20231101": 0.9041892290115356
+      },
+      "floors": {
+        "pooled": 0.8997717370986938,
+        "fineweb_edu": 0.8951795568466187,
+        "fineweb": 0.8985974659919739,
+        "openwebtext": 0.9021205177307129,
+        "wikipedia_en_20231101": 0.9031892290115356
+      }
+    },
+    "314159": {
+      "checkpoint": "results/v2_cls/amended_v2_1_seed314159/stage_c_retry_after_enospc/autoencoder_seed314159.pt",
+      "checkpoint_sha256": "0be4a8059b8e7673d563eada614ca95651c309bad07f6176b3919235f5253d27",
+      "probe": "artifacts/v2_cls/train_probes_v2_1/parent_only_seed314159.pt",
+      "probe_sha256": "49148e1d2ada575395e9863f7bc9d5bef913b7e654903acde8665b5ddbdd2159",
+      "train_scores": {
+        "pooled": 0.900131106376648,
+        "fineweb_edu": 0.8956262469291687,
+        "fineweb": 0.8988996744155884,
+        "openwebtext": 0.9025877714157104,
+        "wikipedia_en_20231101": 0.9034109115600586
+      },
+      "floors": {
+        "pooled": 0.899131106376648,
+        "fineweb_edu": 0.8946262469291687,
+        "fineweb": 0.8978996744155884,
+        "openwebtext": 0.9015877714157104,
+        "wikipedia_en_20231101": 0.9024109115600586
+      }
+    }
+  },
+  "files": {
+    "configs/v2_cls/official_v2_1.yaml": "1434674f61ed1a6957e30db72e3448e0c1b8cc90ad213ea5e1089742393df84f",
+    "scripts/v2_cls/official_v2_1.py": "b76709f6ea846bc310cb6e99488199567a499a4549bb2f61957e9c871ca49ddc",
+    "scripts/v2_cls/freeze_train_probes.py": "2fb477dfa2591333273e93b9d60787738eda702b28366aa560cfbc65a7a5e209",
+    "configs/evaluator_attacks_v1.yaml": "49e7a2996e33482239819430e92426fc1e4f9ff88628dfd2ac74f6da94726800",
+    "reproducibility/v2_cls/TRAIN_PROBE_MANIFEST.json": "f0f22dac068f8291e4f79f0c9412e187231ee0fe8b5fdf9124657dcd287a6486"
+  },
+  "command": "PYTHONPATH=src /venv/main/bin/python scripts/v2_cls/official_v2_1.py prepare --device cuda"
+}
