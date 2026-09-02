@@ -1,0 +1,126 @@
+{
+  "benchmarks": [
+    {
+      "archive_sha256": "efe5be03f8c5b86a5870102d0599d227c8c6e2484328e68c6522560385671b0b",
+      "id": "nfcorpus",
+      "kind": "BEIR",
+      "source": "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/nfcorpus.zip",
+      "split": "test"
+    },
+    {
+      "config": "narrativeqa",
+      "id": "longembed_narrativeqa",
+      "kind": "LongEmbed real-world long-document retrieval",
+      "revision": "10039a580487dacecf79db69166e17ace3ede392",
+      "source": "dwzhu/LongEmbed",
+      "splits": {
+        "corpus": "corpus",
+        "qrels": "qrels",
+        "queries": "queries"
+      }
+    }
+  ],
+  "blind_inspection": "results/v4_euclidean/downstream/BLIND_LENGTH_INSPECTION.json",
+  "blind_inspection_sha256": "86df04f5008f76ac5a0196a21c78d3a72867988314683d948742b19d5d1b4342",
+  "checkpoints": {
+    "424242": {
+      "path": "results/v4_euclidean/euclidean_residual_seed424242/autoencoder_seed424242.pt",
+      "sha256": "762f9799c83b6e9dc6ca35c22dda1f952b410efbbebced628caa29f249a70946"
+    },
+    "271828": {
+      "path": "results/v4_euclidean/euclidean_residual_seed271828/autoencoder_seed271828.pt",
+      "sha256": "2fe260688e4dee17f9161effe375108d085503ba1f1220ab5b73e2844b7b1b7b"
+    },
+    "314159": {
+      "path": "results/v4_euclidean/euclidean_residual_seed314159/autoencoder_seed314159.pt",
+      "sha256": "936c47c3e7f34848feafeb1740ae5a0743cbc0bd2562d3a72f17ba2139aaa39f"
+    }
+  },
+  "created_unix": 1788346976.2279363,
+  "direct_teacher_rule": "Include direct_teacher only if every query and every document in the benchmark is <=8190 raw tokenizer tokens; otherwise omit the method for the entire benchmark (no truncation or mixed representation).",
+  "document_input": "NFCorpus: strip(title + newline + text); NarrativeQA: text verbatim",
+  "leaf_cache": {
+    "contiguous": true,
+    "dtype": "float32",
+    "raw_tokens_per_leaf": 1024,
+    "retain_final_short_leaf": true,
+    "reuse": "one shared hash-pinned cache per dataset for every recursive checkpoint, token-weighted mean, and unweighted mean"
+  },
+  "long_benchmark_decision": {
+    "preferred": "MLDR English",
+    "reason": "MLDR English's published 200,000-document corpus is infeasible for an exact float32 1024-token leaf cache and three checkpoint passes on the available 5.7 GB workspace. LongEmbed NarrativeQA is an established public English long-context retrieval benchmark with 355 genuinely long documents; all 355 corpus lengths were inspected without opening labels.",
+    "selected": "LongEmbed NarrativeQA"
+  },
+  "methods": [
+    "recursive_seed424242",
+    "recursive_seed271828",
+    "recursive_seed314159",
+    "token_weighted_leaf_mean",
+    "unweighted_leaf_mean"
+  ],
+  "metric_implementation": "pytrec_eval ndcg_cut.10, recall.10, recall.100; explicit reciprocal rank at cutoff 10 over positive qrels",
+  "metrics": [
+    "nDCG@10",
+    "Recall@10",
+    "Recall@100",
+    "MRR@10"
+  ],
+  "qrels_policy": "Fail on malformed/duplicate/nonfinite qrels, unknown query/document IDs, missing positive judgments, query-set mismatch, duplicate IDs, missing embeddings, or nonfinite scores. Zero-grade judgments are retained but not relevant. No silent drops.",
+  "ranking": "cosine similarity of L2-normalized query/direct-CLS and document embeddings; deterministic doc-id ascending tie break; preserve top 100",
+  "schema": "v4_euclidean_downstream_precommit_v1",
+  "stratification": {
+    "depth": "deterministic contiguous K=4 recursion depth, exact integer value",
+    "leaves": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        9,
+        32
+      ],
+      [
+        33,
+        null
+      ]
+    ],
+    "query_assignment": "highest-relevance qrel document; ties resolved by lexicographically smallest document id",
+    "tokens": [
+      [
+        1,
+        1024
+      ],
+      [
+        1025,
+        4096
+      ],
+      [
+        4097,
+        8190
+      ],
+      [
+        8191,
+        32768
+      ],
+      [
+        32769,
+        null
+      ]
+    ]
+  },
+  "teacher": {
+    "id": "Alibaba-NLP/gte-modernbert-base",
+    "pooling": "normalized CLS",
+    "raw_token_limit": 8190,
+    "revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22"
+  },
+  "cache_reuse": "Hardlinks to frozen V3 public-benchmark teacher-only leaf tensors; identical teacher/revision/chunking, no learned V3 outputs; hashes reverified."
+}

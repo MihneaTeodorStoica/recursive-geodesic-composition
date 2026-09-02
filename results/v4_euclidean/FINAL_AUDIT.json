@@ -1,0 +1,156 @@
+{
+  "study": "v4_euclidean",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "branch",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "ranges",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "nine frozen",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "checkpoint geodesic/424242",
+      "pass": true,
+      "detail": "/root/v4_unselected_archive/results/v4_euclidean/geodesic_seed424242/autoencoder_seed424242.pt"
+    },
+    {
+      "name": "probe geodesic/424242",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "checkpoint geodesic/271828",
+      "pass": true,
+      "detail": "/root/v4_unselected_archive/results/v4_euclidean/geodesic_seed271828/autoencoder_seed271828.pt"
+    },
+    {
+      "name": "probe geodesic/271828",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "checkpoint geodesic/314159",
+      "pass": true,
+      "detail": "/root/v4_unselected_archive/results/v4_euclidean/geodesic_seed314159/autoencoder_seed314159.pt"
+    },
+    {
+      "name": "probe geodesic/314159",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "checkpoint euclidean_residual/424242",
+      "pass": true,
+      "detail": "/workspace/recursive-geodesic-composition-v3/results/v4_euclidean/euclidean_residual_seed424242/autoencoder_seed424242.pt"
+    },
+    {
+      "name": "probe euclidean_residual/424242",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "checkpoint euclidean_residual/271828",
+      "pass": true,
+      "detail": "/workspace/recursive-geodesic-composition-v3/results/v4_euclidean/euclidean_residual_seed271828/autoencoder_seed271828.pt"
+    },
+    {
+      "name": "probe euclidean_residual/271828",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "checkpoint euclidean_residual/314159",
+      "pass": true,
+      "detail": "/workspace/recursive-geodesic-composition-v3/results/v4_euclidean/euclidean_residual_seed314159/autoencoder_seed314159.pt"
+    },
+    {
+      "name": "probe euclidean_residual/314159",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "checkpoint free_euclidean/424242",
+      "pass": true,
+      "detail": "/root/v4_unselected_archive/results/v4_euclidean/free_euclidean_seed424242/autoencoder_seed424242.pt"
+    },
+    {
+      "name": "probe free_euclidean/424242",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "checkpoint free_euclidean/271828",
+      "pass": true,
+      "detail": "/root/v4_unselected_archive/results/v4_euclidean/free_euclidean_seed271828/autoencoder_seed271828.pt"
+    },
+    {
+      "name": "probe free_euclidean/271828",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "checkpoint free_euclidean/314159",
+      "pass": true,
+      "detail": "/root/v4_unselected_archive/results/v4_euclidean/free_euclidean_seed314159/autoencoder_seed314159.pt"
+    },
+    {
+      "name": "probe free_euclidean/314159",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "selected frozen",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "official spent",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "official source/provenance",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "official 424242",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "official 271828",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "official 314159",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "downstream audit",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "conclusion bounded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "tests",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

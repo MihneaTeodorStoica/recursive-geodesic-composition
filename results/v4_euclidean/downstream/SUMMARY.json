@@ -1,0 +1,86 @@
+{
+  "datasets": {
+    "longembed_narrativeqa": {
+      "metrics": {
+        "recursive_seed271828": {
+          "MRR@10": 0.5082570368243639,
+          "Recall@10": 0.6643697961527419,
+          "Recall@100": 0.8897502153316107,
+          "nDCG@10": 0.545647519229986
+        },
+        "recursive_seed314159": {
+          "MRR@10": 0.5147091997867193,
+          "Recall@10": 0.6681979136759498,
+          "Recall@100": 0.8908986505885731,
+          "nDCG@10": 0.5514876397827342
+        },
+        "recursive_seed424242": {
+          "MRR@10": 0.5147951425442094,
+          "Recall@10": 0.6688678342425113,
+          "Recall@100": 0.8906115417743324,
+          "nDCG@10": 0.5517211692553562
+        },
+        "token_weighted_leaf_mean": {
+          "MRR@10": 0.5250442056428275,
+          "Recall@10": 0.6744186046511628,
+          "Recall@100": 0.8867834242511246,
+          "nDCG@10": 0.5608805471012135
+        },
+        "unweighted_leaf_mean": {
+          "MRR@10": 0.5245651972467936,
+          "Recall@10": 0.6727916547037994,
+          "Recall@100": 0.8852521772418414,
+          "nDCG@10": 0.5601525287051979
+        }
+      },
+      "results": "results/v4_euclidean/downstream/longembed_narrativeqa/RESULTS.json",
+      "runtime_seconds": 42.13214674592018,
+      "sha256": "e3da0214a415e13151227250ca3256f1b93bb40739a165d914e512fd4a6a2377"
+    },
+    "nfcorpus": {
+      "metrics": {
+        "direct_teacher": {
+          "MRR@10": 0.5490048651039363,
+          "Recall@10": 0.16933537582288247,
+          "Recall@100": 0.31751981152105274,
+          "nDCG@10": 0.3482917438256538
+        },
+        "recursive_seed271828": {
+          "MRR@10": 0.5502432551968156,
+          "Recall@10": 0.16830338407881643,
+          "Recall@100": 0.31752716538146175,
+          "nDCG@10": 0.34817048954630886
+        },
+        "recursive_seed314159": {
+          "MRR@10": 0.5502432551968156,
+          "Recall@10": 0.16830338407881643,
+          "Recall@100": 0.31752716538146175,
+          "nDCG@10": 0.34817048954630886
+        },
+        "recursive_seed424242": {
+          "MRR@10": 0.5502432551968156,
+          "Recall@10": 0.16830338407881643,
+          "Recall@100": 0.31752716538146175,
+          "nDCG@10": 0.34817048954630886
+        },
+        "token_weighted_leaf_mean": {
+          "MRR@10": 0.5502432551968156,
+          "Recall@10": 0.16830338407881643,
+          "Recall@100": 0.31741853467156006,
+          "nDCG@10": 0.34816233649598244
+        },
+        "unweighted_leaf_mean": {
+          "MRR@10": 0.5498046587055875,
+          "Recall@10": 0.16824267868210668,
+          "Recall@100": 0.3173063221251199,
+          "nDCG@10": 0.3476814190232585
+        }
+      },
+      "results": "results/v4_euclidean/downstream/nfcorpus/RESULTS.json",
+      "runtime_seconds": 20.66055539250374,
+      "sha256": "7cb22389a3ba4aaaf3dcf091f617644538625a1902a257c58b49576c5e1fc8f2"
+    }
+  },
+  "precommit_sha256": "666950a012623ff0c77e6c0788d6d2a7f80f75735a00db3bdc9ecae6f9f5b47e",
+  "schema": "v4_euclidean_downstream_summary_v1"
+}

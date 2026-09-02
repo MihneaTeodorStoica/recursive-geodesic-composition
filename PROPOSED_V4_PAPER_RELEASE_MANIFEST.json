@@ -1,0 +1,601 @@
+{
+  "schema": "proposed_v4_paper_release_manifest_v1",
+  "release_published": false,
+  "branch": "v4-paper-euclidean",
+  "source_commit_before_manifest": "d64b8917cc81722ab7befbd3604843b4b3892c66",
+  "selected_architecture": "euclidean_residual",
+  "files": [
+    {
+      "path": "reproducibility/v4_euclidean/BASE_COMMIT.txt",
+      "sha256": "dda08eae401304a9b60ec06788ef197ccbe6b1f6877cc79acb8d562e08b5f2af",
+      "bytes": 308
+    },
+    {
+      "path": "reproducibility/v4_euclidean/CLS_REFERENCE_VALIDATION.json",
+      "sha256": "a67a04e641789a4bf702bcdafaefe0f71fb7ddfa47aa89eecfb95dbd364e555d",
+      "bytes": 768
+    },
+    {
+      "path": "reproducibility/v4_euclidean/DEVELOPMENT_CACHE.log",
+      "sha256": "3f8947608e780e7c4dc16f5ae572860d47f7c2bdc3e24475873ca05adc2bd970",
+      "bytes": 377
+    },
+    {
+      "path": "reproducibility/v4_euclidean/DOWNSTREAM_CLASSIFICATION.log",
+      "sha256": "dcb440069e6fa03c80f54372633103468091cef2c76f771b0f84156dcfdddcc5",
+      "bytes": 101
+    },
+    {
+      "path": "reproducibility/v4_euclidean/DOWNSTREAM_RETRIEVAL.log",
+      "sha256": "e11000306ad2f14b3764f29577f6848ffef70bc5abc584e8c85e12b108ff14c8",
+      "bytes": 6021
+    },
+    {
+      "path": "reproducibility/v4_euclidean/FINAL_REPORT.md",
+      "sha256": "4a2cf6302bcc88a3757c0cb1e9be4da01deee765b8756cee51a89e4ae122159c",
+      "bytes": 6782
+    },
+    {
+      "path": "reproducibility/v4_euclidean/FULL_PROTOCOL_FREEZE.json",
+      "sha256": "7de46eb95f93848ac070f2bb72ff5292e4a31445b1934b516f2c61f44c517834",
+      "bytes": 1477
+    },
+    {
+      "path": "reproducibility/v4_euclidean/OFFICIAL_CACHE.log",
+      "sha256": "7e287086b9a0353124f467fad0b70a3947dceb989547d680d19d718f0894eb95",
+      "bytes": 374
+    },
+    {
+      "path": "reproducibility/v4_euclidean/OFFICIAL_PREACCESS_FREEZE.json",
+      "sha256": "06cb3aa4b109d7a0fc94c65bf884b2b909d08c2b0dee91a3385989bb22d156d8",
+      "bytes": 3713
+    },
+    {
+      "path": "reproducibility/v4_euclidean/PILOT_RESULTS.json",
+      "sha256": "5e1b5cc8b97f546ad4d44bdf38dbf24c7b845fea540005213c3c0c23e5d57505",
+      "bytes": 875
+    },
+    {
+      "path": "reproducibility/v4_euclidean/PILOT_euclidean_residual.log",
+      "sha256": "46d0ace23751cff5f5c0b1cc79f542ca227564f684a37a11e0de350c0cab9a0c",
+      "bytes": 2616
+    },
+    {
+      "path": "reproducibility/v4_euclidean/PILOT_free_euclidean.log",
+      "sha256": "0a0601fa74798625402334c5f36ef07f6332e2876535a489ef665ec7a7c7b739",
+      "bytes": 2517
+    },
+    {
+      "path": "reproducibility/v4_euclidean/PILOT_free_euclidean_retry.log",
+      "sha256": "45f8a392ccea71b38237d72fd5cd5b212efaa541c91dd8b93b430eedb8f7a42e",
+      "bytes": 2501
+    },
+    {
+      "path": "reproducibility/v4_euclidean/PILOT_geodesic.log",
+      "sha256": "60861cf35aff6c178ec26e685df00ff0cef47f7603088f2d14ad3d2f0d15b962",
+      "bytes": 2615
+    },
+    {
+      "path": "reproducibility/v4_euclidean/PLAN.md",
+      "sha256": "ca96e8e17b56c0d15f89dcb697fd00414b8cee08551794a961d4bc0daddc83ff",
+      "bytes": 5239
+    },
+    {
+      "path": "reproducibility/v4_euclidean/PREDEVELOPMENT_FREEZE.json",
+      "sha256": "4a389878dc2f1d93a255391668c12dc0bc6aec1718bfac1cfdbef5917750dfa5",
+      "bytes": 7609
+    },
+    {
+      "path": "reproducibility/v4_euclidean/RUN_LOG.md",
+      "sha256": "c860654b5db69ff6a8fec37c5f479a9067f9f111fc161c26d2bf91127361e463",
+      "bytes": 3038
+    },
+    {
+      "path": "reproducibility/v4_euclidean/SELECTION_DECISION.md",
+      "sha256": "31469eb8bdcd1c2eef7a1e6b76d551463b2ea00519862705509b47f1db3268b1",
+      "bytes": 1090
+    },
+    {
+      "path": "reproducibility/v4_euclidean/SOURCE_ALLOCATION.json",
+      "sha256": "a621c99c5061e2f65a67c24b508f5664d092573296cc8305550eab49226123f6",
+      "bytes": 242
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_CACHE_PREPARATION.log",
+      "sha256": "bba5a1cb90c4842a76b38264981d886aa30967e2a9b644fee0dacfd444e7b7d4",
+      "bytes": 993
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_euclidean_residual_271828.log",
+      "sha256": "a5990360808b0fe0f96906636285bfe6d9b3a3e94ec89f40403d48bc1b32d9a4",
+      "bytes": 3003
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_euclidean_residual_271828.runtime",
+      "sha256": "1293af2993a5bd6062a755f59c47aa0697b45d7ae489901c8bf8b599f1d35584",
+      "bytes": 43
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_euclidean_residual_314159.log",
+      "sha256": "c476a8851c6840de4046119abda2e43048b03d4cce4358d73c72df90a60082c5",
+      "bytes": 2861
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_euclidean_residual_314159.runtime",
+      "sha256": "c140a9cb1d0fc9d2780ae452e13542627f73d81b0c2ac7d8a20a498689cff0bb",
+      "bytes": 43
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_euclidean_residual_424242.log",
+      "sha256": "0493276e300190c1f2a743e2cbbdd916a0dac9a678025c2a4f9d4054b128ecde",
+      "bytes": 2976
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_euclidean_residual_424242.runtime",
+      "sha256": "0a12007160c5a4ab4bb673badfa5f7f79aedb8ffcec5e700ed1485d5bea0e656",
+      "bytes": 43
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_free_euclidean_271828.log",
+      "sha256": "57359c27791ed41406e9a1456337f7a8aaf3e9759d301c433097fabd6e6a1755",
+      "bytes": 2965
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_free_euclidean_271828.runtime",
+      "sha256": "07f50fb6aebbf5d645d0ab243715a2920c91ece24f9ad0cf2a62558ba8303838",
+      "bytes": 39
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_free_euclidean_314159.log",
+      "sha256": "d953a9b49141d7e5114ce18761a5cb5be3aeea154d7f449823e546237b132386",
+      "bytes": 2824
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_free_euclidean_314159.runtime",
+      "sha256": "0f8783dfee94a98eb527c3a6922f9f231c4413689edbfd8c222170f11d8d4d9a",
+      "bytes": 39
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_free_euclidean_424242.log",
+      "sha256": "1109a565318d6c64c3240f57ceab96e8f109c6538ef9a1f1c0f7f2f84e0b7ea0",
+      "bytes": 2978
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_free_euclidean_424242.runtime",
+      "sha256": "d3c1c891a12a606997440990e6fe1aa71ba1d524ad08a944bdb3e50ce94f3bcf",
+      "bytes": 39
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_geodesic_271828.log",
+      "sha256": "aeedc44f69c6d721a7f7dac88844be589c7689c601a7f61e987f141c4479c636",
+      "bytes": 3010
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_geodesic_271828.runtime",
+      "sha256": "92aa584a66fdca92d7615877d9063b86680a71419ad9d6a08dea8a036d10c0ec",
+      "bytes": 33
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_geodesic_314159.log",
+      "sha256": "feea6f43cf5aad3793c995a6a2827db442c9b6bf483641f99ddbb0d115abbbf8",
+      "bytes": 2805
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_geodesic_314159.runtime",
+      "sha256": "45c8f1a2d1878727047a325e07ba3878504f377efb4af2bc8b3ff340fbd62696",
+      "bytes": 33
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_geodesic_424242.log",
+      "sha256": "a149b318983cc334290ce4fb70d4d71e55c454fd5ab96a460bf4aa80bafdb900",
+      "bytes": 3010
+    },
+    {
+      "path": "reproducibility/v4_euclidean/TRAIN_geodesic_424242.runtime",
+      "sha256": "eabae9a419f9fa6a723514d8e614dbc2538ba07fe5febf77b366093b0387ed31",
+      "bytes": 33
+    },
+    {
+      "path": "configs/v4_euclidean/development_euclidean_residual_seed271828.yaml",
+      "sha256": "2e1692eae0fa35b47dd0180808b129a3e98829906df73c6af6351c52af3b8105",
+      "bytes": 1028
+    },
+    {
+      "path": "configs/v4_euclidean/development_euclidean_residual_seed314159.yaml",
+      "sha256": "cc2eee0657ad82fac6b81281184af6d898ee5a5ace0c73660ae47619b7ae46f5",
+      "bytes": 1028
+    },
+    {
+      "path": "configs/v4_euclidean/development_euclidean_residual_seed424242.yaml",
+      "sha256": "e0b21a3b3fc7dc932cd2cb58b996de715d7886605cbe02de92cfcd04b50b49cc",
+      "bytes": 1027
+    },
+    {
+      "path": "configs/v4_euclidean/development_free_euclidean_seed271828.yaml",
+      "sha256": "0ad1c24264b8373da213d0d066bc2f1fa0f9e466c0f81c27a37d75ed4fe97b73",
+      "bytes": 1012
+    },
+    {
+      "path": "configs/v4_euclidean/development_free_euclidean_seed314159.yaml",
+      "sha256": "bc214ca145b0b26dae785002ca340003c2e9deabe785dedbf7beac15c51526b2",
+      "bytes": 1012
+    },
+    {
+      "path": "configs/v4_euclidean/development_free_euclidean_seed424242.yaml",
+      "sha256": "d41f3da1d4da2a533ff47808d2a03abc6d13c3b975d7b28fa12632c5fb73ba0e",
+      "bytes": 1009
+    },
+    {
+      "path": "configs/v4_euclidean/development_geodesic_seed271828.yaml",
+      "sha256": "fd046cf14918815dc6a751ee99964e26539c9d2f5bd6c5ca04ba22caa2219fab",
+      "bytes": 984
+    },
+    {
+      "path": "configs/v4_euclidean/development_geodesic_seed314159.yaml",
+      "sha256": "39730e16d3d32b3998d0e589b2469a60487338cf031fcf14fc18e01cf21910bb",
+      "bytes": 986
+    },
+    {
+      "path": "configs/v4_euclidean/development_geodesic_seed424242.yaml",
+      "sha256": "f42024714895c49a8582fea93d81b4db20622dc86c2a826dbd822a5af92855bc",
+      "bytes": 988
+    },
+    {
+      "path": "configs/v4_euclidean/euclidean_residual_seed271828.yaml",
+      "sha256": "44fb661a82d7f1dae53be581770ae51563f75478cc9eb6b1aa3658dba1d6264c",
+      "bytes": 3995
+    },
+    {
+      "path": "configs/v4_euclidean/euclidean_residual_seed314159.yaml",
+      "sha256": "439237388ed017b046bb13673069bc5d646ef5de50a311ef02a2caf77dc84416",
+      "bytes": 3995
+    },
+    {
+      "path": "configs/v4_euclidean/euclidean_residual_seed424242.yaml",
+      "sha256": "8058cce87583afb7ca4978f1617c18b4d733f3776e10e53006554d06984d5ae1",
+      "bytes": 3995
+    },
+    {
+      "path": "configs/v4_euclidean/evaluator_two_arm.yaml",
+      "sha256": "dbc265635d7b4a2ba2649bc800dc2206248b57f544bc2c94c43c05b5e7069fd2",
+      "bytes": 1229
+    },
+    {
+      "path": "configs/v4_euclidean/free_euclidean_seed271828.yaml",
+      "sha256": "7fc00b274e677f241863f142173dab885d71600aa535892ad4aceac3aae848b0",
+      "bytes": 3983
+    },
+    {
+      "path": "configs/v4_euclidean/free_euclidean_seed314159.yaml",
+      "sha256": "8d91f1ee04e9aeecb533b4a665ac4db3be83e0fa859cd7716fe25a60763d0440",
+      "bytes": 3983
+    },
+    {
+      "path": "configs/v4_euclidean/free_euclidean_seed424242.yaml",
+      "sha256": "0fcb6961357ab1ff97b2367e9eb8f6c0a9ea55e6c4293d7e9146e51ebb56dd19",
+      "bytes": 3983
+    },
+    {
+      "path": "configs/v4_euclidean/geodesic_seed271828.yaml",
+      "sha256": "fc845cdcdd4b9db5db50bee64ad21745f3cba963e8119f898cc9b023625b7b5b",
+      "bytes": 3965
+    },
+    {
+      "path": "configs/v4_euclidean/geodesic_seed314159.yaml",
+      "sha256": "9920c935158a99acdbe6b19e8923b1121be7ca154257e99059146c0cdc2783c2",
+      "bytes": 3965
+    },
+    {
+      "path": "configs/v4_euclidean/geodesic_seed424242.yaml",
+      "sha256": "a9aa4be186663677766ab47da3c3083f583da1ef64e71385b5b5887481bd19aa",
+      "bytes": 3965
+    },
+    {
+      "path": "configs/v4_euclidean/official_euclidean_residual_seed271828.yaml",
+      "sha256": "92ee76594a6757e9f4e4bd7eaacac5bde6d1f94e31a9b5720d40f800dbe03a2d",
+      "bytes": 1019
+    },
+    {
+      "path": "configs/v4_euclidean/official_euclidean_residual_seed314159.yaml",
+      "sha256": "7a11bb728ba48873bb813fbc45c1b51a453d00552790fa2cded5ffd065dceeca",
+      "bytes": 1019
+    },
+    {
+      "path": "configs/v4_euclidean/official_euclidean_residual_seed424242.yaml",
+      "sha256": "7955fad50bf236f58508f5e1c98f713b0b6344eacae9a7571e0407bfcc095fe8",
+      "bytes": 1018
+    },
+    {
+      "path": "configs/v4_euclidean/pilot_euclidean_residual_seed424242.yaml",
+      "sha256": "887f269084718b4c98c93ee5d1744d539b8c45496b55c7500875148c91a9c561",
+      "bytes": 3992
+    },
+    {
+      "path": "configs/v4_euclidean/pilot_free_euclidean_seed424242.yaml",
+      "sha256": "b2991fddc36967057ae4940c25a3e570de0018f63f6795910b12b8cf8408f6ae",
+      "bytes": 3980
+    },
+    {
+      "path": "configs/v4_euclidean/pilot_geodesic_seed424242.yaml",
+      "sha256": "ebcc759076c7c793c0793cb0e6fce493dcba3a24c83751122586ad2506aeff84",
+      "bytes": 3962
+    },
+    {
+      "path": "scripts/v4_euclidean/build_release_manifest.py",
+      "sha256": "25a59ce9f490872c932379f7c25f22fedcf29ed8f5dad5c6e52dbc065c599b99",
+      "bytes": 1834
+    },
+    {
+      "path": "scripts/v4_euclidean/downstream/evaluate.py",
+      "sha256": "ce052b45a1eb542e9f17c9d90d5c5d38a33c0d24c5af87b35753ad92c4a111d1",
+      "bytes": 14938
+    },
+    {
+      "path": "scripts/v4_euclidean/downstream/protocol.json",
+      "sha256": "d618d3ccd3102231a253027e926677155ee5fe01594f3b91320c73640154feed",
+      "bytes": 3585
+    },
+    {
+      "path": "scripts/v4_euclidean/downstream/run_retrieval.py",
+      "sha256": "4a12befae9f181b60247be4caa026fbecf36bcc4e717745e86cdd1e2d87ef678",
+      "bytes": 16539
+    },
+    {
+      "path": "scripts/v4_euclidean/evaluate_two_arm.py",
+      "sha256": "fa8c024d551c5b9ab098347befe0409c41b1ddad2f11bb5c9bb45a41028dff7e",
+      "bytes": 857
+    },
+    {
+      "path": "scripts/v4_euclidean/final_audit.py",
+      "sha256": "d4efdaf9f76cd13ea3ab0ef244706238e07d2c630ad7a5d2f322eff35479f400",
+      "bytes": 3075
+    },
+    {
+      "path": "scripts/v4_euclidean/fit_probe.py",
+      "sha256": "e0e95b23dbffb9e790d56012d3e31702355855cf22aecf15bca97a7969099081",
+      "bytes": 4230
+    },
+    {
+      "path": "scripts/v4_euclidean/generate_figures.py",
+      "sha256": "bd294a97348695a92ebb6ff1597cfec314d2fcf48205f6eea5d78c06db483e87",
+      "bytes": 3249
+    },
+    {
+      "path": "scripts/v4_euclidean/prepare_train.py",
+      "sha256": "80fbd44f29acde6092c2e830c01e50b43efa6d6c6b0e7fd7a4888e153c046682",
+      "bytes": 4561
+    },
+    {
+      "path": "scripts/v4_euclidean/prepare_two_arm_cache.py",
+      "sha256": "2be862e9149d787619c0d17e2c695baa5d515e36c45051b018b47d82fcd909fd",
+      "bytes": 7355
+    },
+    {
+      "path": "scripts/v4_euclidean/summarize_results.py",
+      "sha256": "c4d3c7261ae9c212059ee8fa5e157199be60927675eeafe477f5042bf78ecaae",
+      "bytes": 3377
+    },
+    {
+      "path": "figures/v4_euclidean/architecture_stability.pdf",
+      "sha256": "add7be7b928b85a925266b27b8359c4141bb7bcfa3d12a99447fb5102ddca377",
+      "bytes": 13613
+    },
+    {
+      "path": "figures/v4_euclidean/architecture_stability.png",
+      "sha256": "5d5747aaafe1e561d5bc5acd806f376140432aa81a33656e790b795cd7a65061",
+      "bytes": 62331
+    },
+    {
+      "path": "figures/v4_euclidean/detectability_vs_fidelity.pdf",
+      "sha256": "ddae55005fa78064f4f6f9d8e3e3a6461daf1ab00ce22223812298b21f747e98",
+      "bytes": 19901
+    },
+    {
+      "path": "figures/v4_euclidean/detectability_vs_fidelity.png",
+      "sha256": "338456486c10af0215d548d45ca8a080f016c74b9fc40951d5319b2e7d9ea55a",
+      "bytes": 86694
+    },
+    {
+      "path": "figures/v4_euclidean/downstream_summary.pdf",
+      "sha256": "5e4773d554efc658548ebe9bea0954241ecec158abca295fec849a03f3dcae45",
+      "bytes": 15539
+    },
+    {
+      "path": "figures/v4_euclidean/downstream_summary.png",
+      "sha256": "0be04b4d3d2617a0212e5ce4d68e31d4861d14340ca212e3be1b17c4cfbaacf4",
+      "bytes": 59574
+    },
+    {
+      "path": "results/v4_euclidean/publication_sources/development_architecture_metrics.csv",
+      "sha256": "77ca3dd39703eb1f80058012de572e7c96854256f860e8c1dd70270a53bcf116",
+      "bytes": 884
+    },
+    {
+      "path": "results/v4_euclidean/publication_sources/downstream_metrics.csv",
+      "sha256": "7c83fbc3f9fb329a256bb82778ebe2db6e87cff56b9cbbc7128522e8bb41c61f",
+      "bytes": 182
+    },
+    {
+      "path": "results/v4_euclidean/FINAL_METRICS_SUMMARY.json",
+      "sha256": "0a168fe44ca52294e940c9f4a538508f5dd7b0298d92d723b2401fb55b8e3bea",
+      "bytes": 125833
+    },
+    {
+      "path": "results/v4_euclidean/FINAL_AUDIT.json",
+      "sha256": "c332f9d1ffa2ea5c9f775a12aea737eb3352e9b4303ca9a497e6828bc99b4b4d",
+      "bytes": 3794
+    },
+    {
+      "path": "results/v4_euclidean/DEVELOPMENT_ARCHITECTURE_COMPARISON.json",
+      "sha256": "b7f61888eb5bb6b9b7e8e5b832a292b525fcc6c88647d7d547d42df260ca7b72",
+      "bytes": 13188
+    },
+    {
+      "path": "results/v4_euclidean/downstream/DOWNSTREAM_AUDIT.json",
+      "sha256": "8b44c0961c9ec846165d4d591824742eab1e63f8c4eec038242efcdf120cd5ff",
+      "bytes": 1165829
+    },
+    {
+      "path": "results/v4_euclidean/official_euclidean_residual_seed424242/TWO_ARM_EVALUATION.json",
+      "sha256": "f1515be34aa90528b9371ac70e69ba438f975bda449515c36d31c690dc7e77ec",
+      "bytes": 22227
+    },
+    {
+      "path": "results/v4_euclidean/official_euclidean_residual_seed424242/TWO_ARM_EVALUATION_COMPLETE",
+      "sha256": "87af12e1797006771f3aa23cacc841c15a9f178db2019c4c5f9fe2c733b329af",
+      "bytes": 90
+    },
+    {
+      "path": "results/v4_euclidean/official_euclidean_residual_seed424242/TWO_ARM_EVALUATION_STARTED",
+      "sha256": "4b688bab3492606830056d066255cb312aafbd4b886a3f806b073027e0bea2e7",
+      "bytes": 77
+    },
+    {
+      "path": "results/v4_euclidean/official_euclidean_residual_seed271828/TWO_ARM_EVALUATION.json",
+      "sha256": "c1b69b6b632bab17930bde2c4ad19f7f6fbe970cd53dc5dd3b7c71ca6093719a",
+      "bytes": 22160
+    },
+    {
+      "path": "results/v4_euclidean/official_euclidean_residual_seed271828/TWO_ARM_EVALUATION_COMPLETE",
+      "sha256": "224623218d98a3694e27e1c63a0bc100f68407c100303e6dd32f1af296bb0598",
+      "bytes": 90
+    },
+    {
+      "path": "results/v4_euclidean/official_euclidean_residual_seed271828/TWO_ARM_EVALUATION_STARTED",
+      "sha256": "10eaa8067fa531fb161ffd16c86315d62c0beea83f2c7b77ef3bdae77fc547dd",
+      "bytes": 77
+    },
+    {
+      "path": "results/v4_euclidean/official_euclidean_residual_seed314159/TWO_ARM_EVALUATION.json",
+      "sha256": "e52be29e84535749485bfb9f268d57e6d5b2d68589dcfbc122517d90ce2ec026",
+      "bytes": 22284
+    },
+    {
+      "path": "results/v4_euclidean/official_euclidean_residual_seed314159/TWO_ARM_EVALUATION_COMPLETE",
+      "sha256": "1b4ff5a202b423e1a89e3b1c68a03a4930866032994bc1a6e8928ff29cf572e8",
+      "bytes": 90
+    },
+    {
+      "path": "results/v4_euclidean/official_euclidean_residual_seed314159/TWO_ARM_EVALUATION_STARTED",
+      "sha256": "08d5ecbd87c0e4d34ffdaad0f3b8912c39df1f20102ddf87c7b2b4f0c5ad7fd2",
+      "bytes": 77
+    }
+  ],
+  "large_checkpoint_provenance": {
+    "geodesic": {
+      "424242": {
+        "checkpoint": "results/v4_euclidean/geodesic_seed424242/autoencoder_seed424242.pt",
+        "checkpoint_sha256": "4ac64f5627a1ecb8a8ef663b72b48144ac7c9def3b64ec8986d161f47f8d7da2",
+        "history": "results/v4_euclidean/geodesic_seed424242/autoencoder_seed424242.jsonl",
+        "history_sha256": "9d27d83113f669adc50d0fb99cfc1e21fd3846a36024c300842db8fe366ba0d5",
+        "probe": "artifacts/v4_euclidean/probes/geodesic_seed424242.pt",
+        "probe_sha256": "24a1db36cfab9f3f2860c78a367a5dd538098cc0cd1cd077e8a4addc2a8a7f8f",
+        "max_grad_norm": 0.9236310124397278,
+        "max_saturation": 0.0,
+        "all_finite": true,
+        "runtime_seconds": 385
+      },
+      "271828": {
+        "checkpoint": "results/v4_euclidean/geodesic_seed271828/autoencoder_seed271828.pt",
+        "checkpoint_sha256": "5b49eee1ee6bb231baf0db188fb9ba0d9c0c076673bd723cc10979513baf1575",
+        "history": "results/v4_euclidean/geodesic_seed271828/autoencoder_seed271828.jsonl",
+        "history_sha256": "fae16c2fe7dd9e5a10ff5ff91d3823fefe9ef941169f30b96784aa92bfcb8551",
+        "probe": "artifacts/v4_euclidean/probes/geodesic_seed271828.pt",
+        "probe_sha256": "50029a3102b03f53c09812cf13e26925bfc95548d12b5f73f22ca7e73b6a1f36",
+        "max_grad_norm": 4.663731575012207,
+        "max_saturation": 0.0,
+        "all_finite": true,
+        "runtime_seconds": 387
+      },
+      "314159": {
+        "checkpoint": "results/v4_euclidean/geodesic_seed314159/autoencoder_seed314159.pt",
+        "checkpoint_sha256": "aa1bdd0ccace567f681d73870de44de4c2b43dd80e0ad7fb17f025e4c00f0ad8",
+        "history": "results/v4_euclidean/geodesic_seed314159/autoencoder_seed314159.jsonl",
+        "history_sha256": "fdadc2c3402924e85e710947e2383d239cfb686c1cb22675a8cf0b4a92915df0",
+        "probe": "artifacts/v4_euclidean/probes/geodesic_seed314159.pt",
+        "probe_sha256": "b8e3fc411b2cc6b695a5fdfa261137932595fc84ea90442ccbde635c146efc5c",
+        "max_grad_norm": 38.46629333496094,
+        "max_saturation": 1.0,
+        "all_finite": true,
+        "runtime_seconds": 380
+      }
+    },
+    "euclidean_residual": {
+      "424242": {
+        "checkpoint": "results/v4_euclidean/euclidean_residual_seed424242/autoencoder_seed424242.pt",
+        "checkpoint_sha256": "762f9799c83b6e9dc6ca35c22dda1f952b410efbbebced628caa29f249a70946",
+        "history": "results/v4_euclidean/euclidean_residual_seed424242/autoencoder_seed424242.jsonl",
+        "history_sha256": "b043032c2889ce134c210f7c7c8ccd4945ab1d5eeb7d9d13e244563a0f922728",
+        "probe": "artifacts/v4_euclidean/probes/euclidean_residual_seed424242.pt",
+        "probe_sha256": "f66b6002ce97cf23ac0a2730ec1cea58c09d0548eb8cc2f446df4013a9587d85",
+        "max_grad_norm": 0.9689145088195801,
+        "max_saturation": 0.0,
+        "all_finite": true,
+        "runtime_seconds": 378
+      },
+      "271828": {
+        "checkpoint": "results/v4_euclidean/euclidean_residual_seed271828/autoencoder_seed271828.pt",
+        "checkpoint_sha256": "2fe260688e4dee17f9161effe375108d085503ba1f1220ab5b73e2844b7b1b7b",
+        "history": "results/v4_euclidean/euclidean_residual_seed271828/autoencoder_seed271828.jsonl",
+        "history_sha256": "6db26bd8110db3877f449f739708d1ad1ed3b185cb10ba4ccd5f655a7fda39fc",
+        "probe": "artifacts/v4_euclidean/probes/euclidean_residual_seed271828.pt",
+        "probe_sha256": "a30e71b5efa4b9431351c4e0c5e2f6a3f3f1a8e31abd67595e933a7df96b9721",
+        "max_grad_norm": 0.9244353771209717,
+        "max_saturation": 0.0,
+        "all_finite": true,
+        "runtime_seconds": 378
+      },
+      "314159": {
+        "checkpoint": "results/v4_euclidean/euclidean_residual_seed314159/autoencoder_seed314159.pt",
+        "checkpoint_sha256": "936c47c3e7f34848feafeb1740ae5a0743cbc0bd2562d3a72f17ba2139aaa39f",
+        "history": "results/v4_euclidean/euclidean_residual_seed314159/autoencoder_seed314159.jsonl",
+        "history_sha256": "5c7ac09a34b0b3ef855af0da4a9306e395dd16956bfc22c3a230878fb25a9d33",
+        "probe": "artifacts/v4_euclidean/probes/euclidean_residual_seed314159.pt",
+        "probe_sha256": "31ebd56ce12a9e7086ceaecd10db4c79f2ed2f30002114638214f63b821616d0",
+        "max_grad_norm": 1.0614923238754272,
+        "max_saturation": 0.0,
+        "all_finite": true,
+        "runtime_seconds": 378
+      }
+    },
+    "free_euclidean": {
+      "424242": {
+        "checkpoint": "results/v4_euclidean/free_euclidean_seed424242/autoencoder_seed424242.pt",
+        "checkpoint_sha256": "e42be40c7b62e406d54dc07195e28b6f84282c9d00505461dba78272d969d4dc",
+        "history": "results/v4_euclidean/free_euclidean_seed424242/autoencoder_seed424242.jsonl",
+        "history_sha256": "3e4ff76b94b13d5b65368f500f904bc56d798248faa175f6a0f4160af0b92e8c",
+        "probe": "artifacts/v4_euclidean/probes/free_euclidean_seed424242.pt",
+        "probe_sha256": "c79ff8589958a1cd8c50b0516ec6efa610c799877f6b4654a67a10a675ab62ab",
+        "max_grad_norm": 6.1243367195129395,
+        "max_saturation": 0.0,
+        "all_finite": true,
+        "runtime_seconds": 380
+      },
+      "271828": {
+        "checkpoint": "results/v4_euclidean/free_euclidean_seed271828/autoencoder_seed271828.pt",
+        "checkpoint_sha256": "be8c1676877d37f6db2ed69354cdfd43bfedd066d7b126b3f59fea9a23d4ef34",
+        "history": "results/v4_euclidean/free_euclidean_seed271828/autoencoder_seed271828.jsonl",
+        "history_sha256": "6524d9fc59f237f20aef5a7fc1dbceec035d3e5fae0838f0e869808bbee2dafd",
+        "probe": "artifacts/v4_euclidean/probes/free_euclidean_seed271828.pt",
+        "probe_sha256": "d9eab634a18a33b5c217afab3112e57cc63b0dfb1178cb9a6d19d3860ba45763",
+        "max_grad_norm": 6.379949569702148,
+        "max_saturation": 0.0,
+        "all_finite": true,
+        "runtime_seconds": 377
+      },
+      "314159": {
+        "checkpoint": "results/v4_euclidean/free_euclidean_seed314159/autoencoder_seed314159.pt",
+        "checkpoint_sha256": "a8f05d88fe5b829e0542cb8a407bf359c76122e3f49a7522e44cb786c1977147",
+        "history": "results/v4_euclidean/free_euclidean_seed314159/autoencoder_seed314159.jsonl",
+        "history_sha256": "907ad87181fb5d6f2d5ea20f975eb4fcfe4103d6428d33749792b476727389ec",
+        "probe": "artifacts/v4_euclidean/probes/free_euclidean_seed314159.pt",
+        "probe_sha256": "c42b8485eeb4ae46e34a50c25f796887fa22c47965b3aa423f09c7385bd704e9",
+        "max_grad_norm": 6.211251258850098,
+        "max_saturation": 0.0,
+        "all_finite": true,
+        "runtime_seconds": 376
+      }
+    }
+  },
+  "note": "Proposed manifest only; no tag, merge, or release was created."
+}
