@@ -1,0 +1,18 @@
+v3_cls_experiment: true
+role: official
+seed: 314159
+checkpoint: results/v3_cls/adversarial_v2_final_seed314159/autoencoder_seed314159.pt
+checkpoint_sha256: 9677f5ac5078856457d91ca0df2ddc222c76a2752bcb698cbd570e7ed1bebbc7
+training_cache_manifest: artifacts/v3_cls/cache_train_cls/CACHE_MANIFEST.json
+training_cache_manifest_sha256: 39f70e6107249e0122a0cc06441824c637ccf0fdea2e4c185a474d066ab54024
+cache_manifest: artifacts/v3_cls/official_two_arm_cls/CACHE_MANIFEST.json
+cache_manifest_sha256: d8708357f9dad615e5b0c51fa4ccd100ccb8b6038c2b055f9432888b06df7da9
+probe: artifacts/v3_cls/final_v2_probes/parent_only_seed314159.pt
+probe_sha256: acf3c72016b1a5351a332172d5cb9908282c374b239ee7ed8037b9ec4cd9507c
+probe_floors:
+  pooled: 0.8963865509033203
+  fineweb_edu: 0.8975586166381836
+  fineweb: 0.8959558477401733
+  openwebtext: 0.8963447680473328
+  wikipedia_en_20231101: 0.8956869115829468
+output_dir: results/v3_cls/official_seed314159

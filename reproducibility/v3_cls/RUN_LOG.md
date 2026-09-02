@@ -37,3 +37,8 @@
 - First round-2 baseline evaluator invocation failed before opening cache/checkpoint because the requested output label contained forbidden historical namespace token `v1`. Renamed only the output directory label to `baseline_amendment1`; scientific inputs and semantics unchanged.
 - Development round 2 accessed only fresh `[314000,317000)` and evaluated 400 eligible documents/corpus. Adversarial candidate met the predeclared cross-round selection rule (cosine=0.986920, strongest AUC=0.651691, rank=121.52, retention healthy, zero saturation).
 - Same-population Amendment-V1 baseline AUC was 0.650813, slightly better than adversarial, so causal benefit is unsupported. Per the frozen rule, selected V2 anyway and precommitted no further search; documented this important negative result in `AMENDMENT_V2_SELECTION_DECISION.md`.
+
+## 2026-09-02T10:45:00Z one-shot official experiment
+- Verified every hash in `OFFICIAL_PREACCESS_FREEZE.json`, then created `OFFICIAL_ACCESS_SPENT.json` before opening any official source row. Prepared exactly 1000 eligible source-order documents/corpus from frozen `[318000,348000)`; no rows shifted or dropped after outcomes.
+- Bound only the newly created cache-manifest hash into frozen official spec templates and ran each frozen seed exactly once. No evaluator recovery was needed.
+- Official pooled cosine: 0.987013/0.986954/0.987041. Strongest logistic AUC: 0.691513/0.690579/0.694055; RBF: 0.602185/0.601159/0.598578. Wikipedia remained most detectable (AUC 0.775–0.783). All TRAIN probe floors passed. Full arm represented up to 79,674 tokens, 78 leaves, depth 4; no geodesic or importance saturation and all outputs finite.

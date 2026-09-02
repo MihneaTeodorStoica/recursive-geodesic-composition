@@ -1,0 +1,14 @@
+{
+  "checkpoint_seeds": [
+    424242,
+    271828,
+    314159
+  ],
+  "safe_metrics_csv": "results/v3_cls/publication_sources/official_safe_metrics.csv",
+  "retention_recursion_csv": "results/v3_cls/publication_sources/official_retention_recursion.csv",
+  "source_results": [
+    "results/v3_cls/official_seed424242/TWO_ARM_EVALUATION.json",
+    "results/v3_cls/official_seed271828/TWO_ARM_EVALUATION.json",
+    "results/v3_cls/official_seed314159/TWO_ARM_EVALUATION.json"
+  ]
+}
