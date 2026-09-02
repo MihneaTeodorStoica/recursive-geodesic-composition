@@ -1,0 +1,10 @@
+supersedes: configs/v2_2_cls/pilot_frozen.yaml
+amendment: add_identical_legacy_baseline_reference
+arms:
+  BASELINE: {covariance_frobenius_weight: 0.0, whitened_covariance_weight: 0.0, corpus_balanced: false, residual_mean_weight: 0.0}
+  A: {covariance_frobenius_weight: 64.0, whitened_covariance_weight: 0.0, corpus_balanced: false, residual_mean_weight: 0.0}
+  B: {covariance_frobenius_weight: 0.0, whitened_covariance_weight: 64.0, whitening_ridge_relative: 0.0001, corpus_balanced: false, residual_mean_weight: 0.0}
+  C: {covariance_frobenius_weight: 0.0, whitened_covariance_weight: 64.0, whitening_ridge_relative: 0.0001, corpus_balanced: true, residual_mean_weight: 0.01}
+shared: {seed: 424242, steps: 250, batch_size: 8, identical_initialization_rows_order_optimizer_schedule: true}
+selection: [health, cosine_not_more_than_0.002_below_BASELINE, minimum_covariance_mismatch, minimum_residual_mean_norm, minimum_diagonal_variance_mismatch]
+no_eligible_candidate: reject_all_and_prohibit_full_training

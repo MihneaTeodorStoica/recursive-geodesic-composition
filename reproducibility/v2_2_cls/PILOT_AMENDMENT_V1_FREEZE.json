@@ -1,0 +1,10 @@
+{
+  "pre_train": true,
+  "original_freeze": "reproducibility/v2_2_cls/PILOT_FREEZE.json",
+  "files": {
+    "configs/v2_2_cls/pilot_frozen.yaml": "fe572168214d1519af842da91537fc2619d7a7b23fb246232e54d4e18e717912",
+    "configs/v2_2_cls/pilot_amendment_v1.yaml": "5cb56215cc021f45a573b225ecd1591bdb281333ad47f4fe4e9f11e88648b327",
+    "reproducibility/v2_2_cls/PILOT_PROTOCOL.md": "ef9d132d1a666d369c89e9243fafe0d2c3176df2f2acce0935429d6233a8791f",
+    "reproducibility/v2_2_cls/PILOT_PROTOCOL_AMENDMENT_V1.md": "f6474d0e76625ff84023b6526dfb6d3d2d4a3640b7818f2d73792dd9608a1f5b"
+  }
+}
