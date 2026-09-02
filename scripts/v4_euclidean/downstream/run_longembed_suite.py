@@ -77,7 +77,7 @@ def recursive(cache,m,seed,entry,device):
   if sha(p)!=x['sha256'] or tsha(s['leaves'])!=x['leaf_tensor_sha256']:raise ValueError('recursive leaf identity failure')
   out.append(reduce_full(model,s,torch.device(device),tel,64).numpy());deps.append(x['depth'])
   if (i+1)%100==0:print(m['dataset']['config'],'seed',seed,i+1,'/',len(m['documents']),flush=True)
- sec=time.time()-t;report=_finish_telemetry(tel,len(out),m['counts']['leaves'],deps,sec) if m['counts']['leaves']>len(out) else {'documents':len(out),'leaves':len(out),'seconds':sec,'depth':{'minimum':0,'mean':0,'maximum':0}};del model;torch.cuda.empty_cache();return norm(np.stack(out)),{**prov,'telemetry':report}
+ sec=time.time()-t;report=_finish_telemetry(tel,documents=len(out),leaves=m['counts']['leaves'],depths=deps,seconds=sec) if m['counts']['leaves']>len(out) else {'documents':len(out),'leaves':len(out),'seconds':sec,'depth':{'minimum':0,'mean':0,'maximum':0}};del model;torch.cuda.empty_cache();return norm(np.stack(out)),{**prov,'telemetry':report}
 def metrics(qids,dids,qrels,scores):
  if scores.shape!=(len(qids),len(dids)) or not np.isfinite(scores).all():raise ValueError('score alignment')
  docs=np.asarray(dids);run={};tops={}
@@ -145,7 +145,8 @@ def smoke():
 
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--device',default='cuda');ap.add_argument('--leaf-batch-size',type=int,default=8);ap.add_argument('--tasks',nargs='+',default=REAL+SYNTH);a=ap.parse_args();pre=json.loads(PRE.read_text());smoke()
- if sha(ROOT/pre['inspection'])!=pre['inspection_sha256'] or sha(__file__)!=pre['evaluator_sha256']:raise ValueError('precommit/evaluator/inspection hash mismatch')
+ amend_path=OUT/'SUITE_ENGINEERING_AMENDMENT_1.json';amend=json.loads(amend_path.read_text()) if amend_path.exists() else None;accepted_evaluator=pre['evaluator_sha256'] if amend is None else amend['corrected_evaluator_sha256']
+ if sha(ROOT/pre['inspection'])!=pre['inspection_sha256'] or sha(__file__)!=accepted_evaluator:raise ValueError('precommit/evaluator/inspection hash mismatch')
  tasks={c:load_task(c) for c in a.tasks};teacher=FrozenTeacher(TID,TREV,a.device,pooling='cls',trust_remote_code=True);man={c:prepare(c,x[0],x[1],teacher,a.leaf_batch_size) for c,x in tasks.items()};del teacher;torch.cuda.empty_cache()
  summary={c:evaluate(c,*tasks[c],man[c],pre,a.device) for c in a.tasks};write(OUT/'LONGEMBED_SUITE_NEW_TASKS_SUMMARY.json',{'schema':'v4_longembed_new_tasks_summary_v1','suite_precommit_sha256':sha(PRE),'tasks':{c:{'result':f'results/v4_euclidean/downstream/{c}/SUITE_RESULTS.json','sha256':sha(OUT/c/'SUITE_RESULTS.json')} for c in summary}})
 if __name__=='__main__':main()

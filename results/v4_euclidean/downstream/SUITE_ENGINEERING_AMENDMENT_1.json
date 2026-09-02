@@ -1,0 +1,12 @@
+{
+  "schema": "v4_downstream_suite_engineering_amendment_v1",
+  "created_unix": 1788363319.4612775,
+  "trigger": "First qmsum recursive pass raised TypeError before any metric, ranking, result JSON, or performance output was computed.",
+  "change": "Call already-frozen telemetry formatter with its required keyword arguments; permit this corrected evaluator hash through an explicit amendment.",
+  "scientific_protocol_changed": false,
+  "model_or_embedding_changed": false,
+  "cache_changed": false,
+  "performance_observed_before_change": false,
+  "original_evaluator_sha256": "70e227316bb00c0ebd95b3f5495200173f4a0393123ab73d14b460b1f3c0673b",
+  "corrected_evaluator_sha256": "a3e5c736a0d4fe27051ee64db5b6756750bf346e67f0a550cde77f2623980edd"
+}
