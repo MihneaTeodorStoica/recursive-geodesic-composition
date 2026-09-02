@@ -1242,6 +1242,7 @@ def run(cfg, variant, seed, device):
     distribution_variance_weight = float(cfg.get('distribution_variance_weight', 0.0))
     distribution_min_samples = int(cfg.get('distribution_min_samples', 2))
     adversarial_alignment_weight = float(cfg.get('adversarial_alignment_weight', 0.0))
+    adversarial_alignment_start_step = int(cfg.get('adversarial_alignment_start_step', 0))
     adversarial_discriminator_learning_rate = float(cfg.get('adversarial_discriminator_learning_rate', 0.0))
     adversarial_discriminator_weight_decay = float(cfg.get('adversarial_discriminator_weight_decay', 0.0))
     adversarial_discriminator_updates = int(cfg.get('adversarial_discriminator_updates', 1))
@@ -1284,6 +1285,8 @@ def run(cfg, variant, seed, device):
         raise ValueError("distribution_min_samples must be at least 2")
     if not math.isfinite(adversarial_alignment_weight) or adversarial_alignment_weight < 0:
         raise ValueError("adversarial_alignment_weight must be finite and non-negative")
+    if adversarial_alignment_start_step < 0 or adversarial_alignment_start_step >= int(cfg['steps']):
+        raise ValueError("adversarial_alignment_start_step must be within configured training steps")
     if adversarial_alignment_weight:
         if not math.isfinite(adversarial_discriminator_learning_rate) or adversarial_discriminator_learning_rate <= 0:
             raise ValueError("adversarial_discriminator_learning_rate must be finite and positive")
@@ -1451,7 +1454,8 @@ def run(cfg, variant, seed, device):
                 str(group.get('group_name', f'group_{index}')): float(group['lr'])
                 for index, group in enumerate(opt.param_groups)
             }
-        adversarial_active = discriminator is not None and not encoder_frozen
+        adversarial_active = (discriminator is not None and not encoder_frozen and
+                              s >= adversarial_alignment_start_step)
         pair_collector = (_DistributionMomentCollector(min(distribution_min_samples, adversarial_min_samples))
                           if adversarial_active else None)
         auxiliary_multiplier = 0.0 if encoder_frozen else objective_multiplier
@@ -1517,6 +1521,7 @@ def run(cfg, variant, seed, device):
             'distribution_mean_weight': distribution_mean_weight,
             'distribution_variance_weight': distribution_variance_weight,
             'adversarial_alignment_weight': adversarial_alignment_weight,
+            'adversarial_alignment_start_step': adversarial_alignment_start_step,
             'adversarial_discriminator_learning_rate': adversarial_discriminator_learning_rate,
             'adversarial_discriminator_updates': adversarial_discriminator_updates,
         }

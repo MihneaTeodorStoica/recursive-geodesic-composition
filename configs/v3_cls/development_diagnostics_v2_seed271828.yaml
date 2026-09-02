@@ -1,0 +1,18 @@
+v3_cls_experiment: true
+role: development
+seed: 271828
+checkpoint: results/v3_cls/final_seed271828/autoencoder_seed271828.pt
+checkpoint_sha256: 13756ffb9be108fb74cb1a0baaed375e37e6e114912d83090f4639ba4b1c126b
+training_cache_manifest: artifacts/v3_cls/cache_train_cls/CACHE_MANIFEST.json
+training_cache_manifest_sha256: 39f70e6107249e0122a0cc06441824c637ccf0fdea2e4c185a474d066ab54024
+cache_manifest: artifacts/v3_cls/development_two_arm_cls/CACHE_MANIFEST.json
+cache_manifest_sha256: 0fc6e642e42b273a960a45a155297e071e360e7036c71ee14abaa26e21344297
+probe: artifacts/v3_cls/predevelopment_freeze/parent_only_seed271828.pt
+probe_sha256: 93560d59986f5cc0cbc56fbc5a7c7b69bdb3d55a9e2e18eecf0e2c9b093b651d
+probe_floors:
+  pooled: 0.8971474041938782
+  fineweb_edu: 0.8982217779159546
+  fineweb: 0.8970123400688171
+  openwebtext: 0.8973662724494934
+  wikipedia_en_20231101: 0.8959890475273132
+output_dir: results/v3_cls/development_diagnostics_v2_seed271828

@@ -478,6 +478,23 @@ def _bootstrap_mean(values: np.ndarray, replicates: int, seed: int) -> list[floa
     return [float(np.quantile(estimates,.025)),float(np.quantile(estimates,.975))]
 
 
+def _distribution_geometry(target: np.ndarray, generated: np.ndarray) -> dict:
+    residual = generated - target
+    target_centered = target - target.mean(0); generated_centered = generated - generated.mean(0)
+    target_cov = target_centered.T @ target_centered / max(1, len(target)-1)
+    generated_cov = generated_centered.T @ generated_centered / max(1, len(generated)-1)
+    target_std = target.std(0); generated_std = generated.std(0)
+    singular = np.linalg.svd(residual, compute_uv=False)
+    return {"mean_vector_l2": float(np.linalg.norm(generated.mean(0)-target.mean(0))),
+            "mean_coordinate_bias": float(residual.mean()),
+            "residual_rms": float(np.sqrt(np.mean(residual**2))),
+            "variance_ratio_mean": float(np.mean((generated_std**2)/(target_std**2+1e-12))),
+            "std_ratio_mean": float(np.mean(generated_std/(target_std+1e-12))),
+            "covariance_relative_frobenius": float(np.linalg.norm(generated_cov-target_cov)/(np.linalg.norm(target_cov)+1e-12)),
+            "residual_effective_rank": float((singular.sum()**2)/(np.square(singular).sum()+1e-12)),
+            "residual_top_singular_fraction": float(singular[0]/(singular.sum()+1e-12))}
+
+
 def evaluate_safe_scopes(data: dict, cfg: dict, attack_cfg: dict) -> dict:
     scopes={"pooled":np.arange(len(data["roots"]))} | {c:np.flatnonzero(data["corpora"]==c) for c in CORPORA}
     result={}
@@ -487,6 +504,7 @@ def evaluate_safe_scopes(data: dict, cfg: dict, attack_cfg: dict) -> dict:
         result[scope]={"rows":int(len(indexes)),"teacher_cosine":float(cosine.mean()),
             "teacher_cosine_ci95_bootstrap":_bootstrap_mean(cosine,int(cfg["bootstrap_replicates"]),int(cfg["bootstrap_seed"])+1000+offset),
             "attacks":fixed_attacks(data["targets"][indexes],data["roots"][indexes],data["groups"][indexes],attack_cfg,int(cfg["bootstrap_replicates"]),int(cfg["bootstrap_seed"])+100*offset),
+            "distribution_geometry":_distribution_geometry(data["targets"][indexes],data["roots"][indexes]),
             "health":_health(data["roots"][indexes],cfg)}
     return result
 

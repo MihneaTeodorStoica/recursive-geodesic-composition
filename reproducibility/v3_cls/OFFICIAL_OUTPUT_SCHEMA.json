@@ -1,0 +1,12 @@
+{
+  "schema_version": "v3_cls_two_arm_result_v1",
+  "required_top_level": ["study", "role", "seed", "training_performed", "safe_direct", "full_document", "provenance"],
+  "safe_direct_required": ["definition", "scopes", "telemetry", "retention"],
+  "safe_scopes": ["pooled", "fineweb_edu", "fineweb", "openwebtext", "wikipedia_en_20231101"],
+  "safe_scope_required": ["rows", "teacher_cosine", "teacher_cosine_ci95_bootstrap", "attacks", "distribution_geometry", "health"],
+  "attacks": ["standard_scaled_logistic", "standard_scaled_rbf_svm"],
+  "full_document_required": ["definition", "teacher_comparison_performed", "attack_evaluation_performed", "scopes", "telemetry"],
+  "full_document_forbidden_metrics": ["teacher_cosine", "teacher_target", "root_teacher", "attacks"],
+  "retention_semantics": "exact four-child safe rows only; built-in strict decoder and seed-matched TRAIN-only parent probe",
+  "bootstrap": {"replicates": 400, "seed": 66031740, "unit": "source document/group"}
+}

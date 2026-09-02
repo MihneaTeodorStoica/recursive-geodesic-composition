@@ -1,0 +1,18 @@
+{
+  "role": "development",
+  "allocated_source_range": [
+    308000,
+    317000
+  ],
+  "accessed_source_subrange": [
+    314000,
+    317000
+  ],
+  "development_round": 2,
+  "selection": "first eligible source-order documents with >=1025 tokens",
+  "documents_per_corpus": 400,
+  "config": "configs/v3_cls/seed424242.yaml",
+  "config_sha256": "9a562f106f2db85bf60dda457d6e2ad1ccfacce687e2b482907af45a24f2e4b8",
+  "protocol": "configs/v3_cls/evaluator_two_arm.yaml",
+  "protocol_sha256": "cd79eb678211dc34f383cc3c144857c67ba2ec92323606fd78e3e3ced74835e1"
+}

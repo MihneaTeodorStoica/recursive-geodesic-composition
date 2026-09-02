@@ -36,12 +36,15 @@ def source_rows(corpus,start,end):
   if isinstance(text,str) and text.strip(): yield i,str(row.get('id',i)),text
 
 def main():
- ap=argparse.ArgumentParser(); ap.add_argument('--role',choices=RANGES,required=True); ap.add_argument('--config',default='configs/v3_cls/seed424242.yaml'); ap.add_argument('--protocol',default='configs/v3_cls/evaluator_two_arm.yaml'); ap.add_argument('--device',default='cuda'); ap.add_argument('--documents-per-corpus',type=int,default=1000); a=ap.parse_args()
- cfg=yaml.safe_load((ROOT/a.config).read_text()); protocol=yaml.safe_load((ROOT/a.protocol).read_text()); role=a.role; start,end=RANGES[role]
+ ap=argparse.ArgumentParser(); ap.add_argument('--role',choices=RANGES,required=True); ap.add_argument('--config',default='configs/v3_cls/seed424242.yaml'); ap.add_argument('--protocol',default='configs/v3_cls/evaluator_two_arm.yaml'); ap.add_argument('--device',default='cuda'); ap.add_argument('--documents-per-corpus',type=int,default=1000); ap.add_argument('--development-round',type=int,choices=(1,2),default=1); a=ap.parse_args()
+ cfg=yaml.safe_load((ROOT/a.config).read_text()); protocol=yaml.safe_load((ROOT/a.protocol).read_text()); role=a.role; allocated_start,end=RANGES[role]; start=allocated_start
+ if role=='official' and a.development_round!=1: raise ValueError('official role has no development rounds')
+ if role=='development' and a.development_round==2: start=314000
  if cfg.get('teacher_pooling')!='cls' or cfg.get('model_name')!=MODEL or cfg.get('model_revision')!=REV or not cfg.get('v3_cls_experiment'): raise ValueError('V3 pinned CLS config required')
- if protocol['source_ranges'][role]!=[start,end] or protocol['safe_arm']['minimum_tokens']!=1025 or protocol['safe_arm']['maximum_tokens']!=4096: raise ValueError('protocol/range mismatch')
+ if protocol['source_ranges'][role]!=[allocated_start,end] or protocol['safe_arm']['minimum_tokens']!=1025 or protocol['safe_arm']['maximum_tokens']!=4096: raise ValueError('protocol/range mismatch')
  if a.documents_per_corpus<1: raise ValueError('positive count required')
- dest=ROOT/f'artifacts/v3_cls/{role}_two_arm_cls'; marker=ROOT/f'artifacts/v3_cls/{role.upper()}_ACCESS_SPENT.json'
+ suffix='' if a.development_round==1 else '_round2'
+ dest=ROOT/f'artifacts/v3_cls/{role}{suffix}_two_arm_cls'; marker=ROOT/f'artifacts/v3_cls/{role.upper()}{suffix.upper()}_ACCESS_SPENT.json'
  if dest.exists() or marker.exists(): raise FileExistsError(f'{role} is create-only/already spent')
  if role=='official':
   freeze=ROOT/'reproducibility/v3_cls/OFFICIAL_PREACCESS_FREEZE.json'
@@ -50,7 +53,7 @@ def main():
  # SPENT is durable before constructing a dataset object or iterating one row.
  fd=os.open(marker,os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o444)
  with os.fdopen(fd,'w') as f:
-  json.dump({'role':role,'source_range':[start,end],'selection':'first eligible source-order documents with >=1025 tokens','documents_per_corpus':a.documents_per_corpus,'config':a.config,'config_sha256':sha(ROOT/a.config),'protocol':a.protocol,'protocol_sha256':sha(ROOT/a.protocol)},f,indent=2); f.write('\n'); f.flush(); os.fsync(f.fileno())
+  json.dump({'role':role,'allocated_source_range':[allocated_start,end],'accessed_source_subrange':[start,end],'development_round':a.development_round,'selection':'first eligible source-order documents with >=1025 tokens','documents_per_corpus':a.documents_per_corpus,'config':a.config,'config_sha256':sha(ROOT/a.config),'protocol':a.protocol,'protocol_sha256':sha(ROOT/a.protocol)},f,indent=2); f.write('\n'); f.flush(); os.fsync(f.fileno())
  stage=dest.with_name('.'+dest.name+'.staging-'+uuid.uuid4().hex); stage.mkdir()
  try:
   teacher=FrozenTeacher(MODEL,REV,a.device,pooling='cls',trust_remote_code=True); artifacts={}; audit={}
@@ -71,7 +74,7 @@ def main():
    safe_path=out/'safe.pt'; torch.save(safe,safe_path); idx_path=out/'full_index.json'; idx_path.write_text(json.dumps({'documents':index},indent=2)+'\n')
    for p in (safe_path,idx_path): artifacts[str(p.relative_to(stage))]={'sha256':sha(p),'bytes':p.stat().st_size}
    audit[cid]={'accepted':len(safe),'source_rows_examined_through_acceptance':scanned,'first_source_index':safe[0]['source_index'],'last_source_index':safe[-1]['source_index'],'max_tokens':max(x['token_count'] for x in index),'max_leaves':max(x['leaf_count'] for x in index)}
-  manifest={'schema':'v3_cls_two_arm_cache_v1','study':'v3_cls','role':role,'source_range':[start,end],'selection':'first eligible source-order documents with >=1025 tokenizer tokens','documents_per_corpus':a.documents_per_corpus,'teacher_provenance':{**teacher.provenance(),'implementation_sha256':sha(ROOT/'src/recursive_geodesic_composition/data.py'),'preparer_sha256':sha(__file__)},'safe_arm':protocol['safe_arm'],'full_arm':protocol['full_arm'],'tensor_identical_leaf_reuse':'safe leaves are clone of exact prefix of full leaves; per-row full_leaf_tensor_sha256 records full tensor','audit':audit,'artifacts':artifacts}
+  manifest={'schema':'v3_cls_two_arm_cache_v1','study':'v3_cls','role':role,'source_range':[allocated_start,end],'accessed_source_subrange':[start,end],'development_round':a.development_round,'selection':'first eligible source-order documents with >=1025 tokenizer tokens','documents_per_corpus':a.documents_per_corpus,'teacher_provenance':{**teacher.provenance(),'implementation_sha256':sha(ROOT/'src/recursive_geodesic_composition/data.py'),'preparer_sha256':sha(__file__)},'safe_arm':protocol['safe_arm'],'full_arm':protocol['full_arm'],'tensor_identical_leaf_reuse':'safe leaves are clone of exact prefix of full leaves; per-row full_leaf_tensor_sha256 records full tensor','audit':audit,'artifacts':artifacts}
   mp=stage/'CACHE_MANIFEST.json'; mp.write_text(json.dumps(manifest,indent=2)+'\n'); fsync_file(mp); (stage/'COMPLETE').write_text(f'{sha(mp)}  CACHE_MANIFEST.json\n'); fsync_file(stage/'COMPLETE'); os.replace(stage,dest)
  except BaseException:
   shutil.rmtree(stage,ignore_errors=True); raise

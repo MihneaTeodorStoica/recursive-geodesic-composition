@@ -1,0 +1,112 @@
+{
+  "study": "v3_cls",
+  "status": "official_preaccess_frozen",
+  "official_accessed": false,
+  "official_source_range": [
+    318000,
+    348000
+  ],
+  "final_protocol": "Amendment V2 selected mechanically after two bounded development rounds; no further model changes",
+  "identical_protocol_except_seed_study_output": true,
+  "fresh_random_no_learned_initialization": true,
+  "teacher": {
+    "id": "Alibaba-NLP/gte-modernbert-base",
+    "revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22",
+    "pooling": "cls"
+  },
+  "seeds": {
+    "424242": {
+      "checkpoint": "results/v3_cls/adversarial_v2_candidate_seed424242/autoencoder_seed424242.pt",
+      "checkpoint_sha256": "5f44f72a48d64830dc411e8f5559c9a89a9737fcabd8a6bf6bd37bff9fc5c0d8",
+      "config": "configs/v3_cls/adversarial_v2_candidate_seed424242.yaml",
+      "config_sha256": "44cf02aba87d3586ad3ad74e4df7cca9cefbb819f27a9516ef5328d87bd715d7",
+      "history": "results/v3_cls/adversarial_v2_candidate_seed424242/autoencoder_seed424242.jsonl",
+      "history_sha256": "40a83a906ecfb22fd910785980b10667fff11e4feb9c292265adb25a09f7c11f",
+      "probe": "artifacts/v3_cls/final_v2_probes/parent_only_seed424242.pt",
+      "probe_sha256": "9fa4613bb2ac715dbbefc572b995974515ec3958c455bb3fa77b36c623ae7a1c",
+      "probe_floors": {
+        "pooled": 0.896977352142334,
+        "fineweb_edu": 0.8978397717475891,
+        "fineweb": 0.8968204727172852,
+        "openwebtext": 0.8970461955070496,
+        "wikipedia_en_20231101": 0.8962030878067017
+      },
+      "training_runtime_seconds": 376,
+      "health": {
+        "max_grad_norm": 4.14450740814209,
+        "max_geodesic_saturation_fraction": 0.875,
+        "max_geodesic_angle": 0.5000000596046448,
+        "all_finite": true
+      }
+    },
+    "271828": {
+      "checkpoint": "results/v3_cls/adversarial_v2_final_seed271828/autoencoder_seed271828.pt",
+      "checkpoint_sha256": "3f9efe8cfdabd0d8997319969581fa2220c123c27abff3848ce1e0e7a0769fec",
+      "config": "configs/v3_cls/adversarial_v2_final_seed271828.yaml",
+      "config_sha256": "6c143e7ca36e63768a9b6f8ccbc6a28719f1779ba9d6e375d52df6ecdf314b14",
+      "history": "results/v3_cls/adversarial_v2_final_seed271828/autoencoder_seed271828.jsonl",
+      "history_sha256": "16dd705adfe84f391ba2d81e50ef0398516a3d769b9bc1c1b3b3e204c033be50",
+      "probe": "artifacts/v3_cls/final_v2_probes/parent_only_seed271828.pt",
+      "probe_sha256": "b082aaaf7c00c2bd9bc2c11375c9e15f9a4b0050a1cf494bb9e85f19667b6697",
+      "probe_floors": {
+        "pooled": 0.8970821371078491,
+        "fineweb_edu": 0.8981500735282898,
+        "fineweb": 0.8969595303535461,
+        "openwebtext": 0.8972866406440735,
+        "wikipedia_en_20231101": 0.8959324231147766
+      },
+      "training_runtime_seconds": 377,
+      "health": {
+        "max_grad_norm": 1.1038427352905273,
+        "max_geodesic_saturation_fraction": 0.0,
+        "max_geodesic_angle": 0.08021480590105057,
+        "all_finite": true
+      }
+    },
+    "314159": {
+      "checkpoint": "results/v3_cls/adversarial_v2_final_seed314159/autoencoder_seed314159.pt",
+      "checkpoint_sha256": "9677f5ac5078856457d91ca0df2ddc222c76a2752bcb698cbd570e7ed1bebbc7",
+      "config": "configs/v3_cls/adversarial_v2_final_seed314159.yaml",
+      "config_sha256": "ad0d67d75f05b2264f7de10cc587659a90cb41255546b7417142c8e8ddc97379",
+      "history": "results/v3_cls/adversarial_v2_final_seed314159/autoencoder_seed314159.jsonl",
+      "history_sha256": "c44d82ebc21ee00b49b14c446cf6c6b0a81c38b9fff979cecda0b4566e3d770c",
+      "probe": "artifacts/v3_cls/final_v2_probes/parent_only_seed314159.pt",
+      "probe_sha256": "acf3c72016b1a5351a332172d5cb9908282c374b239ee7ed8037b9ec4cd9507c",
+      "probe_floors": {
+        "pooled": 0.8963865509033203,
+        "fineweb_edu": 0.8975586166381836,
+        "fineweb": 0.8959558477401733,
+        "openwebtext": 0.8963447680473328,
+        "wikipedia_en_20231101": 0.8956869115829468
+      },
+      "training_runtime_seconds": 375,
+      "health": {
+        "max_grad_norm": 0.9570369720458984,
+        "max_geodesic_saturation_fraction": 0.0,
+        "max_geodesic_angle": 0.23496533930301666,
+        "all_finite": true
+      }
+    }
+  },
+  "frozen_hashes": {
+    "src/recursive_geodesic_composition/data.py": "35832a20717df98eafde62fe21baf258512e6c9575c9c723dc3b718260373970",
+    "src/recursive_geodesic_composition/architecture.py": "a789a89786cbac66e5b7dbcd63c83145852e744f69154fa92052f1e209ee1940",
+    "src/recursive_geodesic_composition/train.py": "d1d5cd47c891e95074649319918d25739d6ac2f48c6a4dc18d45eb7f95c13d1f",
+    "src/recursive_geodesic_composition/evaluate_v3_cls.py": "1206cf0b946bf3c9075e681efe16146459590d8e099e7e37f49bb72d0aeec41d",
+    "scripts/v3_cls/evaluate_two_arm.py": "85e15eb76817df23eb554607ee09c53ba15aeecd9842f9cd9e8fce3fa5b9d704",
+    "scripts/v3_cls/prepare_two_arm_cache.py": "55c1f99bcc0a936755f86b16a6d9523fb47a33b5eedd1380d7c7f56689e591cd",
+    "configs/v3_cls/evaluator_two_arm.yaml": "cd79eb678211dc34f383cc3c144857c67ba2ec92323606fd78e3e3ced74835e1",
+    "configs/evaluator_attacks_v1.yaml": "49e7a2996e33482239819430e92426fc1e4f9ff88628dfd2ac74f6da94726800",
+    "configs/v3_cls/official_spec_template.yaml": "37918b362e8104acc9a271e80e2ff6fe9aaeff41c9985034ba73c8d28cf48c0e",
+    "reproducibility/v3_cls/OFFICIAL_OUTPUT_SCHEMA.json": "b26d0d745793c6968892d97333a34825cfe7cf42f900deae87473c443761ea07",
+    "artifacts/v3_cls/cache_train_cls/CACHE_MANIFEST.json": "39f70e6107249e0122a0cc06441824c637ccf0fdea2e4c185a474d066ab54024",
+    "reproducibility/v3_cls/CLS_REFERENCE_VALIDATION.json": "a67a04e641789a4bf702bcdafaefe0f71fb7ddfa47aa89eecfb95dbd364e555d"
+  },
+  "bootstrap": {
+    "replicates": 400,
+    "seed": 66031740,
+    "orientation_safe": true
+  },
+  "tests": "58 passed before freeze",
+  "official_cache_binding": "Only cache manifest hash and frozen seed fields may be bound after create-only preparation; no scientific field may change."
+}

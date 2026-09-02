@@ -1,0 +1,13 @@
+v3_cls_experiment: true
+role: official
+seed: __BIND_SEED_FROM_FROZEN_SET__
+checkpoint: __BIND_FROZEN_CHECKPOINT_PATH__
+checkpoint_sha256: __BIND_FROZEN_CHECKPOINT_SHA256__
+training_cache_manifest: artifacts/v3_cls/cache_train_cls/CACHE_MANIFEST.json
+training_cache_manifest_sha256: 39f70e6107249e0122a0cc06441824c637ccf0fdea2e4c185a474d066ab54024
+cache_manifest: artifacts/v3_cls/official_two_arm_cls/CACHE_MANIFEST.json
+cache_manifest_sha256: __BIND_AFTER_CREATE_ONLY_OFFICIAL_CACHE_PREPARATION__
+probe: __BIND_FROZEN_SEED_MATCHED_TRAIN_PROBE__
+probe_sha256: __BIND_FROZEN_PROBE_SHA256__
+probe_floors: __BIND_FROZEN_TRAIN_FLOORS__
+output_dir: results/v3_cls/official_seed__SEED__
