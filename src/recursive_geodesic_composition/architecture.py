@@ -55,7 +55,7 @@ class GeodesicMerge(nn.Module):
                  importance_prior_weight=0.0, delta_loss_weight=0.0,
                  sharpness_loss_weight=0.0, slot_loss_weight=0.0,
                  sharpness_margin=0.1, geodesic_parameterization="legacy",
-                 arity=2):
+                 arity=2, composition_geometry="geodesic"):
         super().__init__()
         if hidden % heads: raise ValueError("hidden must divide heads")
         if isinstance(arity, bool) or int(arity) != arity or int(arity) < 2:
@@ -69,6 +69,10 @@ class GeodesicMerge(nn.Module):
             raise ValueError("arity > 2 decoders must use parent-only decoder_mode='strict'")
         if geodesic_parameterization not in {"legacy", "tangent_expmap"}:
             raise ValueError(f"unknown geodesic_parameterization: {geodesic_parameterization}")
+        if composition_geometry not in {"geodesic", "euclidean_residual", "free_euclidean"}:
+            raise ValueError(f"unknown composition_geometry: {composition_geometry}")
+        if composition_geometry != "geodesic" and geodesic_parameterization != "tangent_expmap":
+            raise ValueError("Euclidean V4 variants require the parameter-matched tangent-expmap module layout")
         if not math.isfinite(max_angle) or max_angle <= 0:
             raise ValueError("max_angle must be finite and positive")
         if not math.isfinite(importance_beta) or importance_beta <= 0:
@@ -77,6 +81,7 @@ class GeodesicMerge(nn.Module):
         self.arity = arity
         self.importance_mode, self.decoder_mode = importance_mode, decoder_mode
         self.geodesic_parameterization = geodesic_parameterization
+        self.composition_geometry = composition_geometry
         self.importance_beta = float(importance_beta)
         self.input = nn.Sequential(nn.Linear(d + 2, hidden), nn.LayerNorm(hidden), nn.GELU())
         self.pos = nn.Parameter(torch.randn(1, arity, hidden) * .01)
@@ -96,6 +101,10 @@ class GeodesicMerge(nn.Module):
             # this head. There is deliberately no separate scalar angle head.
             self.angle = None
             nn.init.zeros_(self.direction.weight); nn.init.zeros_(self.direction.bias)
+            if composition_geometry == "free_euclidean":
+                # Free Euclidean output has no anchor fallback, so it requires a
+                # nonzero random output head at initialization.
+                nn.init.xavier_uniform_(self.direction.weight)
         if decoder_length_mode not in {"oracle", "equal", "predicted"}:
             raise ValueError(f"unknown decoder_length_mode: {decoder_length_mode}")
         if not math.isfinite(ratio_log_bound) or ratio_log_bound <= 0:
@@ -226,12 +235,23 @@ class GeodesicMerge(nn.Module):
             # gradient that lets the initially-zero salience head start moving.
             weights = (_ZeroInitWeights.apply(mass, semantic_weights)
                        if not torch.any(corrections.detach()) else semantic_weights)
-        anchor = F.normalize((x * weights[..., None]).sum(1), dim=-1)
-        z = self.trunk(torch.cat((h.flatten(1), anchor), -1))
+        euclidean_anchor = (x * weights[..., None]).sum(1)
+        anchor = F.normalize(euclidean_anchor, dim=-1)
+        trunk_anchor = (euclidean_anchor if self.composition_geometry == "euclidean_residual" else
+                        torch.zeros_like(anchor) if self.composition_geometry == "free_euclidean" else anchor)
+        z = self.trunk(torch.cat((h.flatten(1), trunk_anchor), -1))
         raw_tangent = self.direction(z)
         tangent = raw_tangent - (raw_tangent * anchor).sum(-1, keepdim=True) * anchor
         raw_tangent_norm = tangent.norm(dim=-1, keepdim=True)
-        if self.geodesic_parameterization == "legacy":
+        if self.composition_geometry == "euclidean_residual":
+            geodesic_correction = raw_tangent
+            root = F.normalize(euclidean_anchor + raw_tangent, dim=-1)
+            angle = torch.acos((root * anchor).sum(-1, keepdim=True).clamp(-1.0, 1.0))
+        elif self.composition_geometry == "free_euclidean":
+            geodesic_correction = raw_tangent
+            root = F.normalize(raw_tangent, dim=-1)
+            angle = torch.acos((root * anchor).sum(-1, keepdim=True).clamp(-1.0, 1.0))
+        elif self.geodesic_parameterization == "legacy":
             direction = tangent / raw_tangent_norm.clamp_min(1e-6)
             angle = self.max_angle * torch.sigmoid(self.angle(z))
             root = F.normalize(torch.cos(angle) * anchor + torch.sin(angle) * direction, dim=-1)
@@ -249,7 +269,12 @@ class GeodesicMerge(nn.Module):
                "geodesic_correction": geodesic_correction,
                "correction_norm": geodesic_correction.norm(dim=-1),
                "raw_tangent": raw_tangent, "raw_tangent_norm": raw_tangent_norm.squeeze(-1),
-               "geodesic_saturated": angle.squeeze(-1) >= .95 * self.max_angle,
+               "geodesic_saturated": ((angle.squeeze(-1) >= .95 * self.max_angle)
+                                        if self.composition_geometry == "geodesic"
+                                        else torch.zeros_like(angle.squeeze(-1), dtype=torch.bool)),
+               "composition_geometry": self.composition_geometry,
+               "euclidean_anchor": euclidean_anchor,
+               "residual_norm": raw_tangent.norm(dim=-1),
                "effective_weights": weights, "token_fractions": mass,
                "corrections": corrections, "active_mask": active}
         self._last_merge_aux = aux
@@ -344,6 +369,7 @@ class GeodesicMerge(nn.Module):
         version = max(version, 4 if self.arity != 2 else version)
         return {"version": version, "arity": self.arity,
                 "importance_mode": self.importance_mode, "decoder_mode": self.decoder_mode,
+                "composition_geometry": self.composition_geometry,
                 "geodesic_parameterization": self.geodesic_parameterization,
                 "max_geodesic_angle": self.max_angle,
                 "importance_beta": self.importance_beta,

@@ -1,0 +1,3 @@
+0a1146cedad05ff3c75d8c9ed723993ae88212cc
+base_branch=v3-paper-cls
+justification=Reuse fully audited architecture-independent CLS/provenance/evaluator engineering while treating all V3 learned artifacts as forbidden historical inputs. Every V4 arm initializes fresh random state and uses fresh source ranges.

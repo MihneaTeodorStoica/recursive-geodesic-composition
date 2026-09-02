@@ -1,0 +1,1 @@
+{"protected_highest_exclusive":348000,"v4_euclidean":{"train":[348000,360000],"development":[360000,369000],"buffer_unused":[369000,370000],"official":[370000,400000]},"same_population_all_architecture_arms":true,"frozen_before_access":true}

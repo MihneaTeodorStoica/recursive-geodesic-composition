@@ -1003,6 +1003,23 @@ def _enforce_v3_cls_guards(cfg):
         raise ValueError(f"V3 fresh-from-random protocol forbids learned initialization/continuation: {present}")
 
 
+def _enforce_v4_euclidean_guards(cfg):
+    if not bool(cfg.get('v4_euclidean_experiment', False)):
+        return
+    if cfg.get('teacher_pooling') != 'cls' or cfg.get('model_name') != 'Alibaba-NLP/gte-modernbert-base' or cfg.get('model_revision') != 'e7f32e3c00f91d699e8c43b53106206bcc72bb22':
+        raise ValueError('V4 requires the pinned normalized CLS teacher')
+    if cfg.get('composition_geometry') not in {'geodesic', 'euclidean_residual', 'free_euclidean'}:
+        raise ValueError('V4 requires one frozen architecture family')
+    if 'v4_euclidean' not in str(cfg.get('cache_dir', '')) or 'v4_euclidean' not in str(cfg.get('output_dir', '')):
+        raise ValueError('V4 paths must be isolated in v4_euclidean namespaces')
+    forbidden = ('initialize_encoder_from_autoencoder_checkpoint','initialize_from_encoder_checkpoint',
+                 'encoder_initialization_checkpoint','continue_encoder_from_checkpoint',
+                 'continue_autoencoder_from_checkpoint')
+    present = [key for key in forbidden if cfg.get(key)]
+    if present:
+        raise ValueError(f'V4 fresh architecture comparison forbids learned initialization: {present}')
+
+
 def _assert_v3_cache_sidecar(cfg, path):
     if not bool(cfg.get('v3_cls_experiment', False)):
         return
@@ -1018,6 +1035,19 @@ def _assert_v3_cache_sidecar(cfg, path):
         raise ValueError(f"V3 refuses cache outside v3_cls namespace: {path}")
 
 
+def _assert_v4_cache_sidecar(cfg, path):
+    if not bool(cfg.get('v4_euclidean_experiment', False)):
+        return
+    sidecar_path = Path(str(path) + '.json')
+    if not sidecar_path.is_file():
+        raise FileNotFoundError(f'V4 refuses cache tensor without sidecar: {sidecar_path}')
+    sidecar = json.loads(sidecar_path.read_text())
+    if sidecar.get('teacher_pooling') != 'cls' or sidecar.get('model') != cfg.get('model_name') or sidecar.get('model_revision') != cfg.get('model_revision'):
+        raise ValueError(f'V4 cache teacher provenance mismatch: {sidecar_path}')
+    if 'v4_euclidean' not in str(path):
+        raise ValueError(f'V4 refuses cache outside its namespace: {path}')
+
+
 def _load_training_roles(cfg):
     """Load corpus-separated roles without any protected-data fallback.
 
@@ -1026,11 +1056,13 @@ def _load_training_roles(cfg):
     opened. It never substitutes TRAIN rows for validation rows.
     """
     _enforce_v3_cls_guards(cfg)
+    _enforce_v4_euclidean_guards(cfg)
     corpora = cfg.get('corpora')
     train_only = bool(cfg.get('training_without_validation', False))
     if not corpora:
         train_path = Path(cfg['cache_dir']) / 'train.pt'
         _assert_v3_cache_sidecar(cfg, train_path)
+        _assert_v4_cache_sidecar(cfg, train_path)
         rows = torch.load(train_path, weights_only=False)
         val_path = Path(cfg['cache_dir']) / 'validation.pt'
         if train_only and val_path.exists():
@@ -1043,6 +1075,7 @@ def _load_training_roles(cfg):
         root = Path(cfg['cache_dir']) / corpus_id
         train_path = root / 'train.pt'
         _assert_v3_cache_sidecar(cfg, train_path)
+        _assert_v4_cache_sidecar(cfg, train_path)
         train_by[corpus_id] = torch.load(train_path, weights_only=False)
         validation_path = root / 'validation.pt'
         if train_only:
@@ -1050,6 +1083,7 @@ def _load_training_roles(cfg):
                 raise ValueError(f'train-only protocol refuses validation artifact: {validation_path}')
         else:
             _assert_v3_cache_sidecar(cfg, validation_path)
+            _assert_v4_cache_sidecar(cfg, validation_path)
             validation_by[corpus_id] = torch.load(validation_path, weights_only=False)
     if any(not rows for rows in train_by.values()) or (not train_only and any(not rows for rows in validation_by.values())):
         raise RuntimeError('every declared corpus role must be non-empty')
@@ -1321,7 +1355,8 @@ def run(cfg, variant, seed, device):
                           slot_loss_weight=float(cfg.get('slot_loss_weight', 0.0)),
                           sharpness_margin=float(cfg.get('sharpness_margin', 0.1)),
                           geodesic_parameterization=str(cfg.get('geodesic_parameterization', 'legacy')),
-                          arity=arity).to(device)
+                          arity=arity,
+                          composition_geometry=str(cfg.get('composition_geometry', 'geodesic'))).to(device)
     initialization_info = {}
     continuation_info = {}
     if initialization_path:
@@ -1738,6 +1773,7 @@ def main():
     a = ap.parse_args()
     cfg = yaml.safe_load(Path(a.config).read_text())
     _enforce_v3_cls_guards(cfg)
+    _enforce_v4_euclidean_guards(cfg)
     if a.smoke:
         cfg['output_dir'] = f"{cfg['output_dir']}_smoke"
         if cfg.get('tensorboard_dir'):
