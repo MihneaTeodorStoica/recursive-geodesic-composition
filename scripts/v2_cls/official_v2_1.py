@@ -64,6 +64,41 @@ def prepare(device):
   (stage/'CACHE_MANIFEST.json').write_text(json.dumps(mani,indent=2)+'\n');os.replace(stage,out)
  except BaseException:
   raise
+@torch.inference_mode()
+def full_merge_diagnostics(model, probe, leaves, lengths, device):
+ """Decode every genuine merge; retain exact child-type/order strata.
+
+ ``leaf`` means an original input leaf. ``recursive`` means a node produced at
+ an earlier genuine merge. The TRAIN probe was fit only on exact four-child
+ parents, so probe values are defined only for arity-four merges; decoder values
+ are defined for all genuine arities with their active ordered prefix.
+ """
+ nodes=leaves.float().to(device)[None]; masses=lengths.float().to(device)[None]; kinds=[[True]*nodes.shape[1]]; out=[]
+ while nodes.shape[1]>1:
+  groups=contiguous_reduction_groups(nodes.shape[1],4); nextn=[]; nextm=[]; nextk=[]
+  for start,width in groups:
+   if width==1:
+    nextn.append(nodes[:,start:start+1]);nextm.append(masses[:,start:start+1]);nextk.append(kinds[0][start]);continue
+   child=nodes[:,start:start+width]; cm=masses[:,start:start+width]; pad=4-width
+   pchild=F.pad(child,(0,0,0,pad));pmass=F.pad(cm,(0,pad));parent=model.merge(pchild,pmass)
+   decoded=model.decode(parent,return_aux=False)[:,:width]
+   cos=F.cosine_similarity(decoded,child,dim=-1)[0]
+   isleaf=kinds[0][start:start+width]
+   entry={'arity':width,'ordered_child_cosines':[float(x) for x in cos],'child_types':['leaf' if x else 'recursive' for x in isleaf], 'probe_retention':None}
+   if width==4:
+    pred=probe(parent);entry['probe_retention']=float(F.cosine_similarity(pred,child,dim=-1).mean())
+   out.append(entry);nextn.append(parent[:,None]);nextm.append(pmass.sum(1,keepdim=True));nextk.append(False)
+  nodes=torch.cat(nextn,1);masses=torch.cat(nextm,1);kinds=[nextk]
+ return nodes[:,0],out
+
+def summarize_full_merges(entries):
+ vals=[];leaf=[];rec=[];probe=[]
+ for e in entries:
+  vals+=e['ordered_child_cosines']
+  for v,t in zip(e['ordered_child_cosines'],e['child_types']):(leaf if t=='leaf' else rec).append(v)
+  if e['probe_retention'] is not None:probe.append(e['probe_retention'])
+ return {'ordered_child_cosine_overall':float(np.mean(vals)) if vals else None,'ordered_child_cosine_leaf_children':float(np.mean(leaf)) if leaf else None,'ordered_child_cosine_recursive_children':float(np.mean(rec)) if rec else None,'genuine_merges':len(entries),'leaf_child_slots':len(leaf),'recursive_child_slots':len(rec),'probe_exact4_parent_retention':float(np.mean(probe)) if probe else None,'probe_exact4_parent_merges':len(probe)}
+
 def evaluate(device):
  c=cfg();cache=ROOT/c['cache_dir'];m=json.loads((cache/'CACHE_MANIFEST.json').read_text());probes=json.loads((ROOT/c['probe_manifest']).read_text());out=ROOT/c['output_dir'];out.mkdir(parents=True);result={'safe':{},'full':{},'cache_manifest_sha256':sh(cache/'CACHE_MANIFEST.json')}
  for seed,cp in c['checkpoints'].items():
@@ -76,8 +111,8 @@ def evaluate(device):
    f=np.stack([x.numpy() for x in fs]);r=np.stack([x.numpy() for x in rs]);per[cid]={'teacher_cosine':float(np.mean(np.sum(f*r,1))),'decoder_child_cosine':float(np.mean(dec)),'probe_retention':float(np.mean(ret))};fake.append(f);real.append(r);groups += [x['id'] for x in rows]
    for sp in sorted((cache/cid).glob('*.pt')):
     x=torch.load(sp,map_location='cpu',weights_only=False)
-    with torch.inference_mode():root,levels=recursive_reduce(model,x['leaves'].float().to(device)[None],x['lengths'].to(device)[None])
-    fullstats.append({'id':x['id'],'corpus':cid,'tokens':x['full_token_count'],'leaves':x['full_leaf_count'],'depth':x['tree_depth'],'merges':sum(z[0].shape[0] for z in levels),'finite':bool(torch.isfinite(root).all()),'norm':float(root.norm())})
+    root,entries=full_merge_diagnostics(model,probe,x['leaves'],x['lengths'],device)
+    fullstats.append({'id':x['id'],'corpus':cid,'tokens':x['full_token_count'],'leaves':x['full_leaf_count'],'depth':x['tree_depth'],'finite':bool(torch.isfinite(root).all()),'norm':float(root.norm()),**summarize_full_merges(entries)})
   f=np.concatenate(fake);r=np.concatenate(real);result['safe'][seed]={'pooled_teacher_cosine':float(np.mean(np.sum(f*r,1))),'per_corpus':per,'attacks':evaluate_attacks(r,f,groups,bootstrap=c['bootstrap']['replicates'])};result['full'][seed]=fullstats
  (out/'RESULTS.json').write_text(json.dumps(result,indent=2)+'\n')
 if __name__=='__main__':

@@ -18,3 +18,7 @@ The V2 official cache preparer/evaluator implementing all of these semantics, fu
 ## V2.1 frozen implementation
 
 `configs/v2_cls/official_v2_1.yaml` and `scripts/v2_cls/official_v2_1.py` implement create-only preparation/evaluation. Preparation is the sole corpus entrypoint; import, preflight, chunk/depth tests, and checkpoint/probe identity checks do not import `datasets` or call the official range. Preparation claims a one-shot spent marker before streaming, selects the first 1000 source-order documents per corpus with complete 1025--4096 safe prefix, derives both arms from each accepted document, and atomically publishes the cache. Evaluation reports safe paired CLS cosine/attacks/per-corpus decoder/probe results and full recursion-only records without full-root teacher targets.
+
+## Full-arm retention closure
+
+At every genuine merge the strict decoder is compared in exact active child order. Child slots are labeled `leaf` only if they are original document leaves; otherwise `recursive`. Results aggregate overall, leaf-child, and recursive-child ordered cosine. The TRAIN parent-only probe was trained only on exact four-child parents, so its full-arm diagnostic is defined only on exact-4 merges; it is reported as `probe_exact4_parent_retention` and is explicitly null when no exact-4 merge exists. It is not fabricated for arity 2/3 parents.

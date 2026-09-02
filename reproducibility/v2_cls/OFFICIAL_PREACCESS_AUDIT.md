@@ -11,3 +11,7 @@ Accordingly no machine-readable access freeze is issued and `[214000,244000)` re
 ## Updated closure audit
 
 V2 official implementation/config/probe closure has been built and hash-frozen in `OFFICIAL_V2_1_FREEZE.json`. Corpus-free smoke checks passed: exact 1024 chunk coverage including remainder, K4 depth/singleton arithmetic, V2 checkpoint CLS provenance, V2 TRAIN-probe/checkpoint hashes, and refusal of an existing cache/output namespace. No `prepare` invocation occurred. The one-shot command is now explicitly bound in the freeze manifest. Official range remains unopened at this point.
+
+## Final closure
+
+`tests/test_v2_official_full_arm.py` passed corpus-free multi-level synthetic checks (4 passed total with protocol tests): exact 5-leaf K4 singleton carry, merge/slot counts, ordered leaf/recursive child stratification, exact-4 probe binding, chunk remainder, and depth arithmetic. `OFFICIAL_V2_1_FINAL_FREEZE.json` supersedes the earlier incomplete freeze. No official preparer command has been invoked.

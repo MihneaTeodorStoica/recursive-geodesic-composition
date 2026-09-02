@@ -1,0 +1,27 @@
+{
+  "stage": "v2_cls_official_v2_1",
+  "freeze_version": 2,
+  "supersedes_incomplete_freeze_sha256": "92c423b2e3fb9e7b8273116436b3114115efec667e5c83b28396fba62c1e1220",
+  "official_range": [
+    214000,
+    244000
+  ],
+  "official_unspent": true,
+  "teacher": {
+    "id": "Alibaba-NLP/gte-modernbert-base",
+    "revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22",
+    "pooling": "cls"
+  },
+  "checkpoint_probe_manifest_sha256": "f0f22dac068f8291e4f79f0c9412e187231ee0fe8b5fdf9124657dcd287a6486",
+  "files": {
+    "configs/v2_cls/official_v2_1.yaml": "1434674f61ed1a6957e30db72e3448e0c1b8cc90ad213ea5e1089742393df84f",
+    "scripts/v2_cls/official_v2_1.py": "49b1a51125d3672b582511a91fff661b00b1b04b0b0fbc20b720f50b973e8a7e",
+    "scripts/v2_cls/freeze_train_probes.py": "2fb477dfa2591333273e93b9d60787738eda702b28366aa560cfbc65a7a5e209",
+    "configs/evaluator_attacks_v1.yaml": "49e7a2996e33482239819430e92426fc1e4f9ff88628dfd2ac74f6da94726800",
+    "reproducibility/v2_cls/TRAIN_PROBE_MANIFEST.json": "f0f22dac068f8291e4f79f0c9412e187231ee0fe8b5fdf9124657dcd287a6486",
+    "tests/test_v2_official_full_arm.py": "3dbf48e7d6b014707c087f4a12de5d7c0a8204689b17685f870fda0dcea0031f"
+  },
+  "safe_schema": "paired CLS target/cosine/attacks/decoder/probe per corpus",
+  "full_schema": "all-token recursive roots; no root target/cosine/AUC; decoder every genuine merge overall/leaf/recursive; probe exact-4 parents only",
+  "command": "PYTHONPATH=src /venv/main/bin/python scripts/v2_cls/official_v2_1.py prepare --device cuda"
+}
