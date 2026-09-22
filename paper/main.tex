@@ -102,8 +102,10 @@ depth 3 without triggered numerical-health alarms, but only 81 of 4,000 document
 exceed the backbone's documented 8,192-token context. Reconstruction calibration
 shows that the built-in decoder adds only \(0.001043\) child cosine over copying
 its parent, with negligible order advantage; the frozen probe performs worse
-than copying. Thus, learning improves short-prefix teacher fidelity and measured
-source compatibility at higher composition cost, with modest tree sensitivity;
+than copying. A matched source--final comparison finds that almost all of the
+safe-arm advantage over pooling predates the final continuation stage. Thus,
+the learned model improves short-prefix teacher fidelity and measured source
+compatibility at higher composition cost, with modest tree sensitivity;
 unrestricted-root fidelity, superior reconstruction, and downstream utility
 remain unestablished.
 
@@ -128,7 +130,9 @@ the same teacher-fidelity and source-detection protocol. A second matched
 analysis compares direct and binary-recursive composition of the same four
 leaves against the same teacher target. Reconstruction calibration adds
 parent-copy baselines and exact within-document target-slot permutations to
-the existing local reconstruction and pooling comparisons. Architecture studies
+the existing local reconstruction and pooling comparisons. A lineage-matched
+source-versus-final comparison quantifies changes during the final continuation
+stage without attributing them to any single objective. Architecture studies
 provide system-level comparisons rather than controlled estimates of individual
 design choices.
 
@@ -764,8 +768,9 @@ the subsequent development results. The resulting checkpoints are therefore
 the products of an already-trained source merger followed by 300 decoder-only
 and 100 joint updates. The 400-update count describes only the final
 continuation stage, not the total training budget from random initialization.
-The present study does not isolate the contribution of that final stage from
-the inherited representation.
+The matched endpoint comparison in Section~\ref{sec:continuation-results}
+quantifies changes relative to these inherited representations. It does not
+isolate individual losses or reconstruct the complete earlier training budget.
 
 
 \subsection{Evaluation Protocol}
@@ -1034,6 +1039,41 @@ with equality for the normalized unweighted mean when nonzero. It is therefore
 the optimal \emph{shared-vector} copy under this metric, but not an upper bound
 on distinct slot-specific predictions. Residual-geometry and numerical checks
 are detailed in Appendix~\ref{app:reconstruction-calibration}.
+
+\subsection{Matched Source-versus-Final Continuation Comparison}
+\label{sec:continuation-protocol}
+
+A fourth post-review analysis compares each released initialization-source
+merger with its lineage-matched fixed clean-v6 final checkpoint. Both endpoints
+use the same regenerated 4,000 safe prefixes and teacher targets. Final parents
+and classifier scores are reused unchanged from the matched baseline study.
+For each source checkpoint, both fixed classifier families are fitted afresh
+under the identical recipe and document-grouped splits: 30 source fits across
+three checkpoints and five scopes, with no final-classifier refitting.
+The pooled comparison uses 2,000 held-out document pairs; each corpus-specific
+comparison uses its own frozen 500-document holdout.
+
+On the same 606 exact-four prefixes, the released source and candidate probes
+are applied to their respective parents. These probes share the documented
+architecture, initialization and TRAIN fitting recipe; matching TRAIN-group
+and minibatch-schedule metadata are verified. They are not refitted here.
+For each stage, probe gain subtracts copying that stage's own parent. The
+primary contrasts are final minus source in teacher cosine, source AUC, and
+probe gain over copy. Raw probe cosine, parent agreement, and order-gap changes
+are additional diagnostics. Corpus and active-arity fidelity summaries retain
+all signs and checkpoints.
+
+Each metric uses 2,000 shared document resamples across stages and checkpoints
+within its scope. Scalar checkpoint scores are averaged within documents;
+AUCs are instead calculated per checkpoint and averaged within each resample,
+not calculated from averaged classifier predictions. Each teacher/generated
+pair shares one document multiplicity. Observed strongest classifier families
+are fixed, with no refitting or reselection during bootstrap. These are
+conditional, non-simultaneous intervals on previously evaluated documents.
+The endpoint comparison measures the full continuation bundle, including the
+new decoder, staged schedule and multiple losses; it is not a decoder-objective
+ablation. No merger, decoder or probe is updated and no teacher encoding is
+performed. Audit details appear in Appendix~\ref{app:continuation-comparison}.
 
 \subsection{Reproducibility Summary}
 
@@ -1466,6 +1506,66 @@ and \(0.909842\). These values describe local reconstruction under the built-in 
 the frozen-probe comparison is a separate safe-arm measurement. The matched pooling comparison applies only to the
 safe exact-K4 subset and does not provide a full-document pooling reference.
 
+\subsection{What the Final Continuation Changes}
+\label{sec:continuation-results}
+
+Table~\ref{tab:continuation-comparison} compares the released source and final
+endpoints, not different training seeds or historical embedding caches.
+The source already attains teacher cosine \(0.985044633\), versus
+\(0.985045479\) for the final model. Both round to the same six-decimal value
+in the table. The paired change is just \(+8.4656\times10^{-7}\), with
+95\% interval \([6.1017,10.8113]\times10^{-7}\), and is positive on
+2,263/4,000 documents (56.6\%) after averaging checkpoint scores.
+Source--final parent cosine is \(0.999999912\). The source's gain over weighted
+pooling is already \(0.002106475\), compared with \(0.002107322\) finally:
+99.96\% of this observed final gain is present before the continuation.
+This arithmetic describes these endpoints, not a causal allocation among
+components of their earlier training.
+
+\input{../results/continuation_comparison_v1/continuation_comparison_table.tex}
+
+Pooled source AUC decreases slightly from \(0.584827\) to \(0.584294\).
+The paired change is \(-0.000533\), with 95\% interval
+\([-0.000676,-0.000392]\). All three pooled
+checkpoint contrasts are negative. Logistic regression is the strongest
+observed family at both endpoints for every scope and checkpoint; neither
+family was omitted. Corpus-specific changes are not uniformly favorable:
+Wikipedia's checkpoint-mean AUC increases by \(0.000100\), with interval
+\([-0.000209,0.000409]\). Likewise, teacher changes are not positive in every
+stratum; the three-child and Wikipedia checkpoint-mean changes are slightly
+negative with intervals spanning zero. These results do not establish
+uniform improvement or distributional equality.
+
+On the 606 exact-four prefixes, raw probe cosine decreases. Its paired
+change is \(-0.000009416\), with 95\% interval
+\([-0.000011671,-0.000007102]\).
+Parent-copy cosine decreases more, by \(0.000047389\). Consequently the
+probe's gain over its own parent copy becomes less negative, changing from
+\(-0.005954465\) to \(-0.005916492\). The paired gain change is
+\(+0.000038\), with 95\% interval \([0.000036,0.000040]\).
+This change is positive on 559/606 documents (92.2\%), but both probes still
+underperform copying. The improvement in a copy-relative contrast must not
+be described as an improvement in absolute reconstruction. The order-gap
+change is \(-0.000001872\), with interval
+\([-0.000003767,0.000000202]\), and does not establish greater order recovery.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{../results/continuation_comparison_v1/continuation_ecdf.png}
+\caption{Checkpoint-mean document changes between matched source and final
+endpoints. Left: teacher cosine on 4,000 prefixes. Right: probe gain over
+copying each stage's own parent on 606 exact-four prefixes. Positive values
+favor the final endpoint on the indicated contrast; the right panel does not
+imply a positive decoding gain or higher absolute probe cosine.}
+\label{fig:continuation-comparison}
+\end{figure}
+
+Thus the measured teacher-fidelity and source-detection advantages over pooling
+are overwhelmingly already present in the inherited source mergers. The small
+additional changes under this continuation do not isolate the usefulness of
+the decoder objective, establish a from-scratch training result, or explain
+which earlier training choices produced the source representation.
+
 \subsection{Architecture and Scaling Studies}
 \label{sec:architecture-scaling}
 
@@ -1538,7 +1638,13 @@ recipe. The gain over token-weighted pooling is modest in cosine
 final correction helps this trained system; it does not establish superiority
 of the geodesic parameterization over a differently trained residual model.
 The approximately \(110\times\) composition-cost ratio also prevents treating
-this fidelity improvement as a cost-free practical advantage.
+this fidelity improvement as a cost-free practical advantage. The matched
+source--final comparison further limits attribution: almost all of the final
+advantage over pooling exists in the source checkpoints. The last continuation
+stage changes the representation only slightly, and its less-negative
+copy-relative probe gain accompanies a small decline in raw probe cosine.
+Neither comparison establishes that this final decoder-training stage is the
+origin of the learned model's benefit.
 
 The matched reconstruction comparison answers a different question: both
 pooling baselines outperform the final seed-424242 representation under that
@@ -1615,12 +1721,15 @@ from earlier continuation-training data.
 
 \paragraph{Comparisons and learning history.}
 The reconstruction pooling study covers one final checkpoint and one residual
-probe family. The safe-arm baseline, recursive-reuse, and reconstruction-calibration
-comparisons cover all three final checkpoints but reuse already evaluated
-documents and regenerated inputs; none is a fresh confirmatory test. The arity studies differ in
-capacity and training history, so they do not isolate the causal effect of arity. Clean-v6 starts from trained source mergers;
-the final 400-update schedule is not a from-scratch training recipe or a measure
-of the complete training cost.
+probe family. The safe-arm baseline, recursive-reuse, reconstruction-calibration
+and continuation comparisons cover all three final checkpoints but reuse
+already evaluated documents and regenerated inputs; none is a fresh
+confirmatory test. The arity studies differ in capacity and training history,
+so they do not isolate the causal effect of arity. Clean-v6 starts from trained
+source mergers; the final 400-update schedule is not a from-scratch training
+recipe or a measure of complete training cost. Comparing matched source/final
+endpoints quantifies that stage's changes but does not isolate the decoder
+objective or any other component of the continuation bundle.
 
 \paragraph{Statistical scope.}
 Only three final checkpoints, one attack split, and two classifier families
@@ -1658,12 +1767,14 @@ independent reproduction.
 
 \subsection{Future Work}
 
-The matched baselines, one teacher-valid recursive-reuse comparison, and
-reconstruction calibration now provide initial controls. Further fixed tree
-families and deeper compositions are needed before larger models. Matched
-source-versus-final and non-residual probes, together with input-permutation
-controls that distinguish positional priors from document-specific order,
-would clarify how much the decoder and final continuation stage contribute.
+The matched baselines, one teacher-valid recursive-reuse comparison,
+reconstruction calibration, and source-versus-final comparison now provide
+initial controls. Further fixed tree families and deeper compositions are
+needed before larger models. Non-residual probes and input-permutation controls
+would test whether the observed reconstruction limitations persist beyond this
+probe family and distinguish positional priors from document-specific order.
+Matched-budget decoder-objective ablations are still needed to attribute the
+continuation changes to particular training components.
 
 A downstream long-document benchmark, such as a suitable retrieval component
 of LongEmbed \cite{zhu-etal-2024-longembed}, would test usefulness beyond
@@ -1711,8 +1822,13 @@ shows a built-in-decoder gain of only \(0.001043\) over parent copy, negligible
 order advantage, and a frozen-probe deficit relative to copying. On this subset,
 both learned decoding rules are below untrained pooling-copy baselines. These findings narrow
 the retention claim to measured local reconstruction rather than recovery of
-distinct ordered constituents. Whether the teacher-alignment benefit extends
-to unrestricted long-document roots or a downstream task remains unresolved.
+distinct ordered constituents. The source--final comparison also shows that
+almost all of the safe-arm advantage over pooling predates the final
+continuation; its teacher-cosine change is below \(10^{-6}\), and both endpoint
+probes remain below parent copy. These endpoint changes do not isolate any
+single loss or training component. Whether the teacher-alignment benefit
+extends to unrestricted long-document roots or a downstream task remains
+unresolved.
 
 \appendix
 
@@ -2250,6 +2366,54 @@ bytes are unavailable, so their numerical cause is not isolated. Every new
 copy/decoder/permutation contrast nevertheless uses identical regenerated inputs;
 no historical decoded score is combined with a new copy score. The original
 and both earlier additive result namespaces remain unchanged.
+
+\subsection{Post-Review Continuation Comparison Audit}
+\label{app:continuation-comparison}
+
+The fixed configuration is \nolinkurl{configs/continuation_comparison_v1.yaml};
+outputs are retained in \nolinkurl{results/continuation_comparison_v1/}.
+The evaluator, renderer and auditor are the corresponding
+\nolinkurl{scripts/evaluate_continuation_comparison.py},
+\nolinkurl{scripts/render_continuation_comparison.py}, and
+\nolinkurl{scripts/audit_continuation_comparison.py}.
+Configuration and implementation hashes were frozen before new inference.
+All source/final checkpoints and probes match the release manifest in bytes,
+hash, seed and role. Each final checkpoint identifies its source digest in
+\texttt{staged\_training}; all 113 merger parameter tensors differ, while the
+inference architecture is unchanged. This tensor check verifies an update,
+not a substantive performance improvement. Source-probe TRAIN selection and
+schedule hashes match the corresponding released candidate probe. The matched
+initialization and fitting procedure is documented by the original training
+code; probe training itself is not reproduced here.
+
+Final parent/probe tensors are bitwise identical to the previous analyses;
+final classifier score files are hash-verified rather than refitted. Both
+source classifier families use the same document split memberships, and all
+source/final scores, selected families and paired resamples are auditable.
+Bootstrap seeds are 22092631 for scalar scores and 22092632 for AUC, with fixed
+scope offsets. Weighted, tie-aware AUC counts preserve both observations per
+document. All intervals are recomputed, and the AUC implementation is checked
+independently against scikit-learn on all observed scores and 32 shared
+resamples per stage/checkpoint/scope; the maximum absolute discrepancy is
+\(1.111\times10^{-16}\). Different bootstrap seeds can change marginal
+interval endpoints without changing reused final point scores.
+
+Independent source inference uses batches of 17 rather than 64, mixing active
+arities in document order instead of grouping by arity. Source probes are
+replayed from those recomputed parents. The maximum absolute parent/probe
+component difference is \(5.961\times10^{-8}\), below the predeclared
+\(2\times10^{-6}\) tolerance. Cosines are independently recomputed in PyTorch
+double precision. After observing the very small teacher contrast, a separate,
+explicitly post-result numerical check replays \emph{both} endpoints with this
+alternative packing. It shifts the pooled teacher contrast by only
+\(+1.594\times10^{-11}\); the largest checkpoint-mean document-contrast
+shift is \(4.301\times10^{-9}\). Its implementation and protocol are preserved
+in \nolinkurl{scripts/check_continuation_numerics.py} and the corresponding
+\texttt{NUMERICAL\_CHECK} artifacts. No primary output, tolerance, document,
+checkpoint or interval is replaced or selected using this check. Original
+results and all three preceding additive studies remain unchanged. The
+layout-only wrapper \nolinkurl{scripts/publish_continuation_comparison.py}
+changes table units and figure-label spacing without changing primary results.
 
 \subsection{Matched Exact-K4 Pooling Artifacts}
 

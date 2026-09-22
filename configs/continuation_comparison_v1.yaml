@@ -1,0 +1,42 @@
+study: continuation_comparison_v1
+analysis_role: additive_post_review_on_previously_evaluated_documents
+output_dir: results/continuation_comparison_v1
+calibration_config: configs/reconstruction_calibration_v1.yaml
+calibration_config_sha256: 2cfd3d10fad46b9e1913e9194c9274c72397ebda38d939c9aef77256ce8f31a6
+immutable_inputs:
+  results/reconstruction_calibration_v1/RESULTS.json: 3beb1d99ff83d8e13bf9a3d7f052c7750c3c858883431ce9351e78867ab3b06c
+  results/reconstruction_calibration_v1/INFERENCE_MANIFEST.json: ee50768b13034afd13a8228d8d88ed6039dadcb2848dd56b03529cf3d2a09625
+  results/safe_baselines_v1/RESULTS.json: b1734a0733826c2a00f838be5beaf3d74935bdcfd21b0e03d6867826cddba557
+  results/safe_baselines_v1/INFERENCE_MANIFEST.json: e8eb18b9bf91eede030515e869f82dfb7d81df09ce9558433ed39566dc565719
+seeds: [424242, 271828, 314159]
+expected_safe_documents: 4000
+expected_probe_documents: 606
+stages: [source, final]
+primary_contrasts: [teacher_cosine_final_minus_source, source_auc_final_minus_source, probe_gain_over_copy_final_minus_source]
+# This is the full continuation bundle, NOT an objective-isolating ablation.
+source_role: continuation_initialization_source_checkpoint
+final_role: final_clean_v6_checkpoint
+probe_roles: [source_parent_only_fitted_probe, candidate_parent_only_fitted_probe]
+existing_final_classifier_scores: reuse_hash_verified_same_inputs_splits_and_recipe
+source_classifier_fits: 30
+final_classifier_fits: 0
+bootstrap:
+  reps: 2000
+  paired_score_seed: 22092631
+  paired_auc_seed: 22092632
+  unit: shared_document_across_stages_and_checkpoints
+  auc_aggregation: mean_of_checkpoint_aucs_not_auc_of_mean_predictions
+inference:
+  batch_size: 64
+  dtype: float32
+  allow_tf32: false
+  cpu_threads: 4
+independent_replay_batch_size: 17
+independent_replay_max_absolute_tolerance: 0.000002
+reference_score_tolerance: 0.00000000000001
+independent_auc_bootstrap_checks_per_scope: 32
+merger_updates: 0
+decoder_updates: 0
+probe_updates: 0
+teacher_encoding_calls: 0
+report_all_outcomes: true

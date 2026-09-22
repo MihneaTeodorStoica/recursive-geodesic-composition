@@ -1,0 +1,9 @@
+{
+  "all_primary_outputs_unchanged": true,
+  "axes_labelpad": 10,
+  "frozen_renderer_sha256": "67ca34f54a7c0dd90d8ead4f942be91ce9032a00dc6fc9e69e833f77f871d550",
+  "implementation_sha256": "314c0b18c97418f2a89dfcf718800dc0007e3d9d5b6aa5a13c5be2cfc2545210",
+  "layout_only_after_results": true,
+  "results_sha256": "5088db03712fb902ffeea55ded39db555e359ccc2962df33b3b144276e443194",
+  "table_change_units": 1e-06
+}

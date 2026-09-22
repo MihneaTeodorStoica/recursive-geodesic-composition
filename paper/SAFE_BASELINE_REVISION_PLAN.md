@@ -15,8 +15,13 @@ calibration, costs, and reproduction limitations. Improvement 2 is now tracked
 separately in the [recursive-reuse protocol](../reproducibility/protocols/recursive_reuse_v1/README.md)
 and [report](../results/recursive_reuse_v1/REPORT.md). Improvement 3 is tracked
 in the [reconstruction-calibration protocol](../reproducibility/protocols/reconstruction_calibration_v1/README.md)
-and [report](../results/reconstruction_calibration_v1/REPORT.md). These are separate
-additive analyses; the steps below retain improvement 1's original plan and inventory.
+and [report](../results/reconstruction_calibration_v1/REPORT.md). Improvement 4
+is the completed [source-versus-final continuation comparison](../reproducibility/protocols/continuation_comparison_v1/README.md)
+and [report](../results/continuation_comparison_v1/REPORT.md). It quantifies the
+full continuation bundle, not any individual objective: almost all of the
+safe-arm advantage over pooling already exists in the source checkpoints, and
+both matched probes remain below parent copy. These are separate additive
+analyses; the steps below retain improvement 1's original plan and inventory.
 
 ## Goal and scope
 
