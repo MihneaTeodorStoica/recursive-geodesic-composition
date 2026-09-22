@@ -55,3 +55,16 @@ results_kary4_strict_autoencoder_official_test_v6/
 cache_kary4_strict_autoencoder_v6_clean_train/
 cache_kary4_strict_autoencoder_v6_clean_development/
 cache_kary4_strict_autoencoder_official_test_v6/
+
+# Paper build products
+/paper/*.aux
+/paper/*.bbl
+/paper/*.blg
+/paper/*.fdb_latexmk
+/paper/*.fls
+/paper/*.out
+/paper/*.pdf
+/paper/*.synctex.gz
+/paper/*.toc
+/paper/*.lof
+/paper/*.lot

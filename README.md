@@ -4,6 +4,10 @@ Publication repository for **One Vector from Many: Hierarchical Long-Document Re
 
 This snapshot contains the final `clean-v6` K=4 strict-autoencoder implementation, the `official-v6` protocol and frozen results, publication figures, and reproducibility records. The scientific experiment lineage remains `clean-v6`/`official-v6`; `v1-paper` names the repository publication snapshot and release.
 
+## Paper
+
+The [LaTeX manuscript](paper/main.tex), [bibliography](paper/references.bib), and bundled figures are in [`paper/`](paper/). See the [paper README](paper/README.md) for build instructions and import provenance.
+
 ## Final system
 
 - Frozen teacher: `Alibaba-NLP/gte-modernbert-base`
@@ -41,6 +45,7 @@ Per-corpus three-seed AUC means are FineWeb 0.572271, FineWeb-Edu 0.566317, Open
 ## Repository structure
 
 ```text
+paper/                           manuscript, bibliography, bundled figures, build instructions
 configs/                         final, official, and K-ary validation configs
 figures/                         external final-paper Figures 2 and 3 plus generator
 results/
@@ -235,15 +240,15 @@ python scripts/evaluate_official_v6.py \
 
 The recorded official cache had 77,225,389 bytes. It is not a release asset. The cache must be regenerated from the pinned corpus revisions and verified by the frozen protocol. This publication cleanup did **not** regenerate that cache or rerun the official numerical evaluation.
 
-## Final paper figures
+## Publication figure artifacts
 
-The final paper has three figures:
+The original publication snapshot records these figure artifacts:
 
 1. Figure 1: architecture diagram generated directly in LaTeX/TikZ in the paper source;
 2. Figure 2: [`fig2_official_per_corpus.png`](figures/fig2_official_per_corpus.png) / [`SVG`](figures/fig2_official_per_corpus.svg);
 3. Figure 3: [`fig3_kary_scaling.png`](figures/fig3_kary_scaling.png) / [`SVG`](figures/fig3_kary_scaling.svg).
 
-Only the two external figures used by the final paper are stored here. Regenerate them from frozen machine-readable inputs with:
+The imported [manuscript](paper/main.tex) renders its current figures inline with TikZ/PGFPlots. Its bundled PNGs, including `fig4_k4_pooling.png`, are preserved separately in [`paper/figures/`](paper/figures/) and are not referenced by the current TeX source. They do not replace the frozen assets above. Regenerate the two external figures in the top-level `figures/` directory from frozen machine-readable inputs with:
 
 ```bash
 python figures/generate_figures.py
