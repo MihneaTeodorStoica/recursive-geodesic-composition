@@ -1,0 +1,18 @@
+{
+  "failure": "New preflight incorrectly required FP32 teacher parameters; original FrozenTeacher loads the pinned model at its configured FP16 dtype and emits FP32 normalized vectors.",
+  "failure_before_any_safe_embedding_cache_or_comparison_metric": true,
+  "selected_population_verified": "1000 documents in each of four corpora, matching published ID-order hashes and prefix-token totals",
+  "initial_config_sha256": "89b82cc8a29dbca3ffc5d9a287518ff030a9a90712bafce4a5722618c9886e0d",
+  "initial_preparation_source_hashes": {
+    "configs/official_v6.yaml": "a58ba80fb7c6696cb878e7b7a03d72d942fe11e8bf4c8ca4eae4ce002ce6246f",
+    "scripts/prepare_safe_baselines.py": "7cd3a367ddc96bf15372df9aab34690d856295715eff0ba5628db54628d871af",
+    "scripts/safe_baselines_protocol.py": "1009223b73169b4be953de7c415f2f4b47adf2f087319d75dc8e596cf30ee96c",
+    "src/recursive_geodesic_composition/data.py": "cd2d6e583d496993e63b3d4ee749cf727e8cd0a5ff445ed9e5aba881225cf7f6"
+  },
+  "observed_teacher_config_dtype": "torch.float16",
+  "observed_teacher_parameter_dtype": "torch.float16",
+  "observed_embedding_storage_dtype": "torch.float32",
+  "correction": "Preserve original FrozenTeacher loading behavior; check configured parameter dtype separately from FP32 output storage. No casting, teacher substitution, population change, or merger change.",
+  "initial_local_attempt_preserved": "cache_safe_baselines_v1_preflight_failed/",
+  "recovery": "New preparation attempt with corrected, explicitly documented dtype contract; no previous scores exist to select on."
+}
