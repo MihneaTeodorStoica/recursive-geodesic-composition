@@ -11,8 +11,10 @@ See [the completed report](../results/safe_baselines_v1/REPORT.md),
 [the audit](../results/safe_baselines_v1/AUDIT.json), and
 [reproduction instructions](../reproducibility/protocols/safe_baselines_v1/README.md).
 The manuscript now includes the matched comparison, paired intervals,
-calibration, costs, and reproduction limitations. Later improvements have not
-been started. The steps below retain the original plan and its initial inventory.
+calibration, costs, and reproduction limitations. Improvement 2 is now tracked
+separately in the [recursive-reuse protocol](../reproducibility/protocols/recursive_reuse_v1/README.md)
+and [report](../results/recursive_reuse_v1/REPORT.md); reconstruction calibration
+has not been started. The steps below retain the original plan and its initial inventory.
 
 ## Goal and scope
 

@@ -94,14 +94,17 @@ pooling and \(0.9569\) for unweighted pooling. The paired gain over weighted
 pooling is \(0.002107\), with a conditional 95\% interval of
 \([0.002021,0.002194]\). Strongest orientation-safe source-detection AUC is
 \(0.5843\), versus \(0.8335\) for weighted pooling, but measured batched
-composition is approximately \(110\times\) more costly. Original full-document
-evaluation reaches 58,731 tokens, 58 leaves, and depth 3 without triggered
-numerical-health alarms; no full-root teacher comparison is made. The separate
-606-document reconstruction study still favors both pooling baselines over
-the final seed-424242 parent. Thus, learning improves short-prefix teacher
-fidelity and reduces measured source detectability at substantially greater
-composition cost, without establishing superior child reconstruction,
-recursive semantic fidelity, or downstream utility.
+composition is approximately \(110\times\) more costly. On 606 four-child
+prefixes, a tree/arity stress test finds a small teacher-cosine loss of
+\(0.000461\) under binary recursive reuse, while retaining an advantage over
+flat pooling. Original full-document evaluation reaches 58,731 tokens and
+depth 3 without triggered numerical-health alarms, but only 81 of 4,000 documents
+exceed the backbone's documented 8,192-token context. The separate reconstruction
+study still favors pooling over the final seed-424242 parent. Thus, learning
+improves short-prefix teacher fidelity and measured source compatibility at
+higher composition cost, with modest tree sensitivity in the tested reuse
+case; unrestricted-root fidelity, superior reconstruction, and downstream
+utility remain unestablished.
 
 \end{abstract}
 
@@ -115,14 +118,16 @@ The proposed method learns to combine an ordered group of two to four input embe
 
 The evaluation asks what learned composition preserves beyond simple pooling:
 how closely composed representations match direct teacher representations,
-whether recursive reuse remains numerically well behaved, and what constituent
-information can be recovered under specified decoders. Teacher-comparable
+how a teacher-valid change of reduction tree affects that fidelity, and what
+constituent information can be recovered under specified decoders. Teacher-comparable
 prefixes and complete documents are evaluated separately, because a direct
 teacher target is not constructed for unrestricted roots. A post-review matched
 comparison evaluates pooling, the learned reference, and the final parent under
-the same teacher-fidelity and source-detection protocol. A separate pooling
-comparison tests local constituent reconstruction, while architecture studies
-provide system-level comparisons rather than controlled estimates of individual
+the same teacher-fidelity and source-detection protocol. A second matched
+analysis compares direct and binary-recursive composition of the same four
+leaves against the same teacher target. A separate pooling comparison tests
+local constituent reconstruction, while architecture studies provide
+system-level comparisons rather than controlled estimates of individual
 design choices.
 
 The contributions are a shared bounded-arity merger with exact token-mass
@@ -938,6 +943,51 @@ transfers, decoding, and classifier fitting are excluded. Reference extraction
 uses the same complete forward call as the final parent, not an optimized
 reference-only implementation.
 
+\subsection{Teacher-Valid Recursive-Reuse Stress Test}
+\label{sec:recursive-reuse-protocol}
+
+The 606 exact-four-child safe prefixes permit a matched comparison of one
+four-child merge with a two-level binary tree. Writing \(f_k\) for the vector
+component of the same frozen four-slot operator with \(k\) active leading
+children, and suppressing count arguments for readability,
+\[
+ p_{12}=f_2(x_1,x_2),\qquad p_{34}=f_2(x_3,x_4),
+\]
+\[
+ z_{\mathrm{direct}}=f_4(x_1,x_2,x_3,x_4),\qquad
+ z_{\mathrm{recursive}}=f_2(p_{12},p_{34}).
+\]
+The root receives counts \(n_1+n_2\) and \(n_3+n_4\), and every node preserves
+contiguous order and exact token mass. All calls use the same checkpoint;
+\(f_2\) is not a separately trained binary model. Both roots represent the same
+3,073--4,096-token prefix and share its existing direct teacher target. No
+new leaf embeddings, teacher targets, or training are needed.
+
+This changes active arity, grouping, generated-versus-leaf inputs, and merge
+count together: one merge at depth one becomes three merges at depth two.
+It is therefore a \emph{tree/recursive-reuse stress test}, not a controlled
+effect of depth alone. Flat pooling remains a separate comparison over the four
+original leaves. Normalizing intermediate pooled vectors while retaining only
+token counts would generally change their effective leaf weights and does not
+reproduce that baseline.
+
+For each of the three final checkpoints, we report both teacher cosines, the
+cosine between the two outputs, and the paired difference
+\(\Delta=\cos(z_{\mathrm{recursive}},y)-\cos(z_{\mathrm{direct}},y)\).
+Per-document degradation is \(-\Delta\), so positive values denote loss.
+Intervals use 2,000 shared document resamples, averaging checkpoint scores
+within each document before aggregating. Corpus counts are 148, 133, 142, and
+183 for FineWeb-Edu, FineWeb, OpenWebText, and Wikipedia, respectively; exact
+subset identities are checked against the earlier matched-reconstruction study.
+Source-detection AUC is not evaluated for this new tree.
+
+Timing is remeasured on these same 606 inputs using the composition-only
+protocol in Section~\ref{sec:safe-baseline-protocol}. A batch of \(B\) documents
+uses one \(2B\)-node call for both first-level pairs and one \(B\)-node call for
+the roots; tree packing and all three merge nodes per document are included.
+Separately, full-document token metadata supplies length and depth counts,
+verified against the original histograms, without new full-root inference.
+
 \subsection{Reproducibility Summary}
 
 Model and dataset revisions, source-document roles, configurations, checkpoints,
@@ -1117,6 +1167,49 @@ three-seed mean AUC, \(0.636689\), despite retaining a high teacher cosine of
 \(0.984783\). The experimental design does not isolate the cause of this
 domain-dependent residual shift.
 
+\subsection{Teacher Fidelity under Recursive Reuse}
+\label{sec:recursive-reuse-results}
+
+On the same 606 four-child prefixes, the direct and recursive trees achieve
+mean teacher cosines of \(0.977576\) and \(0.977114\), respectively
+(Table~\ref{tab:recursive-reuse}). These are subset-specific scores, not the
+4,000-prefix average in Table~\ref{tab:safe-baselines}. The paired
+recursive-minus-direct difference is \(-0.000461\), with a conditional 95\%
+interval of \([-0.000537,-0.000390]\). Every checkpoint and corpus has a
+negative mean difference. The outputs remain close in direction: their mean
+cosine is \(0.999441\), with interval \([0.999425,0.999457]\). High output
+agreement therefore coexists with a small, systematic loss of teacher fidelity.
+
+\input{../results/recursive_reuse_v1/recursive_reuse_table.tex}
+
+The recursive root still exceeds flat token-weighted pooling by
+\(0.005612\;[0.005341,0.005899]\) and flat unweighted pooling by
+\(0.008400\;[0.007811,0.009028]\). Thus, most of the measured advantage over
+pooling remains under this particular reuse tree, but composition is not
+exactly tree-invariant. Batched cost rises from \(0.0784\) to \(0.2052\) ms
+per document, approximately \(2.62\times\), for the three-node recursive tree.
+All intermediate and final outputs are finite and unit-normalized.
+
+For checkpoint-mean scores, 454 of 606 documents (74.9\%) lose teacher cosine,
+and 148 (24.4\%) lose more than \(0.001\). The fifth, median, and ninety-fifth
+percentiles of the loss are \(-0.000990\), \(0.000465\), and \(0.001939\),
+respectively; the largest checkpoint-mean loss is \(0.004847\).
+Figure~\ref{fig:recursive-reuse-loss} also shows the individual-checkpoint tails,
+which can be larger than the loss after averaging scores. This is evidence
+about one fixed binary tree on short teacher-comparable prefixes, not fidelity
+of unrestricted document roots or arbitrary deeper trees.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.96\linewidth]{../results/recursive_reuse_v1/degradation_ecdf.png}
+\caption{Empirical distribution of teacher-cosine loss under binary recursive
+reuse on the same 606 documents. Positive values indicate degradation relative
+to the direct four-child merge. Thin curves show individual checkpoints; the
+black curve averages scores within each document before computing the
+empirical distribution. This average is not a new ensemble embedding.}
+\label{fig:recursive-reuse-loss}
+\end{figure}
+
 \subsection{Unrestricted Full-Document Recursion}
 \label{sec:full-results}
 
@@ -1127,8 +1220,14 @@ tokens in \(11{,}356\) contiguous leaves. The longest observed document contains
 Each seed executes 4,789 internal merges. Dividing the population totals
 by 4,000 gives 2,285.51 tokens and 2.839 leaves per document on average.
 The maximum-length example is therefore not representative of the typical
-evaluated document. Table~\ref{tab:full-population} reports per-corpus length
-summaries already present in the frozen official results.
+evaluated document. The depth histogram is 3,631 documents at depth one,
+349 at depth two, and 20 at depth three: only 369 (9.225\%) actually reuse a
+generated child in the natural K4 reduction. Only 81 documents (2.025\%) exceed
+the backbone's documented 8,192-token context. These counts refer to complete
+documents and the original K4 reduction, not the forced binary trees above.
+Table~\ref{tab:full-population} retains the original per-corpus length summaries;
+Table~\ref{tab:full-length-counts} makes the population's length distribution
+explicit.
 
 \begin{table}[H]
 \centering\small
@@ -1148,6 +1247,8 @@ not from a new model evaluation. Percentiles use the recorded interpolated
 values; no pooled percentile is inferred by averaging corpus percentiles.}
 \label{tab:full-population}
 \end{table}
+
+\input{../results/recursive_reuse_v1/full_population_table.tex}
 
 \begin{table}[H]
 \centering
@@ -1382,11 +1483,16 @@ possible output directions (Section~\ref{sec:strict-decoder}). Neither local
 cosine nor ordered-slot scoring alone establishes losslessness, preserved
 mutual information, or robust recovery of child order.
 
-The safe arm uses one merge, whereas the full arm lacks direct root-level
-teacher targets. Consequently, these experiments do not yet quantify the
-change in teacher fidelity caused by repeated composition. A teacher-valid
-comparison of different trees on the same text would address this gap without
-requiring a hypothetical long-context teacher.
+The original safe arm uses one merge, whereas the full arm lacks direct
+root-level teacher targets. The new 606-prefix stress test partially bridges
+this gap: binary reuse loses \(0.000461\) teacher cosine relative to a direct
+four-child merge, while retaining an advantage over both flat pooling rules.
+This shows limited tree sensitivity within the tested short-span setting,
+not invariance or a depth-only causal effect. It does not establish fidelity
+of unrestricted roots, source detectability under recursion, or behavior at
+unseen depths. Only 81 full documents exceed the documented backbone context,
+and only 20 reach natural K4 depth three, so the longest examples cannot
+characterize typical long-document quality.
 
 \subsection{Limitations}
 \label{sec:limitations}
@@ -1401,26 +1507,28 @@ utility under this custom pooling procedure is not established here.
 \paragraph{Population and scale.}
 The first 1,000 length-eligible documents per corpus are not a random sample
 of each corpus. The full arm inherits this selection and mostly contains short
-documents, despite an uncapped reduction rule. Depths substantially greater
-than three are untested. Dataset-index separation does not, by itself, rule
+documents, despite an uncapped reduction rule. The new teacher-comparable
+recursion test covers one binary tree at depth two and couples depth with
+active arity; unrestricted-root fidelity and depths greater than three remain
+untested. Dataset-index separation does not, by itself, rule
 out cross-corpus exact or near-duplicate content, including overlap inherited
 from earlier continuation-training data.
 
 \paragraph{Comparisons and learning history.}
 The reconstruction pooling study covers one final checkpoint and one residual
-probe family. The safe-arm baseline comparison covers all three final
-checkpoints but reuses an already evaluated population and regenerated tensors;
-it is not a fresh confirmatory test. The arity studies differ in capacity and
-training history, so they do not
-isolate the causal effect of arity. Clean-v6 starts from trained source mergers;
+probe family. The safe-arm baseline and recursive-reuse comparisons cover all
+three final checkpoints but reuse already evaluated documents and regenerated
+inputs; neither is a fresh confirmatory test. The arity studies differ in
+capacity and training history, so they do not isolate the causal effect of arity. Clean-v6 starts from trained source mergers;
 the final 400-update schedule is not a from-scratch training recipe or a measure
 of the complete training cost.
 
 \paragraph{Statistical scope.}
 Only three final checkpoints, one attack split, and two classifier families
-are evaluated. Bootstrap intervals condition on the observed strongest
-attacker and fixed predictions rather than accounting for selection, attacker
-refitting, or all training uncertainty. The AUC criterion is a project-specific
+are evaluated. Source-detection intervals condition on the observed strongest
+attacker and fixed predictions rather than accounting for selection or attacker
+refitting. Paired teacher-cosine intervals condition on the fixed checkpoints;
+neither captures all training uncertainty. The AUC criterion is a project-specific
 diagnostic and is not a formal equivalence or privacy guarantee. TRAIN-derived
 probe floors are not matched-population noninferiority tests.
 
@@ -1445,12 +1553,11 @@ independent reproduction.
 
 \subsection{Future Work}
 
-With the matched safe-arm baselines now measured, the next comparisons should
-prioritize repeated composition before larger models. Teacher-valid multi-level
-trees can test recursive degradation while holding the underlying text and
-direct target fixed. Parent-copy reconstruction, matched source-versus-final
-probes, and non-residual probes would clarify how much the decoder and final
-continuation stage contribute.
+The matched baselines and one teacher-valid recursive-reuse comparison now
+provide initial controls, but further fixed tree families and deeper reusable
+compositions are needed before larger models. Parent-copy reconstruction,
+matched source-versus-final probes, and non-residual probes would clarify how
+much the decoder and final continuation stage contribute.
 
 A downstream long-document benchmark, such as a suitable retrieval component
 of LongEmbed \cite{zhu-etal-2024-longembed}, would test usefulness beyond
@@ -1489,9 +1596,12 @@ gain is \(0.002107\;[0.002021,0.002194]\), at approximately \(110\times\)
 the measured batched composition cost. In contrast, the exact-four-child
 probe study favors weighted and unweighted pooling over the final seed-424242
 parent by \(0.002075\) and \(0.004215\), respectively. These results distinguish
-teacher-space fidelity from constituent reconstruction. Whether the measured
-fidelity benefit survives repeated composition or improves a downstream task
-remains unresolved.
+teacher-space fidelity from constituent reconstruction. On 606 matched
+four-child prefixes, binary recursive reuse incurs a modest mean loss of
+\(0.000461\) relative to direct composition but retains a \(0.005612\) advantage
+over weighted pooling. This establishes a teacher-fidelity comparison for one
+tree/arity change, not arbitrary recursive depth. Whether the benefit extends
+to unrestricted long-document roots or a downstream task remains unresolved.
 
 \appendix
 
@@ -1920,6 +2030,59 @@ Shuffled-target calibration uses seed 22092603 and 100 within-corpus
 derangements shared across representations. Its permutation range is a
 descriptive diagnostic, not a sampling confidence interval. The original
 one-shot official artifacts and results remain unchanged.
+
+\subsection{Post-Review Recursive-Reuse Audit}
+\label{app:recursive-reuse}
+
+The additive protocol is \nolinkurl{configs/recursive_reuse_v1.yaml}. Its evaluator,
+renderer, and independent auditor are
+\nolinkurl{scripts/evaluate_recursive_reuse.py},
+\nolinkurl{scripts/render_recursive_reuse.py}, and
+\nolinkurl{scripts/audit_recursive_reuse.py}. Full-precision document scores,
+per-corpus results, timing records, population histograms, and artifact digests
+are in \nolinkurl{results/recursive_reuse_v1/}. This analysis uses the preceding
+regenerated inputs, not a new untouched test population. Configuration and
+implementation hashes were recorded before generating the new roots.
+
+The direct and flat-pooling outputs are bitwise identical to their exact-four
+subset in the preceding safe-arm comparison. Independent tree replay uses
+separate left/right calls and batches of 17 documents, rather than the packed
+first-level implementation and batches of 64. It checks all intermediate and
+final vectors for every document and checkpoint; the maximum absolute replay
+difference is \(8.941\times10^{-8}\), below the fixed \(2\times10^{-6}\)
+tolerance. Counts are conserved exactly. Cosines are independently recomputed
+in double precision and paired intervals are reproduced. Bootstrap seed
+22092611 has fixed scope offsets; checkpoints are fixed, not resampled as a
+training-seed population. All checkpoint and preceding-result hashes remain
+unchanged.
+
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\linewidth}{r r r C r}
+\toprule
+Seed & Direct & Recursive & $\Delta$ [95\% CI] & Max.\ loss \\
+\midrule
+424242 & 0.977567 & 0.977143 & $-0.000424\;[-0.000513,-0.000338]$ & 0.005147 \\
+271828 & 0.977579 & 0.977101 & $-0.000478\;[-0.000555,-0.000404]$ & 0.008065 \\
+314159 & 0.977582 & 0.977100 & $-0.000482\;[-0.000563,-0.000404]$ & 0.003776 \\
+\midrule
+Mean & 0.977576 & 0.977114 & $-0.000461\;[-0.000537,-0.000390]$ & 0.004847 \\
+\bottomrule
+\end{tabularx}
+\caption{Teacher fidelity for each frozen checkpoint on the same 606 prefixes.
+Here $\Delta$ is recursive minus direct; maximum loss is the largest
+per-document direct-minus-recursive difference. The final row averages scores
+within each document before summarizing and does not bound individual-checkpoint
+losses.}
+\label{tab:recursive-reuse-seeds}
+\end{table}
+
+Full-document counts are derived from the existing token metadata, with
+special tokens excluded. Complete global token, leaf-count, and K4-depth
+histograms match all three original official records, and per-corpus counts
+are cross-checked separately. The count above 8,192 is strictly greater than
+the documented context, distinct from the conservative 4,096-token teacher-target
+cap. These descriptive checks do not create new full-root semantic targets.
 
 \subsection{Matched Exact-K4 Pooling Artifacts}
 
