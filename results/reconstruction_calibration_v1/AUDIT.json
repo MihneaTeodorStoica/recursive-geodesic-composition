@@ -1,0 +1,54 @@
+{
+  "audit_implementation_sha256": "94c71eb138c67de15b5fa82bdb2a4963aa267692e8080bcfe998f1d14f2f2f47",
+  "checkpoints": 3,
+  "checks": {
+    "all_model_predictions_independently_replayed": true,
+    "angular_bound_and_target_feasibility_checked": true,
+    "checkpoint_probe_and_previous_results_unchanged": true,
+    "cross_cosines_recomputed_in_torch_double": true,
+    "exact_permutation_algebra_verified": true,
+    "paired_intervals_recomputed": true,
+    "parent_only_decoder_inputs": true,
+    "same_parent_and_child_tensors": true,
+    "shared_copy_optimum_and_zero_order_advantage": true
+  },
+  "decoder_movement": {
+    "frozen_probe_seed271828": {
+      "maximum_radians": 0.18808837663635003,
+      "mean_radians": 0.1616728236793591
+    },
+    "frozen_probe_seed314159": {
+      "maximum_radians": 0.1882850920743768,
+      "mean_radians": 0.16166087900377055
+    },
+    "frozen_probe_seed424242": {
+      "maximum_radians": 0.18897787613185993,
+      "mean_radians": 0.16157375842969846
+    },
+    "strict_decoder_seed271828": {
+      "maximum_radians": 0.017633035005568426,
+      "mean_radians": 0.01355368915349764
+    },
+    "strict_decoder_seed314159": {
+      "maximum_radians": 0.019236822941879467,
+      "mean_radians": 0.014973042839804605
+    },
+    "strict_decoder_seed424242": {
+      "maximum_radians": 0.01569911825822251,
+      "mean_radians": 0.014206116437926516
+    }
+  },
+  "derangements": 9,
+  "documents": 606,
+  "independent_replay_max_abs_differences": {
+    "frozen_probe_seed271828": 2.9802322387695312e-08,
+    "frozen_probe_seed314159": 2.9802322387695312e-08,
+    "frozen_probe_seed424242": 2.9802322387695312e-08,
+    "strict_decoder_seed271828": 2.9802322387695312e-08,
+    "strict_decoder_seed314159": 5.960464477539063e-08,
+    "strict_decoder_seed424242": 2.9802322387695312e-08
+  },
+  "passed": true,
+  "permutations": 24,
+  "results_sha256": "3beb1d99ff83d8e13bf9a3d7f052c7750c3c858883431ce9351e78867ab3b06c"
+}

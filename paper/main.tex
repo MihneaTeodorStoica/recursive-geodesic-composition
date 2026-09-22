@@ -99,12 +99,13 @@ prefixes, a tree/arity stress test finds a small teacher-cosine loss of
 \(0.000461\) under binary recursive reuse, while retaining an advantage over
 flat pooling. Original full-document evaluation reaches 58,731 tokens and
 depth 3 without triggered numerical-health alarms, but only 81 of 4,000 documents
-exceed the backbone's documented 8,192-token context. The separate reconstruction
-study still favors pooling over the final seed-424242 parent. Thus, learning
-improves short-prefix teacher fidelity and measured source compatibility at
-higher composition cost, with modest tree sensitivity in the tested reuse
-case; unrestricted-root fidelity, superior reconstruction, and downstream
-utility remain unestablished.
+exceed the backbone's documented 8,192-token context. Reconstruction calibration
+shows that the built-in decoder adds only \(0.001043\) child cosine over copying
+its parent, with negligible order advantage; the frozen probe performs worse
+than copying. Thus, learning improves short-prefix teacher fidelity and measured
+source compatibility at higher composition cost, with modest tree sensitivity;
+unrestricted-root fidelity, superior reconstruction, and downstream utility
+remain unestablished.
 
 \end{abstract}
 
@@ -125,9 +126,10 @@ teacher target is not constructed for unrestricted roots. A post-review matched
 comparison evaluates pooling, the learned reference, and the final parent under
 the same teacher-fidelity and source-detection protocol. A second matched
 analysis compares direct and binary-recursive composition of the same four
-leaves against the same teacher target. A separate pooling comparison tests
-local constituent reconstruction, while architecture studies provide
-system-level comparisons rather than controlled estimates of individual
+leaves against the same teacher target. Reconstruction calibration adds
+parent-copy baselines and exact within-document target-slot permutations to
+the existing local reconstruction and pooling comparisons. Architecture studies
+provide system-level comparisons rather than controlled estimates of individual
 design choices.
 
 The contributions are a shared bounded-arity merger with exact token-mass
@@ -861,7 +863,7 @@ an active salience correction has \(\lvert\delta_i\rvert\geq0.95\).
 These diagnostics characterize numerical behavior and do not substitute for
 semantic or downstream-task evaluation.
 
-Constituent retention is assessed in two ways. First, the model's strict
+Local constituent reconstruction is assessed in two ways. First, the model's strict
 decoder receives only a generated parent and predicts its ordered children.
 For exact-four-child safe examples, reconstruction is measured directly against
 the four input children. In the unrestricted arm, the same decoder is evaluated
@@ -987,6 +989,51 @@ uses one \(2B\)-node call for both first-level pairs and one \(B\)-node call for
 the roots; tree packing and all three merge nodes per document are included.
 Separately, full-document token metadata supplies length and depth counts,
 verified against the original histograms, without new full-root inference.
+
+\subsection{Parent-Copy and Slot-Permutation Calibration}
+\label{sec:reconstruction-calibration-protocol}
+
+A third post-review analysis calibrates local reconstruction on the same 606
+exact-four prefixes. It uses the \emph{direct} learned parents, not the binary
+recursive roots, with all three built-in decoders and corresponding released
+candidate TRAIN-fitted probes. Parents and children are reused from the preceding
+matched analyses; no model, decoder, or probe is updated. The parent-copy
+baseline predicts \(\hat{x}_i=z/\lVert z\rVert_2\) in every slot. Two additional
+untrained baselines copy the flat weighted or unweighted pooling parent.
+Every score averages cosine equally over the four children and then over
+documents, matching the earlier reconstruction metric.
+
+To isolate sensitivity to target-slot correspondence, keep the input parent
+and all predictions fixed. For cross-cosines
+\(C_{ij}=\cos(\hat{x}_i,x_j)\), the ordered score, mean over all 24 target
+permutations, and mean over the nine permutations with no fixed slots are
+\[
+ S_{\mathrm{ord}}=\frac14\sum_i C_{ii},\qquad
+ S_{\mathrm{perm}}=\frac1{16}\sum_{i,j}C_{ij},\qquad
+ S_{\mathrm{der}}=\frac1{12}\sum_{i\ne j}C_{ij}.
+\]
+All permutations are enumerated exactly; this is shuffled \emph{scoring}, not
+re-encoding shuffled inputs. Copying any single parent has zero order gap
+\(S_{\mathrm{ord}}-S_{\mathrm{perm}}\). The best of 24 assignments is also
+retained as an oracle diagnostic, not a deployed reconstruction procedure.
+Primary contrasts compare each decoder/probe with its own learned-parent copy.
+Intervals use 2,000 shared document resamples, averaging checkpoint scores
+within documents first; neither children nor permutations are independent
+resampling units. A positive order gap can reflect positional priors and does
+not alone establish document-specific order recovery.
+
+The separately fitted probes from the historical matched-pooling study are
+not release assets and are not substituted with the released candidate probes.
+Their original results remain separate. The new pooling-copy rows involve no
+fitted probe. Indeed, for unit children, any shared unit prediction \(u\) satisfies
+\[
+ \frac14\sum_i u^\top x_i
+ \leq \left\lVert\frac14\sum_i x_i\right\rVert_2,
+\]
+with equality for the normalized unweighted mean when nonzero. It is therefore
+the optimal \emph{shared-vector} copy under this metric, but not an upper bound
+on distinct slot-specific predictions. Residual-geometry and numerical checks
+are detailed in Appendix~\ref{app:reconstruction-calibration}.
 
 \subsection{Reproducibility Summary}
 
@@ -1291,7 +1338,7 @@ reported results establish execution, geometry, and local merge-reconstruction
 behavior at the observed scale, not full-document teacher fidelity or
 generated-versus-teacher indistinguishability.
 
-\subsection{Constituent Retention}
+\subsection{Local Reconstruction and Calibration}
 \label{sec:retention-results}
 
 Table~\ref{tab:retention} reports direct reconstruction on the 606 safe official
@@ -1323,8 +1370,52 @@ are fixed using fresh TRAIN data before development and official evaluation.}
 \label{tab:retention}
 \end{table}
 
-\paragraph{Matched K4 pooling comparison.}
-The additive matched experiment evaluates the frozen seed-424242 clean-v6 checkpoint
+\paragraph{Parent-copy and slot-permutation calibration.}
+The matched regenerated comparison in Table~\ref{tab:reconstruction-calibration}
+shows that copying the learned parent already yields \(0.914022\) child cosine,
+versus \(0.915064\) for the built-in decoder. Its paired gain is only
+\(+0.001043\;[0.001025,0.001060]\), although positive on all 606 documents
+for checkpoint-mean scores. The released frozen probe instead yields
+\(0.908105\), a paired \(-0.005916\;[-0.006151,-0.005693]\) relative to
+copying the same parent, improving only 11 of 606 documents. Passing the
+historical TRAIN floor therefore does not establish superiority to this
+matched, untrained baseline.
+
+\input{../results/reconstruction_calibration_v1/reconstruction_calibration_table.tex}
+
+Copying the weighted or unweighted pooling parent gives \(0.920365\) and
+\(0.922576\), respectively, above both learned decoding rules. The built-in
+decoder is below these untrained baselines by \(0.005301\) and \(0.007511\);
+its checkpoint-mean score is lower on every document. These are copy baselines,
+not the fitted pooling probes in the historical study below. High absolute
+child cosine is consequently attainable without distinct child predictions
+or any recovered order.
+
+The built-in decoder's order gap is just \(6.8555\times10^{-7}\), with paired
+95\% interval \([5.9645,7.7248]\times10^{-7}\): its mean cosine is almost
+unchanged by target-slot permutation. The frozen probe has a larger order gap,
+\(0.000908\;[0.000699,0.001116]\), despite its lower overall reconstruction
+score. Thus order sensitivity and average reconstruction quality need not move
+together. The corresponding nine-derangement gaps are \(9.1407\times10^{-7}\)
+and \(0.001211\), while every copy baseline has exactly zero gap up to numerical
+precision. Even the probe's oracle best-assignment mean, \(0.911371\), remains
+below learned-parent copy. These diagnostics do not demonstrate losslessness
+or robust recovery of document-specific order.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{../results/reconstruction_calibration_v1/calibration_ecdf.png}
+\caption{Per-document reconstruction calibration, averaging checkpoint scores
+within each document. Left: ordered-cosine gain over copying the same learned
+parent. Right: ordered minus mean shuffled-target cosine. Positive values favor
+the decoder or the original slot assignment, respectively. The built-in
+order-gap curve lies near zero at the probe's scale; its small nonzero mean
+is reported in the text.}
+\label{fig:reconstruction-calibration}
+\end{figure}
+
+\paragraph{Historical matched K4 pooling comparison.}
+The earlier additive matched experiment evaluates the frozen seed-424242 clean-v6 checkpoint
 on the same 606 exact-K4 official documents. Table~\ref{tab:k4-pooling} reports
 the parent-only probe results and paired document-level bootstrap intervals.
 
@@ -1452,9 +1543,11 @@ this fidelity improvement as a cost-free practical advantage.
 The matched reconstruction comparison answers a different question: both
 pooling baselines outperform the final seed-424242 representation under that
 probe family. It concerns the final model, not a superseded predecessor, and
-is not contradicted by the new teacher-fidelity result. Preference for a learned
-merger therefore depends on which property matters, and downstream usefulness
-remains unmeasured.
+is not contradicted by the new teacher-fidelity result. The new calibration
+is more restrictive: even untrained pooling-copy baselines exceed both the
+built-in decoder and released probe, and the built-in decoder's order gap is
+negligible at this cosine scale. Preference for a learned merger therefore
+depends on which property matters, and downstream usefulness remains unmeasured.
 
 Wikipedia has the highest corpus-specific detectability despite high paired
 cosine. The current study does not separate domain effects from differences
@@ -1481,7 +1574,13 @@ original leaf children in the observed population, but the cause is not
 isolated. The decoder's bounded residual around its parent also restricts the
 possible output directions (Section~\ref{sec:strict-decoder}). Neither local
 cosine nor ordered-slot scoring alone establishes losslessness, preserved
-mutual information, or robust recovery of child order.
+mutual information, or robust recovery of child order. On the exact-four safe
+subset, the copy and permutation controls make this limitation empirical: most
+absolute child cosine is already obtained by a repeated parent, and the built-in decoder's small
+improvement is almost insensitive to the target-slot assignment. The released
+probe shows more order sensitivity but performs worse than parent copy; this
+is a limitation of these evaluated decoding rules, not proof that no other
+decoder could recover additional information.
 
 The original safe arm uses one merge, whereas the full arm lacks direct
 root-level teacher targets. The new 606-prefix stress test partially bridges
@@ -1516,9 +1615,9 @@ from earlier continuation-training data.
 
 \paragraph{Comparisons and learning history.}
 The reconstruction pooling study covers one final checkpoint and one residual
-probe family. The safe-arm baseline and recursive-reuse comparisons cover all
-three final checkpoints but reuse already evaluated documents and regenerated
-inputs; neither is a fresh confirmatory test. The arity studies differ in
+probe family. The safe-arm baseline, recursive-reuse, and reconstruction-calibration
+comparisons cover all three final checkpoints but reuse already evaluated
+documents and regenerated inputs; none is a fresh confirmatory test. The arity studies differ in
 capacity and training history, so they do not isolate the causal effect of arity. Clean-v6 starts from trained source mergers;
 the final 400-update schedule is not a from-scratch training recipe or a measure
 of the complete training cost.
@@ -1527,17 +1626,20 @@ of the complete training cost.
 Only three final checkpoints, one attack split, and two classifier families
 are evaluated. Source-detection intervals condition on the observed strongest
 attacker and fixed predictions rather than accounting for selection or attacker
-refitting. Paired teacher-cosine intervals condition on the fixed checkpoints;
-neither captures all training uncertainty. The AUC criterion is a project-specific
+refitting. Paired teacher- and child-cosine intervals condition on fixed models
+and inputs; these intervals do not capture all training or input-regeneration
+uncertainty. The AUC criterion is a project-specific
 diagnostic and is not a formal equivalence or privacy guarantee. TRAIN-derived
 probe floors are not matched-population noninferiority tests.
 
 \paragraph{Reconstruction and geometry.}
 Local parent-only decoding does not establish recoverability from the final
-root alone. The decoder output constraint and residual probe architecture
-limit conclusions about representation-independent information content.
-Unit norm and bounded geodesic movement do not guarantee membership in a
-teacher-distribution manifold or semantic preservation.
+root alone. Copy calibration and target-slot shuffling do not isolate positional
+priors from document-specific order storage. The residual decoder/probe output
+constraint limits conclusions about representation-independent information
+content; the absent matched-pooling probe binaries also prevent their new
+copy/permutation calibration. Unit norm and bounded geodesic movement do not
+guarantee membership in a teacher-distribution manifold or semantic preservation.
 
 \paragraph{Timing and reproduction.}
 Original throughput measures the recorded cached-leaf evaluation pipeline,
@@ -1548,16 +1650,20 @@ probes are release assets, while caches require regeneration from pinned
 inputs. The new safe cache matches document identity, not original tensor
 bytes. A small per-corpus AUC discrepancy exceeds the declared reproduction
 tolerance and is retained explicitly (Appendix~\ref{app:safe-baseline-reproduction}).
-These self-administered checks do not replace external benchmarking or an
+The reconstruction calibration likewise retains six per-corpus historical
+mean discrepancies above its fixed tolerance
+(Appendix~\ref{app:reconstruction-calibration}). These self-administered checks
+do not replace external benchmarking or an
 independent reproduction.
 
 \subsection{Future Work}
 
-The matched baselines and one teacher-valid recursive-reuse comparison now
-provide initial controls, but further fixed tree families and deeper reusable
-compositions are needed before larger models. Parent-copy reconstruction,
-matched source-versus-final probes, and non-residual probes would clarify how
-much the decoder and final continuation stage contribute.
+The matched baselines, one teacher-valid recursive-reuse comparison, and
+reconstruction calibration now provide initial controls. Further fixed tree
+families and deeper compositions are needed before larger models. Matched
+source-versus-final and non-residual probes, together with input-permutation
+controls that distinguish positional priors from document-specific order,
+would clarify how much the decoder and final continuation stage contribute.
 
 A downstream long-document benchmark, such as a suitable retrieval component
 of LongEmbed \cite{zhu-etal-2024-longembed}, would test usefulness beyond
@@ -1600,7 +1706,12 @@ teacher-space fidelity from constituent reconstruction. On 606 matched
 four-child prefixes, binary recursive reuse incurs a modest mean loss of
 \(0.000461\) relative to direct composition but retains a \(0.005612\) advantage
 over weighted pooling. This establishes a teacher-fidelity comparison for one
-tree/arity change, not arbitrary recursive depth. Whether the benefit extends
+tree/arity change, not arbitrary recursive depth. Reconstruction calibration
+shows a built-in-decoder gain of only \(0.001043\) over parent copy, negligible
+order advantage, and a frozen-probe deficit relative to copying. On this subset,
+both learned decoding rules are below untrained pooling-copy baselines. These findings narrow
+the retention claim to measured local reconstruction rather than recovery of
+distinct ordered constituents. Whether the teacher-alignment benefit extends
 to unrestricted long-document roots or a downstream task remains unresolved.
 
 \appendix
@@ -2084,6 +2195,62 @@ are cross-checked separately. The count above 8,192 is strictly greater than
 the documented context, distinct from the conservative 4,096-token teacher-target
 cap. These descriptive checks do not create new full-root semantic targets.
 
+\subsection{Post-Review Reconstruction Calibration Audit}
+\label{app:reconstruction-calibration}
+
+The additive protocol is \nolinkurl{configs/reconstruction_calibration_v1.yaml}.
+Evaluator, renderer, and auditor are the corresponding
+\nolinkurl{scripts/evaluate_reconstruction_calibration.py},
+\nolinkurl{scripts/render_reconstruction_calibration.py}, and
+\nolinkurl{scripts/audit_reconstruction_calibration.py}. Full-precision
+cross-slot cosine matrices, document scores, paired intervals, per-corpus
+summaries, and artifact digests are retained in
+\nolinkurl{results/reconstruction_calibration_v1/}.
+
+The three candidate probes are the released seed-specific fresh-TRAIN fits,
+verified by artifact hashes, role, seed, fit-group hashes, and schedule hash.
+Each applies LayerNorm, a \(768\to512\) linear layer, GELU, and a
+\(512\to4\cdot768\) linear layer. Reshaped residuals pass through the same
+\(0.25\tanh(\cdot)/\sqrt{768}\) scaling used by the built-in decoder and are
+added to the normalized parent before output normalization. Thus both families
+share the \(\arcsin(0.25)\) angular bound. Neither receives true children,
+counts, corpus labels, or tree metadata as input.
+
+Across checkpoint--child instances, 98.98\% of target directions lie outside
+this radius around their corresponding learned parent, precluding exact
+reconstruction under the bound. Nevertheless, the mean loose spherical-cap
+oracle ceiling is \(0.982791\), well above either observed decoder score.
+It is computed as
+\[
+ \cos\!\left(\max\{\arccos(z^\top x_i)-\arcsin(0.25),0\}\right)
+\]
+for unit parent and child, and ignores the stricter coordinate box and available
+information. Maximum observed movements are only \(1.10^\circ\) for the built-in
+decoder and \(10.83^\circ\) for the probe. The bound therefore cannot be treated
+as a demonstrated explanation for the observed performance deficit.
+
+Independent replay calls the strict-decoder component directly, bypassing its
+wrapper, and replays both families with batches of 17 rather than 64 documents.
+The maximum absolute prediction difference is \(5.961\times10^{-8}\), below
+the fixed \(2\times10^{-6}\) tolerance. Cross-slot cosines are independently
+recomputed in PyTorch double precision. An independent permutation loop verifies
+the all-24 and nine-derangement means, and the shared-vector optimum and zero
+copy order gaps are checked. Order differences of magnitude at most
+\(10^{-12}\) are treated as numerical zero. Bootstrap seed 22092621 uses fixed
+scope offsets; checkpoints and probes are not refitted or resampled as a
+training population.
+
+All six pooled decoder/probe means are within the fixed \(10^{-5}\)
+historical reproduction tolerance; their largest absolute difference is
+\(4.141\times10^{-6}\). Six OpenWebText comparisons exceed it: both decoder
+families for all three checkpoints, with differences from
+\(+1.1563\times10^{-5}\) to \(+1.3041\times10^{-5}\). These deviations are
+retained without changing the tolerance or selecting a run. Original embedding
+bytes are unavailable, so their numerical cause is not isolated. Every new
+copy/decoder/permutation contrast nevertheless uses identical regenerated inputs;
+no historical decoded score is combined with a new copy score. The original
+and both earlier additive result namespaces remain unchanged.
+
 \subsection{Matched Exact-K4 Pooling Artifacts}
 
 The additive matched-pooling experiment uses frozen clean-v6 seed \(424242\) with
@@ -2162,7 +2329,10 @@ is \(\sin\theta\). The point \(p+b\) lies on that line, hence
 \]
 This upper bound is independent of decoder capacity. A child outside that
 angular neighborhood cannot be reconstructed exactly by the built-in decoder.
-No claim is made here about how often that condition occurs in the data.
+The same bound holds for the released residual probes. The matched calibration
+in Appendix~\ref{app:reconstruction-calibration} measures how often true children
+lie outside it; this geometric exclusion does not by itself explain the observed
+average reconstruction error.
 
 \begingroup
 \small

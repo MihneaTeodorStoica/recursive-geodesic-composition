@@ -1,0 +1,220 @@
+{
+  "cache_manifest_sha256": "d36666a66914d63a3f8e959d98f557427290090bac822a2bff336bf22ac3785f",
+  "checkpoints": [
+    {
+      "artifact_type": "strict_autoencoder_checkpoint",
+      "asset_filename": "autoencoder_seed424242.pt",
+      "byte_size": 494519415,
+      "exact_frozen_artifact_hash_match": true,
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_v6_clean_development_seed424242/autoencoder_seed424242.pt",
+      "path": "artifacts/v1-paper/autoencoder_seed424242.pt",
+      "protocol_path": "results_kary4_strict_autoencoder_v6_clean_development_seed424242/autoencoder_seed424242.pt",
+      "required_for": {
+        "continuation_training": true,
+        "inference": true,
+        "official_evaluation": true
+      },
+      "role": "final_clean_v6_checkpoint",
+      "seed": 424242,
+      "sha256": "989f9bc496bea484974679cd181e43836caf3283ffdc8e66507046945e0902de"
+    },
+    {
+      "artifact_type": "strict_autoencoder_checkpoint",
+      "asset_filename": "autoencoder_seed271828.pt",
+      "byte_size": 494519479,
+      "exact_frozen_artifact_hash_match": true,
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_v6_clean_development_seed271828/autoencoder_seed271828.pt",
+      "path": "artifacts/v1-paper/autoencoder_seed271828.pt",
+      "protocol_path": "results_kary4_strict_autoencoder_v6_clean_development_seed271828/autoencoder_seed271828.pt",
+      "required_for": {
+        "continuation_training": true,
+        "inference": true,
+        "official_evaluation": true
+      },
+      "role": "final_clean_v6_checkpoint",
+      "seed": 271828,
+      "sha256": "a4cb1d79a7ae1bb0ca8855e3605c1ff50e761ca17ada39aa6b0237900dce7528"
+    },
+    {
+      "artifact_type": "strict_autoencoder_checkpoint",
+      "asset_filename": "autoencoder_seed314159.pt",
+      "byte_size": 494519479,
+      "exact_frozen_artifact_hash_match": true,
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_v6_clean_development_seed314159/autoencoder_seed314159.pt",
+      "path": "artifacts/v1-paper/autoencoder_seed314159.pt",
+      "protocol_path": "results_kary4_strict_autoencoder_v6_clean_development_seed314159/autoencoder_seed314159.pt",
+      "required_for": {
+        "continuation_training": true,
+        "inference": true,
+        "official_evaluation": true
+      },
+      "role": "final_clean_v6_checkpoint",
+      "seed": 314159,
+      "sha256": "45a80bc3005bdf79fcafe3fce65b927a8f39e7ec2c019a34c3e9d1c8ce327a07"
+    }
+  ],
+  "configuration": {
+    "analysis_role": "additive_post_review_on_previously_evaluated_documents",
+    "bootstrap": {
+      "reps": 2000,
+      "seed": 22092621,
+      "unit": "shared_document_across_methods_metrics_and_checkpoints"
+    },
+    "classifier_fits": 0,
+    "config_sha256": "2cfd3d10fad46b9e1913e9194c9274c72397ebda38d939c9aef77256ce8f31a6",
+    "decoder_updates": 0,
+    "exact_children": 4,
+    "expected_documents": 606,
+    "geometry": {
+      "cap_is_loose_oracle_upper_bound": true,
+      "residual_norm_bound": 0.25
+    },
+    "historical_mean_diagnostic_tolerance": 1e-05,
+    "immutable_inputs": {
+      "reproducibility/ARTIFACT_MANIFEST.json": "2c6cd76272cbe397d4586986d63821c40ba891fca6be0d8b5cfd1f55974432c1",
+      "results/recursive_reuse_v1/INFERENCE_MANIFEST.json": "9a13404ad1f31786c63d0a0319efeffb27c4408b79aa867c0a2014feebab52a5",
+      "results/recursive_reuse_v1/RESULTS.json": "3aa555d2073bc1b26f2d4f74fe65f83ec493be9b4fda034b62278c27ba305e5d",
+      "results/v1_k4_matched_pooling/PROBE_MANIFEST.json": "78e24d0455a72fa8e7a47e6959fd5958d19a4b5e20c2989ed888b9de88c0d04a"
+    },
+    "independent_replay_batch_size": 17,
+    "independent_replay_max_absolute_tolerance": 2e-06,
+    "inference": {
+      "allow_tf32": false,
+      "batch_size": 64,
+      "cpu_threads": 4,
+      "dtype": "float32"
+    },
+    "merger_updates": 0,
+    "methods": [
+      "parent_copy",
+      "strict_decoder",
+      "frozen_probe",
+      "weighted_copy",
+      "unweighted_copy"
+    ],
+    "numerical_zero_tolerance": 1e-12,
+    "output_dir": "results/reconstruction_calibration_v1",
+    "primary_contrasts": [
+      "strict_minus_parent_copy",
+      "probe_minus_parent_copy"
+    ],
+    "probe_updates": 0,
+    "report_all_outcomes": true,
+    "seeds": [
+      424242,
+      271828,
+      314159
+    ],
+    "shuffle": {
+      "best_assignment": "oracle_diagnostic_not_a_reconstruction_method",
+      "definition": "permute_target_slots_within_each_document_without_recomputing_parent_or_predictions",
+      "derangements": "all_9_without_fixed_slots",
+      "monte_carlo_draws": 0,
+      "permutations": "all_24_including_identity"
+    },
+    "slot_scoring": "equal_child_weight_then_equal_document_weight",
+    "study": "reconstruction_calibration_v1",
+    "teacher_encoding_calls": 0,
+    "tree_config": "configs/recursive_reuse_v1.yaml",
+    "tree_config_sha256": "57b41714eac5050037ef2de7e9d4877dbf91717ed7c17e53fc876f9a883dcfb5"
+  },
+  "environment": {
+    "cpu_threads": 4,
+    "cuda_runtime": "13.0",
+    "cudnn_allow_tf32": false,
+    "device": "cuda",
+    "git_commit": "0aeedebbcab2da72097c42c9a9860507c8b0c4cc",
+    "gpu": "NVIDIA GeForce RTX 4090 Laptop GPU",
+    "gpu_memory_bytes": 16803037184,
+    "matmul_allow_tf32": false,
+    "packages": {
+      "datasets": "5.0.0",
+      "numpy": "2.5.1",
+      "scikit-learn": "1.9.0",
+      "scipy": "1.18.0",
+      "tokenizers": "0.22.2",
+      "torch": "2.13.0",
+      "transformers": "5.14.1"
+    },
+    "platform": "Linux-7.2.4-ogc3.1.fc44.x86_64-x86_64-with-glibc2.43",
+    "python": "3.12.14"
+  },
+  "immutable_input_sha256": {
+    "configs/recursive_reuse_v1.yaml": "57b41714eac5050037ef2de7e9d4877dbf91717ed7c17e53fc876f9a883dcfb5",
+    "configs/safe_baselines_v1.yaml": "e86da01cd07db4865480632f6f8261af01e3f3df897d5942bf9f5353a1d7da1c",
+    "configs/v1_k4_pooling.yaml": "d7233ad20ae41020ea00259e986ef7668b175b72200755f91563c245f2084238",
+    "reproducibility/ARTIFACT_MANIFEST.json": "2c6cd76272cbe397d4586986d63821c40ba891fca6be0d8b5cfd1f55974432c1",
+    "results/official_v6/results.json": "236081e0c721602c742b573e3dfd06a556f9448ddaab299f10007788de51a7c0",
+    "results/recursive_reuse_v1/INFERENCE_MANIFEST.json": "9a13404ad1f31786c63d0a0319efeffb27c4408b79aa867c0a2014feebab52a5",
+    "results/recursive_reuse_v1/RESULTS.json": "3aa555d2073bc1b26f2d4f74fe65f83ec493be9b4fda034b62278c27ba305e5d",
+    "results/safe_baselines_v1/INFERENCE_MANIFEST.json": "e8eb18b9bf91eede030515e869f82dfb7d81df09ce9558433ed39566dc565719",
+    "results/safe_baselines_v1/RESULTS.json": "b1734a0733826c2a00f838be5beaf3d74935bdcfd21b0e03d6867826cddba557",
+    "results/v1_k4_matched_pooling/PROBE_MANIFEST.json": "78e24d0455a72fa8e7a47e6959fd5958d19a4b5e20c2989ed888b9de88c0d04a"
+  },
+  "probes": [
+    {
+      "artifact_type": "fitted_parent_only_probe",
+      "asset_filename": "candidate_parent_only_probe_seed424242.pt",
+      "byte_size": 7889085,
+      "exact_frozen_artifact_hash_match": true,
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_v6_clean_development_seed424242/train_fitted_matched_probes/candidate_parent_only.pt",
+      "path": "artifacts/v1-paper/candidate_parent_only_probe_seed424242.pt",
+      "protocol_path": "results_kary4_strict_autoencoder_v6_clean_development_seed424242/train_fitted_matched_probes/candidate_parent_only.pt",
+      "required_for": {
+        "continuation_training": false,
+        "inference": false,
+        "official_evaluation": true
+      },
+      "role": "candidate_parent_only_fitted_probe",
+      "seed": 424242,
+      "sha256": "a9e30ac9df31af63c525bdf08e812d5562bf2ba7c4c60ea8f439f4e4492e1943"
+    },
+    {
+      "artifact_type": "fitted_parent_only_probe",
+      "asset_filename": "candidate_parent_only_probe_seed271828.pt",
+      "byte_size": 7889085,
+      "exact_frozen_artifact_hash_match": true,
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_v6_clean_development_seed271828/train_fitted_matched_probes/candidate_parent_only.pt",
+      "path": "artifacts/v1-paper/candidate_parent_only_probe_seed271828.pt",
+      "protocol_path": "results_kary4_strict_autoencoder_v6_clean_development_seed271828/train_fitted_matched_probes/candidate_parent_only.pt",
+      "required_for": {
+        "continuation_training": false,
+        "inference": false,
+        "official_evaluation": true
+      },
+      "role": "candidate_parent_only_fitted_probe",
+      "seed": 271828,
+      "sha256": "7eff7a553a7dc17d2f75127b6622067f2f11add3454884b0c532782428e98fb9"
+    },
+    {
+      "artifact_type": "fitted_parent_only_probe",
+      "asset_filename": "candidate_parent_only_probe_seed314159.pt",
+      "byte_size": 7889085,
+      "exact_frozen_artifact_hash_match": true,
+      "original_experiment_path": "5/results_kary4_strict_autoencoder_v6_clean_development_seed314159/train_fitted_matched_probes/candidate_parent_only.pt",
+      "path": "artifacts/v1-paper/candidate_parent_only_probe_seed314159.pt",
+      "protocol_path": "results_kary4_strict_autoencoder_v6_clean_development_seed314159/train_fitted_matched_probes/candidate_parent_only.pt",
+      "required_for": {
+        "continuation_training": false,
+        "inference": false,
+        "official_evaluation": true
+      },
+      "role": "candidate_parent_only_fitted_probe",
+      "seed": 314159,
+      "sha256": "14736e8cbdc623cd004ef031f8af719dffa0e627c37425611e9ede6df2bd514a"
+    }
+  ],
+  "source_sha256": {
+    "configs/reconstruction_calibration_v1.yaml": "2cfd3d10fad46b9e1913e9194c9274c72397ebda38d939c9aef77256ce8f31a6",
+    "scripts/audit_reconstruction_calibration.py": "94c71eb138c67de15b5fa82bdb2a4963aa267692e8080bcfe998f1d14f2f2f47",
+    "scripts/evaluate_reconstruction_calibration.py": "030d3c06bbe36298f2bc9b8e5540c261205bc4874b73539b92d79fd7c8228772",
+    "scripts/evaluate_recursive_reuse.py": "4b0904b6d3289ff70f956fa92703f92bac50c02ada0313894dd55f6e4df395ee",
+    "scripts/render_reconstruction_calibration.py": "adbd9258986d32b70b25d32edd327b348290417765f75109ae53e62796fe33db",
+    "scripts/safe_baselines_protocol.py": "1009223b73169b4be953de7c415f2f4b47adf2f087319d75dc8e596cf30ee96c",
+    "src/recursive_geodesic_composition/architecture.py": "a789a89786cbac66e5b7dbcd63c83145852e744f69154fa92052f1e209ee1940",
+    "src/recursive_geodesic_composition/evaluate_kary_validation.py": "07649c9d817c31046a834e3e9b5a0f0a041af690f420ada66be4da858034c2c9",
+    "src/recursive_geodesic_composition/reconstruction_calibration.py": "16b63b8c7003db95252b2736dc62f0d9691f6ed1b7ae5f4c20c7281d97bbf35b",
+    "src/recursive_geodesic_composition/safe_baselines.py": "c1b1af3138d44c3584542e09ba468d2bb4b0b36cdc8d901a76f6c444f2410dd3"
+  },
+  "started_unix": 1790094320.1385548
+}
