@@ -1,0 +1,47 @@
+study: recursive_reuse_v1
+analysis_role: additive_post_review_on_previously_evaluated_documents
+baseline_config: configs/safe_baselines_v1.yaml
+baseline_config_sha256: e86da01cd07db4865480632f6f8261af01e3f3df897d5942bf9f5353a1d7da1c
+baseline_results: results/safe_baselines_v1/RESULTS.json
+baseline_results_sha256: b1734a0733826c2a00f838be5beaf3d74935bdcfd21b0e03d6867826cddba557
+baseline_inference: results/safe_baselines_v1/INFERENCE_MANIFEST.json
+baseline_inference_sha256: e8eb18b9bf91eede030515e869f82dfb7d81df09ce9558433ed39566dc565719
+exact_four_config: configs/v1_k4_pooling.yaml
+exact_four_config_sha256: d7233ad20ae41020ea00259e986ef7668b175b72200755f91563c245f2084238
+output_dir: results/recursive_reuse_v1
+seeds: [424242, 271828, 314159]
+exact_children: 4
+expected_documents: 606
+methods: [flat_unweighted, flat_token_weighted, direct_four, recursive_binary]
+# f2 means the SAME final K4 checkpoint with two active leading slots, not a
+# different K2 model. Intermediate token counts are exact sums, not unit weights.
+direct_tree: f4(x1,x2,x3,x4)
+recursive_tree: f2(f2(x1,x2),f2(x3,x4))
+first_level_batching: two_pairs_per_document_in_one_2B_batch
+primary_contrast: recursive_minus_direct_teacher_cosine
+bootstrap:
+  reps: 2000
+  seed: 22092611
+  unit: shared_document_across_methods_and_checkpoints
+loss_thresholds: [0.001, 0.005, 0.01]
+inference:
+  batch_size: 64
+  dtype: float32
+  allow_tf32: false
+  cpu_threads: 4
+reference_vector_max_absolute_tolerance: 0.000002
+independent_tree_max_absolute_tolerance: 0.000002
+timing:
+  warmup_passes: 3
+  measured_passes: 20
+  boundary: device_resident_original_leaves_to_device_resident_root
+  batch_unit: source_document
+population:
+  documented_backbone_context_tokens: 8192
+  token_counts_exclude_special_tokens: true
+  length_bin_upper_inclusive: [2048, 4096, 8192, 16384, 32768, null]
+  original_reduction: contiguous_K4_singleton_carry
+merger_updates: 0
+teacher_encoding_calls: 0
+classifier_fits: 0
+report_all_outcomes: true

@@ -1,0 +1,167 @@
+{
+  "batching_difference": "only safe-prefix leaves, up to four per document; original embedded full-document leaves in batches up to 16",
+  "cache_kind": "regenerated_safe_only_not_original_cache",
+  "completed_unix": 1790087021.7356296,
+  "config_sha256": "e86da01cd07db4865480632f6f8261af01e3f3df897d5942bf9f5353a1d7da1c",
+  "configuration": {
+    "analysis_role": "additive_post_review_on_previously_evaluated_documents",
+    "artifact_dir": "artifacts/v1-paper",
+    "attack_config": "configs/evaluator_attacks_v1.yaml",
+    "attack_config_sha256": "49e7a2996e33482239819430e92426fc1e4f9ff88628dfd2ac74f6da94726800",
+    "bootstrap": {
+      "baseline_attack_seed": 22092602,
+      "paired_seed": 22092601,
+      "reps": 2000
+    },
+    "cache_dir": "cache_safe_baselines_v1",
+    "calibration": {
+      "method": "within_corpus_deranged_teacher_pairings",
+      "permutations": 100,
+      "seed": 22092603
+    },
+    "config_sha256": "e86da01cd07db4865480632f6f8261af01e3f3df897d5942bf9f5353a1d7da1c",
+    "inference": {
+      "allow_tf32": false,
+      "batch_size": 64,
+      "cpu_threads": 4,
+      "dtype": "float32"
+    },
+    "merger_updates": 0,
+    "methods": [
+      "first_chunk",
+      "unweighted_mean",
+      "token_weighted_mean",
+      "learned_reference",
+      "learned_parent"
+    ],
+    "official_config": "configs/official_v6.yaml",
+    "output_dir": "results/safe_baselines_v1",
+    "preparation": {
+      "embedding_storage_dtype": "float32",
+      "leaf_batch_size": 4,
+      "target_batch_size": 1,
+      "teacher_load_dtype": "model_default_as_in_original_protocol",
+      "teacher_parameter_dtype": "float16"
+    },
+    "published_comparison_tolerance": {
+      "mean_teacher_cosine_absolute": 1e-05,
+      "strongest_auc_absolute": 0.0005
+    },
+    "published_results": "results/official_v6/results.json",
+    "published_results_sha256": "236081e0c721602c742b573e3dfd06a556f9448ddaab299f10007788de51a7c0",
+    "release_manifest": "reproducibility/ARTIFACT_MANIFEST.json",
+    "report_all_outcomes": true,
+    "seeds": [
+      424242,
+      271828,
+      314159
+    ],
+    "study": "safe_baselines_v1",
+    "timing": {
+      "boundary": "device_resident_leaves_to_device_resident_parent",
+      "measured_passes": 20,
+      "reference_path": "full_forward_diagnostic_extraction",
+      "warmup_passes": 3
+    }
+  },
+  "corpora": {
+    "fineweb": {
+      "document_order_sha256": "1b71ec8b0f5d9393db795492a378a035996b8bd4f2ae7e933030fc01c7a09486",
+      "documents": 1000,
+      "embedding_seconds": 48.85967204899998,
+      "safe_sha256": "efa796abaa60fdd7eb3e3b3259769cf3adbcabbcf5d827da08d9067424da9b0f",
+      "selected_tokens_sha256": "f2c9dd57bbd1a5e7b843257488e3d260d385a884aca3b67f05a214abcd2f9b55"
+    },
+    "fineweb_edu": {
+      "document_order_sha256": "d61f3ce180cfba2c1a1df87976b299ca142d3e2802e9438e72781df455839f8c",
+      "documents": 1000,
+      "embedding_seconds": 51.39157280900008,
+      "safe_sha256": "91ad2e46112b1e6460e647ea2059d5d5e12cb1d08d88addd36746a2955904876",
+      "selected_tokens_sha256": "bd0aabfff38fcb5550e53bbe7f8db6f7d7977c45ce756f04470f10c6fbdca19c"
+    },
+    "openwebtext": {
+      "document_order_sha256": "28a05a6c84c9578b310d3c8a7da5332776fa4bca2778044551b426a83d4a6eaa",
+      "documents": 1000,
+      "embedding_seconds": 50.71035989999973,
+      "safe_sha256": "7871fbf4d98749f64706bad98f5e68224695c32c37694abc79e97fe405dd3515",
+      "selected_tokens_sha256": "69dfd5bc80085247cd52a521e836a0c12df0337aeabb5b1ae19053724a979aaa"
+    },
+    "wikipedia_en_20231101": {
+      "document_order_sha256": "696d9268aebe7457613a0d8932bbe49dfec71a1ec488154ab7318f61b276c8f6",
+      "documents": 1000,
+      "embedding_seconds": 53.780023612000605,
+      "safe_sha256": "bfd88dd858b0b1da0971a3233f315828465e9d079c52fd75030603a51724af88",
+      "selected_tokens_sha256": "56d2435904a11e0e47c194dc8ec8c013ad2dc7fa95ad73289c3935f8dc45a189"
+    }
+  },
+  "datasets": [
+    {
+      "dataset_config": "sample-10BT",
+      "dataset_name": "HuggingFaceFW/fineweb-edu",
+      "dataset_revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+      "id": "fineweb_edu",
+      "weight": 0.25
+    },
+    {
+      "dataset_config": "sample-10BT",
+      "dataset_name": "HuggingFaceFW/fineweb",
+      "dataset_revision": "9bb295ddab0e05d785b879661af7260fed5140fc",
+      "id": "fineweb",
+      "weight": 0.25
+    },
+    {
+      "dataset_config": null,
+      "dataset_name": "Skylion007/openwebtext",
+      "dataset_revision": "79d93d786212f7344586290adb811d4ae6a1762c",
+      "id": "openwebtext",
+      "weight": 0.25
+    },
+    {
+      "dataset_config": "20231101.en",
+      "dataset_name": "wikimedia/wikipedia",
+      "dataset_revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+      "id": "wikipedia_en_20231101",
+      "weight": 0.25
+    }
+  ],
+  "embedding_storage_dtype": "float32",
+  "environment": {
+    "cpu_threads": 4,
+    "cuda_runtime": "13.0",
+    "cudnn_allow_tf32": false,
+    "device": "cuda",
+    "git_commit": "3880b1fb0940713f61b8a74ca7168358bef89ed1",
+    "gpu": "NVIDIA GeForce RTX 4090 Laptop GPU",
+    "gpu_memory_bytes": 16803037184,
+    "matmul_allow_tf32": false,
+    "packages": {
+      "datasets": "5.0.0",
+      "numpy": "2.5.1",
+      "scikit-learn": "1.9.0",
+      "scipy": "1.18.0",
+      "tokenizers": "0.22.2",
+      "torch": "2.13.0",
+      "transformers": "5.14.1"
+    },
+    "platform": "Linux-7.2.4-ogc3.1.fc44.x86_64-x86_64-with-glibc2.43",
+    "python": "3.12.14"
+  },
+  "original_tensor_identity_claimed": false,
+  "pooled_document_order_sha256": "156c5f3dd3ba6682af1eb51f79f1660434c30c092d23784a7d92dca7b9f032ca",
+  "population_identity_verified": true,
+  "preparation_source_hashes": {
+    "configs/official_v6.yaml": "a58ba80fb7c6696cb878e7b7a03d72d942fe11e8bf4c8ca4eae4ce002ce6246f",
+    "scripts/prepare_safe_baselines.py": "21d8e02eaee58d4b19700a6c83a0c17f9a5abc760ed441245004ecf543e39e79",
+    "scripts/safe_baselines_protocol.py": "1009223b73169b4be953de7c415f2f4b47adf2f087319d75dc8e596cf30ee96c",
+    "src/recursive_geodesic_composition/data.py": "cd2d6e583d496993e63b3d4ee749cf727e8cd0a5ff445ed9e5aba881225cf7f6"
+  },
+  "published_results_sha256": "236081e0c721602c742b573e3dfd06a556f9448ddaab299f10007788de51a7c0",
+  "representation": "masked mean of final hidden states then L2 normalization",
+  "started_unix": 1790086694.4750476,
+  "teacher_name": "Alibaba-NLP/gte-modernbert-base",
+  "teacher_parameter_dtypes": [
+    "torch.float16"
+  ],
+  "teacher_revision": "e7f32e3c00f91d699e8c43b53106206bcc72bb22",
+  "tokenization": "one document tokenization; add_special_tokens=False; truncation=False"
+}

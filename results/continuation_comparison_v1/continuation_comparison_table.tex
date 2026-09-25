@@ -1,0 +1,18 @@
+% Generated from fixed RESULTS.json; document-paired intervals.
+\begin{table}[H]
+\centering\footnotesize
+\begin{tabularx}{\linewidth}{Yrrr}
+\toprule
+Metric (documents) & Source & Final & Change [95\% CI] $(\times10^{-6})$ \\
+\midrule
+Teacher cosine (4,000) & 0.985045 & 0.985045 & +0.847 [+0.610, +1.081] \\
+Source AUC (2,000 held out) & 0.584827 & 0.584294 & -533.292 [-675.928, -392.327] \\
+Parent-copy cosine (606) & 0.914069 & 0.914022 & -47.389 [-48.109, -46.613] \\
+Probe cosine (606) & 0.908114 & 0.908105 & -9.416 [-11.671, -7.102] \\
+Probe gain over copy (606) & -0.005954 & -0.005916 & +37.973 [+35.859, +40.216] \\
+Probe order gap (606) & 0.000910 & 0.000908 & -1.872 [-3.767, +0.202] \\
+\bottomrule
+\end{tabularx}
+\caption{Matched continuation comparison on regenerated safe prefixes. Teacher cosine uses all 4,000 documents; pooled source AUC uses the same 2,000 held-out document pairs at each stage. Reconstruction uses the same 606 exact-four prefixes and each stage's separately fitted, released TRAIN probe. Gain subtracts copying that stage's own parent; order gap subtracts the mean over all 24 target assignments. Lower AUC is preferred; higher cosine/gain is preferred. Intervals condition on the fixed checkpoints, probes and selected classifiers. Changes and interval bounds are in units of $10^{-6}$; source/final columns are unscaled.}
+\label{tab:continuation-comparison}
+\end{table}

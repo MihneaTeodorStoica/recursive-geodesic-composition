@@ -1,0 +1,22 @@
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\linewidth}{Yrr}
+\toprule
+Measurement & Mean & 95\% CI \\
+\midrule
+tree 1 delta original & -0.000573 & [-0.000640, -0.000506] \\
+tree 2 delta original & -0.000678 & [-0.000751, -0.000606] \\
+tree 3 delta original & -0.000461 & [-0.000536, -0.000385] \\
+tree 4 delta original & -0.000666 & [-0.000737, -0.000589] \\
+tree 5 delta original & -0.000605 & [-0.000685, -0.000525] \\
+1024 k2 delta weighted & 0.005612 & [0.005325, 0.005905] \\
+1024 k4 delta weighted & 0.006074 & [0.005798, 0.006345] \\
+512 k2 delta weighted & 0.012584 & [0.012021, 0.013114] \\
+512 k4 delta weighted & 0.012912 & [0.012372, 0.013435] \\
+256 k2 delta weighted & 0.025001 & [0.024035, 0.025893] \\
+256 k4 delta weighted & 0.024322 & [0.023405, 0.025206] \\
+\bottomrule
+\end{tabularx}
+\caption{Same 606 texts and direct teacher targets. Five binary trees preserve original leaf order. Segmentation at 512/256 tokens changes leaf representations as well as reduction depth; 256 is below the configured training chunk-size range. No depth-only causal interpretation is made. All methods within a segmentation share the same new leaves; flat pools normalize only once.}
+\label{tab:tree-families}
+\end{table}
