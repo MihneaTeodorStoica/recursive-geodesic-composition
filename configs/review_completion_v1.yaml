@@ -1,0 +1,67 @@
+study: review_completion_v1
+analysis_role: additive_post_review_not_confirmatory
+seeds: [424242, 271828, 314159]
+inference: {batch_size: 64, cpu_threads: 4, allow_tf32: false, dtype: float32}
+bootstrap: {reps: 2000, seed: 22092701}
+replay_batch_size: 17
+replay_tolerance: 0.000002
+order:
+  permutations: all_24
+  mass_modes: [actual, equal]
+  fixed_parent_control: true
+  target: permuted_children_not_an_unencoded_permuted_text_teacher
+segmentation:
+  chunk_sizes: [1024, 512, 256]
+  arities: [2, 4]
+  original_binary_trees: all_five_ordered
+train:
+  source_start: 140000
+  source_end_exclusive: 152000
+  fit_per_corpus: 160
+  validation_per_corpus: 40
+  population_recovery: insufficient_600_per_corpus_in_fixed_train_range_before_any_encoding
+  selection: first_eligible_exact_four_prefixes_globally_token_deduplicated
+  exclude_evaluation_token_hashes: true
+  chunk_tokens: 1024
+  maximum_prefix_tokens: 4096
+  teacher_batch_size: 16
+probes:
+  families: [bounded, unbounded, direct]
+  seeds: [731241, 731242, 731243]
+  hidden: 512
+  updates: 400
+  batch_size: 128
+  learning_rate: 0.0003
+  weight_decay: 0.001
+  mse_weight: 0.25
+  clip_norm: 1.0
+  selection: fixed_final_step_no_validation_selection
+  residual_initialization: zero_last_layer
+  direct_initialization: zero_last_weights_train_slot_centroid_bias
+retrieval:
+  dataset: dwzhu/LongEmbed
+  revision: 10039a580487dacecf79db69166e17ace3ede392
+  tasks: [2wikimqa, qmsum, summ_screen_fd, narrativeqa]
+  primary_metric: ndcg_at_10
+  secondary_metrics: [recall_at_1, recall_at_10, mrr_at_10]
+  context_mean_tokens: 8190
+  cls_max_tokens_with_special: 8192
+  chunk_tokens: 1024
+  teacher_batch_size: 16
+  query_bootstrap_unit: connected_components_of_positive_query_document_graph
+  candidate_corpus: fixed_full_task_corpus
+  tie_break: ascending_document_id
+  length_bins: [4096, 8192, 32768]
+  no_model_or_hyperparameter_selection: true
+ablation:
+  arms: [attached, detached]
+  decoder_only_updates: 300
+  joint_updates: 100
+  batch_size: 8
+  encoder_learning_rate_scale: 0.02
+  seed: 991271
+  use_original_loss_and_schedule_helpers: true
+  identical_joint_start_model_optimizer_rng_and_minibatches: true
+  intervention: detach_decoder_parent_in_joint_stage_only
+  data_regime: new_exact_four_train_prefixes_not_historical_full_tree_training
+  selection: fixed_step_400_no_validation_selection

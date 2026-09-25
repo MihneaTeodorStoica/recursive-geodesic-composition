@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Selected fineweb_edu: 600 in 11564 source rows
+Traceback (most recent call last):
+  File "/var/home/mihnea/Projects/recursive-geodesic-composition/scripts/prepare_review_train.py", line 67, in <module>
+    main()
+  File "/var/home/mihnea/Projects/recursive-geodesic-composition/scripts/prepare_review_train.py", line 43, in main
+    raise RuntimeError(f"insufficient fixed-range TRAIN documents: {name}")
+RuntimeError: insufficient fixed-range TRAIN documents: fineweb
+Fatal Python error: PyGILState_Release: thread state 0x7fd8cc0036d0 must be current when releasing
+Python runtime state: finalizing (tstate=0x00000000015b9de0)
+
+Thread 0x00007fda82405780 (most recent call first):
+  <no Python frame>

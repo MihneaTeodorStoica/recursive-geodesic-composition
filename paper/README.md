@@ -16,7 +16,7 @@ cd paper
 latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-This produces `paper/main.pdf`. Without `latexmk`, run `pdflatex main.tex`, `bibtex main`, then `pdflatex main.tex` twice from this directory. Clean auxiliary files with `latexmk -c`; use `latexmk -C` to remove the PDF as well. Build products are ignored by Git.
+This produces `paper/main.pdf`. For the SHA-256-identical reviewed release PDF run `SOURCE_DATE_EPOCH=1790294400 tectonic -X compile main.tex` (including BibTeX; unset epochs produce different PDF metadata), or use `pdflatex main.tex`, `bibtex main`, then `pdflatex main.tex` twice. Clean auxiliary files with `latexmk -c`; use `latexmk -C` to remove the PDF as well. Build products are ignored by Git. The reviewed 35-page PDF was independently built with Tectonic without warnings, checked visually on the abstract, new-results, discussion, conclusion and appendix pages, and distributed as a separate `v2-paper-review` release asset. Two builds at the fixed epoch produced the same PDF hash. The manuscript, not the build-product PDF, is the tracked paper source.
 
 ## Import provenance
 
@@ -27,4 +27,4 @@ The archive was removed after extraction and byte verification.
 
 The bundled PNGs differ from the existing frozen publication assets in [`../figures/`](../figures/); both sets are preserved separately. Importing the manuscript does not alter experimental results, model code, or citation metadata. File checksums are recorded in [`../reproducibility/hashes.txt`](../reproducibility/hashes.txt).
 
-The PDF build has not been verified in the import environment because neither `latexmk` nor `pdflatex` is installed.
+That statement describes the *initial import only*. Subsequent manuscript builds were validated with a locally installed Tectonic binary. See the additive [review evidence map](REVIEW_EVIDENCE_MAP.md), which distinguishes previously evaluated prefixes and separately pinned downstream data.

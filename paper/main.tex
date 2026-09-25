@@ -103,11 +103,17 @@ exceed the backbone's documented 8,192-token context. Reconstruction calibration
 shows that the built-in decoder adds only \(0.001043\) child cosine over copying
 its parent, with negligible order advantage; the frozen probe performs worse
 than copying. A matched source--final comparison finds that almost all of the
-safe-arm advantage over pooling predates the final continuation stage. Thus,
-the learned model improves short-prefix teacher fidelity and measured source
-compatibility at higher composition cost, with modest tree sensitivity;
-unrestricted-root fidelity, superior reconstruction, and downstream utility
-remain unestablished.
+safe-arm advantage over pooling predates the final continuation stage.
+Further controls show that child-order sensitivity is largely positional,
+segmentation changes can exceed tree changes, and reconstruction rankings
+vary with the newly fitted decoder family. Across four fixed LongEmbed
+retrieval tasks, recursive document vectors exceed weighted pooling on one
+task but underperform it on three; the separate CLS-interface prefix reference
+is substantially stronger on all four. A newly trained gradient-path
+intervention slightly reduces teacher fidelity and raw child cosine while
+changing several other diagnostics. These findings
+establish a narrow short-prefix teacher-fidelity benefit, not a general
+long-document utility or lossless-recovery claim.
 
 \end{abstract}
 
@@ -132,7 +138,13 @@ leaves against the same teacher target. Reconstruction calibration adds
 parent-copy baselines and exact within-document target-slot permutations to
 the existing local reconstruction and pooling comparisons. A lineage-matched
 source-versus-final comparison quantifies changes during the final continuation
-stage without attributing them to any single objective. Architecture studies
+stage without attributing them to any single objective. Additional matched
+input-permutation, ordered-tree, resegmentation, and newly fitted probe-family
+controls test the generality of those findings. Four pinned full-corpus
+LongEmbed retrieval tasks evaluate document vectors against pooling and
+interface-matched teacher references. A new TRAIN-only attached-versus-detached
+decoder-parent gradient intervention studies one gradient path, not the
+historical training objective. Architecture studies
 provide system-level comparisons rather than controlled estimates of individual
 design choices.
 
@@ -145,7 +157,8 @@ constraint ensures representational form, not membership in the distribution
 of natural teacher embeddings. The matched safe-arm comparison favors learning
 for teacher fidelity and source detectability, at higher composition cost;
 the reconstruction comparison favors pooling. Neither establishes a downstream
-advantage for learned composition.
+advantage for learned composition. In the new fixed-corpus retrieval tests,
+that advantage holds over weighted pooling on only one of four tasks.
 
 \section{Related Work}
 
@@ -1075,6 +1088,80 @@ new decoder, staged schedule and multiple losses; it is not a decoder-objective
 ablation. No merger, decoder or probe is updated and no teacher encoding is
 performed. Audit details appear in Appendix~\ref{app:continuation-comparison}.
 
+\subsection{Additional Post-Review Controls and Retrieval}
+\label{sec:extended-review-protocol}
+
+All further experiments are additive. The same three frozen final checkpoints
+and 606 regenerated exact-four safe prefixes support the input-order, tree,
+segmentation, and probe comparisons. All 24 input permutations are evaluated
+with either actual token masses moving with their leaves or four equal masses.
+The frozen built-in decoder and released TRAIN-fitted probe predict the
+recomputed parent for each permutation; predictions are scored against the
+correspondingly permuted children and all their target-slot permutations.
+The following gap subtracts the mean over target-slot assignments from the
+matching assignment, averaged over the 24 input orders. An identical
+scoring-only negative control keeps the original parent fixed, and must have
+zero average gap. This test does not construct a teacher target for reordered
+text and does not prove document-specific order storage.
+
+All five ordered full binary trees compose the same original four leaves with
+exact propagated token masses. In a second analysis, identical token prefixes
+are resegmented into 1,024-, 512-, or 256-token leaves; both binary and K4
+reducers, plus freshly computed flat pools, use the new matched leaves. Direct
+teacher targets remain unchanged. Resegmentation changes the leaf embeddings
+and depth together; it is not a depth-only intervention, and 256-token leaves
+lie below the historical training chunk-size range.
+
+The separate decoder-family study uses source indices 140,000--151,999,
+160 fit and 40 validation exact-four prefixes per corpus, excluding exact
+evaluation-prefix token hashes. A documented pre-encoding recovery reduced
+the initially requested 500/100 to 160/40 when the fixed FineWeb range had
+insufficient eligible examples; neither source range nor candidate scoring
+was selected from results. Three newly initialized probes per family are
+trained for 400 fixed updates using TRAIN fits only: bounded and unbounded
+residual decoders with the same zero-last-layer initialization, and a direct
+MLP initialized to TRAIN-only slot centroids. They receive matched learned,
+weighted-pool, or unweighted-pool parents; schedules and fit budgets are
+shared. The released historical probe and the absent matched-pooling probes
+are \emph{not} substituted for these newly fitted models. Own-parent copy
+and TRAIN-centroid controls remain separate.
+
+For downstream retrieval, the four real LongEmbed tasks
+\cite{zhu-etal-2024-longembed} use pinned revision
+\nolinkurl{10039a580487dacecf79db69166e17ace3ede392}, every task query
+and candidate, and no task-label fitting or method selection. Frozen
+masked-mean queries are compared with first-leaf and every-token weighted,
+unweighted, and recursive K4 document vectors (three checkpoint scores
+averaged within query); a separate documented CLS-query/CLS-document
+reference uses the backbone's first-token interface consistently. Direct
+masked-mean and CLS document references stop at 8,190 or 8,192 tokens,
+respectively, unlike full-document chunk representations. The primary metric
+is nDCG@10; recall@1/10 and MRR@10 are retained. Rankings use ascending
+document ID to break ties. The query-weighted 2,000-resample intervals group
+queries in connected components of their positive-document graph while
+holding the entire candidate corpus fixed. Length strata use each query's
+longest relevant document; these conditional intervals are not simultaneous.
+The FP16 teacher's masked-mean accumulation overflowed for two long 2Wiki
+contexts before any retrieval scores were produced. The recovered benchmark
+uses FP32 accumulation for \emph{all} leaves, mean-based queries, and context
+references, leaving backbone weights FP16, documents, models, and metrics
+unchanged. A second interruption on Unicode line separators in one JSONL
+file was recovered with physical-line iteration, retaining all completed
+task results byte-for-byte (Appendix~\ref{app:extended-review}).
+
+Finally, a \emph{new} training intervention uses only the 640 new TRAIN-fit
+prefixes. Each source-merger initialization discards its original decoder;
+both gradient-routing arms share one newly trained 300-update decoder-only
+warm checkpoint per seed, optimizer, random state, and identical 100 joint minibatches.
+Teacher, distribution, cycle, reconstruction, and encoder regularizers remain
+in the original training loss; the only joint-stage difference is detaching
+the decoder's parent input before backward propagation in one arm. Both arms
+continue training the decoder. The six step-400 models are fixed \emph{before}
+the 4,000-prefix teacher/source-detection and 606-prefix reconstruction
+analyses. This isolates one gradient path in this new exact-four regime,
+not removal of the historical decoder loss, a from-scratch lineage, or an
+intervention on original clean-v6 full-tree training.
+
 \subsection{Reproducibility Summary}
 
 Model and dataset revisions, source-document roles, configurations, checkpoints,
@@ -1566,6 +1653,104 @@ additional changes under this continuation do not isolate the usefulness of
 the decoder objective, establish a from-scratch training result, or explain
 which earlier training choices produced the source representation.
 
+\subsection{Input Order, Tree Choice, and Segmentation}
+\label{sec:extended-structure-results}
+
+Input permutation and scoring-only negative controls separate apparent
+slot-order agreement from following the actual input permutation. On 606
+four-leaf documents, the released built-in decoder's original-order gap is
+\(6.86\times10^{-7}\) but its mean following gap across all 24 actual-mass
+input permutations is \(-3.12\times10^{-9}\) (95\% interval
+\([-3.23,-3.02]\times10^{-9}\)). For the released candidate probe, the
+respective gaps are \(0.000908\) and \(-0.00000418\) (interval
+\([-0.00000474,-0.00000364]\)). Equal-mass controls give similar signs;
+fixed-parent scoring-only means vanish to numerical precision. These are
+\emph{target-child} assignment comparisons, not proof about teacher embeddings
+of permuted text or absolute information content.
+
+Each of the five ordered binary trees loses teacher cosine relative to the
+direct four-leaf merge: checkpoint-mean deltas range from \(-0.000461\) to
+\(-0.000678\), all with document-paired intervals below zero. Grouping choice
+matters slightly even when leaf count and binary arity are fixed. In contrast,
+resegmenting the same text into 512-token K4 leaves loses \(0.010060\)
+teacher cosine versus original 1,024-token K4 leaves; 256-token K4 loses
+\(0.022253\). With new within-segmentation weighted pools as references,
+K4 retains advantages of \(0.012912\) and \(0.024322\), respectively;
+the reference itself changes along with the leaves. These losses combine
+leaf granularity, number of merges, distribution shift, and depth, and do not
+measure a pure tree effect or support arbitrarily fine splitting.
+
+\subsection{New Probe Families and Gradient-Path Intervention}
+\label{sec:extended-probe-results}
+
+New TRAIN-only fits illustrate probe dependence. Across three checkpoints
+and three probe seeds, learned-parent ordered child cosine is \(0.912004\)
+for the bounded residual, \(0.908634\) for the unbounded residual, and
+\(0.764288\) for the direct non-residual MLP. Learned minus weighted-pool
+probe cosine changes sign across these families: \(-0.002026\), \(+0.000523\),
+and \(-0.000684\), respectively. The corresponding learned-probe gains over
+copying the learned parent are \(-0.002017\), \(-0.005387\), and
+\(-0.149733\); new TRAIN fits therefore do not establish superior local
+reconstruction. The direct architecture and its fit may be inadequate,
+not an information-theoretic limit. None of these new fits is the unavailable
+historical matched-pooling probe.
+
+Under the new gradient-path intervention, attached minus detached teacher
+cosine is \(-1.5653\times10^{-6}\) (document-paired 95\% interval
+\([-1.9905,-1.1424]\times10^{-6}\)); source-detection AUC changes by
+\(-0.000427\) (interval \([-0.000755,-0.000109]\)), with a lower AUC indicating
+less detectable model vectors. Raw ordered reconstruction changes by
+\(-0.00008362\); parent-copy cosine also falls, yielding a \emph{positive}
+copy-relative gain contrast of \(+0.00000555\). This new controlled contrast
+has mixed directions and extremely small magnitudes, and cannot attribute
+the historical source--final endpoints to the decoder objective. Fixed
+classifier families and fixed training seeds limit the intervals.
+
+\subsection{Full-Corpus Long-Document Retrieval}
+\label{sec:retrieval-results}
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Task & First & Weighted & Unweighted & Mean-prefix & CLS-prefix & Recursive \\
+\midrule
+2WikiMQA & 0.2044 & 0.2643 & 0.2752 & 0.2776 & 0.8709 & 0.2768 \\
+QMSum & 0.1996 & 0.2590 & 0.2533 & 0.2524 & 0.4069 & 0.2390 \\
+SummScreenFD & 0.5541 & 0.7998 & 0.7933 & 0.6942 & 0.9314 & 0.7728 \\
+NarrativeQA & 0.0449 & 0.0835 & 0.0830 & 0.0620 & 0.3015 & 0.0790 \\
+\bottomrule
+\end{tabular}
+\caption{Complete frozen LongEmbed task corpora; query-weighted nDCG@10
+(higher is better). Recursive scores average the three fixed model scores
+\emph{per query}, not their document vectors. Mean-pool queries match all
+mean-based rows; CLS queries match only CLS-prefix documents. Prefix teacher
+references truncate at the teacher context; the weighted, unweighted, and
+recursive documents use all chunks. Different query interfaces make the CLS
+reference a useful comparator, not a controlled pooling ablation.}
+\label{tab:review-retrieval}
+\end{table}
+
+Against the full-document weighted pool, recursive nDCG@10 changes by:
+\begin{itemize}[nosep,leftmargin=2em]
+\item 2WikiMQA: \(+0.01250\), positive-document-cluster 95\% interval
+  \([+0.00253,+0.02268]\);
+\item QMSum: \(-0.01995\), interval \([-0.02982,-0.01007]\);
+\item SummScreenFD: \(-0.02700\), interval \([-0.03893,-0.01479]\);
+\item NarrativeQA: \(-0.00448\), interval \([-0.00854,-0.00010]\).
+\end{itemize}
+No benchmark supports an across-task gain over
+simple pooling, and teacher fidelity does not predict these task rankings.
+The CLS-reference advantage on every task makes the documented-interface
+mismatch consequential; it does not show that changing only the aggregation
+method would reproduce CLS performance. In the 355-document, 10,449-query
+NarrativeQA task, 347 documents exceed 8,192 tokens, 85 exceed the configured
+96-leaf training cap, the maximum has 477 leaves, and K4 depth reaches five.
+These roots are computed and ranked but lack direct untruncated teacher targets.
+Bootstrap components number 300, 197, 336, and 355 across the four tasks;
+all fixed candidate sets and all task outcomes are retained, including
+length-stratified and secondary metrics in the result JSON.
+
 \subsection{Architecture and Scaling Studies}
 \label{sec:architecture-scaling}
 
@@ -1653,7 +1838,12 @@ is not contradicted by the new teacher-fidelity result. The new calibration
 is more restrictive: even untrained pooling-copy baselines exceed both the
 built-in decoder and released probe, and the built-in decoder's order gap is
 negligible at this cosine scale. Preference for a learned merger therefore
-depends on which property matters, and downstream usefulness remains unmeasured.
+depends on which property matters. On the four subsequently evaluated
+LongEmbed retrieval tasks, recursive roots beat weighted pooling only on
+2WikiMQA; the three negative task contrasts rule out a general downstream
+advantage under this frozen interface. A separate CLS-interface reference
+outperforms all mean-pool methods on all four tasks, although its input
+interface and truncation also differ.
 
 Wikipedia has the highest corpus-specific detectability despite high paired
 cosine. The current study does not separate domain effects from differences
@@ -1692,72 +1882,91 @@ The original safe arm uses one merge, whereas the full arm lacks direct
 root-level teacher targets. The new 606-prefix stress test partially bridges
 this gap: binary reuse loses \(0.000461\) teacher cosine relative to a direct
 four-child merge, while retaining an advantage over both flat pooling rules.
-This shows limited tree sensitivity within the tested short-span setting,
-not invariance or a depth-only causal effect. It does not establish fidelity
-of unrestricted roots, source detectability under recursion, or behavior at
-unseen depths. Only 81 full documents exceed the documented backbone context,
-and only 20 reach natural K4 depth three, so the longest examples cannot
-characterize typical long-document quality.
+All five ordered binary trees lose some fidelity; moving to 512- or 256-token
+leaves changes both the teacher-space result and its flat-pool comparator much
+more than changing the original four-leaf binary tree. This does not isolate
+depth or establish direct teacher fidelity of unrestricted roots. Only 81
+original full documents exceed the documented backbone context, and only
+20 reach natural K4 depth three; the separate retrieval tasks include
+substantially longer roots, but evaluate task rankings rather than untruncated
+root teacher fidelity.
 
 \subsection{Limitations}
 \label{sec:limitations}
 
 \paragraph{Representation and task scope.}
-All experiments use one 768-dimensional masked-mean teacher and four English
-corpora. No results transfer automatically to the documented CLS interface,
-other encoders or languages. Retrieval, classification, clustering, and other
-downstream behavior of full roots are not evaluated. The teacher's own task
-utility under this custom pooling procedure is not established here.
+All model fitting and teacher-fidelity experiments use one 768-dimensional
+masked-mean teacher and four English training/evaluation corpora. One
+fixed, separately pinned four-task English retrieval benchmark assesses
+full-root downstream rankings, but not classification or clustering. Its
+interface-matched CLS reference has substantially different scores from the
+masked-mean interface. None of these results transfers automatically to other
+encoders or languages, or establishes a matched CLS-based merger.
 
 \paragraph{Population and scale.}
 The first 1,000 length-eligible documents per corpus are not a random sample
 of each corpus. The full arm inherits this selection and mostly contains short
-documents, despite an uncapped reduction rule. The new teacher-comparable
-recursion test covers one binary tree at depth two and couples depth with
-active arity; unrestricted-root fidelity and depths greater than three remain
-untested. Dataset-index separation does not, by itself, rule
+documents, despite an uncapped reduction rule. The additional teacher-comparable tests cover all five ordered binary trees
+and two finer chunk sizes, but still couple leaf representations, active
+arity, and depth. LongEmbed includes K4 depth-five rankings, not direct
+untruncated-root teacher fidelity. Dataset-index separation does not, by itself, rule
 out cross-corpus exact or near-duplicate content, including overlap inherited
 from earlier continuation-training data.
 
 \paragraph{Comparisons and learning history.}
-The reconstruction pooling study covers one final checkpoint and one residual
-probe family. The safe-arm baseline, recursive-reuse, reconstruction-calibration
-and continuation comparisons cover all three final checkpoints but reuse
-already evaluated documents and regenerated inputs; none is a fresh
-confirmatory test. The arity studies differ in capacity and training history,
+The historical reconstruction pooling study covers one final checkpoint and
+one residual probe family. Later fixed-budget bounded/unbounded/direct probes
+are newly TRAIN-fitted rather than the missing historical pooling probes;
+family rankings and the direct model's fit vary. The safe-arm baseline,
+recursive-reuse, reconstruction-calibration, tree/order and continuation
+comparisons reuse previously evaluated documents and regenerated inputs;
+none is a fresh confirmatory test. LongEmbed is a distinct evaluation
+population but the frozen system and hypotheses are post-review. The arity
+studies differ in capacity and training history,
 so they do not isolate the causal effect of arity. Clean-v6 starts from trained
 source mergers; the final 400-update schedule is not a from-scratch training
 recipe or a measure of complete training cost. Comparing matched source/final
 endpoints quantifies that stage's changes but does not isolate the decoder
-objective or any other component of the continuation bundle.
+objective or any other component of the continuation bundle. The separate
+attached/detached intervention starts from trained source encoders, changes
+one gradient route in a new small exact-four TRAIN regime, and cannot be
+substituted for a matched-budget removal of the historical decoder loss.
 
 \paragraph{Statistical scope.}
 Only three final checkpoints, one attack split, and two classifier families
 are evaluated. Source-detection intervals condition on the observed strongest
 attacker and fixed predictions rather than accounting for selection or attacker
 refitting. Paired teacher- and child-cosine intervals condition on fixed models
-and inputs; these intervals do not capture all training or input-regeneration
-uncertainty. The AUC criterion is a project-specific
+and inputs; retrieval intervals condition on fixed positive-document clusters
+and task corpora. These intervals do not capture all training,
+model-selection, task-selection, or input-regeneration uncertainty. With only
+four heterogeneous tasks, their task-specific conditional intervals are not
+a cross-task meta-analysis. The AUC criterion is a project-specific
 diagnostic and is not a formal equivalence or privacy guarantee. TRAIN-derived
 probe floors are not matched-population noninferiority tests.
 
 \paragraph{Reconstruction and geometry.}
 Local parent-only decoding does not establish recoverability from the final
-root alone. Copy calibration and target-slot shuffling do not isolate positional
-priors from document-specific order storage. The residual decoder/probe output
+root alone. Copy calibration and target-slot shuffling alone do not isolate
+positional priors; the added exhaustive input-order intervention demonstrates
+that the evaluated frozen decoders barely track an input permutation but does
+not prove no alternative decoder could. The residual decoder/probe output
 constraint limits conclusions about representation-independent information
-content; the absent matched-pooling probe binaries also prevent their new
-copy/permutation calibration. Unit norm and bounded geodesic movement do not
+content; new unconstrained fits alleviate that structural constraint but
+remain optimization- and data-dependent. The absent historical matched-pooling
+probe binaries prevent their exact new copy/permutation calibration. Unit norm and bounded geodesic movement do not
 guarantee membership in a teacher-distribution manifold or semantic preservation.
 
 \paragraph{Timing and reproduction.}
 Original throughput measures the recorded cached-leaf evaluation pipeline,
 not end-to-end embedding or merger-only latency. The new matched timing uses
 a distinct composition-only protocol and identifies the GPU; its values are
-not directly comparable with the original throughput. Exact checkpoints and
-probes are release assets, while caches require regeneration from pinned
-inputs. The new safe cache matches document identity, not original tensor
-bytes. A small per-corpus AUC discrepancy exceeds the declared reproduction
+not directly comparable with the original throughput. Exact historical checkpoints and probes are v1-paper release assets, while
+new fitted artifacts have separate identities and caches require regeneration
+from pinned inputs. The new safe cache matches document identity, not original
+tensor bytes. LongEmbed's FP16 long-context mean-reduction overflow required
+a documented, uniform FP32 accumulation recovery before scoring; a subsequent
+physical-line JSONL parsing repair retained already computed task results. A small per-corpus AUC discrepancy exceeds the declared reproduction
 tolerance and is retained explicitly (Appendix~\ref{app:safe-baseline-reproduction}).
 The reconstruction calibration likewise retains six per-corpus historical
 mean discrepancies above its fixed tolerance
@@ -1767,26 +1976,21 @@ independent reproduction.
 
 \subsection{Future Work}
 
-The matched baselines, one teacher-valid recursive-reuse comparison,
-reconstruction calibration, and source-versus-final comparison now provide
-initial controls. Further fixed tree families and deeper compositions are
-needed before larger models. Non-residual probes and input-permutation controls
-would test whether the observed reconstruction limitations persist beyond this
-probe family and distinguish positional priors from document-specific order.
-Matched-budget decoder-objective ablations are still needed to attribute the
-continuation changes to particular training components.
+The additional tree, input-order, probe-family, retrieval, and gradient-path
+controls narrow, rather than resolve, the quality--cost question. A new
+CLS-based merger with consistent CLS chunk/query/document representations
+would require training and task evaluation, not relabeling mean-pooled
+results. For length-five roots and longer, directly teacher-valid targets
+would require a different teacher or evaluation design; ranking a root on
+LongEmbed alone does not supply those targets. More independently sourced
+long-document tasks, local-to-root recovery tests, and end-to-end encoding,
+storage, and inference costs remain important.
 
-A downstream long-document benchmark, such as a suitable retrieval component
-of LongEmbed \cite{zhu-etal-2024-longembed}, would test usefulness beyond
-teacher-space diagnostics. Such an evaluation should verify the teacher's
-own task performance, include flat pooling, stratify by document length, and
-report storage and end-to-end cost. A CLS-based replication would require
-consistent new representations and training rather than relabeling these
-results. Root-conditioned recovery, deliberately deeper natural documents,
-and matched-budget geometry, arity, and decoder-objective ablations are
-subsequent priorities. Additional capacity and broader model or language
-coverage are worthwhile only alongside evidence that learned composition
-improves the relevant quality--cost trade-off.
+A from-scratch matched-budget lineage and a true loss-removal ablation are
+still required to attribute advantages to training choices or the decoder
+objective. Matched-budget geometry/arity alternatives, additional probe
+optimization checks, more model and language coverage, and robust out-of-range
+(96+ leaf) evaluation should precede claims of general benefit.
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -1826,9 +2030,16 @@ distinct ordered constituents. The source--final comparison also shows that
 almost all of the safe-arm advantage over pooling predates the final
 continuation; its teacher-cosine change is below \(10^{-6}\), and both endpoint
 probes remain below parent copy. These endpoint changes do not isolate any
-single loss or training component. Whether the teacher-alignment benefit
-extends to unrestricted long-document roots or a downstream task remains
-unresolved.
+single loss or training component. The extended post-review controls find that order-sensitive decoder scores
+barely follow permuted input leaves, finer resegmentation substantially
+reduces teacher fidelity, and newly fitted probe families yield different
+pooling rankings. In four full-corpus LongEmbed retrieval tasks, recursive
+representations beat the weighted pool on one task and lose on three; the
+separate documented CLS-interface reference is stronger on all four. A new
+attached-versus-detached decoder gradient-path intervention has mixed, small
+outcomes and does not attribute the historical continuation to one loss.
+Fidelity of unrestricted roots to a direct teacher and any general
+long-document task advantage remain unestablished.
 
 \appendix
 
@@ -2414,6 +2625,71 @@ checkpoint or interval is replaced or selected using this check. Original
 results and all three preceding additive studies remain unchanged. The
 layout-only wrapper \nolinkurl{scripts/publish_continuation_comparison.py}
 changes table units and figure-label spacing without changing primary results.
+
+\subsection{Additional Review-Control Reproduction and Recoveries}
+\label{app:extended-review}
+
+The additive fixed configuration is
+\nolinkurl{configs/review_completion_v1.yaml}; the immutable output namespaces
+are \nolinkurl{results/input_order_v1/},
+\nolinkurl{results/tree_families_v1/},
+\nolinkurl{results/probe_families_v1/},
+\nolinkurl{results/longembed_review_v1/}, and
+\nolinkurl{results/decoder_gradient_v1/}. The full audit with independent
+predicted-child double-precision scoring, reference vector-cosine checks,
+token-mass/depth accounting, retrieval ranking and cluster-resampling replay,
+identical intervention-start checks, and regenerated classifier intervals is
+\nolinkurl{scripts/audit_review_completion.py}. Each namespace retains
+\texttt{PROTOCOL.json}, \texttt{RESULTS.json}, \texttt{SCORES.json} as applicable,
+\texttt{AUDIT.json}, and \texttt{ARTIFACT\_HASHES.json}. GPU tensors, new
+model/probe weights, and prepared TRAIN inputs are separate non-Git artifacts
+identified by full SHA-256 in these records. The prior official and four
+additive result JSON SHA-256 hashes are reverified before creating any new
+namespace; results are never replaced to correct a discrepancy.
+
+Preparation sampled 160 fit and 40 unused validation documents per corpus
+from the same fixed TRAIN index window after an initial 500/100 population
+request proved infeasible \emph{before encoding}. The failed run configurations
+and logs, exact selection/role identities, token hashes and zero exact
+prefix-token overlap with the safe evaluation set are in
+\nolinkurl{reproducibility/protocols/review_completion_v1/} and
+\nolinkurl{results/probe_families_v1/TRAIN_MANIFEST.json}. No near-duplicate
+or cross-source semantic-duplication guarantee is claimed. The released
+source checkpoints are the encoder initialization for the newly trained
+intervention, and each matched per-seed pair has the same saved warm model,
+optimizer, RNG and fixed 100-step joint minibatch schedule. Checkpoint weights
+are not interchangeable with the original released continuation or with
+historical fitted probes. A small training set and only three inherited
+initializations limit causal generalization beyond this gradient path.
+
+The pinned LongEmbed corpus/query/qrel file identities, exact full candidate
+counts, token/depth distributions, scores, relevant-document cluster IDs,
+per-task vectors and numerical precision diagnostic are retained under
+\nolinkurl{results/longembed_review_v1/}. Candidate counts are 300, 197,
+336 and 355; query counts are 300, 1,527, 336 and 10,449 for 2WikiMQA,
+QMSum, SummScreenFD and NarrativeQA, respectively. The initially uniform
+FP16 masked-mean operation overflowed for two finite 8,190-token context
+hidden-state tensors (absolute FP32 sums 68,067.625 and 66,838.03125,
+above the FP16 finite bound 65,504), before any task score was obtained.
+The failed protocol, complete 300-document numerical diagnosis and recovery
+record are preserved under the same reproducibility directory. The stable
+FP32 accumulator is applied uniformly to every task leaf, mean query and
+context reference; it does not update the frozen FP16 teacher parameters.
+A later parser used Python \texttt{splitlines()}, which incorrectly splits
+valid JSON strings containing Unicode separators in NarrativeQA. The physical
+line parser recovers all 355 records, retains existing task result hashes,
+and publishes a \texttt{RESUME\_PROTOCOL.json} without rescoring previous
+tasks. No documents, queries, candidates, or task files are discarded.
+The documented CLS representation uses the backbone's \emph{first token},
+not this masked mean. Unequal interface and truncation make CLS results
+informative but not a controlled comparison isolating recursion.
+
+These controls use 2,000 fixed-seed document- or positive-document-cluster
+resamples, conditional on frozen models and samples; the largest NarrativeQA
+cluster analysis has 355 positive-document components despite 10,449 queries.
+Per-task nDCG intervals do not justify declaring improvement over a task
+population or a newly trained system. All task/corpus/probe directions are
+retained, not selected for sign or statistical favorability.
 
 \subsection{Matched Exact-K4 Pooling Artifacts}
 

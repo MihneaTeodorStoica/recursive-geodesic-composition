@@ -1,0 +1,39 @@
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\linewidth}{Yrr}
+\toprule
+Measurement & Mean & 95\% CI \\
+\midrule
+2wikimqa: first & 0.204386 & [0.166265, 0.245482] \\
+2wikimqa: weighted & 0.264334 & [0.220134, 0.306886] \\
+2wikimqa: unweighted & 0.275229 & [0.229902, 0.318889] \\
+2wikimqa: context mean & 0.277643 & [0.233614, 0.322531] \\
+2wikimqa: context cls & 0.870875 & [0.837256, 0.904650] \\
+2wikimqa: learned mean & 0.276832 & [0.231434, 0.320731] \\
+2wikimqa: learned minus weighted & 0.012498 & [0.002532, 0.022676] \\
+qmsum: first & 0.199553 & [0.157788, 0.241998] \\
+qmsum: weighted & 0.258969 & [0.206604, 0.314451] \\
+qmsum: unweighted & 0.253340 & [0.201181, 0.307970] \\
+qmsum: context mean & 0.252429 & [0.203064, 0.303716] \\
+qmsum: context cls & 0.406897 & [0.362023, 0.452278] \\
+qmsum: learned mean & 0.239020 & [0.187419, 0.293026] \\
+qmsum: learned minus weighted & -0.019949 & [-0.029818, -0.010072] \\
+summ screen fd: first & 0.554134 & [0.514498, 0.594550] \\
+summ screen fd: weighted & 0.799834 & [0.765912, 0.832275] \\
+summ screen fd: unweighted & 0.793316 & [0.759436, 0.826652] \\
+summ screen fd: context mean & 0.694223 & [0.653971, 0.732503] \\
+summ screen fd: context cls & 0.931411 & [0.911289, 0.948908] \\
+summ screen fd: learned mean & 0.772829 & [0.736962, 0.807754] \\
+summ screen fd: learned minus weighted & -0.027005 & [-0.038930, -0.014790] \\
+narrativeqa: first & 0.044870 & [0.037087, 0.053752] \\
+narrativeqa: weighted & 0.083497 & [0.075375, 0.091971] \\
+narrativeqa: unweighted & 0.082971 & [0.074940, 0.091338] \\
+narrativeqa: context mean & 0.062034 & [0.054215, 0.070049] \\
+narrativeqa: context cls & 0.301492 & [0.272853, 0.329866] \\
+narrativeqa: learned mean & 0.079016 & [0.070666, 0.087788] \\
+narrativeqa: learned minus weighted & -0.004481 & [-0.008540, -0.000097] \\
+\bottomrule
+\end{tabularx}
+\caption{All four real tasks and all candidates/queries at the pinned revision. nDCG@10 on a 0--1 scale. Mean-pool queries match all mean-based representations; CLS queries match the documented first-token context reference only. Teacher context references truncate, whereas recursive and flat full-document representations use every token. Intervals cluster queries by connected positive-document components while preserving query weighting and fixed candidate corpora. No task fitting or model selection.}
+\label{tab:longembed-review}
+\end{table}
