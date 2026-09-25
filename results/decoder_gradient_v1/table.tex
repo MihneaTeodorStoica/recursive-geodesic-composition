@@ -1,0 +1,16 @@
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\linewidth}{Yrr}
+\toprule
+Measurement & Mean & 95\% CI \\
+\midrule
+Teacher: attached minus detached & -0.000002 & [-0.000002, -0.000001] \\
+AUC: attached minus detached & -0.000427 & [-0.000755, -0.000109] \\
+ordered delta & -0.000084 & [-0.000085, -0.000082] \\
+gain delta & 0.000006 & [0.000005, 0.000006] \\
+order gap delta & -0.000000 & [-0.000000, -0.000000] \\
+\bottomrule
+\end{tabularx}
+\caption{New 640-document exact-four TRAIN regime. Each checkpoint pair shares the identical 300-update warm model, optimizer, RNG and all 100 joint minibatches. The only joint-stage switch is decoder-parent detachment; original teacher, distribution and encoder regularizers remain active. Both arms continue fitting the decoder. This is not a recreation of historical full-tree clean-v6 training, not training from scratch, and not removal of all decoder computations. Fixed final step, no validation selection.}
+\label{tab:decoder-gradient}
+\end{table}

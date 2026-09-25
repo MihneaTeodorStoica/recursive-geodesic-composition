@@ -1,0 +1,48 @@
+study: safe_baselines_v1
+analysis_role: additive_post_review_on_previously_evaluated_documents
+# Read-only scientific inputs: all corpus/model pins and populations come from these.
+official_config: configs/official_v6.yaml
+published_results: results/official_v6/results.json
+published_results_sha256: 236081e0c721602c742b573e3dfd06a556f9448ddaab299f10007788de51a7c0
+release_manifest: reproducibility/ARTIFACT_MANIFEST.json
+artifact_dir: artifacts/v1-paper
+cache_dir: cache_safe_baselines_v1
+output_dir: results/safe_baselines_v1
+methods: [first_chunk, unweighted_mean, token_weighted_mean, learned_reference, learned_parent]
+seeds: [424242, 271828, 314159]
+merger_updates: 0
+# Classification follows the original fixed settings, with a separately fitted
+# classifier for every representation and scope. There is no classifier tuning.
+attack_config: configs/evaluator_attacks_v1.yaml
+attack_config_sha256: 49e7a2996e33482239819430e92426fc1e4f9ff88628dfd2ac74f6da94726800
+bootstrap:
+  reps: 2000
+  paired_seed: 22092601
+  baseline_attack_seed: 22092602
+calibration:
+  method: within_corpus_deranged_teacher_pairings
+  permutations: 100
+  seed: 22092603
+inference:
+  batch_size: 64
+  dtype: float32
+  allow_tf32: false
+  cpu_threads: 4
+preparation:
+  # Safe-only regeneration, one document at a time. Targets use the identical
+  # masked-mean teacher interface, not the model-card first-token interface.
+  leaf_batch_size: 4
+  target_batch_size: 1
+  teacher_load_dtype: model_default_as_in_original_protocol
+  teacher_parameter_dtype: float16
+  embedding_storage_dtype: float32
+timing:
+  warmup_passes: 3
+  measured_passes: 20
+  boundary: device_resident_leaves_to_device_resident_parent
+  reference_path: full_forward_diagnostic_extraction
+published_comparison_tolerance:
+  mean_teacher_cosine_absolute: 0.00001
+  strongest_auc_absolute: 0.0005
+# Tolerance failures are disclosed, not used to discard or select results.
+report_all_outcomes: true

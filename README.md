@@ -2,11 +2,11 @@
 
 Publication repository for **One Vector from Many: Hierarchical Long-Document Representation through Recursive Geodesic Transformer Composition**, by **Mihnea-Teodor Stoica**.
 
-This snapshot contains the final `clean-v6` K=4 strict-autoencoder implementation, the `official-v6` protocol and frozen results, publication figures, and reproducibility records. The scientific experiment lineage remains `clean-v6`/`official-v6`; `v1-paper` names the repository publication snapshot and release.
+This repository contains the final `clean-v6` K=4 strict-autoencoder implementation, the `official-v6` protocol and frozen results, publication figures, and additive reviewer-response controls. The scientific experiment lineage remains `clean-v6`/`official-v6`; `v1-paper` is the original immutable artifact release, and `v2-paper-review` is the reviewed paper and additional-control release. No new study replaces the historical results.
 
 ## Paper
 
-The [LaTeX manuscript](paper/main.tex), [bibliography](paper/references.bib), and bundled figures are in [`paper/`](paper/). See the [paper README](paper/README.md) for build instructions and import provenance.
+The [LaTeX manuscript](paper/main.tex), [bibliography](paper/references.bib), and bundled figures are in [`paper/`](paper/). See the [paper README](paper/README.md) for build instructions and import provenance. The [evidence/limitations map](paper/REVIEW_EVIDENCE_MAP.md) separates historical results, additive controls, downstream tasks, model-training interventions, and what remains unknown.
 
 ## Final system
 
@@ -62,6 +62,14 @@ reproducibility/                 provenance, release manifest, hashes, and valid
 ```
 
 The model, decoder, spherical operations, and recursive reduction remain together in `architecture.py` because that is the architecture used by the experiments.
+
+## Review-control release (v2-paper-review)
+
+The additive frozen-model controls include 24-permutation input-order tests, all five ordered binary trees and resegmentation, three matched TRAIN-only probe families, a four-task pinned full-corpus LongEmbed retrieval study, and a *new*, separately trained attached-versus-detached decoder-parent gradient-path intervention. They **do not** recreate the historical continuation or provide a from-scratch lineage. In LongEmbed, recursive minus weighted-pooling nDCG@10 is +0.01250 / −0.01995 / −0.02700 / −0.00448 (2WikiMQA / QMSum / SummScreenFD / NarrativeQA); there is no across-task improvement. The documented CLS interface is evaluated with matching CLS queries and documents, not silently mixed with mean-pooled inputs. See [study setup and recoveries](reproducibility/protocols/review_completion_v1/README.md), [independent validation](reproducibility/protocols/review_completion_v1/VALIDATION.md), and [the separate new-artifact manifest](reproducibility/REVIEW_RELEASE_MANIFEST.json).
+
+The new release carries the reviewed PDF and the **newly trained** model/probe weights; the historical `v1-paper` checkpoints and probes stay in their own release. New evaluation scores, provenance, audit checks, and immutable checksums are tracked as JSON in the repository. Large derived embedding vectors, training caches, and source-corpus text are **not** release assets: the results identify their SHA-256 identities, and the scripts regenerate them with pinned data/model revisions. This is not a claim of byte-identical historical embeddings. For downloaded review-release assets use `scripts/materialize_review_release.py --verify-only <asset-directory>` or `--mode hardlink` to place only missing weight files at their recorded paths. The release's `REVIEW_RELEASE_ASSETS.sha256` verifies the PDF and weights.
+
+The original `v1-paper` models and probes remain required to regenerate the comparisons. On the reconstructed full environment: `python scripts/audit_review_completion.py` checks all five additional namespaces and `cd paper && SOURCE_DATE_EPOCH=1790294400 tectonic -X compile main.tex` rebuilds the manifest-hashed manuscript PDF (or use `latexmk` as described in the paper README; the validated local Tectonic binary is an ignored development artifact).
 
 ## Setup
 

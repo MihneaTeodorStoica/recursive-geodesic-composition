@@ -1,0 +1,23 @@
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\linewidth}{Yrr}
+\toprule
+Measurement & Mean & 95\% CI \\
+\midrule
+bounded: learned ordered & 0.912004 & [0.909823, 0.914221] \\
+bounded: learned gain & -0.002017 & [-0.002214, -0.001826] \\
+bounded: learned delta weighted & -0.002026 & [-0.002168, -0.001898] \\
+bounded: learned delta unweighted & -0.004286 & [-0.004788, -0.003819] \\
+unbounded: learned ordered & 0.908634 & [0.906484, 0.910754] \\
+unbounded: learned gain & -0.005387 & [-0.005772, -0.005003] \\
+unbounded: learned delta weighted & 0.000523 & [0.000392, 0.000649] \\
+unbounded: learned delta unweighted & -0.001948 & [-0.002444, -0.001506] \\
+direct: learned ordered & 0.764288 & [0.761099, 0.767398] \\
+direct: learned gain & -0.149733 & [-0.152645, -0.146860] \\
+direct: learned delta weighted & -0.000684 & [-0.000971, -0.000395] \\
+direct: learned delta unweighted & -0.004056 & [-0.004644, -0.003466] \\
+\bottomrule
+\end{tabularx}
+\caption{All probes are new TRAIN-only fits with equal budgets and schedules. Bounded and unbounded residual probes share zero-last-layer initialization; the non-residual direct MLP starts at TRAIN slot centroids. Scores average three merger checkpoints and three probe initializations within each document; pooling fits are reused across checkpoint pairings. Intervals condition on these fits, not hypothetical training seeds. No validation or test selection is performed.}
+\label{tab:probe-families}
+\end{table}

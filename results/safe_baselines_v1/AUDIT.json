@@ -1,0 +1,21 @@
+{
+  "audit_implementation_sha256": "72678e5a2f26a51ab26b138bd768facd1b10d270d7cd83dce73f4539dea22638",
+  "checks": {
+    "analysis_source_and_artifact_hashes_verified": true,
+    "classifier_aucs_recomputed_from_saved_predictions": true,
+    "classifier_splits_match_original_and_keep_pairs": true,
+    "cosines_independently_recomputed_in_torch_float64": true,
+    "final_checkpoints_and_official_results_unchanged": true,
+    "input_targets_match_cache": true,
+    "paired_means_and_intervals_recomputed": true,
+    "per_document_contrasts_verified": true,
+    "regenerated_population_matches_published_identity": true,
+    "three_checkpoint_auc_aggregation_verified": true
+  },
+  "classifier_scopes": 45,
+  "documents": 4000,
+  "note": "This audit does not refit classifiers or resample their AUC intervals. It verifies AUC points, pairing, family choices and aggregation; fidelity intervals are fully recomputed.",
+  "passed": true,
+  "representations": 9,
+  "results_sha256": "b1734a0733826c2a00f838be5beaf3d74935bdcfd21b0e03d6867826cddba557"
+}

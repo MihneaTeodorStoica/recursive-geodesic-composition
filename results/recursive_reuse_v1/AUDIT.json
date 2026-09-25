@@ -1,0 +1,35 @@
+{
+  "audit_implementation_sha256": "f406445c206717925cd1140416bb2ba74d85c6573146663df5244b283d2b913b",
+  "checkpoints": 3,
+  "checks": {
+    "all_nodes_preserve_order_and_exact_token_counts": true,
+    "checkpoint_hashes_unchanged": true,
+    "exact_four_population_and_target_identity": true,
+    "full_population_histograms_match_all_original_seeds": true,
+    "independent_double_precision_scores_recomputed": true,
+    "independent_tree_packing_replayed_for_every_document_and_checkpoint": true,
+    "original_and_improvement_one_results_unchanged": true,
+    "paired_contrasts_and_intervals_recomputed": true
+  },
+  "documents": 606,
+  "independent_replay_batch_size": 17,
+  "independent_replay_max_abs_differences": {
+    "271828": {
+      "direct": 5.960464477539063e-08,
+      "intermediate": 5.960464477539063e-08,
+      "recursive": 5.960464477539063e-08
+    },
+    "314159": {
+      "direct": 5.960464477539063e-08,
+      "intermediate": 7.450580596923828e-08,
+      "recursive": 5.960464477539063e-08
+    },
+    "424242": {
+      "direct": 8.940696716308594e-08,
+      "intermediate": 5.960464477539063e-08,
+      "recursive": 7.450580596923828e-08
+    }
+  },
+  "passed": true,
+  "results_sha256": "3aa555d2073bc1b26f2d4f74fe65f83ec493be9b4fda034b62278c27ba305e5d"
+}

@@ -1,0 +1,23 @@
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\linewidth}{Yrr}
+\toprule
+Measurement & Mean & 95\% CI \\
+\midrule
+actual masses, decoder: identity gap & 0.000001 & [0.000001, 0.000001] \\
+actual masses, decoder: following gap & -0.000000 & [-0.000000, -0.000000] \\
+actual masses, decoder: fixed parent gap & 0.000000 & [-0.000000, 0.000000] \\
+actual masses, probe: identity gap & 0.000908 & [0.000715, 0.001105] \\
+actual masses, probe: following gap & -0.000004 & [-0.000005, -0.000004] \\
+actual masses, probe: fixed parent gap & -0.000000 & [-0.000000, 0.000000] \\
+equal masses, decoder: identity gap & 0.000001 & [0.000001, 0.000001] \\
+equal masses, decoder: following gap & -0.000000 & [-0.000000, -0.000000] \\
+equal masses, decoder: fixed parent gap & 0.000000 & [-0.000000, 0.000000] \\
+equal masses, probe: identity gap & 0.000868 & [0.000670, 0.001071] \\
+equal masses, probe: following gap & -0.000005 & [-0.000005, -0.000004] \\
+equal masses, probe: fixed parent gap & 0.000000 & [-0.000000, 0.000000] \\
+\bottomrule
+\end{tabularx}
+\caption{All 24 input permutations on 606 prefixes; counts travel with leaves or are set equal. Following gap averages ordered-minus-all-target-assignment cosine after recomputing each parent. The fixed-parent control changes only scoring and must average to zero. No reordered-text teacher target is constructed. Intervals pair documents across checkpoints.}
+\label{tab:input-order}
+\end{table}

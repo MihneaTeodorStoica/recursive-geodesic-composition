@@ -1,0 +1,14 @@
+{
+  "reason": "Legacy FP16 masked-mean summation overflowed on 2 of 300 2Wiki context embeddings before any retrieval score was computed. Encoder hidden states were finite; FP32 summation was finite.",
+  "diagnosis_examples": {
+    "doc_25_max_abs_sum": 68067.625,
+    "doc_97_max_abs_sum": 66838.03125,
+    "fp16_finite_max": 65504
+  },
+  "repair": "Use FP32 masked-mean accumulation uniformly for ALL benchmark leaves, queries, and context references. Keep FP16 backbone weights, dataset/task choices, text, selection, limits, merger weights and metrics unchanged.",
+  "no_documents_dropped": true,
+  "no_retrieval_scores_available_before_repair": true,
+  "historical_encoder_implementation_and_all_prior_results_unchanged": true,
+  "failed_evaluator_sha256": "283180e037ddc92c3c0e9b622c9c73bb90aaec197a5d389de5da0679a2ee5aa8",
+  "recovered_evaluator_sha256": "1cb93e253f45213be6a6618cf48ca6852a441a35f50d3185e317467415780edb"
+}

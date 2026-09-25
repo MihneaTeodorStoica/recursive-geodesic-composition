@@ -1,0 +1,33 @@
+{
+  "audit_implementation_sha256": "12c69d4756f363c26e6e9c4ef0a8b959a90f02df25a022ee68d388006ef32ff3",
+  "checkpoints": 3,
+  "checks": {
+    "all_auc_intervals_recomputed": true,
+    "all_previous_inputs_outputs_unchanged": true,
+    "double_precision_cosines_and_paired_intervals_verified": true,
+    "same_document_classifier_splits_and_frozen_family_choices": true,
+    "source_final_lineage_and_probe_metadata_matched": true,
+    "source_parents_and_probes_independently_replayed": true,
+    "weighted_auc_independently_checked_with_sklearn": true
+  },
+  "independent_auc_max_absolute_error": 1.1102230246251565e-16,
+  "independent_auc_resamples_per_bundle": 32,
+  "independent_replay_max_abs_differences": {
+    "271828": {
+      "source_parent": 5.960464477539063e-08,
+      "source_probe": 5.960464477539063e-08
+    },
+    "314159": {
+      "source_parent": 5.960464477539063e-08,
+      "source_probe": 5.960464477539063e-08
+    },
+    "424242": {
+      "source_parent": 5.960464477539063e-08,
+      "source_probe": 5.960464477539063e-08
+    }
+  },
+  "passed": true,
+  "probe_documents": 606,
+  "results_sha256": "5088db03712fb902ffeea55ded39db555e359ccc2962df33b3b144276e443194",
+  "safe_documents": 4000
+}

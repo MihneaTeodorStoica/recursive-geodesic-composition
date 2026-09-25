@@ -1,0 +1,70 @@
+{
+  "batch_size": 17,
+  "completed_unix": 1790099070.7613375,
+  "implementation_sha256": "67d903765eb1a23dc46aa109ce9739e44d3c4defbb27eb389221f2aaa4232aba",
+  "inference_manifest_sha256": "b4c909e1539f0f8b6cc8cc468b9b10d644ba5d50d9015b1d785a8bb88eee91d2",
+  "maximum_absolute_checkpoint_mean_document_delta_shift": 4.300723110972626e-09,
+  "motivation": "observed teacher contrast below 1e-6",
+  "not_a_new_primary_analysis": true,
+  "outcomes": {
+    "271828": {
+      "delta": {
+        "maximum_absolute_document_shift": 1.0200164823892521e-08,
+        "mean_shift": 1.3199093235050086e-11
+      },
+      "final": {
+        "maximum_absolute_document_score_shift": 6.560249565801257e-09,
+        "maximum_absolute_vector_error": 8.940696716308594e-08,
+        "mean_score_shift": 4.931898028859294e-12
+      },
+      "source": {
+        "maximum_absolute_document_score_shift": 8.966543396660143e-09,
+        "maximum_absolute_vector_error": 5.960464477539063e-08,
+        "mean_score_shift": -8.267195206190792e-12
+      }
+    },
+    "314159": {
+      "delta": {
+        "maximum_absolute_document_shift": 1.4181019469816647e-08,
+        "mean_shift": 3.74381786960587e-11
+      },
+      "final": {
+        "maximum_absolute_document_score_shift": 9.076358775672588e-09,
+        "maximum_absolute_vector_error": 5.960464477539063e-08,
+        "mean_score_shift": 1.8329498446822967e-11
+      },
+      "source": {
+        "maximum_absolute_document_score_shift": 7.007745717046987e-09,
+        "maximum_absolute_vector_error": 5.960464477539063e-08,
+        "mean_score_shift": -1.9108680249235732e-11
+      }
+    },
+    "424242": {
+      "delta": {
+        "maximum_absolute_document_shift": 1.0148701545809047e-08,
+        "mean_shift": -2.828732081905372e-12
+      },
+      "final": {
+        "maximum_absolute_document_score_shift": 1.1086471185528524e-08,
+        "maximum_absolute_vector_error": 8.940696716308594e-08,
+        "mean_score_shift": -2.1426756813269776e-11
+      },
+      "source": {
+        "maximum_absolute_document_score_shift": 6.302185107109892e-09,
+        "maximum_absolute_vector_error": 5.960464477539063e-08,
+        "mean_score_shift": -1.8598024731364404e-11
+      }
+    }
+  },
+  "packing": "document_order_mixed_arity",
+  "results_sha256": "5088db03712fb902ffeea55ded39db555e359ccc2962df33b3b144276e443194",
+  "retain_all_shifts_without_result_substitution": true,
+  "role": "supplementary_post_result_numerical_validation",
+  "seeds": [
+    424242,
+    271828,
+    314159
+  ],
+  "started_unix": 1790099060.9247444,
+  "three_seed_mean_delta_shift": 1.593617994973447e-11
+}
