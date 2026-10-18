@@ -65,7 +65,11 @@
 Long documents often yield several chunk embeddings when a downstream system
 requires a single vector. We learn a shared four-way geodesic Transformer that
 recursively merges ordered chunk embeddings from a frozen encoder, preserving
-exact token counts and unit-normalized outputs. The central question is whether
+exact token counts and unit-normalized outputs. Each merge starts from a
+token-weighted spherical reference, adjusts the weights through learned
+salience, and applies a bounded correction. The parent has the same form as
+its children, allowing the same merger to be reused at successive levels.
+The central question is whether
 learned composition improves on token-weighted pooling. On 4,000 prefixes of
 1,025--4,096 tokens, mean cosine similarity to the directly encoded teacher
 representation is \(0.9850\), compared with \(0.9829\) for weighted pooling,
@@ -2235,9 +2239,14 @@ role, seed, size, and SHA-256; the TRAIN and official caches are not release
 assets and must be regenerated from the pinned inputs. The official result
 file is retained unchanged at \texttt{results/official\_v6/results.json}, with
 SHA-256 \nolinkurl{236081e0c721602c742b573e3dfd06a556f9448ddaab299f10007788de51a7c0}.
+\ifdefined\papreprint
 The implementation is versioned at repository commit
-\nolinkurl{c812808beaa01e7a0052ae5fe6a49fff8c1cc97d}; all reported official
-metrics refer to the frozen artifacts rather than a new numerical evaluation.
+\nolinkurl{c812808beaa01e7a0052ae5fe6a49fff8c1cc97d}.
+\else
+The identifying implementation commit is omitted for double-blind review.
+\fi
+All reported official metrics refer to the frozen artifacts rather than a
+new numerical evaluation.
 
 The official result records Python 3.12.14, PyTorch 2.13.0+cu130, NumPy 2.5.1,
 and CUDA execution on Linux. A GPU model and complete historical training
@@ -2338,6 +2347,10 @@ embeddings or scores; the documented correction retained the original loader,
 not a new teacher representation.
 
 \begin{table}[H]
+\caption{Recomputed learned-parent results for each frozen checkpoint on the
+same regenerated safe inputs. The token-weighted baseline has teacher cosine
+0.982938 and source-detection AUC 0.833522.}
+\label{tab:safe-baselines-per-seed}
 \centering\small
 \begin{tabularx}{\linewidth}{r r r C r}
 \toprule
@@ -2348,10 +2361,6 @@ Seed & Parent cosine & Gain over weighted & Paired 95\% CI & $A_{\mathrm{safe}}$
 314159 & 0.985053 & +0.002114 & $[0.002028,0.002200]$ & 0.587768 \\
 \bottomrule
 \end{tabularx}
-\caption{Recomputed learned-parent results for each frozen checkpoint on the
-same regenerated safe inputs. The token-weighted baseline has teacher cosine
-0.982938 and source-detection AUC 0.833522.}
-\label{tab:safe-baselines-per-seed}
 \end{table}
 
 Every pooled recomputed learned result is within the declared diagnostic
@@ -2403,6 +2412,12 @@ training-seed population. All checkpoint and preceding-result hashes remain
 unchanged.
 
 \begin{table}[H]
+\caption{Teacher fidelity for each frozen checkpoint on the same 606 prefixes.
+Here $\Delta$ is recursive minus direct; maximum loss is the largest
+per-document direct-minus-recursive difference. The final row averages scores
+within each document before summarizing and does not bound individual-checkpoint
+losses.}
+\label{tab:recursive-reuse-seeds}
 \centering\small
 \begin{tabularx}{\linewidth}{r r r C r}
 \toprule
@@ -2415,12 +2430,6 @@ Seed & Direct & Recursive & $\Delta$ [95\% CI] & Max.\ loss \\
 Mean & 0.977576 & 0.977114 & $-0.000461\;[-0.000537,-0.000390]$ & 0.004847 \\
 \bottomrule
 \end{tabularx}
-\caption{Teacher fidelity for each frozen checkpoint on the same 606 prefixes.
-Here $\Delta$ is recursive minus direct; maximum loss is the largest
-per-document direct-minus-recursive difference. The final row averages scores
-within each document before summarizing and does not bound individual-checkpoint
-losses.}
-\label{tab:recursive-reuse-seeds}
 \end{table}
 
 Full-document counts are derived from the existing token metadata, with
@@ -2607,11 +2616,20 @@ checkpoint SHA-256
 All three probes use only the parent representation, the same architecture,
 tensor-identical initialization, and the same 400-update TRAIN-only minibatch
 schedule. The evaluation population is the published official-v6 safe
-exact-K4 subset. The experiment was committed as
-\nolinkurl{6a745526abe09dc61538b59f16ea491af9ea437e}; all 16 audit checks passed,
-and neither the clean-v6 checkpoint nor prior official artifacts was modified.
+exact-K4 subset.
+\ifdefined\papreprint
+The experiment was committed as
+\nolinkurl{6a745526abe09dc61538b59f16ea491af9ea437e}.
+\else
+The identifying experiment commit is omitted for double-blind review.
+\fi
+All 16 audit checks passed, and neither the clean-v6 checkpoint nor prior
+official artifacts was modified.
 
 \begin{table}[H]
+\caption{Per-corpus mean ordered-child cosine for the matched exact-K4
+parent-only probes.}
+\label{tab:k4-pooling-corpus}
 \centering
 \small
 \begin{tabular}{l r c c c}
@@ -2625,9 +2643,6 @@ OpenWebText & 142 & 0.909281 & 0.911209 & 0.913877 \\
 Wikipedia & 183 & 0.914911 & 0.916708 & 0.918315 \\
 \bottomrule
 \end{tabular}
-\caption{Per-corpus mean ordered-child cosine for the matched exact-K4
-parent-only probes.}
-\label{tab:k4-pooling-corpus}
 \end{table}
 
 Machine-readable results, document-level scores, audit output, probe manifests,
