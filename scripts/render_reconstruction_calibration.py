@@ -21,7 +21,7 @@ def render(config_path):
              "606 identity-matched exact-four safe prefixes; all three frozen final checkpoints, their built-in decoders, and the released candidate TRAIN-fitted probes. No new training or teacher encoding. Parents and children are reused from the preceding matched analyses.", "",
              "| Prediction rule | Ordered child cosine | Difference vs learned-parent copy | All-24 shuffled cosine | Ordered minus shuffled |",
              "| --- | ---: | ---: | ---: | ---: |"]
-    tex = [r"% Generated from RESULTS.json; checkpoint scores averaged within documents.", r"\begin{table}[H]", r"\centering\small",
+    tex = [r"% Generated from RESULTS.json; checkpoint scores averaged within documents.", r"\begin{table}[H]", r"\caption{Matched reconstruction calibration on 606 four-child prefixes. Learned rows average checkpoint scores, not vectors. Copy rows repeat one unit parent in all four output slots. $\Delta$ compares each row with learned-parent copy; only the decoder/probe rows isolate a decoding gain for that same parent. Shuffled scoring averages all 24 within-document target permutations, holding inputs and predictions fixed. Order gap is ordered minus shuffled cosine.}", r"\label{tab:reconstruction-calibration}", r"\centering\small",
            r"\begin{tabularx}{\linewidth}{Yrrrr}", r"\toprule",
            r"Prediction rule & Child cosine & $\Delta$ vs copy & Shuffled & Order gap \\", r"\midrule"]
     for method in cfg["methods"]:
@@ -31,8 +31,7 @@ def render(config_path):
         lines.append(f"| {LABELS[method]} | {ordered:.9f} | {gain:+.9f} | {shuffled:.9f} | {gap:+.9f} |")
         tex.append(f"{LABELS[method]} & {ordered:.6f} & {gain:+.6f} & {shuffled:.6f} & {gap:+.8f} " + r"\\")
     tex += [r"\bottomrule", r"\end{tabularx}",
-            r"\caption{Matched reconstruction calibration on 606 four-child prefixes. Learned rows average checkpoint scores, not vectors. Copy rows repeat one unit parent in all four output slots. $\Delta$ compares each row with learned-parent copy; only the decoder/probe rows isolate a decoding gain for that same parent. Shuffled scoring averages all 24 within-document target permutations, holding inputs and predictions fixed. Order gap is ordered minus shuffled cosine.}",
-            r"\label{tab:reconstruction-calibration}", r"\end{table}"]
+            r"\end{table}"]
     (root / "reconstruction_calibration_table.tex").write_text("\n".join(tex) + "\n")
     lines += ["", "## Paired reconstruction contrasts", "", "| Contrast | Mean | Conditional paired 95% CI | Fraction positive |", "| --- | ---: | --- | ---: |"]
     for name, cell in pooled["contrasts"].items():
