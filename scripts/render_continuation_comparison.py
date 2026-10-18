@@ -31,14 +31,13 @@ def render(path):
     lines = ["# Matched source-versus-final continuation comparison", "",
              "The released initialization-source merger versus its fixed step-400 clean-v6 final checkpoint, across all three lineage-matched pairs. This evaluates the continuation bundle as a whole, not a decoder-objective ablation or training from scratch.", "",
              "| Metric (documents) | Source | Final | Final minus source [paired 95% CI] |", "| --- | ---: | ---: | --- |"]
-    tex = [r"% Generated from fixed RESULTS.json; document-paired intervals.", r"\begin{table}[H]", r"\centering\footnotesize",
+    tex = [r"% Generated from fixed RESULTS.json; document-paired intervals.", r"\begin{table}[H]", r"\caption{Matched continuation comparison on regenerated teacher-comparable prefixes. Teacher cosine uses all 4,000 documents; pooled source AUC uses the same 2,000 held-out document pairs at each stage. Reconstruction uses the same 606 exact-four prefixes and each stage's separately fitted, released TRAIN probe. Gain subtracts copying that stage's own parent; order gap subtracts the mean over all 24 target assignments. Lower AUC is preferred; higher cosine/gain is preferred. Intervals condition on the fixed checkpoints, probes and selected classifiers.}", r"\label{tab:continuation-comparison}", r"\centering\footnotesize",
            r"\begin{tabularx}{\linewidth}{Yrrr}", r"\toprule", r"Metric (documents) & Source & Final & Final $-$ source [95\% CI] \\", r"\midrule"]
     for label, src, fin, delta in cells:
         lines.append(f"| {label} | {src['mean']:.9f} | {fin['mean']:.9f} | {interval(delta)} |")
         tex.append(f"{label} & {src['mean']:.6f} & {fin['mean']:.6f} & {delta['mean']:+.6f} [{delta['ci95'][0]:+.6f}, {delta['ci95'][1]:+.6f}] " + r"\\")
     tex += [r"\bottomrule", r"\end{tabularx}",
-            r"\caption{Matched continuation comparison on regenerated safe prefixes. Teacher cosine uses all 4,000 documents; pooled source AUC uses the same 2,000 held-out document pairs at each stage. Reconstruction uses the same 606 exact-four prefixes and each stage's separately fitted, released TRAIN probe. Gain subtracts copying that stage's own parent; order gap subtracts the mean over all 24 target assignments. Lower AUC is preferred; higher cosine/gain is preferred. Intervals condition on the fixed checkpoints, probes and selected classifiers.}",
-            r"\label{tab:continuation-comparison}", r"\end{table}"]
+            r"\end{table}"]
     (root / "continuation_comparison_table.tex").write_text("\n".join(tex) + "\n")
     lines += ["", "## Parent-vector diagnostics", "",
               f"- Source/final parent agreement: {interval(t['output_agreement'])}.",

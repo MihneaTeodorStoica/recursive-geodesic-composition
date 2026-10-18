@@ -1,13 +1,9 @@
-\documentclass[10pt,a4paper]{article}
-
-% ---------- Page layout ----------
-\usepackage[
-    a4paper,
-    top=1.9cm,
-    bottom=2.0cm,
-    left=2.5cm,
-    right=2.5cm
-]{geometry}
+\documentclass[10pt]{article}
+\ifdefined\papreprint
+\usepackage[preprint]{tmlr}
+\else
+\usepackage{tmlr}
+\fi
 
 % ---------- Mathematics ----------
 \usepackage{amsmath}
@@ -36,7 +32,7 @@
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
   pdftitle={One Vector from Many: Hierarchical Long-Document Representation through Recursive Geodesic Transformer Composition},
-  pdfauthor={Mihnea-Teodor Stoica},
+  pdfauthor={},
   pdfsubject={Recursive composition of frozen text representations; clean-v6 study}
 }
 \usepackage[
@@ -45,23 +41,9 @@
     labelsep=colon
 ]{caption}
 
-% Slightly tighter, paper-like vertical spacing
-\setlength{\parindent}{1.25em}
-\setlength{\parskip}{0pt}
-
-\setlength{\abovedisplayskip}{7pt plus 2pt minus 2pt}
-\setlength{\belowdisplayskip}{7pt plus 2pt minus 2pt}
-\setlength{\abovedisplayshortskip}{5pt plus 2pt}
-\setlength{\belowdisplayshortskip}{5pt plus 2pt minus 2pt}
-
-\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
-\setlength{\intextsep}{9pt plus 2pt minus 2pt}
-\setlength{\abovecaptionskip}{5pt}
-\setlength{\belowcaptionskip}{0pt}
 
 % Helps avoid ugly line overflow without globally using \sloppy
 \emergencystretch=1.5em
-\linespread{1.03}
 
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
@@ -69,8 +51,8 @@
 \title{One Vector from Many: Hierarchical Long-Document Representation through Recursive Geodesic Transformer Composition}
 
 \author{
-Mihnea-Teodor Stoica\\
-International Computer High School of Bucharest\\
+\name Mihnea-Teodor Stoica\\
+\addr International Computer High School of Bucharest
 }
 
 \date{September 2026}
@@ -80,41 +62,24 @@ International Computer High School of Bucharest\\
 \maketitle
 
 \begin{abstract}
-Long documents often yield multiple chunk embeddings even when a downstream
-system requires one document vector. We study a shared four-way geodesic
-Transformer that recursively composes ordered chunk embeddings while
-preserving exact token counts. Its outputs remain unit-normalized in the
-768-dimensional space of a frozen masked-mean-pooled GTE-ModernBERT backbone;
-this representation procedure differs from the model's documented first-token
-interface. A parent-only decoder supplies auxiliary reconstruction objectives.
-A post-review matched analysis uses regenerated embeddings for the same 4,000
-previously evaluated prefixes of 1,025--4,096 tokens. Across three final
-checkpoints, teacher cosine is \(0.9850\), versus \(0.9829\) for token-weighted
-pooling and \(0.9569\) for unweighted pooling. The paired gain over weighted
-pooling is \(0.002107\), with a conditional 95\% interval of
-\([0.002021,0.002194]\). Strongest orientation-safe source-detection AUC is
-\(0.5843\), versus \(0.8335\) for weighted pooling, but measured batched
-composition is approximately \(110\times\) more costly. On 606 four-child
-prefixes, a tree/arity stress test finds a small teacher-cosine loss of
-\(0.000461\) under binary recursive reuse, while retaining an advantage over
-flat pooling. Original full-document evaluation reaches 58,731 tokens and
-depth 3 without triggered numerical-health alarms, but only 81 of 4,000 documents
-exceed the backbone's documented 8,192-token context. Reconstruction calibration
-shows that the built-in decoder adds only \(0.001043\) child cosine over copying
-its parent, with negligible order advantage; the frozen probe performs worse
-than copying. A matched source--final comparison finds that almost all of the
-safe-arm advantage over pooling predates the final continuation stage.
-Further controls show that child-order sensitivity is largely positional,
-segmentation changes can exceed tree changes, and reconstruction rankings
-vary with the newly fitted decoder family. Across four fixed LongEmbed
-retrieval tasks, recursive document vectors exceed weighted pooling on one
-task but underperform it on three; the separate CLS-interface prefix reference
-is substantially stronger on all four. A newly trained gradient-path
-intervention slightly reduces teacher fidelity and raw child cosine while
-changing several other diagnostics. These findings
-establish a narrow short-prefix teacher-fidelity benefit, not a general
-long-document utility or lossless-recovery claim.
-
+Long documents often yield several chunk embeddings when a downstream system
+requires a single vector. We learn a shared four-way geodesic Transformer that
+recursively merges ordered chunk embeddings from a frozen encoder, preserving
+exact token counts and unit-normalized outputs. Each merge starts from a
+token-weighted spherical reference, adjusts the weights through learned
+salience, and applies a bounded correction. The parent has the same form as
+its children, allowing the same merger to be reused at successive levels.
+The central question is whether
+learned composition improves on token-weighted pooling. On 4,000 prefixes of
+1,025--4,096 tokens, mean cosine similarity to the directly encoded teacher
+representation is \(0.9850\), compared with \(0.9829\) for weighted pooling,
+across three checkpoints. This modest fidelity gain costs approximately
+\(110\times\) as much in measured batched composition. The result applies
+to a masked-mean-pooled GTE-ModernBERT teacher and short prefixes, not to
+unrestricted document roots. Supporting retrieval experiments do not show a
+consistent advantage over pooling. Recursive composition therefore offers a
+narrow teacher-fidelity improvement, while broader long-document usefulness
+remains unestablished.
 \end{abstract}
 
 \section{Introduction}
@@ -123,42 +88,35 @@ Text embedding encoders produce a fixed-dimensional vector representing their in
 
 The simplest approach is to pool or average the chunk embeddings into one vector. Pooling uses a fixed rule rather than learning content-dependent interactions between adjacent chunks. Whether a learned alternative improves on this simple baseline is an empirical question. This work instead considers a composition procedure in which embeddings can be merged progressively into a single document representation. Existing long-context and hierarchical approaches provide relevant context \cite{beltagy-etal-2020-longformer,zaheer-etal-2020-bigbird,zhang-etal-2019-hibert,wu-etal-2021-hi}, but the problem considered here begins with chunk embeddings already produced by a frozen encoder.
 
-The proposed method learns to combine an ordered group of two to four input embeddings into a single parent embedding of the same dimensionality. Because the parent has the same form and dimensionality as its inputs, it can itself be used as an input to a subsequent composition, allowing repeated applications of the same operation to progressively reduce the sequence to one document-level embedding. Each composition begins from a normalized weighted combination of the input embeddings on the unit sphere, with the weighting determined from their relative token counts and learned salience corrections. This yields a geometry-aware reference representation that, together with the contextualized child states, is used to predict a correction. During training, the frozen teacher encoder provides target representations for compositions whose corresponding combined text can be encoded directly, and the learned parent is trained to approximate those teacher embeddings.
+The merger combines two to four ordered chunk embeddings into one parent of
+the same dimension. That parent can be merged again, so one shared operation
+reduces an entire sequence to a document vector. Each merge starts from a
+weighted combination on the unit sphere, using token counts and learned
+salience, then predicts a bounded correction. During training, directly
+encoded spans provide teacher targets whenever they fit the teacher context.
 
-The evaluation asks what learned composition preserves beyond simple pooling:
-how closely composed representations match direct teacher representations,
-how a teacher-valid change of reduction tree affects that fidelity, and what
-constituent information can be recovered under specified decoders. Teacher-comparable
-prefixes and complete documents are evaluated separately, because a direct
-teacher target is not constructed for unrestricted roots. A post-review matched
-comparison evaluates pooling, the learned reference, and the final parent under
-the same teacher-fidelity and source-detection protocol. A second matched
-analysis compares direct and binary-recursive composition of the same four
-leaves against the same teacher target. Reconstruction calibration adds
-parent-copy baselines and exact within-document target-slot permutations to
-the existing local reconstruction and pooling comparisons. A lineage-matched
-source-versus-final comparison quantifies changes during the final continuation
-stage without attributing them to any single objective. Additional matched
-input-permutation, ordered-tree, resegmentation, and newly fitted probe-family
-controls test the generality of those findings. Four pinned full-corpus
-LongEmbed retrieval tasks evaluate document vectors against pooling and
-interface-matched teacher references. A new TRAIN-only attached-versus-detached
-decoder-parent gradient intervention studies one gradient path, not the
-historical training objective. Architecture studies
-provide system-level comparisons rather than controlled estimates of individual
-design choices.
+Our main question is whether learning to combine frozen chunk embeddings
+improves fidelity to a directly encoded teacher representation enough to
+justify its cost. We answer it on prefixes that fit within the teacher's
+context, comparing the learned merger with token-weighted pooling on the
+same texts. The main finding is a small fidelity gain at substantially higher
+composition cost.
 
-The contributions are a shared bounded-arity merger with exact token-mass
-propagation and a bounded spherical correction; a strict parent-only decoder
-with staged reconstruction and cycle objectives; and an evaluation that
-separates paired teacher fidelity, representation-source detectability,
-local reconstruction, and full-document execution. The numerical unit-sphere
-constraint ensures representational form, not membership in the distribution
-of natural teacher embeddings. The matched safe-arm comparison favors learning
-for teacher fidelity and source detectability, at higher composition cost;
-the reconstruction comparison favors pooling. Neither establishes a downstream
-advantage for learned composition. In the new fixed-corpus retrieval tests,
-that advantage holds over weighted pooling on only one of four tasks.
+Supporting experiments ask where this result holds and what it means. We
+change the reduction tree and chunk boundaries, test what decoders can recover
+from a parent, and compare checkpoints before and after the final training
+stage. Complete-document runs assess execution beyond the prefix protocol,
+and four fixed LongEmbed retrieval tasks test downstream utility. These
+experiments have distinct roles: robustness and reconstruction checks help
+interpret the fidelity result; retrieval tests whether it translates into
+useful document vectors.
+
+The contributions are a shared bounded-arity merger with exact token-count
+propagation and a bounded spherical correction; a parent-only decoder used
+for auxiliary training; and an evaluation separating teacher fidelity,
+robustness, reconstruction, execution, and retrieval. The evidence favors
+learned composition for short-prefix teacher fidelity, but not consistently
+for retrieval.
 
 \section{Related Work}
 
@@ -552,7 +510,15 @@ Optimization is staged: the merger is frozen for 300 decoder-only updates and th
 \section{Experimental Setup}
 \label{sec:experimental-setup}
 
-\subsection{Teacher Encoder and Data}
+The primary comparison measures teacher fidelity and composition cost against
+simple pooling on teacher-comparable prefixes. Supporting studies assess
+recursive robustness, local reconstruction, training effects, and downstream
+retrieval. Full-document evaluation measures execution and numerical health
+without assuming a direct teacher target.
+
+\subsection{Shared Data and Training}
+
+\subsubsection{Teacher Encoder and Data}
 \label{sec:teacher-data}
 
 The frozen teacher encoder is \texttt{Alibaba-NLP/gte-modernbert-base} \cite{alibaba-nlp-gte-modernbert}, using
@@ -584,6 +550,9 @@ shown in Table~\ref{tab:datasets}. Model and dataset revisions are pinned so
 that the versions used in the experiments are explicitly identifiable.
 
 \begin{table}[t]
+\caption{Corpora used in the experiments. Revisions are abbreviated in the
+table; complete pinned revisions are in Appendix~\ref{app:reproducibility}.}
+\label{tab:datasets}
 \centering
 \small
 \begin{tabular}{lll}
@@ -616,9 +585,6 @@ Wikipedia &
 \\
 \hline
 \end{tabular}
-\caption{Corpora used in the experiments. Revisions are abbreviated in the
-table; complete pinned revisions are in Appendix~\ref{app:reproducibility}.}
-\label{tab:datasets}
 \end{table}
 
 The complete pinned dataset revisions are listed in Appendix~\ref{app:reproducibility}.
@@ -650,6 +616,8 @@ not evidence that 4,096 is an architectural limit of GTE-ModernBERT.
 Table~\ref{tab:context-limits} summarizes the three quantities.
 
 \begin{table}[tbp]
+\caption{Backbone capacity and experiment-specific teacher-target limits.}
+\label{tab:context-limits}
 \centering\small
 \begin{tabularx}{\linewidth}{l r Y}
 \toprule
@@ -660,11 +628,9 @@ Training teacher-target cap & 6,144 & Direct targets are omitted above this prot
 Official teacher-comparison cap & 4,096 & Conservative final safe-arm limit after an observed nonfinite target.\\
 \bottomrule
 \end{tabularx}
-\caption{Backbone capacity and experiment-specific teacher-target limits.}
-\label{tab:context-limits}
 \end{table}
 
-\subsection{Dataset Splits and Document Selection}
+\subsubsection{Dataset Splits and Document Selection}
 \label{sec:dataset-splits}
 
 Data roles are separated at the source-document level, with each source
@@ -679,6 +645,8 @@ clean-v6 experiment uses fresh ranges for retraining and evaluation, summarized
 in Table~\ref{tab:v6-splits}.
 
 \begin{table}[t]
+\caption{Source-document roles used by the final clean-v6 experiment.}
+\label{tab:v6-splits}
 \centering
 \small
 \begin{tabular}{llll}
@@ -706,8 +674,6 @@ Official v6 &
 Final evaluation \\
 \hline
 \end{tabular}
-\caption{Source-document roles used by the final clean-v6 experiment.}
-\label{tab:v6-splits}
 \end{table}
 
 Within the development and official ranges, documents are selected
@@ -721,10 +687,10 @@ corpora, the official evaluation consequently contains 4,000 accepted source
 documents.
 
 The final evaluation uses two arms on the same accepted documents. The
-teacher-comparable arm operates on the safe prefix, for which a finite direct
+teacher-comparable prefix arm (safe arm) operates on the prefix, for which a finite direct
 teacher representation is available. This permits direct comparison between
 the composed representation and the frozen teacher representation. The
-unrestricted arm instead processes the complete text of each accepted source
+full-document arm (full arm) instead processes the complete text of each accepted source
 document. Each complete document is divided into contiguous leaves of at most
 1,024 tokens and recursively reduced without a protocol-level token, leaf, or
 depth cap. Because a valid direct teacher representation is not assumed for
@@ -740,7 +706,7 @@ the clean-v6 roles in Table~\ref{tab:v6-splits}. Throughout this paper,
 \emph{official-v6} denotes this self-administered, predeclared evaluation, not an
 independently administered benchmark.
 
-\subsection{Training Configuration}
+\subsubsection{Training Configuration}
 \label{sec:training-configuration}
 
 The final clean-v6 models are trained using three seeds,
@@ -786,7 +752,9 @@ quantifies changes relative to these inherited representations. It does not
 isolate individual losses or reconstruct the complete earlier training budget.
 
 
-\subsection{Evaluation Protocol}
+\subsection{Primary Evaluation: Fidelity and Composition Cost}
+
+\subsubsection{Teacher-Comparable Prefixes and Full Documents}
 \label{sec:evaluation}
 
 The final evaluation uses the same 4,000 accepted source documents in two
@@ -796,7 +764,7 @@ reconstruction-probe parameters are updated on official data. This freezing
 does not apply to detectability classifiers: those are fitted on the designated
 attack-training portion and scored on a disjoint attack holdout.
 
-The safe teacher-comparable arm operates on a prefix containing two to four
+The teacher-comparable prefix arm (safe arm) operates on a prefix containing two to four
 contiguous leaves of at most 1,024 tokens each. Its total length is therefore
 between 1,025 and 4,096 tokens. The prefix is composed by one direct four-slot
 merge, with inactive trailing slots masked when fewer than four leaves are
@@ -805,7 +773,7 @@ teacher, each document yields a paired generated representation and direct
 teacher representation. This arm supports teacher-cosine, detectability, and
 direct constituent-reconstruction measurements.
 
-The unrestricted arm processes the complete text of the same accepted source
+The full-document arm (full arm) processes the complete text of the same accepted source
 documents. Each document is segmented into contiguous leaves of at most 1,024
 tokens and recursively reduced using the procedure in Section~\ref{sec:recursive-aggregation}. The
 evaluation imposes no protocol-level token, leaf-count, or recursion-depth cap
@@ -815,7 +783,7 @@ or generated-versus-teacher attack AUC is computed in this arm. Instead, it
 reports execution, numerical-health, geometry, throughput, and decoder
 reconstruction diagnostics.
 
-\subsection{Detectability and Statistical Analysis}
+\subsubsection{Detectability and Statistical Analysis}
 \label{sec:detectability}
 
 Detectability is evaluated only in the safe arm, where every source document
@@ -866,7 +834,7 @@ AUC strictly below \(0.60\), reported alongside fidelity, reconstruction, and
 numerical-health diagnostics. Meeting this project-specific threshold is not
 a claim of distributional equality or a substitute for comparison with pooling.
 
-\subsection{Semantic Fidelity, Health, and Retention}
+\subsubsection{Semantic Fidelity, Health, and Retention}
 \label{sec:retention-protocol}
 
 Semantic fidelity is measured in the safe arm by mean paired cosine similarity
@@ -884,10 +852,10 @@ semantic or downstream-task evaluation.
 Local constituent reconstruction is assessed in two ways. First, the model's strict
 decoder receives only a generated parent and predicts its ordered children.
 For exact-four-child safe examples, reconstruction is measured directly against
-the four input children. In the unrestricted arm, the same decoder is evaluated
+the four input children. In the full-document arm, the same decoder is evaluated
 at every actual merge. Only the first \(k\) active output slots are scored
 against their corresponding children; padded slots are excluded, without
-providing the mask to the decoder. Full-arm cosine is a micro-average over
+providing the mask to the decoder. Full-document child cosine is a micro-average over
 all active child occurrences, not an equal-document or equal-merge average.
 Leaf children and recursively generated children are also summarized separately.
 These are \emph{local merge-reconstruction} measurements using each actual
@@ -923,10 +891,10 @@ updated on official data. Because this targeted study evaluates one frozen
 checkpoint and one probe family, it is not a three-seed or
 architecture-independent comparison.
 
-\subsection{Matched Safe-Arm Baselines}
+\subsubsection{Matched Prefix Baselines}
 \label{sec:safe-baseline-protocol}
 
-A separate post-review analysis compares five representations on the same
+The matched fidelity-and-cost analysis compares five representations on the same
 4,000 official safe-prefix documents: the normalized first child \(x_1\),
 flat unweighted pooling \(\operatorname{normalize}(\sum_{i=1}^k x_i)\),
 flat token-weighted pooling
@@ -936,13 +904,13 @@ and normalizes the combined sum once. The reference is extracted from each
 checkpoint's actual forward pass; it depends on learned contextual states and
 salience and is a diagnostic ablation, not a non-learned baseline.
 
-The original evaluation tensors were not distributed, so inputs and direct
-teacher targets are regenerated using the pinned datasets, tokenizer, and
-unchanged masked-mean teacher procedure. Document-order hashes and prefix-token
-totals match the published population. Original tensor byte identity is not
-claimed, and every representation, including the final parent, is recomputed
-on the same regenerated inputs. No merger or decoder is retrained. This is an
-additive analysis of an already evaluated population, not a new untouched test.
+Inputs and direct teacher targets are regenerated with the pinned datasets,
+tokenizer, and masked-mean teacher procedure because the evaluation tensors
+were not distributed. Document-order hashes and prefix-token totals match the
+published population, but tensor byte identity is not claimed. All methods,
+including the final parent, use these same regenerated inputs. No merger or
+decoder is retrained. This population has already been evaluated; it is not
+an untouched test set.
 
 All three final checkpoints are evaluated; deterministic baselines are
 computed once. Paired teacher-cosine differences use 2,000 shared document
@@ -963,7 +931,9 @@ transfers, decoding, and classifier fitting are excluded. Reference extraction
 uses the same complete forward call as the final parent, not an optimized
 reference-only implementation.
 
-\subsection{Teacher-Valid Recursive-Reuse Stress Test}
+\subsection{Supporting Studies: Robustness, Recovery, and Utility}
+
+\subsubsection{Teacher-Valid Recursive-Reuse Stress Test}
 \label{sec:recursive-reuse-protocol}
 
 The 606 exact-four-child safe prefixes permit a matched comparison of one
@@ -999,7 +969,7 @@ Intervals use 2,000 shared document resamples, averaging checkpoint scores
 within each document before aggregating. Corpus counts are 148, 133, 142, and
 183 for FineWeb-Edu, FineWeb, OpenWebText, and Wikipedia, respectively; exact
 subset identities are checked against the earlier matched-reconstruction study.
-Source-detection AUC is not evaluated for this new tree.
+Source-detection AUC is not evaluated for this tree.
 
 Timing is remeasured on these same 606 inputs using the composition-only
 protocol in Section~\ref{sec:safe-baseline-protocol}. A batch of \(B\) documents
@@ -1008,10 +978,10 @@ the roots; tree packing and all three merge nodes per document are included.
 Separately, full-document token metadata supplies length and depth counts,
 verified against the original histograms, without new full-root inference.
 
-\subsection{Parent-Copy and Slot-Permutation Calibration}
+\subsubsection{Parent-Copy and Slot-Permutation Calibration}
 \label{sec:reconstruction-calibration-protocol}
 
-A third post-review analysis calibrates local reconstruction on the same 606
+The parent-copy analysis calibrates local reconstruction on the same 606
 exact-four prefixes. It uses the \emph{direct} learned parents, not the binary
 recursive roots, with all three built-in decoders and corresponding released
 candidate TRAIN-fitted probes. Parents and children are reused from the preceding
@@ -1042,7 +1012,7 @@ not alone establish document-specific order recovery.
 
 The separately fitted probes from the historical matched-pooling study are
 not release assets and are not substituted with the released candidate probes.
-Their original results remain separate. The new pooling-copy rows involve no
+Their original results remain separate. The pooling-copy rows involve no
 fitted probe. Indeed, for unit children, any shared unit prediction \(u\) satisfies
 \[
  \frac14\sum_i u^\top x_i
@@ -1053,10 +1023,10 @@ the optimal \emph{shared-vector} copy under this metric, but not an upper bound
 on distinct slot-specific predictions. Residual-geometry and numerical checks
 are detailed in Appendix~\ref{app:reconstruction-calibration}.
 
-\subsection{Matched Source-versus-Final Continuation Comparison}
+\subsubsection{Changes During the Final Training Stage}
 \label{sec:continuation-protocol}
 
-A fourth post-review analysis compares each released initialization-source
+The continuation analysis compares each released initialization-source
 merger with its lineage-matched fixed clean-v6 final checkpoint. Both endpoints
 use the same regenerated 4,000 safe prefixes and teacher targets. Final parents
 and classifier scores are reused unchanged from the matched baseline study.
@@ -1088,16 +1058,16 @@ new decoder, staged schedule and multiple losses; it is not a decoder-objective
 ablation. No merger, decoder or probe is updated and no teacher encoding is
 performed. Audit details appear in Appendix~\ref{app:continuation-comparison}.
 
-\subsection{Additional Post-Review Controls and Retrieval}
+\subsubsection{Order, Segmentation, Decoder, and Retrieval Controls}
 \label{sec:extended-review-protocol}
 
-All further experiments are additive. The same three frozen final checkpoints
-and 606 regenerated exact-four safe prefixes support the input-order, tree,
-segmentation, and probe comparisons. All 24 input permutations are evaluated
+Input-order, tree, segmentation, and probe controls use the same three frozen
+final checkpoints and 606 regenerated exact-four safe prefixes. All 24 input
+permutations are evaluated
 with either actual token masses moving with their leaves or four equal masses.
-The frozen built-in decoder and released TRAIN-fitted probe predict the
-recomputed parent for each permutation; predictions are scored against the
-correspondingly permuted children and all their target-slot permutations.
+For each permutation, the frozen built-in decoder and released TRAIN-fitted
+probe decode the recomputed parent. Predictions are scored against the
+permuted children and all their target-slot permutations.
 The following gap subtracts the mean over target-slot assignments from the
 matching assignment, averaged over the 24 input orders. An identical
 scoring-only negative control keeps the original parent fixed, and must have
@@ -1114,10 +1084,10 @@ lie below the historical training chunk-size range.
 
 The separate decoder-family study uses source indices 140,000--151,999,
 160 fit and 40 validation exact-four prefixes per corpus, excluding exact
-evaluation-prefix token hashes. A documented pre-encoding recovery reduced
-the initially requested 500/100 to 160/40 when the fixed FineWeb range had
-insufficient eligible examples; neither source range nor candidate scoring
-was selected from results. Three newly initialized probes per family are
+evaluation-prefix token hashes. The fixed FineWeb range lacked enough eligible
+examples for the requested 500/100 split, so the split was reduced to 160/40
+before encoding. Neither source range nor candidate scoring was chosen from
+results. Three independently initialized probes per family are
 trained for 400 fixed updates using TRAIN fits only: bounded and unbounded
 residual decoders with the same zero-last-layer initialization, and a direct
 MLP initialized to TRAIN-only slot centroids. They receive matched learned,
@@ -1126,7 +1096,7 @@ shared. The released historical probe and the absent matched-pooling probes
 are \emph{not} substituted for these newly fitted models. Own-parent copy
 and TRAIN-centroid controls remain separate.
 
-For downstream retrieval, the four real LongEmbed tasks
+For downstream retrieval, the four LongEmbed tasks
 \cite{zhu-etal-2024-longembed} use pinned revision
 \nolinkurl{10039a580487dacecf79db69166e17ace3ede392}, every task query
 and candidate, and no task-label fitting or method selection. Frozen
@@ -1141,24 +1111,23 @@ document ID to break ties. The query-weighted 2,000-resample intervals group
 queries in connected components of their positive-document graph while
 holding the entire candidate corpus fixed. Length strata use each query's
 longest relevant document; these conditional intervals are not simultaneous.
-The FP16 teacher's masked-mean accumulation overflowed for two long 2Wiki
-contexts before any retrieval scores were produced. The recovered benchmark
-uses FP32 accumulation for \emph{all} leaves, mean-based queries, and context
-references, leaving backbone weights FP16, documents, models, and metrics
-unchanged. A second interruption on Unicode line separators in one JSONL
-file was recovered with physical-line iteration, retaining all completed
-task results byte-for-byte (Appendix~\ref{app:extended-review}).
+Masked-mean accumulation uses FP32 for all leaves, mean-based queries, and
+context references; backbone weights remain FP16. This avoids the overflow
+observed in two long 2Wiki contexts before any retrieval scores were produced,
+without changing documents, models, or metrics. JSONL files use physical-line
+iteration to handle Unicode line separators. The recovery retained all
+completed task results byte-for-byte (Appendix~\ref{app:extended-review}).
 
-Finally, a \emph{new} training intervention uses only the 640 new TRAIN-fit
+The gradient-path intervention uses only the 640 TRAIN-fit
 prefixes. Each source-merger initialization discards its original decoder;
-both gradient-routing arms share one newly trained 300-update decoder-only
-warm checkpoint per seed, optimizer, random state, and identical 100 joint minibatches.
-Teacher, distribution, cycle, reconstruction, and encoder regularizers remain
-in the original training loss; the only joint-stage difference is detaching
-the decoder's parent input before backward propagation in one arm. Both arms
+both gradient-routing arms share a 300-update decoder-only warm checkpoint
+per seed, optimizer, random state, and the same 100 joint minibatches. Teacher,
+distribution, cycle, reconstruction, and encoder regularizers are unchanged.
+The only joint-stage difference is that one arm detaches the decoder
+parent input before backpropagation. Both arms
 continue training the decoder. The six step-400 models are fixed \emph{before}
 the 4,000-prefix teacher/source-detection and 606-prefix reconstruction
-analyses. This isolates one gradient path in this new exact-four regime,
+analyses. This isolates one gradient path in this exact-four regime,
 not removal of the historical decoder loss, a from-scratch lineage, or an
 intervention on original clean-v6 full-tree training.
 
@@ -1175,7 +1144,12 @@ in Appendix~\ref{app:reproducibility}.
 \section{Results}
 \label{sec:results}
 
-\subsection{Safe Teacher-Comparable Results}
+We first report the teacher-fidelity gain over pooling and its composition
+cost. The remaining studies test the scope of that result: robustness to
+recursive reuse and segmentation, full-document execution, local
+reconstruction, training controls, and downstream retrieval.
+
+\subsection{Primary Results: Teacher Fidelity and Cost}
 \label{sec:safe-results}
 
 The safe official-v6 population contains 4,000 source documents, with 1,000
@@ -1187,8 +1161,8 @@ of the four-slot model. The same rows are evaluated for every checkpoint
 without updating the merger, decoder, or reconstruction probes; attack fitting
 is restricted to the split described in Section~\ref{sec:detectability}.
 
-\paragraph{Post-review matched comparison.}
-Table~\ref{tab:safe-baselines} addresses the missing comparative question using
+\paragraph{Primary comparison: teacher fidelity and cost.}
+Table~\ref{tab:safe-baselines} compares learned composition with pooling using
 regenerated inputs for this exact population. The final learned parent improves
 teacher cosine over both pooling rules. Against the stronger token-weighted
 baseline, the three-checkpoint mean gain is \(0.002107\), with a paired 95\%
@@ -1200,6 +1174,10 @@ the average gain is not a uniform per-document improvement.
 \input{../results/safe_baselines_v1/safe_baselines_table.tex}
 
 \begin{table}[H]
+\caption{Paired contrasts on the same 4,000 documents, averaging the three
+checkpoint scores within each document. Intervals share document resamples
+across methods and checkpoints and condition on these fitted models.}
+\label{tab:safe-baseline-contrasts}
 \centering\small
 \begin{tabularx}{\linewidth}{Y r C}
 \toprule
@@ -1211,10 +1189,6 @@ Reference minus token-weighted pooling & \(+0.000237\) & \([0.000201,0.000274]\)
 Parent minus reference & \(+0.001871\) & \([0.001793,0.001951]\) \\
 \bottomrule
 \end{tabularx}
-\caption{Paired contrasts on the same 4,000 documents, averaging the three
-checkpoint scores within each document. Intervals share document resamples
-across methods and checkpoints and condition on these fitted models.}
-\label{tab:safe-baseline-contrasts}
 \end{table}
 
 The learned reference provides a smaller gain over weighted pooling, while the
@@ -1238,11 +1212,15 @@ Per-checkpoint results, all classifier scores and splits, paired error
 quantiles, and the regeneration audit are retained in the analysis artifacts
 (Appendix~\ref{app:safe-baseline-reproduction}).
 
-\paragraph{Frozen official results.}
-The following tables retain the original official evaluation unchanged; they
+\paragraph{Per-seed and per-corpus teacher diagnostics.}
+The following tables report the frozen official evaluation; they
 are not substituted for the recomputed learned rows in the matched comparison.
 
 \begin{table}[H]
+\caption{Official-v6 safe-arm detectability and teacher fidelity. The
+confidence interval in the final row is the shared-document three-seed
+bootstrap interval.}
+\label{tab:official-safe}
 \centering
 \small
 \begin{tabularx}{\linewidth}{c l C C}
@@ -1264,10 +1242,6 @@ Three-seed mean & -- &
 \(\mathbf{0.985045}\) \\
 \bottomrule
 \end{tabularx}
-\caption{Official-v6 safe-arm detectability and teacher fidelity. The
-confidence interval in the final row is the shared-document three-seed
-bootstrap interval.}
-\label{tab:official-safe}
 \end{table}
 
 Logistic regression is the stronger of the two fixed attack families in every
@@ -1284,6 +1258,9 @@ Development and official documents are disjoint indexed samples, so the
 difference between these values is not a paired improvement estimate.
 
 \begin{table}[H]
+\caption{Official-v6 safe-arm results by corpus, averaged across the three
+seeds with shared-document bootstrap intervals.}
+\label{tab:official-corpus}
 \centering
 \small
 \begin{tabularx}{\linewidth}{Y C C}
@@ -1298,9 +1275,6 @@ OpenWebText & \(0.583503\;[0.572897,0.594871]\) & \(0.986672\) \\
 Wikipedia & \(0.636689\;[0.624129,0.651146]\) & \(0.984783\) \\
 \bottomrule
 \end{tabularx}
-\caption{Official-v6 safe-arm results by corpus, averaged across the three
-seeds with shared-document bootstrap intervals.}
-\label{tab:official-corpus}
 \end{table}
 
 \begin{figure}[H]
@@ -1341,7 +1315,9 @@ three-seed mean AUC, \(0.636689\), despite retaining a high teacher cosine of
 \(0.984783\). The experimental design does not isolate the cause of this
 domain-dependent residual shift.
 
-\subsection{Teacher Fidelity under Recursive Reuse}
+\subsection{Supporting Checks}
+
+\subsubsection{Teacher Fidelity under Recursive Reuse}
 \label{sec:recursive-reuse-results}
 
 On the same 606 four-child prefixes, the direct and recursive trees achieve
@@ -1384,10 +1360,10 @@ empirical distribution. This average is not a new ensemble embedding.}
 \label{fig:recursive-reuse-loss}
 \end{figure}
 
-\subsection{Unrestricted Full-Document Recursion}
+\subsubsection{Full-Document Execution}
 \label{sec:full-results}
 
-The unrestricted arm recursively processes the complete text of the same 4,000
+The full-document arm recursively processes the complete text of the same 4,000
 source documents. Across the population, it represents all \(9{,}142{,}043\)
 tokens in \(11{,}356\) contiguous leaves. The longest observed document contains
 58,731 tokens and 58 leaves, and the maximum observed recursion depth is 3.
@@ -1404,6 +1380,11 @@ Table~\ref{tab:full-length-counts} makes the population's length distribution
 explicit.
 
 \begin{table}[H]
+\caption{Complete-document population, 1,000 documents per corpus. Token
+summaries are copied from the frozen official-v6 cache-provenance records,
+not from a new model evaluation. Percentiles use the recorded interpolated
+values; no pooled percentile is inferred by averaging corpus percentiles.}
+\label{tab:full-population}
 \centering\small
 \begin{tabularx}{\linewidth}{Y r r r r r}
 \toprule
@@ -1415,16 +1396,17 @@ OpenWebText & 2,189.23 & 1,574.0 & 5,271.35 & 50,195 & 50\\
 Wikipedia & 2,375.53 & 1,749.0 & 5,459.85 & 23,929 & 24\\
 \bottomrule
 \end{tabularx}
-\caption{Complete-document population, 1,000 documents per corpus. Token
-summaries are copied from the frozen official-v6 cache-provenance records,
-not from a new model evaluation. Percentiles use the recorded interpolated
-values; no pooled percentile is inferred by averaging corpus percentiles.}
-\label{tab:full-population}
 \end{table}
 
 \input{../results/recursive_reuse_v1/full_population_table.tex}
 
 \begin{table}[H]
+\caption{Unrestricted full-document recursion. Throughput covers recursive
+merger and decoder evaluation over cached leaves, including shard loading,
+hash and structure validation, device transfers, and telemetry. It excludes
+tokenization and teacher leaf embedding and is not a merger-only kernel
+benchmark.}
+\label{tab:full-document}
 \centering
 \small
 \resizebox{\linewidth}{!}{%
@@ -1443,12 +1425,6 @@ values; no pooled percentile is inferred by averaging corpus percentiles.}
 \bottomrule
 \end{tabular}%
 }
-\caption{Unrestricted full-document recursion. Throughput covers recursive
-merger and decoder evaluation over cached leaves, including shard loading,
-hash and structure validation, device transfers, and telemetry. It excludes
-tokenization and teacher leaf embedding and is not a merger-only kernel
-benchmark.}
-\label{tab:full-document}
 \end{table}
 
 Every full root is finite and unique at the tested precision. The pooled and
@@ -1458,14 +1434,10 @@ reconstructs recursive children more closely than original leaf children in
 this evaluation, although the protocol does not identify the cause of that
 difference.
 
-No direct full-document teacher comparison is constructed for this arm;
-in particular, the longest inputs exceed the evaluated direct-teacher range.
-Accordingly, the
-reported results establish execution, geometry, and local merge-reconstruction
-behavior at the observed scale, not full-document teacher fidelity or
-generated-versus-teacher indistinguishability.
+These full-document measurements assess execution and local behavior; direct
+root fidelity is outside this protocol (Section~\ref{sec:evaluation}).
 
-\subsection{Local Reconstruction and Calibration}
+\subsubsection{Local Reconstruction}
 \label{sec:retention-results}
 
 Table~\ref{tab:retention} reports direct reconstruction on the 606 safe official
@@ -1475,6 +1447,9 @@ fitted parent-only probes exceed their predeclared fresh-TRAIN floors by about
 \(0.0105\).
 
 \begin{table}[H]
+\caption{Official-v6 exact-four-child retention diagnostics. Probes and floors
+are fixed using fresh TRAIN data before development and official evaluation.}
+\label{tab:retention}
 \centering
 \small
 \resizebox{\linewidth}{!}{%
@@ -1492,9 +1467,6 @@ fitted parent-only probes exceed their predeclared fresh-TRAIN floors by about
 \bottomrule
 \end{tabular}%
 }
-\caption{Official-v6 exact-four-child retention diagnostics. Probes and floors
-are fixed using fresh TRAIN data before development and official evaluation.}
-\label{tab:retention}
 \end{table}
 
 \paragraph{Parent-copy and slot-permutation calibration.}
@@ -1541,12 +1513,17 @@ is reported in the text.}
 \label{fig:reconstruction-calibration}
 \end{figure}
 
-\paragraph{Historical matched K4 pooling comparison.}
-The earlier additive matched experiment evaluates the frozen seed-424242 clean-v6 checkpoint
+\paragraph{Matched K4 comparison with fitted pooling probes.}
+The single-checkpoint matched experiment evaluates the frozen seed-424242 clean-v6 checkpoint
 on the same 606 exact-K4 official documents. Table~\ref{tab:k4-pooling} reports
 the parent-only probe results and paired document-level bootstrap intervals.
 
 \begin{table}[H]
+\caption{Matched exact-K4 parent-only probe comparison on 606 official
+documents. Difference columns are paired document-level differences; negative
+values favor pooling. The experiment uses the frozen seed-424242 clean-v6
+checkpoint.}
+\label{tab:k4-pooling}
 \centering
 \small
 \begin{tabularx}{\linewidth}{Y C C C}
@@ -1567,33 +1544,22 @@ Unweighted normalized mean &
 \([-0.004710,-0.003749]\) \\
 \bottomrule
 \end{tabularx}
-\caption{Matched exact-K4 parent-only probe comparison on 606 official
-documents. Difference columns are paired document-level differences; negative
-values favor pooling. The experiment uses the frozen seed-424242 clean-v6
-checkpoint.}
-\label{tab:k4-pooling}
 \end{table}
 
 
-Both paired confidence intervals lie below zero. Under this specified probe
-protocol, token-weighted pooling is higher than clean-v6 by \(0.002075\), and the
-unweighted mean is higher by \(0.004215\). The experiment therefore does not
-support a claim that the clean-v6 parent preserves more probe-recoverable ordered
-child information than either pooling baseline. The legacy probe is residual
-around its parent input and initializes to that parent, so this conclusion is
-specific to the evaluated probe architecture. A potential preference for
-mean-like representations is an untested explanation, not a correction to the
-observed advantage of pooling. It does not establish lossless encoding, preserved mutual
-information, architecture-independent recoverability, semantic superiority, or
-downstream-task superiority.
+Both paired confidence intervals lie below zero: token-weighted and unweighted
+pooling exceed clean-v6 by \(0.002075\) and \(0.004215\), respectively.
+This comparison favors pooling under the evaluated residual probe; the
+decoder-dependence and recovery limits are discussed in
+Section~\ref{sec:limitations}.
 
-In the unrestricted arm, the built-in decoder is evaluated at every one of the
+In the full-document arm, the built-in decoder is evaluated at every one of the
 4,789 merges per seed and maintains overall child cosine between \(0.909591\)
 and \(0.909842\). These values describe local reconstruction under the built-in decoder;
 the frozen-probe comparison is a separate safe-arm measurement. The matched pooling comparison applies only to the
 safe exact-K4 subset and does not provide a full-document pooling reference.
 
-\subsection{What the Final Continuation Changes}
+\subsubsection{Changes During the Final Training Stage}
 \label{sec:continuation-results}
 
 Table~\ref{tab:continuation-comparison} compares the released source and final
@@ -1653,7 +1619,7 @@ additional changes under this continuation do not isolate the usefulness of
 the decoder objective, establish a from-scratch training result, or explain
 which earlier training choices produced the source representation.
 
-\subsection{Input Order, Tree Choice, and Segmentation}
+\subsubsection{Order, Trees, and Segmentation}
 \label{sec:extended-structure-results}
 
 Input permutation and scoring-only negative controls separate apparent
@@ -1674,42 +1640,50 @@ direct four-leaf merge: checkpoint-mean deltas range from \(-0.000461\) to
 matters slightly even when leaf count and binary arity are fixed. In contrast,
 resegmenting the same text into 512-token K4 leaves loses \(0.010060\)
 teacher cosine versus original 1,024-token K4 leaves; 256-token K4 loses
-\(0.022253\). With new within-segmentation weighted pools as references,
+\(0.022253\). With matched within-segmentation weighted pools as references,
 K4 retains advantages of \(0.012912\) and \(0.024322\), respectively;
 the reference itself changes along with the leaves. These losses combine
 leaf granularity, number of merges, distribution shift, and depth, and do not
 measure a pure tree effect or support arbitrarily fine splitting.
 
-\subsection{New Probe Families and Gradient-Path Intervention}
+\subsubsection{Probe and Gradient-Path Controls}
 \label{sec:extended-probe-results}
 
-New TRAIN-only fits illustrate probe dependence. Across three checkpoints
+Matched TRAIN-only fits measure probe dependence. Across three checkpoints
 and three probe seeds, learned-parent ordered child cosine is \(0.912004\)
 for the bounded residual, \(0.908634\) for the unbounded residual, and
 \(0.764288\) for the direct non-residual MLP. Learned minus weighted-pool
 probe cosine changes sign across these families: \(-0.002026\), \(+0.000523\),
 and \(-0.000684\), respectively. The corresponding learned-probe gains over
 copying the learned parent are \(-0.002017\), \(-0.005387\), and
-\(-0.149733\); new TRAIN fits therefore do not establish superior local
-reconstruction. The direct architecture and its fit may be inadequate,
-not an information-theoretic limit. None of these new fits is the unavailable
-historical matched-pooling probe.
+\(-0.149733\); these TRAIN fits therefore do not establish superior local
+reconstruction. Poor performance of the direct MLP may reflect its architecture
+or fit, not an information-theoretic limit. These fits are separate from the
+unavailable matched-pooling probes.
 
-Under the new gradient-path intervention, attached minus detached teacher
+Under the gradient-path intervention, attached minus detached teacher
 cosine is \(-1.5653\times10^{-6}\) (document-paired 95\% interval
 \([-1.9905,-1.1424]\times10^{-6}\)); source-detection AUC changes by
 \(-0.000427\) (interval \([-0.000755,-0.000109]\)), with a lower AUC indicating
 less detectable model vectors. Raw ordered reconstruction changes by
 \(-0.00008362\); parent-copy cosine also falls, yielding a \emph{positive}
-copy-relative gain contrast of \(+0.00000555\). This new controlled contrast
+copy-relative gain contrast of \(+0.00000555\). This controlled contrast
 has mixed directions and extremely small magnitudes, and cannot attribute
 the historical source--final endpoints to the decoder objective. Fixed
 classifier families and fixed training seeds limit the intervals.
 
-\subsection{Full-Corpus Long-Document Retrieval}
+\subsection{Downstream Utility: Long-Document Retrieval}
 \label{sec:retrieval-results}
 
 \begin{table}[t]
+\caption{Complete frozen LongEmbed task corpora; query-weighted nDCG@10
+(higher is better). Recursive scores average the three fixed model scores
+\emph{per query}, not their document vectors. Mean-pool queries match all
+mean-based rows; CLS queries match only CLS-prefix documents. Prefix teacher
+references truncate at the teacher context; the weighted, unweighted, and
+recursive documents use all chunks. Different query interfaces make the CLS
+reference a useful comparator, not a controlled pooling ablation.}
+\label{tab:review-retrieval}
 \centering\small
 \begin{tabular}{lrrrrrr}
 \toprule
@@ -1721,14 +1695,6 @@ SummScreenFD & 0.5541 & 0.7998 & 0.7933 & 0.6942 & 0.9314 & 0.7728 \\
 NarrativeQA & 0.0449 & 0.0835 & 0.0830 & 0.0620 & 0.3015 & 0.0790 \\
 \bottomrule
 \end{tabular}
-\caption{Complete frozen LongEmbed task corpora; query-weighted nDCG@10
-(higher is better). Recursive scores average the three fixed model scores
-\emph{per query}, not their document vectors. Mean-pool queries match all
-mean-based rows; CLS queries match only CLS-prefix documents. Prefix teacher
-references truncate at the teacher context; the weighted, unweighted, and
-recursive documents use all chunks. Different query interfaces make the CLS
-reference a useful comparator, not a controlled pooling ablation.}
-\label{tab:review-retrieval}
 \end{table}
 
 Against the full-document weighted pool, recursive nDCG@10 changes by:
@@ -1751,7 +1717,7 @@ Bootstrap components number 300, 197, 336, and 355 across the four tasks;
 all fixed candidate sets and all task outcomes are retained, including
 length-stratified and secondary metrics in the result JSON.
 
-\subsection{Architecture and Scaling Studies}
+\subsection{Supporting Architecture and Scaling Studies}
 \label{sec:architecture-scaling}
 
 A matched validation-only scaling study compares binary, four-way, and
@@ -1760,6 +1726,10 @@ parameter count and training history, so Table~\ref{tab:arity} is a
 system-level comparison rather than a causal estimate of arity alone.
 
 \begin{table}[H]
+\caption{Matched validation-only arity comparison. Throughput and depth are
+specific to this scaling protocol and are not directly comparable with the
+official full-document throughput in Table~\ref{tab:full-document}.}
+\label{tab:arity}
 \centering
 \small
 \resizebox{\linewidth}{!}{%
@@ -1778,10 +1748,6 @@ Eight-way (\(K=8\)) & 124.1M & 0.668336 & 0.977910 & 1.024 / 2 & 5,255.50 \\
 \bottomrule
 \end{tabular}%
 }
-\caption{Matched validation-only arity comparison. Throughput and depth are
-specific to this scaling protocol and are not directly comparable with the
-official full-document throughput in Table~\ref{tab:full-document}.}
-\label{tab:arity}
 \end{table}
 
 
@@ -1802,244 +1768,182 @@ hidden width 1,152 and 166.9 million parameters reached validation2 AUC
 \section{Discussion}
 \label{sec:discussion}
 
-\subsection{Teacher Alignment Is Not Comparative Utility}
+\subsection{Teacher Fidelity at a Higher Composition Cost}
 
-The safe-arm cosine and detectability results answer different questions.
-A mean cosine of \(0.985045\) describes paired directional agreement with this
-specific masked-mean teacher. An orientation-safe AUC of \(0.584232\) describes
-how well the selected classifiers distinguish generated vectors from teacher
-vectors. It meets the predeclared pooled criterion, but it does not establish
-distributional equality. More generally, a permutation of teacher vectors
-across documents would preserve their marginal distribution while destroying
-the intended document-to-vector assignment. Marginal detectability therefore
-cannot replace paired or downstream evaluation.
+Learning improves fidelity to the masked-mean teacher, but at a substantial
+composition cost. In the matched safe-arm comparison, mean teacher cosine
+rises from \(0.9829\) for token-weighted pooling to \(0.9850\) for the learned
+parent. The paired gain is \(0.002107\;[0.002021,0.002194]\), at approximately
+\(110\times\) the measured batched composition cost. Source-detection AUC falls
+from \(0.8335\) to \(0.5843\) under the same fixed classifier recipe. This is
+a modest fidelity gain, not a cost-free practical advantage.
 
-The post-review matched comparison establishes a narrower, concrete benefit:
-learning improves teacher fidelity over both pooling baselines on these safe
-prefixes and reduces source discrimination under the same fixed classifier
-recipe. The gain over token-weighted pooling is modest in cosine
-(\(0.002107\)) but accompanied by a much lower detection AUC
-(\(0.5843\) versus \(0.8335\)). The reference-to-parent contrast shows that the
-final correction helps this trained system; it does not establish superiority
-of the geodesic parameterization over a differently trained residual model.
-The approximately \(110\times\) composition-cost ratio also prevents treating
-this fidelity improvement as a cost-free practical advantage. The matched
-source--final comparison further limits attribution: almost all of the final
-advantage over pooling exists in the source checkpoints. The last continuation
-stage changes the representation only slightly, and its less-negative
-copy-relative probe gain accompanies a small decline in raw probe cosine.
-Neither comparison establishes that this final decoder-training stage is the
-origin of the learned model's benefit.
+Across 4,000 teacher-comparable prefixes, the three-seed mean paired cosine
+is \(0.985045\). The strongest orientation-safe AUC is \(0.584232\), with a
+conditional shared-document 95\% interval of \([0.578232,0.590338]\). This
+meets the predeclared pooled criterion, not distributional equality. Paired
+cosine and marginal detectability measure different properties: permuting
+teacher vectors across documents would preserve their marginal distribution
+while destroying document-to-vector assignments. Neither measure replaces
+downstream evaluation.
 
-The matched reconstruction comparison answers a different question: both
-pooling baselines outperform the final seed-424242 representation under that
-probe family. It concerns the final model, not a superseded predecessor, and
-is not contradicted by the new teacher-fidelity result. The new calibration
-is more restrictive: even untrained pooling-copy baselines exceed both the
-built-in decoder and released probe, and the built-in decoder's order gap is
-negligible at this cosine scale. Preference for a learned merger therefore
-depends on which property matters. On the four subsequently evaluated
-LongEmbed retrieval tasks, recursive roots beat weighted pooling only on
-2WikiMQA; the three negative task contrasts rule out a general downstream
-advantage under this frozen interface. A separate CLS-interface reference
-outperforms all mean-pool methods on all four tasks, although its input
-interface and truncation also differ.
+The fidelity gain does not extend consistently to reconstruction or retrieval.
+In the exact-four-child probe study, weighted and unweighted pooling exceed
+the final seed-424242 parent by \(0.002075\) and \(0.004215\), respectively.
+On four full-corpus LongEmbed tasks, recursive roots beat weighted pooling
+only on 2WikiMQA and lose on the other three tasks. A separate CLS-interface
+reference beats all mean-pool methods on all four, though its input interface
+and truncation differ. Choosing the learned merger therefore depends on
+whether the measured teacher-fidelity gain is worth its cost for the intended
+use; a general downstream advantage is not established.
 
-Wikipedia has the highest corpus-specific detectability despite high paired
-cosine. The current study does not separate domain effects from differences
-in prefix length, arity, or content. Likewise, the development and official
-values come from disjoint indexed populations, so their difference is not a
-paired improvement estimate. The classifier and document conditioning of the
-reported intervals is detailed in Section~\ref{sec:detectability}.
+Almost all of the final advantage over pooling is already present in the
+source checkpoints. The final continuation changes teacher cosine by less
+than \(10^{-6}\); its less-negative copy-relative probe gain accompanies a
+small decline in raw probe cosine, and both endpoint probes remain below
+parent copy. The reference-to-parent contrast shows that the final correction
+helps this trained system. Attribution to geometry or training objectives
+requires the controlled comparisons described in Section~\ref{sec:limitations}.
 
-\subsection{What Recursive Execution and Reconstruction Establish}
+\subsection{Recursive Execution and Local Reconstruction}
 
-All selected full-document tokens are processed without truncation, with no
-observed nonfinite roots or triggered saturation checks through depth 3. The
-58,731-token maximum exceeds the configured 32,768-token training-span cap.
-However, the 58-leaf maximum is \emph{below} the configured 96-leaf training
-cap: this evaluation does not demonstrate extrapolation beyond that leaf cap.
-Configured caps must also be distinguished from the actual training maxima,
-which are not summarized here.
+The full-document evaluation processes \(9{,}142{,}043\) tokens in
+\(11{,}356\) leaves without truncation, nonfinite roots, or triggered saturation
+checks through depth 3. Its 58,731-token maximum exceeds the configured
+32,768-token training-span cap, but its 58-leaf maximum remains below the
+configured 96-leaf cap. These are configured bounds, not the actual training
+maxima, which are not summarized here.
 
-The full-arm decoder is applied to every actual local parent and reconstructs
-its immediate children, averaging approximately \(0.91\) cosine across active
-child occurrences. It is not recursively applied from the final root to recover
-all original leaves. Recursive children have higher reconstruction cosine than
-original leaf children in the observed population, but the cause is not
-isolated. The decoder's bounded residual around its parent also restricts the
-possible output directions (Section~\ref{sec:strict-decoder}). Neither local
-cosine nor ordered-slot scoring alone establishes losslessness, preserved
-mutual information, or robust recovery of child order. On the exact-four safe
-subset, the copy and permutation controls make this limitation empirical: most
-absolute child cosine is already obtained by a repeated parent, and the built-in decoder's small
-improvement is almost insensitive to the target-slot assignment. The released
-probe shows more order sensitivity but performs worse than parent copy; this
-is a limitation of these evaluated decoding rules, not proof that no other
-decoder could recover additional information.
+On 606 matched four-child prefixes, binary recursive reuse loses
+\(0.000461\) teacher cosine relative to direct composition but retains a
+\(0.005612\) advantage over weighted pooling and also exceeds unweighted
+pooling. All five ordered binary trees lose some fidelity. Switching to
+512- or 256-token leaves changes teacher fidelity and the flat-pool comparator
+more than switching among the original four-leaf binary trees. This ties
+recursive fidelity to segmentation as well as tree structure; the scale limits
+of these tests are discussed in Section~\ref{sec:limitations}.
 
-The original safe arm uses one merge, whereas the full arm lacks direct
-root-level teacher targets. The new 606-prefix stress test partially bridges
-this gap: binary reuse loses \(0.000461\) teacher cosine relative to a direct
-four-child merge, while retaining an advantage over both flat pooling rules.
-All five ordered binary trees lose some fidelity; moving to 512- or 256-token
-leaves changes both the teacher-space result and its flat-pool comparator much
-more than changing the original four-leaf binary tree. This does not isolate
-depth or establish direct teacher fidelity of unrestricted roots. Only 81
-original full documents exceed the documented backbone context, and only
-20 reach natural K4 depth three; the separate retrieval tasks include
-substantially longer roots, but evaluate task rankings rather than untruncated
-root teacher fidelity.
+The full-arm decoder reconstructs immediate children from each actual local
+parent, averaging approximately \(0.91\) cosine across active child occurrences.
+It is not applied recursively from the final root to recover all leaves.
+Recursive children have higher reconstruction cosine than original leaf
+children, but the cause is not isolated. Copy calibration explains much of the
+absolute score: on the exact-four safe subset, the built-in decoder gains only
+\(0.001043\) over parent copy and has negligible target-slot order advantage.
+The released probe is more order-sensitive but scores below parent copy;
+both learned decoding rules score below untrained pooling-copy baselines.
+Exhaustive input permutations also show that the frozen decoders barely track
+changes in leaf order. These results support measured local reconstruction,
+not losslessness, preserved mutual information, or recovery of distinct ordered
+constituents. Limits of the decoding families and the next recovery tests are
+set out below.
 
 \subsection{Limitations}
 \label{sec:limitations}
 
 \paragraph{Representation and task scope.}
-All model fitting and teacher-fidelity experiments use one 768-dimensional
-masked-mean teacher and four English training/evaluation corpora. One
-fixed, separately pinned four-task English retrieval benchmark assesses
-full-root downstream rankings, but not classification or clustering. Its
-interface-matched CLS reference has substantially different scores from the
-masked-mean interface. None of these results transfers automatically to other
-encoders or languages, or establishes a matched CLS-based merger.
+All fitting and teacher-fidelity tests use one 768-dimensional masked-mean
+teacher and four English corpora. The separately pinned retrieval benchmark
+covers four English tasks, not classification or clustering, and the strong
+CLS reference shows that the representation interface matters. Train a
+CLS-based merger with consistent chunk, query, and document representations,
+and compare encoders and languages on independently sourced retrieval,
+classification, and clustering tasks before claiming broader usefulness.
 
-\paragraph{Population and scale.}
-The first 1,000 length-eligible documents per corpus are not a random sample
-of each corpus. The full arm inherits this selection and mostly contains short
-documents, despite an uncapped reduction rule. The additional teacher-comparable tests cover all five ordered binary trees
-and two finer chunk sizes, but still couple leaf representations, active
-arity, and depth. LongEmbed includes K4 depth-five rankings, not direct
-untruncated-root teacher fidelity. Dataset-index separation does not, by itself, rule
-out cross-corpus exact or near-duplicate content, including overlap inherited
-from earlier continuation-training data.
+\paragraph{Population and recursive scale.}
+Selecting the first 1,000 length-eligible documents per corpus is not random
+sampling. The full arm mostly contains short documents: only 81 exceed the
+backbone context and only 20 reach natural K4 depth three. LongEmbed reaches
+K4 depth five, but supplies rankings rather than direct untruncated-root
+teacher targets. The five-tree and two-finer-chunk tests still couple leaf
+representations, arity, and depth. Use length-stratified sampling, vary these
+factors separately, and test beyond the 96-leaf cap. Depth-five and longer
+roots need a different teacher or evaluation design for direct fidelity tests.
+Audit exact and near duplicates across corpora and continuation-training data,
+since index separation alone does not exclude content overlap. Wikipedia's
+high detectability despite high paired cosine also calls for comparisons
+matched on prefix length, arity, and content to separate domain effects.
+Development and official populations are disjoint, so their difference is not
+a paired improvement estimate.
 
-\paragraph{Comparisons and learning history.}
-The historical reconstruction pooling study covers one final checkpoint and
-one residual probe family. Later fixed-budget bounded/unbounded/direct probes
-are newly TRAIN-fitted rather than the missing historical pooling probes;
-family rankings and the direct model's fit vary. The safe-arm baseline,
-recursive-reuse, reconstruction-calibration, tree/order and continuation
-comparisons reuse previously evaluated documents and regenerated inputs;
-none is a fresh confirmatory test. LongEmbed is a distinct evaluation
-population but the frozen system and hypotheses are post-review. The arity
-studies differ in capacity and training history,
-so they do not isolate the causal effect of arity. Clean-v6 starts from trained
-source mergers; the final 400-update schedule is not a from-scratch training
-recipe or a measure of complete training cost. Comparing matched source/final
-endpoints quantifies that stage's changes but does not isolate the decoder
-objective or any other component of the continuation bundle. The separate
-attached/detached intervention starts from trained source encoders, changes
-one gradient route in a new small exact-four TRAIN regime, and cannot be
-substituted for a matched-budget removal of the historical decoder loss.
-
-\paragraph{Statistical scope.}
-Only three final checkpoints, one attack split, and two classifier families
-are evaluated. Source-detection intervals condition on the observed strongest
-attacker and fixed predictions rather than accounting for selection or attacker
-refitting. Paired teacher- and child-cosine intervals condition on fixed models
-and inputs; retrieval intervals condition on fixed positive-document clusters
-and task corpora. These intervals do not capture all training,
-model-selection, task-selection, or input-regeneration uncertainty. With only
-four heterogeneous tasks, their task-specific conditional intervals are not
-a cross-task meta-analysis. The AUC criterion is a project-specific
-diagnostic and is not a formal equivalence or privacy guarantee. TRAIN-derived
-probe floors are not matched-population noninferiority tests.
+\paragraph{Training and causal comparisons.}
+Clean-v6 starts from trained source mergers; its final 400 updates describe
+neither from-scratch training nor complete training cost. Matched source/final
+endpoints cannot isolate one component of the continuation bundle. The
+attached/detached intervention has small, mixed outcomes: it changes one
+gradient route in a small exact-four TRAIN regime, starting from trained source
+encoders, rather than removing the decoder loss from the full training recipe.
+Arity comparisons also differ in capacity and training history. Train
+from-scratch, matched-budget lineages with true loss removal and matched
+geometry/arity alternatives to test whether the decoder objective, geodesic
+parameterization, or arity causes the observed benefit.
 
 \paragraph{Reconstruction and geometry.}
-Local parent-only decoding does not establish recoverability from the final
-root alone. Copy calibration and target-slot shuffling alone do not isolate
-positional priors; the added exhaustive input-order intervention demonstrates
-that the evaluated frozen decoders barely track an input permutation but does
-not prove no alternative decoder could. The residual decoder/probe output
-constraint limits conclusions about representation-independent information
-content; new unconstrained fits alleviate that structural constraint but
-remain optimization- and data-dependent. The absent historical matched-pooling
-probe binaries prevent their exact new copy/permutation calibration. Unit norm and bounded geodesic movement do not
-guarantee membership in a teacher-distribution manifold or semantic preservation.
+The bounded residual decoder restricts output directions
+(Section~\ref{sec:strict-decoder}); unit norm and bounded geodesic movement do
+not guarantee a teacher-distribution manifold or semantic preservation. The
+local results above do not rule out recovery by other decoders. The matched
+pooling reconstruction study covers one final checkpoint and one residual
+probe family. Fixed-budget bounded, unbounded, and direct probes are separate
+TRAIN-fitted models, with varying family rankings and direct-model fit;
+unconstrained outputs remove a structural restriction, not optimization or
+data dependence. The missing matched-pooling probe binaries also prevent exact
+copy/permutation calibration of those fits. Fit and retain matched probes
+across representations, check optimization across seeds and budgets, and test
+local-to-root recovery with both input-order and target-slot controls.
 
-\paragraph{Timing and reproduction.}
-Original throughput measures the recorded cached-leaf evaluation pipeline,
-not end-to-end embedding or merger-only latency. The new matched timing uses
-a distinct composition-only protocol and identifies the GPU; its values are
-not directly comparable with the original throughput. Exact historical checkpoints and probes are v1-paper release assets, while
-new fitted artifacts have separate identities and caches require regeneration
-from pinned inputs. The new safe cache matches document identity, not original
-tensor bytes. LongEmbed's FP16 long-context mean-reduction overflow required
-a documented, uniform FP32 accumulation recovery before scoring; a subsequent
-physical-line JSONL parsing repair retained already computed task results. A small per-corpus AUC discrepancy exceeds the declared reproduction
-tolerance and is retained explicitly (Appendix~\ref{app:safe-baseline-reproduction}).
-The reconstruction calibration likewise retains six per-corpus historical
-mean discrepancies above its fixed tolerance
-(Appendix~\ref{app:reconstruction-calibration}). These self-administered checks
-do not replace external benchmarking or an
-independent reproduction.
+\paragraph{Statistical and confirmatory scope.}
+The study evaluates three final checkpoints, one attack split, and two
+classifier families. Detection intervals condition on the selected strongest
+attacker and fixed predictions, not attacker selection or refitting
+(Section~\ref{sec:detectability}). Teacher- and child-cosine intervals condition
+on fixed models and inputs; retrieval intervals condition on fixed
+positive-document clusters and task corpora. They omit training,
+model-selection, task-selection, and input-regeneration uncertainty. Four
+heterogeneous task intervals are not a cross-task meta-analysis. The AUC
+criterion is a project diagnostic, not an equivalence or privacy guarantee;
+TRAIN-derived probe floors are not matched-population noninferiority tests.
+The safe-arm baseline, recursive-reuse, reconstruction-calibration, tree/order,
+and continuation comparisons reuse evaluated documents and regenerated inputs.
+LongEmbed uses a distinct population, but its system and hypotheses were fixed
+after the initial evaluation. Preregister fresh-population comparisons with
+more training seeds, attack splits, refitted attackers, and independent tasks
+to assess robustness beyond these conditional estimates.
 
-\subsection{Future Work}
-
-The additional tree, input-order, probe-family, retrieval, and gradient-path
-controls narrow, rather than resolve, the quality--cost question. A new
-CLS-based merger with consistent CLS chunk/query/document representations
-would require training and task evaluation, not relabeling mean-pooled
-results. For length-five roots and longer, directly teacher-valid targets
-would require a different teacher or evaluation design; ranking a root on
-LongEmbed alone does not supply those targets. More independently sourced
-long-document tasks, local-to-root recovery tests, and end-to-end encoding,
-storage, and inference costs remain important.
-
-A from-scratch matched-budget lineage and a true loss-removal ablation are
-still required to attribute advantages to training choices or the decoder
-objective. Matched-budget geometry/arity alternatives, additional probe
-optimization checks, more model and language coverage, and robust out-of-range
-(96+ leaf) evaluation should precede claims of general benefit.
+\paragraph{Cost and reproducibility.}
+The fidelity--cost comparison measures composition only on the identified
+GPU. Cached-leaf pipeline throughput measures a different workload; neither
+measures end-to-end embedding cost. Benchmark encoding, composition, storage,
+and inference together to determine whether the fidelity gain pays off in use.
+Released checkpoints and probes have distinct artifact identities, and caches
+must be regenerated from pinned inputs. Safe-cache regeneration preserves
+document identity, not original tensor bytes. LongEmbed scoring uses uniform
+FP32 accumulation to avoid FP16 long-context mean-reduction overflow; the
+physical-line JSONL parsing repair retained computed task results. One
+per-corpus AUC discrepancy exceeds the declared reproduction tolerance
+(Appendix~\ref{app:safe-baseline-reproduction}), as do six per-corpus
+reconstruction means (Appendix~\ref{app:reconstruction-calibration}). An
+independent reproduction using the pinned inputs, retained artifacts, and
+documented numerical protocol should assess these discrepancies and the
+reported quality--cost trade-off.
 
 \section{Conclusion}
 \label{sec:conclusion}
 
-This paper studies a shared four-way geodesic Transformer for composing
-frozen chunk embeddings into one document representation. It preserves exact
-token counts, applies learned salience corrections, and constrains parent
-representations to a bounded spherical update. A strict parent-only decoder
-adds local reconstruction and cycle objectives during training.
+A shared four-way geodesic Transformer composes frozen chunk embeddings using
+exact token counts, learned salience corrections, and bounded spherical
+updates, with parent-only reconstruction and cycle objectives during training.
+It improves teacher cosine over weighted pooling by
+\(0.002107\;[0.002021,0.002194]\), at approximately \(110\times\) the measured
+batched composition cost. This modest fidelity gain is the central result.
+Recursive execution works on the evaluated documents, but reconstruction and
+retrieval do not show a consistent advantage over pooling. Direct teacher
+fidelity of unrestricted roots and broader practical usefulness remain
+unestablished.
 
-On 4,000 teacher-comparable prefixes, the three-seed mean strongest
-orientation-safe AUC is \(0.584232\), with a conditional shared-document
-95\% interval of \([0.578232,0.590338]\), and mean paired teacher cosine is
-\(0.985045\). Full-document evaluation processes \(9{,}142{,}043\) tokens
-in \(11{,}356\) leaves, reaching 58,731 tokens and depth 3 without truncation
-or observed numerical-health failures. These complete-document results concern
-execution and local reconstruction, not direct full-root teacher fidelity.
-
-The post-review matched safe-arm analysis establishes an advantage over
-pooling on the trained representation objective: mean teacher cosine improves
-from \(0.9829\) for weighted pooling to \(0.9850\) for the learned parent, and
-source-detection AUC decreases from \(0.8335\) to \(0.5843\). The paired cosine
-gain is \(0.002107\;[0.002021,0.002194]\), at approximately \(110\times\)
-the measured batched composition cost. In contrast, the exact-four-child
-probe study favors weighted and unweighted pooling over the final seed-424242
-parent by \(0.002075\) and \(0.004215\), respectively. These results distinguish
-teacher-space fidelity from constituent reconstruction. On 606 matched
-four-child prefixes, binary recursive reuse incurs a modest mean loss of
-\(0.000461\) relative to direct composition but retains a \(0.005612\) advantage
-over weighted pooling. This establishes a teacher-fidelity comparison for one
-tree/arity change, not arbitrary recursive depth. Reconstruction calibration
-shows a built-in-decoder gain of only \(0.001043\) over parent copy, negligible
-order advantage, and a frozen-probe deficit relative to copying. On this subset,
-both learned decoding rules are below untrained pooling-copy baselines. These findings narrow
-the retention claim to measured local reconstruction rather than recovery of
-distinct ordered constituents. The source--final comparison also shows that
-almost all of the safe-arm advantage over pooling predates the final
-continuation; its teacher-cosine change is below \(10^{-6}\), and both endpoint
-probes remain below parent copy. These endpoint changes do not isolate any
-single loss or training component. The extended post-review controls find that order-sensitive decoder scores
-barely follow permuted input leaves, finer resegmentation substantially
-reduces teacher fidelity, and newly fitted probe families yield different
-pooling rankings. In four full-corpus LongEmbed retrieval tasks, recursive
-representations beat the weighted pool on one task and lose on three; the
-separate documented CLS-interface reference is stronger on all four. A new
-attached-versus-detached decoder gradient-path intervention has mixed, small
-outcomes and does not attribute the historical continuation to one loss.
-Fidelity of unrestricted roots to a direct teacher and any general
-long-document task advantage remain unestablished.
+\bibliographystyle{tmlr}
+\bibliography{references}
+\clearpage
 
 \appendix
 
@@ -2307,6 +2211,8 @@ The published identities below define that continuation exactly. They do not
 specify a complete from-scratch training history for the source mergers.
 
 \begin{table}[H]
+\caption{Exact source and final checkpoint identities for clean-v6 continuation.}
+\label{tab:checkpoint-lineage}
 \centering\small
 \begin{tabularx}{\linewidth}{r l Y}
 \toprule
@@ -2320,21 +2226,27 @@ specify a complete from-scratch training history for the source mergers.
        & Final & \nolinkurl{45a80bc3005bdf79fcafe3fce65b927a8f39e7ec2c019a34c3e9d1c8ce327a07}\\
 \bottomrule
 \end{tabularx}
-\caption{Exact source and final checkpoint identities for clean-v6 continuation.}
-\label{tab:checkpoint-lineage}
 \end{table}
 
 The \texttt{v1-paper} release contains all three final checkpoints, all three
-continuation-source checkpoints, and six fitted parent-only probes
-\cite{stoica-2026-recursive-geodesic}. Checkpoints are release assets rather
-than ordinary Git objects. The release manifest identifies each artifact by
+continuation-source checkpoints, and six fitted parent-only probes.
+\ifdefined\papreprint
+The release is documented in \cite{stoica-2026-recursive-geodesic}.
+\fi
+Checkpoints are release assets rather than ordinary Git objects.
+The release manifest identifies each artifact by
 role, seed, size, and SHA-256; the TRAIN and official caches are not release
 assets and must be regenerated from the pinned inputs. The official result
 file is retained unchanged at \texttt{results/official\_v6/results.json}, with
 SHA-256 \nolinkurl{236081e0c721602c742b573e3dfd06a556f9448ddaab299f10007788de51a7c0}.
+\ifdefined\papreprint
 The implementation is versioned at repository commit
-\nolinkurl{c812808beaa01e7a0052ae5fe6a49fff8c1cc97d}; all reported official
-metrics refer to the frozen artifacts rather than a new numerical evaluation.
+\nolinkurl{c812808beaa01e7a0052ae5fe6a49fff8c1cc97d}.
+\else
+The identifying implementation commit is omitted for double-blind review.
+\fi
+All reported official metrics refer to the frozen artifacts rather than a
+new numerical evaluation.
 
 The official result records Python 3.12.14, PyTorch 2.13.0+cu130, NumPy 2.5.1,
 and CUDA execution on Linux. A GPU model and complete historical training
@@ -2347,6 +2259,8 @@ those evaluation commands, not only loading the published result summaries.
 \label{app:attack-settings}
 
 \begin{table}[H]
+\caption{Detectability settings from the frozen classifier configuration and evaluator.}
+\label{tab:attack-settings}
 \centering\small
 \begin{tabularx}{\linewidth}{l Y}
 \toprule
@@ -2360,8 +2274,6 @@ Scopes & Pooled and each corpus separately fitted; identical source split across
 Intervals & 2,000 held-out-document resamples; percentile 95\% intervals; no attacker refitting or within-replicate attacker selection.\\
 \bottomrule
 \end{tabularx}
-\caption{Detectability settings from the frozen classifier configuration and evaluator.}
-\label{tab:attack-settings}
 \end{table}
 
 Base per-checkpoint bootstrap seeds are 10424242, 10271828, and 10314159 for
@@ -2399,10 +2311,15 @@ producing a metric because of a stale provenance-key lookup. A frozen
 evaluator-only recovery changed only those lookups, verified and reused the
 already-published cache, and altered no checkpoint, row, attack, bootstrap,
 criterion, or reportable target. The full audit trail and machine-readable
-results are retained in the project repository at
-\url{https://github.com/MihneaTeodorStoica/recursive-geodesic-composition}. Here, ``official''
-denotes the project's predeclared, hash-backed evaluation role rather than an
-independently administered benchmark.
+results are retained in the project repository.
+\ifdefined\papreprint
+The repository is available at
+\url{https://github.com/MihneaTeodorStoica/recursive-geodesic-composition}.
+\else
+The identifying repository URL is omitted for double-blind review.
+\fi
+Here, ``official'' denotes the project's predeclared, hash-backed evaluation
+role rather than an independently administered benchmark.
 
 
 \subsection{Post-Review Safe-Arm Baseline Reproduction}
@@ -2430,6 +2347,10 @@ embeddings or scores; the documented correction retained the original loader,
 not a new teacher representation.
 
 \begin{table}[H]
+\caption{Recomputed learned-parent results for each frozen checkpoint on the
+same regenerated safe inputs. The token-weighted baseline has teacher cosine
+0.982938 and source-detection AUC 0.833522.}
+\label{tab:safe-baselines-per-seed}
 \centering\small
 \begin{tabularx}{\linewidth}{r r r C r}
 \toprule
@@ -2440,10 +2361,6 @@ Seed & Parent cosine & Gain over weighted & Paired 95\% CI & $A_{\mathrm{safe}}$
 314159 & 0.985053 & +0.002114 & $[0.002028,0.002200]$ & 0.587768 \\
 \bottomrule
 \end{tabularx}
-\caption{Recomputed learned-parent results for each frozen checkpoint on the
-same regenerated safe inputs. The token-weighted baseline has teacher cosine
-0.982938 and source-detection AUC 0.833522.}
-\label{tab:safe-baselines-per-seed}
 \end{table}
 
 Every pooled recomputed learned result is within the declared diagnostic
@@ -2495,6 +2412,12 @@ training-seed population. All checkpoint and preceding-result hashes remain
 unchanged.
 
 \begin{table}[H]
+\caption{Teacher fidelity for each frozen checkpoint on the same 606 prefixes.
+Here $\Delta$ is recursive minus direct; maximum loss is the largest
+per-document direct-minus-recursive difference. The final row averages scores
+within each document before summarizing and does not bound individual-checkpoint
+losses.}
+\label{tab:recursive-reuse-seeds}
 \centering\small
 \begin{tabularx}{\linewidth}{r r r C r}
 \toprule
@@ -2507,12 +2430,6 @@ Seed & Direct & Recursive & $\Delta$ [95\% CI] & Max.\ loss \\
 Mean & 0.977576 & 0.977114 & $-0.000461\;[-0.000537,-0.000390]$ & 0.004847 \\
 \bottomrule
 \end{tabularx}
-\caption{Teacher fidelity for each frozen checkpoint on the same 606 prefixes.
-Here $\Delta$ is recursive minus direct; maximum loss is the largest
-per-document direct-minus-recursive difference. The final row averages scores
-within each document before summarizing and does not bound individual-checkpoint
-losses.}
-\label{tab:recursive-reuse-seeds}
 \end{table}
 
 Full-document counts are derived from the existing token metadata, with
@@ -2699,11 +2616,20 @@ checkpoint SHA-256
 All three probes use only the parent representation, the same architecture,
 tensor-identical initialization, and the same 400-update TRAIN-only minibatch
 schedule. The evaluation population is the published official-v6 safe
-exact-K4 subset. The experiment was committed as
-\nolinkurl{6a745526abe09dc61538b59f16ea491af9ea437e}; all 16 audit checks passed,
-and neither the clean-v6 checkpoint nor prior official artifacts was modified.
+exact-K4 subset.
+\ifdefined\papreprint
+The experiment was committed as
+\nolinkurl{6a745526abe09dc61538b59f16ea491af9ea437e}.
+\else
+The identifying experiment commit is omitted for double-blind review.
+\fi
+All 16 audit checks passed, and neither the clean-v6 checkpoint nor prior
+official artifacts was modified.
 
 \begin{table}[H]
+\caption{Per-corpus mean ordered-child cosine for the matched exact-K4
+parent-only probes.}
+\label{tab:k4-pooling-corpus}
 \centering
 \small
 \begin{tabular}{l r c c c}
@@ -2717,9 +2643,6 @@ OpenWebText & 142 & 0.909281 & 0.911209 & 0.913877 \\
 Wikipedia & 183 & 0.914911 & 0.916708 & 0.918315 \\
 \bottomrule
 \end{tabular}
-\caption{Per-corpus mean ordered-child cosine for the matched exact-K4
-parent-only probes.}
-\label{tab:k4-pooling-corpus}
 \end{table}
 
 Machine-readable results, document-level scores, audit output, probe manifests,
@@ -2774,10 +2697,5 @@ in Appendix~\ref{app:reconstruction-calibration} measures how often true childre
 lie outside it; this geometric exclusion does not by itself explain the observed
 average reconstruction error.
 
-\begingroup
-\small
-\bibliographystyle{plainurl}
-\bibliography{references}
-\endgroup
 
 \end{document}
