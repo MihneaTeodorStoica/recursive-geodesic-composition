@@ -32,7 +32,7 @@ pdflatex -jobname=preprint '\def\papreprint{1}\input{main.tex}'
 Checked against the [author guide](https://jmlr.org/tmlr/author-guide.html) and official template on 2026-10-18:
 
 - Use the unmodified official style and author-year bibliography; do not override its margins or paragraph spacing.
-- Default PDF hides the author, identifying repository URL, and self-identifying artifact citation; PDF author metadata is empty. The preprint switch restores the named title and artifact links.
+- Default PDF hides the author, identifying repository URL, artifact self-citation, and the two project repository commit IDs; PDF author metadata is empty. The preprint switch restores the named title, artifact links, and implementation/experiment commit IDs. Third-party model/dataset revisions and checkpoint/result SHA-256 digests remain available in both variants.
 - Abstract is one paragraph; references precede appendices; all table captions, including Table 14 and included result tables, appear above their contents. Table generators retain that placement.
 - There is no fixed page limit, but length must be justified; appendices are discretionary reading.
 - Before submission, authors must separately verify the editorial policies, acceptance criteria, ethics guidelines, and code of conduct; maintain complete OpenReview profiles; supply the requested editor/conflict, funding, competing-interest, and human-subject information; and review the CC BY 4.0 submission license.
