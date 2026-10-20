@@ -1882,16 +1882,14 @@ the limitations below pair the unresolved recovery questions with further tests.
 \subsection{Limitations}
 \label{sec:limitations}
 
+Section~\ref{sec:future-work} sets out the research directions arising from these limitations.
+
 \paragraph{Representation and task scope.}
 The evidence is specific to one teacher interface and a narrow set of English tasks.
 All fitting and teacher-fidelity tests use one 768-dimensional masked-mean
 teacher and four English corpora. The separately pinned retrieval benchmark
 covers four English tasks, not classification or clustering, and the strong
-CLS reference shows that the representation interface matters. Testing a
-CLS-based merger with consistent chunk, query, and document representations
-would help assess that interface. Broader usefulness requires comparisons
-across encoders and languages on independently sourced retrieval,
-classification, and clustering tasks.
+CLS reference shows that the representation interface matters. 
 
 \paragraph{Population and recursive scale.}
 The evaluated population does not establish fidelity at unrestricted recursive depth.
@@ -1918,10 +1916,7 @@ endpoints cannot isolate one component of the continuation bundle. The
 attached/detached intervention has small, mixed outcomes: it changes one
 gradient route in a small exact-four TRAIN regime, starting from trained source
 encoders, rather than removing the decoder loss from the full training recipe.
-Arity comparisons also differ in capacity and training history. Isolating
-the effects of the decoder objective, geodesic parameterization, and arity
-would require from-scratch, matched-budget training with true loss removal
-and matched geometry and arity alternatives.
+Arity comparisons also differ in capacity and training history. 
 
 \paragraph{Reconstruction and geometry.}
 The reconstruction evidence depends on decoder capacity, fitting, and geometric constraints.
@@ -1934,9 +1929,7 @@ probe family. Fixed-budget bounded, unbounded, and direct probes are separate
 TRAIN-fitted models, with varying family rankings and direct-model fit;
 unconstrained outputs remove a structural restriction, not optimization or
 data dependence. The missing matched-pooling probe binaries also prevent exact
-copy/permutation calibration of those fits. A stronger recovery comparison would retain matched probes across
-representations, check optimization across seeds and budgets, and test
-reconstruction from the final root with both input-order and target-slot controls.
+copy/permutation calibration of those fits. 
 
 \paragraph{Statistical and confirmatory scope.}
 The reported intervals are conditional diagnostics, not independent confirmation of broad claims.
@@ -1950,23 +1943,56 @@ not matched-population noninferiority tests.
 The safe-arm baseline, recursive-reuse, reconstruction-calibration, tree/order,
 and continuation comparisons reuse evaluated documents and regenerated inputs.
 LongEmbed uses a distinct population, but its system and hypotheses were fixed
-after the initial evaluation. Preregistered comparisons on new documents, with more training seeds, attack
-splits, refitted attackers, and independent tasks, would assess robustness
-beyond these conditional estimates.
+after the initial evaluation. 
 
 \paragraph{Cost and reproducibility.}
 Composition timings do not measure end-to-end value, and reproduction has documented discrepancies.
 The fidelity--cost comparison measures composition only on the identified
 GPU. Cached-leaf pipeline throughput measures a different workload; neither
-measures end-to-end embedding cost. Determining whether the fidelity gain pays off in use requires benchmarking
-encoding, composition, storage, and inference together.
+measures end-to-end embedding cost. 
 Artifact identities, regenerated-cache constraints, numerical repairs, and
 reproduction discrepancies are documented in
 Appendices~\ref{app:safe-baseline-reproduction}
 and~\ref{app:reconstruction-calibration} and the associated audit subsections.
-An independent reproduction using the pinned inputs, retained artifacts, and
-documented numerical protocol should assess these discrepancies and the
-reported quality--cost trade-off.
+
+
+\subsection{Future Work}
+\label{sec:future-work}
+
+The limitations above motivate four directions for further study.
+
+\paragraph{Broader representations and tasks.}
+A merger trained on CLS-based representations would test whether the present
+results depend on masked-mean pooling. Chunk, query, and document interfaces
+should be consistent within each comparison. Evaluations across encoders,
+languages, and independently sourced retrieval, classification, and clustering
+tasks would test whether the teacher-fidelity gain translates into broader utility.
+
+\paragraph{Deeper recursion and document-level recovery.}
+Length-stratified populations should include documents beyond the configured
+96-leaf training cap. Varying segmentation, arity, and depth separately would
+help distinguish their effects; direct fidelity tests of deeper roots require
+a longer-context teacher or another evaluation design. Recovery experiments
+should decode from the final document root, not only intermediate parents,
+and retain matched probes across representations, seeds, and fitting budgets.
+Input-order and target-slot controls would test whether those probes recover
+distinct ordered constituents rather than shared content.
+
+\paragraph{Controlled training and independent confirmation.}
+From-scratch, matched-budget lineages with true decoder-loss removal and
+matched geometry and arity alternatives would help isolate the causes of the
+fidelity gain. Preregistered evaluations on fresh documents should use more
+training seeds, attack splits, refitted attackers, and independent tasks.
+Exact- and near-duplicate audits across corpora and continuation-training data
+would strengthen population separation. Comparisons matched on prefix length,
+arity, and content would also help explain domain-specific detectability.
+
+\paragraph{End-to-end cost and reproducibility.}
+Benchmarks should measure text encoding, composition, storage, and inference
+together rather than extrapolate from composition-only timing. Independent
+reproduction using the pinned inputs, retained artifacts, and documented
+numerical protocol should assess the reported discrepancies and determine
+whether the fidelity gain justifies its cost in a complete application.
 
 \section{Conclusion}
 \label{sec:conclusion}
