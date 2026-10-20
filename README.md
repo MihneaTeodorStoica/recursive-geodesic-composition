@@ -2,11 +2,24 @@
 
 Publication repository for **One Vector from Many: Hierarchical Long-Document Representation through Recursive Geodesic Transformer Composition**, by **Mihnea-Teodor Stoica**.
 
-This repository contains the final `clean-v6` K=4 strict-autoencoder implementation, the `official-v6` protocol and frozen results, publication figures, and additive reviewer-response controls. The scientific experiment lineage remains `clean-v6`/`official-v6`; `v1-paper` is the original immutable artifact release, and `v2-paper-review` is the reviewed paper and additional-control release. No new study replaces the historical results.
+This repository contains the final `clean-v6` K=4 strict-autoencoder implementation, the `official-v6` protocol and frozen results, publication figures, and additive reviewer-response controls. The scientific experiment lineage remains `clean-v6`/`official-v6`. `v3-paper` is the current manuscript release; historical models and probes remain in `v1-paper`, and additive review-study weights remain in `v2-paper-review`. No manuscript revision replaces those historical results or artifacts.
 
 ## Paper
 
 The [LaTeX manuscript](paper/main.tex), [bibliography](paper/references.bib), and bundled figures are in [`paper/`](paper/). See the [paper README](paper/README.md) for build instructions and import provenance. The [evidence/limitations map](paper/REVIEW_EVIDENCE_MAP.md) separates historical results, additive controls, downstream tasks, model-training interventions, and what remains unknown.
+
+### Current manuscript: v3-paper
+
+Read the [named preprint PDF](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/download/v3-paper/One_Vector_from_Many_v3.pdf) or the [release notes](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/tag/v3-paper). This paper-only release incorporates the writing-coach and first-reader revisions, clarifies single-merge versus recursive evaluation and continuation-training scope, and pairs limitations with proposed remedies. It adds no experiments or model weights and does not establish a consistent retrieval advantage over averaging.
+
+```bash
+gh release download v3-paper \
+  --repo MihneaTeodorStoica/recursive-geodesic-composition \
+  --dir artifacts/v3-paper
+(cd artifacts/v3-paper && sha256sum --check PAPER_RELEASE_ASSETS.sha256)
+```
+
+The 40-page public PDF is a named preprint, not the anonymous submission build. See [build instructions and verification caveats](paper/README.md#v3-paper-release) for the fixed-epoch recipe and the four historical table-checksum test failures; the numerical table bodies remain unchanged.
 
 ## Final system
 
@@ -69,7 +82,7 @@ The additive frozen-model controls include 24-permutation input-order tests, all
 
 The new release carries the reviewed PDF and the **newly trained** model/probe weights; the historical `v1-paper` checkpoints and probes stay in their own release. New evaluation scores, provenance, audit checks, and immutable checksums are tracked as JSON in the repository. Large derived embedding vectors, training caches, and source-corpus text are **not** release assets: the results identify their SHA-256 identities, and the scripts regenerate them with pinned data/model revisions. This is not a claim of byte-identical historical embeddings. For downloaded review-release assets use `scripts/materialize_review_release.py --verify-only <asset-directory>` or `--mode hardlink` to place only missing weight files at their recorded paths. The release's `REVIEW_RELEASE_ASSETS.sha256` verifies the PDF and weights.
 
-The original `v1-paper` models and probes remain required to regenerate the comparisons. On the reconstructed full environment: `python scripts/audit_review_completion.py` checks all five additional namespaces and `cd paper && SOURCE_DATE_EPOCH=1790294400 tectonic -X compile main.tex` rebuilds the manifest-hashed manuscript PDF (or use `latexmk` as described in the paper README; the validated local Tectonic binary is an ignored development artifact).
+The original `v1-paper` models and probes remain required to regenerate the comparisons. On the reconstructed full environment, `python scripts/audit_review_completion.py` checks all five additional namespaces. To reproduce the historical manifest-hashed PDF, first check out `v2-paper-review`, then run `cd paper && SOURCE_DATE_EPOCH=1790294400 tectonic -X compile main.tex`. That recipe does not describe the current preprint; see the [v3 build instructions](paper/README.md#v3-paper-release).
 
 ## Setup
 

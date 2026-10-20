@@ -27,6 +27,29 @@ pdflatex -jobname=preprint '\def\papreprint{1}\input{main.tex}'
 pdflatex -jobname=preprint '\def\papreprint{1}\input{main.tex}'
 ```
 
+### v3-paper release
+
+[`v3-paper`](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/tag/v3-paper) is the current paper-only snapshot after PRs #5, #6, and #7. It attaches the 40-page named preprint `One_Vector_from_Many_v3.pdf` and `PAPER_RELEASE_ASSETS.sha256`; GitHub supplies the tagged source archives. The tag also includes the release documentation. No experimental results or model/probe weights are replaced: download historical weights from `v1-paper` and additive review-study weights from `v2-paper-review`, using their original manifests.
+
+The public preprint includes the author, repository links, and artifact citation. The default `main.tex` build remains anonymous for review. The release build uses Tectonic 0.17.0, with `SOURCE_DATE_EPOCH=1792501521` fixed to the manuscript merge timestamp:
+
+```bash
+git switch --detach v3-paper
+cd paper
+printf '\\def\\papreprint{1}\\input{main.tex}\n' > One_Vector_from_Many_v3.tex
+SOURCE_DATE_EPOCH=1792501521 tectonic -X compile One_Vector_from_Many_v3.tex \
+  --hide One_Vector_from_Many_v3.aux \
+  --hide One_Vector_from_Many_v3.bbl \
+  --hide One_Vector_from_Many_v3.out --keep-logs
+```
+
+The one-line entrypoint is temporary build scaffolding, not a second manuscript. It and the generated PDF/intermediates should not be committed. The fixed epoch and compiler version record provenance, not a claim of byte-identical output on every toolchain.
+
+Release verification: the named PDF builds without unresolved references or overfull boxes; underfull-box layout warnings remain. The opening, bibliography/artifact links, and limitation/remedy layout were inspected, and all six proposed remedies are present.
+
+The existing publication checks (`.venv/bin/python -m pytest tests/test_*publication*.py`, from the repository root) returned **35 passed, 4 failed**. The four failures are historical `ARTIFACT_HASHES.json` assertions covering five table files: `continuation_comparison_table.tex`, `reconstruction_calibration_table.tex`, `full_population_table.tex`, `recursive_reuse_table.tex`, and `safe_baselines_table.tex`. All five numerical tabular bodies match the v2-era files; the later TMLR conversion moved captions above the tables and revised some caption wording. An expanded check matched the other 101 available artifact hashes in those four namespaces; regenerable absent `vectors.pt` files were not checked. Historical manifests remain unchanged rather than being silently re-pinned. This is not an all-green test-suite claim or a new numerical rerun.
+
+
 ### TMLR submission checks
 
 Checked against the [author guide](https://jmlr.org/tmlr/author-guide.html) and official template on 2026-10-18:
