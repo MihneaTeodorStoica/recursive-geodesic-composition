@@ -42,11 +42,15 @@ SOURCE_DATE_EPOCH=1792501521 tectonic -X compile One_Vector_from_Many_arxiv.tex 
 Local smoke builds with Tectonic 0.17.0 produced a 38-page named preprint and a 40-page anonymous TMLR submission. Both have all six remedies, resolved references, and no overfull boxes; the TMLR build retains underfull-box layout warnings. First pages were visually inspected, and the submission's extracted text and PDF author metadata were checked for identifying author/repository information.
 
 
+### v3.1-paper release
+
+[`v3.1-paper`](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/tag/v3.1-paper) pins the separate arXiv-compatible preprint and anonymous TMLR submission formats, together with these build instructions. Its assets include `One_Vector_from_Many_arxiv.pdf` (38 pages), `One_Vector_from_Many_tmlr_submission.pdf` (40 pages), and `PAPER_FORMAT_ASSETS.sha256`. Build from this tag using the commands above; `main.pdf` is the TMLR submission output. The release also consolidates all 70 unchanged v1/v2 attachments and the original v3 PDF/checksum. Original checksum manifests retain their original scopes; no newly trained weights or experimental results are introduced.
+
 ### v3-paper release
 
 [`v3-paper`](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/tag/v3-paper) includes the original 40-page named TMLR preprint `One_Vector_from_Many_v3.pdf` and `PAPER_RELEASE_ASSETS.sha256`, plus all 70 unchanged attachments from `v1-paper` and `v2-paper-review`. Older releases remain available; their original manifests and checksum files still apply to the legacy assets. No new experimental results or newly trained weights are introduced.
 
-The subsequently added `One_Vector_from_Many_arxiv.pdf` and `One_Vector_from_Many_tmlr_submission.pdf` use the separate formats described above and are covered by `PAPER_FORMAT_ASSETS.sha256`. Their exact source commit is recorded in the release notes; it postdates the immutable `v3-paper` tag. GitHub's automatic source archives still correspond to that original tag, not the later format update. To build the newer formats, check out their recorded source commit and use the commands above.
+The separate arXiv-compatible and anonymous TMLR formats are released at `v3.1-paper`, not built from the older `v3-paper` tag. Older tags and their automatic source archives remain unchanged.
 
 The following historical recipe reproduces the original named TMLR preprint from the release tag, using Tectonic 0.17.0 and `SOURCE_DATE_EPOCH=1792501521` fixed to the manuscript merge timestamp:
 
