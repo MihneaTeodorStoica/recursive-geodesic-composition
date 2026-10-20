@@ -2,7 +2,7 @@
 
 Publication repository for **One Vector from Many: Hierarchical Long-Document Representation through Recursive Geodesic Transformer Composition**, by **Mihnea-Teodor Stoica**.
 
-This repository contains the final `clean-v6` K=4 strict-autoencoder implementation, the `official-v6` protocol and frozen results, publication figures, and additive reviewer-response controls. The scientific experiment lineage remains `clean-v6`/`official-v6`. `v3-paper` is the current manuscript release; historical models and probes remain in `v1-paper`, and additive review-study weights remain in `v2-paper-review`. No manuscript revision replaces those historical results or artifacts.
+This repository contains the final `clean-v6` K=4 strict-autoencoder implementation, the `official-v6` protocol and frozen results, publication figures, and additive reviewer-response controls. The scientific experiment lineage remains `clean-v6`/`official-v6`. `v3-paper` consolidates the current manuscript and unchanged attachments from `v1-paper` and `v2-paper-review`. Older releases and their download links remain available. No manuscript revision replaces those historical results or artifacts.
 
 ## Paper
 
@@ -10,16 +10,16 @@ The [LaTeX manuscript](paper/main.tex), [bibliography](paper/references.bib), an
 
 ### Current manuscript: v3-paper
 
-Read the [named preprint PDF](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/download/v3-paper/One_Vector_from_Many_v3.pdf) or the [release notes](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/tag/v3-paper). This paper-only release incorporates the writing-coach and first-reader revisions, clarifies single-merge versus recursive evaluation and continuation-training scope, and pairs limitations with proposed remedies. It adds no experiments or model weights and does not establish a consistent retrieval advantage over averaging.
+Read the [arXiv-compatible named preprint](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/download/v3-paper/One_Vector_from_Many_arxiv.pdf), [anonymous TMLR submission PDF](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/download/v3-paper/One_Vector_from_Many_tmlr_submission.pdf), or [release notes](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/tag/v3-paper). The manuscript incorporates the writing-coach and first-reader revisions, clarifies single-merge versus recursive evaluation and continuation-training scope, and pairs limitations with proposed remedies. It adds no experiments or newly trained weights and does not establish a consistent retrieval advantage over averaging.
 
 ```bash
 gh release download v3-paper \
   --repo MihneaTeodorStoica/recursive-geodesic-composition \
   --dir artifacts/v3-paper
-(cd artifacts/v3-paper && sha256sum --check PAPER_RELEASE_ASSETS.sha256)
+(cd artifacts/v3-paper && sha256sum --check PAPER_FORMAT_ASSETS.sha256)
 ```
 
-The 40-page public PDF is a named preprint, not the anonymous submission build. See [build instructions and verification caveats](paper/README.md#v3-paper-release) for the fixed-epoch recipe and the four historical table-checksum test failures; the numerical table bodies remain unchanged.
+The arXiv-compatible preprint is a 38-page named, single-column article; the 40-page submission uses the official anonymous TMLR style. These format updates postdate the immutable `v3-paper` tag; the release notes identify their source commit. The original `One_Vector_from_Many_v3.pdf` and `PAPER_RELEASE_ASSETS.sha256` remain available. All 70 legacy attachments are copied unchanged into v3; their original checksum files retain their original scope. See [build instructions and verification caveats](paper/README.md#v3-paper-release), including the four historical table-checksum test failures; numerical table bodies remain unchanged.
 
 ## Final system
 

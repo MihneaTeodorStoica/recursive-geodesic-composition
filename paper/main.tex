@@ -1,6 +1,7 @@
 \documentclass[10pt]{article}
 \ifdefined\papreprint
-\usepackage[preprint]{tmlr}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[authoryear,round]{natbib}
 \else
 \usepackage{tmlr}
 \fi
@@ -35,6 +36,9 @@
   pdfauthor={},
   pdfsubject={Recursive composition of frozen text representations; clean-v6 study}
 }
+\ifdefined\papreprint
+\hypersetup{pdfauthor={Mihnea-Teodor Stoica}}
+\fi
 \usepackage[
     font=small,
     labelfont=bf,
@@ -50,10 +54,15 @@
 
 \title{One Vector from Many: Hierarchical Long-Document Representation through Recursive Geodesic Transformer Composition}
 
+\ifdefined\papreprint
+\author{Mihnea-Teodor Stoica\\
+International Computer High School of Bucharest}
+\else
 \author{
 \name Mihnea-Teodor Stoica\\
 \addr International Computer High School of Bucharest
 }
+\fi
 
 \date{September 2026}
 
@@ -2008,7 +2017,11 @@ therefore supports the feasibility of
 learned, recursively reusable embeddings in the original geometric domain,
 not guaranteed semantic preservation or a general downstream advantage.
 
+\ifdefined\papreprint
+\bibliographystyle{plainnat}
+\else
 \bibliographystyle{tmlr}
+\fi
 \bibliography{references}
 \clearpage
 
@@ -2416,12 +2429,12 @@ role rather than an independently administered benchmark.
 This analysis compares learned composition, its intermediate reference, and
 non-learned baselines on identical teacher-comparable prefixes
 (Section~\ref{sec:safe-results}). The protocol is
-\texttt{configs/safe\_baselines\_v1.yaml}; preparation,
+\path{configs/safe_baselines_v1.yaml}; preparation,
 evaluation, and auditing are implemented by
-\texttt{scripts/prepare\_safe\_baselines.py},
-\texttt{scripts/evaluate\_safe\_baselines.py}, and
-\texttt{scripts/audit\_safe\_baselines.py}. Results and full-precision
-per-document scores are in \texttt{results/safe\_baselines\_v1/}. No source
+\path{scripts/prepare_safe_baselines.py},
+\path{scripts/evaluate_safe_baselines.py}, and
+\path{scripts/audit_safe_baselines.py}. Results and full-precision
+per-document scores are in \path{results/safe_baselines_v1/}. No source
 checkpoint, reconstruction probe, or TRAIN cache is needed for this analysis.
 All three released final checkpoints are checked against their SHA-256 digests
 before inference and verified unchanged afterward.

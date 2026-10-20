@@ -18,7 +18,7 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
 This produces `paper/main.pdf` in anonymous TMLR review format. The manuscript, not the build-product PDF, is tracked. After switching from the former numeric bibliography, run `latexmk -C` before the first build to discard stale auxiliary files. Alternatively, from `paper/`, use `tectonic -X compile main.tex --hide main.aux --hide main.bbl --hide main.out --keep-logs`; the hide options ignore stale build inputs without deleting them.
 
-For a named preprint with the repository link and artifact citation, run:
+For the named, arXiv-compatible preprint with the repository link and artifact citation, run:
 
 ```bash
 pdflatex -jobname=preprint '\def\papreprint{1}\input{main.tex}'
@@ -27,11 +27,28 @@ pdflatex -jobname=preprint '\def\papreprint{1}\input{main.tex}'
 pdflatex -jobname=preprint '\def\papreprint{1}\input{main.tex}'
 ```
 
+The preprint switch uses the standard `article` class, US Letter paper with one-inch margins, single-column text, and `natbib`/`plainnat` references; it does not load the TMLR style or display a TMLR submission banner. Author identity is included both visibly and in PDF metadata. [arXiv's source guidelines](https://info.arxiv.org/help/submit_tex.html) do not prescribe a universal visual template: include the bibliography and all referenced figures/table inputs, omit build intermediates, and inspect arXiv's generated PDF before submitting. These builds have been checked locally, not submitted to arXiv.
+
+For Tectonic, create a temporary entrypoint in `paper/` and compile it separately from `main.tex`:
+
+```bash
+printf '\\def\\papreprint{1}\\input{main.tex}\n' > One_Vector_from_Many_arxiv.tex
+SOURCE_DATE_EPOCH=1792501521 tectonic -X compile One_Vector_from_Many_arxiv.tex \
+  --hide One_Vector_from_Many_arxiv.aux \
+  --hide One_Vector_from_Many_arxiv.bbl \
+  --hide One_Vector_from_Many_arxiv.out --keep-logs
+```
+
+Local smoke builds with Tectonic 0.17.0 produced a 38-page named preprint and a 40-page anonymous TMLR submission. Both have all six remedies, resolved references, and no overfull boxes; the TMLR build retains underfull-box layout warnings. First pages were visually inspected, and the submission's extracted text and PDF author metadata were checked for identifying author/repository information.
+
+
 ### v3-paper release
 
-[`v3-paper`](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/tag/v3-paper) is the current paper-only snapshot after PRs #5, #6, and #7. It attaches the 40-page named preprint `One_Vector_from_Many_v3.pdf` and `PAPER_RELEASE_ASSETS.sha256`; GitHub supplies the tagged source archives. The tag also includes the release documentation. No experimental results or model/probe weights are replaced: download historical weights from `v1-paper` and additive review-study weights from `v2-paper-review`, using their original manifests.
+[`v3-paper`](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/tag/v3-paper) includes the original 40-page named TMLR preprint `One_Vector_from_Many_v3.pdf` and `PAPER_RELEASE_ASSETS.sha256`, plus all 70 unchanged attachments from `v1-paper` and `v2-paper-review`. Older releases remain available; their original manifests and checksum files still apply to the legacy assets. No new experimental results or newly trained weights are introduced.
 
-The public preprint includes the author, repository links, and artifact citation. The default `main.tex` build remains anonymous for review. The release build uses Tectonic 0.17.0, with `SOURCE_DATE_EPOCH=1792501521` fixed to the manuscript merge timestamp:
+The subsequently added `One_Vector_from_Many_arxiv.pdf` and `One_Vector_from_Many_tmlr_submission.pdf` use the separate formats described above and are covered by `PAPER_FORMAT_ASSETS.sha256`. Their exact source commit is recorded in the release notes; it postdates the immutable `v3-paper` tag. GitHub's automatic source archives still correspond to that original tag, not the later format update. To build the newer formats, check out their recorded source commit and use the commands above.
+
+The following historical recipe reproduces the original named TMLR preprint from the release tag, using Tectonic 0.17.0 and `SOURCE_DATE_EPOCH=1792501521` fixed to the manuscript merge timestamp:
 
 ```bash
 git switch --detach v3-paper
