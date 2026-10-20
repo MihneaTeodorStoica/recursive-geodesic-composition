@@ -67,13 +67,13 @@ system may need one. We study how to merge these embeddings into a vector
 in the frozen encoder's output space that can itself be reused in further
 merges. Our geodesic Transformer combines up to four adjacent representations
 at a time, whether they encode original chunks or previously merged spans.
-Every parent retains the original embedding dimension, unit norm, and exact
-token count, so the same operator can be applied repeatedly without a separate
-conversion step. A bounded spherical correction preserves the geometric
-domain; training against the encoder's direct embedding of the combined text
-aims to preserve semantic alignment within that domain. On 4,000 document
-prefixes of 1,025--4,096 tokens, mean cosine similarity to a GTE-ModernBERT-based
-teacher is \(0.9850\), compared with \(0.9829\) for token-weighted averaging,
+Each merge preserves the embedding dimension and unit-sphere domain and
+propagates the exact token count. Its output can enter the same operator
+without conversion; teacher supervision trains it to approximate the encoder's
+direct embedding of the combined text. On 4,000 document
+prefixes of 1,025--4,096 tokens, a single merge achieves mean cosine similarity
+\(0.9850\) to a GTE-ModernBERT-based teacher, compared with \(0.9829\)
+for token-weighted averaging,
 across three checkpoints. This small gain costs approximately \(110\times\)
 as much in measured batched composition, excluding text encoding. Recursive
 reuse tests show sensitivity to tree structure and chunk boundaries, and four
@@ -106,16 +106,16 @@ the representations from which it was built.
 
 Here, remaining in the \emph{same geometric space} means retaining the encoder's
 output coordinates, dimensionality, unit-sphere domain, and cosine comparison
-rule, rather than producing a code in a separate latent space. The construction
-preserves dimension and unit norm; supervision trains the output to align with
-the encoder's representation of the combined span. That semantic alignment is
-an empirical goal, not a consequence of unit norm alone, and recursive reuse
-does not imply that different merge trees produce identical vectors.
+rule, rather than producing a code in a separate latent space. Supervision aims to align the output with the encoder's representation of
+the combined span; the geometric construction alone does not guarantee that
+alignment (Section~\ref{sec:problem}).
 
-Token-weighted averaging is a simple alternative that also permits recursive
-aggregation when token counts are retained. Reusability alone therefore does
-not establish an advantage for learning. We investigate whether content-dependent
-weighting and a bounded spherical correction produce a more faithful parent.
+Flat token-weighted averaging is a simple alternative. Reproducing it exactly
+through recursive aggregation requires retaining the unnormalized weighted
+sum, or equivalent magnitude information, rather than only a normalized
+vector and token count. Reusability alone does not establish an advantage for
+learning; we test whether learned weighting and a bounded spherical correction
+produce a more faithful parent.
 Unlike approaches that extend the encoder's context or jointly encode the
 document hierarchy
 \cite{beltagy-etal-2020-longformer,zaheer-etal-2020-bigbird,zhang-etal-2019-hibert,wu-etal-2021-hi},
@@ -124,14 +124,15 @@ our method operates on embeddings that have already been computed.
 To measure that fidelity, we use spans that the frozen encoder can process
 directly. Its embedding of the combined span is the \emph{teacher target},
 and we compare both the learned merger and token-weighted averaging with that
-target. This comparison asks whether learning improves agreement with the
-encoder and, if so, at what composition cost. It cannot provide a direct target
-for documents longer than the encoder's context. We therefore evaluate
-complete-document execution and retrieval separately, alongside checks of
-sensitivity to chunk boundaries and reduction trees and of whether a parent
-allows a decoder to reconstruct its input embeddings.
+target. Direct fidelity is measured on short, one-merge prefixes; recursive
+robustness and longer-document utility are evaluated separately. The primary
+comparison asks whether learning improves agreement with the encoder and at
+what composition cost. Because documents longer than the encoder's context
+lack a direct teacher target, complete-document runs measure execution and
+retrieval. Supporting checks vary chunk boundaries and reduction trees and
+test whether a parent allows reconstruction of its input embeddings.
 
-The contributions are (i) a shared merger whose outputs can be reused as inputs
+We present and evaluate (i) a shared merger whose outputs can be reused as inputs
 while retaining the frozen encoder's embedding dimension and unit norm and
 propagating exact token counts; (ii) a bounded spherical correction trained for
 teacher alignment, with auxiliary parent-only reconstruction; and (iii) an
@@ -191,13 +192,6 @@ pretrained text representations in graphs, using logarithmic and exponential
 maps to aggregate through tangent spaces \cite{yang-etal-2025-geognn}.
 These methods motivate our spherical parameterization; whether it preserves
 useful information remains an empirical question.
-
-The distinction is thus where composition takes place: we keep the text
-encoder fixed and learn a bounded-arity operator in its output space. Each
-parent retains the dimension and unit-norm convention of the chunk embeddings,
-so it can be supplied to the same operator at the next level. This structural
-compatibility enables recursive execution; fidelity to a directly encoded
-span and usefulness for a downstream task require separate evaluation.
 
 \section{Problem Formulation}
 \label{sec:problem}
@@ -600,7 +594,7 @@ parent with the result of recomposing the predicted children. The decoder receiv
 the generated parent and is not given the true children, token counts,
 composition weights, source identity, or tree metadata.
 
-Optimization is staged: the merger is frozen for 300 decoder-only updates and then unfrozen for 100 joint encoder--decoder updates, during which the auxiliary terms are introduced linearly. The complete loss definitions, coefficients, and joint schedule are given in Appendix~\ref{app:training-objectives}. Recursive document representations are produced by the merger, so normal recursive inference requires neither a direct teacher target nor the decoder.
+In the continuation experiment, the merger is frozen for 300 decoder-only updates and then unfrozen for 100 joint encoder--decoder updates, during which the auxiliary terms are introduced linearly. The complete loss definitions, coefficients, and joint schedule are given in Appendix~\ref{app:training-objectives}. Recursive document representations are produced by the merger, so normal recursive inference requires neither a direct teacher target nor the decoder.
 
 \section{Experimental Setup}
 \label{sec:experimental-setup}
@@ -803,29 +797,27 @@ Earlier development and final-evaluation runs used separate source-document
 ranges; ranges already used for evaluation were not reused as fresh holdouts.
 Unused buffer ranges were also retained between selected experimental roles.
 The complete sequence of earlier ranges and evaluations is preserved in the
-reproducibility record. The final analysis reported here uses the clean-v6
-roles in Table~\ref{tab:v6-splits}. Throughout this paper, \emph{official-v6}
+reproducibility record. The final analysis uses the training/evaluation roles in
+Table~\ref{tab:v6-splits} (the repository's clean-v6 protocol). Throughout this paper, \emph{official-v6}
 denotes the final, self-administered, predeclared evaluation within this
 protocol, not an independently administered benchmark.
 
 \subsubsection{Training Configuration}
 \label{sec:training-configuration}
 
-The final clean-v6 models are trained using three seeds,
-\(424242\), \(271828\), and \(314159\). Training continues from an already-trained
-merger rather than initializing that network at random. We call the inherited
+We evaluate inherited trained mergers. The fully specified recipe below is a
+continuation experiment, not a from-scratch recipe for obtaining the reported
+fidelity gain. The matched endpoint comparison
+(Section~\ref{sec:continuation-results}) finds that almost all of the advantage
+over pooling is already present in the source checkpoints.
+The final models use three seeds,
+\(424242\), \(271828\), and \(314159\). We call the inherited
 checkpoint the \emph{source} and the checkpoint after this continuation stage
 \emph{final}. These are model checkpoints, not source documents. For
 each seed, the merger is initialized from the encoder state contained in the
 corresponding prior strict-autoencoder checkpoint. The previous decoder parameters are not
 reused; instead, the decoder is deterministically reinitialized for each seed
-before the clean-v6 training procedure. The terms \emph{clean-v6} and
-\emph{official-v6} identify the final training/evaluation protocol and its final
-evaluation, respectively; \texttt{v1-paper} is a publication-release label, not
-an earlier trained model. In particular, the
-checkpoint called ``V1'' in the matched-pooling artifacts is the final
-clean-v6 seed-424242 checkpoint, identified by the same SHA-256 digest.
-Appendix~\ref{app:lineage} records the source-to-final identities.
+before the clean-v6 training procedure. Appendix~\ref{app:lineage} records the source-to-final identities.
 
 Optimization is divided into two stages. During the first 300 updates, the
 merger parameters are frozen and only the strict decoder is optimized. This
@@ -845,16 +837,12 @@ schedule floor of \(4\times10^{-8}\). The shared schedule has already progressed
 through 300 updates when merger training begins; these are not 100 updates at
 the unscaled peak rate. The training batch size is 8, batches are stratified across the four corpora, mixed-precision arithmetic is disabled, and gradient norms are clipped to 1.0 \cite{pascanu-etal-2013-gradient-clipping}.
 
-Clean-v6 retraining uses the fresh TRAIN source range
+The continuation uses the fresh TRAIN source range
 \([140000,152000)\) described in Section~\ref{sec:dataset-splits}. The final training recipe fixes
 the retained checkpoint at update 400 rather than selecting a checkpoint using
-the subsequent development results. The resulting checkpoints are therefore
-the products of an already-trained source merger followed by 300 decoder-only
-and 100 joint updates. The 400-update count describes only the final
-continuation stage, not the total training budget from random initialization.
-The matched endpoint comparison in Section~\ref{sec:continuation-results}
-quantifies changes relative to these inherited representations. It does not
-isolate individual losses or reconstruct the complete earlier training budget.
+the subsequent development results. The matched endpoint comparison in Section~\ref{sec:continuation-results}
+quantifies the effect of this continuation bundle, not individual losses or
+the complete earlier training budget.
 
 
 \subsection{Primary Evaluation: Fidelity and Composition Cost}
@@ -1204,10 +1192,9 @@ lie below the historical training chunk-size range.
 To test dependence on the reconstruction model, the separate decoder-family
 study uses source indices 140,000--151,999,
 160 fit and 40 validation exact-four prefixes per corpus, excluding exact
-evaluation-prefix token hashes. The fixed FineWeb range lacked enough eligible
-examples for the requested 500/100 split, so the split was reduced to 160/40
-before encoding. Neither source range nor candidate scoring was chosen from
-results. Three independently initialized probes per family are
+evaluation-prefix token hashes. Preparation details, including the pre-encoding population adjustment, are
+recorded in Appendix~\ref{app:extended-review}. Three independently
+initialized probes per family are
 trained for 400 fixed updates using TRAIN fits only: bounded and unbounded
 residual decoders with the same zero-last-layer initialization, and a direct
 MLP initialized to TRAIN-only slot centroids. They receive matched learned,
@@ -1701,7 +1688,8 @@ Recomputing parents after input permutation tests whether decoder outputs
 follow the reordered children; permuting only scoring assignments provides
 a negative control with the parent fixed. On 606
 four-leaf documents, the released built-in decoder's original-order gap is
-\(6.86\times10^{-7}\) but its mean following gap across all 24 actual-mass
+\(6.86\times10^{-7}\) but its mean following gap (matched-minus-shuffled child cosine after
+recomputing the parent for each input permutation) across all 24 actual-mass
 input permutations is \(-3.12\times10^{-9}\) (95\% interval
 \([-3.23,-3.02]\times10^{-9}\)). For the released candidate probe, the
 respective gaps are \(0.000908\) and \(-0.00000418\) (interval
@@ -1789,8 +1777,8 @@ Against the full-document weighted pool, recursive nDCG@10 changes by:
 \item SummScreenFD: \(-0.02700\), interval \([-0.03893,-0.01479]\);
 \item NarrativeQA: \(-0.00448\), interval \([-0.00854,-0.00010]\).
 \end{itemize}
-These results do not support an across-task gain over
-simple pooling, and teacher fidelity does not predict these task rankings.
+Higher short-prefix teacher agreement did not translate into a consistent
+retrieval advantage over simple pooling.
 The CLS-reference advantage on every task makes the documented-interface
 mismatch consequential; it does not show that changing only the aggregation
 method would reproduce CLS performance. In the 355-document, 10,449-query
@@ -1853,12 +1841,8 @@ hidden width 1,152 and 166.9 million parameters reached validation2 AUC
 \section{Discussion}
 \label{sec:discussion}
 
-The design addresses two distinct questions: can a composed embedding enter
-the same merger again, and does it still represent the combined text in a way
-that agrees with the frozen encoder? Matching input and output interfaces
-answers the first structurally. Teacher-fidelity and recursive-reuse tests
-address the second empirically; downstream evaluation asks whether that
-agreement is useful.
+The experiments separate recursive executability from teacher fidelity and
+downstream utility.
 
 \subsection{Teacher Fidelity at a Higher Composition Cost}
 
@@ -1893,8 +1877,9 @@ Full-document runs bridge the gap between a prefix-only fidelity test and
 execution on longer inputs: the shared merger produces finite roots beyond
 the teacher's direct context. Tree and segmentation interventions nevertheless
 show that the ability to reuse an output does not make the result independent
-of how the text is divided and merged: changing chunk boundaries affects
-fidelity more than changing the reduction tree in the tested four-leaf setting.
+of how the text is divided and merged. The tested resegmentations produce
+larger fidelity losses than the tested regroupings, but they change leaf
+representations and depth together.
 Successful execution alone cannot establish the quality of deeper roots.
 
 Local reconstruction is also a weaker property than recovering a document
@@ -1903,13 +1888,10 @@ document vector. Predicting the same parent vector for every child already
 explains much of the absolute reconstruction score. The decoder's limited ability to distinguish child positions and the stronger
 baselines that copy a pooled vector into every position caution against interpreting
 high child cosine as recovery of distinct ordered constituents. These results
-support local predictability, not losslessness or preserved mutual information;
-the limitations below pair the unresolved recovery questions with further tests.
+support local predictability, not losslessness or preserved mutual information.
 
 \subsection{Limitations and Future Work}
 \label{sec:limitations}
-
-Each limitation below is paired with a proposed remedy for future work.
 
 \paragraph{Representation and task scope.}
 The evidence is specific to one teacher interface and a narrow set of English tasks.
@@ -2021,8 +2003,8 @@ provided by the construction, while semantic fidelity remains empirical.
 The evaluated system improves short-prefix teacher fidelity over pooling at
 substantial composition cost, but recursive results depend on segmentation
 and merge structure, and reconstruction and retrieval show no consistent
-advantage. Pooling remains a simple, inexpensive comparator that also supports
-recursive aggregation. The evidence therefore supports the feasibility of
+advantage. Pooling remains a simple, inexpensive comparator. The evidence
+therefore supports the feasibility of
 learned, recursively reusable embeddings in the original geometric domain,
 not guaranteed semantic preservation or a general downstream advantage.
 
@@ -2154,7 +2136,7 @@ At full strength, the merger-only objective is therefore
 \end{aligned}
 \]
 
-The teacher term enforces paired semantic fidelity, the mean and variance terms provide minibatch-level distribution matching, and the salience regularizers constrain semantic reweighting while preserving the distinction between learned importance and exact token mass.
+The teacher term encourages paired agreement with the teacher, the mean and variance terms provide minibatch-level distribution matching, and the salience regularizers constrain semantic reweighting while preserving the distinction between learned importance and exact token mass.
 
 The autoencoder variant adds a strict training-time decoder \(D_\phi\) that receives only the generated parent embedding \(z\). From this parent, it predicts four ordered child embeddings \(\hat{x}_1,\ldots,\hat{x}_4\) and importance logits that are normalized to predicted importance weights \(\hat{w}_1,\ldots,\hat{w}_4\). The decoder is not given the true child embeddings, child token counts, token-mass fractions \(q_i\), encoder salience corrections, encoder semantic weights as inputs, corpus or source identity, or reduction-tree metadata.
 
@@ -2305,6 +2287,16 @@ are loaded; decoder parameters are discarded and reinitialized; the final
 checkpoint is fixed at continuation step 400 before development access.
 The published identities below define that continuation exactly. They do not
 specify a complete from-scratch training history for the source mergers.
+Available reproduction materials identify the released weights, architecture,
+and source-to-final continuation; they do not establish the complete
+source-training schedule or total training budget.
+
+The terms \emph{clean-v6} and
+\emph{official-v6} identify the final training/evaluation protocol and its final
+evaluation, respectively; \texttt{v1-paper} is a publication-release label, not
+an earlier trained model. In particular, the
+checkpoint called ``V1'' in the matched-pooling artifacts is the final
+clean-v6 seed-424242 checkpoint, identified by the same SHA-256 digest.
 
 \begin{table}[H]
 \caption{Exact source and final checkpoint identities for clean-v6 continuation.}
