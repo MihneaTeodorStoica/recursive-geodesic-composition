@@ -62,24 +62,24 @@
 \maketitle
 
 \begin{abstract}
-Long documents are often split into chunks that a text encoder can process
-individually, leaving multiple embeddings where a downstream system requires
-one document vector. We study whether a learned merger can improve on averaging
-these chunk embeddings without changing the encoder. Our geodesic Transformer
-combines up to four adjacent embeddings at a time and can merge its own outputs
-again until one vector remains. Each merge adjusts a token-weighted average
-through a bounded update on the unit sphere, retaining the embedding dimension
-and the exact number of represented tokens. We train the merger to approximate
-the vector that the frozen encoder produces when it can process the combined
-text directly; this vector serves as the teacher target. On 4,000 document
+Splitting a long document into chunks produces multiple embeddings where a
+system may need one. We study how to merge these embeddings into a vector
+in the frozen encoder's output space that can itself be reused in further
+merges. Our geodesic Transformer combines up to four adjacent representations
+at a time, whether they encode original chunks or previously merged spans.
+Every parent retains the original embedding dimension, unit norm, and exact
+token count, so the same operator can be applied repeatedly without a separate
+conversion step. A bounded spherical correction preserves the geometric
+domain; training against the encoder's direct embedding of the combined text
+aims to preserve semantic alignment within that domain. On 4,000 document
 prefixes of 1,025--4,096 tokens, mean cosine similarity to a GTE-ModernBERT-based
 teacher is \(0.9850\), compared with \(0.9829\) for token-weighted averaging,
-across three checkpoints. The gain is small and costs approximately
-\(110\times\) as much in measured batched composition, excluding text encoding.
-Further experiments examine recursive execution and constituent reconstruction,
-while four long-document retrieval tasks show no consistent advantage over
-averaging. The results demonstrate a limited teacher-fidelity benefit, not a
-general improvement in long-document representation quality.
+across three checkpoints. This small gain costs approximately \(110\times\)
+as much in measured batched composition, excluding text encoding. Recursive
+reuse tests show sensitivity to tree structure and chunk boundaries, and four
+retrieval tasks show no consistent advantage over averaging. The method thus
+provides recursively reusable embeddings in the same geometric domain, with
+empirical rather than guaranteed semantic alignment.
 \end{abstract}
 
 \section{Introduction}
@@ -90,25 +90,36 @@ systems to compare or retrieve passages using vector similarity
 so a long document may need to be split into chunks and encoded separately
 \cite{gunther-etal-2023-jina-embeddings-2,dai-etal-2022-revisiting}. This leaves
 a sequence of chunk vectors rather than the single document vector that some
-downstream systems require. The question here is how to combine those vectors
-when the encoder is already trained and will remain unchanged, or \emph{frozen}.
+downstream systems require. Our goal is to make those embeddings composable:
+merging several should yield another embedding in the original encoder's
+output space, usable as an input to subsequent merges. The encoder remains
+unchanged, or \emph{frozen}; composition should not require a new representation
+space or a separate conversion between successive merges.
 
-A simple solution is to average the chunk embeddings, weighting each by the
-number of tokens it represents. This requires no additional training, but uses
-a fixed rule to combine the chunks. We investigate a learned alternative that
-can account for their content and order. Unlike approaches that extend the
-encoder's context or jointly encode the document hierarchy
+The proposed merger takes two to four adjacent embeddings and produces a
+\emph{parent} representing their combined text. It accepts parents as well as
+original chunk embeddings, allowing the same learned operation to build a
+single document vector through successive merges. Each parent retains the
+original embedding dimension and unit norm, together with the exact number of
+tokens it represents. Thus, a merged representation has the same interface as
+the representations from which it was built.
+
+Here, remaining in the \emph{same geometric space} means retaining the encoder's
+output coordinates, dimensionality, unit-sphere domain, and cosine comparison
+rule, rather than producing a code in a separate latent space. The construction
+preserves dimension and unit norm; supervision trains the output to align with
+the encoder's representation of the combined span. That semantic alignment is
+an empirical goal, not a consequence of unit norm alone, and recursive reuse
+does not imply that different merge trees produce identical vectors.
+
+Token-weighted averaging is a simple alternative that also permits recursive
+aggregation when token counts are retained. Reusability alone therefore does
+not establish an advantage for learning. We investigate whether content-dependent
+weighting and a bounded spherical correction produce a more faithful parent.
+Unlike approaches that extend the encoder's context or jointly encode the
+document hierarchy
 \cite{beltagy-etal-2020-longformer,zaheer-etal-2020-bigbird,zhang-etal-2019-hibert,wu-etal-2021-hi},
-our method starts with embeddings that have already been computed.
-
-The proposed merger combines two to four adjacent embeddings into a
-\emph{parent}: a vector of the same dimension representing their combined text.
-A parent can then be merged with other representations, so the same operation
-reduces a sequence of any length to one document vector. Each merge starts
-from a weighted average, learns adjustments to the weights, and applies a
-bounded correction on the unit sphere. Keeping the outputs unit-normalized
-makes this construction compatible with the encoder's cosine-similarity space;
-it does not by itself guarantee that the combined text is represented faithfully.
+our method operates on embeddings that have already been computed.
 
 To measure that fidelity, we use spans that the frozen encoder can process
 directly. Its embedding of the combined span is the \emph{teacher target},
@@ -120,11 +131,12 @@ complete-document execution and retrieval separately, alongside checks of
 sensitivity to chunk boundaries and reduction trees and of whether a parent
 allows a decoder to reconstruct its input embeddings.
 
-The contributions are (i) a shared merger that recursively combines up to four
-embeddings while propagating exact token counts; (ii) a bounded spherical
-correction and a decoder trained to reconstruct children from the parent alone;
-and (iii) an evaluation separating teacher fidelity and composition cost from
-recursive robustness, constituent reconstruction, and downstream retrieval.
+The contributions are (i) a shared merger whose outputs can be reused as inputs
+while retaining the frozen encoder's embedding dimension and unit norm and
+propagating exact token counts; (ii) a bounded spherical correction trained for
+teacher alignment, with auxiliary parent-only reconstruction; and (iii) an
+evaluation separating this structural reusability from semantic fidelity,
+recursive robustness, constituent reconstruction, downstream utility, and cost.
 Section~\ref{sec:problem} formalizes the task, Section~\ref{sec:method}
 describes the model, and Section~\ref{sec:experimental-setup} defines the
 comparisons used to evaluate it.
@@ -256,7 +268,15 @@ n_D=\sum_{i=1}^{N} n_i,
 
 where \(e_D \in \mathbb{R}^d\) is the resulting document representation.
 
-The objective is to learn \(f_\theta\) such that composed representations remain faithful to corresponding representations produced directly by the frozen encoder where such teacher targets are available, while retaining the form required for further recursive composition.
+The central requirement is closure of the representation interface under
+composition: a parent must have the same embedding dimension and unit norm as
+a child and carry its represented token count, so it can enter the next merge
+without conversion. Section~\ref{sec:geodesic} gives the spherical construction
+and its assumptions. This is not closure of the encoder's set of attainable
+semantic representations, nor a claim that composition is associative.
+We train \(f_\theta\) to make these reusable parents approximate the frozen
+encoder's direct representations wherever teacher targets are available;
+the experiments assess how well that alignment survives recursive reuse.
 
 \section{Method}
 \label{sec:method}
@@ -1833,6 +1853,13 @@ hidden width 1,152 and 166.9 million parameters reached validation2 AUC
 \section{Discussion}
 \label{sec:discussion}
 
+The design addresses two distinct questions: can a composed embedding enter
+the same merger again, and does it still represent the combined text in a way
+that agrees with the frozen encoder? Matching input and output interfaces
+answers the first structurally. Teacher-fidelity and recursive-reuse tests
+address the second empirically; downstream evaluation asks whether that
+agreement is useful.
+
 \subsection{Teacher Fidelity at a Higher Composition Cost}
 
 Learning improves agreement with the masked-mean teacher, but the small gain
@@ -1984,15 +2011,20 @@ discrepancies and the quality--cost trade-off in a complete application.
 \section{Conclusion}
 \label{sec:conclusion}
 
-Recursive geodesic composition provides a reusable way to combine frozen
-chunk embeddings, but its measured benefit is narrower than its architectural
-flexibility. It improves short-prefix teacher fidelity at substantial
-composition cost, without a consistent advantage in reconstruction or retrieval.
-For practitioners, the evidence supports retaining pooling when its simplicity
-and low composition cost are the priorities. Learned composition is an option
-when closer agreement with this teacher is worth the additional cost. Choosing learned
-composition for broader long-document use requires task-level evidence, not
-successful recursion or high local reconstruction scores alone.
+The central idea is to merge embeddings into another embedding that can be
+merged again, without leaving the frozen encoder's output coordinates,
+embedding dimension, or unit-sphere domain. The shared geodesic merger provides
+that reusable interface; teacher supervision seeks to align each parent with
+the encoder's representation of its combined text. Structural reusability is
+provided by the construction, while semantic fidelity remains empirical.
+
+The evaluated system improves short-prefix teacher fidelity over pooling at
+substantial composition cost, but recursive results depend on segmentation
+and merge structure, and reconstruction and retrieval show no consistent
+advantage. Pooling remains a simple, inexpensive comparator that also supports
+recursive aggregation. The evidence therefore supports the feasibility of
+learned, recursively reusable embeddings in the original geometric domain,
+not guaranteed semantic preservation or a general downstream advantage.
 
 \bibliographystyle{tmlr}
 \bibliography{references}
