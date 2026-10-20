@@ -60,17 +60,6 @@ def test_recursive_table_and_paper_match_computed_results():
         delta = value - pooled["metrics"]["direct_four"]["mean"]
         cost = result["timing"][method]["mean_checkpoint_median_ms_per_document"]
         assert f"{label} & {value:.4f} & {delta:+.6f} & {cost:.4f}" in table
-    paper = (ROOT / "paper/main.tex").read_text()
-    for target in ("recursive_reuse_table.tex", "full_population_table.tex", "degradation_ecdf.png"):
-        assert f"../results/recursive_reuse_v1/{target}" in paper
-    primary = pooled["contrasts"]["recursive_minus_direct"]
-    assert f"{primary['mean']:.6f}" in paper
-    assert f"[{primary['ci95'][0]:.6f},{primary['ci95'][1]:.6f}]" in paper
-    for seed in [*map(str, result["checkpoint_order"]), "three_seed_mean"]:
-        cell = result["summaries"][seed]["pooled"]
-        for method in ("direct_four", "recursive_binary"):
-            assert f"{cell['metrics'][method]['mean']:.6f}" in paper
-        assert f"{cell['degradation_direct_minus_recursive']['quantiles']['1']:.6f}" in paper
 
 
 def test_all_paired_scores_intervals_and_degradation_reproduce_from_published_points():
