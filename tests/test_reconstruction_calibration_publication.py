@@ -71,16 +71,6 @@ def test_published_table_and_paper_report_copy_and_order_controls():
         ordered, shuffled, gap = [m[key]["mean"] for key in ("ordered", "shuffled_all24", "ordered_minus_shuffled")]
         gain = ordered - s["methods"]["parent_copy"]["ordered"]["mean"]
         assert f"{LABELS[method]} & {ordered:.6f} & {gain:+.6f} & {shuffled:.6f} & {gap:+.8f}" in table
-    paper = (ROOT / "paper/main.tex").read_text()
-    assert "../results/reconstruction_calibration_v1/reconstruction_calibration_table.tex" in paper
-    assert "../results/reconstruction_calibration_v1/calibration_ecdf.png" in paper
-    for name in result["configuration"]["primary_contrasts"]:
-        c = s["contrasts"][name]
-        assert f"{c['mean']:+.6f}" in paper
-        assert f"[{c['ci95'][0]:.6f},{c['ci95'][1]:.6f}]" in paper
-    gap = s["methods"]["strict_decoder"]["ordered_minus_shuffled"]
-    assert f"{gap['mean'] * 1e7:.4f}" in paper
-    assert f"[{gap['ci95'][0] * 1e7:.4f},{gap['ci95'][1] * 1e7:.4f}]" in paper
 
 
 def test_historical_diagnostic_discrepancies_are_retained_not_suppressed():

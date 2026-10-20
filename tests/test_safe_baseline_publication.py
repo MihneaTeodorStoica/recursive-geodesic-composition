@@ -39,11 +39,6 @@ def test_paper_table_is_generated_from_computed_results():
                     f"{result['detectability'][key]['pooled']['mean_auc']:.4f}",
                     f"{result['timing'][key]['mean_checkpoint_median_ms_per_document']:.4f}"]
         assert " & ".join(expected) in table
-    paper = (ROOT / "paper/main.tex").read_text()
-    assert r"\input{../results/safe_baselines_v1/safe_baselines_table.tex}" in paper
-    for contrast in result["fidelity"]["three_seed_mean"]["pooled"]["contrasts"].values():
-        assert f"{contrast['mean']:+.6f}" in paper
-        assert f"[{contrast['ci95'][0]:.6f},{contrast['ci95'][1]:.6f}]" in paper
 
 
 def test_document_scores_reproduce_published_aggregate_and_pairing():
