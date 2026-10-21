@@ -1,7 +1,7 @@
 # Paper source
 
 **One Vector from Many: Hierarchical Long-Document Representation through Recursive Geodesic Transformer Composition**  
-Mihnea-Teodor Stoica · September 2026
+Mihnea-Teodor Stoica · October 2026
 
 - [`main.tex`](main.tex): manuscript, including inline TikZ/PGFPlots figures.
 - [`references.bib`](references.bib): BibTeX bibliography.
@@ -98,3 +98,7 @@ The `v2-paper-review` release predates the writing-coach revision and TMLR forma
 The 2026-10-20 revisions adapt Nancy’s October 18 Word comments to the current manuscript, followed by a first-reader pass: the abstract introduces the problem and method before reporting fidelity and cost; the main text explains terminology and comparison purposes before using experiment labels. Technical details remain in labeled appendices, and the combined Limitations and Future Work subsection pairs each summary-first limitation with a visibly labeled proposed remedy. The bibliography uses the official TMLR style, literal DOI identifiers, and HTTPS URLs for every entry; DOI-only entries link through `https://doi.org/`. The annotated older Word file is feedback, not the source of the revised manuscript. Publication tests check the numerical tables and underlying results without requiring duplicate values or particular wording in the manuscript prose.
 
 The compositional-space framing makes recursive reuse the central goal: parents retain the encoder-output dimension and unit-sphere domain and can enter subsequent merges without conversion. Semantic alignment with directly encoded spans is a training objective assessed empirically, not guaranteed by this reusable interface. Pooling remains the comparator, not the motivation. The independent-review pass clarifies that headline fidelity is a single-merge result, distinguishes normalized recursive pooling from exact flat pooling, and states the inherited-checkpoint/continuation-training scope before the training recipe.
+
+The 2026-10-21 revision applies Nancy’s October 20 tracked Word edits to the current source: parenthetical citations (with narrative citations retained where authors are sentence subjects), a complete introduction roadmap, consistent merger terminology and source-index ranges, scientific notation for very small results, serial commas, and shorter repeated descriptions. The named preprint adds the author’s contact email and uses October 2026 as the intended submission month; update this date if submission moves to another month. The anonymous TMLR output keeps the contact hidden. Figure 1 uses thick/thin arrow descriptions, limitations retain visible italic *Proposed remedy* labels, and the classifier two-sample citation uses the ICLR 2017 version. Experimental results and historical artifact manifests are unchanged.
+
+Verification for this revision: Tectonic 0.15.0 built the 38-page named preprint and 40-page anonymous TMLR submission. Rendered title pages, Figure 1, and the limitation/remedy layout were inspected. Both logs contain no undefined references or overfull boxes; all six remedies are present in both PDFs. Extracted submission text and author metadata omit the contact identity. TMLR underfull-page warnings remain, and this compiler reports an internal bibliography-change/rerun-limit warning despite resolved citations in both outputs.
