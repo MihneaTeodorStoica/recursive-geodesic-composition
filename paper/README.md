@@ -42,6 +42,12 @@ SOURCE_DATE_EPOCH=1792562848 tectonic -X compile One_Vector_from_Many_arxiv.tex 
 The v3.2 release builds used Tectonic 0.17.0 and `SOURCE_DATE_EPOCH=1792562848` (the manuscript merge timestamp), producing a 38-page named preprint and a 40-page anonymous TMLR submission. Both contain all six remedies, resolved references, and no overfull boxes; the TMLR build retains underfull-page layout warnings. Opening pages were visually inspected, and extracted submission text and PDF author metadata passed anonymity checks. The bibliography rerun-limit warning observed with Tectonic 0.15.0 did not occur in the release builds.
 
 
+### v3.3-paper release
+
+[`v3.3-paper`](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/tag/v3.3-paper) corrects the release documentation and download links. It carries all 75 assets from v3.2 unchanged, including both current PDFs and all four checksum files. The manuscript, numerical results, and trained weights are unchanged; earlier releases remain available.
+
+The v3.2 build commands, compiler, and fixed epoch below also apply to this tag because the manuscript source is unchanged. The PDF build verification remains the v3.2 verification, not a new build or scientific evaluation. This tag additionally pins the corrected documentation.
+
 ### v3.2-paper release
 
 [`v3.2-paper`](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/tag/v3.2-paper) pins the October 21 manuscript revision at `68c937b5907764a36301704c07970397543fcf6d`. It updates citations, the introduction roadmap, terminology, Figure 1 descriptions, and prose; the named preprint adds the contact email and October 2026 date. Experimental values and trained weights are unchanged.

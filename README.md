@@ -2,24 +2,24 @@
 
 Publication repository for **One Vector from Many: Hierarchical Long-Document Representation through Recursive Geodesic Transformer Composition**, by **Mihnea-Teodor Stoica**.
 
-This repository contains the final `clean-v6` K=4 strict-autoencoder implementation, the `official-v6` protocol and frozen results, publication figures, and additive reviewer-response controls. The scientific experiment lineage remains `clean-v6`/`official-v6`. `v3.2-paper` contains the current manuscript formats and consolidated unchanged attachments from earlier releases. Older releases and their download links remain available. No manuscript revision replaces those historical results or artifacts.
+This repository contains the final `clean-v6` K=4 strict-autoencoder implementation, the `official-v6` protocol and frozen results, publication figures, and additive reviewer-response controls. The scientific experiment lineage remains `clean-v6`/`official-v6`. `v3.3-paper` pins corrected documentation alongside the unchanged v3.2 manuscript formats and consolidated attachments from earlier releases. Older releases and their download links remain available. No manuscript revision replaces those historical results or artifacts.
 
 ## Paper
 
 The [LaTeX manuscript](paper/main.tex), [bibliography](paper/references.bib), and bundled figures are in [`paper/`](paper/). See the [paper README](paper/README.md) for build instructions and import provenance. The [evidence/limitations map](paper/REVIEW_EVIDENCE_MAP.md) separates historical results, additive controls, downstream tasks, model-training interventions, and what remains unknown.
 
-### Current manuscript: v3.2-paper
+### Current release: v3.3-paper
 
-Read the [arXiv-compatible named preprint](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/download/v3.2-paper/One_Vector_from_Many_arxiv.pdf), [anonymous TMLR submission PDF](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/download/v3.2-paper/One_Vector_from_Many_tmlr_submission.pdf), or [release notes](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/tag/v3.2-paper). The October 21 revision updates citations, the introduction roadmap, terminology, Figure 1 descriptions, and repeated prose. The named preprint includes a contact email and October 2026 date; the TMLR submission remains anonymous. Limitations retain visible *Proposed remedy* labels. No experiments, reported numerical results, or trained weights changed; the paper does not establish a consistent retrieval advantage over averaging.
+Read the [arXiv-compatible named preprint](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/download/v3.3-paper/One_Vector_from_Many_arxiv.pdf), [anonymous TMLR submission PDF](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/download/v3.3-paper/One_Vector_from_Many_tmlr_submission.pdf), or [release notes](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/tag/v3.3-paper). This documentation-only release preserves the v3.2 PDFs byte-for-byte. The October 21 manuscript revision updates citations, the introduction roadmap, terminology, Figure 1 descriptions, and repeated prose. The named preprint includes a contact email and October 2026 date; the TMLR submission remains anonymous. Limitations retain visible *Proposed remedy* labels. No experiments, reported numerical results, or trained weights changed; the paper does not establish a consistent retrieval advantage over averaging.
 
 ```bash
-gh release download v3.2-paper \
+gh release download v3.3-paper \
   --repo MihneaTeodorStoica/recursive-geodesic-composition \
-  --dir artifacts/v3.2-paper
-(cd artifacts/v3.2-paper && sha256sum --check PAPER_FORMAT_ASSETS.sha256)
+  --dir artifacts/v3.3-paper
+(cd artifacts/v3.3-paper && sha256sum --check PAPER_FORMAT_ASSETS.sha256)
 ```
 
-The arXiv-compatible preprint is a 38-page named, single-column article; the 40-page submission uses the official anonymous TMLR style. The `v3.2-paper` release contains 75 assets: the two current PDFs and their checksum, all 70 unchanged v1/v2 attachments, and the original v3 PDF and checksum. Historical checksum files retain their original scope. See [current build instructions and release provenance](paper/README.md#v32-paper-release) and the [historical publication-check caveat](paper/README.md#v3-paper-release). Neither format has been submitted by this release workflow.
+The arXiv-compatible preprint is a 38-page named, single-column article; the 40-page submission uses the official anonymous TMLR style. The `v3.3-paper` release contains the same 75 assets as v3.2: the two current PDFs and their checksum, all 70 unchanged v1/v2 attachments, and the original v3 PDF and checksum. Historical checksum files retain their original scope. See [release documentation](paper/README.md#v33-paper-release), [PDF build provenance](paper/README.md#v32-paper-release), and the [historical publication-check caveat](paper/README.md#v3-paper-release). Neither format has been submitted by this release workflow.
 
 ## Final system
 
