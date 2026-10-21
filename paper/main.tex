@@ -56,7 +56,8 @@
 
 \ifdefined\papreprint
 \author{Mihnea-Teodor Stoica\\
-International Computer High School of Bucharest}
+International Computer High School of Bucharest\\
+\texttt{stoicamihnea2009@gmail.com}}
 \else
 \author{
 \name Mihnea-Teodor Stoica\\
@@ -64,7 +65,7 @@ International Computer High School of Bucharest}
 }
 \fi
 
-\date{September 2026}
+\date{October 2026}
 
 \begin{document}
 
@@ -83,11 +84,12 @@ direct embedding of the combined text. On 4,000 document
 prefixes of 1,025--4,096 tokens, a single merge achieves mean cosine similarity
 \(0.9850\) to a GTE-ModernBERT-based teacher, compared with \(0.9829\)
 for token-weighted averaging,
-across three checkpoints. This small gain costs approximately \(110\times\)
-as much in measured batched composition, excluding text encoding. Recursive
+across three checkpoints. This small gain requires approximately \(110\times\)
+the measured batched composition time, excluding text encoding. Recursive
 reuse tests show sensitivity to tree structure and chunk boundaries, and four
 retrieval tasks show no consistent advantage over averaging. The method thus
-provides recursively reusable embeddings in the same geometric domain, with
+provides recursively reusable embeddings in the same geometric domain across
+FineWeb-Edu, FineWeb, OpenWebText, and Wikipedia, with
 empirical rather than guaranteed semantic alignment.
 \end{abstract}
 
@@ -95,9 +97,9 @@ empirical rather than guaranteed semantic alignment.
 
 A text embedding maps an input passage to a fixed-dimensional vector, allowing
 systems to compare or retrieve passages using vector similarity
-\cite{reimers-gurevych-2019-sentence}. An encoder has a bounded context window,
+\citep{reimers-gurevych-2019-sentence}. An encoder has a bounded context window,
 so a long document may need to be split into chunks and encoded separately
-\cite{gunther-etal-2023-jina-embeddings-2,dai-etal-2022-revisiting}. This leaves
+\citep{gunther-etal-2023-jina-embeddings-2,dai-etal-2022-revisiting}. This leaves
 a sequence of chunk vectors rather than the single document vector that some
 downstream systems require. Our goal is to make those embeddings composable:
 merging several should yield another embedding in the original encoder's
@@ -127,7 +129,7 @@ learning; we test whether learned weighting and a bounded spherical correction
 produce a more faithful parent.
 Unlike approaches that extend the encoder's context or jointly encode the
 document hierarchy
-\cite{beltagy-etal-2020-longformer,zaheer-etal-2020-bigbird,zhang-etal-2019-hibert,wu-etal-2021-hi},
+\citep{beltagy-etal-2020-longformer,zaheer-etal-2020-bigbird,zhang-etal-2019-hibert,wu-etal-2021-hi},
 our method operates on embeddings that have already been computed.
 
 To measure that fidelity, we use spans that the frozen encoder can process
@@ -149,7 +151,10 @@ evaluation separating this structural reusability from semantic fidelity,
 recursive robustness, constituent reconstruction, downstream utility, and cost.
 Section~\ref{sec:problem} formalizes the task, Section~\ref{sec:method}
 describes the model, and Section~\ref{sec:experimental-setup} defines the
-comparisons used to evaluate it.
+comparisons used to evaluate it. Section~\ref{sec:results} reports the results,
+Section~\ref{sec:discussion} discusses their implications and limitations, and
+Section~\ref{sec:conclusion} concludes. The appendices give the complete training
+recipe, reproducibility details, and experimental audit records.
 
 \section{Related Work}
 
@@ -158,17 +163,17 @@ comparisons used to evaluate it.
 Sparse-attention Transformers and long-context embedding models extend the
 text that can be processed directly, while hierarchical methods encode smaller
 units before combining their representations
-\cite{beltagy-etal-2020-longformer,zaheer-etal-2020-bigbird,gunther-etal-2023-jina-embeddings-2,dai-etal-2022-revisiting}.
+\citep{beltagy-etal-2020-longformer,zaheer-etal-2020-bigbird,gunther-etal-2023-jina-embeddings-2,dai-etal-2022-revisiting}.
 
 Hierarchical Attention Networks and HIBERT model textual units at multiple
-levels \cite{yang-etal-2016-hierarchical,zhang-etal-2019-hibert}.
+levels \citep{yang-etal-2016-hierarchical,zhang-etal-2019-hibert}.
 Hi-Transformer encodes sentences independently, processes their representations
 with a document-level Transformer, and feeds document context back into sentence
-modeling before hierarchical pooling \cite{wu-etal-2021-hi}. Its global
+modeling before hierarchical pooling \citep{wu-etal-2021-hi}. Its global
 attention acts on fewer units than token-level attention, but remains
-\(O(N^2)\) in the number of sentence representations. Dai et al. compare
+\(O(N^2)\) in the number of sentence representations. \citet{dai-etal-2022-revisiting} compare
 hierarchical and sparse-attention approaches for long-document classification,
-including the effects of splitting strategy \cite{dai-etal-2022-revisiting}.
+including the effects of splitting strategy.
 
 \subsection{Chunk-Level Representation Learning}
 
@@ -176,10 +181,10 @@ Chunk-level methods can change either the context available to a chunk or the
 training objective of the encoder. Late Chunking encodes a longer text before
 pooling token representations within chunk boundaries, allowing each chunk
 embedding to incorporate surrounding context
-\cite{gunther-etal-2024-late-chunking}. The Chunk Prediction Encoder instead
-learns document representations by predicting a held-out chunk contrastively
-and whether a candidate chunk belongs to the document
-\cite{abro-etal-2026-learning}. Both address representation learning upstream
+\citep{gunther-etal-2024-late-chunking}. The Chunk Prediction Encoder instead
+learns document representations by contrastively predicting a held-out chunk
+and classifying whether a candidate chunk belongs to the document
+\citep{abro-etal-2026-learning}. Both address representation learning upstream
 of the combination problem studied here.
 
 \subsection{Recursive and Geometry-Aware Composition}
@@ -187,18 +192,18 @@ of the combination problem studied here.
 Recursive models build representations of larger textual units from smaller
 ones. Tree-LSTM supports tree-structured composition, while Gumbel Tree-LSTM
 learns task-specific tree structures from text
-\cite{socher-etal-2013-recursive,tai-etal-2015-improved,choi-etal-2018-learning}.
-Pandey uses syntax-guided neural modules to approximate Transformer sentence
+\citep{socher-etal-2013-recursive,tai-etal-2015-improved,choi-etal-2018-learning}.
+\citet{pandey-2023-syntax} uses syntax-guided neural modules to approximate Transformer sentence
 embeddings, probing whether their representations admit compositional
-explanations \cite{pandey-2023-syntax}. Our focus is instead a shared operation
+explanations. Our focus is instead a shared operation
 that can repeatedly combine adjacent document chunks without a syntactic parse.
 
 Directional comparisons such as cosine similarity also motivate composition
 methods that respect embedding geometry. Spherical Text Embedding learns word
 and paragraph vectors on the unit hypersphere using Riemannian optimization
-\cite{meng-etal-2019-spherical}. GeoGNN studies semantic drift when aggregating
+\citep{meng-etal-2019-spherical}. GeoGNN studies semantic drift when aggregating
 pretrained text representations in graphs, using logarithmic and exponential
-maps to aggregate through tangent spaces \cite{yang-etal-2025-geognn}.
+maps to aggregate through tangent spaces \citep{yang-etal-2025-geognn}.
 These methods motivate our spherical parameterization; whether it preserves
 useful information remains an empirical question.
 
@@ -293,7 +298,7 @@ supervision during training but is not needed to compose a document.
 \subsection{Model Architecture}
 \label{sec:model-architecture}
 
-The composition model is a shared four-way merger, denoted K4, with four input slots. The first \(k\in\{2,3,4\}\) slots contain the ordered child embeddings \(e_i\in\mathbb{R}^{768}\) and positive token counts \(n_i\); these form the active prefix of the slots, not a prefix of the document. Trailing inactive slots are padded and masked, and their contextual states are set to zero before the four positions are flattened. Each embedding is L2-normalized \cite{meng-etal-2019-spherical},
+The composition model is a shared four-way merger, denoted K4, with four input slots. The first \(k\in\{2,3,4\}\) slots contain the ordered child embeddings \(e_i\in\mathbb{R}^{768}\) and positive token counts \(n_i\); these form the active prefix of the slots, not a prefix of the document. Trailing inactive slots are padded and masked, and their contextual states are set to zero before the four positions are flattened. Each embedding is L2-normalized \citep{meng-etal-2019-spherical},
 
 \[
 x_i=\frac{e_i}{\lVert e_i\rVert_2},
@@ -313,7 +318,7 @@ u_i=[x_i;\,q_i;\,\log(\max(q_i,\epsilon))]\in\mathbb{R}^{770}.
 
 Here \(\epsilon=10^{-8}\) is a numerical stabilizer. A shared linear projection, LayerNorm, and GELU map \(u_i\) to dimension \(1024\); a learned slot embedding then encodes child order.
 
-The resulting sequence is processed by an eight-layer norm-first Transformer encoder \cite{vaswani-etal-2017-attention,xiong-etal-2020-layernorm} with 16 attention heads, model dimension \(1024\), feed-forward dimension \(3072\), GELU activation \cite{hendrycks-gimpel-2016-gelu}, and dropout \(0.05\) \cite{srivastava-etal-2014-dropout}. A salience head applies LayerNorm \cite{ba-etal-2016-layernorm} and produces
+The resulting sequence is processed by an eight-layer norm-first Transformer encoder \citep{vaswani-etal-2017-attention,xiong-etal-2020-layernorm} with 16 attention heads, model dimension \(1024\), feed-forward dimension \(3072\), GELU activation \citep{hendrycks-gimpel-2016-gelu}, and dropout \(0.05\) \citep{srivastava-etal-2014-dropout}. A salience head applies LayerNorm \citep{ba-etal-2016-layernorm} and produces
 
 \[
 \delta_i=\tanh\!\left(W_s\operatorname{LayerNorm}(h_i)+b_s\right)
@@ -463,7 +468,7 @@ meta/.style={-{Latex[length=1.8mm,width=1.2mm]},dashed,line width=.65pt,draw=bla
 \end{tikzpicture}%
 }
 
-\caption{Architecture of the shared composition model. Solid arrows denote learned embedding transformations; thin solid arrows denote auxiliary inputs, and the dashed path denotes exact token-count propagation.}
+\caption{Architecture of the shared composition model. Thick arrows denote learned embedding transformations; thin arrows denote auxiliary inputs, and the dashed path denotes exact token-count propagation.}
 \label{fig:model-architecture}
 \end{figure}
 
@@ -517,7 +522,7 @@ a,&\alpha=0.
 
 Thus, the network predicts a bounded geodesic correction to the spherical
 reference rather than an unconstrained parent. This is the exponential map on
-the unit sphere \cite{absil-etal-2008-manifolds}. For a nonzero weighted reference
+the unit sphere \citep{absil-etal-2008-manifolds}. For a nonzero weighted reference
 and exact arithmetic, \(a^\top\tilde v=0\),
 \(\lVert e_{\mathrm{parent}}\rVert_2=1\), and its geodesic distance from
 \(a\) is \(\alpha<0.5\). These are geometric properties, not guarantees of
@@ -603,7 +608,7 @@ parent with the result of recomposing the predicted children. The decoder receiv
 the generated parent and is not given the true children, token counts,
 composition weights, source identity, or tree metadata.
 
-In the continuation experiment, the merger is frozen for 300 decoder-only updates and then unfrozen for 100 joint encoder--decoder updates, during which the auxiliary terms are introduced linearly. The complete loss definitions, coefficients, and joint schedule are given in Appendix~\ref{app:training-objectives}. Recursive document representations are produced by the merger, so normal recursive inference requires neither a direct teacher target nor the decoder.
+In the continuation experiment, the merger is frozen for 300 decoder-only updates and then unfrozen for 100 joint merger--decoder updates, during which the auxiliary terms are introduced linearly. The complete loss definitions, coefficients, and joint schedule are given in Appendix~\ref{app:training-objectives}. Recursive document representations are produced by the merger, so normal recursive inference requires neither a direct teacher target nor the decoder.
 
 \section{Experimental Setup}
 \label{sec:experimental-setup}
@@ -625,7 +630,7 @@ Their role is diagnostic; they do not change the merger.
 \subsubsection{Teacher Encoder and Data}
 \label{sec:teacher-data}
 
-The frozen teacher encoder is \texttt{Alibaba-NLP/gte-modernbert-base} \cite{alibaba-nlp-gte-modernbert}, using
+The frozen teacher encoder is \texttt{Alibaba-NLP/gte-modernbert-base} \citep{alibaba-nlp-gte-modernbert}, using
 the pinned revision
 \nolinkurl{e7f32e3c00f91d699e8c43b53106206bcc72bb22}. The teacher parameters remain
 frozen throughout training. Representations are derived from the encoder's final
@@ -643,12 +648,12 @@ The resulting 768-dimensional vector is then L2-normalized. This same frozen
 hidden-state pooling procedure is used for chunk embeddings and for direct
 teacher targets throughout training and evaluation. It is a custom teacher
 representation, distinct from the model card's documented extraction of the
-first-token hidden state (the CLS interface) \cite{alibaba-nlp-gte-modernbert}.
+first-token hidden state (the CLS interface) \citep{alibaba-nlp-gte-modernbert}.
 All results in this paper concern the masked-mean procedure; changing pooling
 would define a different experiment.
 
-The data consists of a balanced mixture of four English-language corpora:
-FineWeb-Edu and FineWeb \cite{penedo-etal-2024-fineweb}, OpenWebText \cite{gokaslan-cohen-2019-openwebtext}, and Wikipedia \cite{wikimedia-2023-wikipedia}, with each corpus assigned a
+The data consist of a balanced mixture of four English-language corpora:
+FineWeb-Edu and FineWeb \citep{penedo-etal-2024-fineweb}, OpenWebText \citep{gokaslan-cohen-2019-openwebtext}, and Wikipedia \citep{wikimedia-2023-wikipedia}, with each corpus assigned a
 mixture weight of \(0.25\). The exact dataset configurations and revisions are
 shown in Table~\ref{tab:datasets}. Model and dataset revisions are pinned so
 that the versions used in the experiments are explicitly identifiable.
@@ -691,8 +696,6 @@ Wikipedia &
 \end{tabular}
 \end{table}
 
-The complete pinned dataset revisions are listed in Appendix~\ref{app:reproducibility}.
-
 Documents are divided into contiguous, non-overlapping leaves while preserving
 their original order. During training, leaf lengths are randomly sampled
 between 512 and 1,024 tokens. Deployment-style evaluation instead uses
@@ -715,7 +718,7 @@ from smaller teacher embeddings. A 6,144-token target became non-finite for one
 document during preparation of an earlier evaluation, so subsequent
 teacher-comparable evaluations use a stricter 4,096-token safe cap.
 These experiment-specific caps are distinct from the backbone's documented
-8,192-token maximum \cite{alibaba-nlp-gte-modernbert}. The observed failure is
+8,192-token maximum \citep{alibaba-nlp-gte-modernbert}. The observed failure is
 not evidence that 4,096 is an architectural limit of GTE-ModernBERT.
 Table~\ref{tab:context-limits} summarizes the three quantities.
 
@@ -743,7 +746,7 @@ are assigned to training, development, buffer, and official evaluation roles,
 preventing reuse of the same indexed record within a dataset across these roles.
 Index separation alone does not establish content-level deduplication across
 different datasets. This distinction matters because FineWeb-Edu is filtered
-from FineWeb \cite{penedo-etal-2024-fineweb}; no cross-corpus near-duplicate
+from FineWeb \citep{penedo-etal-2024-fineweb}; no cross-corpus near-duplicate
 exclusion result is claimed here. We call the final training and evaluation
 protocol \emph{clean-v6}, an experiment identifier rather than an architecture
 name. It uses fresh source-document ranges for retraining and evaluation,
@@ -759,22 +762,22 @@ summarized in Table~\ref{tab:v6-splits}.
 \textbf{Role} & \textbf{Source range} & \textbf{Selection} & \textbf{Purpose} \\
 \hline
 TRAIN &
-\([140000,152000)\) &
+140,000--151,999 &
 --- &
 AE retraining and probe fitting \\
 
 Development &
-\([152000,161000)\) &
+152,000--160,999 &
 1,000/corpus &
 Development evaluation \\
 
 Buffer &
-\([161000,162000)\) &
+161,000--161,999 &
 Unused &
 Role separation \\
 
 Official v6 &
-\([162000,192000)\) &
+162,000--191,999 &
 1,000/corpus &
 Final evaluation \\
 \hline
@@ -791,16 +794,9 @@ prefix therefore contains between 1,025 and 4,096 tokens. Across the four
 corpora, the official evaluation consequently contains 4,000 accepted source
 documents.
 
-The final evaluation uses two arms on the same accepted documents. The
-teacher-comparable prefix arm (safe arm) operates on the prefix, for which a finite direct
-teacher representation is available. This permits direct comparison between
-the composed representation and the frozen teacher representation. The
-full-document arm (full arm) instead processes the complete text of each accepted source
-document. Each complete document is divided into contiguous leaves of at most
-1,024 tokens and recursively reduced without a protocol-level token, leaf, or
-depth cap. Because a valid direct teacher representation is not assumed for
-these complete documents, full-root teacher-comparison metrics are not
-computed in this arm.
+The final evaluation uses a teacher-comparable prefix arm (safe arm) and a
+full-document arm (full arm) on these same documents.
+Section~\ref{sec:evaluation} defines their measurements and execution protocols.
 
 Earlier development and final-evaluation runs used separate source-document
 ranges; ranges already used for evaluation were not reused as fresh holdouts.
@@ -823,7 +819,7 @@ The final models use three seeds,
 \(424242\), \(271828\), and \(314159\). We call the inherited
 checkpoint the \emph{source} and the checkpoint after this continuation stage
 \emph{final}. These are model checkpoints, not source documents. For
-each seed, the merger is initialized from the encoder state contained in the
+each seed, the merger is initialized from the merger state contained in the
 corresponding prior strict-autoencoder checkpoint. The previous decoder parameters are not
 reused; instead, the decoder is deterministically reinitialized for each seed
 before the clean-v6 training procedure. Appendix~\ref{app:lineage} records the source-to-final identities.
@@ -837,17 +833,17 @@ which the merger and decoder are optimized jointly.
 
 During the joint stage, the objective multiplier defined in Section~\ref{sec:training-objectives} linearly introduces the autoencoder-facing and semantic-regularization terms over the final 100 updates. Teacher supervision and minibatch distribution matching are activated at their configured weights when the merger is unfrozen.
 
-Both stages use AdamW \cite{loshchilov-hutter-2019-adamw} with a learning rate of \(2\times10^{-5}\), weight decay
-\(0.001\), 50 warmup updates, and cosine learning-rate decay \cite{loshchilov-hutter-2017-sgdr} to a minimum of
-\(2\times10^{-6}\). During joint optimization, the merger uses an encoder
+Both stages use AdamW \citep{loshchilov-hutter-2019-adamw} with a learning rate of \(2\times10^{-5}\), weight decay
+\(0.001\), 50 warmup updates, and cosine learning-rate decay \citep{loshchilov-hutter-2017-sgdr} to a minimum of
+\(2\times10^{-6}\). During joint optimization, the merger uses a
 learning-rate scale of \(0.02\) relative to the main optimization rate.
 The nominal scaled merger rate is therefore \(4\times10^{-7}\), with a scaled
 schedule floor of \(4\times10^{-8}\). The shared schedule has already progressed
 through 300 updates when merger training begins; these are not 100 updates at
-the unscaled peak rate. The training batch size is 8, batches are stratified across the four corpora, mixed-precision arithmetic is disabled, and gradient norms are clipped to 1.0 \cite{pascanu-etal-2013-gradient-clipping}.
+the unscaled peak rate. The training batch size is 8, batches are stratified across the four corpora, mixed-precision arithmetic is disabled, and gradient norms are clipped to 1.0 \citep{pascanu-etal-2013-gradient-clipping}.
 
 The continuation uses the fresh TRAIN source range
-\([140000,152000)\) described in Section~\ref{sec:dataset-splits}. The final training recipe fixes
+140,000--151,999 described in Section~\ref{sec:dataset-splits}. The final training recipe fixes
 the retained checkpoint at update 400 rather than selecting a checkpoint using
 the subsequent development results. The matched endpoint comparison in Section~\ref{sec:continuation-results}
 quantifies the effect of this continuation bundle, not individual losses or
@@ -896,13 +892,13 @@ exploit such differences on unseen documents. It is evaluated only in the safe
 arm, where every source document provides a generated root and a direct teacher
 root. This diagnostic follows the classifier two-sample-testing idea of
 distinguishing representation sources on held-out examples
-\cite{lopez-paz-oquab-2016-classifier}, but reports area under the receiver
+\citep{lopez-paz-oquab-2016-classifier}, but reports area under the receiver
 operating characteristic curve (ROC-AUC), not a calibrated hypothesis-test
 \(p\)-value. An AUC of 0.5 indicates chance ranking, whereas 1 indicates perfect
 ranking with teacher embeddings assigned the higher score. The fixed attack
-families are standardized logistic regression \cite{cox-1958-binary-regression}
+families are standardized logistic regression \citep{cox-1958-binary-regression}
 and a standardized radial-basis-function support-vector machine
-\cite{cortes-vapnik-1995-support-vector}.
+\citep{cortes-vapnik-1995-support-vector}.
 
 Each scope is split 50:50 by source document with
 \texttt{GroupShuffleSplit} and seed 1729. The generated and teacher vectors
@@ -923,14 +919,14 @@ higher values mean easier discrimination, not better composition. For example,
 \(A=0.42\) gives \(A_{\mathrm{safe}}=0.58\). Here the subscript refers to score
 orientation, not to the teacher-context cap. The per-seed primary
 point estimate is the larger orientation-safe AUC of the two attacks. This
-measures representation-source discrimination \cite{hanley-mcneil-1982-auc},
+measures representation-source discrimination \citep{hanley-mcneil-1982-auc},
 not semantic quality, downstream usefulness, or privacy. Folding about 0.5 and
 selecting the larger of two estimates introduce upward finite-sample null
 bias, so an empirical value above 0.5 is not by itself a calibrated rejection
 of distributional equality.
 
 Confidence intervals use 2,000 held-out-document bootstrap replicates and the
-2.5th and 97.5th percentiles \cite{efron-tibshirani-1993-bootstrap}. Resampling
+2.5th and 97.5th percentiles \citep{efron-tibshirani-1993-bootstrap}. Resampling
 keeps each generated--teacher pair together. The frozen evaluator selects the
 strongest attack on the original held-out scores and bootstraps that attack's
 fixed predictions; it neither refits attackers nor repeats attacker selection
@@ -949,7 +945,7 @@ a claim of distributional equality or a substitute for comparison with pooling.
 \label{sec:retention-protocol}
 
 Semantic fidelity is measured in the safe arm by mean paired cosine similarity
-between each generated root and its corresponding direct teacher root \cite{reimers-gurevych-2019-sentence}. Both
+between each generated root and its corresponding direct teacher root \citep{reimers-gurevych-2019-sentence}. Both
 pooled and equal-corpus macro summaries are retained. Numerical-health
 diagnostics check whether outputs remain finite, diverse, and spread across
 embedding dimensions rather than collapsing to nearly identical vectors. They
@@ -1108,7 +1104,7 @@ untrained baselines copy the flat weighted or unweighted pooling parent.
 Every score averages cosine equally over the four children and then over
 documents, matching the earlier reconstruction metric.
 
-To isolate sensitivity to target-slot correspondence, keep the input parent
+To isolate sensitivity to target-slot correspondence, we keep the input parent
 and all predictions fixed. For cross-cosines
 \(C_{ij}=\cos(\hat{x}_i,x_j)\), the ordered score, mean over all 24 target
 permutations, and mean over the nine permutations with no fixed slots are
@@ -1151,7 +1147,7 @@ comparison uses its own frozen 500-document holdout.
 
 On the same 606 exact-four prefixes, the released source and candidate probes
 are applied to their respective parents. These probes share the documented
-architecture, initialization and TRAIN fitting recipe; matching TRAIN-group
+architecture, initialization, and TRAIN fitting recipe; matching TRAIN-group
 and minibatch-schedule metadata are verified. They are not refitted here.
 For each stage, probe gain subtracts copying that stage's own parent. The
 primary contrasts are final minus source in teacher cosine, source-detection AUC, and
@@ -1167,8 +1163,8 @@ pair shares one document multiplicity. Observed strongest classifier families
 are fixed, with no refitting or reselection during bootstrap. These are
 conditional, non-simultaneous intervals on previously evaluated documents.
 The endpoint comparison measures the full continuation bundle, including the
-new decoder, staged schedule and multiple losses; it is not a decoder-objective
-ablation. No merger, decoder or probe is updated and no teacher encoding is
+new decoder, staged schedule, and multiple losses; it is not a decoder-objective
+ablation. No merger, decoder, or probe is updated, and no teacher encoding is
 performed. Audit details appear in Appendix~\ref{app:continuation-comparison}.
 
 \subsubsection{Order, Segmentation, Decoder, and Retrieval Controls}
@@ -1199,7 +1195,7 @@ and depth together; it is not a depth-only intervention, and 256-token leaves
 lie below the historical training chunk-size range.
 
 To test dependence on the reconstruction model, the separate decoder-family
-study uses source indices 140,000--151,999,
+study uses source indices 140,000--151,999 with
 160 fit and 40 validation exact-four prefixes per corpus, excluding exact
 evaluation-prefix token hashes. Preparation details, including the pre-encoding population adjustment, are
 recorded in Appendix~\ref{app:extended-review}. Three independently
@@ -1214,7 +1210,7 @@ and TRAIN-centroid controls remain separate.
 
 To assess usefulness beyond agreement with the teacher, downstream retrieval
 tests whether query embeddings rank relevant documents above other candidates.
-The four LongEmbed tasks \cite{zhu-etal-2024-longembed} use pinned revision
+The four LongEmbed tasks \citep{zhu-etal-2024-longembed} use pinned revision
 \nolinkurl{10039a580487dacecf79db69166e17ace3ede392}, every task query
 and candidate, and no task-label fitting or method selection. Frozen
 masked-mean queries are compared with first-leaf and every-token weighted,
@@ -1241,7 +1237,7 @@ representation. It uses only the 640 TRAIN-fit prefixes. Each source-merger
 initialization discards its original decoder;
 both gradient-routing arms share a 300-update decoder-only warm checkpoint
 per seed, optimizer, random state, and the same 100 joint minibatches. Teacher,
-distribution, cycle, reconstruction, and encoder regularizers are unchanged.
+distribution, cycle, reconstruction, and merger regularizers are unchanged.
 The only joint-stage difference is that one arm detaches the decoder's parent
 input before backpropagation, preventing decoder losses from updating the merger
 through that input. Both arms
@@ -1317,7 +1313,7 @@ Parent minus reference & \(+0.001871\) & \([0.001793,0.001951]\) \\
 \end{table}
 
 The learned reference provides a smaller teacher-fidelity gain over weighted
-pooling than the final correction (Table~\ref{tab:safe-baseline-contrasts}).
+pooling than the final corrected parent (Table~\ref{tab:safe-baseline-contrasts}).
 The correction also accounts for most of the source-detection AUC reduction
 (Table~\ref{tab:safe-baselines}).
 Teacher-cosine gains over weighted pooling are positive in each corpus.
@@ -1418,7 +1414,7 @@ mean teacher cosines of \(0.977576\) and \(0.977114\), respectively
 recursive-minus-direct difference is \(-0.000461\), with a conditional 95\%
 interval of \([-0.000537,-0.000390]\). Every checkpoint and corpus has a
 negative mean difference. The outputs remain close in direction: their mean
-cosine is \(0.999441\), with interval \([0.999425,0.999457]\). High output
+cosine with each other is \(0.999441\), with interval \([0.999425,0.999457]\). High output
 agreement therefore coexists with a small, systematic loss of teacher fidelity.
 
 \input{../results/recursive_reuse_v1/recursive_reuse_table.tex}
@@ -1568,7 +1564,7 @@ shows only a small built-in decoding gain over learned-parent copy:
 checkpoint-mean scores. The released frozen probe instead underperforms copy
 by \(0.005916\;[0.005693,0.006151]\), improving only 11 of 606 documents.
 Passing the predeclared TRAIN floor therefore does not establish superiority
-to this matched, untrained baseline.
+over this matched, untrained baseline.
 
 \input{../results/reconstruction_calibration_v1/reconstruction_calibration_table.tex}
 
@@ -1701,8 +1697,8 @@ four-leaf documents, the released built-in decoder's original-order gap is
 recomputing the parent for each input permutation) across all 24 actual-mass
 input permutations is \(-3.12\times10^{-9}\) (95\% interval
 \([-3.23,-3.02]\times10^{-9}\)). For the released candidate probe, the
-respective gaps are \(0.000908\) and \(-0.00000418\) (interval
-\([-0.00000474,-0.00000364]\)). Equal-mass controls give similar signs;
+respective gaps are \(0.000908\) and \(-4.18\times10^{-6}\) (interval
+\([-4.74,-3.64]\times10^{-6}\)). Equal-mass controls give similar signs;
 fixed-parent scoring-only means vanish to numerical precision. These are
 \emph{target-child} assignment comparisons, not proof about teacher embeddings
 of permuted text or absolute information content.
@@ -1742,8 +1738,8 @@ cosine is \(-1.5653\times10^{-6}\) (document-paired 95\% interval
 \([-1.9905,-1.1424]\times10^{-6}\)); source-detection AUC changes by
 \(-0.000427\) (interval \([-0.000755,-0.000109]\)), with a lower AUC indicating
 less detectable model vectors. Raw ordered reconstruction changes by
-\(-0.00008362\); parent-copy cosine also falls, yielding a \emph{positive}
-copy-relative gain contrast of \(+0.00000555\). This controlled contrast
+\(-8.362\times10^{-5}\); parent-copy cosine also falls, yielding a \emph{positive}
+copy-relative gain contrast of \(+5.55\times10^{-6}\). This controlled contrast
 has mixed directions and extremely small magnitudes, and cannot attribute
 the historical source--final endpoints to the decoder objective. Fixed
 classifier families and fixed training seeds limit the intervals.
@@ -1778,13 +1774,13 @@ NarrativeQA & 0.0449 & 0.0835 & 0.0830 & 0.0620 & 0.3015 & 0.0790 \\
 \end{tabular}
 \end{table}
 
-Against the full-document weighted pool, recursive nDCG@10 changes by:
+Against the full-document weighted pool, recursive nDCG@10 changes are listed
+with positive-document-cluster 95\% intervals:
 \begin{itemize}[nosep,leftmargin=2em]
-\item 2WikiMQA: \(+0.01250\), positive-document-cluster 95\% interval
-  \([+0.00253,+0.02268]\);
-\item QMSum: \(-0.01995\), interval \([-0.02982,-0.01007]\);
-\item SummScreenFD: \(-0.02700\), interval \([-0.03893,-0.01479]\);
-\item NarrativeQA: \(-0.00448\), interval \([-0.00854,-0.00010]\).
+\item 2WikiMQA: \(+0.01250\), \([+0.00253,+0.02268]\);
+\item QMSum: \(-0.01995\), \([-0.02982,-0.01007]\);
+\item SummScreenFD: \(-0.02700\), \([-0.03893,-0.01479]\);
+\item NarrativeQA: \(-0.00448\), \([-0.00854,-0.00010]\).
 \end{itemize}
 Higher short-prefix teacher agreement did not translate into a consistent
 retrieval advantage over simple pooling.
@@ -1844,14 +1840,15 @@ comparison does not show that arity alone caused the differences.
 Two additional controls did not improve the selected system. A K4 model using
 approximately 510-token leaves obtained macro cosine \(0.97143\) and FineWeb
 cosine \(0.96828\), failing its configured cosine guard. A wider K4 model with
-hidden width 1,152 and 166.9 million parameters reached validation2 AUC
+hidden width 1,152 and 166.9 million parameters reached AUC on the second validation split of
 \(0.62058\) and exhibited training saturation.
 
 \section{Discussion}
 \label{sec:discussion}
 
 The experiments separate recursive executability from teacher fidelity and
-downstream utility.
+downstream utility. We discuss fidelity and cost, recursive execution and local
+reconstruction, and the limitations and experiments needed to address them.
 
 \subsection{Teacher Fidelity at a Higher Composition Cost}
 
@@ -1909,7 +1906,7 @@ teacher and four English corpora. The separately pinned retrieval benchmark
 covers four English tasks, not classification or clustering, and the strong
 CLS reference shows that the representation interface matters.
 
-\textbf{Proposed remedy.} Train a merger on CLS-based representations with
+\emph{Proposed remedy.} Train a merger on CLS-based representations with
 consistent chunk, query, and document interfaces. Compare encoders and languages
 on independently sourced retrieval, classification, and clustering tasks to
 test whether improved teacher fidelity translates into broader utility.
@@ -1924,7 +1921,7 @@ teacher targets. The five-tree and two-finer-chunk tests still couple leaf
 representations, arity, and depth. Development and official populations are disjoint, so their difference is not
 a paired improvement estimate.
 
-\textbf{Proposed remedy.} Use length-stratified populations extending beyond
+\emph{Proposed remedy.} Use length-stratified populations extending beyond
 the configured 96-leaf training cap, and vary segmentation, arity, and depth
 separately. Direct fidelity tests of deeper roots require a longer-context
 teacher or another evaluation design. Audit exact and near duplicates across
@@ -1938,10 +1935,10 @@ neither from-scratch training nor complete training cost. Matched source/final
 endpoints cannot isolate one component of the continuation bundle. The
 attached/detached intervention has small, mixed outcomes: it changes one
 gradient route in a small exact-four TRAIN regime, starting from trained source
-encoders, rather than removing the decoder loss from the full training recipe.
+mergers, rather than removing the decoder loss from the full training recipe.
 Arity comparisons also differ in capacity and training history.
 
-\textbf{Proposed remedy.} Train from-scratch, matched-budget lineages with
+\emph{Proposed remedy.} Train matched-budget lineages from scratch with
 true decoder-loss removal and matched geometry and arity alternatives. These
 comparisons would help isolate which objectives and architectural choices
 contribute to the fidelity gain.
@@ -1959,7 +1956,7 @@ unconstrained outputs remove a structural restriction, not optimization or
 data dependence. The missing matched-pooling probe binaries also prevent exact
 copy/permutation calibration of those fits.
 
-\textbf{Proposed remedy.} Retain matched probes across representations,
+\emph{Proposed remedy.} Retain matched probes across representations,
 seeds, and fitting budgets, and check their optimization. Test recovery from
 the final document root, not only intermediate parents, using both input-order
 and target-slot controls to distinguish recovery of ordered constituents from
@@ -1979,7 +1976,7 @@ and continuation comparisons reuse evaluated documents and regenerated inputs.
 LongEmbed uses a distinct population, but its system and hypotheses were fixed
 after the initial evaluation.
 
-\textbf{Proposed remedy.} Preregister evaluations on fresh documents with
+\emph{Proposed remedy.} Preregister evaluations on fresh documents with
 more training seeds, attack splits, refitted attackers, and independent tasks.
 These comparisons would assess robustness beyond the current conditional
 estimates and separate exploratory findings from confirmatory evidence.
@@ -1994,7 +1991,7 @@ reproduction discrepancies are documented in
 Appendices~\ref{app:safe-baseline-reproduction}
 and~\ref{app:reconstruction-calibration} and the associated audit subsections.
 
-\textbf{Proposed remedy.} Benchmark text encoding, composition, storage,
+\emph{Proposed remedy.} Benchmark text encoding, composition, storage,
 and inference together. Independently reproduce the results using the pinned
 inputs, retained artifacts, and documented numerical protocol to assess the
 discrepancies and the quality--cost trade-off in a complete application.
@@ -2006,8 +2003,8 @@ The central idea is to merge embeddings into another embedding that can be
 merged again, without leaving the frozen encoder's output coordinates,
 embedding dimension, or unit-sphere domain. The shared geodesic merger provides
 that reusable interface; teacher supervision seeks to align each parent with
-the encoder's representation of its combined text. Structural reusability is
-provided by the construction, while semantic fidelity remains empirical.
+the encoder's representation of its combined text. The construction guarantees
+structural reusability, while semantic fidelity remains an empirical question.
 
 The evaluated system improves short-prefix teacher fidelity over pooling at
 substantial composition cost, but recursive results depend on segmentation
@@ -2016,6 +2013,8 @@ advantage. Pooling remains a simple, inexpensive comparator. The evidence
 therefore supports the feasibility of
 learned, recursively reusable embeddings in the original geometric domain,
 not guaranteed semantic preservation or a general downstream advantage.
+A matched-interface CLS-based retrieval experiment would test whether aligning
+composition with the backbone's documented representation improves downstream utility.
 
 \ifdefined\papreprint
 \bibliographystyle{plainnat}
@@ -2069,7 +2068,7 @@ collected across all teacher-supervised merges in the optimizer minibatch. These
 \lambda_{\mathrm{var}}=256.
 \]
 
-The learned semantic composition weights are also regularized relative to the structural token-mass prior. Recall that \(q_i\) is the relative token mass, \(w_i\) is the learned semantic composition weight, and \(\delta_i\) is the learned salience correction. The prior regularizer is the Kullback--Leibler divergence \cite{kullback-leibler-1951-information},
+The learned semantic composition weights are also regularized relative to the structural token-mass prior. Recall that \(q_i\) is the relative token mass, \(w_i\) is the learned semantic composition weight, and \(\delta_i\) is the learned salience correction. The prior regularizer is the Kullback--Leibler divergence \citep{kullback-leibler-1951-information},
 
 \[
 \mathcal{L}_{\mathrm{prior}}
@@ -2151,7 +2150,7 @@ At full strength, the merger-only objective is therefore
 
 The teacher term encourages paired agreement with the teacher, the mean and variance terms provide minibatch-level distribution matching, and the salience regularizers constrain semantic reweighting while preserving the distinction between learned importance and exact token mass.
 
-The autoencoder variant adds a strict training-time decoder \(D_\phi\) that receives only the generated parent embedding \(z\). From this parent, it predicts four ordered child embeddings \(\hat{x}_1,\ldots,\hat{x}_4\) and importance logits that are normalized to predicted importance weights \(\hat{w}_1,\ldots,\hat{w}_4\). The decoder is not given the true child embeddings, child token counts, token-mass fractions \(q_i\), encoder salience corrections, encoder semantic weights as inputs, corpus or source identity, or reduction-tree metadata.
+The autoencoder variant adds a strict training-time decoder \(D_\phi\) that receives only the generated parent embedding \(z\). From this parent, it predicts four ordered child embeddings \(\hat{x}_1,\ldots,\hat{x}_4\) and importance logits that are normalized to predicted importance weights \(\hat{w}_1,\ldots,\hat{w}_4\). The decoder is not given the true child embeddings, child token counts, token-mass fractions \(q_i\), merger salience corrections, merger semantic weights, corpus or source identity, or reduction-tree metadata.
 
 For genuine four-child training merges, ordered child reconstruction is trained with
 
@@ -2171,7 +2170,7 @@ children are detached on this target branch. The reconstruction coefficient is
 \lambda_{\mathrm{recon}}=0.15.
 \]
 
-The decoder also predicts the semantic importance distribution used by the merger. With the encoder's learned effective weights \(w\) detached from the decoder target, the importance loss is
+The decoder also predicts the semantic importance distribution used by the merger. With the merger's learned effective weights \(w\) detached from the decoder target, the importance loss is
 
 \[
 \mathcal{L}_{\mathrm{imp}}
@@ -2211,7 +2210,7 @@ and compares this spherical recomposition with the original parent:
 This cycle uses the weighted spherical reference construction rather than
 another complete Transformer merge. The reference parent is detached, while
 the parent supplied to the decoder remains differentiable during joint
-training. During decoder-only fitting that decoder input is detached too. A low cycle loss alone does not establish recovery of the original children, since the encoder and decoder could become mutually consistent without accurately reconstructing their inputs; direct ordered-child reconstruction is therefore treated separately.
+training. During decoder-only fitting, that decoder input is also detached. A low cycle loss alone does not establish recovery of the original children, since the merger and decoder could become mutually consistent without accurately reconstructing their inputs; direct ordered-child reconstruction is therefore treated separately.
 
 At full strength, the autoencoder objective can be written compactly as
 
@@ -2224,7 +2223,7 @@ At full strength, the autoencoder objective can be written compactly as
 +0.025\mathcal{L}_{\mathrm{imp}}.
 \]
 
-Optimization is staged. During the first 300 updates, the merger is frozen and the strict decoder is trained on full-arity examples using the reconstruction and importance objectives. The merger is then unfrozen for 100 joint encoder--decoder updates. For joint update \(s\in\{301,\ldots,400\}\), define
+Optimization is staged. During the first 300 updates, the merger is frozen and the strict decoder is trained on full-arity examples using the reconstruction and importance objectives. The merger is then unfrozen for 100 joint merger--decoder updates. For joint update \(s\in\{301,\ldots,400\}\), define
 
 \[
 \gamma_s=\frac{s-300}{100}.
@@ -2332,7 +2331,7 @@ clean-v6 seed-424242 checkpoint, identified by the same SHA-256 digest.
 The \texttt{v1-paper} release contains all three final checkpoints, all three
 continuation-source checkpoints, and six fitted parent-only probes.
 \ifdefined\papreprint
-The release is documented in \cite{stoica-2026-recursive-geodesic}.
+The release is documented in \citep{stoica-2026-recursive-geodesic}.
 \fi
 Checkpoints are release assets rather than ordinary Git objects.
 The release manifest identifies each artifact by
@@ -2445,7 +2444,7 @@ without decoding and re-tokenizing. Token counts therefore exclude special
 tokens. The unchanged frozen-teacher loader uses the pinned model's default
 FP16 parameters and emits FP32 normalized embeddings; merger inference and
 pooling use FP32. Safe-only preparation uses leaf batches of up to four rather
-than the original full-document batches of up to 16. Its initial new preflight
+than the original full-document batches of up to 16. Its initial preflight
 incorrectly required FP32 teacher parameters and stopped before producing
 embeddings or scores; the documented correction retained the original loader,
 not a new teacher representation.
@@ -2472,12 +2471,12 @@ tolerances of \(10^{-5}\) for mean teacher cosine and \(5\times10^{-4}\) for
 AUC. Across all 15 checkpoint--scope combinations, the largest absolute cosine
 difference from the original results is \(4.915\times10^{-6}\). One per-corpus
 AUC difference exceeds its tolerance: FineWeb, seed 271828, changes by
-\(-0.000576\). This deviation is retained, not used to alter the tolerance or
-select a run. Without the original embedding tensors and complete hardware
-record, its contribution from batching versus other numerical differences is
-not isolated. All five representation rows nevertheless use identical inputs
-within the new matched analysis; no original learned summary is mixed with a
-regenerated baseline score.
+\(-5.76\times10^{-4}\). This deviation is retained, not used to alter the
+tolerance or select a run. Without the original embedding tensors and complete
+hardware record, its contribution from batching versus other numerical
+differences is not isolated. All five representation rows nevertheless use
+identical inputs within the new matched analysis; no original learned summary
+is mixed with a regenerated baseline score.
 
 The audit independently recomputes cosine in PyTorch double precision, checks
 paired mean differences and their bootstrap intervals, verifies document-paired
@@ -2552,7 +2551,7 @@ This analysis compares parent-only decoding with copying the parent and
 measures sensitivity to target-slot assignments
 (Section~\ref{sec:retention-results}). The protocol is
 \nolinkurl{configs/reconstruction_calibration_v1.yaml}.
-Evaluator, renderer, and auditor are the corresponding
+The evaluator, renderer, and auditor are the corresponding
 \nolinkurl{scripts/evaluate_reconstruction_calibration.py},
 \nolinkurl{scripts/render_reconstruction_calibration.py}, and
 \nolinkurl{scripts/audit_reconstruction_calibration.py}. Full-precision
@@ -2612,13 +2611,13 @@ checkpoint to locate changes during continuation
 (Section~\ref{sec:continuation-results}). The fixed configuration is
 \nolinkurl{configs/continuation_comparison_v1.yaml};
 outputs are retained in \nolinkurl{results/continuation_comparison_v1/}.
-The evaluator, renderer and auditor are the corresponding
+The evaluator, renderer, and auditor are the corresponding
 \nolinkurl{scripts/evaluate_continuation_comparison.py},
 \nolinkurl{scripts/render_continuation_comparison.py}, and
 \nolinkurl{scripts/audit_continuation_comparison.py}.
 Configuration and implementation hashes were frozen before new inference.
 All source/final checkpoints and probes match the release manifest in bytes,
-hash, seed and role. Each final checkpoint identifies its source digest in
+hash, seed, and role. Each final checkpoint identifies its source digest in
 \texttt{staged\_training}; all 113 merger parameter tensors differ, while the
 inference architecture is unchanged. This tensor check verifies an update,
 not a substantive performance improvement. Source-probe TRAIN selection and
@@ -2628,8 +2627,7 @@ code; probe training itself is not reproduced here.
 
 Final parent/probe tensors are bitwise identical to the previous analyses;
 final classifier score files are hash-verified rather than refitted. Both
-source classifier families use the same document split memberships, and all
-source/final scores, selected families and paired resamples are auditable.
+source/final scores, selected families, and paired resamples are auditable.
 Bootstrap seeds are 22092631 for scalar scores and 22092632 for AUC, with fixed
 scope offsets. Weighted, tie-aware AUC counts preserve both observations per
 document. All intervals are recomputed, and the AUC implementation is checked
@@ -2649,8 +2647,7 @@ alternative packing. It shifts the pooled teacher contrast by only
 \(+1.594\times10^{-11}\); the largest checkpoint-mean document-contrast
 shift is \(4.301\times10^{-9}\). Its implementation and protocol are preserved
 in \nolinkurl{scripts/check_continuation_numerics.py} and the corresponding
-\texttt{NUMERICAL\_CHECK} artifacts. No primary output, tolerance, document,
-checkpoint or interval is replaced or selected using this check. Original
+checkpoint, or interval is replaced or selected using this check. Original
 results and all three preceding additive studies remain unchanged. The
 layout-only wrapper \nolinkurl{scripts/publish_continuation_comparison.py}
 changes table units and figure-label spacing without changing primary results.
@@ -2669,7 +2666,7 @@ are \nolinkurl{results/input_order_v1/},
 \nolinkurl{results/longembed_review_v1/}, and
 \nolinkurl{results/decoder_gradient_v1/}. The full audit with independent
 predicted-child double-precision scoring, reference vector-cosine checks,
-token-mass/depth accounting, retrieval ranking and cluster-resampling replay,
+token-mass/depth accounting, retrieval ranking, and cluster-resampling replay,
 identical intervention-start checks, and regenerated classifier intervals is
 \nolinkurl{scripts/audit_review_completion.py}. Each namespace retains
 \texttt{PROTOCOL.json}, \texttt{RESULTS.json}, \texttt{SCORES.json} as applicable,
@@ -2680,16 +2677,16 @@ additive result JSON SHA-256 hashes are reverified before creating any new
 namespace; results are never replaced to correct a discrepancy.
 
 Preparation sampled 160 fit and 40 unused validation documents per corpus
-from the same fixed TRAIN index window after an initial 500/100 population
+from the fixed TRAIN source range 140,000--151,999 after an initial 500/100 population
 request proved infeasible \emph{before encoding}. The failed run configurations
-and logs, exact selection/role identities, token hashes and zero exact
+and logs, exact selection/role identities, token hashes, and zero exact
 prefix-token overlap with the safe evaluation set are in
 \nolinkurl{reproducibility/protocols/review_completion_v1/} and
 \nolinkurl{results/probe_families_v1/TRAIN_MANIFEST.json}. No near-duplicate
 or cross-source semantic-duplication guarantee is claimed. The released
-source checkpoints are the encoder initialization for the newly trained
+source checkpoints are the merger initialization for the newly trained
 intervention, and each matched per-seed pair has the same saved warm model,
-optimizer, RNG and fixed 100-step joint minibatch schedule. Checkpoint weights
+optimizer, RNG, and fixed 100-step joint minibatch schedule. Checkpoint weights
 are not interchangeable with the original released continuation or with
 historical fitted probes. A small training set and only three inherited
 initializations limit causal generalization beyond this gradient path.
@@ -2697,15 +2694,16 @@ initializations limit causal generalization beyond this gradient path.
 The pinned LongEmbed corpus/query/qrel file identities, exact full candidate
 counts, token/depth distributions, scores, relevant-document cluster IDs,
 per-task vectors and numerical precision diagnostic are retained under
-\nolinkurl{results/longembed_review_v1/}. Candidate counts are 300, 197,
-336 and 355; query counts are 300, 1,527, 336 and 10,449 for 2WikiMQA,
-QMSum, SummScreenFD and NarrativeQA, respectively. The initially uniform
+\nolinkurl{results/longembed_review_v1/}.
+Candidate counts are 300, 197, 336, and 355; query counts are 300, 1,527, 336,
+and 10,449 for 2WikiMQA, QMSum, SummScreenFD, and NarrativeQA, respectively.
+The initially uniform
 FP16 masked-mean operation overflowed for two finite 8,190-token context
 hidden-state tensors (absolute FP32 sums 68,067.625 and 66,838.03125,
 above the FP16 finite bound 65,504), before any task score was obtained.
 The failed protocol, complete 300-document numerical diagnosis and recovery
 record are preserved under the same reproducibility directory. The stable
-FP32 accumulator is applied uniformly to every task leaf, mean query and
+FP32 accumulator is applied uniformly to every task leaf, mean query, and
 context reference; it does not update the frozen FP16 teacher parameters.
 A later parser used Python \texttt{splitlines()}, which incorrectly splits
 valid JSON strings containing Unicode separators in NarrativeQA. The physical
@@ -2740,7 +2738,7 @@ The experiment was committed as
 The identifying experiment commit is omitted for double-blind review.
 \fi
 All 16 audit checks passed, and neither the clean-v6 checkpoint nor prior
-official artifacts was modified.
+official artifacts were modified.
 
 \begin{table}[H]
 \caption{Per-corpus mean ordered-child cosine for the matched exact-K4
