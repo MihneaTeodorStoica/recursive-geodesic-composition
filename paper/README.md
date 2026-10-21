@@ -33,14 +33,29 @@ For Tectonic, create a temporary entrypoint in `paper/` and compile it separatel
 
 ```bash
 printf '\\def\\papreprint{1}\\input{main.tex}\n' > One_Vector_from_Many_arxiv.tex
-SOURCE_DATE_EPOCH=1792501521 tectonic -X compile One_Vector_from_Many_arxiv.tex \
+SOURCE_DATE_EPOCH=1792562848 tectonic -X compile One_Vector_from_Many_arxiv.tex \
   --hide One_Vector_from_Many_arxiv.aux \
   --hide One_Vector_from_Many_arxiv.bbl \
   --hide One_Vector_from_Many_arxiv.out --keep-logs
 ```
 
-Local smoke builds with Tectonic 0.17.0 produced a 38-page named preprint and a 40-page anonymous TMLR submission. Both have all six remedies, resolved references, and no overfull boxes; the TMLR build retains underfull-box layout warnings. First pages were visually inspected, and the submission's extracted text and PDF author metadata were checked for identifying author/repository information.
+The v3.2 release builds used Tectonic 0.17.0 and `SOURCE_DATE_EPOCH=1792562848` (the manuscript merge timestamp), producing a 38-page named preprint and a 40-page anonymous TMLR submission. Both contain all six remedies, resolved references, and no overfull boxes; the TMLR build retains underfull-page layout warnings. Opening pages were visually inspected, and extracted submission text and PDF author metadata passed anonymity checks. The bibliography rerun-limit warning observed with Tectonic 0.15.0 did not occur in the release builds.
 
+
+### v3.2-paper release
+
+[`v3.2-paper`](https://github.com/MihneaTeodorStoica/recursive-geodesic-composition/releases/tag/v3.2-paper) pins the October 21 manuscript revision at `68c937b5907764a36301704c07970397543fcf6d`. It updates citations, the introduction roadmap, terminology, Figure 1 descriptions, and prose; the named preprint adds the contact email and October 2026 date. Experimental values and trained weights are unchanged.
+
+The release contains 75 assets: the two current PDFs, `PAPER_FORMAT_ASSETS.sha256`, all 70 unchanged v1/v2 attachments, and the original v3 PDF/checksum. The current checksum covers only the two current PDFs. Use `ARTIFACTS.sha256`, `REVIEW_RELEASE_ASSETS.sha256`, and `PAPER_RELEASE_ASSETS.sha256` for the original v1, v2, and v3 assets respectively. Earlier releases remain intact.
+
+To rebuild this manuscript revision, check out `v3.2-paper` and use the commands above. For the anonymous output, run from `paper/`:
+
+```bash
+SOURCE_DATE_EPOCH=1792562848 tectonic -X compile main.tex \
+  --hide main.aux --hide main.bbl --hide main.out --keep-logs
+```
+
+This produces `main.pdf`; the separate preprint entrypoint produces `One_Vector_from_Many_arxiv.pdf`. The fixed epoch and compiler record provenance, not a cross-toolchain byte-identical guarantee. The source archive at `v3.2-paper` predates this documentation correction; these instructions describe its actual release build. The historical publication-check caveat below still applies; the editorial release did not rerun numerical evaluations.
 
 ### v3.1-paper release
 
@@ -95,10 +110,10 @@ That statement describes the *initial import only*. Subsequent manuscript builds
 
 The `v2-paper-review` release predates the writing-coach revision and TMLR formatting cutover. Its 35-page PDF and fixed-epoch hashes describe that historical release, not a rebuild of current source. Current edits preserve reported experimental values while revising prose, hierarchy, and table presentation.
 
-The 2026-10-20 revisions adapt Nancy’s October 18 Word comments to the current manuscript, followed by a first-reader pass: the abstract introduces the problem and method before reporting fidelity and cost; the main text explains terminology and comparison purposes before using experiment labels. Technical details remain in labeled appendices, and the combined Limitations and Future Work subsection pairs each summary-first limitation with a visibly labeled proposed remedy. The bibliography uses the official TMLR style, literal DOI identifiers, and HTTPS URLs for every entry; DOI-only entries link through `https://doi.org/`. The annotated older Word file is feedback, not the source of the revised manuscript. Publication tests check the numerical tables and underlying results without requiring duplicate values or particular wording in the manuscript prose.
+The 2026-10-20 revisions adapt the October 18 editorial comments to the current manuscript, followed by a first-reader pass: the abstract introduces the problem and method before reporting fidelity and cost; the main text explains terminology and comparison purposes before using experiment labels. Technical details remain in labeled appendices, and the combined Limitations and Future Work subsection pairs each summary-first limitation with a visibly labeled proposed remedy. The bibliography uses the official TMLR style, literal DOI identifiers, and HTTPS URLs for every entry; DOI-only entries link through `https://doi.org/`. The annotated older Word file is feedback, not the source of the revised manuscript. Publication tests check the numerical tables and underlying results without requiring duplicate values or particular wording in the manuscript prose.
 
 The compositional-space framing makes recursive reuse the central goal: parents retain the encoder-output dimension and unit-sphere domain and can enter subsequent merges without conversion. Semantic alignment with directly encoded spans is a training objective assessed empirically, not guaranteed by this reusable interface. Pooling remains the comparator, not the motivation. The independent-review pass clarifies that headline fidelity is a single-merge result, distinguishes normalized recursive pooling from exact flat pooling, and states the inherited-checkpoint/continuation-training scope before the training recipe.
 
-The 2026-10-21 revision applies Nancy’s October 20 tracked Word edits to the current source: parenthetical citations (with narrative citations retained where authors are sentence subjects), a complete introduction roadmap, consistent merger terminology and source-index ranges, scientific notation for very small results, serial commas, and shorter repeated descriptions. The named preprint adds the author’s contact email and uses October 2026 as the intended submission month; update this date if submission moves to another month. The anonymous TMLR output keeps the contact hidden. Figure 1 uses thick/thin arrow descriptions, limitations retain visible italic *Proposed remedy* labels, and the classifier two-sample citation uses the ICLR 2017 version. Experimental results and historical artifact manifests are unchanged.
+The 2026-10-21 revision applies the October 20 tracked editorial comments to the current source: parenthetical citations (with narrative citations retained where authors are sentence subjects), a complete introduction roadmap, consistent merger terminology and source-index ranges, scientific notation for very small results, serial commas, and shorter repeated descriptions. The named preprint adds the author’s contact email and uses October 2026 as the intended submission month; update this date if submission moves to another month. The anonymous TMLR output keeps the contact hidden. Figure 1 uses thick/thin arrow descriptions, limitations retain visible italic *Proposed remedy* labels, and the classifier two-sample citation uses the ICLR 2017 version. Experimental results and historical artifact manifests are unchanged.
 
 Verification for this revision: Tectonic 0.15.0 built the 38-page named preprint and 40-page anonymous TMLR submission. Rendered title pages, Figure 1, and the limitation/remedy layout were inspected. Both logs contain no undefined references or overfull boxes; all six remedies are present in both PDFs. Extracted submission text and author metadata omit the contact identity. TMLR underfull-page warnings remain, and this compiler reports an internal bibliography-change/rerun-limit warning despite resolved citations in both outputs.
