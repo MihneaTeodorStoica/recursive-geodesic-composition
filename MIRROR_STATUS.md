@@ -4,8 +4,8 @@ This sanitized review snapshot supplies the source, configurations, saved result
 
 ## Current reviewer resources
 
-- Anonymous source: https://anonymous.4open.science/r/recursive-geodesic-composition-0F32/
-- Public, ungated weights: https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints
+- Anonymous source: [Anonymous review repository](https://anonymous.4open.science/r/recursive-geodesic-composition-0F32/)
+- Public, ungated weights: [Hugging Face checkpoint repository](https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints)
 - Immutable weight revision: `9187157fa4fc6f790be1775475952f14ae33d02e`.
 - Exact hosted identities and group commands: CHECKPOINT_ACCESS.md and `reproducibility/HOSTED_CHECKPOINTS.json`.
 

@@ -25,13 +25,13 @@
     },
     {
       "path": "CHECKPOINT_ACCESS.md",
-      "bytes": 8332,
-      "sha256": "ab2e8c8b09c64298eb0704bd3d1a8adc9722caa8433d0ffe3b847c6a9247f42a"
+      "bytes": 8370,
+      "sha256": "a13d0e473539cf1ab4756d48f24913c31f0f2b27b1b19120ba2957d923d91bcb"
     },
     {
       "path": "CHECKPOINT_HOSTING_PLAN.md",
-      "bytes": 15520,
-      "sha256": "e62d0d359b3021114fe3ba75db0443e02d6e80a866e809efb414b557d542dfff"
+      "bytes": 15541,
+      "sha256": "b0d4ce0370e09e41b36f63743302ded8ac15361ba38243d84feb56c22445e3d0"
     },
     {
       "path": "EVIDENCE_MAP.md",
@@ -50,8 +50,8 @@
     },
     {
       "path": "MIRROR_STATUS.md",
-      "bytes": 3367,
-      "sha256": "accfbf6a3b3bc8cfdebc185f401a4c9014c9507cb61fb7b4a09c40f5f2710b00"
+      "bytes": 3436,
+      "sha256": "8bdc12fdf4bc86477ded066f121cdab0d474c896a0a46eae1ca794f3fbd7643a"
     },
     {
       "path": "README.md",
@@ -65,8 +65,8 @@
     },
     {
       "path": "VALIDATION.md",
-      "bytes": 11887,
-      "sha256": "145eebff20bfb6e264f3c6c5256833b442c880a0b6a3986b1a904eab2bd7bb1f"
+      "bytes": 11925,
+      "sha256": "caffdd34e28bdc37f2a938f1c5a928eb9b6c523469661c68a1f59723881ecfc8"
     },
     {
       "path": "configs/continuation_comparison_v1.yaml",

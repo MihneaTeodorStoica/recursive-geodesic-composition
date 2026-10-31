@@ -2,7 +2,7 @@
 
 ## Scope and status
 
-The released 66-artifact collection is now hosted in the public, ungated model repository https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints at immutable revision `9187157fa4fc6f790be1775475952f14ae33d02e`. [CHECKPOINT_ACCESS.md](CHECKPOINT_ACCESS.md) is the current download/verification guide. The original-byte inventory below is retained, with the three warm-state derivatives explicitly distinguished.
+The released 66-artifact collection is now hosted in the public, ungated [Hugging Face checkpoint repository](https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints) at immutable revision `9187157fa4fc6f790be1775475952f14ae33d02e`. [CHECKPOINT_ACCESS.md](CHECKPOINT_ACCESS.md) is the current download/verification guide. The original-byte inventory below is retained, with the three warm-state derivatives explicitly distinguished.
 
 The inventory was cross-read from `reproducibility/ARTIFACT_MANIFEST.json` (12 historical weights), `reproducibility/REVIEW_RELEASE_MANIFEST.json` (54 control weights), and `reproducibility/WEIGHTS_MANIFEST.json` (all 66 original identities). All originals were fully acquired and size/SHA-256 verified; complete serialized metadata and archive structures were inspected without executing pickle. Sixty-three are hosted unchanged. Three warm copies preserve all tensor/optimizer state while neutralizing one location-metadata prefix; each has its own hosted hash in `HOSTED_CHECKPOINTS.json`. Original experiment hashes and provenance records are not rewritten.
 

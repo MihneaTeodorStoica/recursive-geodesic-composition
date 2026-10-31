@@ -1,6 +1,6 @@
 # Public checkpoint access
 
-Model repository: https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints
+Model repository: [Hugging Face checkpoint repository](https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints)
 
 **Immutable Hugging Face revision:** `9187157fa4fc6f790be1775475952f14ae33d02e`
 

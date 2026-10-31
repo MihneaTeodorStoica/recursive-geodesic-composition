@@ -4,7 +4,7 @@
 
 ## Current checkpoint publication: PASS
 
-- Public, ungated model repository: https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints
+- Public, ungated model repository: [Hugging Face checkpoint repository](https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints)
 - Immutable Hugging Face revision: `9187157fa4fc6f790be1775475952f14ae33d02e`.
 - All 66 original checkpoint sizes/hashes fully acquired and reconciled with authoritative release inventories; complete serialized metadata, ZIP headers/comments/extra fields and CRCs inspected without executing pickle.
 - Published 63 exact originals plus three explicitly mapped, length-preserving metadata-only warm derivatives. Static proof preserves all model/optimizer storage bytes, tensor descriptors and non-identifying scientific state. Original experiment hashes remain unchanged.
