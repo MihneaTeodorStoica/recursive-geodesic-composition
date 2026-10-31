@@ -1,0 +1,22 @@
+{
+  "status": "completed",
+  "variant": "autoencoder",
+  "seed": 271828,
+  "final_step": 400,
+  "configured_steps": 400,
+  "rejection_reason": null,
+  "best_checkpoint_preserved": true,
+  "best_checkpoint_selection_value": 0.5667548095476551,
+  "freeze_encoder_steps": 300,
+  "autoencoder_objective_start_step": 300,
+  "autoencoder_objective_ramp_steps": 100,
+  "encoder_learning_rate_scale": 0.02,
+  "decoder_only_require_full_arity_rows": true,
+  "checkpoint_selection_start_step": 400,
+  "continued_after_quality_rejection": false,
+  "initialization_checkpoint": "results_kary4_1024_encoder_continuation_confirmation_seed271828/encoder_seed271828.pt",
+  "initialization_checkpoint_sha256": "9f5f19cb9e45aaa473272dd08291a5143cc66be105ac6e5c765a1b6c95c711e6",
+  "initialization_shared_key_count": 113,
+  "initialization_key_migrations": [],
+  "initialization_source_selected_step": 1200
+}

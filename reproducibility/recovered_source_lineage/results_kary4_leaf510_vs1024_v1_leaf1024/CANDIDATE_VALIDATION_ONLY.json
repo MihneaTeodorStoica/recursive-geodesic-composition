@@ -1,0 +1,21 @@
+{
+  "status": "validation_only_candidate",
+  "official_test_evaluated": false,
+  "arity": 4,
+  "chunk_tokens": 1024,
+  "seed": 424242,
+  "selected_step": 1200,
+  "selection_macro_max_attack_auc_raw": 0.5733729399617398,
+  "selection_macro_max_attack_auc_ma3": 0.5758678147988776,
+  "pooled_logistic_auc": 0.5672540257367162,
+  "pooled_rbf_auc": 0.5619526895347423,
+  "pooled_strongest_auc": 0.5672540257367162,
+  "macro_teacher_cosine": 0.9822191894054413,
+  "geodesic_saturation_fraction": 0.0,
+  "checkpoint": "results_kary4_leaf510_vs1024_v1_leaf1024/encoder_seed424242.pt",
+  "checkpoint_sha256": "bb1b9127bf80e8d7c678568564bc37c949496b1b46767ddb59e7c50703c7059f",
+  "config": "experiments/kary4_leaf510_vs1024_v1/configs/leaf1024.yaml",
+  "config_sha256": "7b3321f0214e64a30a653761e6ca2c07464ffb0d60f088fd3df174a849dc1360",
+  "validation_evaluation": "results_kary4_leaf510_vs1024_v1_leaf1024/validation_evaluation.json",
+  "validation_evaluation_sha256": "9bb37b1fef8866d08f2f1a04c1afef3c5c540605c4d9402e5b1d05dc466e0920"
+}

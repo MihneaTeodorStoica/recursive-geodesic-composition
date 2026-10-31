@@ -1,0 +1,135 @@
+# Frozen K4/1024 seed-424242 encoder continuation screen v1.
+# TRAIN/validation roles only; every declared source range ends below 20000.
+validation_only: true
+official_test_evaluated: false
+seed: 424242
+arity: 4
+cache_dir: cache_kary4_leaf510_vs1024_v1_leaf1024
+output_dir: results_kary4_1024_encoder_continuation_v1
+model_name: Alibaba-NLP/gte-modernbert-base
+model_revision: e7f32e3c00f91d699e8c43b53106206bcc72bb22
+corpora:
+- id: fineweb_edu
+  weight: 0.25
+  dataset_name: HuggingFaceFW/fineweb-edu
+  dataset_config: sample-10BT
+  dataset_revision: 87f09149ef4734204d70ed1d046ddc9ca3f2b8f9
+  train_start: 0
+  train_documents: 8000
+  validation_start: 12000
+  validation_documents: 1000
+- id: fineweb
+  weight: 0.25
+  dataset_name: HuggingFaceFW/fineweb
+  dataset_config: sample-10BT
+  dataset_revision: 9bb295ddab0e05d785b879661af7260fed5140fc
+  train_start: 0
+  train_documents: 8000
+  validation_start: 12000
+  validation_documents: 1000
+- id: openwebtext
+  weight: 0.25
+  dataset_name: Skylion007/openwebtext
+  dataset_config: null
+  dataset_revision: 79d93d786212f7344586290adb811d4ae6a1762c
+  train_start: 0
+  train_documents: 8000
+  validation_start: 12000
+  validation_documents: 1000
+- id: wikipedia_en_20231101
+  weight: 0.25
+  dataset_name: wikimedia/wikipedia
+  dataset_config: 20231101.en
+  dataset_revision: b04c8d1ceb2f5cd4588862100d08de323dccfbaa
+  train_start: 0
+  train_documents: 8000
+  validation_start: 12000
+  validation_documents: 1000
+teacher_max_tokens: 6144
+chunk_tokens: 1024
+leaf_batch_size: 32
+teacher_target_batch_size: 32
+teacher_target_max_padded_tokens: 32768
+random_training_spans: true
+train_span_length_buckets:
+- min: 512
+  max: 2048
+- min: 2049
+  max: 8192
+- min: 8193
+  max: 16384
+- min: 16385
+  max: 32768
+random_chunk_min: 512
+random_chunk_max: 1024
+train_max_tree_leaves: 96
+validation_max_tree_leaves: 16
+train_augmentations: 4
+validation_segmentations: 2
+batch_size: 16
+steps: 1200
+validation_every: 100
+validation_metric_documents: 1000
+validation_root_batch_size: 64
+learning_rate: 2.0e-05
+weight_decay: 0.001
+max_geodesic_angle: 0.5
+encoder_hidden: 1024
+encoder_layers: 8
+decoder_layers: 1
+heads: 16
+reconstruction_weight: 0.0
+cycle_weight: 0.0
+distribution_mean_weight: 0.25
+distribution_variance_weight: 256.0
+distribution_min_samples: 8
+mixed_precision: none
+importance_mode: semantic
+importance_beta: 1.0
+importance_prior_weight: 0.01
+delta_loss_weight: 0.01
+sharpness_loss_weight: 0.01
+slot_loss_weight: 0.01
+sharpness_margin: 0.1
+geodesic_parameterization: tangent_expmap
+stratified_multicorpus_batches: true
+learning_rate_schedule: cosine
+warmup_steps: 50
+min_learning_rate: 2.0e-06
+validation_attacks: true
+checkpoint_selection: macro_validation_max_attack_auc
+checkpoint_moving_average_window: 3
+minimum_validation_teacher_cosine: 0.97
+minimum_per_corpus_validation_teacher_cosine: 0.97
+reject_on_geodesic_saturation: true
+geodesic_saturation_patience_steps: 1
+reject_on_cosine_guard_failure: false
+tensorboard: true
+tensorboard_dir: results_kary4_1024_encoder_continuation_v1/tensorboard
+continue_encoder_from_checkpoint: results_kary4_leaf510_vs1024_v1_leaf1024/encoder_seed424242.pt
+continue_encoder_from_checkpoint_sha256: bb1b9127bf80e8d7c678568564bc37c949496b1b46767ddb59e7c50703c7059f
+screen_attack_config: configs/evaluator_attacks_v1.yaml
+screen_attack_config_sha256: 49e7a2996e33482239819430e92426fc1e4f9ff88628dfd2ac74f6da94726800
+deployment_leaf_counts:
+- 2
+- 3
+- 4
+deployment_minimum_prefix_tokens: 1025
+deployment_maximum_prefix_tokens: 4096
+deployment_validation_segmentation: fixed
+screen_bootstrap_replicates: 0
+screen_bootstrap_seed: 612341
+screen_throughput_warmup: 2
+screen_throughput_repeats: 5
+retention_probe: results_kary4_validation_output_calibration_v1/retention/matched_k4_parent_only.pt
+retention_probe_sha256: de310a5cdbba44cced552150d111f8831316b57772a4932932b058139bbc2652
+retention_noninferiority_tolerance: 0.001
+screen_gates:
+  full_maximum_strongest_auc: 0.54
+  full_minimum_teacher_cosine_exclusive: 0.98
+  deployment_maximum_strongest_auc: 0.55
+  deployment_minimum_teacher_cosine_exclusive: 0.98
+collapse:
+  minimum_effective_rank: 8.0
+  minimum_unique_rounded_fraction: 0.99
+  minimum_pre_normalization_norm: 1.0e-06

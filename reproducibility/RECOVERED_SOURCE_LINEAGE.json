@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "verdict": "PARTIAL; record-derived lineage, not complete from-scratch reproduction",
+  "chain": [
+    {
+      "seed": 424242,
+      "initial_encoder": "bb1b9127bf80e8d7c678568564bc37c949496b1b46767ddb59e7c50703c7059f",
+      "continued_encoder": "4ed5f93b39a4e7264dfcfaf928bbfb5ef8d78e273f471603e5f0c914c55f2519",
+      "source_autoencoder": "2365a789f61ba6dab9967041b8dcee2a19dc969fd97b71026bdee970f7ea4797",
+      "final_autoencoder": "989f9bc496bea484974679cd181e43836caf3283ffdc8e66507046945e0902de"
+    },
+    {
+      "seed": 271828,
+      "initial_encoder": "4487f88b2151729a7863acfc7e0c23b257216f3e0c23eb1298f7f7a93e9a2dc4",
+      "continued_encoder": "9f5f19cb9e45aaa473272dd08291a5143cc66be105ac6e5c765a1b6c95c711e6",
+      "source_autoencoder": "63103ce0b940dab6eec02c62ae5e177b0f23941f1775624b2fe3b27f60105603",
+      "final_autoencoder": "a4cb1d79a7ae1bb0ca8855e3605c1ff50e761ca17ada39aa6b0237900dce7528"
+    },
+    {
+      "seed": 314159,
+      "initial_encoder": "096dbe7331d970760eb779ea0bc2d92c9eba4970080e2945ad371a0ee4b1791b",
+      "continued_encoder": "b71669465735d08e9eb72f095ddc2d7b26aaf0f90c59350173e1a74ad424d81d",
+      "source_autoencoder": "27116bb5dbe279750264147100b38323ec432329b385404f59db5bf753d4b3a2",
+      "final_autoencoder": "45a80bc3005bdf79fcafe3fce65b927a8f39e7ec2c019a34c3e9d1c8ce327a07"
+    }
+  ],
+  "stages": {
+    "initial_encoder": {
+      "selected_step": 1200,
+      "weights_available": false,
+      "selection": "validation-based three-point moving average",
+      "initialization": "Configs contain no parent checkpoint; recovered current trainer seeds and constructs a new merger. Original stage-specific trainer/RNG/execution binding is not established."
+    },
+    "continued_encoder": {
+      "selected_step": 1200,
+      "weights_available": false,
+      "initialization": "113 encoder keys continued from initial_encoder; optimizer restarted",
+      "selection": "validation-based three-point moving average"
+    },
+    "source_autoencoder": {
+      "selected_step": 400,
+      "weights_available": true,
+      "checkpoint_release_revision": "9187157fa4fc6f790be1775475952f14ae33d02e",
+      "initialization": "113 encoder keys continued from continued_encoder",
+      "recipe": "300 decoder-only then 100 joint updates; fixed final-step selection"
+    },
+    "final_autoencoder": {
+      "selected_step": 400,
+      "weights_available": true,
+      "checkpoint_release_revision": "9187157fa4fc6f790be1775475952f14ae33d02e",
+      "initialization": "113 encoder keys continued from source_autoencoder; 19 source decoder keys ignored and decoder freshly initialized",
+      "recipe": "300 decoder-only then 100 joint continuation updates; fixed final-step selection"
+    }
+  },
+  "primary_evidence": [
+    {
+      "path": "reproducibility/recovered_source_lineage/experiments/kary4_strict_autoencoder_seed424_dev_v2/config.yaml",
+      "original_logical_path": "experiments/kary4_strict_autoencoder_seed424_dev_v2/config.yaml",
+      "bytes": 5374,
+      "sha256": "ed23889623cd49cba9d7f27938bab80de3521399dcb40f20e8395b9e4d5e2ac4",
+      "transformation": "none; exact recovered bytes",
+      "historical_config_pin_verified": true
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/experiments/kary4_strict_autoencoder_multiseed_confirmation_v1/configs/seed271828.yaml",
+      "original_logical_path": "experiments/kary4_strict_autoencoder_multiseed_confirmation_v1/configs/seed271828.yaml",
+      "bytes": 5482,
+      "sha256": "8c8c81bcf1e55becabe2b622dc025918e39f81cd7098fa7233814dad82448039",
+      "transformation": "none; exact recovered bytes",
+      "historical_config_pin_verified": true
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/experiments/kary4_strict_autoencoder_multiseed_confirmation_v1/configs/seed314159.yaml",
+      "original_logical_path": "experiments/kary4_strict_autoencoder_multiseed_confirmation_v1/configs/seed314159.yaml",
+      "bytes": 5482,
+      "sha256": "5594bd91b54f1620fa4d8a11478b671c84d9e89bee2c1688a124b6ca08c21a96",
+      "transformation": "none; exact recovered bytes",
+      "historical_config_pin_verified": true
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/experiments/kary4_1024_encoder_continuation_v1/config.yaml",
+      "original_logical_path": "experiments/kary4_1024_encoder_continuation_v1/config.yaml",
+      "bytes": 4216,
+      "sha256": "28a4e6277732273fe5d29744b1d95562cf0ba1ffdcf451052ee8601079f6b1b8",
+      "transformation": "none; exact recovered bytes",
+      "historical_config_pin_verified": true
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/experiments/kary4_1024_encoder_continuation_multiseed_confirmation_v1/configs/seed271828.yaml",
+      "original_logical_path": "experiments/kary4_1024_encoder_continuation_multiseed_confirmation_v1/configs/seed271828.yaml",
+      "bytes": 4170,
+      "sha256": "cf01c8fea0fe5574f2f150930f422583b5c33c74ffa2041cc79c2086defc8832",
+      "transformation": "none; exact recovered bytes",
+      "historical_config_pin_verified": true
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/experiments/kary4_1024_encoder_continuation_multiseed_confirmation_v1/configs/seed314159.yaml",
+      "original_logical_path": "experiments/kary4_1024_encoder_continuation_multiseed_confirmation_v1/configs/seed314159.yaml",
+      "bytes": 4170,
+      "sha256": "f961bbac2fbbfafd560e51d962ac675c2063ca70ddfd1af869da2a4a7f3a2d71",
+      "transformation": "none; exact recovered bytes",
+      "historical_config_pin_verified": true
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_strict_autoencoder_seed424_dev_v2/autoencoder_seed424242_run_status.json",
+      "original_logical_path": "results_kary4_strict_autoencoder_seed424_dev_v2/autoencoder_seed424242_run_status.json",
+      "bytes": 869,
+      "sha256": "8b8e32019d48ae2ced3b348c2e3b3644557f680f83fc133c9f8b0a6e9ef203a4",
+      "transformation": "none; exact recovered bytes",
+      "historical_config_pin_verified": false
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_strict_autoencoder_seed424_dev_v2/FINAL_STEP_FROZEN.json",
+      "original_logical_path": "results_kary4_strict_autoencoder_seed424_dev_v2/FINAL_STEP_FROZEN.json",
+      "bytes": 25951,
+      "sha256": "2c54c022fd31aadd53c5a78b4706ff8b9759cb623d296e23f325450ebe468121",
+      "transformation": "none; exact recovered bytes",
+      "historical_config_pin_verified": false
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_leaf510_vs1024_v1_leaf1024/CANDIDATE_VALIDATION_ONLY.json",
+      "original_logical_path": "results_kary4_leaf510_vs1024_v1_leaf1024/CANDIDATE_VALIDATION_ONLY.json",
+      "bytes": 1030,
+      "sha256": "a1da33b67d7adcb46defe052efb62238dd3de85dae4d9190e7708334b33d0395",
+      "transformation": "none; exact recovered bytes",
+      "historical_config_pin_verified": false
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed271828/autoencoder_seed271828_run_status.json",
+      "original_logical_path": "results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed271828/autoencoder_seed271828_run_status.json",
+      "bytes": 890,
+      "sha256": "44de288376ec8f6122eadb4698ad10783bd5ad0a10b648c1a11d5815c4bb9e47",
+      "transformation": "none; exact recovered bytes",
+      "historical_config_pin_verified": false
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed271828/FINAL_STEP_FROZEN.json",
+      "original_logical_path": "results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed271828/FINAL_STEP_FROZEN.json",
+      "bytes": 26058,
+      "sha256": "66d6bfd1e4e9e1345d62a994eefd6d8d424eba3002fdf2a170ec65589531d4ea",
+      "transformation": "none; exact recovered bytes",
+      "historical_config_pin_verified": false
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_1024_confirmation_seed271828/CANDIDATE_VALIDATION_ONLY.json",
+      "original_logical_path": "results_kary4_1024_confirmation_seed271828/CANDIDATE_VALIDATION_ONLY.json",
+      "bytes": 1220,
+      "sha256": "94968602332652cebba90099dc0e9e8096af4ab63268c2c8c52e10012c892909",
+      "transformation": "none; exact recovered bytes",
+      "historical_config_pin_verified": false
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed314159/autoencoder_seed314159_run_status.json",
+      "original_logical_path": "results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed314159/autoencoder_seed314159_run_status.json",
+      "bytes": 890,
+      "sha256": "0a5209c6a29dc1b13d594f0cbf0e89a71f218a77d390259f7104f9663408b36a",
+      "transformation": "none; exact recovered bytes",
+      "historical_config_pin_verified": false
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed314159/FINAL_STEP_FROZEN.json",
+      "original_logical_path": "results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed314159/FINAL_STEP_FROZEN.json",
+      "bytes": 26051,
+      "sha256": "9e0fa5f678cc838394c26c1c1c412a63ee98a45218cac93f6d32836ad913c747",
+      "transformation": "none; exact recovered bytes",
+      "historical_config_pin_verified": false
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_1024_confirmation_seed314159/CANDIDATE_VALIDATION_ONLY.json",
+      "original_logical_path": "results_kary4_1024_confirmation_seed314159/CANDIDATE_VALIDATION_ONLY.json",
+      "bytes": 1220,
+      "sha256": "37794479b1aa30cb2be03998670c4f8bdcfcad77814dcf53dbb95bbcc8fd69da",
+      "transformation": "none; exact recovered bytes",
+      "historical_config_pin_verified": false
+    }
+  ],
+  "verification": {
+    "primary_files": 15,
+    "exact_config_hashes_matched_to_recorded_pins": 6,
+    "known_identity_credential_original_git_matches": 0,
+    "files_published_without_changes": 15
+  },
+  "missing_links": [
+    "Six earlier initial/continued encoder tensors were not recovered in the inspected live paths/candidate hashes. One initial encoder is already among the nine previously documented unavailable artifacts.",
+    "All three source-autoencoder per-step JSONLs and some seed424 predeclaration/run files are absent from recovered metadata.",
+    "Historical stage-specific trainer byte hashes, initial RNG and complete execution bindings remain unestablished; frozen statuses are records, not a new training run."
+  ],
+  "training_cache_note": {
+    "original_clean_train_manifest_sha256": "5fd69e7f4a9f95d88684b09912ad25be34187508a7c5afed650e5408d361172b",
+    "existing_public_pin": "results/clean_v6_development/LOCAL_LARGE_ARTIFACTS.sha256",
+    "original_preparation_config_sha256": "cb631df74a8a11c3e3d2e6ffb3a01da1bc33c6972a887fac7d354e88ea0847ab",
+    "interpretation": "Original preparation config predates the preserved 120/120 to 80/80 probe-availability recovery; do not rewrite either original or review config hashes."
+  },
+  "scope": "Non-active historical evidence only; no scientific code/config/results/checkpoint identities changed and no from-scratch training performed."
+}

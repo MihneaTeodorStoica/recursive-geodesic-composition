@@ -1,0 +1,22 @@
+{
+  "arity": 4,
+  "checkpoint": "results_kary4_1024_confirmation_seed314159/encoder_seed314159.pt",
+  "checkpoint_sha256": "096dbe7331d970760eb779ea0bc2d92c9eba4970080e2945ad371a0ee4b1791b",
+  "chunk_tokens": 1024,
+  "config": "experiments/kary4_1024_procrustes_multiseed_confirmation_v1/configs/train_seed314159.yaml",
+  "config_sha256": "b48c061f0fc2b6e8e95d1b80ae7650a0e1a7e2f58f39170d78cfcd3558ce0bc7",
+  "official_test_evaluated": false,
+  "seed": 314159,
+  "selected_macro_teacher_cosine": 0.9821878969669342,
+  "selected_step": 1200,
+  "selection_metric": "macro_validation_max_attack_auc",
+  "selection_raw_value": 0.5767950376652227,
+  "selection_smoothed_value": 0.5779647065325396,
+  "status": "validation_only_candidate",
+  "training_log": "results_kary4_1024_confirmation_seed314159/encoder_seed314159.jsonl",
+  "training_log_sha256": "d1bab008a0f423d6f1e99cb074a0713812f06117b5974487f0d9fe2361db6dac",
+  "training_max_geodesic_saturation_fraction": 0.0,
+  "training_run_status": "results_kary4_1024_confirmation_seed314159/encoder_seed314159_run_status.json",
+  "training_run_status_sha256": "7da119b7afe2c16fa549faa74b2158931620c9c2f542ac2e32ba2b9d65a6e2ae",
+  "validation_calibration_evaluated": false
+}

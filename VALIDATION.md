@@ -11,9 +11,17 @@
 - Downloaded every hosted checkpoint in full without authentication: **66 files, 8,110,072,711 bytes**, all matching manifest sizes/SHA-256 and actual PyTorch ZIP payloads rather than LFS/Xet pointers. Public card/manifests/checksums and neutral commit authorship checked separately.
 - Exercised the real group helper: three final checkpoints downloaded and verified at six protocol/lookup paths; a second invocation downloaded zero files and verified hard-linked aliases.
 - Fresh checks preserved all 19 scientific modules, 194 historical JSON files and 2,493,640 typed numeric/boolean values; independently replayed 120 AUCs and nine pooled bootstrap intervals. Maximum errors were `2.220446049250313e-16` and `6.938893903907228e-18` respectively.
-- No training, expensive evaluation, teacher/dataset download, cache regeneration or manuscript/result change. No Torch runtime is installed on the packaging host, so no dynamic tensor load or forward/inference comparison is claimed.
+- No training, expensive scientific evaluation, teacher/dataset download, cache regeneration or manuscript/result change. A later isolated Python 3.12.14/PyTorch 2.13.0+cpu check safely loaded all 66 files, compared all 191 tensors in each warm pair, strictly loaded 12 final/source/gradient models and exercised synthetic merge/recursive/decoder outputs. Warm pairs produced bitwise-identical outputs; this is not metric replication.
 
-CHECKPOINT_ACCESS.md describes exact commands, groups and original-byte guard limitations. Nine older scaling/matched-pooling payloads remain unavailable outside the 66-file release; caches, original source-training lineage and inherited source-fingerprint discrepancies remain separate limitations.
+CHECKPOINT_ACCESS.md describes exact commands, groups and original-byte guard limitations. Nine older scaling/matched-pooling payloads remain unavailable outside the 66-file release.
+
+## Recovered caches and partial lineage
+
+Six externally hosted bundles at separate immutable revision `9e4c8e02375f66b3cf9918a20eb81446f996620e` contain 8,075 files, including 8,032 unchanged PT payloads. Original file hashes and 12,049 manifest references matched. Static inspection covered 8,032 complete pickle streams, 645,996 string opcodes, 285,485 ZIP members and 237,293 CRC-checked tensor-storage entries, with no opaque metadata or inspection errors. One identifying official-manifest Git label was neutralized in an explicit derivative, with a matching derivative COMPLETE; all tensors/indexes/sidecars are unchanged. No recognized raw-text/token fields were found, but source identifiers/hashes and embeddings remain linkable.
+
+All recovered tensor files loaded safely on CPU with finite floating tensors. One real row per directory passed the published final model's recursive reducer and strict decoder, with finite outputs and unit-norm parents. Fifteen exact historical source-lineage records passed scoped identity checks; six config hashes match recorded pins. Earlier source weights, trainer/execution bindings and some other study caches remain missing.
+
+`reproducibility/HOSTED_CACHES.json` and `RECOVERED_SOURCE_LINEAGE.json` record these checks and limits. Original official guards reject the metadata derivative and retain additional normalized-layout differences; no guard/result/hash was rebound. Underlying dataset/teacher attribution and terms remain applicable. No historical model-backed metric, training, corpus regeneration or full official audit was rerun.
 
 ## Earlier pre-hosting packaging audit
 

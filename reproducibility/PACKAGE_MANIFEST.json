@@ -6,7 +6,7 @@
     "reproducibility/PACKAGE_MANIFEST.json",
     "SHA256SUMS"
   ],
-  "file_count": 413,
+  "file_count": 431,
   "files": [
     {
       "path": ".gitignore",
@@ -15,8 +15,8 @@
     },
     {
       "path": "ANONYMIZATION.md",
-      "bytes": 8162,
-      "sha256": "9a4e5d72af3d6c3cb3d6896f619d39eb84bdfecdf2b4cb53d2709e5c9283d3d8"
+      "bytes": 8964,
+      "sha256": "d07656ac32a720c69c96ecf6ebbcc9b7ca38fcc6d409b90d7bed4e8f289c4012"
     },
     {
       "path": "AUDIT_CHECKLIST.md",
@@ -25,8 +25,8 @@
     },
     {
       "path": "CHECKPOINT_ACCESS.md",
-      "bytes": 8370,
-      "sha256": "a13d0e473539cf1ab4756d48f24913c31f0f2b27b1b19120ba2957d923d91bcb"
+      "bytes": 14701,
+      "sha256": "bd3dfbedcec08cdec2578498db22c2b344b940308f5536e6b26fcfa947bb4917"
     },
     {
       "path": "CHECKPOINT_HOSTING_PLAN.md",
@@ -55,18 +55,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 9701,
-      "sha256": "3ea9df5970e83268379c85cf14f66945f072bb6747acb88627e60f4d9fc3c34e"
+      "bytes": 10489,
+      "sha256": "7deae3c59d27d5fa03ec96efc431d40222694cb0d85e0b04cef89bf51b655995"
     },
     {
       "path": "REPRODUCING.md",
-      "bytes": 27106,
-      "sha256": "3739ecd0e8013003490df498ad8228a7d2518940a159112ebb3016a71924d10c"
+      "bytes": 27788,
+      "sha256": "e55338b0309ef1f15e779b91e57b9f0415b69f83521066332384a733bb1e5354"
     },
     {
       "path": "VALIDATION.md",
-      "bytes": 11925,
-      "sha256": "caffdd34e28bdc37f2a938f1c5a928eb9b6c523469661c68a1f59723881ecfc8"
+      "bytes": 13600,
+      "sha256": "58f35f1c74b78b9fe4247561bc07d45f11f6b58756b1e6cef977ac4ecc75f720"
     },
     {
       "path": "configs/continuation_comparison_v1.yaml",
@@ -224,6 +224,11 @@
       "sha256": "2491a2d344c2da32837bd38cc307d315b33dcbf6c07d343ff26645957c840351"
     },
     {
+      "path": "reproducibility/HOSTED_CACHES.json",
+      "bytes": 1967930,
+      "sha256": "4b9ab6398cc3dcc1d8ae735ee01b7bcc3f33586a5cf928f37dc5306dd585a435"
+    },
+    {
       "path": "reproducibility/HOSTED_CHECKPOINTS.json",
       "bytes": 92427,
       "sha256": "3b1d452c6e3f577983ec9d661ed3480cd13277438c851f142bacbdcb433e760e"
@@ -262,6 +267,16 @@
       "path": "reproducibility/MANUSCRIPT_TABLE_CAPTIONS.json",
       "bytes": 1976,
       "sha256": "fd3a8b48c5a9a5d9e767553ff7f720f46d4342acdd5c1787a5fdb73b50dbf6af"
+    },
+    {
+      "path": "reproducibility/RECOVERED_CACHE_VALIDATION.json",
+      "bytes": 7928,
+      "sha256": "858c8df6062763bcb81c4200d602cbca6517eae607348c5131d6532ba5a863fc"
+    },
+    {
+      "path": "reproducibility/RECOVERED_SOURCE_LINEAGE.json",
+      "bytes": 11399,
+      "sha256": "467cfe344230edd395e9b44b69ad8a60ae102603c05578b9d34853e20aebcab6"
     },
     {
       "path": "reproducibility/REVIEW_RELEASE_ASSETS.sha256",
@@ -497,6 +512,81 @@
       "path": "reproducibility/provenance.md",
       "bytes": 7337,
       "sha256": "30b1ef0ea2151857b1b7afc9f5c2987afa872b523398dc5e6e8171e3938bf665"
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/experiments/kary4_1024_encoder_continuation_multiseed_confirmation_v1/configs/seed271828.yaml",
+      "bytes": 4170,
+      "sha256": "cf01c8fea0fe5574f2f150930f422583b5c33c74ffa2041cc79c2086defc8832"
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/experiments/kary4_1024_encoder_continuation_multiseed_confirmation_v1/configs/seed314159.yaml",
+      "bytes": 4170,
+      "sha256": "f961bbac2fbbfafd560e51d962ac675c2063ca70ddfd1af869da2a4a7f3a2d71"
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/experiments/kary4_1024_encoder_continuation_v1/config.yaml",
+      "bytes": 4216,
+      "sha256": "28a4e6277732273fe5d29744b1d95562cf0ba1ffdcf451052ee8601079f6b1b8"
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/experiments/kary4_strict_autoencoder_multiseed_confirmation_v1/configs/seed271828.yaml",
+      "bytes": 5482,
+      "sha256": "8c8c81bcf1e55becabe2b622dc025918e39f81cd7098fa7233814dad82448039"
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/experiments/kary4_strict_autoencoder_multiseed_confirmation_v1/configs/seed314159.yaml",
+      "bytes": 5482,
+      "sha256": "5594bd91b54f1620fa4d8a11478b671c84d9e89bee2c1688a124b6ca08c21a96"
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/experiments/kary4_strict_autoencoder_seed424_dev_v2/config.yaml",
+      "bytes": 5374,
+      "sha256": "ed23889623cd49cba9d7f27938bab80de3521399dcb40f20e8395b9e4d5e2ac4"
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_1024_confirmation_seed271828/CANDIDATE_VALIDATION_ONLY.json",
+      "bytes": 1220,
+      "sha256": "94968602332652cebba90099dc0e9e8096af4ab63268c2c8c52e10012c892909"
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_1024_confirmation_seed314159/CANDIDATE_VALIDATION_ONLY.json",
+      "bytes": 1220,
+      "sha256": "37794479b1aa30cb2be03998670c4f8bdcfcad77814dcf53dbb95bbcc8fd69da"
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_leaf510_vs1024_v1_leaf1024/CANDIDATE_VALIDATION_ONLY.json",
+      "bytes": 1030,
+      "sha256": "a1da33b67d7adcb46defe052efb62238dd3de85dae4d9190e7708334b33d0395"
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed271828/FINAL_STEP_FROZEN.json",
+      "bytes": 26058,
+      "sha256": "66d6bfd1e4e9e1345d62a994eefd6d8d424eba3002fdf2a170ec65589531d4ea"
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed271828/autoencoder_seed271828_run_status.json",
+      "bytes": 890,
+      "sha256": "44de288376ec8f6122eadb4698ad10783bd5ad0a10b648c1a11d5815c4bb9e47"
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed314159/FINAL_STEP_FROZEN.json",
+      "bytes": 26051,
+      "sha256": "9e0fa5f678cc838394c26c1c1c412a63ee98a45218cac93f6d32836ad913c747"
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_strict_autoencoder_multiseed_confirmation_v1_seed314159/autoencoder_seed314159_run_status.json",
+      "bytes": 890,
+      "sha256": "0a5209c6a29dc1b13d594f0cbf0e89a71f218a77d390259f7104f9663408b36a"
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_strict_autoencoder_seed424_dev_v2/FINAL_STEP_FROZEN.json",
+      "bytes": 25951,
+      "sha256": "2c54c022fd31aadd53c5a78b4706ff8b9759cb623d296e23f325450ebe468121"
+    },
+    {
+      "path": "reproducibility/recovered_source_lineage/results_kary4_strict_autoencoder_seed424_dev_v2/autoencoder_seed424242_run_status.json",
+      "bytes": 869,
+      "sha256": "8b8e32019d48ae2ced3b348c2e3b3644557f680f83fc133c9f8b0a6e9ef203a4"
     },
     {
       "path": "reproducibility/source_mapping.md",

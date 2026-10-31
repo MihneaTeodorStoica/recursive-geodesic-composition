@@ -44,7 +44,7 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-The full project requires Python `>=3.12,<3.13`; the standalone quick-start helper works independently of that installation. A compatible CUDA driver/runtime and substantial GPU resources are required for teacher encoding, model inference and training. Packaging/statistical checks use a separate host environment; the historical Torch environment was not recreated in this rebuild.
+The full project requires Python `>=3.12,<3.13`; the standalone quick-start helper works independently of that installation. Teacher encoding and training require compatible runtime/GPU resources. Later CPU verification safely loaded all 66 published checkpoints and exercised their model paths; the historical CUDA environment was not reproduced.
 
 ## Frozen teacher and datasets
 
@@ -64,8 +64,8 @@ Use the configuration-specific commands in REPRODUCING.md, not unpinned download
 ## Reproduction levels and public checkpoints
 
 1. **Saved evidence.** Inspect retained JSON/TeX/plots and run the offline quick-start commands. These replay scalar means and 120 classifier AUCs, not fresh neural inference or original official bootstrap predictions.
-2. **Model-backed work.** Download the required checkpoint groups below, regenerate pinned caches and follow REPRODUCING.md. Frozen downstream provenance guards and create-only namespaces remain; this is not a turnkey from-scratch chain.
-3. **Training.** Clean-v6 is a **300 decoder-only + 100 joint-update continuation from exact source checkpoints**, not random initialization. Complete historical source-checkpoint training lineage is not established.
+2. **Model-backed work.** Download the required checkpoint groups and the separately pinned six recovered numeric caches described in CHECKPOINT_ACCESS.md, then follow REPRODUCING.md. Some study-specific inputs remain absent. Frozen downstream provenance guards and create-only namespaces remain; the official cache's anonymous metadata derivative does not satisfy original-byte guards.
+3. **Training.** Clean-v6 is a **300 decoder-only + 100 joint-update continuation from exact source checkpoints**, not random initialization. Fifteen recovered primary records now trace the earlier sources through two encoder stages; earlier tensors and complete historical trainer/execution bindings remain missing. See `reproducibility/RECOVERED_SOURCE_LINEAGE.json`.
 
 **Public weights:** [Hugging Face checkpoint repository](https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints)
 
@@ -83,7 +83,9 @@ python scripts/download_checkpoints.py --group source --group historical_probes 
 
 [CHECKPOINT_ACCESS.md](CHECKPOINT_ACCESS.md) documents all groups, manual downloads, exact installation paths and preservation evidence. `reproducibility/HOSTED_CHECKPOINTS.json` pins the repository/revision and hosted sizes/hashes; `WEIGHTS_MANIFEST.json`, original release manifests and frozen experiment records retain the original artifact identities. Final, source and intervention roles are never substituted.
 
-Nine separately documented older scaling/matched-pooling payloads remain unavailable; teacher/dataset/task/vector caches remain external. A sanitized warm derivative has a different hash and cannot satisfy an original-byte provenance guard. Never rewrite an old experiment hash or bypass a guard to make a restored-weight run appear to pass.
+**Recovered caches:** six separately pinned bundles contain 8,032 unchanged tensor files, totaling 911,050,856 compressed bytes. `reproducibility/HOSTED_CACHES.json` pins revision `9e4c8e02375f66b3cf9918a20eb81446f996620e`, every extracted-file hash and two explicit official-cache metadata derivatives. No multi-gigabyte weights or caches are added to the supplementary ZIP. CHECKPOINT_ACCESS.md gives download/extraction commands, source attribution and guard limitations.
+
+Nine separately documented older scaling/matched-pooling payloads remain unavailable. Raw corpus/task inputs and some other study-specific token/vector caches remain external. Sanitized warm or official-cache metadata derivatives cannot satisfy their original-byte provenance guards. Never rewrite an old experiment hash or bypass a guard to make a restored-artifact run appear to pass.
 
 ## Limitations and anonymity
 

@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "revision": "9e4c8e02375f66b3cf9918a20eb81446f996620e",
+  "anonymous_full_downloads": [
+    {
+      "path": "caches/cache_kary4_1024_expanded_source_seed424_v1.tar.gz",
+      "status": 200,
+      "bytes": 118248753,
+      "sha256": "18c52af51d37ee47119651667330129b0b613cbd0b4d0d1c2c132670b8583d66",
+      "authenticated": false,
+      "gzip_payload": true
+    },
+    {
+      "path": "caches/cache_kary4_1024_validation3_strict_autoencoder_seed424_v2.tar.gz",
+      "status": 200,
+      "bytes": 30035926,
+      "sha256": "837ef167422060465695f24153b0dabbbb2da480027e41c9a63d407a39fd8b95",
+      "authenticated": false,
+      "gzip_payload": true
+    },
+    {
+      "path": "caches/cache_kary4_leaf510_vs1024_v1_leaf1024.tar.gz",
+      "status": 200,
+      "bytes": 337256271,
+      "sha256": "d1ee19b9eeb5651eba928e5e154298059b50b6164f3f39fee7ac7067296db0b1",
+      "authenticated": false,
+      "gzip_payload": true
+    },
+    {
+      "path": "caches/cache_kary4_strict_autoencoder_official_test_v6.tar.gz",
+      "status": 200,
+      "bytes": 57278505,
+      "sha256": "b615e66e3f9595d01e4fae0af0dfcb17dfe6a78490c8756982e6886ba7d3dc30",
+      "authenticated": false,
+      "gzip_payload": true
+    },
+    {
+      "path": "caches/cache_kary4_strict_autoencoder_v6_clean_development.tar.gz",
+      "status": 200,
+      "bytes": 57965594,
+      "sha256": "74d312bcb207a69f150dee4aa59c6620383cc9e974a3ae0fc4a6c348065f7ebe",
+      "authenticated": false,
+      "gzip_payload": true
+    },
+    {
+      "path": "caches/cache_kary4_strict_autoencoder_v6_clean_train.tar.gz",
+      "status": 200,
+      "bytes": 310265807,
+      "sha256": "726a62cce44022b3625402eae8c2e9a0efbb40d8e38fb0d0855f0ef9ee4a560a",
+      "authenticated": false,
+      "gzip_payload": true
+    }
+  ],
+  "metadata": {
+    "CACHES_MANIFEST.json": {
+      "bytes": 1886281,
+      "sha256": "1abaef15d7adb7e1b9f60ec7b0b4ffb9a727f85c42a63eb4ad89c8af3aebbb1f",
+      "anonymous_full_download": true
+    },
+    "CACHE_SHA256SUMS": {
+      "bytes": 855,
+      "sha256": "69a38b59ec87c1ec6947c3838f1c496bb643f64c712e0c73ef67f16d92ad07c2",
+      "anonymous_full_download": true
+    },
+    "README.md": {
+      "bytes": 10079,
+      "sha256": "2f9c0385a6d07bba0f3242a65d7e665c13b6547aeac3865af81dbec36acc00b5",
+      "anonymous_full_download": true
+    }
+  },
+  "bundle_members": [
+    {
+      "path": "caches/cache_kary4_1024_expanded_source_seed424_v1.tar.gz",
+      "members": 18,
+      "all_file_hashes_match": true,
+      "safe_normalized_metadata": true
+    },
+    {
+      "path": "caches/cache_kary4_1024_validation3_strict_autoencoder_seed424_v2.tar.gz",
+      "members": 11,
+      "all_file_hashes_match": true,
+      "safe_normalized_metadata": true
+    },
+    {
+      "path": "caches/cache_kary4_leaf510_vs1024_v1_leaf1024.tar.gz",
+      "members": 16,
+      "all_file_hashes_match": true,
+      "safe_normalized_metadata": true
+    },
+    {
+      "path": "caches/cache_kary4_strict_autoencoder_official_test_v6.tar.gz",
+      "members": 4010,
+      "all_file_hashes_match": true,
+      "safe_normalized_metadata": true
+    },
+    {
+      "path": "caches/cache_kary4_strict_autoencoder_v6_clean_development.tar.gz",
+      "members": 4010,
+      "all_file_hashes_match": true,
+      "safe_normalized_metadata": true
+    },
+    {
+      "path": "caches/cache_kary4_strict_autoencoder_v6_clean_train.tar.gz",
+      "members": 10,
+      "all_file_hashes_match": true,
+      "safe_normalized_metadata": true
+    }
+  ],
+  "verified_archive_bytes": 911050856,
+  "weights_release_unchanged": "9187157fa4fc6f790be1775475952f14ae33d02e",
+  "static_inspection": {
+    "original_file_hashes": 8075,
+    "original_manifest_references_checked": 12049,
+    "original_pin_failures": 0,
+    "static_pickle_streams": 8032,
+    "static_string_opcodes": 645996,
+    "static_zip_members": 285485,
+    "static_opaque_or_error_count": 0,
+    "raw_text_or_token_fields_found": 0,
+    "cpu_weights_only_loads": 8032,
+    "all_floating_tensors_finite": true,
+    "real_cache_forward_samples": 6,
+    "inference_scope": "One real row per directory through final seed424242 recursive reducer and parent-only decoder; compatibility only, not reported metric replication"
+  },
+  "runtime": {
+    "device": "cpu",
+    "torch": "2.13.0+cpu",
+    "checkpoint": "autoencoder_seed424242.pt",
+    "strict_state_load": true,
+    "samples": [
+      {
+        "cache": "cache_kary4_1024_expanded_source_seed424_v1",
+        "file": "fineweb/train.pt",
+        "leaves": 3,
+        "levels": 1,
+        "parent_shape": [
+          1,
+          768
+        ],
+        "decoded_shape": [
+          1,
+          4,
+          768
+        ],
+        "finite": true,
+        "unit_norm": true,
+        "parent_sha256": "a0cb7d31d6a4202fedfca81d0777a6d2b71e4fcf42036d5a879bc5de64ac8330"
+      },
+      {
+        "cache": "cache_kary4_1024_validation3_strict_autoencoder_seed424_v2",
+        "file": "fineweb/validation3.pt",
+        "leaves": 4,
+        "levels": 1,
+        "parent_shape": [
+          1,
+          768
+        ],
+        "decoded_shape": [
+          1,
+          4,
+          768
+        ],
+        "finite": true,
+        "unit_norm": true,
+        "parent_sha256": "38638562f62747522aa1cf0a00395052c7f34ba42ca5d448d1633ce5f9b96876"
+      },
+      {
+        "cache": "cache_kary4_leaf510_vs1024_v1_leaf1024",
+        "file": "fineweb/train.pt",
+        "leaves": 2,
+        "levels": 1,
+        "parent_shape": [
+          1,
+          768
+        ],
+        "decoded_shape": [
+          1,
+          4,
+          768
+        ],
+        "finite": true,
+        "unit_norm": true,
+        "parent_sha256": "a1326e2fd62aa13e6ba7b972464d04ffe9222e8e8f2e348293217b80b0a9a469"
+      },
+      {
+        "cache": "cache_kary4_strict_autoencoder_official_test_v6",
+        "file": "fineweb/full/000000.pt",
+        "leaves": 3,
+        "levels": 1,
+        "parent_shape": [
+          1,
+          768
+        ],
+        "decoded_shape": [
+          1,
+          4,
+          768
+        ],
+        "finite": true,
+        "unit_norm": true,
+        "parent_sha256": "ebecf63ba7fc685540fe1e1908dca04b56bb0df7613ac01520a37289f560cc18"
+      },
+      {
+        "cache": "cache_kary4_strict_autoencoder_v6_clean_development",
+        "file": "fineweb/full/000000.pt",
+        "leaves": 2,
+        "levels": 1,
+        "parent_shape": [
+          1,
+          768
+        ],
+        "decoded_shape": [
+          1,
+          4,
+          768
+        ],
+        "finite": true,
+        "unit_norm": true,
+        "parent_sha256": "f7a77323be7d3518a7898e9ce93226eb96b2b8f4e2ab7d0fde975a7958d0b339"
+      },
+      {
+        "cache": "cache_kary4_strict_autoencoder_v6_clean_train",
+        "file": "fineweb/train.pt",
+        "leaves": 3,
+        "levels": 1,
+        "parent_shape": [
+          1,
+          768
+        ],
+        "decoded_shape": [
+          1,
+          4,
+          768
+        ],
+        "finite": true,
+        "unit_norm": true,
+        "parent_sha256": "cc274c87733679418942df2b96c831d8e0c8b637d351143c5206c916a98d0bac"
+      }
+    ],
+    "scope": "One real recovered leaf-cache row per directory; forward compatibility only, not a study evaluation",
+    "status": "PASS"
+  },
+  "boundaries": [
+    "The official derivative is internally complete, but does not satisfy original-byte provenance guards or the original official manifest hash.",
+    "Original official config paths/hashes and some provenance hashes differ from the package-normalized review layout. Do not rebind those guards.",
+    "The recovered original TRAIN manifest matches results/clean_v6_development/LOCAL_LARGE_ARTIFACTS.sha256. Its original preparation config precedes the documented 120/120 to 80/80 probe-availability change.",
+    "Some other study-specific token/vector/task caches remain absent. These recovered leaves are not a complete model-backed reproduction."
+  ]
+}
