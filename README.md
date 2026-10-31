@@ -67,11 +67,11 @@ Use the configuration-specific commands in REPRODUCING.md, not unpinned download
 2. **Model-backed work.** Download the required checkpoint groups below, regenerate pinned caches and follow REPRODUCING.md. Frozen downstream provenance guards and create-only namespaces remain; this is not a turnkey from-scratch chain.
 3. **Training.** Clean-v6 is a **300 decoder-only + 100 joint-update continuation from exact source checkpoints**, not random initialization. Complete historical source-checkpoint training lineage is not established.
 
-**Public weights:** https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints
+**Public weights:** [Hugging Face checkpoint repository](https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints)
 
 **Pinned Hugging Face revision:** `9187157fa4fc6f790be1775475952f14ae33d02e`
 
-**Anonymous source:** https://anonymous.4open.science/r/recursive-geodesic-composition-0F32/
+**Anonymous source:** [Anonymous review repository](https://anonymous.4open.science/r/recursive-geodesic-composition-0F32/)
 
 All **66 released artifacts** are hosted: **63 unchanged originals and three explicitly mapped metadata-only warm-state derivatives**. Their hosted sizes total **8,110,072,711 bytes**. Six original historical probes remain in this ZIP; the 60 external artifacts total **8,062,738,309 bytes** and are not added to the [under-100-MB supplement](https://jmlr.org/tmlr/author-guide.html).
 
