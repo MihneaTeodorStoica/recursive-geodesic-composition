@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "scope": "Independent rebuild validation, not a model-backed experimental rerun. Container integrity is rechecked after final assembly. The external report contains the delivery digest to avoid self-reference.",
+  "scope": "Historical pre-hosting supplementary rebuild checks. Earlier mirror FAIL and omitted-weight BLOCKED rows describe that run, not the current release. Current checkpoint publication is in CHECKPOINT_PUBLICATION_VALIDATION.json; final delivery reports record current mirror/ZIP checks without self-referential digests.",
   "checklist": [
     {
       "check": "original_scientific_source_and_prior_copy",

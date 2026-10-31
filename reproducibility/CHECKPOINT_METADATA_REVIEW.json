@@ -1,5 +1,5 @@
 {
-  "scope": "All 66 current released .pt files: complete data.pkl opcode streams inspected by HTTP byte-range reads without unpickling or loading tensors. Leading range up to 262144 bytes per asset. Full tensor checksums were not locally recomputed; release API SHA-256 and byte size independently matched existing manifests.",
+  "scope": "Historical pre-hosting review: 66 released .pt leading data.pkl opcode streams inspected by HTTP byte ranges, without unpickling or tensor loading. These findings are retained, not promoted to full-payload proof. Current complete archive/metadata audit, preserved-state derivatives and full anonymous downloads are documented in CHECKPOINT_PUBLICATION_VALIDATION.json and CHECKPOINT_ACCESS.md.",
   "files_inspected": 66,
   "files_with_identifying_serialized_metadata": [
     "review_warm_seed271828.pt",
@@ -7,5 +7,5 @@
     "review_warm_seed424242.pt"
   ],
   "included_checkpoint_payloads": 0,
-  "warning": "The three warm checkpoints contain personal paths. Their immutable identifiers are retained; anonymized substitutes were not created or misrepresented as the originals."
+  "warning": "At this historical review no anonymized substitutes had been created. The three original warm payloads remain unsafe to redistribute unchanged; the later public release explicitly maps three metadata-only derivatives to new hashes without changing original experiment identities."
 }

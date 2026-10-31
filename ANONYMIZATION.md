@@ -1,4 +1,4 @@
-> Historical supplementary-package record exported with the review source. Its earlier mirror verdict and outer-ZIP metadata rules do not describe a newly configured source mirror or the new Git branch. Current publication verification is recorded author-only outside this tree; see README.md and MIRROR_STATUS.md for the source/weight boundaries.
+> Historical supplementary-package transformation record. Earlier mirror/no-hosting verdicts describe the pre-publication packaging audit, not current access. CHECKPOINT_ACCESS.md and the pinned hosted manifest document the subsequent full checkpoint audit, original-byte preservation and three metadata-only warm derivatives; author-only identity evidence remains outside public artifacts.
 
 # Anonymous review copy: transformations and residual risk
 
@@ -35,7 +35,7 @@ Historical fields such as `original_results_sha256` or `source_sha256` may conse
 
 Every included PNG was compared to both the original repository and previous ZIP: identical dimensions and RGBA pixels, with no identifying ancillary metadata. Public mirrors that merely redact text can still serve an original PNG, PDF or checkpoint unchanged. That behavior was checked separately and is not assumed safe.
 
-The six included `.pt` files are immutable originals. No checkpoint was rewritten or relabeled. The three externally manifested warm checkpoints are specifically marked unsafe to redistribute unchanged. If an author later needs an anonymous warm-state derivative, it must preserve/compare every model tensor, optimizer state, RNG state, schedule and scientific field, carry a new size/hash and be explicitly separated from the original-hash manifest. No such derivative is part of this supplement.
+The six included `.pt` files remain immutable originals. Subsequent checkpoint publication hosts 63 exact originals plus three separately hashed warm-state derivatives, not identifying warm originals. The derivatives neutralize only a personal location prefix in initialization metadata and update required ZIP CRC fields. Static comparisons prove unchanged tensor-storage bytes, model/optimizer descriptors, numeric/opcode state and all non-identifying strings; file sizes/offsets remain unchanged. Original experiment hashes are preserved, and original-byte provenance guards still reject the derivatives. No tensor load/forward is claimed. See CHECKPOINT_ACCESS.md for the exact scope and hosted manifest mapping.
 
 No named or anonymous PDF is included in the code ZIP; the separately submitted manuscript is the authority. The named public preprint's metadata was inspected outside this package and was not treated as an anonymous review document. The submitted manuscript was not edited or rebuilt.
 
@@ -51,4 +51,4 @@ The outer ZIP uses relative safe paths, a fixed timestamp, uniform regular-file 
 
 The paper title, methodology, distinctive results, experiment names and exact artifact identities can be linked to already-public named research by deliberate comparison/search. Necessary teacher/dataset revisions, checkpoint hashes and scientific filenames are preserved rather than destroyed. Upstream dependency maintainers, third-party citations and public service operators are not treated as this work's author identity.
 
-This package minimizes direct and link-based disclosure; it does not promise perfect anonymity against public searching or knowledge held by a hosting platform. Full weight-backed reproduction is also not claimed until the required exact external files become anonymously available.
+This package minimizes direct and link-based disclosure; it does not promise perfect anonymity against public searching or knowledge held by a hosting platform. Public checkpoint availability does not establish missing historical training lineage, supply external caches or resolve inherited provenance guards. No complete from-scratch reproduction is claimed.

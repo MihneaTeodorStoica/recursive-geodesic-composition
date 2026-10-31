@@ -61,24 +61,29 @@ Preparation scripts download the exact configured teacher/tokenizer and pinned u
 
 Use the configuration-specific commands in REPRODUCING.md, not unpinned downloads or a class's legacy defaults. The main representation uses normalized masked-mean teacher embeddings; matched CLS references in the retrieval study are distinct interfaces. TRAIN/development/buffer/official source-index windows are `[140000,152000)`, `[152000,161000)`, `[161000,162000)`, and `[162000,192000)` respectively.
 
-## Reproduction levels and missing weights
+## Reproduction levels and public checkpoints
 
-1. **Saved evidence.** Inspect retained JSON/TeX/plots and run the quick-start commands. Saved scalar-score replay does not independently recover omitted embeddings. Original official result files contain aggregates, not the prediction arrays needed for complete original bootstrap replay. Independent checks of saved baseline bootstrap intervals are recorded in VALIDATION.md.
-2. **Inference and full-vector audits.** Obtain exact full models, regenerate pinned caches and run the appropriate evaluator. Frozen downstream configs can require historical upstream file identities; rerunning an upstream stage changes provenance bytes, so the supplied entrypoints are not a turnkey from-scratch chain. Work in a disposable copy and preserve the archived evidence and guards.
-3. **Training.** The documented clean-v6 stage is a **300 decoder-only + 100 joint-update continuation from exact source checkpoints**, not training from random initialization. Complete historical source-checkpoint training lineage is not established. Newly trained probe/gradient controls are separate experiments.
+1. **Saved evidence.** Inspect retained JSON/TeX/plots and run the offline quick-start commands. These replay scalar means and 120 classifier AUCs, not fresh neural inference or original official bootstrap predictions.
+2. **Model-backed work.** Download the required checkpoint groups below, regenerate pinned caches and follow REPRODUCING.md. Frozen downstream provenance guards and create-only namespaces remain; this is not a turnkey from-scratch chain.
+3. **Training.** Clean-v6 is a **300 decoder-only + 100 joint-update continuation from exact source checkpoints**, not random initialization. Complete historical source-checkpoint training lineage is not established.
 
-`reproducibility/WEIGHTS_MANIFEST.json` identifies all 66 released `.pt` files by role, filename, size, SHA-256 and expected path. Six probes are included; the other 60 total **8,062,738,309 bytes** and exceed the [100 MB supplementary limit](https://jmlr.org/tmlr/author-guide.html). Final inference, source continuation and intervention weights are never substituted. The separately recorded scaling and matched-pooling artifacts have their own availability limitations.
+**Public weights:** https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints
 
-**No verified anonymous weight endpoint is configured.** The source implementation and saved evidence are provided directly in this review snapshot; they do not depend on a weight-hosting service. An earlier full-repository mirror failed an anonymity/access audit and is not linked here; that historical failure is not a verdict on a newly verified mirror of this sanitized snapshot. For weight-dependent review, request the exact manifest-listed files through the anonymous submission discussion; [CHECKPOINT_HOSTING_PLAN.md](CHECKPOINT_HOSTING_PLAN.md) prioritizes useful collections and an author-mediated hosting plan. Full model-backed reproduction remains blocked until the required files are supplied.
+**Pinned Hugging Face revision:** `9187157fa4fc6f790be1775475952f14ae33d02e`
 
-For exact weights received in a flat local directory:
+**Anonymous source:** https://anonymous.4open.science/r/recursive-geodesic-composition-0F32/
+
+All **66 released artifacts** are hosted: **63 unchanged originals and three explicitly mapped metadata-only warm-state derivatives**. Their hosted sizes total **8,110,072,711 bytes**. Six original historical probes remain in this ZIP; the 60 external artifacts total **8,062,738,309 bytes** and are not added to the [under-100-MB supplement](https://jmlr.org/tmlr/author-guide.html).
 
 ```bash
-python supplement.py materialize /path/to/weights --role final_clean_v6_checkpoint --verify-only
-python supplement.py materialize /path/to/weights --role final_clean_v6_checkpoint --mode hardlink
+# Standard library only; no account or token; verifies hashes and evaluation paths.
+python scripts/download_checkpoints.py --group final --verify
+python scripts/download_checkpoints.py --group source --group historical_probes --verify
 ```
 
-Use repeated `--role` for other selections and `--mode copy` across filesystems. The helper verifies bytes before placement at protocol/lookup paths and refuses different existing files. The included probes can be placed using the quick-start role selectors without `--verify-only`. The existing `build_model` loading example is in REPRODUCING.md. Load only trusted, verified checkpoint files.
+[CHECKPOINT_ACCESS.md](CHECKPOINT_ACCESS.md) documents all groups, manual downloads, exact installation paths and preservation evidence. `reproducibility/HOSTED_CHECKPOINTS.json` pins the repository/revision and hosted sizes/hashes; `WEIGHTS_MANIFEST.json`, original release manifests and frozen experiment records retain the original artifact identities. Final, source and intervention roles are never substituted.
+
+Nine separately documented older scaling/matched-pooling payloads remain unavailable; teacher/dataset/task/vector caches remain external. A sanitized warm derivative has a different hash and cannot satisfy an original-byte provenance guard. Never rewrite an old experiment hash or bypass a guard to make a restored-weight run appear to pass.
 
 ## Limitations and anonymity
 
@@ -86,7 +91,7 @@ Use repeated `--role` for other selections and `--mode copy` across filesystems.
 - Bootstrap intervals condition on fixed checkpoints/classifiers/splits, not complete source-lineage retraining uncertainty. LongEmbed shows no consistent across-task advantage over pooling.
 - FP16 teacher execution, FP32 accumulation, batching, software/GPU differences and dataset streaming can change regenerated vectors. Seed 271828's AUC `0.5821244999999999` is displayed as `0.582125` in the manuscript.
 - Historical source-hash discrepancies are investigated individually in [HASH_DISCREPANCY_AUDIT.md](HASH_DISCREPANCY_AUDIT.md). Preserving or recovering old source does not make omitted tensors available, and historical audit verdicts are not newly executed audits.
-- Three omitted warm checkpoints contain personal paths in serialized metadata. Their exact original identities are retained with warnings; no sanitized replacement is represented as the original.
+- The three original warm checkpoints contain personal location metadata and are not publicly redistributed unchanged. Separately hashed, length-preserving metadata-only derivatives retain all tensor/optimizer state; original-byte provenance guards still reject those derivatives. See CHECKPOINT_ACCESS.md.
 - Git history/remotes from the original source, identifying citation metadata, named PDFs/manuscript sources, personal paths and identifying figure metadata are excluded or sanitized in this review copy. Raw identity-bearing audit evidence and publication reports remain outside the branch. Public titles, scientific identifiers and exact artifact hashes remain searchable; no claim of perfect anonymity is made.
 
 The main branch, existing release tags, submitted manuscript, experimental settings, reported results and original weights are unchanged. This review source is an independently rooted snapshot. The original all-rights-reserved software terms are retained with the copyright holder anonymized; publication or hosting does not change those terms.

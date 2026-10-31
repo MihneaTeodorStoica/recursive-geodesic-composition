@@ -69,7 +69,7 @@ No additional existing-file mismatch was found in the safety-critical active con
 - `configs/continuation_comparison_v1.yaml`: calibration config and all four immutable input files.
 - `scripts/review_common.py::PREVIOUS`: all five immutable result JSON pins.
 
-The package's anonymized official/result copies have different digests from the source clone, but their local config pins match their own files; this is not treated as byte identity across trees. These checks do not turn missing external weights into available artifacts: the configured checkpoint files are absent, and the prior package's `weights/` directory contains the six probe weights but not the final/source model checkpoints. The safe-baseline and review-training caches are also absent.
+The package's anonymized official/result copies have different digests from the source clone, but their local config pins match their own files; this is not byte identity across trees. During the historical comparison only six probes were included and the configured full checkpoint paths were absent. The released checkpoint collection is now publicly downloadable through CHECKPOINT_ACCESS.md, without rewriting any source/experiment hash in this audit. Restoring those files does not supply absent safe-baseline/review-training caches or resolve the inherited source-fingerprint guards.
 
 ## Are fresh chained reruns usable as shipped?
 

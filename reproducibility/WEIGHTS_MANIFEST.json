@@ -2,7 +2,7 @@
   "schema_version": 1,
   "included_weight_files": 6,
   "total_external_bytes": 8062738309,
-  "obtaining_weights": "Use the anonymous submission discussion to request the exact filenames and hashes listed here. No identifying release URL or unverified anonymous mirror is provided. Evaluation with weights is unavailable until supplied externally.",
+  "obtaining_weights": "Public pinned Hugging Face access and group downloads: see CHECKPOINT_ACCESS.md and reproducibility/HOSTED_CHECKPOINTS.json. All 66 released roles are represented: 63 original bytes plus three separately hashed metadata-only warm derivatives. Original identity fields below are not rewritten.",
   "artifacts": [
     {
       "asset_filename": "autoencoder_seed424242.pt",
@@ -13,7 +13,7 @@
       "lineage": "historical-clean-v6",
       "seed": 424242,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -25,7 +25,7 @@
       "lineage": "historical-clean-v6",
       "seed": 424242,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -37,7 +37,7 @@
       "lineage": "historical-clean-v6",
       "seed": 271828,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -49,7 +49,7 @@
       "lineage": "historical-clean-v6",
       "seed": 271828,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -61,7 +61,7 @@
       "lineage": "historical-clean-v6",
       "seed": 314159,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -73,7 +73,7 @@
       "lineage": "historical-clean-v6",
       "seed": 314159,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -85,7 +85,7 @@
       "lineage": "historical-clean-v6",
       "seed": 424242,
       "included": true,
-      "availability": "Included exact historical fitted probe; use supplement.py materialize weights with the appropriate probe role.",
+      "availability": "Included unchanged in weights/ and additionally hosted unchanged at the pinned Hugging Face revision; see HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging.",
       "included_path": "weights/candidate_parent_only_probe_seed424242.pt"
     },
@@ -98,7 +98,7 @@
       "lineage": "historical-clean-v6",
       "seed": 424242,
       "included": true,
-      "availability": "Included exact historical fitted probe; use supplement.py materialize weights with the appropriate probe role.",
+      "availability": "Included unchanged in weights/ and additionally hosted unchanged at the pinned Hugging Face revision; see HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging.",
       "included_path": "weights/source_parent_only_probe_seed424242.pt"
     },
@@ -111,7 +111,7 @@
       "lineage": "historical-clean-v6",
       "seed": 271828,
       "included": true,
-      "availability": "Included exact historical fitted probe; use supplement.py materialize weights with the appropriate probe role.",
+      "availability": "Included unchanged in weights/ and additionally hosted unchanged at the pinned Hugging Face revision; see HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging.",
       "included_path": "weights/candidate_parent_only_probe_seed271828.pt"
     },
@@ -124,7 +124,7 @@
       "lineage": "historical-clean-v6",
       "seed": 271828,
       "included": true,
-      "availability": "Included exact historical fitted probe; use supplement.py materialize weights with the appropriate probe role.",
+      "availability": "Included unchanged in weights/ and additionally hosted unchanged at the pinned Hugging Face revision; see HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging.",
       "included_path": "weights/source_parent_only_probe_seed271828.pt"
     },
@@ -137,7 +137,7 @@
       "lineage": "historical-clean-v6",
       "seed": 314159,
       "included": true,
-      "availability": "Included exact historical fitted probe; use supplement.py materialize weights with the appropriate probe role.",
+      "availability": "Included unchanged in weights/ and additionally hosted unchanged at the pinned Hugging Face revision; see HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging.",
       "included_path": "weights/candidate_parent_only_probe_seed314159.pt"
     },
@@ -150,7 +150,7 @@
       "lineage": "historical-clean-v6",
       "seed": 314159,
       "included": true,
-      "availability": "Included exact historical fitted probe; use supplement.py materialize weights with the appropriate probe role.",
+      "availability": "Included unchanged in weights/ and additionally hosted unchanged at the pinned Hugging Face revision; see HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging.",
       "included_path": "weights/source_parent_only_probe_seed314159.pt"
     },
@@ -163,7 +163,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -175,7 +175,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -187,7 +187,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -199,7 +199,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -211,7 +211,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -223,7 +223,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -235,7 +235,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -247,7 +247,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -259,7 +259,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -271,7 +271,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -283,7 +283,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -295,7 +295,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -307,7 +307,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -319,7 +319,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -331,7 +331,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -343,7 +343,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -355,7 +355,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -367,7 +367,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -379,7 +379,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -391,7 +391,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -403,7 +403,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -415,7 +415,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -427,7 +427,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -439,7 +439,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -451,7 +451,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -463,7 +463,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -475,7 +475,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -487,7 +487,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -499,7 +499,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -511,7 +511,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -523,7 +523,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -535,7 +535,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -547,7 +547,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -559,7 +559,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -571,7 +571,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -583,7 +583,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -595,7 +595,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -607,7 +607,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -619,7 +619,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -631,7 +631,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -643,7 +643,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -655,7 +655,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -667,7 +667,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -679,7 +679,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -691,7 +691,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -703,7 +703,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -715,7 +715,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -727,7 +727,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -739,7 +739,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -751,7 +751,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -763,7 +763,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Hosted unchanged at the pinned public Hugging Face revision; use scripts/download_checkpoints.py and HOSTED_CHECKPOINTS.json.",
       "metadata_privacy": "Known-identity scan of complete leading data.pkl metadata found no match; tensor payloads were not downloaded or loaded during packaging."
     },
     {
@@ -775,7 +775,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Original identifying bytes are not anonymously redistributed. A separately hashed metadata-only derivative is hosted at the pinned revision; see HOSTED_CHECKPOINTS.json for exact mapping. Original-byte provenance guards reject the derivative.",
       "metadata_privacy": "Contains a personal source path in serialized metadata; must not be anonymously redistributed unchanged. Exact hash identifies the original, not a sanitized replacement."
     },
     {
@@ -787,7 +787,7 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Original identifying bytes are not anonymously redistributed. A separately hashed metadata-only derivative is hosted at the pinned revision; see HOSTED_CHECKPOINTS.json for exact mapping. Original-byte provenance guards reject the derivative.",
       "metadata_privacy": "Contains a personal source path in serialized metadata; must not be anonymously redistributed unchanged. Exact hash identifies the original, not a sanitized replacement."
     },
     {
@@ -799,10 +799,12 @@
       "lineage": "additive-review-controls",
       "seed": null,
       "included": false,
-      "availability": "External artifact; request exact bytes through anonymous submission discussion. No anonymous public mirror established by this package.",
+      "availability": "Original identifying bytes are not anonymously redistributed. A separately hashed metadata-only derivative is hosted at the pinned revision; see HOSTED_CHECKPOINTS.json for exact mapping. Original-byte provenance guards reject the derivative.",
       "metadata_privacy": "Contains a personal source path in serialized metadata; must not be anonymously redistributed unchanged. Exact hash identifies the original, not a sanitized replacement."
     }
   ],
   "included_weight_bytes": 47334402,
-  "total_manifest_bytes": 8110072711
+  "total_manifest_bytes": 8110072711,
+  "hosted_checkpoint_manifest": "reproducibility/HOSTED_CHECKPOINTS.json",
+  "metadata_privacy_scope": "Per-artifact metadata_privacy strings retain the historical leading-pickle review. Current publication independently inspected complete serialized metadata/archives and preserved all tensor/optimizer bytes; see CHECKPOINT_ACCESS.md."
 }

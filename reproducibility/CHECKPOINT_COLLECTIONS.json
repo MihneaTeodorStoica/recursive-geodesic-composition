@@ -1,6 +1,6 @@
 {
-  "scope": "Collections identify weights only, not caches/data/GPU or a working anonymous endpoint. Immutable sizes/digests of omitted files match release inventories; full local byte verification applies only to six included probes.",
-  "anonymous_host_status": "not_configured_or_verified",
+  "scope": "Original-byte collections retained unchanged for historical artifact accounting. Current pinned public access is in HOSTED_CHECKPOINTS.json; three warm originals have distinct metadata-only hosted derivatives and must not be assigned these original hashes.",
+  "anonymous_host_status": "public_huggingface_repository_created_uploaded_and_revision_pinned",
   "collections": {
     "single_seed_inference": {
       "count": 1,
@@ -806,5 +806,6 @@
         }
       ]
     }
-  }
+  },
+  "hosted_checkpoint_manifest": "reproducibility/HOSTED_CHECKPOINTS.json"
 }

@@ -1,10 +1,10 @@
-# Checkpoint hosting plan
+# Checkpoint hosting inventory and reproduction boundaries
 
 ## Scope and status
 
-This is a conditional, reviewer-safe hosting plan, not evidence that a mirror has been created, that a host has accepted the files, or that a reviewer has accessed them. No account was created, no file was uploaded, and no external service was modified for this audit. There is no working host URL or retrieval command to give. Do not add a guessed URL or point a download command at an uncreated record.
+The released 66-artifact collection is now hosted in the public, ungated model repository https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints at immutable revision `9187157fa4fc6f790be1775475952f14ae33d02e`. [CHECKPOINT_ACCESS.md](CHECKPOINT_ACCESS.md) is the current download/verification guide. The original-byte inventory below is retained, with the three warm-state derivatives explicitly distinguished.
 
-The inventory was cross-read from `reproducibility/ARTIFACT_MANIFEST.json` (12 historical weights), `reproducibility/REVIEW_RELEASE_MANIFEST.json` (54 new control weights), and `reproducibility/WEIGHTS_MANIFEST.json` (all 66 weights). Names, protocol destinations, roles, sizes and SHA-256 identities are retained exactly. Counts and byte sums are computed from those fields. This rebuild independently fully rehashed the six included probes and matched all 66 release-asset sizes/digests; it did not fully download or locally rehash the other 60 payloads. See VALIDATION.md. Do not describe omitted-file manifest identities as fresh full-payload verification.
+The inventory was cross-read from `reproducibility/ARTIFACT_MANIFEST.json` (12 historical weights), `reproducibility/REVIEW_RELEASE_MANIFEST.json` (54 control weights), and `reproducibility/WEIGHTS_MANIFEST.json` (all 66 original identities). All originals were fully acquired and size/SHA-256 verified; complete serialized metadata and archive structures were inspected without executing pickle. Sixty-three are hosted unchanged. Three warm copies preserve all tensor/optimizer state while neutralizing one location-metadata prefix; each has its own hosted hash in `HOSTED_CHECKPOINTS.json`. Original experiment hashes and provenance records are not rewritten.
 
 ## Weight inventory: all 66 `.pt` assets
 
@@ -17,7 +17,7 @@ The six historical matched parent-only probes are already packaged in `weights/`
 | Historical candidate parent-only probes | `candidate_parent_only_probe_seed{424242,271828,314159}.pt` | 3 | 7,889,085 | 23,667,255 | Included in the supplement. Needed for the corresponding fixed-probe candidate analyses; not model checkpoints. |
 | Historical source parent-only probes | `source_parent_only_probe_seed{424242,271828,314159}.pt` | 3 | 7,889,049 | 23,667,147 | Included in the supplement. Needed for source-side fixed-probe comparisons; not model checkpoints. |
 | Attached/detached intervention models | `review_attached_seed{271828,314159,424242}.pt` and `review_detached_seed{271828,314159,424242}.pt` | 6 | 494,521,397 | 2,967,128,382 | External. New, additive intervention model outputs; not substitutes for the original final clean-v6 models. Needed to replay the model-backed results of this particular intervention without retraining. |
-| Shared intervention warm checkpoints | `review_warm_seed{271828,314159,424242}.pt` | 3 | 591,173,580 | 1,773,520,740 | External in the original inventory, but **unsafe to redistribute unchanged**: the serialized metadata contains a personal filesystem path. These are intermediate 300-update warm states, not final inference models. The existing `scripts/evaluate_decoder_gradient.py` creates each warm state from its source checkpoint, then forks attached/detached arms; the warm files are therefore not required for the existing full rerun path. |
+| Shared intervention warm checkpoints | `review_warm_seed{271828,314159,424242}.pt` | 3 | 591,173,580 | 1,773,520,740 | Hosted as explicitly mapped metadata-only derivatives, not original bytes. These intermediate 300-update states retain model/optimizer tensors and scientific state; source-location prefixes and CRC fields change. The existing gradient-control script regenerates warm states from source checkpoints; loading the six final intervention models does not require them. |
 | New probe-family weights | For each `family ∈ {direct,bounded,unbounded}`, `pseed ∈ {731241,731242,731243}`, and `variant ∈ {learned_271828,learned_314159,learned_424242,unweighted,weighted}`, the exact filename is `review_{family}_{pseed}_{variant}.pt` | 45 | See next table | 354,978,585 | External. New TRAIN-only fits for the additive probe-family comparison; optional to the main results, required to replay this specific fitted-probe control from its frozen weights. |
 
 The 45 new probe files have this exact per-family breakdown for **each** of the three `pseed` values:
@@ -36,7 +36,7 @@ For example, the expansion for `direct` includes `review_direct_731241_learned_2
 - Sixty external files as originally manifested: **8,062,738,309 bytes** (six model checkpoints + 54 new review-control weights).
 - All 66 `.pt` files: **8,110,072,711 bytes**.
 - The 54 weights listed in `REVIEW_RELEASE_MANIFEST.json` total **5,095,627,707 bytes**: six attached/detached models, three warm checkpoints, and 45 new probes.
-- Warm files alone total **1,773,520,740 bytes**; a sanitized reserialization will have a new size and hash, which have not been measured.
+- Warm originals and hosted metadata-only derivatives each total **1,773,520,740 bytes**. Length-preserving metadata/CRC changes keep sizes and offsets unchanged, but all three hosted hashes differ from their original hashes.
 
 ## Minimum weight tiers by goal
 
@@ -65,31 +65,20 @@ The 66-file inventory is not a complete inventory of every older experiment's bi
 
 These absences affect numerical reruns, not offline inspection of the already tracked report/table values. Do not fabricate byte counts, claim these old assets are hosted, or describe regenerated models as the historical checkpoint bytes.
 
-## Recommended anonymous host, conditional on author-side verification
+## Current publication and retrieval
 
-### Primary candidate: one restricted Zenodo record/link
+The Hugging Face model card, payload `MANIFEST.json` and `SHA256SUMS` describe only verified publishable weights. The review source's `reproducibility/HOSTED_CHECKPOINTS.json` adds the immutable revision, hosted/original hash mapping, exact protocol installation paths and group selectors. Public scientific hashes remain linkable; the account/card/commit/file boundary was inspected rather than assumed anonymous because its name is neutral.
 
-Zenodo's current docs specify up to **50 GB and 100 files per record**; even all 66 original `.pt` payloads total 8,110,072,711 bytes and fit the byte/file ceilings, and the 60 external files plus a manifest/checksum/readme would be fewer than 100 files. Each model checkpoint is under 600 MB. The matching author-neutral staging layout should be a flat `weights/` directory using the exact `asset_filename` values from `reproducibility/WEIGHTS_MANIFEST.json`; keeping filenames flat matches the existing local materializer. Upload only the 57 non-warm external files at original bytes by default; the six historical probes remain in the supplement. Do not upload the three warm files unchanged.
+```bash
+python scripts/download_checkpoints.py --group final --verify
+python scripts/download_checkpoints.py --group source --group historical_probes --verify
+```
 
-For the warm role, prefer leaving the binary out: the current intervention script regenerates it from source checkpoints. If a branch-resume copy is essential, work only in a clean, controlled copy: first verify the original hash; load with a restricted/weights-only loader if supported; replace only identity-bearing metadata strings/path fields; preserve and compare every model tensor, optimizer state, CPU/CUDA RNG state, schedule, and training configuration value; save a new binary; then compute a new file SHA-256/size and a per-state comparison record. This is a different serialized artifact. Keep both source and derivative hashes in an author-only provenance record, but expose only the derivative hash to reviewers. Do not claim original binary identity. The existing `supplement.py materialize` checks the original warm hash and will reject such a derivative; the current evaluator has no separate warm-resume entrypoint. Thus a sanitized warm file must be handled by a separately declared derivative manifest and a compatible local resume path, or omitted. No sanitization has been performed.
+Use the `gradient_path`, `decoder_probes` and `intermediate` groups for their distinct controls, or explicitly select `all`. The helper needs no token or Hub package, downloads only selected missing artifacts and verifies each file before installation. Full manual pinned-download and checksum instructions are in CHECKPOINT_ACCESS.md.
 
-Zenodo supports secret-link permissions including `Can preview draft` and `Can view` for restricted files, and optional expiry. A draft-preview link is a plausible review-only route; however, the documentation does not establish that this specific link is accessible without a Zenodo login or that the uploader identity is hidden from the viewer. Zenodo also requires a creator field, and published-record metadata is public even when files are restricted. Therefore: use a draft with restricted files and a short-lived preview link only if truthful neutral metadata can be used and a logged-out/clean-browser test confirms both access and absence of identity disclosure. Do not publish a DOI or public record during review merely to obtain capacity. If either identity or no-login access fails, do not use Zenodo for this double-blind link.
+The three warm originals are not anonymously redistributed. Static proof covers identical model/optimizer storage bytes, tensor rebuild descriptors, numeric/opcode state and all other strings. A changed location prefix and required ZIP CRC fields yield separate serialized identities. The original-byte materializers/provenance guards correctly reject these derivatives; do not bypass them or rebind frozen experiment hashes.
 
-### Secondary candidate: a neutral public model-hosting namespace
-
-Hugging Face Hub supports large model files and public repositories with no per-repository size cap; its docs recommend files below 200 GB, so these sub-600-MB checkpoints are technically modest per file. But free public storage is explicitly best-effort, with a caution that beyond the first few GB users should use storage responsibly; paid tiers and grants have different limits. The 8.1-GB full inventory is not guaranteed by a free account. The Hub has no anonymous-review redaction mode: a public namespace, card, commit history, account/org details, and file metadata must be checked for identity leaks. Use this only if the authors can confirm sufficient quota and an account boundary that does not reveal the authors, and then verify all links from a logged-out browser. No Hub repository was created or capacity tested.
-
-### Not suitable for these binaries: text-redaction mirrors
-
-The current Anonymous GitHub FAQ describes one-per-line regular-expression custom redactions for text terms, plus automatic owner/organization/repository-name redactions. It also says only text-based files are anonymized, binaries are served as-is, files larger than 8 MB are unsupported, and replacements in source can change program behavior. The FAQ mentions file filters but does not establish binary redaction or provide a dependable exclusion guarantee for these checkpoint files. The 0.49–0.59-GB models/warm checkpoints exceed the per-file limit; smaller probes remain binary and therefore are not metadata-sanitized by that service. It is not a checkpoint host or a substitute for binary inspection.
-
-## Publication/link requirements before any host is used
-
-1. Keep the submitted supplement itself within TMLR's 100-MB limit and in its permitted PDF/ZIP form. Include a neutral short README/checksum manifest in that ZIP, not several gigabytes of weights.
-2. Only add a link after the real record exists and its logged-out access has been tested. The link must not contain or redirect to a personal, project-owner, named release, institutional, or identity-bearing URL. No DOI, account link, author profile, or identifiable README should be attached during review.
-3. Host paths are proposed only: flat `weights/<exact-manifest-filename>` names, with an asset-only manifest and checksums. Do not publish the source release URL or original repository metadata in the reviewer-facing record. Preserve the original per-file names/hashes for unchanged files; mark any sanitized derivative separately with its own size/hash and source-hash provenance.
-4. After download, reviewers can use the already documented local-only verification/materialization interface, e.g. `python supplement.py materialize "$ARTIFACT_DIR" --role final_clean_v6_checkpoint --verify-only`, followed by the same command with `--mode hardlink` if desired. This command verifies local files and does not retrieve from a host. There is no valid network retrieval command until a real, reviewed link exists.
-5. List missing caches/data separately: a weight link does not provide the TRAIN/official/LongEmbed/K-ary inputs, teacher checkpoint, or full vector caches. Keep the historical-source-drift caveat in `reproducibility/HISTORICAL_SOURCE_DRIFT.json`; do not rebind its old source digests to current files to make a restored-weight run appear to pass.
+Keep the ZIP below 100 MB and keep multi-gigabyte weights on the model host. A source redaction mirror is not a binary metadata sanitizer or a substitute for full checkpoint inspection. Host publication does not provide teacher/corpus/task/vector caches, older unreleased payloads, GPU execution or missing historical source-training lineage. Preserve the existing source-drift classifications and create-only protocol boundaries.
 
 ## Primary-source policy and service references
 

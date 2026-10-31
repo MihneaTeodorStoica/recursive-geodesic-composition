@@ -1,6 +1,21 @@
-> Historical validation of the supplementary-package rebuild. These recorded checks and no-publication statements refer to that completed packaging run, not to the subsequent review-branch publication or a new mirror. Current branch/history/mirror validation is recorded author-only outside this tree; historical outputs are not rewritten.
+> Earlier packaging-audit sections below are historical. Their failed old-mirror/no-hosting statements are not current availability verdicts. The checkpoint publication checks in the first section and `reproducibility/CHECKPOINT_PUBLICATION_VALIDATION.json` supersede those boundaries without rewriting historical experiment records.
 
-# Independent rebuild validation
+# Validation and preserved historical audit
+
+## Current checkpoint publication: PASS
+
+- Public, ungated model repository: https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints
+- Immutable Hugging Face revision: `9187157fa4fc6f790be1775475952f14ae33d02e`.
+- All 66 original checkpoint sizes/hashes fully acquired and reconciled with authoritative release inventories; complete serialized metadata, ZIP headers/comments/extra fields and CRCs inspected without executing pickle.
+- Published 63 exact originals plus three explicitly mapped, length-preserving metadata-only warm derivatives. Static proof preserves all model/optimizer storage bytes, tensor descriptors and non-identifying scientific state. Original experiment hashes remain unchanged.
+- Downloaded every hosted checkpoint in full without authentication: **66 files, 8,110,072,711 bytes**, all matching manifest sizes/SHA-256 and actual PyTorch ZIP payloads rather than LFS/Xet pointers. Public card/manifests/checksums and neutral commit authorship checked separately.
+- Exercised the real group helper: three final checkpoints downloaded and verified at six protocol/lookup paths; a second invocation downloaded zero files and verified hard-linked aliases.
+- Fresh checks preserved all 19 scientific modules, 194 historical JSON files and 2,493,640 typed numeric/boolean values; independently replayed 120 AUCs and nine pooled bootstrap intervals. Maximum errors were `2.220446049250313e-16` and `6.938893903907228e-18` respectively.
+- No training, expensive evaluation, teacher/dataset download, cache regeneration or manuscript/result change. No Torch runtime is installed on the packaging host, so no dynamic tensor load or forward/inference comparison is claimed.
+
+CHECKPOINT_ACCESS.md describes exact commands, groups and original-byte guard limitations. Nine older scaling/matched-pooling payloads remain unavailable outside the 66-file release; caches, original source-training lineage and inherited source-fingerprint discrepancies remain separate limitations.
+
+## Earlier pre-hosting packaging audit
 
 This record describes checks performed for the rebuilt review package. The prior package's claims were treated as hypotheses and checked against the original read-only source, previous ZIP, actual live mirror downloads and current release inventory. Historical experiment audits are not represented as newly rerun model evaluations.
 
