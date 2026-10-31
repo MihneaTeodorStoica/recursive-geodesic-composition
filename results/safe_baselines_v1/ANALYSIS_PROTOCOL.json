@@ -1,0 +1,102 @@
+{
+  "analysis_role": "additive_post_review_on_previously_evaluated_documents",
+  "cache_manifest_sha256": "7f60dfb28e1ed0679883a9ece829b0def3dc4e7ae34f0a505c2709f0aeaf1a51",
+  "configuration": {
+    "analysis_role": "additive_post_review_on_previously_evaluated_documents",
+    "artifact_dir": "artifacts/v1-paper",
+    "attack_config": "configs/evaluator_attacks_v1.yaml",
+    "attack_config_sha256": "49e7a2996e33482239819430e92426fc1e4f9ff88628dfd2ac74f6da94726800",
+    "bootstrap": {
+      "baseline_attack_seed": 22092602,
+      "paired_seed": 22092601,
+      "reps": 2000
+    },
+    "cache_dir": "cache_safe_baselines_v1",
+    "calibration": {
+      "method": "within_corpus_deranged_teacher_pairings",
+      "permutations": 100,
+      "seed": 22092603
+    },
+    "config_sha256": "5918162673076915f97aaf639acfac96465cdb8f239d244add5db93eaff30521",
+    "inference": {
+      "allow_tf32": false,
+      "batch_size": 64,
+      "cpu_threads": 4,
+      "dtype": "float32"
+    },
+    "merger_updates": 0,
+    "methods": [
+      "first_chunk",
+      "unweighted_mean",
+      "token_weighted_mean",
+      "learned_reference",
+      "learned_parent"
+    ],
+    "official_config": "configs/official_v6.yaml",
+    "output_dir": "results/safe_baselines_v1",
+    "preparation": {
+      "embedding_storage_dtype": "float32",
+      "leaf_batch_size": 4,
+      "target_batch_size": 1,
+      "teacher_load_dtype": "model_default_as_in_original_protocol",
+      "teacher_parameter_dtype": "float16"
+    },
+    "published_comparison_tolerance": {
+      "mean_teacher_cosine_absolute": 1e-05,
+      "strongest_auc_absolute": 0.0005
+    },
+    "published_results": "results/official_v6/results.json",
+    "published_results_sha256": "2cabef20750aa0a80148784012a1518ea2d1c1008ac7d617467b68f4b9cfb917",
+    "release_manifest": "reproducibility/ARTIFACT_MANIFEST.json",
+    "report_all_outcomes": true,
+    "seeds": [
+      424242,
+      271828,
+      314159
+    ],
+    "study": "safe_baselines_v1",
+    "timing": {
+      "boundary": "device_resident_leaves_to_device_resident_parent",
+      "measured_passes": 20,
+      "reference_path": "full_forward_diagnostic_extraction",
+      "warmup_passes": 3
+    }
+  },
+  "environment": {
+    "cpu_threads": 4,
+    "cuda_runtime": "13.0",
+    "cudnn_allow_tf32": false,
+    "device": "cuda",
+    "git_commit": "anonymous-source-snapshot-07",
+    "gpu": "NVIDIA GeForce RTX 4090 Laptop GPU",
+    "gpu_memory_bytes": 16803037184,
+    "matmul_allow_tf32": false,
+    "packages": {
+      "datasets": "5.0.0",
+      "numpy": "2.5.1",
+      "scikit-learn": "1.9.0",
+      "scipy": "1.18.0",
+      "tokenizers": "0.22.2",
+      "torch": "2.13.0",
+      "transformers": "5.14.1"
+    },
+    "platform": "Linux-7.2.4-ogc3.1.fc44.x86_64-x86_64-with-glibc2.43",
+    "python": "3.12.14"
+  },
+  "original_official_results_unchanged": true,
+  "source_sha256": {
+    "configs/evaluator_attacks_v1.yaml": "49e7a2996e33482239819430e92426fc1e4f9ff88628dfd2ac74f6da94726800",
+    "configs/official_v6.yaml": "7d32da2950040dcd7f86a863aac5e941db3628cd15aae83288bdb3756c6a1baa",
+    "configs/safe_baselines_v1.yaml": "5918162673076915f97aaf639acfac96465cdb8f239d244add5db93eaff30521",
+    "scripts/evaluate_safe_baselines.py": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+    "scripts/official_v6/evaluate_official_test_v6_recovery.py": "9d8985d679a49f4971254c6d0f3ff12ec835fa54150effa1ca8a2e767062371a",
+    "scripts/official_v6/official_test_v6_protocol.py": "cc64b9ce31bb85ef819ee07af8e8464eb2cdb2c7dde9d5c1324bfc813fabcd3a",
+    "scripts/prepare_safe_baselines.py": "21d8e02eaee58d4b19700a6c83a0c17f9a5abc760ed441245004ecf543e39e79",
+    "scripts/safe_baselines_protocol.py": "7d270d35e7327054c18bf5eabbb8c648f6f54d5ee1665b414ced8f6daa4e542c",
+    "src/recursive_geodesic_composition/architecture.py": "a789a89786cbac66e5b7dbcd63c83145852e744f69154fa92052f1e209ee1940",
+    "src/recursive_geodesic_composition/data.py": "cd2d6e583d496993e63b3d4ee749cf727e8cd0a5ff445ed9e5aba881225cf7f6",
+    "src/recursive_geodesic_composition/evaluate_kary_validation.py": "07649c9d817c31046a834e3e9b5a0f0a041af690f420ada66be4da858034c2c9",
+    "src/recursive_geodesic_composition/safe_baselines.py": "c1b1af3138d44c3584542e09ba468d2bb4b0b36cdc8d901a76f6c444f2410dd3"
+  },
+  "started_unix": 1790087029.4836586
+}

@@ -1,0 +1,17 @@
+{
+  "implementation_sha256": "f41a111d0d88f750a896c0ae806dd280b0d860116287e82310b5995f9b8e4692",
+  "no_recomputation_or_replacement_of_completed_scores": true,
+  "original_protocol_sha256": "dc396c40acdef62f92123c1c1578c5147d3c88123c8f3ee041c01fb2c7a82adf",
+  "preserved_task_files": {
+    "2wikimqa/RESULTS.json": "66e023ff0f3681e8670e61ee56d45cdba5363a432d8b7b478cfc8a19bf43a274",
+    "2wikimqa/SCORES.json": "431b72ffe6f9e225852ed21249118b5a29d76603ba1ae559f0e7710cde19eb0e",
+    "2wikimqa/vectors.pt": "e60e573d2340194bb6e46e4464e06cabf04dfa478b31e28eed3307f1307bb54e",
+    "qmsum/RESULTS.json": "6c1aa83ced6064f3a4fc8d4d770b11df54a19da3017cd5771db688dd1406ab19",
+    "qmsum/SCORES.json": "453bd54aa5ecdd85fe2d64c1896b5a8eedabc943f6e9b534215a9ee128c3278f",
+    "qmsum/vectors.pt": "3f6b44a0834c2c367b9f9b1b3708bd8fd2a3251338453e3d561a1ede8faa8b0e",
+    "summ_screen_fd/RESULTS.json": "7bd139939d53ae1274dc9dff0ecdaa74e3b242f4f5da01889c617115df045c1a",
+    "summ_screen_fd/SCORES.json": "167cd4a19f0932250f2d470f634d7511348100ca5cb435000e44d369c6b12436",
+    "summ_screen_fd/vectors.pt": "8106913258dab28373995aedefe15000c18a360faf78193aa55bc02b451107a7"
+  },
+  "reason": "physical-line JSONL parsing; Unicode separators are valid inside JSON strings"
+}

@@ -1,0 +1,56 @@
+study: v1_k4_matched_pooling
+additive_experiment: true
+primary_v1_seed: 424242
+checkpoint: results_kary4_strict_autoencoder_v6_clean_development_seed424242/autoencoder_seed424242.pt
+checkpoint_sha256: 989f9bc496bea484974679cd181e43836caf3283ffdc8e66507046945e0902de
+train_cache: cache_kary4_strict_autoencoder_v6_clean_train
+official_cache_preferred: cache_kary4_strict_autoencoder_official_test_v6
+official_cache_additive: cache_v1_k4_matched_pooling_official_safe
+output_dir: results/v1_k4_matched_pooling
+source_ranges:
+  train: [140000, 152000]
+  development: [152000, 161000]
+  buffer: [161000, 162000]
+  official: [162000, 192000]
+corpora:
+  - {id: fineweb_edu, dataset_name: HuggingFaceFW/fineweb-edu, dataset_config: sample-10BT, dataset_revision: 87f09149ef4734204d70ed1d046ddc9ca3f2b8f9}
+  - {id: fineweb, dataset_name: HuggingFaceFW/fineweb, dataset_config: sample-10BT, dataset_revision: 9bb295ddab0e05d785b879661af7260fed5140fc}
+  - {id: openwebtext, dataset_name: Skylion007/openwebtext, dataset_config: null, dataset_revision: 79d93d786212f7344586290adb811d4ae6a1762c}
+  - {id: wikipedia_en_20231101, dataset_name: wikimedia/wikipedia, dataset_config: 20231101.en, dataset_revision: b04c8d1ceb2f5cd4588862100d08de323dccfbaa}
+official_population:
+  selected_per_corpus: 1000
+  safe_prefix_tokens: [1025, 4096]
+  exact_arity: 4
+  chunk_tokens: 1024
+  expected_exact_k4_per_corpus: {fineweb_edu: 148, fineweb: 133, openwebtext: 142, wikipedia_en_20231101: 183}
+  expected_exact_k4_total: 606
+  expected_exact_k4_order_sha256:
+    fineweb_edu: d21ba0352b719de1014ed2baf90fe363078899e868f849cd368c6f46d6c2e751
+    fineweb: 806856dfaf4fad26e38217db9206310d291e5f6dae0963cadab05dbf9e995b01
+    openwebtext: a146c237e699f91ae389baa23013be674f4e480a8a9f014f66f2977b5daa5b4d
+    wikipedia_en_20231101: f0bf70d773027906896cb0c70dc7b03624fca195a961ae183956026054ab3238
+  published_document_order_sha256:
+    fineweb_edu: d61f3ce180cfba2c1a1df87976b299ca142d3e2802e9438e72781df455839f8c
+    fineweb: 1b71ec8b0f5d9393db795492a378a035996b8bd4f2ae7e933030fc01c7a09486
+    openwebtext: 28a05a6c84c9578b310d3c8a7da5332776fa4bca2778044551b426a83d4a6eaa
+    wikipedia_en_20231101: 696d9268aebe7457613a0d8932bbe49dfec71a1ec488154ab7318f61b276c8f6
+probe:
+  architecture: ParentOnlyRetentionProbe
+  dimension: 768
+  arity: 4
+  hidden: 512
+  fit_rows_per_corpus: 80
+  initialization_seed: 730241
+  schedule_seed: 730242
+  updates: 400
+  batch_size: 128
+  optimizer: AdamW
+  learning_rate: 0.0003
+  weight_decay: 0.001
+  gradient_clip_norm: 1.0
+  loss: cosine_plus_weighted_mse
+  mse_weight: 0.25
+bootstrap:
+  replicates: 2000
+  seed: 118731
+official_updates: 0

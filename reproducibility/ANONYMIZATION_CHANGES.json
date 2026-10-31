@@ -1,0 +1,1021 @@
+{
+  "scope": "Original hashes identify historical source files; package hashes identify anonymized counterparts. Historical verdicts are not rerun audits. All scientific numeric fields, dataset/model revisions and external weight hashes preserved.",
+  "files": [
+    {
+      "path": "LICENSE",
+      "original_sha256": "f2cb1c5552734898a6557a515a8099e0d1857f82b77d0d793599efde1b8f8f30",
+      "package_sha256": "cb8d27b617099be33338da96f5bd68a809d150639e3b4c12f6d33a7c8ede2830",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "configs/continuation_comparison_v1.yaml",
+      "original_sha256": "0910d22280b4bb1c6970bcd597b887eb614a4a9700c41f0eaa5665eaf19b07fe",
+      "package_sha256": "16209f0bbcf57a40881cf333047f218bca43613bf091738e4be37058eab91e08",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "configs/official_v6.yaml",
+      "original_sha256": "a58ba80fb7c6696cb878e7b7a03d72d942fe11e8bf4c8ca4eae4ce002ce6246f",
+      "package_sha256": "7d32da2950040dcd7f86a863aac5e941db3628cd15aae83288bdb3756c6a1baa",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "configs/reconstruction_calibration_v1.yaml",
+      "original_sha256": "2cfd3d10fad46b9e1913e9194c9274c72397ebda38d939c9aef77256ce8f31a6",
+      "package_sha256": "787aaa392377f75818c097e3f820b3ce618e39124afde8f4f9af0cea0291ed41",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "configs/recursive_reuse_v1.yaml",
+      "original_sha256": "57b41714eac5050037ef2de7e9d4877dbf91717ed7c17e53fc876f9a883dcfb5",
+      "package_sha256": "427850a584f11618d6ec7727162085b4a7cc777e99a677d7b6dee255a0a9b113",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "configs/safe_baselines_v1.yaml",
+      "original_sha256": "e86da01cd07db4865480632f6f8261af01e3f3df897d5942bf9f5353a1d7da1c",
+      "package_sha256": "5918162673076915f97aaf639acfac96465cdb8f239d244add5db93eaff30521",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "figures/fig2_official_per_corpus.png",
+      "original_sha256": "e21c7c86fa86f9c4240f06f105cfe6fec5c5b2877758935a825a0498b5dea0fc",
+      "package_sha256": "c36f3593b8bb60c9120369a8b792d8f6a756d226c851f35af3d73f023f164cee",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "figures/fig3_kary_scaling.png",
+      "original_sha256": "36699080d40cdf4ccf233a9decc37874843304793e948324b274096d1b9380f7",
+      "package_sha256": "434ccff18d4073b91266397115a80b809da54b1834e0506ac72dd6cb6aed9708",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "figures/generate_figures.py",
+      "original_sha256": "10accef97055e13af201d6a088b682835520962697fe2c48b216d17a61454552",
+      "package_sha256": "cda5f8ce867ba0a39607510932cd903f70563c6160bb5b6e8faf382c711775ed",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "pyproject.toml",
+      "original_sha256": "ca2ac0d808cd3de2072d5eb5e77ebe34f4e7fdbf35b20435f6851bf29e113070",
+      "package_sha256": "ce8d1642f48804dd39ba461c0d80a98246a05a8b2ed111d0d1b40bbf6f00fadb",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/ARTIFACT_MANIFEST.json",
+      "original_sha256": "2c6cd76272cbe397d4586986d63821c40ba891fca6be0d8b5cfd1f55974432c1",
+      "package_sha256": "a6ed0f2b915e4bf1c1a78dfd5451998594e3564b89f894279597daf8ed918082",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/REVIEW_RELEASE_MANIFEST.json",
+      "original_sha256": "42836fee030ba4c746cb65b790381a5443d418d19c56be6e48a5a4b943b77564",
+      "package_sha256": "928569aadad4da1e5d9b35c138564df6284743ba25ad5b53e64a951356802d0c",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/hashes.txt",
+      "original_sha256": "ee70b07573737fa7d988235a55a1eb3141e79b73d305b2a1b1fd3c3341dafb6f",
+      "package_sha256": "91515c7468a4f5ffc94cfb168e832950eb9cb8bb9692cd03a765de83c1b0d686",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/continuation_comparison_v1/VALIDATION.md",
+      "original_sha256": "f57923dacf0aa098363465ca7c6a4d7482eb88fb64e2120556858bccaa836a28",
+      "package_sha256": "97c016dd03f47135353df4ef433479324b454e00542df9fe25bce9a8a1621e74",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/official_v6/PLAN.md",
+      "original_sha256": "f3fac2f523334417cb81a0932cbe285b48621c2ef253e2ed3b60e6b0f0c86e64",
+      "package_sha256": "23364f90cad6d86f90bf0538de6468c0a36a8efbe206846492482cd9b524bc0a",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/official_v6/PREACCESS_AUDIT.md",
+      "original_sha256": "ae9488a59f3e581ef1be969eac47828d36cd004925d06f02e642cfecf7bcdc5f",
+      "package_sha256": "764cd28e1a1024720143ac4b5935fe4bd0e73f751a77276326ebfc801fc8326e",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/official_v6/PREDECLARATION_SHA256SUMS",
+      "original_sha256": "28536b14c8f4db8e9b8e8c522cfc7c6ba43daac6a07baebea3455083ab601b72",
+      "package_sha256": "0b74753c2a42113e924d9dbb7630297dd4e1361440c3906707fb732fa23c068b",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/reconstruction_calibration_v1/VALIDATION.md",
+      "original_sha256": "b92f1b5be4d00bec0f2e2c4b9bc7883e7dd6220c5363a8554de4183b6d48c631",
+      "package_sha256": "1152893ad0febf2ea0f527997681e7498ab9a8f798b89edc89f9b67b04282e9b",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/recursive_reuse_v1/VALIDATION.md",
+      "original_sha256": "388b416a88d3925e4ca6ccff6b07e87d9dfc1e0bfbe765ac9d60d5922a1de971",
+      "package_sha256": "df9de7e66276c521e88e6860a8cebd46d67dc07974237b3febddf774917a29ac",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/review_completion_v1/CONTEXT_REDUCTION_FAILED_PROTOCOL.json",
+      "original_sha256": "46e50efdd265db50c801e590cdfcb1c65b4b411f8cf28dc39519c32cfa6c5dbf",
+      "package_sha256": "bdc375e581b0b2267099fa3714a7a7c1fd6d923e6918788b49d0b87909c9d46a",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/review_completion_v1/CONTEXT_REDUCTION_FAILURE.txt",
+      "original_sha256": "a2c76d78196d6a0f47a97026925015616aed82606364dde9cdf1e3314156832a",
+      "package_sha256": "ab2755fbc485c6c1ec4036c19c8cc261b891f0797ae1e89fd3f75d365c1ed56c",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/review_completion_v1/JSONL_PARSING_FAILURE.txt",
+      "original_sha256": "f515bb343f33b8d9e593cd8b74879887a77e8d8550e871eadee5265138f132ce",
+      "package_sha256": "5a7f0f24a3c360e8311949ed449acc57cf2caa2760fc6de52ef5f4e2fcefe6ac",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/review_completion_v1/TRAIN_POPULATION_RECOVERY.json",
+      "original_sha256": "6a315f8bbe05d427731cd706e9113984dea1a84a17e96ffed0387e7fb658abb5",
+      "package_sha256": "9ec42bd8c802e86455d6a45af1b59e51d9edf2cfb307e538756087d64571a8d5",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/review_completion_v1/cache_review_train_v1_insufficient_population.json",
+      "original_sha256": "5473e3296d01935701689e4283993c4d690348ac313ab1dfcd3a35078c02032f",
+      "package_sha256": "116a889c4a3df277e00d5fcbd93ed44d9a87ac0886fc716871cefb69ecf34b79",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/review_completion_v1/cache_review_train_v1_insufficient_population.txt",
+      "original_sha256": "9b6f16f5aa9d72512883a7705575fc291509088db0a62c42d396ee5985e89a2a",
+      "package_sha256": "b22494a2742f98a81a6750ffebc1944058cb15db86bcb55781da3777a063b482",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/review_completion_v1/cache_review_train_v1_interrupted_preencoding.json",
+      "original_sha256": "c2a93c4f3fc104df32908e5c3255213b136f4b67cc37a4236ba1a5149ab1f14d",
+      "package_sha256": "d40a97db0c82c3a162d6dc70c1fda53d59b71bd585e6e5cf3cad69e6e85caa4a",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/safe_baselines_v1/PREPARATION_RECOVERY.json",
+      "original_sha256": "78c0307ac44e599ad7ec1b0a6971cf797940c34e1286c0ff16b33f26c3396376",
+      "package_sha256": "a48493a00a94ff1bbb8da195acce15fbcc6880ed31c94913286b32d180295e5b",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/safe_baselines_v1/README.md",
+      "original_sha256": "bf4e60f21f4ddc105fba4cd01b9c49e6f534bed53bdcc512e3b9f06c314b49fe",
+      "package_sha256": "2ec82a3b5e82700f8966535f61df09158a3b5e9126214434d8685a20aec92326",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/protocols/safe_baselines_v1/VALIDATION.md",
+      "original_sha256": "1abe8a503d92d06a3bcfc9fc4174ad552a01b7c47969c5a3b13053760cfd3576",
+      "package_sha256": "f3c741fbde2c27f558606a8af645e3e6a86973ef4bce57193af6401a20390dc6",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/provenance.md",
+      "original_sha256": "df43a5ced68acd9dc554356a3d23a3c13e43c82e80804311689743619025bfc3",
+      "package_sha256": "30b1ef0ea2151857b1b7afc9f5c2987afa872b523398dc5e6e8171e3938bf665",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/source_mapping.md",
+      "original_sha256": "a34b2d1189c9e163ea841c29984ebf449c5ba3cb0728c023454c84699514806d",
+      "package_sha256": "ba86b202a1cc88415b361457963a631087e8820ce01eccbfa6804dc46b3bcef8",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "reproducibility/validation.md",
+      "original_sha256": "dcad9571a3bf99380c620731e39a85daa87f47a5dfd141e9c3cad493938e5259",
+      "package_sha256": "9e78dabcb1b1ab5df61420b8c1b3b53d35887f3295270b53dacd92ce42055cd6",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/ANALYSIS_PROTOCOL.json",
+      "original_sha256": "d0a368ff8e7a81e7e571e8ce518f982a85b5b36e8a15997045dd8bcc111598e4",
+      "package_sha256": "b1e92668ef17d58c2a08b8eafb38c4e292e89dfc19ff29d47eea782e50a74557",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/ARTIFACT_HASHES.json",
+      "original_sha256": "e4bca287c623dd569191dbb8e01ef0c2a03a91497e21f9067c30c299befd0422",
+      "package_sha256": "69d4ae4cbe644d8fdd101941f4892f17998174a74fe3fa3df2f9f436b8160133",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/AUDIT.json",
+      "original_sha256": "9f56876e92fc80ec23b18e6c836311a25a9bbe7d72db920aff0aac23dcec7b6b",
+      "package_sha256": "cba5bf5911e797690c74da934852d06e4f88ee4d8873c31030a30c5b30a026a7",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/INFERENCE_MANIFEST.json",
+      "original_sha256": "b4c909e1539f0f8b6cc8cc468b9b10d644ba5d50d9015b1d785a8bb88eee91d2",
+      "package_sha256": "9f765452f2a09990f3cbb48ee14ac226c669bc0a966c174ccd268eee32bea3a4",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/NUMERICAL_CHECK.json",
+      "original_sha256": "02d15d49f3363033d2533f9657eedd5eda13b8aa4d82d176821a5996ad60b9b4",
+      "package_sha256": "1238faf21e067ba09a23058050efa76833bb97eded5efca827e54b34ef0aa04e",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/NUMERICAL_CHECK_PROTOCOL.json",
+      "original_sha256": "87b9aa8f0e203a229bc80f530b1f101347b2433028998979b5a6e632335c80f0",
+      "package_sha256": "e2f6c300884a626d6e4ae76e5d3be5397acb5b5e14bb531a18815e1f6bd2036b",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/PRESENTATION.json",
+      "original_sha256": "d1252995e6df7d6e9e9de3e59f11638db8021be97940ec707e4460dd3ed261d9",
+      "package_sha256": "4a602b074e25badc5c6c4cccbd9d9f1817d833fc2b5df546c01e679dd3038381",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/RESULTS.json",
+      "original_sha256": "5088db03712fb902ffeea55ded39db555e359ccc2962df33b3b144276e443194",
+      "package_sha256": "84c151264e962577a35cd12ad47ace1a63852d5abcc8ddcaa1784827d23b16c1",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__fineweb.json",
+      "original_sha256": "b76aaa34cca12f8f5f451e5e338c5f6786ed12a9ef5e990a48e3c53af66bc90a",
+      "package_sha256": "511f891cdce9dd00f03d8810a8bee719eb4db2a8c4dc94daa1083f5259b94d8f",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__fineweb_edu.json",
+      "original_sha256": "5bf64279d392c5b6245aa8ae33039f2aba0e0b0c6937d40b76bb0d5d432fc56c",
+      "package_sha256": "b058e7af51de1e2b94f8b328044a8d9a1143a5bb58712107926ae913d9a6832c",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__openwebtext.json",
+      "original_sha256": "92f905d88f94816e7a313bfdcdafece3ae172c171ce3888c2d44778ae3b98902",
+      "package_sha256": "11c26eee60876b1b328e78cc733e9e0cf0638fa17282ac21342e475bea5b0c48",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__pooled.json",
+      "original_sha256": "700b214f84598816e03b60120f953522f829b4084626b21fe288bed51ae4231e",
+      "package_sha256": "0683bf0a52fcdbb7986b9520d70c42fc5d4db9e6c7e1d34e6fa58f215ac566de",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__wikipedia_en_20231101.json",
+      "original_sha256": "30e3bb52e54a99fab8823e83652f3dd6ee2768dc8ba4a423d1e2c50a8b913925",
+      "package_sha256": "722e2335992213582e30043929f9b8376734179c59e3230ecfa245c0215b9e59",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__fineweb.json",
+      "original_sha256": "3939bfa982ae9f4409e96c8b72d61d8a538e092a7978d60bb40e9a8f1e9ce01b",
+      "package_sha256": "2732b23bc258fe403cb75604d338b5caf5127a0cb2320a962488cefcc3559f80",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__fineweb_edu.json",
+      "original_sha256": "d8b98c4748db9eeee4ff87919da1b2276be1e60a176d40cf23c388032e92a3bc",
+      "package_sha256": "22885f8f010b1fa3846ce633697cdad283ee51d4c5c06effb18311e600bc2c8b",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__openwebtext.json",
+      "original_sha256": "108fa0099944bf8c180dfb6787936aea167c5e89446d83f69feaf13a232bffa2",
+      "package_sha256": "8edf89da5c6a2c6a3008d8a9fb628063c1f6826dd3d58943b987478c20fb5a19",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__pooled.json",
+      "original_sha256": "110460d9bd9710d807a0dc7789bb73a0ac70fc0fd59d64418c0dd78f03f69d5d",
+      "package_sha256": "542580f60356901a89d1d14143b02c2943c20d6a860ce8a1d3ae249201ea0b03",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__wikipedia_en_20231101.json",
+      "original_sha256": "7b6da824ec20336f426150155a30e524928322fc58dd750b6c1f38fdd7797881",
+      "package_sha256": "2390a5a821648977afb84d4d1bee1a9fa63e27307f61aca1496b1e64c865740e",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__fineweb.json",
+      "original_sha256": "ea06c1efab28a49650e3d7f0665b68f2b302970c5a1f9c0548844d54b32a23ce",
+      "package_sha256": "2768131e81dac02d5c57e24323e1786104edf5680fc4177941965bc950975575",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__fineweb_edu.json",
+      "original_sha256": "0c29b318ce21eb65c69b35cc0f2badf10c6c1f9927488595638911d4fa0ebd03",
+      "package_sha256": "5f11ed16f2e452cbb00128a130da0953632ea919693b024e4bcddade43770dfc",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__openwebtext.json",
+      "original_sha256": "89aa3054aa108fd3be701020441d21fc2037fb84e025016ed60e10476cb56868",
+      "package_sha256": "9dfde23dc29de3e935ce6c55358d291d46df84ee4666754685aa14f958219cd4",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__pooled.json",
+      "original_sha256": "3c2b6e45df924483a24fb8201ecc89cf466f51c43a88a762eb4565f6049c4563",
+      "package_sha256": "d57aed656012942f36c7391e55626ce2cbbe9da4d316e3f903280ce97a2df656",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__wikipedia_en_20231101.json",
+      "original_sha256": "0f8fe855af31cc02e6ce751049a8ffa54056a43195d92aa97520f8423a143f00",
+      "package_sha256": "724da5b5a7a251f99e0b014b722ea10faa64976ea216f45ce04e81cd51652547",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/continuation_comparison_v1/continuation_ecdf.png",
+      "original_sha256": "4dab72f544b6c8c0e99bac513f83eb8216e13be2ba5def94c4b9a0591725b928",
+      "package_sha256": "e9247654b51b1b710117ed79022333a26c40c02fc24a15f3c29d5652fd788b7f",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/decoder_gradient_v1/ARTIFACT_HASHES.json",
+      "original_sha256": "339df50648dc9028b8df9c64a10e51d25c751e51bc6c6427ac5d8614a303487e",
+      "package_sha256": "ba0ce17afa15159364786c995ef3a3a0880ee27632d075f35e8c5e6e8501eeed",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/decoder_gradient_v1/AUDIT.json",
+      "original_sha256": "9b0c2103c8ea4ce46f8bf4fd783b988ef1617fc2fa3a85b19524b2e9619604ba",
+      "package_sha256": "050cd4754d7d2e5373533537b05dc2debef3123ae9744330138a4d1214f20b93",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/decoder_gradient_v1/PROTOCOL.json",
+      "original_sha256": "635e15cbc1c08c33ef7991dd829cd5bfe5ad7a42d4287dcff3a2456d6d110116",
+      "package_sha256": "a490a60d6a0e8140d2050eb314e86da02cbe0b8c6c4b53cf664aca240706c02b",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/decoder_gradient_v1/RESULTS.json",
+      "original_sha256": "27432557fbaaf649230d6fb164b6a3e1778dbe275878e537df2a8c3a4a145ed1",
+      "package_sha256": "403dbdab8a7106117bf6e63a36a978cf21a5ffec1bd6c54018d456d038426884",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/input_order_v1/ARTIFACT_HASHES.json",
+      "original_sha256": "dc5686ebac174086895c4b413d03542300bd7ca7f3e5ba697bffd450852e89db",
+      "package_sha256": "a3d969cf762621274a4ba2b2d58064685536e8ad08cc737219e160d5d1e3a46e",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/input_order_v1/AUDIT.json",
+      "original_sha256": "c763856dc69800800431115c9a589bc5f7c2706ed5db0e815d5c4b780c6d97c7",
+      "package_sha256": "5830d49461247efa21c589f5d3fda418c8eb1d9ea8ecefaec493d19b055f070d",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/input_order_v1/PROTOCOL.json",
+      "original_sha256": "9fa45ed13ca6a9cb3ca6218920e99431d5497f832cda09f79c9f02d766c8895c",
+      "package_sha256": "65fd26874ed00737845200cab37608eb32215617dd360224fc6e8a1820951556",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/input_order_v1/RESULTS.json",
+      "original_sha256": "01db61f414d969764d10ffc0ac7f10f922c1b1d5adc380fef9cbe210a8872ca6",
+      "package_sha256": "a370666e1c81ef1e0aeff1dc509ed22861e5cbbff7f0a8a405b860f84fc55772",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/longembed_review_v1/ARTIFACT_HASHES.json",
+      "original_sha256": "8274dc181423ab6252bcf4e3ef5034a0dcd01be1369d610f17d27627d98e8f86",
+      "package_sha256": "677fdbc53e62c0fabb7ecceadc4693b393a3685b54b752f570ab6e2748ea754d",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/longembed_review_v1/AUDIT.json",
+      "original_sha256": "9c729e920f8a8c5a804ca28b052b663d37d64f93fc0ef304455eceb1e7350207",
+      "package_sha256": "c8a9c81297eb08a0a52695df35ff3df828999fda7c0cbb8d6b8ace22d1aa8070",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/longembed_review_v1/PROTOCOL.json",
+      "original_sha256": "58f8c9343ef666fe25e0b070f3f79e4942f9ca55df7bd67842e569acb6a936e2",
+      "package_sha256": "dc396c40acdef62f92123c1c1578c5147d3c88123c8f3ee041c01fb2c7a82adf",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/longembed_review_v1/RESULTS.json",
+      "original_sha256": "8baa403bceeb10916b667edf829a14e11919b6e87bdc09a1ee2926d2c6905a88",
+      "package_sha256": "dc6b7e81f80bc7e70f50fb28fb483ed83a5cbae16d62ac62fecfbe438b6f2a16",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/longembed_review_v1/RESUME_PROTOCOL.json",
+      "original_sha256": "2d70d94391741d1bb6c243b4eb70390693c498820743dd5a470b41d74b420c9f",
+      "package_sha256": "873275c201e57a87e71726c9729463521775c1764207f8efd714cef8469ffe9c",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/official_v6/ORIGINAL_SHA256SUMS",
+      "original_sha256": "c7203b3c14b8b8cbe423b16a1ca98edbbb7ee4231767215bd99bb7c642689898",
+      "package_sha256": "76aef4d4b738bd3175b893ac774b7a43e400e88f7f01893d46f27d643f82404b",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/official_v6/results.json",
+      "original_sha256": "236081e0c721602c742b573e3dfd06a556f9448ddaab299f10007788de51a7c0",
+      "package_sha256": "2cabef20750aa0a80148784012a1518ea2d1c1008ac7d617467b68f4b9cfb917",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/probe_families_v1/ARTIFACT_HASHES.json",
+      "original_sha256": "49259f676819675792fe6266a3513b5d535bad07fac98ad194aefe28e7f24d3f",
+      "package_sha256": "06733e7c530643421e688e2892e95902d3cf586a35589e0d342f65791a8a1590",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/probe_families_v1/AUDIT.json",
+      "original_sha256": "08c6c5e5cdca95825690f765fac0413489997d710d82deecb0948291e1bebb2d",
+      "package_sha256": "267b8048db870f0a8f5905c8cf7ff35155fd790629e1db3e8ac509afc4e760b3",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/probe_families_v1/FROZEN_PROBES.json",
+      "original_sha256": "cf5186132635c2aa0d8eed9648151a27800fea119e8048a5d798da5a372de987",
+      "package_sha256": "6956afe72925fe8237726d09b0457d031325861314d58d2438edc62fb4e66b91",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/probe_families_v1/PROTOCOL.json",
+      "original_sha256": "3e5cf5637fce9a2aedd0cddd29699026fea731431fbf5d00e675594ce8a6c491",
+      "package_sha256": "e9376c224b39d413a0fe12089e86227a018e8a8a5e3210fc2306549a6c4e2071",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/probe_families_v1/RESULTS.json",
+      "original_sha256": "32efdffd45adf3e3e728db08fc350d5e91f0806f4d44ec2cd154b9745560264c",
+      "package_sha256": "247aba18e038bf4163e2f96758651e2239a364e46618bc95bb7cb5f696b6ddfc",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/probe_families_v1/TRAIN_MANIFEST.json",
+      "original_sha256": "f35838d2f048f1b4dfd4020151667c50666bc566332c847489bb837dead9a581",
+      "package_sha256": "79c2d020ed0e066d0a8fd63af028154e13da8a841febb11fad0e2ca6b63c582b",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/reconstruction_calibration_v1/ANALYSIS_PROTOCOL.json",
+      "original_sha256": "0f6cbb0cc8e1140f5c5a44f0ea6c1f2df5b848ccab4e52d9cd4e8a1f27d45601",
+      "package_sha256": "cd4578847c7b99bb9ef35d8e427c3a5e65fa764a50b6c42f40d9392c6e037d71",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/reconstruction_calibration_v1/ARTIFACT_HASHES.json",
+      "original_sha256": "b0dca8133e1f17d163dbf7b86897e2e2f8c259f408848f650e660efc07599d42",
+      "package_sha256": "8115225c4f2d4ac099181638e6cf84117f10562d9ba413ea89166273bff1c8ed",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/reconstruction_calibration_v1/AUDIT.json",
+      "original_sha256": "a1ef52de571c98f25a1ec5b2c15f4319f487a51e7a58abe8310315962b7d0759",
+      "package_sha256": "7b424458baaad7c47a1bc350796981380d6a2148e34fb0614ac1b0d829ca3917",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/reconstruction_calibration_v1/INFERENCE_MANIFEST.json",
+      "original_sha256": "ee50768b13034afd13a8228d8d88ed6039dadcb2848dd56b03529cf3d2a09625",
+      "package_sha256": "16c4134a04420c5156048c23df4d737a40acb2100a2a2fa38803bffdfb59ede4",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/reconstruction_calibration_v1/RESULTS.json",
+      "original_sha256": "3beb1d99ff83d8e13bf9a3d7f052c7750c3c858883431ce9351e78867ab3b06c",
+      "package_sha256": "6f378128f85bcac3ae762c9a931985e3fd5a110d08cc8334bcfef87746bc46c7",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/reconstruction_calibration_v1/calibration_ecdf.png",
+      "original_sha256": "9e8aea81c35b66445c60713b96e45c73002a4e10cd7daf18446b280cefd3d74b",
+      "package_sha256": "0341a4afbb97bad4e3268e98cc495198e5d6dbe592f8c71ae2dad0bd6a8818de",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/recursive_reuse_v1/ANALYSIS_PROTOCOL.json",
+      "original_sha256": "f24f8f9c94c7a7ff6328a0bd126855177bdce2872ef826fd01453f0fe2ca3177",
+      "package_sha256": "3d8483734dd1bf7a893887cf3a41af71160abd5db7dadd849fb5f1b0c274a4b0",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/recursive_reuse_v1/ARTIFACT_HASHES.json",
+      "original_sha256": "335e2e65583a9d8b736358c25d6413827fb9b7e703cdbf028f10f4aca26bb114",
+      "package_sha256": "e9ef3403d706602d3907daf5ce37bb92772750e790844694a6ec886a89893d19",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/recursive_reuse_v1/AUDIT.json",
+      "original_sha256": "9b98a61b7406110c9adac604a95fcf3978db7502f6ab5e8b120cb92f209c5153",
+      "package_sha256": "7e27bb1cef827b0b8fd6ee46279121402b6555ef7aa9e5065a50c19cb09bc38d",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/recursive_reuse_v1/INFERENCE_MANIFEST.json",
+      "original_sha256": "9a13404ad1f31786c63d0a0319efeffb27c4408b79aa867c0a2014feebab52a5",
+      "package_sha256": "395772a890e71c843e60c2a46fe6de75f9ce3318f0549366b3060611b2e391d4",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/recursive_reuse_v1/RESULTS.json",
+      "original_sha256": "3aa555d2073bc1b26f2d4f74fe65f83ec493be9b4fda034b62278c27ba305e5d",
+      "package_sha256": "74944d0960b9311ef8b897ef130474b6a04d463cac4ea6222cb8d96aa6614e29",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/recursive_reuse_v1/degradation_ecdf.png",
+      "original_sha256": "1cfa7303d191f2c6c06b6967c72f283649572dd3f1f6286b68112f91b8e4f7f4",
+      "package_sha256": "74a7f31c6a73127fba5d7180de1ca465af94d741f028408a658de4d0589a9231",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/ANALYSIS_PROTOCOL.json",
+      "original_sha256": "bb5c88292eac5cc34fedabd1a4c2ba96a992842b5961af98cc8704e412ab3caf",
+      "package_sha256": "dbcebf1fa7d1911464461ce386fe75c8626f14ebc1ba7ce05160a07a09ff628b",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/ARTIFACT_HASHES.json",
+      "original_sha256": "d5f0bd34b1fa8504470c42fbc4bd12c0adbf3c11719ee9ebe65999e70af0b9d0",
+      "package_sha256": "4d79324a4e936055577e217377ae9e64f6051278a335a12e39d44ff88f3be577",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/AUDIT.json",
+      "original_sha256": "9fd7ba0de16631efd16363d3d66423589e05c19821b17b5e1101a70c016d78b1",
+      "package_sha256": "4627a30581f6dd8ec85688428c19b705641edf5be1f4b717839f1722d60dfb56",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/INFERENCE_MANIFEST.json",
+      "original_sha256": "e8eb18b9bf91eede030515e869f82dfb7d81df09ce9558433ed39566dc565719",
+      "package_sha256": "bd25e3d5fc48db7e93ac3067777545581e2a9cb00bb37c35ce8471be1d087507",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/REGENERATED_CACHE_MANIFEST.json",
+      "original_sha256": "d36666a66914d63a3f8e959d98f557427290090bac822a2bff336bf22ac3785f",
+      "package_sha256": "7f60dfb28e1ed0679883a9ece829b0def3dc4e7ae34f0a505c2709f0aeaf1a51",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/RESULTS.json",
+      "original_sha256": "b1734a0733826c2a00f838be5beaf3d74935bdcfd21b0e03d6867826cddba557",
+      "package_sha256": "f16d23f504d3155dce680243a680d6c26ed2835b46f6aef9100b7fd9c1c57da5",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__fineweb.json",
+      "original_sha256": "75e908a1fa75584ef8ed56344deccf7e8591a53021a0fdbb6cbf470f0aaa2878",
+      "package_sha256": "9a75c8345277da72ad78b7c6099175c51a7d15d70cc04b57189908f87b7377f4",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__fineweb_edu.json",
+      "original_sha256": "4fac54d4475a5d1a62efa8b474372dfb1884e9dea9deb4d041a0492df72899a1",
+      "package_sha256": "d3cee80f08a92825c8e3fde730b948a95ad23b07f85c1af99a27f4e319a84411",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__openwebtext.json",
+      "original_sha256": "142d43d54fd4befc3b2c42bb7d2e6b56513efe955af18bc4fe1a4d7a248056a1",
+      "package_sha256": "8734189247572b0dbc242958f356342d6cf05c31afc90782260aec0de5b9d8f2",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__pooled.json",
+      "original_sha256": "a59924f59a4d126f12af0c1c0d4734c463fc99f0faa4ba08f2df306ab876b40b",
+      "package_sha256": "307a4b0358037658a979fa9adc1bca1232c745ccb2a9320a245bfa83268279b8",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__wikipedia_en_20231101.json",
+      "original_sha256": "9bf340d294da3df5289232f19933e20b1a60dfa12fc3689c0304661f3ce03019",
+      "package_sha256": "028af34d8c12ad6424cbb13e0d59f096acde1f4809bbce624fdf390ad8d097db",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__fineweb.json",
+      "original_sha256": "fc7116631aa54536dccdf93e175c125683e942db5ec720542351ae437239f0f0",
+      "package_sha256": "c77b03c5adb41086801386a0566c96cdad11cab443c2659d53132bdb85465ef2",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__fineweb_edu.json",
+      "original_sha256": "bd5f1964800328cef0b87c36d7ad82f88f6f0d114b15c3d98f1cab24c1c2d771",
+      "package_sha256": "9a888114662ea586e3e93b7aa5b9f686c470c825c11831361a66c70bf99195f6",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__openwebtext.json",
+      "original_sha256": "c33bd815904625d52622fa89d93eb583911e5d6f532b453733451e28f685635d",
+      "package_sha256": "8fc8b97a8d06b79d05ffffd2e421d6fff78b65e8fe7c569c988e4f756827b187",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__pooled.json",
+      "original_sha256": "7ee972865315f4e0e6a769999cb127fe7409f771b866d5364a80f524ce4b11a9",
+      "package_sha256": "bc3aeded8368cb1913218d7a28b017800d9791b0e706ad318b6f740c053e398e",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__wikipedia_en_20231101.json",
+      "original_sha256": "e5cf243791f08faf296a933b869bb5b1e55aca3fdbbd693098c6f8f24b1caece",
+      "package_sha256": "8c6ce0283be40892c5e09e6539b0113393ede65e0dacb8dacd9d8c523dec3b72",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__fineweb.json",
+      "original_sha256": "73457f542f6db8b54918ccec0bd7213b91837c944a7d06e5f264f1f44a73c2ad",
+      "package_sha256": "894545e8fd8c9558bf6dd8b25a8cf850652b18925531b5126ad78a2f049c5ded",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__fineweb_edu.json",
+      "original_sha256": "b4cec7d1def37518177cbe9d049a82ce8f4716aa76c1b4c42ab13053e100aa13",
+      "package_sha256": "0150ecfbc3bf6fc5a88577edc6c3b15df4f10b18774ca90d7d9bc64703a2d685",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__openwebtext.json",
+      "original_sha256": "6751cc0cdaa5d4e209f4d276b29e32e09b0cffe28029e1cfcea7cc92b6949c51",
+      "package_sha256": "a46657a4100beb62ecf14d2282baa5b0bbf2094a9f553a11d4370513c1357464",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__pooled.json",
+      "original_sha256": "814a00210649e15068aecb4e4c2f0438b990b61c257b3a6fadcc05c16a7d3295",
+      "package_sha256": "29f1755b8eea186ed5bc81ccebabc448420bf375a1a77da599f5c1826486a74f",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__wikipedia_en_20231101.json",
+      "original_sha256": "df2b4472390d55a28a069f6086327d17bc115ff213b2d83b178fd4581eb6d713",
+      "package_sha256": "52765c12d5713dc1dc7fa1931bb0f17717accb7fdd7fea81b364dbf365693184",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__fineweb.json",
+      "original_sha256": "5cc67da7f3472a785df0fa1071e5c02413536aa738ba8f9e8bc4c38119fec521",
+      "package_sha256": "a4d1cf6e4c0983a821bdf710d8bd4a8091cf578136659f806f825f09122e0f2e",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__fineweb_edu.json",
+      "original_sha256": "f6e9c64f3f3319b590f31f190e9a29c90f02f00919745971189471c2646fec82",
+      "package_sha256": "e8c8a7df36384dd5cddbb2b36fa35650cd8d221ddb6d01525288d191b434072f",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__openwebtext.json",
+      "original_sha256": "12da0782b21476b8f8e2cab8cd83e7022e9a15a9197a897ae221b23d7d8b57fa",
+      "package_sha256": "609b231bb6750221a1773fa11b881beec94d19fb7e55dcee4dc6118910a768cb",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__pooled.json",
+      "original_sha256": "47b166ffcdd730a38b9f31a6c112f25897bd0b99efccf6090d3066d9631782c3",
+      "package_sha256": "ad8bce45e83a7c64be16db77e378f9930f83ab630f287b3381c27a42b4d44332",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__wikipedia_en_20231101.json",
+      "original_sha256": "1266d84659a352a145bb4be4123578167f41ade144927e8390436bd106519d64",
+      "package_sha256": "088c445e66f418d34b5fea49077c94f6334710127a76eb043e68c004e4e2a478",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__fineweb.json",
+      "original_sha256": "2242c1dbce9cb79cb3e6b40d23211f9eeda0cd7d034eb0aa63b18472c86739c0",
+      "package_sha256": "3757e35a73877f2086eae5b013388ecf9fe3b909d669c966adf658789136cf48",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__fineweb_edu.json",
+      "original_sha256": "ab99629bd78eeb9c5dcdabc99f4f66f59edc84a76321639ea623fcb4ffdc7608",
+      "package_sha256": "9310afc75e6e64cb1cd57eb6667576d0fe2b0270ea228e9558a3b724537f5b11",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__openwebtext.json",
+      "original_sha256": "b2d13e514d7184c9c58f6d20601096df4347c866880938bf3d1ec1f05c38f757",
+      "package_sha256": "e14c55669764fd065c0053535190c8486329e167f4fa9335ec42ee513113251d",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__pooled.json",
+      "original_sha256": "3c0233de2a97b54dfef6d9389be0c4e1ab28673dafa945112c29761c2a653fe2",
+      "package_sha256": "97c183bdfe90d44145fa5c9d5b339cd03aec616d3e4e5d109264c1ab2d8edd86",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__wikipedia_en_20231101.json",
+      "original_sha256": "86938ba68f74c6835de85c8d77ae31898578d32982fddde348a09642c0d5e4ea",
+      "package_sha256": "b0d9917816d790185fcdf35b66a690f27c68055e7cafaab7c84fa66b9c5a4bff",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__fineweb.json",
+      "original_sha256": "7fa41135f623162fd5af9d4ce3a3329fddaad52355d5ae98419ff337874f50bf",
+      "package_sha256": "129ddf077edf43293cae114e317fc6c892dda6cc4f17dcab6d572f17889774a6",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__fineweb_edu.json",
+      "original_sha256": "6054d8df635f9bcf72e616a378083d7f2797c1ba9c73142ba1fb23e24fa74e60",
+      "package_sha256": "82f7fe1cad07a8663c75a1b70d532699d2cc94d89292eb7788ef7df8e80da061",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__openwebtext.json",
+      "original_sha256": "ab6a80ae31cb15b3053ed73a62b2a5ff64c3d9b119ac42e31148cd44193a9676",
+      "package_sha256": "d3f1a98aa092e2f22d34c6568dcdbc9b9399759fe12be61fe224f19baf13c7b9",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__pooled.json",
+      "original_sha256": "70832f2c4f147500ecd395cfb9c1b5d695c3cbd298b84ebc06cc3f6afaa0ad98",
+      "package_sha256": "f38f4bb2a76f80c2dcf223f5d8c884faf1ed59620e381fd58209c8a89d02df99",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__wikipedia_en_20231101.json",
+      "original_sha256": "2e84ae7276152ba74beb0c8f69a3343d2d81a0109905b8e85f2e973f931b3ee3",
+      "package_sha256": "a9eb4f31cee29a9c170f9cb7383be810166216d4f222ad341ca0773c37556738",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__fineweb.json",
+      "original_sha256": "a714814e41d26a4625aae20574d1e3900b738cd12c2346948cba491167b1003d",
+      "package_sha256": "8b9e647285163647c132763fc8bdfc88d62af1bf349eef9e4df53f7e62578a93",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__fineweb_edu.json",
+      "original_sha256": "904379086558889d371b5bde72004702e8435f3d180901e8366dbad0543b7bd7",
+      "package_sha256": "921882260ddce49031fc0ddb423a108f3677606592af1f6a348ed8ae73915cf6",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__openwebtext.json",
+      "original_sha256": "74c584c36a33627a72c3f025be0d7802d451cccbb10a6bf424d5f2301fa560a8",
+      "package_sha256": "1357b6251c0c91a78e224eec222b5eca7fe0e04aceccfe4901ed90fa55c2bfa7",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__pooled.json",
+      "original_sha256": "c01e15e6e32917d4d283e24105e0a961b6cdb1159b9587c22c43f4f86ba519d6",
+      "package_sha256": "612f456c33bbb31feee951ef39d92146f9c378142637d7f003869a9cdfe1b965",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__wikipedia_en_20231101.json",
+      "original_sha256": "5dbd09d8caa89c7864901a841819e2c0fe81d971750fe6d68f57a984a73817a6",
+      "package_sha256": "c1cd85638037757d09c681a37c5a4851e73671084e3eca8d93a3f9dc81de917a",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__fineweb.json",
+      "original_sha256": "6a559296b2f197b22084b7c8ceb28d7a5a9a18255ef337ecf540ad1b33e4b60e",
+      "package_sha256": "43f6d230e034c03f7d29823eb75325eb5fec621fc5c70337598330f2b0f401ff",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__fineweb_edu.json",
+      "original_sha256": "164e66d3d85c590e8406e2eba6916dc4ea552bd5c25d0ad6b58581736e5a9a33",
+      "package_sha256": "6d17ce14dd71e9edd789ce8339799c711375f86f53c2c82c572662bff575880e",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__openwebtext.json",
+      "original_sha256": "4f5134c58b32a7f23da76e6bd1f27e295e93c578110a6e80a1f76386546b3163",
+      "package_sha256": "871e0b6054a75bc312a7a1c494b72ef50e49425bddf8cfa241ca5fae41ebdef9",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__pooled.json",
+      "original_sha256": "f466ebe6a059b17c22081257c40600e050a3f9078b0ea015c56c5e6c992a0f7a",
+      "package_sha256": "0a3dbdc7db88c3fe5fdb692bb3619319b21ae63ead62deab4ce1a897a357d2a6",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__wikipedia_en_20231101.json",
+      "original_sha256": "68640d92fe26612d22714ef00edb1088c28752d6c4f6deac7f4360ce37728c83",
+      "package_sha256": "e612b80329b06bd9806c97c3cfce4e38bfac641e8205a2f450058fc6f4fc0a77",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__fineweb.json",
+      "original_sha256": "8229aa4bea8771070832721b0f05849a516a2f9efe00af9802c78e2ce0025e8d",
+      "package_sha256": "f0685172f52642eb84b726b05d2fa498e1b0120dcf00f6127b00790c16e35c03",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__fineweb_edu.json",
+      "original_sha256": "60f05f8e09e748e36bf6579a17d16973c37032571e71c243708cef4c8adeb7bb",
+      "package_sha256": "828cfdff2ae7bcb946cf756124ac15ad29fa13fbaf8da5727983233d9141cc45",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__openwebtext.json",
+      "original_sha256": "f5949d03691b3ae6e67210f6e7409ddcca12a731c9c31d95b12de66863440567",
+      "package_sha256": "83d987b52fde9d0f639b48bf348ae35d480b6b69359b03ffac32e20aa720d7d7",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__pooled.json",
+      "original_sha256": "fb09d0e88516e79e0cf48b72654b79914861c58779c36e031288b3369f8340b7",
+      "package_sha256": "882d5350d291ca63d782c13c84afa170ca9916c4f4d7bb1ccb7cb8ab035d277a",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__wikipedia_en_20231101.json",
+      "original_sha256": "fefed3df029a7d64453c06c9b2237b7c5d59f5e836f014955f787b152b935f9c",
+      "package_sha256": "a3610701111254c7abfd35c31a3e313b29e10e5ee3a408e3116fe1c22b4ded66",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/tree_families_v1/ARTIFACT_HASHES.json",
+      "original_sha256": "5137d5dac18e1b17ddafeb49f739b480ca07fff838396d9dd5dce7a7d062190f",
+      "package_sha256": "24d40c46b8d42e6037a32aa0487400b7f421cd79721e534331a865f8c9dd38b3",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/tree_families_v1/AUDIT.json",
+      "original_sha256": "e63c059ff6d4b306e4e80f41e173b4a0de7a74ef83f4a7defdff3555fbb4aba2",
+      "package_sha256": "f6ed58c0dd13f0e41bddc7eb57177132504935f51ef1b3774a81952bac8e3dcd",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/tree_families_v1/PROTOCOL.json",
+      "original_sha256": "559713757c467a6deccdbcbb3c28a9ac99ca4e2f6ff5680c0dc6e834dfd00e6f",
+      "package_sha256": "1a173d0c03114deba19ae6346e95af51eca1e2045bddf44e584441c52482c67c",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/tree_families_v1/RESULTS.json",
+      "original_sha256": "5e80edc7b5b3e78f3cac6b177b0381e3adba5ee72de16cb1fb0ae964ff179dc8",
+      "package_sha256": "11711f0c33f8b184548ee4eed179b9fcdbba78f995bbd0b63e48b3636495e0d7",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/v1_k4_matched_pooling/ARTIFACT_HASHES.json",
+      "original_sha256": "7e9538ddf843fcce2767985f95d5398ffb3ca279fb5e0ea364c73c2800dd9455",
+      "package_sha256": "536df0613a1c8cef1d114e818fd7ffd8c4cf683fedecc46fa8ad789b71616ba7",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/v1_k4_matched_pooling/AUDIT.json",
+      "original_sha256": "482a75c54174a2b59664f863f74de800e2639d69d4ca1b496137be6232c4e463",
+      "package_sha256": "e56d348ae4b753030e78b5111c0d74b2ab0ec42145b3ad572aca98a0d8ffab72",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "results/v1_k4_matched_pooling/REPORT.md",
+      "original_sha256": "583bae341e78d4f7794af378a611fd1bf72303469587b147ff8decc4637c7507",
+      "package_sha256": "d235523f085740e8f28094b7c8b60b71c93ebb1be850976c4bc336eceb56a6ba",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "scripts/official_v6/official_test_v6_protocol.py",
+      "original_sha256": "c1967edab56ce91259fe33b0f3ef938a5734305f628a60715ee2b6b0b016efeb",
+      "package_sha256": "cc64b9ce31bb85ef819ee07af8e8464eb2cdb2c7dde9d5c1324bfc813fabcd3a",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "scripts/prepare_review_release.py",
+      "original_sha256": "46551473d95721011bd639a1f76aeda646baecc8accf64095fdff4b476deadd1",
+      "package_sha256": "243615456a03d4d742092e02720b20a45acb47426c341be4ca57b62f7e06ff6d",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "scripts/render_recursive_reuse.py",
+      "original_sha256": "9e67e2fb995e1c08dd92d7eccf7d9fc87874f0aa3df54fa2e5d6d28b804553ec",
+      "package_sha256": "0c566ec0311cd2354b500a52cc1fd0c23aefbaa8e552726c99bec1adf816b2ce",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "scripts/review_common.py",
+      "original_sha256": "19ef9cae24c14eac91919ae1cf4ede03105ff9fd5aaf04ef3fa3f6f1ce93a7d8",
+      "package_sha256": "6c7aade06b69088abaffb2409bb80080c87af7627ab42e932f8639987d293dcc",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "scripts/safe_baselines_protocol.py",
+      "original_sha256": "1009223b73169b4be953de7c415f2f4b47adf2f087319d75dc8e596cf30ee96c",
+      "package_sha256": "7d270d35e7327054c18bf5eabbb8c648f6f54d5ee1665b414ced8f6daa4e542c",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    },
+    {
+      "path": "scripts/v1_k4_pooling.py",
+      "original_sha256": "e5660f8acf60dd971f4523cc090645f6c4ddf1dce12569eff27f03cd242058f0",
+      "package_sha256": "b26e1374337501771fee73fca4ab09d69430bf738d99886bb651b2b765188d7d",
+      "reason": "Identity/provenance/report-command metadata or transitive SHA-256 rebinding only; scientific numeric values preserved. PNGs have metadata removed with pixels preserved."
+    }
+  ],
+  "excluded_tracked_files": [
+    {
+      "path": ".gitignore",
+      "reason": "Replaced identifying repository landing/citation or version-control metadata."
+    },
+    {
+      "path": "CITATION.cff",
+      "reason": "Replaced identifying repository landing/citation or version-control metadata."
+    },
+    {
+      "path": "README.md",
+      "reason": "Replaced identifying repository landing/citation or version-control metadata."
+    },
+    {
+      "path": "paper/README.md",
+      "reason": "Manuscript/build/publication-planning material: authoritative manuscript is separately submitted; no manuscript rewriting."
+    },
+    {
+      "path": "paper/REMAINING_REVISION_PLAN.md",
+      "reason": "Manuscript/build/publication-planning material: authoritative manuscript is separately submitted; no manuscript rewriting."
+    },
+    {
+      "path": "paper/REVIEW_EVIDENCE_MAP.md",
+      "reason": "Manuscript/build/publication-planning material: authoritative manuscript is separately submitted; no manuscript rewriting."
+    },
+    {
+      "path": "paper/SAFE_BASELINE_REVISION_PLAN.md",
+      "reason": "Manuscript/build/publication-planning material: authoritative manuscript is separately submitted; no manuscript rewriting."
+    },
+    {
+      "path": "paper/figures/fig2_official_per_corpus.png",
+      "reason": "Manuscript/build/publication-planning material: authoritative manuscript is separately submitted; no manuscript rewriting."
+    },
+    {
+      "path": "paper/figures/fig3_kary_scaling.png",
+      "reason": "Manuscript/build/publication-planning material: authoritative manuscript is separately submitted; no manuscript rewriting."
+    },
+    {
+      "path": "paper/figures/fig4_k4_pooling.png",
+      "reason": "Manuscript/build/publication-planning material: authoritative manuscript is separately submitted; no manuscript rewriting."
+    },
+    {
+      "path": "paper/main.tex",
+      "reason": "Manuscript/build/publication-planning material: authoritative manuscript is separately submitted; no manuscript rewriting."
+    },
+    {
+      "path": "paper/references.bib",
+      "reason": "Manuscript/build/publication-planning material: authoritative manuscript is separately submitted; no manuscript rewriting."
+    },
+    {
+      "path": "paper/tmlr.bst",
+      "reason": "Manuscript/build/publication-planning material: authoritative manuscript is separately submitted; no manuscript rewriting."
+    },
+    {
+      "path": "paper/tmlr.sty",
+      "reason": "Manuscript/build/publication-planning material: authoritative manuscript is separately submitted; no manuscript rewriting."
+    },
+    {
+      "path": "reproducibility/protocols/final_v6/run.sh",
+      "reason": "Historical launch wrappers refer to obsolete experiment layout, external environment or Git history; direct Python entrypoints retained."
+    },
+    {
+      "path": "reproducibility/protocols/official_v6/run.sh",
+      "reason": "Historical launch wrappers refer to obsolete experiment layout, external environment or Git history; direct Python entrypoints retained."
+    },
+    {
+      "path": "reproducibility/protocols/official_v6/run_evaluation_recovery.sh",
+      "reason": "Historical launch wrappers refer to obsolete experiment layout, external environment or Git history; direct Python entrypoints retained."
+    },
+    {
+      "path": "tests/test_continuation_comparison_publication.py",
+      "reason": "Publication/source-string or historical-byte packaging tests; behavior tests retained."
+    },
+    {
+      "path": "tests/test_official_v6_recovery.py",
+      "reason": "Publication/source-string or historical-byte packaging tests; behavior tests retained."
+    },
+    {
+      "path": "tests/test_publication_smoke.py",
+      "reason": "Publication/source-string or historical-byte packaging tests; behavior tests retained."
+    },
+    {
+      "path": "tests/test_reconstruction_calibration_publication.py",
+      "reason": "Publication/source-string or historical-byte packaging tests; behavior tests retained."
+    },
+    {
+      "path": "tests/test_recursive_reuse_publication.py",
+      "reason": "Publication/source-string or historical-byte packaging tests; behavior tests retained."
+    },
+    {
+      "path": "tests/test_review_completion_publication.py",
+      "reason": "Publication/source-string or historical-byte packaging tests; behavior tests retained."
+    },
+    {
+      "path": "tests/test_safe_baseline_publication.py",
+      "reason": "Publication/source-string or historical-byte packaging tests; behavior tests retained."
+    }
+  ]
+}

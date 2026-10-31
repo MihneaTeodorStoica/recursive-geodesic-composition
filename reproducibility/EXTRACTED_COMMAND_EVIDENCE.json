@@ -1,0 +1,37 @@
+[
+  {
+    "command": "python supplement.py verify",
+    "exit_code": 0,
+    "stdout": "Verified 409 packaged files by size and SHA-256.\nPackage manifest and SHA256SUMS are checksum containers, not self-authenticating signatures.\n",
+    "stderr": "",
+    "scope": "Historical candidate supplementary extraction transcript; its observed file count is not a claim about the current branch inventory."
+  },
+  {
+    "command": "sha256sum --check --quiet SHA256SUMS",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "scope": "Historical candidate supplementary extraction transcript; its observed file count is not a claim about the current branch inventory."
+  },
+  {
+    "command": "python supplement.py report",
+    "exit_code": 0,
+    "stdout": "Recomputed 120 classifier AUCs in 60 saved prediction files; held-out pairs and TRAIN/holdout separation verified.\n\nSaved-result fidelity (recomputed from 4,000 per-document scores):\n  first_chunk: 0.958453122246\n  learned_parent: 0.985045479440\n  learned_reference: 0.983174717295\n  token_weighted_mean: 0.982938157405\n  unweighted_mean: 0.956932777683\nHistorical official AUC (copied aggregate, not rerun): 0.584232166667; CI95 [0.5782316083333333, 0.5903380020833333]\nNo classifier fitting, bootstrap interval replay, teacher encoding, model inference, timing benchmark or training was performed.\n",
+    "stderr": "",
+    "scope": "Historical candidate supplementary extraction transcript; its observed file count is not a claim about the current branch inventory."
+  },
+  {
+    "command": "python supplement.py materialize weights --role candidate_parent_only_fitted_probe --role source_parent_only_fitted_probe --verify-only",
+    "exit_code": 0,
+    "stdout": "Verified 6 exact weights; no files placed.\nWarm-checkpoint payloads contain personal paths: do not redistribute them as anonymous attachments.\n",
+    "stderr": "",
+    "scope": "Historical candidate supplementary extraction transcript; its observed file count is not a claim about the current branch inventory."
+  },
+  {
+    "command": "python -m compileall -q .",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "scope": "Historical candidate supplementary extraction transcript; its observed file count is not a claim about the current branch inventory."
+  }
+]

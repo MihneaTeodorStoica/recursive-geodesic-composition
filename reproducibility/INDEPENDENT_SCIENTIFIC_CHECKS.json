@@ -1,0 +1,1272 @@
+{
+  "numeric_json_files": 194,
+  "numeric_json_leaves": 2493640,
+  "json_comparisons": [
+    {
+      "path": "reproducibility/ARTIFACT_MANIFEST.json",
+      "numeric_leaves": 83,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "reproducibility/REVIEW_RELEASE_MANIFEST.json",
+      "numeric_leaves": 187,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "reproducibility/protocols/review_completion_v1/CONTEXT_REDUCTION_DIAGNOSIS.json",
+      "numeric_leaves": 1502,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "reproducibility/protocols/review_completion_v1/CONTEXT_REDUCTION_FAILED_PROTOCOL.json",
+      "numeric_leaves": 54,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "reproducibility/protocols/review_completion_v1/CONTEXT_REDUCTION_RECOVERY.json",
+      "numeric_leaves": 6,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "reproducibility/protocols/review_completion_v1/TRAIN_POPULATION_RECOVERY.json",
+      "numeric_leaves": 5,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "reproducibility/protocols/review_completion_v1/cache_review_train_v1_insufficient_population.json",
+      "numeric_leaves": 54,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "reproducibility/protocols/review_completion_v1/cache_review_train_v1_interrupted_preencoding.json",
+      "numeric_leaves": 54,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "reproducibility/protocols/safe_baselines_v1/PREPARATION_RECOVERY.json",
+      "numeric_leaves": 1,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/clean_v6_development/FINAL_RESULTS.json",
+      "numeric_leaves": 1037,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/clean_v6_development/POST_FINAL_VERIFICATION.json",
+      "numeric_leaves": 37,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/clean_v6_development/PRE_DEVELOPMENT_FROZEN.json",
+      "numeric_leaves": 11,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/clean_v6_development/seeds/271828/DEVELOPMENT_EVALUATION.json",
+      "numeric_leaves": 280,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/clean_v6_development/seeds/271828/PRE_DEVELOPMENT_FROZEN.json",
+      "numeric_leaves": 59,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/clean_v6_development/seeds/271828/autoencoder_seed271828_run_status.json",
+      "numeric_leaves": 15,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/clean_v6_development/seeds/314159/DEVELOPMENT_EVALUATION.json",
+      "numeric_leaves": 280,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/clean_v6_development/seeds/314159/PRE_DEVELOPMENT_FROZEN.json",
+      "numeric_leaves": 59,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/clean_v6_development/seeds/314159/autoencoder_seed314159_run_status.json",
+      "numeric_leaves": 15,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/clean_v6_development/seeds/424242/DEVELOPMENT_EVALUATION.json",
+      "numeric_leaves": 280,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/clean_v6_development/seeds/424242/PRE_DEVELOPMENT_FROZEN.json",
+      "numeric_leaves": 59,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/clean_v6_development/seeds/424242/autoencoder_seed424242_run_status.json",
+      "numeric_leaves": 15,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/ANALYSIS_PROTOCOL.json",
+      "numeric_leaves": 99,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/ARTIFACT_HASHES.json",
+      "numeric_leaves": 0,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/AUDIT.json",
+      "numeric_leaves": 19,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/INFERENCE_MANIFEST.json",
+      "numeric_leaves": 184,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/NUMERICAL_CHECK.json",
+      "numeric_leaves": 34,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/NUMERICAL_CHECK_PROTOCOL.json",
+      "numeric_leaves": 7,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/POINTS.json",
+      "numeric_leaves": 145694,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/PRESENTATION.json",
+      "numeric_leaves": 4,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/PROBE_CROSS_COSINES.json",
+      "numeric_leaves": 116352,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/RESULTS.json",
+      "numeric_leaves": 5298,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/SELECTED_CLASSIFIER_SCORES.json",
+      "numeric_leaves": 96000,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/ARTIFACT_HASHES.json",
+      "numeric_leaves": 0,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/AUDIT.json",
+      "numeric_leaves": 11,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/FROZEN_MODELS.json",
+      "numeric_leaves": 57625,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/INFERENCE_MANIFEST.json",
+      "numeric_leaves": 0,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/PROTOCOL.json",
+      "numeric_leaves": 54,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/RESULTS.json",
+      "numeric_leaves": 3491,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/SCORES.json",
+      "numeric_leaves": 48000,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/attached_seed271828__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/attached_seed271828__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/attached_seed271828__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/attached_seed271828__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/attached_seed271828__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/attached_seed314159__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/attached_seed314159__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/attached_seed314159__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/attached_seed314159__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/attached_seed314159__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/attached_seed424242__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/attached_seed424242__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/attached_seed424242__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/attached_seed424242__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/attached_seed424242__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/detached_seed271828__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/detached_seed271828__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/detached_seed271828__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/detached_seed271828__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/detached_seed271828__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/detached_seed314159__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/detached_seed314159__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/detached_seed314159__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/detached_seed314159__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/detached_seed314159__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/detached_seed424242__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/detached_seed424242__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/detached_seed424242__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/detached_seed424242__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/attacks/detached_seed424242__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/decoder_gradient_v1/reconstruction/SCORES.json",
+      "numeric_leaves": 29088,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/input_order_v1/ARTIFACT_HASHES.json",
+      "numeric_leaves": 0,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/input_order_v1/AUDIT.json",
+      "numeric_leaves": 31,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/input_order_v1/PROTOCOL.json",
+      "numeric_leaves": 54,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/input_order_v1/RESULTS.json",
+      "numeric_leaves": 5327,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/input_order_v1/SCORES.json",
+      "numeric_leaves": 63024,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/kary_scaling/ARTIFACT_MANIFEST.json",
+      "numeric_leaves": 2,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/kary_scaling/CANDIDATE_VALIDATION_ONLY.json",
+      "numeric_leaves": 27,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/kary_scaling/CUDA_SMOKE.json",
+      "numeric_leaves": 16,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/kary_scaling/KARY_VALIDATION_REPORT.json",
+      "numeric_leaves": 696,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/kary_scaling/encoder_seed424242_run_status.json",
+      "numeric_leaves": 9,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/longembed_review_v1/2wikimqa/RESULTS.json",
+      "numeric_leaves": 837,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/longembed_review_v1/2wikimqa/SCORES.json",
+      "numeric_leaves": 13200,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/longembed_review_v1/ARTIFACT_HASHES.json",
+      "numeric_leaves": 0,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/longembed_review_v1/AUDIT.json",
+      "numeric_leaves": 17,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/longembed_review_v1/PROTOCOL.json",
+      "numeric_leaves": 54,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/longembed_review_v1/RESULTS.json",
+      "numeric_leaves": 3576,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/longembed_review_v1/RESUME_PROTOCOL.json",
+      "numeric_leaves": 1,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/longembed_review_v1/narrativeqa/RESULTS.json",
+      "numeric_leaves": 838,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/longembed_review_v1/narrativeqa/SCORES.json",
+      "numeric_leaves": 449662,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/longembed_review_v1/qmsum/RESULTS.json",
+      "numeric_leaves": 1037,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/longembed_review_v1/qmsum/SCORES.json",
+      "numeric_leaves": 65858,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/longembed_review_v1/summ_screen_fd/RESULTS.json",
+      "numeric_leaves": 837,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/longembed_review_v1/summ_screen_fd/SCORES.json",
+      "numeric_leaves": 14784,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/official_v6/results.json",
+      "numeric_leaves": 9964,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/probe_families_v1/ARTIFACT_HASHES.json",
+      "numeric_leaves": 0,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/probe_families_v1/AUDIT.json",
+      "numeric_leaves": 51,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/probe_families_v1/FROZEN_PROBES.json",
+      "numeric_leaves": 18090,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/probe_families_v1/PROTOCOL.json",
+      "numeric_leaves": 54,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/probe_families_v1/RESULTS.json",
+      "numeric_leaves": 24842,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/probe_families_v1/SCORES.json",
+      "numeric_leaves": 278760,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/probe_families_v1/TRAIN_MANIFEST.json",
+      "numeric_leaves": 873,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/reconstruction_calibration_v1/ANALYSIS_PROTOCOL.json",
+      "numeric_leaves": 64,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/reconstruction_calibration_v1/ARTIFACT_HASHES.json",
+      "numeric_leaves": 0,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/reconstruction_calibration_v1/AUDIT.json",
+      "numeric_leaves": 32,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/reconstruction_calibration_v1/CROSS_COSINES.json",
+      "numeric_leaves": 106656,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/reconstruction_calibration_v1/DOCUMENT_SCORES.json",
+      "numeric_leaves": 104232,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/reconstruction_calibration_v1/INFERENCE_MANIFEST.json",
+      "numeric_leaves": 120,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/reconstruction_calibration_v1/RESULTS.json",
+      "numeric_leaves": 9506,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/recursive_reuse_v1/ANALYSIS_PROTOCOL.json",
+      "numeric_leaves": 34,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/recursive_reuse_v1/ARTIFACT_HASHES.json",
+      "numeric_leaves": 0,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/recursive_reuse_v1/AUDIT.json",
+      "numeric_leaves": 21,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/recursive_reuse_v1/DOCUMENT_METADATA.json",
+      "numeric_leaves": 5454,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/recursive_reuse_v1/DOCUMENT_SCORES.json",
+      "numeric_leaves": 26664,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/recursive_reuse_v1/FULL_POPULATION.json",
+      "numeric_leaves": 5385,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/recursive_reuse_v1/INFERENCE_MANIFEST.json",
+      "numeric_leaves": 336,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/recursive_reuse_v1/RESULTS.json",
+      "numeric_leaves": 2526,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/ANALYSIS_PROTOCOL.json",
+      "numeric_leaves": 25,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/ARTIFACT_HASHES.json",
+      "numeric_leaves": 0,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/AUDIT.json",
+      "numeric_leaves": 14,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/DOCUMENT_METADATA.json",
+      "numeric_leaves": 16000,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/DOCUMENT_SCORES.json",
+      "numeric_leaves": 56000,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/INFERENCE_MANIFEST.json",
+      "numeric_leaves": 267,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/REGENERATED_CACHE_MANIFEST.json",
+      "numeric_leaves": 39,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/RESULTS.json",
+      "numeric_leaves": 5909,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__fineweb.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__fineweb_edu.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__openwebtext.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__pooled.json",
+      "numeric_leaves": 16019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__wikipedia_en_20231101.json",
+      "numeric_leaves": 4019,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/tree_families_v1/ARTIFACT_HASHES.json",
+      "numeric_leaves": 0,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/tree_families_v1/AUDIT.json",
+      "numeric_leaves": 40,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/tree_families_v1/PROTOCOL.json",
+      "numeric_leaves": 54,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/tree_families_v1/RESULTS.json",
+      "numeric_leaves": 19649,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/tree_families_v1/SCORES.json",
+      "numeric_leaves": 94536,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/v1_k4_matched_pooling/ARTIFACT_HASHES.json",
+      "numeric_leaves": 0,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/v1_k4_matched_pooling/AUDIT.json",
+      "numeric_leaves": 27,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/v1_k4_matched_pooling/DOCUMENT_SCORES.json",
+      "numeric_leaves": 3636,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/v1_k4_matched_pooling/PROBE_MANIFEST.json",
+      "numeric_leaves": 36,
+      "prior_equal": true,
+      "live_equal": true
+    },
+    {
+      "path": "results/v1_k4_matched_pooling/RESULTS.json",
+      "numeric_leaves": 94,
+      "prior_equal": true,
+      "live_equal": true
+    }
+  ],
+  "scientific_source_modules": [
+    {
+      "path": "src/recursive_geodesic_composition/__init__.py",
+      "sha256": "b7069de5366a9dca7ff6a8ebff594a61fecf7e12ee80395a0a9e3fd5115a72b9",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/architecture.py",
+      "sha256": "a789a89786cbac66e5b7dbcd63c83145852e744f69154fa92052f1e209ee1940",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/continuation_comparison.py",
+      "sha256": "b7a0fc69c167799ff6c391d2387d80ed09306f7b1820464deb4754f05ef1c053",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/data.py",
+      "sha256": "cd2d6e583d496993e63b3d4ee749cf727e8cd0a5ff445ed9e5aba881225cf7f6",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/deployment_regime_study.py",
+      "sha256": "f3d670c4e4671c5f6cd811ef7b9d0a208cd940d1b9ae39e82f1354e042c12543",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/evaluate.py",
+      "sha256": "b98e3fb6673ef59100e621898905095786604cd5841e8a6d496fd4b0164e2c65",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/evaluate_kary_validation.py",
+      "sha256": "07649c9d817c31046a834e3e9b5a0f0a041af690f420ada66be4da858034c2c9",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/evaluate_retention_long.py",
+      "sha256": "db48277313df273fd36a331ef1570cff6c3e5c6727ce89ef412b29e8158ecbe8",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/extended_controls.py",
+      "sha256": "ff0d08432af758d62cc0b626027c63490c97568e35d30595f4e42ad2299e8017",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/information_retention.py",
+      "sha256": "d2e0a3a2344f69a90f849efbb7f2b48c7752e8ffc70a4ff0ab18ed164550c7ec",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/prepare.py",
+      "sha256": "2f138dda4be1d08a90391c30f7c2fb2cd701367ae3a820c7a4f570b35ff4749e",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/prepare_kary.py",
+      "sha256": "a0257b2f69fd1ba198373171025b9add79f40b1c771239a093179ef247dfff50",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/prepare_retention_long.py",
+      "sha256": "f0f61b06a3a96773b2d480226dc3d4f8671a5568ed21e5a1750547080f5fd67b",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/reconstruction_calibration.py",
+      "sha256": "16b63b8c7003db95252b2736dc62f0d9691f6ed1b7ae5f4c20c7281d97bbf35b",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/recursive_reuse.py",
+      "sha256": "21a6248836f24807b8fd080c891efc1a86cd6a2caae916c5bdbe24679013046d",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/safe_baselines.py",
+      "sha256": "c1b1af3138d44c3584542e09ba468d2bb4b0b36cdc8d901a76f6c444f2410dd3",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/stable_pooling.py",
+      "sha256": "61096d066c5a2bf557b8a2a49a348c4a0e4d948e58a01a6bff3c08696d464bc3",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/train.py",
+      "sha256": "1b2e975641f04a55735deac5c14cb1b373d82a08f432a68bab5d59856d4886b5",
+      "original_equals_prior_equals_live": true
+    },
+    {
+      "path": "src/recursive_geodesic_composition/validation_output_calibration.py",
+      "sha256": "6ba905238d3b1dda317834338667149a613c5aea4c2657fe442f4c5ef94c1ed4",
+      "original_equals_prior_equals_live": true
+    }
+  ],
+  "weight_manifest_entries": 66,
+  "included_exact_probes": 6,
+  "previous_zip_sha256": "288e1a2de555e6199774bab3ad59c96869f6e2d669419ea1a6daa04a6bf1dcc7",
+  "initial_live_payload_equals_supplied_archive": true,
+  "later_anonymous_updates": "Citation/BibTeX/institution text changed during audit; latest scientific modules and historical numeric JSON were independently rechecked unchanged. Whole latest snapshot is not asserted identical to supplied archive."
+}

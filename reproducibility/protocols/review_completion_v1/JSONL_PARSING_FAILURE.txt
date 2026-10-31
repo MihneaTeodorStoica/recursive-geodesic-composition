@@ -1,0 +1,25 @@
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]Loading weights: 100%|██████████| 134/134 [00:00<00:00, 15689.27it/s]
+2wikimqa: 300 docs, 300 queries, 2682849 tokens, 2768 leaves
+Completed all methods: 2wikimqa
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+qmsum: 197 docs, 1527 queries, 2748767 tokens, 2781 leaves
+Completed all methods: qmsum
+summ_screen_fd: 336 docs, 336 queries, 3001115 tokens, 3091 leaves
+Completed all methods: summ_screen_fd
+Traceback (most recent call last):
+  File "scripts/evaluate_longembed_review.py", line 170, in <module>
+    if __name__ == "__main__": main()
+                               ^^^^^^
+  File "scripts/evaluate_longembed_review.py", line 69, in main
+    raw[split]=[json.loads(line) for line in path.read_text().splitlines() if line.strip()]
+                ^^^^^^^^^^^^^^^^
+  File "/opt/python/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/python/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/json/decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 30 (char 29)

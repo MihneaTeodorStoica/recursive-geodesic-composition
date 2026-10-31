@@ -1,0 +1,17 @@
+% Generated from RESULTS.json; checkpoint scores averaged within documents.
+\begin{table}[H]
+\caption{Matched reconstruction calibration on 606 four-child prefixes. Learned rows average checkpoint scores, not vectors. Copy rows repeat one unit parent in all four output slots. $\Delta$ compares each row with learned-parent copy; only the decoder/probe rows isolate a decoding gain for that same parent. Shuffled scoring averages all 24 within-document target permutations, holding inputs and predictions fixed. Order gap is ordered minus shuffled cosine.}
+\label{tab:reconstruction-calibration}
+\centering\small
+\begin{tabularx}{\linewidth}{Yrrrr}
+\toprule
+Prediction rule & Child cosine & $\Delta$ vs copy & Shuffled & Order gap \\
+\midrule
+Learned parent copied & 0.914022 & +0.000000 & 0.914022 & +0.00000000 \\
+Built-in strict decoder & 0.915064 & +0.001043 & 0.915063 & +0.00000069 \\
+Released TRAIN-fitted probe & 0.908105 & -0.005916 & 0.907197 & +0.00090843 \\
+Weighted pooling copied & 0.920365 & +0.006344 & 0.920365 & +0.00000000 \\
+Unweighted pooling copied & 0.922576 & +0.008554 & 0.922576 & +0.00000000 \\
+\bottomrule
+\end{tabularx}
+\end{table}

@@ -1,0 +1,30 @@
+{
+  "all_three_fixed_before_development": true,
+  "development_cache_opened": false,
+  "development_only": true,
+  "promotion_gate": {
+    "all_encoder_decoder_parameters_changed": true,
+    "builtin_child_cosine_minimum": 0.9,
+    "every_seed_strongest_auc_strictly_below": 0.61,
+    "mean_strongest_auc_strictly_below": 0.6,
+    "no_collapse_or_saturation": true,
+    "retention_floors_frozen": true,
+    "teacher_cosine_strictly_above": 0.98
+  },
+  "protected_data_accessed": false,
+  "seed_freezes": {
+    "271828": {
+      "path": "results_kary4_strict_autoencoder_v6_clean_development_seed271828/PRE_DEVELOPMENT_FROZEN.json",
+      "sha256": "e4a1abad774fbdd535d3b15bddacf181bcd940f9263d789214735c4b69bac935"
+    },
+    "314159": {
+      "path": "results_kary4_strict_autoencoder_v6_clean_development_seed314159/PRE_DEVELOPMENT_FROZEN.json",
+      "sha256": "aa29f6eb26f1188f48d3dbf546c05599b2219a23556c48ad810e66edc5a3dc2c"
+    },
+    "424242": {
+      "path": "results_kary4_strict_autoencoder_v6_clean_development_seed424242/PRE_DEVELOPMENT_FROZEN.json",
+      "sha256": "4466cd8b25b69c75ba53c0dffdc94ea7570bf82c0c16ccb11e4862d37744ba2a"
+    }
+  },
+  "study": "kary4_strict_autoencoder_v6_clean_development"
+}

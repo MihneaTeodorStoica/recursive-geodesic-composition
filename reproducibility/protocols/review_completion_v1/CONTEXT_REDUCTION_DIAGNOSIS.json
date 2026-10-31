@@ -1,0 +1,2406 @@
+{
+  "checked_documents": 300,
+  "checks": [
+    {
+      "document_id": "doc_0",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 14244.84375,
+      "tokens": 4283
+    },
+    {
+      "document_id": "doc_1",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 39734.7578125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_10",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 18066.216796875,
+      "tokens": 3953
+    },
+    {
+      "document_id": "doc_100",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34475.59375,
+      "tokens": 7928
+    },
+    {
+      "document_id": "doc_101",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 20047.16015625,
+      "tokens": 4459
+    },
+    {
+      "document_id": "doc_102",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 17877.59375,
+      "tokens": 4122
+    },
+    {
+      "document_id": "doc_103",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 35928.5,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_104",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 41141.171875,
+      "tokens": 7764
+    },
+    {
+      "document_id": "doc_105",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 10556.74609375,
+      "tokens": 2304
+    },
+    {
+      "document_id": "doc_106",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 33244.890625,
+      "tokens": 6305
+    },
+    {
+      "document_id": "doc_107",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 27205.951171875,
+      "tokens": 5725
+    },
+    {
+      "document_id": "doc_108",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 49286.484375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_109",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 49460.8125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_11",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 52308.5703125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_110",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 47088.34375,
+      "tokens": 8101
+    },
+    {
+      "document_id": "doc_111",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 38514.68359375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_112",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 18547.55859375,
+      "tokens": 4658
+    },
+    {
+      "document_id": "doc_113",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 15826.2470703125,
+      "tokens": 3568
+    },
+    {
+      "document_id": "doc_114",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 45896.95703125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_115",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 24434.26171875,
+      "tokens": 6943
+    },
+    {
+      "document_id": "doc_116",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 33733.9921875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_117",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 11496.0283203125,
+      "tokens": 2643
+    },
+    {
+      "document_id": "doc_118",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 50500.6015625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_119",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34830.0078125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_12",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34509.265625,
+      "tokens": 6214
+    },
+    {
+      "document_id": "doc_120",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 24752.6640625,
+      "tokens": 4135
+    },
+    {
+      "document_id": "doc_121",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 25210.025390625,
+      "tokens": 4396
+    },
+    {
+      "document_id": "doc_122",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 10906.8037109375,
+      "tokens": 2462
+    },
+    {
+      "document_id": "doc_123",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 32621.3671875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_124",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 27385.658203125,
+      "tokens": 6601
+    },
+    {
+      "document_id": "doc_125",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 39263.171875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_126",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 52756.08203125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_127",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34118.0078125,
+      "tokens": 5271
+    },
+    {
+      "document_id": "doc_128",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 20136.431640625,
+      "tokens": 5404
+    },
+    {
+      "document_id": "doc_129",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 16998.15625,
+      "tokens": 4100
+    },
+    {
+      "document_id": "doc_13",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 56945.24609375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_130",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34781.6328125,
+      "tokens": 7774
+    },
+    {
+      "document_id": "doc_131",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 37791.02734375,
+      "tokens": 6756
+    },
+    {
+      "document_id": "doc_132",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 29258.734375,
+      "tokens": 6905
+    },
+    {
+      "document_id": "doc_133",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 26971.0,
+      "tokens": 6109
+    },
+    {
+      "document_id": "doc_134",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 44530.265625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_135",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 15746.947265625,
+      "tokens": 4242
+    },
+    {
+      "document_id": "doc_136",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 31315.58203125,
+      "tokens": 7135
+    },
+    {
+      "document_id": "doc_137",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 31738.96484375,
+      "tokens": 6635
+    },
+    {
+      "document_id": "doc_138",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 30692.34375,
+      "tokens": 7717
+    },
+    {
+      "document_id": "doc_139",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 35434.4609375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_14",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 58411.16015625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_140",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 36706.33203125,
+      "tokens": 7279
+    },
+    {
+      "document_id": "doc_141",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 28946.341796875,
+      "tokens": 7971
+    },
+    {
+      "document_id": "doc_142",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 33465.05859375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_143",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 49409.84765625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_144",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 29402.919921875,
+      "tokens": 5959
+    },
+    {
+      "document_id": "doc_145",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 40423.7265625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_146",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 21229.2734375,
+      "tokens": 4662
+    },
+    {
+      "document_id": "doc_147",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 39205.9140625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_148",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 31421.53515625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_149",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 19081.892578125,
+      "tokens": 4323
+    },
+    {
+      "document_id": "doc_15",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 17847.404296875,
+      "tokens": 4533
+    },
+    {
+      "document_id": "doc_150",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 22388.296875,
+      "tokens": 5212
+    },
+    {
+      "document_id": "doc_151",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 44119.98828125,
+      "tokens": 7324
+    },
+    {
+      "document_id": "doc_152",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34354.33203125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_153",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 56975.46875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_154",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 58627.12890625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_155",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 24323.546875,
+      "tokens": 5756
+    },
+    {
+      "document_id": "doc_156",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 20110.60546875,
+      "tokens": 4560
+    },
+    {
+      "document_id": "doc_157",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 40261.0,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_158",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 47018.6171875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_159",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 31241.7734375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_16",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 28860.85546875,
+      "tokens": 6363
+    },
+    {
+      "document_id": "doc_160",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 54963.1328125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_161",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34524.9609375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_162",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 37868.26953125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_163",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 28136.748046875,
+      "tokens": 6270
+    },
+    {
+      "document_id": "doc_164",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 49330.2265625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_165",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 58545.62109375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_166",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 38164.484375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_167",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34763.98828125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_168",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 14462.8466796875,
+      "tokens": 2867
+    },
+    {
+      "document_id": "doc_169",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 8398.32421875,
+      "tokens": 1960
+    },
+    {
+      "document_id": "doc_17",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 15341.267578125,
+      "tokens": 3502
+    },
+    {
+      "document_id": "doc_170",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 33168.296875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_171",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 42978.46484375,
+      "tokens": 7144
+    },
+    {
+      "document_id": "doc_172",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 18041.9140625,
+      "tokens": 4077
+    },
+    {
+      "document_id": "doc_173",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 33841.109375,
+      "tokens": 7737
+    },
+    {
+      "document_id": "doc_174",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 31046.900390625,
+      "tokens": 7427
+    },
+    {
+      "document_id": "doc_175",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 19617.56640625,
+      "tokens": 4305
+    },
+    {
+      "document_id": "doc_176",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34503.8984375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_177",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 23148.66015625,
+      "tokens": 5386
+    },
+    {
+      "document_id": "doc_178",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 38595.140625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_179",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 18061.7734375,
+      "tokens": 4166
+    },
+    {
+      "document_id": "doc_18",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 22879.986328125,
+      "tokens": 5053
+    },
+    {
+      "document_id": "doc_180",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 43729.484375,
+      "tokens": 7387
+    },
+    {
+      "document_id": "doc_181",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 15469.771484375,
+      "tokens": 3666
+    },
+    {
+      "document_id": "doc_182",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 38589.046875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_183",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 38160.62109375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_184",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 63591.96484375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_185",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 47619.09375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_186",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 19774.76171875,
+      "tokens": 4315
+    },
+    {
+      "document_id": "doc_187",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 55149.1484375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_188",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 22172.98046875,
+      "tokens": 4095
+    },
+    {
+      "document_id": "doc_189",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 37791.546875,
+      "tokens": 7296
+    },
+    {
+      "document_id": "doc_19",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 37316.8984375,
+      "tokens": 8074
+    },
+    {
+      "document_id": "doc_190",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 32418.01171875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_191",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 32796.7421875,
+      "tokens": 5393
+    },
+    {
+      "document_id": "doc_192",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 28547.34375,
+      "tokens": 6090
+    },
+    {
+      "document_id": "doc_193",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34788.8984375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_194",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 35693.984375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_195",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 35424.71875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_196",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 43169.19140625,
+      "tokens": 6522
+    },
+    {
+      "document_id": "doc_197",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 47339.375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_198",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 54966.0390625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_199",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 35241.8671875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_2",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 30869.869140625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_20",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 44192.546875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_200",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 12704.001953125,
+      "tokens": 2951
+    },
+    {
+      "document_id": "doc_201",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 57642.34765625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_202",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 35274.25,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_203",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 20925.8359375,
+      "tokens": 4712
+    },
+    {
+      "document_id": "doc_204",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 31206.91015625,
+      "tokens": 5317
+    },
+    {
+      "document_id": "doc_205",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 33407.0234375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_206",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 35343.75390625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_207",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 47600.5625,
+      "tokens": 7967
+    },
+    {
+      "document_id": "doc_208",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 32681.486328125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_209",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 44568.40625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_21",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 35601.21875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_210",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 32879.296875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_211",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 50389.0625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_212",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 31509.03515625,
+      "tokens": 7477
+    },
+    {
+      "document_id": "doc_213",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 43507.0,
+      "tokens": 7150
+    },
+    {
+      "document_id": "doc_214",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 19543.00390625,
+      "tokens": 4865
+    },
+    {
+      "document_id": "doc_215",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 45775.4375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_216",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34227.4375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_217",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34002.46875,
+      "tokens": 5763
+    },
+    {
+      "document_id": "doc_218",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 46327.92578125,
+      "tokens": 7774
+    },
+    {
+      "document_id": "doc_219",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 41895.671875,
+      "tokens": 7629
+    },
+    {
+      "document_id": "doc_22",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 10797.119140625,
+      "tokens": 2765
+    },
+    {
+      "document_id": "doc_220",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34742.265625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_221",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 48504.734375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_222",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 39434.7109375,
+      "tokens": 7103
+    },
+    {
+      "document_id": "doc_223",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 32110.3359375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_224",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 22609.734375,
+      "tokens": 3884
+    },
+    {
+      "document_id": "doc_225",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 32059.09375,
+      "tokens": 5368
+    },
+    {
+      "document_id": "doc_226",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 46555.0,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_227",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 31751.8203125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_228",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 20310.326171875,
+      "tokens": 4254
+    },
+    {
+      "document_id": "doc_229",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 18773.87109375,
+      "tokens": 4671
+    },
+    {
+      "document_id": "doc_23",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 26264.765625,
+      "tokens": 5964
+    },
+    {
+      "document_id": "doc_230",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 38125.65234375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_231",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 63823.2265625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_232",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 18882.96875,
+      "tokens": 4120
+    },
+    {
+      "document_id": "doc_233",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 35324.3203125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_234",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 24529.685546875,
+      "tokens": 5686
+    },
+    {
+      "document_id": "doc_235",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 35343.86328125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_236",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 41605.765625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_237",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 64112.1171875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_238",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 13982.4638671875,
+      "tokens": 3264
+    },
+    {
+      "document_id": "doc_239",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 47728.0546875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_24",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 31422.474609375,
+      "tokens": 6988
+    },
+    {
+      "document_id": "doc_240",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 21932.4609375,
+      "tokens": 5047
+    },
+    {
+      "document_id": "doc_241",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 31632.66015625,
+      "tokens": 5162
+    },
+    {
+      "document_id": "doc_242",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 33225.5,
+      "tokens": 6403
+    },
+    {
+      "document_id": "doc_243",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 42171.6015625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_244",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 28685.4609375,
+      "tokens": 6785
+    },
+    {
+      "document_id": "doc_245",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 28284.37890625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_246",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 21948.990234375,
+      "tokens": 5165
+    },
+    {
+      "document_id": "doc_247",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 33571.80859375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_248",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 36741.15625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_249",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34200.24609375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_25",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": false,
+      "max_abs_fp32_sum": 68067.625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_250",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 27611.775390625,
+      "tokens": 6067
+    },
+    {
+      "document_id": "doc_251",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 47276.48046875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_252",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 53953.390625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_253",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 42157.01171875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_254",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 42351.9375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_255",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 25154.111328125,
+      "tokens": 4642
+    },
+    {
+      "document_id": "doc_256",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 39229.4453125,
+      "tokens": 6292
+    },
+    {
+      "document_id": "doc_257",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 51225.265625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_258",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 25497.28515625,
+      "tokens": 4611
+    },
+    {
+      "document_id": "doc_259",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 25855.353515625,
+      "tokens": 6132
+    },
+    {
+      "document_id": "doc_26",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 56881.328125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_260",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 29694.048828125,
+      "tokens": 6823
+    },
+    {
+      "document_id": "doc_261",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 23742.55078125,
+      "tokens": 5608
+    },
+    {
+      "document_id": "doc_262",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 25996.978515625,
+      "tokens": 4405
+    },
+    {
+      "document_id": "doc_263",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 42806.2890625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_264",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 62703.6953125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_265",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 30124.765625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_266",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 15490.728515625,
+      "tokens": 3710
+    },
+    {
+      "document_id": "doc_267",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 50052.375,
+      "tokens": 8073
+    },
+    {
+      "document_id": "doc_268",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 21262.0078125,
+      "tokens": 4757
+    },
+    {
+      "document_id": "doc_269",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34878.11328125,
+      "tokens": 5867
+    },
+    {
+      "document_id": "doc_27",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 20729.390625,
+      "tokens": 4747
+    },
+    {
+      "document_id": "doc_270",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 35674.3046875,
+      "tokens": 6327
+    },
+    {
+      "document_id": "doc_271",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 19880.97265625,
+      "tokens": 4324
+    },
+    {
+      "document_id": "doc_272",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 21852.9921875,
+      "tokens": 5068
+    },
+    {
+      "document_id": "doc_273",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 27433.392578125,
+      "tokens": 5274
+    },
+    {
+      "document_id": "doc_274",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 44433.34765625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_275",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 45807.3359375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_276",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 31724.3984375,
+      "tokens": 7283
+    },
+    {
+      "document_id": "doc_277",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 27116.314453125,
+      "tokens": 6778
+    },
+    {
+      "document_id": "doc_278",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 42335.6484375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_279",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 20053.10546875,
+      "tokens": 4370
+    },
+    {
+      "document_id": "doc_28",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 32585.392578125,
+      "tokens": 6221
+    },
+    {
+      "document_id": "doc_280",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 15224.966796875,
+      "tokens": 3514
+    },
+    {
+      "document_id": "doc_281",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 19104.52734375,
+      "tokens": 3506
+    },
+    {
+      "document_id": "doc_282",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 36790.6953125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_283",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 36610.3671875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_284",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 46911.99609375,
+      "tokens": 7920
+    },
+    {
+      "document_id": "doc_285",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 29496.5078125,
+      "tokens": 8142
+    },
+    {
+      "document_id": "doc_286",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 11436.626953125,
+      "tokens": 2725
+    },
+    {
+      "document_id": "doc_287",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 33538.79296875,
+      "tokens": 8001
+    },
+    {
+      "document_id": "doc_288",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 41648.3125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_289",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 38611.296875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_29",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34067.26953125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_290",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 35464.265625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_291",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 31516.13671875,
+      "tokens": 6951
+    },
+    {
+      "document_id": "doc_292",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 20255.44921875,
+      "tokens": 4250
+    },
+    {
+      "document_id": "doc_293",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 29244.9296875,
+      "tokens": 6511
+    },
+    {
+      "document_id": "doc_294",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 39544.5859375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_295",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 23367.34375,
+      "tokens": 5806
+    },
+    {
+      "document_id": "doc_296",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 16449.310546875,
+      "tokens": 3839
+    },
+    {
+      "document_id": "doc_297",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 16204.9892578125,
+      "tokens": 3099
+    },
+    {
+      "document_id": "doc_298",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 51358.1484375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_299",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 18456.201171875,
+      "tokens": 4470
+    },
+    {
+      "document_id": "doc_3",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 20497.869140625,
+      "tokens": 4399
+    },
+    {
+      "document_id": "doc_30",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 23416.28125,
+      "tokens": 5081
+    },
+    {
+      "document_id": "doc_31",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 18455.296875,
+      "tokens": 3905
+    },
+    {
+      "document_id": "doc_32",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 45232.6015625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_33",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 37018.20703125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_34",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 25945.9296875,
+      "tokens": 6735
+    },
+    {
+      "document_id": "doc_35",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 40397.74609375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_36",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 27437.388671875,
+      "tokens": 5202
+    },
+    {
+      "document_id": "doc_37",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 22377.7890625,
+      "tokens": 4486
+    },
+    {
+      "document_id": "doc_38",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 38233.25,
+      "tokens": 8046
+    },
+    {
+      "document_id": "doc_39",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 20732.39453125,
+      "tokens": 5188
+    },
+    {
+      "document_id": "doc_4",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 25818.12890625,
+      "tokens": 4406
+    },
+    {
+      "document_id": "doc_40",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 28323.017578125,
+      "tokens": 5832
+    },
+    {
+      "document_id": "doc_41",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 29413.916015625,
+      "tokens": 5350
+    },
+    {
+      "document_id": "doc_42",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 31251.515625,
+      "tokens": 7073
+    },
+    {
+      "document_id": "doc_43",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 23670.07421875,
+      "tokens": 6165
+    },
+    {
+      "document_id": "doc_44",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 41595.9921875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_45",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 40781.0,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_46",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 37864.1796875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_47",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 38014.48828125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_48",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 24972.88671875,
+      "tokens": 5482
+    },
+    {
+      "document_id": "doc_49",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 35106.0078125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_5",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 7955.5966796875,
+      "tokens": 1372
+    },
+    {
+      "document_id": "doc_50",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 42737.9375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_51",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 42661.5546875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_52",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 23545.08984375,
+      "tokens": 5578
+    },
+    {
+      "document_id": "doc_53",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 33447.31640625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_54",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 36963.03125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_55",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 43961.5859375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_56",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 23122.4296875,
+      "tokens": 6309
+    },
+    {
+      "document_id": "doc_57",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 22901.150390625,
+      "tokens": 4472
+    },
+    {
+      "document_id": "doc_58",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 47281.0,
+      "tokens": 7933
+    },
+    {
+      "document_id": "doc_59",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 31277.37890625,
+      "tokens": 5950
+    },
+    {
+      "document_id": "doc_6",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 49842.9765625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_60",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 41093.078125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_61",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 40233.50390625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_62",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 44187.234375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_63",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 44948.15625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_64",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 57824.453125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_65",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34485.859375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_66",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 44918.3515625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_67",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 29615.640625,
+      "tokens": 5569
+    },
+    {
+      "document_id": "doc_68",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 44549.33984375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_69",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 45619.0546875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_7",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 43099.5859375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_70",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 31724.205078125,
+      "tokens": 7980
+    },
+    {
+      "document_id": "doc_71",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 37000.39453125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_72",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 21034.6484375,
+      "tokens": 3879
+    },
+    {
+      "document_id": "doc_73",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 49950.84375,
+      "tokens": 7771
+    },
+    {
+      "document_id": "doc_74",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 61951.87109375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_75",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 47825.90234375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_76",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 26487.01171875,
+      "tokens": 6093
+    },
+    {
+      "document_id": "doc_77",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 21319.78515625,
+      "tokens": 4242
+    },
+    {
+      "document_id": "doc_78",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 16346.62109375,
+      "tokens": 3660
+    },
+    {
+      "document_id": "doc_79",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 49951.66015625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_8",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34661.6953125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_80",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 38942.58984375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_81",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 11445.279296875,
+      "tokens": 2338
+    },
+    {
+      "document_id": "doc_82",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 20169.53125,
+      "tokens": 3527
+    },
+    {
+      "document_id": "doc_83",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34068.8359375,
+      "tokens": 5735
+    },
+    {
+      "document_id": "doc_84",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 34669.2578125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_85",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 50326.62890625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_86",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 21876.2890625,
+      "tokens": 4736
+    },
+    {
+      "document_id": "doc_87",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 9663.0703125,
+      "tokens": 2322
+    },
+    {
+      "document_id": "doc_88",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 29375.90234375,
+      "tokens": 6490
+    },
+    {
+      "document_id": "doc_89",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 35097.0546875,
+      "tokens": 6424
+    },
+    {
+      "document_id": "doc_9",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 19881.783203125,
+      "tokens": 4215
+    },
+    {
+      "document_id": "doc_90",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 49009.0703125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_91",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 28665.28515625,
+      "tokens": 4987
+    },
+    {
+      "document_id": "doc_92",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 54736.4609375,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_93",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 47072.67578125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_94",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 12065.130859375,
+      "tokens": 3019
+    },
+    {
+      "document_id": "doc_95",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 22389.900390625,
+      "tokens": 4452
+    },
+    {
+      "document_id": "doc_96",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 48184.6796875,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_97",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": false,
+      "max_abs_fp32_sum": 66838.03125,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_98",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 42401.09765625,
+      "tokens": 8190
+    },
+    {
+      "document_id": "doc_99",
+      "fp32_pool_finite": true,
+      "hidden_finite": true,
+      "legacy_pool_finite": true,
+      "max_abs_fp32_sum": 35085.640625,
+      "tokens": 5508
+    }
+  ],
+  "no_retrieval_scores_computed": true
+}

@@ -1,0 +1,96 @@
+{
+  "actual_device": "cuda",
+  "checkpoint": "results_kary4_strict_autoencoder_v6_clean_development_seed424242/autoencoder_seed424242.pt",
+  "checkpoint_sha256_after": "989f9bc496bea484974679cd181e43836caf3283ffdc8e66507046945e0902de",
+  "checkpoint_sha256_before": "989f9bc496bea484974679cd181e43836caf3283ffdc8e66507046945e0902de",
+  "cuda_version": "12.8",
+  "deterministic_algorithms": true,
+  "development_accessed": false,
+  "final_training_metrics": {
+    "mean": {
+      "cosine_loss": 0.051222145557403564,
+      "loss": 0.051255494356155396,
+      "mse": 0.0001333912368863821
+    },
+    "v1": {
+      "cosine_loss": 0.056778550148010254,
+      "loss": 0.05681551620364189,
+      "mse": 0.00014786087558604777
+    },
+    "weighted": {
+      "cosine_loss": 0.05406671762466431,
+      "loss": 0.05410191789269447,
+      "mse": 0.00014079888933338225
+    }
+  },
+  "fit_group_order_sha256": "67bc1058e70699353a666ff848624c628b9148f20873c3436d2d25b8f59cbe1a",
+  "fit_role": "clean_v6_train",
+  "fit_rows": 320,
+  "fit_rows_per_corpus": 80,
+  "identical_minibatch_schedule": true,
+  "initialization_sha256": "c24fa847720134b8f30f34875eaa7dab3861edd674d9ab91375a1227fb3361da",
+  "merger_updates": 0,
+  "official_accessed": false,
+  "probe_protocol": {
+    "architecture": "ParentOnlyRetentionProbe",
+    "arity": 4,
+    "batch_size": 128,
+    "dimension": 768,
+    "fit_rows_per_corpus": 80,
+    "gradient_clip_norm": 1.0,
+    "hidden": 512,
+    "initialization_seed": 730241,
+    "learning_rate": 0.0003,
+    "loss": "cosine_plus_weighted_mse",
+    "mse_weight": 0.25,
+    "optimizer": "AdamW",
+    "schedule_seed": 730242,
+    "updates": 400,
+    "weight_decay": 0.001
+  },
+  "probes": {
+    "mean": {
+      "path": "results/v1_k4_matched_pooling/probes/mean_parent_only.pt",
+      "sha256": "1b893f5f95d56d2c2f260705ad2deebb7e73f9b56c1db95a0e4f7a12d1cbdef1"
+    },
+    "v1": {
+      "path": "results/v1_k4_matched_pooling/probes/v1_parent_only.pt",
+      "sha256": "4081573c2c42a371c617bce8da1e5c438a1a2d29e03d5102847b089149d05839"
+    },
+    "weighted": {
+      "path": "results/v1_k4_matched_pooling/probes/weighted_parent_only.pt",
+      "sha256": "7f2b18a267f2d3b6f1833fc3bf98a529b2a268268677910e97e29ddf362ab488"
+    }
+  },
+  "schedule_sha256": "60cecddb28cb39f2f775d4fdf888b9c0b068c5af6c652fe0f17fb46c8f222148",
+  "selection": {
+    "fineweb": {
+      "group_order_sha256": "0d040bcf06be0fa37e2a47fbe7d20927bd69141fb00d7ad66cf7bb0a91c98942",
+      "rows": 80
+    },
+    "fineweb_edu": {
+      "group_order_sha256": "2835d21641433d65e7cb939d17c2f0a3d7e02011046862435c985191dc6a5411",
+      "rows": 80
+    },
+    "openwebtext": {
+      "group_order_sha256": "7d4a9253d72b43a94c2a80197a9aebbaa5826c000976b4f413bf06e18c4f66c3",
+      "rows": 80
+    },
+    "wikipedia_en_20231101": {
+      "group_order_sha256": "dc5e6443e4d306895c0a082149e955343fc9e897ea4fb29e0c2c69437ec21f36",
+      "rows": 80
+    }
+  },
+  "source_range": [
+    140000,
+    152000
+  ],
+  "study": "v1_k4_matched_pooling",
+  "tensor_identical_initialization": true,
+  "torch_version": "2.10.0+cu128",
+  "train_cache": {
+    "manifest_sha256": "f3cb3f6ca497e34bb932de1846e146c09995578dcb6f0b44cdefce24e43cc367",
+    "path": "cache_kary4_strict_autoencoder_v6_clean_train"
+  },
+  "v1_inference_changed": false
+}

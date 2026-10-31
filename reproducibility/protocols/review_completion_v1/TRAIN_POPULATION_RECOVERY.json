@@ -1,0 +1,37 @@
+{
+  "reason": "The original request for 500 fit + 100 validation exact-four prefixes per corpus exceeds FineWeb availability in the fixed TRAIN range [140000,152000).",
+  "changes": {
+    "fit_per_corpus": [
+      500,
+      160
+    ],
+    "validation_per_corpus": [
+      100,
+      40
+    ]
+  },
+  "unchanged": [
+    "source ranges",
+    "corpus pins",
+    "selection order",
+    "tokenization",
+    "exact duplicate exclusion",
+    "probe families",
+    "training budgets",
+    "evaluation populations"
+  ],
+  "no_embeddings_or_model_fits_or_new_evaluation_scores_before_change": true,
+  "failed_runs": {
+    "cache_review_train_v1_interrupted_preencoding": {
+      "PROTOCOL.json": "d40a97db0c82c3a162d6dc70c1fda53d59b71bd585e6e5cf3cad69e6e85caa4a",
+      "ORIGINAL_CONFIG.yaml": "cb3b170d78d7f801f34a1db7c45a4c1440de3ea918086cf8c701ba0283645381",
+      "EXECUTION.log": "ea4582df7ffb4d29d3f13ca23a6faea7e52e6b691108f13972c7d3e56e9703c3"
+    },
+    "cache_review_train_v1_insufficient_population": {
+      "PROTOCOL.json": "116a889c4a3df277e00d5fcbd93ed44d9a87ac0886fc716871cefb69ecf34b79",
+      "ORIGINAL_CONFIG.yaml": "cb3b170d78d7f801f34a1db7c45a4c1440de3ea918086cf8c701ba0283645381",
+      "EXECUTION.log": "b22494a2742f98a81a6750ffebc1944058cb15db86bcb55781da3777a063b482"
+    }
+  },
+  "recovered_config_sha256": "bd8fa1fe514b95b520868f59a4fc5f26a1fbcadb5e16b2b7fd358881b81c7986"
+}

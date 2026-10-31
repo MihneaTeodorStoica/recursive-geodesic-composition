@@ -1,0 +1,252 @@
+{
+  "note": "Independent investigation classifies15presentation/serialization differences,3documented historical recovery versions and1unresolved preparer fingerprint. No genuine scientific artifact discrepancy established by these19hash references. Historical fingerprints are not rewritten; active audit guards may still reject current source.",
+  "entries": [
+    {
+      "record": "results/continuation_comparison_v1/ANALYSIS_PROTOCOL.json",
+      "field": [
+        "source_sha256",
+        "scripts/evaluate_safe_baselines.py"
+      ],
+      "historical_recorded_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "inspected_source_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "package_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "serialization_difference",
+      "evidence_case": "SAFE_EVALUATOR_LAYOUT"
+    },
+    {
+      "record": "results/continuation_comparison_v1/ANALYSIS_PROTOCOL.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_continuation_comparison.py"
+      ],
+      "historical_recorded_sha256": "67ca34f54a7c0dd90d8ead4f942be91ce9032a00dc6fc9e69e833f77f871d550",
+      "inspected_source_sha256": "cf5ad755efbcf386f3dd7cc12df3105afecfa6d7c9d41c4cb59463e11de8a58a",
+      "package_sha256": "cf5ad755efbcf386f3dd7cc12df3105afecfa6d7c9d41c4cb59463e11de8a58a",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "serialization_difference",
+      "evidence_case": "CONTINUATION_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/continuation_comparison_v1/INFERENCE_MANIFEST.json",
+      "field": [
+        "source_sha256",
+        "scripts/evaluate_safe_baselines.py"
+      ],
+      "historical_recorded_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "inspected_source_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "package_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "serialization_difference",
+      "evidence_case": "SAFE_EVALUATOR_LAYOUT"
+    },
+    {
+      "record": "results/continuation_comparison_v1/INFERENCE_MANIFEST.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_continuation_comparison.py"
+      ],
+      "historical_recorded_sha256": "67ca34f54a7c0dd90d8ead4f942be91ce9032a00dc6fc9e69e833f77f871d550",
+      "inspected_source_sha256": "cf5ad755efbcf386f3dd7cc12df3105afecfa6d7c9d41c4cb59463e11de8a58a",
+      "package_sha256": "cf5ad755efbcf386f3dd7cc12df3105afecfa6d7c9d41c4cb59463e11de8a58a",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "serialization_difference",
+      "evidence_case": "CONTINUATION_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/continuation_comparison_v1/RESULTS.json",
+      "field": [
+        "source_sha256",
+        "scripts/evaluate_safe_baselines.py"
+      ],
+      "historical_recorded_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "inspected_source_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "package_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "serialization_difference",
+      "evidence_case": "SAFE_EVALUATOR_LAYOUT"
+    },
+    {
+      "record": "results/continuation_comparison_v1/RESULTS.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_continuation_comparison.py"
+      ],
+      "historical_recorded_sha256": "67ca34f54a7c0dd90d8ead4f942be91ce9032a00dc6fc9e69e833f77f871d550",
+      "inspected_source_sha256": "cf5ad755efbcf386f3dd7cc12df3105afecfa6d7c9d41c4cb59463e11de8a58a",
+      "package_sha256": "cf5ad755efbcf386f3dd7cc12df3105afecfa6d7c9d41c4cb59463e11de8a58a",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "serialization_difference",
+      "evidence_case": "CONTINUATION_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/reconstruction_calibration_v1/ANALYSIS_PROTOCOL.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_reconstruction_calibration.py"
+      ],
+      "historical_recorded_sha256": "adbd9258986d32b70b25d32edd327b348290417765f75109ae53e62796fe33db",
+      "inspected_source_sha256": "1effe49517ae6e32c966d4323b007b4202e002dac7547ce88f16f76b866b3273",
+      "package_sha256": "1effe49517ae6e32c966d4323b007b4202e002dac7547ce88f16f76b866b3273",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "serialization_difference",
+      "evidence_case": "CALIBRATION_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/reconstruction_calibration_v1/INFERENCE_MANIFEST.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_reconstruction_calibration.py"
+      ],
+      "historical_recorded_sha256": "adbd9258986d32b70b25d32edd327b348290417765f75109ae53e62796fe33db",
+      "inspected_source_sha256": "1effe49517ae6e32c966d4323b007b4202e002dac7547ce88f16f76b866b3273",
+      "package_sha256": "1effe49517ae6e32c966d4323b007b4202e002dac7547ce88f16f76b866b3273",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "serialization_difference",
+      "evidence_case": "CALIBRATION_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/reconstruction_calibration_v1/RESULTS.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_reconstruction_calibration.py"
+      ],
+      "historical_recorded_sha256": "adbd9258986d32b70b25d32edd327b348290417765f75109ae53e62796fe33db",
+      "inspected_source_sha256": "1effe49517ae6e32c966d4323b007b4202e002dac7547ce88f16f76b866b3273",
+      "package_sha256": "1effe49517ae6e32c966d4323b007b4202e002dac7547ce88f16f76b866b3273",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "serialization_difference",
+      "evidence_case": "CALIBRATION_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/recursive_reuse_v1/ANALYSIS_PROTOCOL.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_recursive_reuse.py"
+      ],
+      "historical_recorded_sha256": "88cfbfa4045ef88aa65c64e63c5ea8eba40d56cf6239c615aec84a92990d011e",
+      "inspected_source_sha256": "9e67e2fb995e1c08dd92d7eccf7d9fc87874f0aa3df54fa2e5d6d28b804553ec",
+      "package_sha256": "0c566ec0311cd2354b500a52cc1fd0c23aefbaa8e552726c99bec1adf816b2ce",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "serialization_difference",
+      "evidence_case": "RECURSIVE_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/recursive_reuse_v1/INFERENCE_MANIFEST.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_recursive_reuse.py"
+      ],
+      "historical_recorded_sha256": "88cfbfa4045ef88aa65c64e63c5ea8eba40d56cf6239c615aec84a92990d011e",
+      "inspected_source_sha256": "9e67e2fb995e1c08dd92d7eccf7d9fc87874f0aa3df54fa2e5d6d28b804553ec",
+      "package_sha256": "0c566ec0311cd2354b500a52cc1fd0c23aefbaa8e552726c99bec1adf816b2ce",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "serialization_difference",
+      "evidence_case": "RECURSIVE_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/recursive_reuse_v1/RESULTS.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_recursive_reuse.py"
+      ],
+      "historical_recorded_sha256": "88cfbfa4045ef88aa65c64e63c5ea8eba40d56cf6239c615aec84a92990d011e",
+      "inspected_source_sha256": "9e67e2fb995e1c08dd92d7eccf7d9fc87874f0aa3df54fa2e5d6d28b804553ec",
+      "package_sha256": "0c566ec0311cd2354b500a52cc1fd0c23aefbaa8e552726c99bec1adf816b2ce",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "serialization_difference",
+      "evidence_case": "RECURSIVE_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/safe_baselines_v1/ANALYSIS_PROTOCOL.json",
+      "field": [
+        "source_sha256",
+        "scripts/evaluate_safe_baselines.py"
+      ],
+      "historical_recorded_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "inspected_source_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "package_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "serialization_difference",
+      "evidence_case": "SAFE_EVALUATOR_LAYOUT"
+    },
+    {
+      "record": "results/safe_baselines_v1/INFERENCE_MANIFEST.json",
+      "field": [
+        "source_sha256",
+        "scripts/evaluate_safe_baselines.py"
+      ],
+      "historical_recorded_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "inspected_source_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "package_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "serialization_difference",
+      "evidence_case": "SAFE_EVALUATOR_LAYOUT"
+    },
+    {
+      "record": "results/safe_baselines_v1/RESULTS.json",
+      "field": [
+        "source_sha256",
+        "scripts/evaluate_safe_baselines.py"
+      ],
+      "historical_recorded_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "inspected_source_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "package_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "serialization_difference",
+      "evidence_case": "SAFE_EVALUATOR_LAYOUT"
+    },
+    {
+      "record": "reproducibility/protocols/review_completion_v1/CONTEXT_REDUCTION_FAILED_PROTOCOL.json",
+      "field": [
+        "source_sha256",
+        "scripts/evaluate_longembed_review.py"
+      ],
+      "historical_recorded_sha256": "283180e037ddc92c3c0e9b622c9c73bb90aaec197a5d389de5da0679a2ee5aa8",
+      "inspected_source_sha256": "1cb93e253f45213be6a6618cf48ca6852a441a35f50d3185e317467415780edb",
+      "package_sha256": "1cb93e253f45213be6a6618cf48ca6852a441a35f50d3185e317467415780edb",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "expected_historical_version_difference",
+      "evidence_case": "LONGEMBED_PRE_SCORE_FAILURE"
+    },
+    {
+      "record": "reproducibility/protocols/review_completion_v1/cache_review_train_v1_insufficient_population.json",
+      "field": [
+        "source_sha256",
+        "configs/review_completion_v1.yaml"
+      ],
+      "historical_recorded_sha256": "cb3b170d78d7f801f34a1db7c45a4c1440de3ea918086cf8c701ba0283645381",
+      "inspected_source_sha256": "bd8fa1fe514b95b520868f59a4fc5f26a1fbcadb5e16b2b7fd358881b81c7986",
+      "package_sha256": "bd8fa1fe514b95b520868f59a4fc5f26a1fbcadb5e16b2b7fd358881b81c7986",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "expected_historical_version_difference",
+      "evidence_case": "REVIEW_CONFIG_PRE_RECOVERY"
+    },
+    {
+      "record": "reproducibility/protocols/review_completion_v1/cache_review_train_v1_interrupted_preencoding.json",
+      "field": [
+        "source_sha256",
+        "configs/review_completion_v1.yaml"
+      ],
+      "historical_recorded_sha256": "cb3b170d78d7f801f34a1db7c45a4c1440de3ea918086cf8c701ba0283645381",
+      "inspected_source_sha256": "bd8fa1fe514b95b520868f59a4fc5f26a1fbcadb5e16b2b7fd358881b81c7986",
+      "package_sha256": "bd8fa1fe514b95b520868f59a4fc5f26a1fbcadb5e16b2b7fd358881b81c7986",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "expected_historical_version_difference",
+      "evidence_case": "REVIEW_CONFIG_PRE_RECOVERY"
+    },
+    {
+      "record": "reproducibility/protocols/safe_baselines_v1/PREPARATION_RECOVERY.json",
+      "field": [
+        "initial_preparation_source_hashes",
+        "scripts/prepare_safe_baselines.py"
+      ],
+      "historical_recorded_sha256": "7cd3a367ddc96bf15372df9aab34690d856295715eff0ba5628db54628d871af",
+      "inspected_source_sha256": "21d8e02eaee58d4b19700a6c83a0c17f9a5abc760ed441245004ecf543e39e79",
+      "package_sha256": "21d8e02eaee58d4b19700a6c83a0c17f9a5abc760ed441245004ecf543e39e79",
+      "reason": "Independently investigated; see HASH_DISCREPANCY_AUDIT.md. Recorded historical hash remains unchanged.",
+      "classification": "unresolved",
+      "evidence_case": "SAFE_PREPARATION_UNRESOLVED"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "scope": "All 66 current released .pt files: complete data.pkl opcode streams inspected by HTTP byte-range reads without unpickling or loading tensors. Leading range up to 262144 bytes per asset. Full tensor checksums were not locally recomputed; release API SHA-256 and byte size independently matched existing manifests.",
+  "files_inspected": 66,
+  "files_with_identifying_serialized_metadata": [
+    "review_warm_seed271828.pt",
+    "review_warm_seed314159.pt",
+    "review_warm_seed424242.pt"
+  ],
+  "included_checkpoint_payloads": 0,
+  "warning": "The three warm checkpoints contain personal paths. Their immutable identifiers are retained; anonymized substitutes were not created or misrepresented as the originals."
+}

@@ -1,0 +1,482 @@
+{
+  "schema_version": 1,
+  "scope": {
+    "source_tree": "tmlr-supplement-source/",
+    "prior_package": "previous/TMLR_Supplement/",
+    "source_tree_read_only": true,
+    "prior_package_modified": false,
+    "reviewer_safe": true,
+    "git_commit_ids_included": false
+  },
+  "method": {
+    "comparison": "Independently sweep JSON path-to-SHA-256 maps, read each map field, and hash the raw bytes at each existing referenced path in both trees.",
+    "map_sweep_per_tree": {
+      "map_objects": 36,
+      "references": 378,
+      "existing_file_mismatches": 19
+    },
+    "prior_drift_manifest_rechecked": "All 19 listed expected field values match their records; all inspected_source_sha256 and package_sha256 values match independently rehashed files.",
+    "reachable_git_history": {
+      "commits_scanned": 76,
+      "unique_blob_objects_scanned": 1120,
+      "expected_digest_contents_found": 6,
+      "distinct_expected_digests": 7
+    },
+    "additional_existing_file_map_mismatches": 0
+  },
+  "summary": {
+    "compared_mismatch_references_per_tree": 19,
+    "unique_target_paths": 7,
+    "classification_counts": {
+      "serialization_difference": 15,
+      "expected_historical_version_difference": 3,
+      "genuine_artifact_discrepancy": 0,
+      "unresolved": 1
+    },
+    "science_or_source_files_modified": false,
+    "scientific_evidence_relabelled": false
+  },
+  "mismatches": [
+    {
+      "record": "results/continuation_comparison_v1/ANALYSIS_PROTOCOL.json",
+      "field": [
+        "source_sha256",
+        "scripts/evaluate_safe_baselines.py"
+      ],
+      "recorded_field_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "expected_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "current_source_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "prior_package_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "classification": "serialization_difference",
+      "evidence_case": "SAFE_EVALUATOR_LAYOUT"
+    },
+    {
+      "record": "results/continuation_comparison_v1/ANALYSIS_PROTOCOL.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_continuation_comparison.py"
+      ],
+      "recorded_field_sha256": "67ca34f54a7c0dd90d8ead4f942be91ce9032a00dc6fc9e69e833f77f871d550",
+      "expected_sha256": "67ca34f54a7c0dd90d8ead4f942be91ce9032a00dc6fc9e69e833f77f871d550",
+      "current_source_sha256": "cf5ad755efbcf386f3dd7cc12df3105afecfa6d7c9d41c4cb59463e11de8a58a",
+      "prior_package_sha256": "cf5ad755efbcf386f3dd7cc12df3105afecfa6d7c9d41c4cb59463e11de8a58a",
+      "classification": "serialization_difference",
+      "evidence_case": "CONTINUATION_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/continuation_comparison_v1/INFERENCE_MANIFEST.json",
+      "field": [
+        "source_sha256",
+        "scripts/evaluate_safe_baselines.py"
+      ],
+      "recorded_field_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "expected_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "current_source_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "prior_package_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "classification": "serialization_difference",
+      "evidence_case": "SAFE_EVALUATOR_LAYOUT"
+    },
+    {
+      "record": "results/continuation_comparison_v1/INFERENCE_MANIFEST.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_continuation_comparison.py"
+      ],
+      "recorded_field_sha256": "67ca34f54a7c0dd90d8ead4f942be91ce9032a00dc6fc9e69e833f77f871d550",
+      "expected_sha256": "67ca34f54a7c0dd90d8ead4f942be91ce9032a00dc6fc9e69e833f77f871d550",
+      "current_source_sha256": "cf5ad755efbcf386f3dd7cc12df3105afecfa6d7c9d41c4cb59463e11de8a58a",
+      "prior_package_sha256": "cf5ad755efbcf386f3dd7cc12df3105afecfa6d7c9d41c4cb59463e11de8a58a",
+      "classification": "serialization_difference",
+      "evidence_case": "CONTINUATION_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/continuation_comparison_v1/RESULTS.json",
+      "field": [
+        "source_sha256",
+        "scripts/evaluate_safe_baselines.py"
+      ],
+      "recorded_field_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "expected_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "current_source_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "prior_package_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "classification": "serialization_difference",
+      "evidence_case": "SAFE_EVALUATOR_LAYOUT"
+    },
+    {
+      "record": "results/continuation_comparison_v1/RESULTS.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_continuation_comparison.py"
+      ],
+      "recorded_field_sha256": "67ca34f54a7c0dd90d8ead4f942be91ce9032a00dc6fc9e69e833f77f871d550",
+      "expected_sha256": "67ca34f54a7c0dd90d8ead4f942be91ce9032a00dc6fc9e69e833f77f871d550",
+      "current_source_sha256": "cf5ad755efbcf386f3dd7cc12df3105afecfa6d7c9d41c4cb59463e11de8a58a",
+      "prior_package_sha256": "cf5ad755efbcf386f3dd7cc12df3105afecfa6d7c9d41c4cb59463e11de8a58a",
+      "classification": "serialization_difference",
+      "evidence_case": "CONTINUATION_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/reconstruction_calibration_v1/ANALYSIS_PROTOCOL.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_reconstruction_calibration.py"
+      ],
+      "recorded_field_sha256": "adbd9258986d32b70b25d32edd327b348290417765f75109ae53e62796fe33db",
+      "expected_sha256": "adbd9258986d32b70b25d32edd327b348290417765f75109ae53e62796fe33db",
+      "current_source_sha256": "1effe49517ae6e32c966d4323b007b4202e002dac7547ce88f16f76b866b3273",
+      "prior_package_sha256": "1effe49517ae6e32c966d4323b007b4202e002dac7547ce88f16f76b866b3273",
+      "classification": "serialization_difference",
+      "evidence_case": "CALIBRATION_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/reconstruction_calibration_v1/INFERENCE_MANIFEST.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_reconstruction_calibration.py"
+      ],
+      "recorded_field_sha256": "adbd9258986d32b70b25d32edd327b348290417765f75109ae53e62796fe33db",
+      "expected_sha256": "adbd9258986d32b70b25d32edd327b348290417765f75109ae53e62796fe33db",
+      "current_source_sha256": "1effe49517ae6e32c966d4323b007b4202e002dac7547ce88f16f76b866b3273",
+      "prior_package_sha256": "1effe49517ae6e32c966d4323b007b4202e002dac7547ce88f16f76b866b3273",
+      "classification": "serialization_difference",
+      "evidence_case": "CALIBRATION_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/reconstruction_calibration_v1/RESULTS.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_reconstruction_calibration.py"
+      ],
+      "recorded_field_sha256": "adbd9258986d32b70b25d32edd327b348290417765f75109ae53e62796fe33db",
+      "expected_sha256": "adbd9258986d32b70b25d32edd327b348290417765f75109ae53e62796fe33db",
+      "current_source_sha256": "1effe49517ae6e32c966d4323b007b4202e002dac7547ce88f16f76b866b3273",
+      "prior_package_sha256": "1effe49517ae6e32c966d4323b007b4202e002dac7547ce88f16f76b866b3273",
+      "classification": "serialization_difference",
+      "evidence_case": "CALIBRATION_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/recursive_reuse_v1/ANALYSIS_PROTOCOL.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_recursive_reuse.py"
+      ],
+      "recorded_field_sha256": "88cfbfa4045ef88aa65c64e63c5ea8eba40d56cf6239c615aec84a92990d011e",
+      "expected_sha256": "88cfbfa4045ef88aa65c64e63c5ea8eba40d56cf6239c615aec84a92990d011e",
+      "current_source_sha256": "9e67e2fb995e1c08dd92d7eccf7d9fc87874f0aa3df54fa2e5d6d28b804553ec",
+      "prior_package_sha256": "0c566ec0311cd2354b500a52cc1fd0c23aefbaa8e552726c99bec1adf816b2ce",
+      "classification": "serialization_difference",
+      "evidence_case": "RECURSIVE_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/recursive_reuse_v1/INFERENCE_MANIFEST.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_recursive_reuse.py"
+      ],
+      "recorded_field_sha256": "88cfbfa4045ef88aa65c64e63c5ea8eba40d56cf6239c615aec84a92990d011e",
+      "expected_sha256": "88cfbfa4045ef88aa65c64e63c5ea8eba40d56cf6239c615aec84a92990d011e",
+      "current_source_sha256": "9e67e2fb995e1c08dd92d7eccf7d9fc87874f0aa3df54fa2e5d6d28b804553ec",
+      "prior_package_sha256": "0c566ec0311cd2354b500a52cc1fd0c23aefbaa8e552726c99bec1adf816b2ce",
+      "classification": "serialization_difference",
+      "evidence_case": "RECURSIVE_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/recursive_reuse_v1/RESULTS.json",
+      "field": [
+        "source_sha256",
+        "scripts/render_recursive_reuse.py"
+      ],
+      "recorded_field_sha256": "88cfbfa4045ef88aa65c64e63c5ea8eba40d56cf6239c615aec84a92990d011e",
+      "expected_sha256": "88cfbfa4045ef88aa65c64e63c5ea8eba40d56cf6239c615aec84a92990d011e",
+      "current_source_sha256": "9e67e2fb995e1c08dd92d7eccf7d9fc87874f0aa3df54fa2e5d6d28b804553ec",
+      "prior_package_sha256": "0c566ec0311cd2354b500a52cc1fd0c23aefbaa8e552726c99bec1adf816b2ce",
+      "classification": "serialization_difference",
+      "evidence_case": "RECURSIVE_RENDER_LAYOUT"
+    },
+    {
+      "record": "results/safe_baselines_v1/ANALYSIS_PROTOCOL.json",
+      "field": [
+        "source_sha256",
+        "scripts/evaluate_safe_baselines.py"
+      ],
+      "recorded_field_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "expected_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "current_source_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "prior_package_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "classification": "serialization_difference",
+      "evidence_case": "SAFE_EVALUATOR_LAYOUT"
+    },
+    {
+      "record": "results/safe_baselines_v1/INFERENCE_MANIFEST.json",
+      "field": [
+        "source_sha256",
+        "scripts/evaluate_safe_baselines.py"
+      ],
+      "recorded_field_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "expected_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "current_source_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "prior_package_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "classification": "serialization_difference",
+      "evidence_case": "SAFE_EVALUATOR_LAYOUT"
+    },
+    {
+      "record": "results/safe_baselines_v1/RESULTS.json",
+      "field": [
+        "source_sha256",
+        "scripts/evaluate_safe_baselines.py"
+      ],
+      "recorded_field_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "expected_sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "current_source_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "prior_package_sha256": "2853270585d1acc9962ed8c88c2295d5764ad762270d5b15a6f8211147cdd751",
+      "classification": "serialization_difference",
+      "evidence_case": "SAFE_EVALUATOR_LAYOUT"
+    },
+    {
+      "record": "reproducibility/protocols/review_completion_v1/CONTEXT_REDUCTION_FAILED_PROTOCOL.json",
+      "field": [
+        "source_sha256",
+        "scripts/evaluate_longembed_review.py"
+      ],
+      "recorded_field_sha256": "283180e037ddc92c3c0e9b622c9c73bb90aaec197a5d389de5da0679a2ee5aa8",
+      "expected_sha256": "283180e037ddc92c3c0e9b622c9c73bb90aaec197a5d389de5da0679a2ee5aa8",
+      "current_source_sha256": "1cb93e253f45213be6a6618cf48ca6852a441a35f50d3185e317467415780edb",
+      "prior_package_sha256": "1cb93e253f45213be6a6618cf48ca6852a441a35f50d3185e317467415780edb",
+      "classification": "expected_historical_version_difference",
+      "evidence_case": "LONGEMBED_PRE_SCORE_FAILURE"
+    },
+    {
+      "record": "reproducibility/protocols/review_completion_v1/cache_review_train_v1_insufficient_population.json",
+      "field": [
+        "source_sha256",
+        "configs/review_completion_v1.yaml"
+      ],
+      "recorded_field_sha256": "cb3b170d78d7f801f34a1db7c45a4c1440de3ea918086cf8c701ba0283645381",
+      "expected_sha256": "cb3b170d78d7f801f34a1db7c45a4c1440de3ea918086cf8c701ba0283645381",
+      "current_source_sha256": "bd8fa1fe514b95b520868f59a4fc5f26a1fbcadb5e16b2b7fd358881b81c7986",
+      "prior_package_sha256": "bd8fa1fe514b95b520868f59a4fc5f26a1fbcadb5e16b2b7fd358881b81c7986",
+      "classification": "expected_historical_version_difference",
+      "evidence_case": "REVIEW_CONFIG_PRE_RECOVERY"
+    },
+    {
+      "record": "reproducibility/protocols/review_completion_v1/cache_review_train_v1_interrupted_preencoding.json",
+      "field": [
+        "source_sha256",
+        "configs/review_completion_v1.yaml"
+      ],
+      "recorded_field_sha256": "cb3b170d78d7f801f34a1db7c45a4c1440de3ea918086cf8c701ba0283645381",
+      "expected_sha256": "cb3b170d78d7f801f34a1db7c45a4c1440de3ea918086cf8c701ba0283645381",
+      "current_source_sha256": "bd8fa1fe514b95b520868f59a4fc5f26a1fbcadb5e16b2b7fd358881b81c7986",
+      "prior_package_sha256": "bd8fa1fe514b95b520868f59a4fc5f26a1fbcadb5e16b2b7fd358881b81c7986",
+      "classification": "expected_historical_version_difference",
+      "evidence_case": "REVIEW_CONFIG_PRE_RECOVERY"
+    },
+    {
+      "record": "reproducibility/protocols/safe_baselines_v1/PREPARATION_RECOVERY.json",
+      "field": [
+        "initial_preparation_source_hashes",
+        "scripts/prepare_safe_baselines.py"
+      ],
+      "recorded_field_sha256": "7cd3a367ddc96bf15372df9aab34690d856295715eff0ba5628db54628d871af",
+      "expected_sha256": "7cd3a367ddc96bf15372df9aab34690d856295715eff0ba5628db54628d871af",
+      "current_source_sha256": "21d8e02eaee58d4b19700a6c83a0c17f9a5abc760ed441245004ecf543e39e79",
+      "prior_package_sha256": "21d8e02eaee58d4b19700a6c83a0c17f9a5abc760ed441245004ecf543e39e79",
+      "classification": "unresolved",
+      "evidence_case": "SAFE_PREPARATION_UNRESOLVED"
+    }
+  ],
+  "evidence_cases": {
+    "SAFE_EVALUATOR_LAYOUT": {
+      "classification": "serialization_difference",
+      "proof": "The expected digest is an exact historical Git-blob match at scripts/evaluate_safe_baselines.py. The only diff from current source relocates the generated TeX table caption/label to before the table rather than after it; scoring code is unchanged in the diff.",
+      "consumer_impact": "scripts/audit_safe_baselines.py iterates result.source_sha256 and require_hashes each current file, so the frozen historical result does not pass the current source fingerprint gate.",
+      "remedial_next_steps": "Keep the old source binding on the historical result. If current-code confirmation is required, issue a separate audit/provenance record; do not change saved results or relabel the old digest."
+    },
+    "CONTINUATION_RENDER_LAYOUT": {
+      "classification": "serialization_difference",
+      "proof": "The expected digest is an exact historical Git-blob match at scripts/render_continuation_comparison.py. Its diff only relocates the generated TeX caption/label and changes caption wording; the renderer reads frozen scores and does not fit or infer.",
+      "consumer_impact": "evaluate_continuation_comparison.load_inference() verifies source_sha256 before returning saved vectors; current audit/render consumers reject the old inference manifest at this fingerprint.",
+      "remedial_next_steps": "Preserve the frozen source binding and data. For a new presentation, render in a new versioned output location and record fresh provenance without modifying the historical result."
+    },
+    "CALIBRATION_RENDER_LAYOUT": {
+      "classification": "serialization_difference",
+      "proof": "The expected digest is an exact historical Git-blob match at scripts/render_reconstruction_calibration.py. The diff moves the TeX caption/label before the table; it does not alter calculations.",
+      "consumer_impact": "evaluate_reconstruction_calibration.load_inference() verifies source_sha256 and rejects the saved manifest when the current renderer digest differs.",
+      "remedial_next_steps": "Retain the old digest as historical. Any rendering or current-code audit should use a separate versioned record and leave numerical evidence untouched."
+    },
+    "RECURSIVE_RENDER_LAYOUT": {
+      "classification": "serialization_difference",
+      "proof": "The expected digest is an exact historical Git-blob match at scripts/render_recursive_reuse.py. Its source diff consists of TeX caption/label relocation and minor descriptive wording. The prior package's present file differs from the source clone's present file by only a fig.savefig image-metadata argument; no plotting/data statements differ. The exact historical bytes contain identifying image metadata and are withheld from the reviewer-safe copies.",
+      "consumer_impact": "evaluate_recursive_reuse.load_inference() verifies all source_sha256 entries; the current renderer/auditor cannot accept the old manifest at this fingerprint. Package-vs-source renderer metadata does not change metrics, but it does change output metadata.",
+      "remedial_next_steps": "Do not copy or anonymize the exact historical blob while claiming its original SHA. Keep it out of reviewer-facing recovery artifacts; preserve historical result values and create any new rendering provenance separately."
+    },
+    "LONGEMBED_PRE_SCORE_FAILURE": {
+      "classification": "expected_historical_version_difference",
+      "proof": "The expected SHA exactly matches reproducibility/protocols/review_completion_v1/recovery/evaluate_longembed_pre_scoring.py. CONTEXT_REDUCTION_RECOVERY.json records the failed and recovered evaluator digests and states FP16 masked-mean overflow occurred before retrieval scores; current code uses FP32 masked-mean accumulation.",
+      "consumer_impact": "This is a preserved failed-run protocol; the current completed-study audit uses the active recovery protocol/results and does not consume this old source map.",
+      "remedial_next_steps": "Keep the failure record and exact archived source as historical; do not rewrite its source_sha256 to the recovered evaluator."
+    },
+    "REVIEW_CONFIG_PRE_RECOVERY": {
+      "classification": "expected_historical_version_difference",
+      "proof": "Both expected digests exactly match reproducibility/protocols/review_completion_v1/PRE_RECOVERY_CONFIG.yaml. TRAIN_POPULATION_RECOVERY.json documents the fixed-range shortfall, 500/100 to 160/40 count change, and no embeddings, fits, or evaluation scores before the change.",
+      "consumer_impact": "These JSONs are failed preparation records. The current review helper binds the current config for completed studies; no active consumer of these old failure source maps was found.",
+      "remedial_next_steps": "Preserve the archived config and failure records as historical. Do not update their hashes or present them as the recovered configuration."
+    },
+    "SAFE_PREPARATION_UNRESOLVED": {
+      "classification": "unresolved",
+      "proof": "The expected SHA was not found among 1,120 reachable Git blobs or the inspected historical recovery archive. PREPARATION_RECOVERY.json describes a pre-cache dtype preflight failure, but does not recover or prove the exact source bytes/patch.",
+      "consumer_impact": "No active code consumer of PREPARATION_RECOVERY.json.initial_preparation_source_hashes was found; resumable preparation instead verifies source hashes stored in the cache PREPARATION_PROTOCOL.json.",
+      "remedial_next_steps": "Leave the digest unresolved and unchanged. Recover exact bytes from an independent preserved run only if available, then verify that SHA before adding any historical copy."
+    }
+  },
+  "recovered_historical_sources": [
+    {
+      "sha256": "7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73",
+      "historical_path": "scripts/evaluate_safe_baselines.py",
+      "status": "copied_exact_bytes",
+      "copy": "reproducibility/historical_sources/sha256-7c5d6ff432c27be67d0ee2e8d9cdc2cff476d733a773b5c1f11d4041e3c9ed73/source.py",
+      "active": false
+    },
+    {
+      "sha256": "67ca34f54a7c0dd90d8ead4f942be91ce9032a00dc6fc9e69e833f77f871d550",
+      "historical_path": "scripts/render_continuation_comparison.py",
+      "status": "copied_exact_bytes",
+      "copy": "reproducibility/historical_sources/sha256-67ca34f54a7c0dd90d8ead4f942be91ce9032a00dc6fc9e69e833f77f871d550/source.py",
+      "active": false
+    },
+    {
+      "sha256": "adbd9258986d32b70b25d32edd327b348290417765f75109ae53e62796fe33db",
+      "historical_path": "scripts/render_reconstruction_calibration.py",
+      "status": "copied_exact_bytes",
+      "copy": "reproducibility/historical_sources/sha256-adbd9258986d32b70b25d32edd327b348290417765f75109ae53e62796fe33db/source.py",
+      "active": false
+    },
+    {
+      "sha256": "88cfbfa4045ef88aa65c64e63c5ea8eba40d56cf6239c615aec84a92990d011e",
+      "historical_path": "scripts/render_recursive_reuse.py",
+      "status": "located_but_withheld_identifying_image_metadata",
+      "copy": null,
+      "active": false
+    },
+    {
+      "sha256": "283180e037ddc92c3c0e9b622c9c73bb90aaec197a5d389de5da0679a2ee5aa8",
+      "historical_path": "scripts/evaluate_longembed_review.py",
+      "archived_exact_path": "reproducibility/protocols/review_completion_v1/recovery/evaluate_longembed_pre_scoring.py",
+      "status": "copied_exact_bytes",
+      "copy": "reproducibility/historical_sources/sha256-283180e037ddc92c3c0e9b622c9c73bb90aaec197a5d389de5da0679a2ee5aa8/source.py",
+      "active": false
+    },
+    {
+      "sha256": "cb3b170d78d7f801f34a1db7c45a4c1440de3ea918086cf8c701ba0283645381",
+      "historical_path": "configs/review_completion_v1.yaml",
+      "archived_exact_path": "reproducibility/protocols/review_completion_v1/PRE_RECOVERY_CONFIG.yaml",
+      "status": "copied_exact_bytes",
+      "copy": "reproducibility/historical_sources/sha256-cb3b170d78d7f801f34a1db7c45a4c1440de3ea918086cf8c701ba0283645381/source.yaml",
+      "active": false
+    },
+    {
+      "sha256": "7cd3a367ddc96bf15372df9aab34690d856295715eff0ba5628db54628d871af",
+      "historical_path": "scripts/prepare_safe_baselines.py",
+      "status": "not_found_unresolved",
+      "copy": null,
+      "active": false
+    }
+  ],
+  "safety_critical_config_dependencies": {
+    "status": "No additional mismatch among existing file targets checked; local digests match their local source/package files.",
+    "per_tree_results": "All following pins match independently rehashed local targets in both inspected trees; anonymized package targets may have different values than the source-tree targets.",
+    "configs": [
+      {
+        "path": "configs/official_v6.yaml",
+        "matched_existing_targets": [
+          "attack config",
+          "normalized final/development result and checksum-list provenance files",
+          "three seed freeze JSON files"
+        ],
+        "missing_external_targets": [
+          "configured final/source checkpoint and fitted-probe files under artifacts/v1-paper/; release assets are not materialized"
+        ]
+      },
+      {
+        "path": "configs/safe_baselines_v1.yaml",
+        "matched_existing_targets": [
+          "official result JSON",
+          "fixed attack config"
+        ]
+      },
+      {
+        "path": "configs/recursive_reuse_v1.yaml",
+        "matched_existing_targets": [
+          "baseline config",
+          "baseline results",
+          "baseline inference manifest",
+          "exact-four config"
+        ]
+      },
+      {
+        "path": "configs/reconstruction_calibration_v1.yaml",
+        "matched_existing_targets": [
+          "tree config",
+          "four immutable input files"
+        ]
+      },
+      {
+        "path": "configs/continuation_comparison_v1.yaml",
+        "matched_existing_targets": [
+          "calibration config",
+          "four immutable input files"
+        ]
+      },
+      {
+        "path": "scripts/review_common.py::PREVIOUS",
+        "matched_existing_targets": [
+          "all five pinned result JSON files"
+        ]
+      }
+    ],
+    "local_assets": {
+      "source_artifacts_v1_paper_directory_present": false,
+      "prior_artifacts_v1_paper_directory_present": false,
+      "safe_cache_present_in_either_tree": false,
+      "review_train_cache_present_in_either_tree": false,
+      "prior_weights_directory_contents": "six fitted probe weight files; no source/final model checkpoints"
+    }
+  },
+  "fresh_chained_reruns": {
+    "usable_as_shipped_from_inspected_trees": false,
+    "evidence": [
+      "All fixed result namespaces already exist on disk; configs require those exact namespaces and review helper begin() is create-only.",
+      "Current safe-baseline infer() verifies the existing inference manifest rather than forcing a rebuild; stale source fingerprints are rejected.",
+      "Downstream config digests pin the current upstream result/manifests; any regenerated upstream files require a deliberately re-bound downstream chain.",
+      "The release checkpoint/probe path and safe/review cache paths are not materialized in either tree; required model checkpoints are absent."
+    ],
+    "next_step": "Only a separate, explicitly versioned chain with required pinned assets/data/cache and coherently re-bound outputs is viable; do not overwrite or relabel frozen scientific evidence.",
+    "reruns_or_tests_performed": false
+  },
+  "limits": [
+    "No scientific evidence or source/prior-package files were edited.",
+    "No tests, training, cache generation, or expensive experiment was run.",
+    "No claim is made that all saved metrics pass current-code re-audit; strict source fingerprint consumers reject the affected historical snapshots."
+  ],
+  "additional_local_archive_search": {
+    "scope": "Two already-present research archives checked read-only for exact prepare_safe_baselines.py bytes; no additional source fingerprint recovered.",
+    "archives": [
+      {
+        "archive": "recursive_geodesic_composition.zip",
+        "members": 394,
+        "target_matches": [
+          {
+            "member": "scripts/prepare_safe_baselines.py",
+            "sha256": "21d8e02eaee58d4b19700a6c83a0c17f9a5abc760ed441245004ecf543e39e79"
+          }
+        ]
+      },
+      {
+        "archive": "paper_source_revised.zip",
+        "members": 10,
+        "target_matches": []
+      }
+    ],
+    "unresolved_expected_sha256": "7cd3a367ddc96bf15372df9aab34690d856295715eff0ba5628db54628d871af"
+  }
+}

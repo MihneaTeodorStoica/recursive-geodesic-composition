@@ -1,0 +1,833 @@
+{
+  "checksum_asset": {
+    "byte_size": 5647,
+    "filename": "REVIEW_RELEASE_ASSETS.sha256",
+    "sha256": "e27bb5db80a769339bca60ab75629bc838a103849cdac953936f860d5f307d9d"
+  },
+  "license_and_scope": "Only newly fitted model/probe weights and reviewed PDF are mirrored; no source text, tokenized source corpus, or derived embedding caches are published. All JSON study scores and audit reports live in Git. The original released checkpoint/probe weights remain in v1-paper; new models do not replace them.",
+  "local_artifact_identities": {
+    "cache_review_train_v1/rows.pt": {
+      "byte_size": 13048527,
+      "release_asset": false,
+      "reproducibility_note": "Regenerate from pinned TRAIN selection; not a released dataset cache",
+      "sha256": "1016fcb04eaafa28e60320c69e5ed780af217c7107aaad719cad6d8c2d8fa98a"
+    },
+    "cache_review_train_v1/tokens.pt": {
+      "byte_size": 8732625,
+      "release_asset": false,
+      "reproducibility_note": "Regenerate from pinned TRAIN selection; not a released dataset cache",
+      "sha256": "3371c2bb370eafafce572e0602ed289089007ceaa763665a61a7979f9e3dd16d"
+    },
+    "results/decoder_gradient_v1/attached_seed271828.pt": {
+      "byte_size": 494521397,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "92b42033cf07829a532a46bc0b324c9add4f1da5528a702956703aee05f977d3"
+    },
+    "results/decoder_gradient_v1/attached_seed314159.pt": {
+      "byte_size": 494521397,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "ccbfb0c2251a02d133bd145ce89fa455e169c98c5a0382885aa5f557ba85668b"
+    },
+    "results/decoder_gradient_v1/attached_seed424242.pt": {
+      "byte_size": 494521397,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "9f9e392bb01249c0edaa60eadee9fade03388e57562c2ab4d9ffa16299f9af40"
+    },
+    "results/decoder_gradient_v1/detached_seed271828.pt": {
+      "byte_size": 494521397,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "9fa8e6698cac8be742826d953bb475a6a1079e928bc156a76ca93a0dca92927e"
+    },
+    "results/decoder_gradient_v1/detached_seed314159.pt": {
+      "byte_size": 494521397,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "eb2ed93ed5d3a246c95e3eb615f47623fba3c19d1353afb5db124fc5bebc8db4"
+    },
+    "results/decoder_gradient_v1/detached_seed424242.pt": {
+      "byte_size": 494521397,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "38e445a36b5e6f37f5bd99bb893a4539b9fd7b40a6e7445e313ac4efef41ffaf"
+    },
+    "results/decoder_gradient_v1/vectors.pt": {
+      "byte_size": 86156908,
+      "release_asset": false,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "c1a0239deb58b7d294483f5f33aef69850f66157433d2619227f0c11a7dc57f4"
+    },
+    "results/decoder_gradient_v1/warm_seed271828.pt": {
+      "byte_size": 591173580,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "117fea517e52881b436d7e2ca44dc558f336df93e7da4b73ccd32fa9c6c53eb9"
+    },
+    "results/decoder_gradient_v1/warm_seed314159.pt": {
+      "byte_size": 591173580,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "b9a7732802206cf7ab67ba227ad91eeda60808b9fc1783043a24ae44a773618d"
+    },
+    "results/decoder_gradient_v1/warm_seed424242.pt": {
+      "byte_size": 591173580,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "e685d7ecb6d4f8eb9d1293037b8972a3e9859dcec29eb1f1e26f316f8a80af52"
+    },
+    "results/input_order_v1/vectors.pt": {
+      "byte_size": 2420139233,
+      "release_asset": false,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "0c6584f79fdc090c29faefd1f3f8090e0fb3e4915d4f1719c4126e644fa04524"
+    },
+    "results/longembed_review_v1/2wikimqa/vectors.pt": {
+      "byte_size": 17829820,
+      "release_asset": false,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "e60e573d2340194bb6e46e4464e06cabf04dfa478b31e28eed3307f1307bb54e"
+    },
+    "results/longembed_review_v1/narrativeqa/vectors.pt": {
+      "byte_size": 164956879,
+      "release_asset": false,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "44271d80aa51c56710673273113400c80db9ba957a0bd8eee3b279260d1636df"
+    },
+    "results/longembed_review_v1/qmsum/vectors.pt": {
+      "byte_size": 22843385,
+      "release_asset": false,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "3f6b44a0834c2c367b9f9b1b3708bd8fd2a3251338453e3d561a1ede8faa8b0e"
+    },
+    "results/longembed_review_v1/summ_screen_fd/vectors.pt": {
+      "byte_size": 19938800,
+      "release_asset": false,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "8106913258dab28373995aedefe15000c18a360faf78193aa55bc02b451107a7"
+    },
+    "results/probe_families_v1/predictions.pt": {
+      "byte_size": 335108941,
+      "release_asset": false,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "23cc1d1e731d2bdbf86f7493e797ba105b524d3b828affb5db63e9f6ded8d9f8"
+    },
+    "results/probe_families_v1/probes/bounded_731241_learned_271828.pt": {
+      "byte_size": 7888433,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "3c3a208567948421e842e37203fc0314325b0256b46302d37d08c2d813eafb97"
+    },
+    "results/probe_families_v1/probes/bounded_731241_learned_314159.pt": {
+      "byte_size": 7888433,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "888bb3e293b0de1e835b9362104eaa907b2f308d4675bebb5026aaec73164a63"
+    },
+    "results/probe_families_v1/probes/bounded_731241_learned_424242.pt": {
+      "byte_size": 7888433,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "33352ab66ec00e85b88f0dbd951b4a5d7d6d520107db826f4b209ebb7784b2b7"
+    },
+    "results/probe_families_v1/probes/bounded_731241_unweighted.pt": {
+      "byte_size": 7888385,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "811b5449ece14de4388098c383ef3c4ea895df232edc923d585d75d973058674"
+    },
+    "results/probe_families_v1/probes/bounded_731241_weighted.pt": {
+      "byte_size": 7888361,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "a5c43cf9d15c2b6c0351b745d6046a5e7c87f3c61eb213404bee3e089d52fe15"
+    },
+    "results/probe_families_v1/probes/bounded_731242_learned_271828.pt": {
+      "byte_size": 7888433,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "96d4acb662e5dfe1236cafc1420d6d0c550f2921be653c6cb7ed743d3b78e2f1"
+    },
+    "results/probe_families_v1/probes/bounded_731242_learned_314159.pt": {
+      "byte_size": 7888433,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "68da34f37c112f754b9a98f7e8843c93d83f5f790b8dee8ec76953c75136014b"
+    },
+    "results/probe_families_v1/probes/bounded_731242_learned_424242.pt": {
+      "byte_size": 7888433,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "f7c9fc7a60e0a1599121841b90bf1754bfe848704a906caf2f103c538e009479"
+    },
+    "results/probe_families_v1/probes/bounded_731242_unweighted.pt": {
+      "byte_size": 7888385,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "0a0d805fb4d1b2e2f80b96bffa18468302306d2f5318de23394bf60d275117e1"
+    },
+    "results/probe_families_v1/probes/bounded_731242_weighted.pt": {
+      "byte_size": 7888361,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "a0160b09b8f72747211cde1f4994d3739ad8bf18baaf410a6094e58edc8de73d"
+    },
+    "results/probe_families_v1/probes/bounded_731243_learned_271828.pt": {
+      "byte_size": 7888433,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "e5328547d63f9ca99b26984930cf9644591391c7a2492836d26c5852e1e3353e"
+    },
+    "results/probe_families_v1/probes/bounded_731243_learned_314159.pt": {
+      "byte_size": 7888433,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "4e5e193852e1cb9c036301b833b0452654ed44714d14bdcc03c239d982a488b9"
+    },
+    "results/probe_families_v1/probes/bounded_731243_learned_424242.pt": {
+      "byte_size": 7888433,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "f2b338c9da6d6e00f430c5d6a2a42249b72287708d3c8b339b8aed9f01b7a583"
+    },
+    "results/probe_families_v1/probes/bounded_731243_unweighted.pt": {
+      "byte_size": 7888385,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "ea17b84006741cf5b4b90741e1c9e22ada0b503e5d2b6a0848389a50cfa081b1"
+    },
+    "results/probe_families_v1/probes/bounded_731243_weighted.pt": {
+      "byte_size": 7888361,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "d43cb6d968117c5cbf1dcaa445825bf8056da297e8dd3822280f3cf309298b51"
+    },
+    "results/probe_families_v1/probes/direct_731241_learned_271828.pt": {
+      "byte_size": 7888421,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "8914ce291e3994c2d0b42536ffdb323713b0850e4845a76106cb544d7029e99d"
+    },
+    "results/probe_families_v1/probes/direct_731241_learned_314159.pt": {
+      "byte_size": 7888421,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "52377d13bb71562074c35e1b6e6417bd57b4ce7227c1a288890749c895b00dd9"
+    },
+    "results/probe_families_v1/probes/direct_731241_learned_424242.pt": {
+      "byte_size": 7888421,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "81788c7c6a5daa5961856d712c70958a1c1bfc50ad1fb251cd50f8d1fc608869"
+    },
+    "results/probe_families_v1/probes/direct_731241_unweighted.pt": {
+      "byte_size": 7888373,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "e3ae00140dfd27565ee5f50142169061448447953f4331419d723a4da084955f"
+    },
+    "results/probe_families_v1/probes/direct_731241_weighted.pt": {
+      "byte_size": 7888349,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "10e9fc56d7db5df2dfd8500d557501c4b98c58781fd1fc8cbba7ee50cc5f9a2b"
+    },
+    "results/probe_families_v1/probes/direct_731242_learned_271828.pt": {
+      "byte_size": 7888421,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "646213b0f2ddd2945aba2eec2a76d6d91a44b7229c67b0fe855fffaa234ba96f"
+    },
+    "results/probe_families_v1/probes/direct_731242_learned_314159.pt": {
+      "byte_size": 7888421,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "ef47a6122005f17376a42c70fd8296737036ea3531dc01e9a560b73b318623f6"
+    },
+    "results/probe_families_v1/probes/direct_731242_learned_424242.pt": {
+      "byte_size": 7888421,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "502da15ef262824add4156fd9dd878a0786b65ddebc7457f3cb9a45976302e42"
+    },
+    "results/probe_families_v1/probes/direct_731242_unweighted.pt": {
+      "byte_size": 7888373,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "442d562e838d738e0a7e613a1d3c81bf2bdaf794479092c78d40d3882197ab2e"
+    },
+    "results/probe_families_v1/probes/direct_731242_weighted.pt": {
+      "byte_size": 7888349,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "61c8c3902b42fafa3f0bb0b18a1516186ec41b2d8306c680f5252f9d0305dcbe"
+    },
+    "results/probe_families_v1/probes/direct_731243_learned_271828.pt": {
+      "byte_size": 7888421,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "d74bf681b11ae1a44303f5fe3b8b2d267c7fed599de518444412d554f0b5e553"
+    },
+    "results/probe_families_v1/probes/direct_731243_learned_314159.pt": {
+      "byte_size": 7888421,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "307741f73c93e809275b2a4a9a3ad7dbd8a1e8d913670622f1d23e99c429f5b6"
+    },
+    "results/probe_families_v1/probes/direct_731243_learned_424242.pt": {
+      "byte_size": 7888421,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "4ccc0f32a0065290d30280ba0f7e84a46a05e30cda3cf547b784d22ab66c6cf7"
+    },
+    "results/probe_families_v1/probes/direct_731243_unweighted.pt": {
+      "byte_size": 7888373,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "9308c954063a84786981434fb98204ae1c2eb8d63ded0fa01427460e4f3780af"
+    },
+    "results/probe_families_v1/probes/direct_731243_weighted.pt": {
+      "byte_size": 7888349,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "aaf2a9afbb1eb04bd9eeb579b8d402ba329b0f3f858a713e1f3708f5d14d2df5"
+    },
+    "results/probe_families_v1/probes/unbounded_731241_learned_271828.pt": {
+      "byte_size": 7888457,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "7354098af9c7ed657ba3184b8bc6fb706de0bb090c8b943ac5b947b1cb3e3a19"
+    },
+    "results/probe_families_v1/probes/unbounded_731241_learned_314159.pt": {
+      "byte_size": 7888457,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "6825b6645c02bcdaad0359723ea791e230f6de00ed89206a72f03bcd5eb0c4e7"
+    },
+    "results/probe_families_v1/probes/unbounded_731241_learned_424242.pt": {
+      "byte_size": 7888457,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "745c941681377358d340829ddf2f9e38d6021a7a15aa8c3574ff140173517c67"
+    },
+    "results/probe_families_v1/probes/unbounded_731241_unweighted.pt": {
+      "byte_size": 7888409,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "9ef4150d9f31efdd75a5f3ece1dc82779fb1f4e625f726e8eedb9feac4b8f951"
+    },
+    "results/probe_families_v1/probes/unbounded_731241_weighted.pt": {
+      "byte_size": 7888385,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "21efe54f606984a11cc4b19890d3c629bcd97a8b29e92d3704217bbfdc071ef4"
+    },
+    "results/probe_families_v1/probes/unbounded_731242_learned_271828.pt": {
+      "byte_size": 7888457,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "de7e0ce62360c01d4d6a24277ed575ee207be3e8e2311425c9c9a6c252e55d94"
+    },
+    "results/probe_families_v1/probes/unbounded_731242_learned_314159.pt": {
+      "byte_size": 7888457,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "87a5ee515e39e146c62d501cc7f236e8431844df03fbc0b23a16aca4d4195dcd"
+    },
+    "results/probe_families_v1/probes/unbounded_731242_learned_424242.pt": {
+      "byte_size": 7888457,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "da86222c68ae4569bfb42223fcd4a5f6b629a3737052d5cbc15dd4582c0ad976"
+    },
+    "results/probe_families_v1/probes/unbounded_731242_unweighted.pt": {
+      "byte_size": 7888409,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "ae1c4ef19e31276fea65405697f0a075dcc6e84388ac7d2ef9fb0c666a8e2f26"
+    },
+    "results/probe_families_v1/probes/unbounded_731242_weighted.pt": {
+      "byte_size": 7888385,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "9f8c1c75f900b1f3eb49883f4ba0a58ac765ce92dff4a90e1e16760843b64900"
+    },
+    "results/probe_families_v1/probes/unbounded_731243_learned_271828.pt": {
+      "byte_size": 7888457,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "1c8bc69893fad59e2cadde85d605f86800b57e7fb78b70874698185c7fe75826"
+    },
+    "results/probe_families_v1/probes/unbounded_731243_learned_314159.pt": {
+      "byte_size": 7888457,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "1fcf3551b646551dc24413c28847baa316111f9d93b84b36ce76a476cf9138ff"
+    },
+    "results/probe_families_v1/probes/unbounded_731243_learned_424242.pt": {
+      "byte_size": 7888457,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "b217d3ed9e86036565e9a025cd4c07317b83fb68b6a44229193f4ec9094dc912"
+    },
+    "results/probe_families_v1/probes/unbounded_731243_unweighted.pt": {
+      "byte_size": 7888409,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "983de4b3c81c8d3f475fb485befc6d98832dce188c37a91dfd73aa0509cc4e94"
+    },
+    "results/probe_families_v1/probes/unbounded_731243_weighted.pt": {
+      "byte_size": 7888385,
+      "release_asset": true,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "88b06f89ff8959f81afead4d866ad463f49d6ab36479c73a4f62d542904e8a5d"
+    },
+    "results/probe_families_v1/train_features.pt": {
+      "byte_size": 22148251,
+      "release_asset": false,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "5ca776871a5283588c1e8b4da1aeb9873b0fc3be9b516994f7544ed7c60a06d1"
+    },
+    "results/tree_families_v1/vectors.pt": {
+      "byte_size": 148296049,
+      "release_asset": false,
+      "reproducibility_note": "Regenerate from pinned inputs, or download separately trained weights if listed below",
+      "sha256": "066accd2677cdff945c88647f87d087f38e332013afc0ae291bf5e0b50e3e9ab"
+    }
+  },
+  "numerical_reproduction": "TRAIN checkpoints and derived vectors have recorded exact SHA-256; GPU re-training/regeneration is not asserted byte-identical across environments.",
+  "preserved_prior_result_sha256": {
+    "results/continuation_comparison_v1/RESULTS.json": "84c151264e962577a35cd12ad47ace1a63852d5abcc8ddcaa1784827d23b16c1",
+    "results/official_v6/results.json": "2cabef20750aa0a80148784012a1518ea2d1c1008ac7d617467b68f4b9cfb917",
+    "results/reconstruction_calibration_v1/RESULTS.json": "6f378128f85bcac3ae762c9a931985e3fd5a110d08cc8334bcfef87746bc46c7",
+    "results/recursive_reuse_v1/RESULTS.json": "74944d0960b9311ef8b897ef130474b6a04d463cac4ea6222cb8d96aa6614e29",
+    "results/safe_baselines_v1/RESULTS.json": "f16d23f504d3155dce680243a680d6c26ed2835b46f6aef9100b7fd9c1c57da5"
+  },
+  "published_assets": [
+    {
+      "asset_filename": "One_Vector_from_Many_reviewed.pdf",
+      "byte_size": 480421,
+      "protocol_path": "paper/main.pdf",
+      "role": "reviewed_35_page_pdf",
+      "sha256": "b88e0d0d1165359231e75e837c8b197311e2bb14993b13b9b094db8225c33f81"
+    },
+    {
+      "asset_filename": "review_attached_seed271828.pt",
+      "byte_size": 494521397,
+      "protocol_path": "results/decoder_gradient_v1/attached_seed271828.pt",
+      "role": "new_attached_or_detached_joint_model",
+      "sha256": "92b42033cf07829a532a46bc0b324c9add4f1da5528a702956703aee05f977d3"
+    },
+    {
+      "asset_filename": "review_attached_seed314159.pt",
+      "byte_size": 494521397,
+      "protocol_path": "results/decoder_gradient_v1/attached_seed314159.pt",
+      "role": "new_attached_or_detached_joint_model",
+      "sha256": "ccbfb0c2251a02d133bd145ce89fa455e169c98c5a0382885aa5f557ba85668b"
+    },
+    {
+      "asset_filename": "review_attached_seed424242.pt",
+      "byte_size": 494521397,
+      "protocol_path": "results/decoder_gradient_v1/attached_seed424242.pt",
+      "role": "new_attached_or_detached_joint_model",
+      "sha256": "9f9e392bb01249c0edaa60eadee9fade03388e57562c2ab4d9ffa16299f9af40"
+    },
+    {
+      "asset_filename": "review_bounded_731241_learned_271828.pt",
+      "byte_size": 7888433,
+      "protocol_path": "results/probe_families_v1/probes/bounded_731241_learned_271828.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "3c3a208567948421e842e37203fc0314325b0256b46302d37d08c2d813eafb97"
+    },
+    {
+      "asset_filename": "review_bounded_731241_learned_314159.pt",
+      "byte_size": 7888433,
+      "protocol_path": "results/probe_families_v1/probes/bounded_731241_learned_314159.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "888bb3e293b0de1e835b9362104eaa907b2f308d4675bebb5026aaec73164a63"
+    },
+    {
+      "asset_filename": "review_bounded_731241_learned_424242.pt",
+      "byte_size": 7888433,
+      "protocol_path": "results/probe_families_v1/probes/bounded_731241_learned_424242.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "33352ab66ec00e85b88f0dbd951b4a5d7d6d520107db826f4b209ebb7784b2b7"
+    },
+    {
+      "asset_filename": "review_bounded_731241_unweighted.pt",
+      "byte_size": 7888385,
+      "protocol_path": "results/probe_families_v1/probes/bounded_731241_unweighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "811b5449ece14de4388098c383ef3c4ea895df232edc923d585d75d973058674"
+    },
+    {
+      "asset_filename": "review_bounded_731241_weighted.pt",
+      "byte_size": 7888361,
+      "protocol_path": "results/probe_families_v1/probes/bounded_731241_weighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "a5c43cf9d15c2b6c0351b745d6046a5e7c87f3c61eb213404bee3e089d52fe15"
+    },
+    {
+      "asset_filename": "review_bounded_731242_learned_271828.pt",
+      "byte_size": 7888433,
+      "protocol_path": "results/probe_families_v1/probes/bounded_731242_learned_271828.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "96d4acb662e5dfe1236cafc1420d6d0c550f2921be653c6cb7ed743d3b78e2f1"
+    },
+    {
+      "asset_filename": "review_bounded_731242_learned_314159.pt",
+      "byte_size": 7888433,
+      "protocol_path": "results/probe_families_v1/probes/bounded_731242_learned_314159.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "68da34f37c112f754b9a98f7e8843c93d83f5f790b8dee8ec76953c75136014b"
+    },
+    {
+      "asset_filename": "review_bounded_731242_learned_424242.pt",
+      "byte_size": 7888433,
+      "protocol_path": "results/probe_families_v1/probes/bounded_731242_learned_424242.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "f7c9fc7a60e0a1599121841b90bf1754bfe848704a906caf2f103c538e009479"
+    },
+    {
+      "asset_filename": "review_bounded_731242_unweighted.pt",
+      "byte_size": 7888385,
+      "protocol_path": "results/probe_families_v1/probes/bounded_731242_unweighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "0a0d805fb4d1b2e2f80b96bffa18468302306d2f5318de23394bf60d275117e1"
+    },
+    {
+      "asset_filename": "review_bounded_731242_weighted.pt",
+      "byte_size": 7888361,
+      "protocol_path": "results/probe_families_v1/probes/bounded_731242_weighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "a0160b09b8f72747211cde1f4994d3739ad8bf18baaf410a6094e58edc8de73d"
+    },
+    {
+      "asset_filename": "review_bounded_731243_learned_271828.pt",
+      "byte_size": 7888433,
+      "protocol_path": "results/probe_families_v1/probes/bounded_731243_learned_271828.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "e5328547d63f9ca99b26984930cf9644591391c7a2492836d26c5852e1e3353e"
+    },
+    {
+      "asset_filename": "review_bounded_731243_learned_314159.pt",
+      "byte_size": 7888433,
+      "protocol_path": "results/probe_families_v1/probes/bounded_731243_learned_314159.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "4e5e193852e1cb9c036301b833b0452654ed44714d14bdcc03c239d982a488b9"
+    },
+    {
+      "asset_filename": "review_bounded_731243_learned_424242.pt",
+      "byte_size": 7888433,
+      "protocol_path": "results/probe_families_v1/probes/bounded_731243_learned_424242.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "f2b338c9da6d6e00f430c5d6a2a42249b72287708d3c8b339b8aed9f01b7a583"
+    },
+    {
+      "asset_filename": "review_bounded_731243_unweighted.pt",
+      "byte_size": 7888385,
+      "protocol_path": "results/probe_families_v1/probes/bounded_731243_unweighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "ea17b84006741cf5b4b90741e1c9e22ada0b503e5d2b6a0848389a50cfa081b1"
+    },
+    {
+      "asset_filename": "review_bounded_731243_weighted.pt",
+      "byte_size": 7888361,
+      "protocol_path": "results/probe_families_v1/probes/bounded_731243_weighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "d43cb6d968117c5cbf1dcaa445825bf8056da297e8dd3822280f3cf309298b51"
+    },
+    {
+      "asset_filename": "review_detached_seed271828.pt",
+      "byte_size": 494521397,
+      "protocol_path": "results/decoder_gradient_v1/detached_seed271828.pt",
+      "role": "new_attached_or_detached_joint_model",
+      "sha256": "9fa8e6698cac8be742826d953bb475a6a1079e928bc156a76ca93a0dca92927e"
+    },
+    {
+      "asset_filename": "review_detached_seed314159.pt",
+      "byte_size": 494521397,
+      "protocol_path": "results/decoder_gradient_v1/detached_seed314159.pt",
+      "role": "new_attached_or_detached_joint_model",
+      "sha256": "eb2ed93ed5d3a246c95e3eb615f47623fba3c19d1353afb5db124fc5bebc8db4"
+    },
+    {
+      "asset_filename": "review_detached_seed424242.pt",
+      "byte_size": 494521397,
+      "protocol_path": "results/decoder_gradient_v1/detached_seed424242.pt",
+      "role": "new_attached_or_detached_joint_model",
+      "sha256": "38e445a36b5e6f37f5bd99bb893a4539b9fd7b40a6e7445e313ac4efef41ffaf"
+    },
+    {
+      "asset_filename": "review_direct_731241_learned_271828.pt",
+      "byte_size": 7888421,
+      "protocol_path": "results/probe_families_v1/probes/direct_731241_learned_271828.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "8914ce291e3994c2d0b42536ffdb323713b0850e4845a76106cb544d7029e99d"
+    },
+    {
+      "asset_filename": "review_direct_731241_learned_314159.pt",
+      "byte_size": 7888421,
+      "protocol_path": "results/probe_families_v1/probes/direct_731241_learned_314159.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "52377d13bb71562074c35e1b6e6417bd57b4ce7227c1a288890749c895b00dd9"
+    },
+    {
+      "asset_filename": "review_direct_731241_learned_424242.pt",
+      "byte_size": 7888421,
+      "protocol_path": "results/probe_families_v1/probes/direct_731241_learned_424242.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "81788c7c6a5daa5961856d712c70958a1c1bfc50ad1fb251cd50f8d1fc608869"
+    },
+    {
+      "asset_filename": "review_direct_731241_unweighted.pt",
+      "byte_size": 7888373,
+      "protocol_path": "results/probe_families_v1/probes/direct_731241_unweighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "e3ae00140dfd27565ee5f50142169061448447953f4331419d723a4da084955f"
+    },
+    {
+      "asset_filename": "review_direct_731241_weighted.pt",
+      "byte_size": 7888349,
+      "protocol_path": "results/probe_families_v1/probes/direct_731241_weighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "10e9fc56d7db5df2dfd8500d557501c4b98c58781fd1fc8cbba7ee50cc5f9a2b"
+    },
+    {
+      "asset_filename": "review_direct_731242_learned_271828.pt",
+      "byte_size": 7888421,
+      "protocol_path": "results/probe_families_v1/probes/direct_731242_learned_271828.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "646213b0f2ddd2945aba2eec2a76d6d91a44b7229c67b0fe855fffaa234ba96f"
+    },
+    {
+      "asset_filename": "review_direct_731242_learned_314159.pt",
+      "byte_size": 7888421,
+      "protocol_path": "results/probe_families_v1/probes/direct_731242_learned_314159.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "ef47a6122005f17376a42c70fd8296737036ea3531dc01e9a560b73b318623f6"
+    },
+    {
+      "asset_filename": "review_direct_731242_learned_424242.pt",
+      "byte_size": 7888421,
+      "protocol_path": "results/probe_families_v1/probes/direct_731242_learned_424242.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "502da15ef262824add4156fd9dd878a0786b65ddebc7457f3cb9a45976302e42"
+    },
+    {
+      "asset_filename": "review_direct_731242_unweighted.pt",
+      "byte_size": 7888373,
+      "protocol_path": "results/probe_families_v1/probes/direct_731242_unweighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "442d562e838d738e0a7e613a1d3c81bf2bdaf794479092c78d40d3882197ab2e"
+    },
+    {
+      "asset_filename": "review_direct_731242_weighted.pt",
+      "byte_size": 7888349,
+      "protocol_path": "results/probe_families_v1/probes/direct_731242_weighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "61c8c3902b42fafa3f0bb0b18a1516186ec41b2d8306c680f5252f9d0305dcbe"
+    },
+    {
+      "asset_filename": "review_direct_731243_learned_271828.pt",
+      "byte_size": 7888421,
+      "protocol_path": "results/probe_families_v1/probes/direct_731243_learned_271828.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "d74bf681b11ae1a44303f5fe3b8b2d267c7fed599de518444412d554f0b5e553"
+    },
+    {
+      "asset_filename": "review_direct_731243_learned_314159.pt",
+      "byte_size": 7888421,
+      "protocol_path": "results/probe_families_v1/probes/direct_731243_learned_314159.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "307741f73c93e809275b2a4a9a3ad7dbd8a1e8d913670622f1d23e99c429f5b6"
+    },
+    {
+      "asset_filename": "review_direct_731243_learned_424242.pt",
+      "byte_size": 7888421,
+      "protocol_path": "results/probe_families_v1/probes/direct_731243_learned_424242.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "4ccc0f32a0065290d30280ba0f7e84a46a05e30cda3cf547b784d22ab66c6cf7"
+    },
+    {
+      "asset_filename": "review_direct_731243_unweighted.pt",
+      "byte_size": 7888373,
+      "protocol_path": "results/probe_families_v1/probes/direct_731243_unweighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "9308c954063a84786981434fb98204ae1c2eb8d63ded0fa01427460e4f3780af"
+    },
+    {
+      "asset_filename": "review_direct_731243_weighted.pt",
+      "byte_size": 7888349,
+      "protocol_path": "results/probe_families_v1/probes/direct_731243_weighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "aaf2a9afbb1eb04bd9eeb579b8d402ba329b0f3f858a713e1f3708f5d14d2df5"
+    },
+    {
+      "asset_filename": "review_unbounded_731241_learned_271828.pt",
+      "byte_size": 7888457,
+      "protocol_path": "results/probe_families_v1/probes/unbounded_731241_learned_271828.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "7354098af9c7ed657ba3184b8bc6fb706de0bb090c8b943ac5b947b1cb3e3a19"
+    },
+    {
+      "asset_filename": "review_unbounded_731241_learned_314159.pt",
+      "byte_size": 7888457,
+      "protocol_path": "results/probe_families_v1/probes/unbounded_731241_learned_314159.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "6825b6645c02bcdaad0359723ea791e230f6de00ed89206a72f03bcd5eb0c4e7"
+    },
+    {
+      "asset_filename": "review_unbounded_731241_learned_424242.pt",
+      "byte_size": 7888457,
+      "protocol_path": "results/probe_families_v1/probes/unbounded_731241_learned_424242.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "745c941681377358d340829ddf2f9e38d6021a7a15aa8c3574ff140173517c67"
+    },
+    {
+      "asset_filename": "review_unbounded_731241_unweighted.pt",
+      "byte_size": 7888409,
+      "protocol_path": "results/probe_families_v1/probes/unbounded_731241_unweighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "9ef4150d9f31efdd75a5f3ece1dc82779fb1f4e625f726e8eedb9feac4b8f951"
+    },
+    {
+      "asset_filename": "review_unbounded_731241_weighted.pt",
+      "byte_size": 7888385,
+      "protocol_path": "results/probe_families_v1/probes/unbounded_731241_weighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "21efe54f606984a11cc4b19890d3c629bcd97a8b29e92d3704217bbfdc071ef4"
+    },
+    {
+      "asset_filename": "review_unbounded_731242_learned_271828.pt",
+      "byte_size": 7888457,
+      "protocol_path": "results/probe_families_v1/probes/unbounded_731242_learned_271828.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "de7e0ce62360c01d4d6a24277ed575ee207be3e8e2311425c9c9a6c252e55d94"
+    },
+    {
+      "asset_filename": "review_unbounded_731242_learned_314159.pt",
+      "byte_size": 7888457,
+      "protocol_path": "results/probe_families_v1/probes/unbounded_731242_learned_314159.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "87a5ee515e39e146c62d501cc7f236e8431844df03fbc0b23a16aca4d4195dcd"
+    },
+    {
+      "asset_filename": "review_unbounded_731242_learned_424242.pt",
+      "byte_size": 7888457,
+      "protocol_path": "results/probe_families_v1/probes/unbounded_731242_learned_424242.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "da86222c68ae4569bfb42223fcd4a5f6b629a3737052d5cbc15dd4582c0ad976"
+    },
+    {
+      "asset_filename": "review_unbounded_731242_unweighted.pt",
+      "byte_size": 7888409,
+      "protocol_path": "results/probe_families_v1/probes/unbounded_731242_unweighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "ae1c4ef19e31276fea65405697f0a075dcc6e84388ac7d2ef9fb0c666a8e2f26"
+    },
+    {
+      "asset_filename": "review_unbounded_731242_weighted.pt",
+      "byte_size": 7888385,
+      "protocol_path": "results/probe_families_v1/probes/unbounded_731242_weighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "9f8c1c75f900b1f3eb49883f4ba0a58ac765ce92dff4a90e1e16760843b64900"
+    },
+    {
+      "asset_filename": "review_unbounded_731243_learned_271828.pt",
+      "byte_size": 7888457,
+      "protocol_path": "results/probe_families_v1/probes/unbounded_731243_learned_271828.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "1c8bc69893fad59e2cadde85d605f86800b57e7fb78b70874698185c7fe75826"
+    },
+    {
+      "asset_filename": "review_unbounded_731243_learned_314159.pt",
+      "byte_size": 7888457,
+      "protocol_path": "results/probe_families_v1/probes/unbounded_731243_learned_314159.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "1fcf3551b646551dc24413c28847baa316111f9d93b84b36ce76a476cf9138ff"
+    },
+    {
+      "asset_filename": "review_unbounded_731243_learned_424242.pt",
+      "byte_size": 7888457,
+      "protocol_path": "results/probe_families_v1/probes/unbounded_731243_learned_424242.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "b217d3ed9e86036565e9a025cd4c07317b83fb68b6a44229193f4ec9094dc912"
+    },
+    {
+      "asset_filename": "review_unbounded_731243_unweighted.pt",
+      "byte_size": 7888409,
+      "protocol_path": "results/probe_families_v1/probes/unbounded_731243_unweighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "983de4b3c81c8d3f475fb485befc6d98832dce188c37a91dfd73aa0509cc4e94"
+    },
+    {
+      "asset_filename": "review_unbounded_731243_weighted.pt",
+      "byte_size": 7888385,
+      "protocol_path": "results/probe_families_v1/probes/unbounded_731243_weighted.pt",
+      "role": "new_train_only_fitted_probe",
+      "sha256": "88b06f89ff8959f81afead4d866ad463f49d6ab36479c73a4f62d542904e8a5d"
+    },
+    {
+      "asset_filename": "review_warm_seed271828.pt",
+      "byte_size": 591173580,
+      "protocol_path": "results/decoder_gradient_v1/warm_seed271828.pt",
+      "role": "shared_warm_checkpoint",
+      "sha256": "117fea517e52881b436d7e2ca44dc558f336df93e7da4b73ccd32fa9c6c53eb9"
+    },
+    {
+      "asset_filename": "review_warm_seed314159.pt",
+      "byte_size": 591173580,
+      "protocol_path": "results/decoder_gradient_v1/warm_seed314159.pt",
+      "role": "shared_warm_checkpoint",
+      "sha256": "b9a7732802206cf7ab67ba227ad91eeda60808b9fc1783043a24ae44a773618d"
+    },
+    {
+      "asset_filename": "review_warm_seed424242.pt",
+      "byte_size": 591173580,
+      "protocol_path": "results/decoder_gradient_v1/warm_seed424242.pt",
+      "role": "shared_warm_checkpoint",
+      "sha256": "e685d7ecb6d4f8eb9d1293037b8972a3e9859dcec29eb1f1e26f316f8a80af52"
+    }
+  ],
+  "release": {
+    "previous_historical_release": "v1-paper",
+    "repository": "anonymous-artifact-source",
+    "tag": "v2-paper-review"
+  },
+  "results": {
+    "decoder_gradient": {
+      "audit_sha256": "050cd4754d7d2e5373533537b05dc2debef3123ae9744330138a4d1214f20b93",
+      "protocol_sha256": "a490a60d6a0e8140d2050eb314e86da02cbe0b8c6c4b53cf664aca240706c02b",
+      "result_path": "results/decoder_gradient_v1/RESULTS.json",
+      "sha256": "403dbdab8a7106117bf6e63a36a978cf21a5ffec1bd6c54018d456d038426884"
+    },
+    "input_order": {
+      "audit_sha256": "5830d49461247efa21c589f5d3fda418c8eb1d9ea8ecefaec493d19b055f070d",
+      "protocol_sha256": "65fd26874ed00737845200cab37608eb32215617dd360224fc6e8a1820951556",
+      "result_path": "results/input_order_v1/RESULTS.json",
+      "sha256": "a370666e1c81ef1e0aeff1dc509ed22861e5cbbff7f0a8a405b860f84fc55772"
+    },
+    "longembed_review": {
+      "audit_sha256": "c8a9c81297eb08a0a52695df35ff3df828999fda7c0cbb8d6b8ace22d1aa8070",
+      "protocol_sha256": "dc396c40acdef62f92123c1c1578c5147d3c88123c8f3ee041c01fb2c7a82adf",
+      "result_path": "results/longembed_review_v1/RESULTS.json",
+      "sha256": "dc6b7e81f80bc7e70f50fb28fb483ed83a5cbae16d62ac62fecfbe438b6f2a16"
+    },
+    "probe_families": {
+      "audit_sha256": "267b8048db870f0a8f5905c8cf7ff35155fd790629e1db3e8ac509afc4e760b3",
+      "protocol_sha256": "e9376c224b39d413a0fe12089e86227a018e8a8a5e3210fc2306549a6c4e2071",
+      "result_path": "results/probe_families_v1/RESULTS.json",
+      "sha256": "247aba18e038bf4163e2f96758651e2239a364e46618bc95bb7cb5f696b6ddfc"
+    },
+    "tree_families": {
+      "audit_sha256": "f6ed58c0dd13f0e41bddc7eb57177132504935f51ef1b3774a81952bac8e3dcd",
+      "protocol_sha256": "1a173d0c03114deba19ae6346e95af51eca1e2045bddf44e584441c52482c67c",
+      "result_path": "results/tree_families_v1/RESULTS.json",
+      "sha256": "11711f0c33f8b184548ee4eed179b9fcdbba78f995bbd0b63e48b3636495e0d7"
+    }
+  },
+  "schema_version": 1
+}

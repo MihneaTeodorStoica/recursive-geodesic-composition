@@ -1,0 +1,6479 @@
+{
+  "completed_unix": 1790353254.442585,
+  "confidence": "query-weighted document-cluster bootstrap; fixed corpus and checkpoints; no simultaneous guarantee",
+  "dataset_files": {
+    "2wikimqa/corpus.jsonl": {
+      "bytes": 11384376,
+      "git_blob_id": "b1fdca42abce6b41b5e16afdeccf8c251aad1f23",
+      "sha256": "f50e7df1dbd5bdf27d8c16a7e85390a1485c2c13b7e4f3e147d7718d52ae787b"
+    },
+    "2wikimqa/qrels.jsonl": {
+      "bytes": 15980,
+      "git_blob_id": "2fee50b52140b2722e03f88c51329568c741ab11",
+      "sha256": "ae65eec5dfbcd0169d0af92b19e732ab4c07d875061343b317804ed4dc226aea"
+    },
+    "2wikimqa/queries.jsonl": {
+      "bytes": 34293,
+      "git_blob_id": "0180979453a7aa5c20e31f80b9237782fe5cc340",
+      "sha256": "68ce1d47c018ceb0b47ad4bfb970d835df882c16e0687534cddea9b7fe10fc26"
+    },
+    "narrativeqa/corpus.jsonl": {
+      "bytes": 119531708,
+      "git_blob_id": "d8789a021837cf0e61c3f81eef3126de5140600f",
+      "sha256": "f777811da9373dedc464e4c9bccad63d2dfcf6460f6195d4bfb2661502fc6aea"
+    },
+    "narrativeqa/qrels.jsonl": {
+      "bytes": 570785,
+      "git_blob_id": "e5f914b450f3f407693c5509d79ab551065404f5",
+      "sha256": "d498af1c2ffad0f14e6fe58ba00bd063f9e686f90fd8107d93266fa3e0fd3ddb"
+    },
+    "narrativeqa/queries.jsonl": {
+      "bytes": 1001559,
+      "git_blob_id": "3c405d028db203c6efb50214de2a920433d656c0",
+      "sha256": "b9e4468d0360470770b25b90554f577486d9501980480e01d5a780568a3163bf"
+    },
+    "qmsum/corpus.jsonl": {
+      "bytes": 10633507,
+      "git_blob_id": "d112c126cacd6dd97d6371799c843f648bf653cd",
+      "sha256": "ce495b73ba31bb5203a8f1f3b086a5f0e6421de05d921b6c0727368fa128b02b"
+    },
+    "qmsum/qrels.jsonl": {
+      "bytes": 82040,
+      "git_blob_id": "af9af82e3e21e9d7033c9e5b1139aa5c2b812fc3",
+      "sha256": "65a2dc5c1db95d7a0a7c0e49eb10f62d9ffd4e885c9fac84c300f00a954f22a3"
+    },
+    "qmsum/queries.jsonl": {
+      "bytes": 734324,
+      "git_blob_id": "2d26b3cd704d401d399b3056d8f76f41b7a3f255",
+      "sha256": "8bc4637293908df8e3f4d9de936f93b84245db1bdf1be9e7605f24f9aa262129"
+    },
+    "summ_screen_fd/corpus.jsonl": {
+      "bytes": 10539725,
+      "git_blob_id": "40997d46148640f1116d223b011ee2d27f193572",
+      "sha256": "89a2e4e414bf8017e3ec6aacc97fc8047649f0f062c4592459953e1c8cd4a06f"
+    },
+    "summ_screen_fd/qrels.jsonl": {
+      "bytes": 17924,
+      "git_blob_id": "7f49b15e632d0b6134b91f527f9b9d459bab813b",
+      "sha256": "227049e80653fb63996ee1754a5e85e4c6b5b2149ae7e9654154ccc1e946ec27"
+    },
+    "summ_screen_fd/queries.jsonl": {
+      "bytes": 214544,
+      "git_blob_id": "cdb731c46aa96a08b3e547fa818dc65378aa5eb5",
+      "sha256": "c3e0aa4ff75b309f217b9eb840cd6d785cb5119078e26a9575ded3fa66f989d7"
+    }
+  },
+  "independent_replay_errors": {
+    "2wikimqa": {
+      "271828": 4.470348358154297e-08,
+      "314159": 4.470348358154297e-08,
+      "424242": 7.450580596923828e-08
+    },
+    "narrativeqa": {
+      "271828": 4.470348358154297e-08,
+      "314159": 5.960464477539063e-08,
+      "424242": 5.960464477539063e-08
+    },
+    "qmsum": {
+      "271828": 5.960464477539063e-08,
+      "314159": 5.960464477539063e-08,
+      "424242": 8.940696716308594e-08
+    },
+    "summ_screen_fd": {
+      "271828": 5.960464477539063e-08,
+      "314159": 5.960464477539063e-08,
+      "424242": 8.940696716308594e-08
+    }
+  },
+  "mean_accumulation": "FP32 uniformly for ALL benchmark leaves, queries and context references; FP16 backbone weights unchanged",
+  "metric_scale": "0_to_1",
+  "no_model_fitting_or_selection": true,
+  "precision_recovery_before_any_retrieval_scores": true,
+  "protocol_sha256": "dc396c40acdef62f92123c1c1578c5147d3c88123c8f3ee041c01fb2c7a82adf",
+  "resume_protocol_sha256": "873275c201e57a87e71726c9729463521775c1764207f8efd714cef8469ffe9c",
+  "tasks": {
+    "2wikimqa": {
+      "metadata": {
+        "above_32768": 0,
+        "above_8192": 139,
+        "above_training_leaf_cap_96": 0,
+        "all_encoding_and_tokenization_seconds": 132.48450226000023,
+        "composition_seconds_single_pass_not_benchmark": {
+          "271828": 0.21668159199998627,
+          "314159": 0.1108256759998767,
+          "424242": 0.3170713730000898
+        },
+        "depth_histogram": {
+          "1": 29,
+          "2": 266,
+          "3": 5
+        },
+        "documents": 300,
+        "leaf_encoding_seconds": 36.79856354699996,
+        "leaves": 2768,
+        "max_depth": 3,
+        "max_leaves": 17,
+        "max_tokens": 16725,
+        "merges_per_checkpoint": 997,
+        "pooling_precision_diagnostics": {
+          "context": {
+            "legacy_nonfinite_vectors": 2,
+            "mean_cosine_with_valid_legacy": 0.9999999669468675,
+            "minimum_cosine_with_valid_legacy": 0.9999999411505716,
+            "valid_legacy_count": 298,
+            "vectors": 300
+          },
+          "leaves": {
+            "legacy_nonfinite_vectors": 0,
+            "mean_cosine_with_valid_legacy": 0.9999999762979028,
+            "minimum_cosine_with_valid_legacy": 0.9999999397759693,
+            "valid_legacy_count": 2768,
+            "vectors": 2768
+          },
+          "queries": {
+            "legacy_nonfinite_vectors": 0,
+            "mean_cosine_with_valid_legacy": 0.9999999596159918,
+            "minimum_cosine_with_valid_legacy": 0.9999999360406129,
+            "valid_legacy_count": 300,
+            "vectors": 300
+          }
+        },
+        "positive_document_clusters": 300,
+        "queries": 300,
+        "query_max_tokens": 33,
+        "tokens": 2682849,
+        "truncated_mean_queries": 0
+      },
+      "scores_sha256": "431b72ffe6f9e225852ed21249118b5a29d76603ba1ae559f0e7710cde19eb0e",
+      "summaries": {
+        "all": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.8168473544973546,
+              0.8904437830687831
+            ],
+            "clusters": 300,
+            "mean": 0.8535304232804233,
+            "queries": 300
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.8372563788661298,
+              0.9046500038469019
+            ],
+            "clusters": 300,
+            "mean": 0.8708745810697686,
+            "queries": 300
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.78,
+              0.8666666666666667
+            ],
+            "clusters": 300,
+            "mean": 0.8233333333333334,
+            "queries": 300
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              0.8966666666666666,
+              0.9533333333333334
+            ],
+            "clusters": 300,
+            "mean": 0.9266666666666666,
+            "queries": 300
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.1959018518518519,
+              0.2844047949735449
+            ],
+            "clusters": 300,
+            "mean": 0.23910582010582013,
+            "queries": 300
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.23361375208140678,
+              0.3225308877178389
+            ],
+            "clusters": 300,
+            "mean": 0.277642894633446,
+            "queries": 300
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.13666666666666666,
+              0.22666666666666666
+            ],
+            "clusters": 300,
+            "mean": 0.18,
+            "queries": 300
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.3466666666666667,
+              0.46
+            ],
+            "clusters": 300,
+            "mean": 0.4033333333333333,
+            "queries": 300
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.6459101625767784,
+              -0.5464869869233487
+            ],
+            "clusters": 300,
+            "mean": -0.5940425780299187,
+            "queries": 300
+          },
+          "delta_context_mean": {
+            "ci95": [
+              -0.023821941797556548,
+              0.021446900338049062
+            ],
+            "clusters": 300,
+            "mean": -0.0008108915935960892,
+            "queries": 300
+          },
+          "delta_unweighted": {
+            "ci95": [
+              -0.011408486687174736,
+              0.014141135543274296
+            ],
+            "clusters": 300,
+            "mean": 0.0016028597785302612,
+            "queries": 300
+          },
+          "delta_weighted": {
+            "ci95": [
+              0.0025322689466131007,
+              0.022676477429003146
+            ],
+            "clusters": 300,
+            "mean": 0.012497749992407008,
+            "queries": 300
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.13825360449735452,
+              0.21540912698412712
+            ],
+            "clusters": 300,
+            "mean": 0.1752314814814815,
+            "queries": 300
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.16626500264752228,
+              0.2454822440202546
+            ],
+            "clusters": 300,
+            "mean": 0.2043860594147912,
+            "queries": 300
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.09666666666666666,
+              0.17333333333333334
+            ],
+            "clusters": 300,
+            "mean": 0.13333333333333333,
+            "queries": 300
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.24666666666666667,
+              0.35333333333333333
+            ],
+            "clusters": 300,
+            "mean": 0.3,
+            "queries": 300
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.1943053240740742,
+              0.2801670965608466
+            ],
+            "clusters": 300,
+            "mean": 0.2386111111111111,
+            "queries": 300
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.22964216913309748,
+              0.3182042119328177
+            ],
+            "clusters": 300,
+            "mean": 0.27515221603282713,
+            "queries": 300
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.13333333333333333,
+              0.22
+            ],
+            "clusters": 300,
+            "mean": 0.17666666666666667,
+            "queries": 300
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.33658333333333335,
+              0.44674999999999954
+            ],
+            "clusters": 300,
+            "mean": 0.3933333333333333,
+            "queries": 300
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.19539123677248685,
+              0.28416686507936517
+            ],
+            "clusters": 300,
+            "mean": 0.2403373015873016,
+            "queries": 300
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.23099723564089902,
+              0.32094811243545657
+            ],
+            "clusters": 300,
+            "mean": 0.27625293739674306,
+            "queries": 300
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.13666666666666666,
+              0.22666666666666666
+            ],
+            "clusters": 300,
+            "mean": 0.18,
+            "queries": 300
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.33666666666666667,
+              0.45
+            ],
+            "clusters": 300,
+            "mean": 0.3933333333333333,
+            "queries": 300
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.19643247354497365,
+              0.28353783068783067
+            ],
+            "clusters": 300,
+            "mean": 0.2409973544973545,
+            "queries": 300
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.23292068086008974,
+              0.32316591883892587
+            ],
+            "clusters": 300,
+            "mean": 0.27909085568997954,
+            "queries": 300
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.13333333333333333,
+              0.22
+            ],
+            "clusters": 300,
+            "mean": 0.17666666666666667,
+            "queries": 300
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.3466666666666667,
+              0.46
+            ],
+            "clusters": 300,
+            "mean": 0.4033333333333333,
+            "queries": 300
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.19535652557319222,
+              0.2831000110229276
+            ],
+            "clusters": 300,
+            "mean": 0.2399819223985891,
+            "queries": 300
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.23143428409699804,
+              0.3207314741891367
+            ],
+            "clusters": 300,
+            "mean": 0.2768320030398499,
+            "queries": 300
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.13444444444444442,
+              0.22222222222222224
+            ],
+            "clusters": 300,
+            "mean": 0.17777777777777776,
+            "queries": 300
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.33888888888888896,
+              0.4522222222222223
+            ],
+            "clusters": 300,
+            "mean": 0.3966666666666666,
+            "queries": 300
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.19509487433862432,
+              0.28055621693121696
+            ],
+            "clusters": 300,
+            "mean": 0.23831613756613754,
+            "queries": 300
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.22990239538597596,
+              0.3188888945356697
+            ],
+            "clusters": 300,
+            "mean": 0.2752291432613197,
+            "queries": 300
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.1399166666666667,
+              0.22333333333333333
+            ],
+            "clusters": 300,
+            "mean": 0.18,
+            "queries": 300
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.34,
+              0.45
+            ],
+            "clusters": 300,
+            "mean": 0.39666666666666667,
+            "queries": 300
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.18499642857142876,
+              0.2699794312169313
+            ],
+            "clusters": 300,
+            "mean": 0.22864021164021162,
+            "queries": 300
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.2201342569596531,
+              0.30688626439724315
+            ],
+            "clusters": 300,
+            "mean": 0.26433425304744296,
+            "queries": 300
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.12666666666666668,
+              0.21
+            ],
+            "clusters": 300,
+            "mean": 0.16666666666666666,
+            "queries": 300
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.32,
+              0.43341666666666623
+            ],
+            "clusters": 300,
+            "mean": 0.38,
+            "queries": 300
+          }
+        },
+        "length_1_4096": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.9310344827586206,
+              1.0
+            ],
+            "clusters": 29,
+            "mean": 0.9770114942528735,
+            "queries": 29
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.9482758620689655,
+              1.0
+            ],
+            "clusters": 29,
+            "mean": 0.9827586206896551,
+            "queries": 29
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.896551724137931,
+              1.0
+            ],
+            "clusters": 29,
+            "mean": 0.9655172413793104,
+            "queries": 29
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "clusters": 29,
+            "mean": 1.0,
+            "queries": 29
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.19622844827586208,
+              0.5285057471264365
+            ],
+            "clusters": 29,
+            "mean": 0.3652298850574713,
+            "queries": 29
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.2202363036977428,
+              0.5528318903676018
+            ],
+            "clusters": 29,
+            "mean": 0.39129619646366137,
+            "queries": 29
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.1724137931034483,
+              0.5172413793103449
+            ],
+            "clusters": 29,
+            "mean": 0.3448275862068966,
+            "queries": 29
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.27586206896551724,
+              0.6551724137931034
+            ],
+            "clusters": 29,
+            "mean": 0.4827586206896552,
+            "queries": 29
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.7840368433946954,
+              -0.47914725385373125
+            ],
+            "clusters": 29,
+            "mean": -0.6306096840469838,
+            "queries": 29
+          },
+          "delta_context_mean": {
+            "ci95": [
+              -0.13159100096409865,
+              0.045284316689434716
+            ],
+            "clusters": 29,
+            "mean": -0.03914725982098992,
+            "queries": 29
+          },
+          "delta_unweighted": {
+            "ci95": [
+              -0.025537142968002597,
+              0.0650094876975438
+            ],
+            "clusters": 29,
+            "mean": 0.018645965327080263,
+            "queries": 29
+          },
+          "delta_weighted": {
+            "ci95": [
+              0.012651613826015526,
+              0.0678311620385176
+            ],
+            "clusters": 29,
+            "mean": 0.037218100708407226,
+            "queries": 29
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.14424876847290644,
+              0.42394909688013105
+            ],
+            "clusters": 29,
+            "mean": 0.2813628899835796,
+            "queries": 29
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.19437261862698835,
+              0.47965854145902614
+            ],
+            "clusters": 29,
+            "mean": 0.3372681206971853,
+            "queries": 29
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.06896551724137931,
+              0.3793103448275862
+            ],
+            "clusters": 29,
+            "mean": 0.20689655172413793,
+            "queries": 29
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.3103448275862069,
+              0.6896551724137931
+            ],
+            "clusters": 29,
+            "mean": 0.5172413793103449,
+            "queries": 29
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.15457614942528736,
+              0.4546192528735631
+            ],
+            "clusters": 29,
+            "mean": 0.30373563218390803,
+            "queries": 29
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.18447555108390734,
+              0.4862966524516736
+            ],
+            "clusters": 29,
+            "mean": 0.33782985407999744,
+            "queries": 29
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.10344827586206896,
+              0.3793103448275862
+            ],
+            "clusters": 29,
+            "mean": 0.2413793103448276,
+            "queries": 29
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.27586206896551724,
+              0.6206896551724138
+            ],
+            "clusters": 29,
+            "mean": 0.4482758620689655,
+            "queries": 29
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.16675047892720304,
+              0.47520114942528735
+            ],
+            "clusters": 29,
+            "mean": 0.3190613026819923,
+            "queries": 29
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.20123818843420685,
+              0.5075772891169407
+            ],
+            "clusters": 29,
+            "mean": 0.35642193989106863,
+            "queries": 29
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.13793103448275862,
+              0.4482758620689655
+            ],
+            "clusters": 29,
+            "mean": 0.27586206896551724,
+            "queries": 29
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.3103448275862069,
+              0.6551724137931034
+            ],
+            "clusters": 29,
+            "mean": 0.4827586206896552,
+            "queries": 29
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.16838122605363984,
+              0.46592911877394616
+            ],
+            "clusters": 29,
+            "mean": 0.3162835249042146,
+            "queries": 29
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.21075345737812154,
+              0.5073604648048877
+            ],
+            "clusters": 29,
+            "mean": 0.36219501595694836,
+            "queries": 29
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.10344827586206896,
+              0.3793103448275862
+            ],
+            "clusters": 29,
+            "mean": 0.2413793103448276,
+            "queries": 29
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.3448275862068966,
+              0.6896551724137931
+            ],
+            "clusters": 29,
+            "mean": 0.5172413793103449,
+            "queries": 29
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.16498403575989787,
+              0.46481481481481474
+            ],
+            "clusters": 29,
+            "mean": 0.3130268199233716,
+            "queries": 29
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.2018120718343178,
+              0.5003170208482829
+            ],
+            "clusters": 29,
+            "mean": 0.35214893664267144,
+            "queries": 29
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.10344827586206896,
+              0.41379310344827586
+            ],
+            "clusters": 29,
+            "mean": 0.2528735632183908,
+            "queries": 29
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.3103448275862069,
+              0.6436781609195402
+            ],
+            "clusters": 29,
+            "mean": 0.4827586206896552,
+            "queries": 29
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.14382594417077177,
+              0.42596469622331684
+            ],
+            "clusters": 29,
+            "mean": 0.28686371100164204,
+            "queries": 29
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.18667688800448937,
+              0.4734594557705608
+            ],
+            "clusters": 29,
+            "mean": 0.33350297131559126,
+            "queries": 29
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.06896551724137931,
+              0.3448275862068966
+            ],
+            "clusters": 29,
+            "mean": 0.20689655172413793,
+            "queries": 29
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.3103448275862069,
+              0.6551724137931034
+            ],
+            "clusters": 29,
+            "mean": 0.4827586206896552,
+            "queries": 29
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.13647270114942528,
+              0.43678160919540227
+            ],
+            "clusters": 29,
+            "mean": 0.2841954022988506,
+            "queries": 29
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.16362227038235003,
+              0.4631865394524672
+            ],
+            "clusters": 29,
+            "mean": 0.31493083593426424,
+            "queries": 29
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.10344827586206896,
+              0.3793103448275862
+            ],
+            "clusters": 29,
+            "mean": 0.2413793103448276,
+            "queries": 29
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.2413793103448276,
+              0.5862068965517241
+            ],
+            "clusters": 29,
+            "mean": 0.41379310344827586,
+            "queries": 29
+          }
+        },
+        "length_4097_8192": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.838225408850409,
+              0.9332399891774892
+            ],
+            "clusters": 132,
+            "mean": 0.8872234247234247,
+            "queries": 132
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.8611780960939204,
+              0.9451895768230231
+            ],
+            "clusters": 132,
+            "mean": 0.9049951741241598,
+            "queries": 132
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.7954545454545454,
+              0.9090909090909091
+            ],
+            "clusters": 132,
+            "mean": 0.8560606060606061,
+            "queries": 132
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              0.9242424242424242,
+              0.9924242424242424
+            ],
+            "clusters": 132,
+            "mean": 0.9621212121212122,
+            "queries": 132
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.16370768698893698,
+              0.2919212211399711
+            ],
+            "clusters": 132,
+            "mean": 0.22888107263107263,
+            "queries": 132
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.20247197916948184,
+              0.33431840049814293
+            ],
+            "clusters": 132,
+            "mean": 0.269908760271691,
+            "queries": 132
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.09848484848484848,
+              0.2196969696969697
+            ],
+            "clusters": 132,
+            "mean": 0.1590909090909091,
+            "queries": 132
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.3106060606060606,
+              0.48484848484848486
+            ],
+            "clusters": 132,
+            "mean": 0.4015151515151515,
+            "queries": 132
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.7078413915584655,
+              -0.5722123436849346
+            ],
+            "clusters": 132,
+            "mean": -0.6415988762868022,
+            "queries": 132
+          },
+          "delta_context_mean": {
+            "ci95": [
+              -0.04000830472196591,
+              0.02659340184215919
+            ],
+            "clusters": 132,
+            "mean": -0.006512462434333514,
+            "queries": 132
+          },
+          "delta_unweighted": {
+            "ci95": [
+              -0.026547224876054508,
+              0.015280412563696739
+            ],
+            "clusters": 132,
+            "mean": -0.0056139424760479366,
+            "queries": 132
+          },
+          "delta_weighted": {
+            "ci95": [
+              -0.004493012540411941,
+              0.026967459321057978
+            ],
+            "clusters": 132,
+            "mean": 0.011046635945919508,
+            "queries": 132
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.12539419492544493,
+              0.24785721801346797
+            ],
+            "clusters": 132,
+            "mean": 0.18447871572871571,
+            "queries": 132
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.14783834334016227,
+              0.27225169779591885
+            ],
+            "clusters": 132,
+            "mean": 0.20861831867946676,
+            "queries": 132
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.09090909090909091,
+              0.21212121212121213
+            ],
+            "clusters": 132,
+            "mean": 0.15151515151515152,
+            "queries": 132
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.21212121212121213,
+              0.36363636363636365
+            ],
+            "clusters": 132,
+            "mean": 0.2878787878787879,
+            "queries": 132
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.1660198713323713,
+              0.29663374819624816
+            ],
+            "clusters": 132,
+            "mean": 0.22910954785954782,
+            "queries": 132
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.19905230561269804,
+              0.3323565061578687
+            ],
+            "clusters": 132,
+            "mean": 0.263266894653083,
+            "queries": 132
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.09848484848484848,
+              0.22727272727272727
+            ],
+            "clusters": 132,
+            "mean": 0.1590909090909091,
+            "queries": 132
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.2878787878787879,
+              0.45454545454545453
+            ],
+            "clusters": 132,
+            "mean": 0.3712121212121212,
+            "queries": 132
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.16502517736892736,
+              0.2936661255411255
+            ],
+            "clusters": 132,
+            "mean": 0.22770262145262143,
+            "queries": 132
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.19719717958666375,
+              0.3315012167726798
+            ],
+            "clusters": 132,
+            "mean": 0.2623900587954629,
+            "queries": 132
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.09090909090909091,
+              0.2196969696969697
+            ],
+            "clusters": 132,
+            "mean": 0.15151515151515152,
+            "queries": 132
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.2878787878787879,
+              0.45454545454545453
+            ],
+            "clusters": 132,
+            "mean": 0.3712121212121212,
+            "queries": 132
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.16994656385281387,
+              0.30038374819624813
+            ],
+            "clusters": 132,
+            "mean": 0.23264790764790763,
+            "queries": 132
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.1992927936087989,
+              0.3352996763679836
+            ],
+            "clusters": 132,
+            "mean": 0.2645319400635263,
+            "queries": 132
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.09848484848484848,
+              0.22727272727272727
+            ],
+            "clusters": 132,
+            "mean": 0.1590909090909091,
+            "queries": 132
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.2803030303030303,
+              0.44696969696969696
+            ],
+            "clusters": 132,
+            "mean": 0.36363636363636365,
+            "queries": 132
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.1672840007215007,
+              0.2969580477392977
+            ],
+            "clusters": 132,
+            "mean": 0.22982002565335902,
+            "queries": 132
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.1990488711071766,
+              0.3328542128226067
+            ],
+            "clusters": 132,
+            "mean": 0.2633962978373574,
+            "queries": 132
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.09848484848484848,
+              0.22222222222222215
+            ],
+            "clusters": 132,
+            "mean": 0.15656565656565655,
+            "queries": 132
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.28535353535353536,
+              0.45454545454545453
+            ],
+            "clusters": 132,
+            "mean": 0.3686868686868687,
+            "queries": 132
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.16975348725348724,
+              0.3019972793410293
+            ],
+            "clusters": 132,
+            "mean": 0.2333303270803271,
+            "queries": 132
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.20515148576125347,
+              0.33869693939567036
+            ],
+            "clusters": 132,
+            "mean": 0.26901024031340537,
+            "queries": 132
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.11363636363636363,
+              0.24242424242424243
+            ],
+            "clusters": 132,
+            "mean": 0.17424242424242425,
+            "queries": 132
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.30303030303030304,
+              0.4696969696969697
+            ],
+            "clusters": 132,
+            "mean": 0.38636363636363635,
+            "queries": 132
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.15691693722943723,
+              0.28103911135161136
+            ],
+            "clusters": 132,
+            "mean": 0.21692520442520444,
+            "queries": 132
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.19000316708179613,
+              0.3193658077702519
+            ],
+            "clusters": 132,
+            "mean": 0.25234966189143787,
+            "queries": 132
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.08333333333333333,
+              0.19696969696969696
+            ],
+            "clusters": 132,
+            "mean": 0.13636363636363635,
+            "queries": 132
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.2803030303030303,
+              0.44696969696969696
+            ],
+            "clusters": 132,
+            "mean": 0.36363636363636365,
+            "queries": 132
+          }
+        },
+        "length_8193_32768": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.7319899080735415,
+              0.8562549246317234
+            ],
+            "clusters": 139,
+            "mean": 0.7957719538654789,
+            "queries": 139
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.7549753192182288,
+              0.8718673120826201
+            ],
+            "clusters": 139,
+            "mean": 0.8151295779607304,
+            "queries": 139
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.6906474820143885,
+              0.8273381294964028
+            ],
+            "clusters": 139,
+            "mean": 0.762589928057554,
+            "queries": 139
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              0.8201438848920863,
+              0.9280575539568345
+            ],
+            "clusters": 139,
+            "mean": 0.8776978417266187,
+            "queries": 139
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.16106743176887062,
+              0.2826998401278976
+            ],
+            "clusters": 139,
+            "mean": 0.22250199840127896,
+            "queries": 139
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.19640284934057695,
+              0.32374643662694946
+            ],
+            "clusters": 139,
+            "mean": 0.2612757002642045,
+            "queries": 139
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.10071942446043165,
+              0.2302158273381295
+            ],
+            "clusters": 139,
+            "mean": 0.16546762589928057,
+            "queries": 139
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.302158273381295,
+              0.4676258992805755
+            ],
+            "clusters": 139,
+            "mean": 0.38848920863309355,
+            "queries": 139
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.6194474107758472,
+              -0.46799698805670004
+            ],
+            "clusters": 139,
+            "mean": -0.5412520928183826,
+            "queries": 139
+          },
+          "delta_context_mean": {
+            "ci95": [
+              -0.01970380725994276,
+              0.04566031138173385
+            ],
+            "clusters": 139,
+            "mean": 0.012601784878143197,
+            "queries": 139
+          },
+          "delta_unweighted": {
+            "ci95": [
+              -0.013454895607887197,
+              0.02290970468516086
+            ],
+            "clusters": 139,
+            "mean": 0.004900470114475384,
+            "queries": 139
+          },
+          "delta_weighted": {
+            "ci95": [
+              -0.006416549101212449,
+              0.022692767466091644
+            ],
+            "clusters": 139,
+            "mean": 0.008718303110193648,
+            "queries": 139
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.09627333847207949,
+              0.19792887118876315
+            ],
+            "clusters": 139,
+            "mean": 0.14430741121388602,
+            "queries": 139
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.12087866925683402,
+              0.22899881876679778
+            ],
+            "clusters": 139,
+            "mean": 0.17264333998941994,
+            "queries": 139
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.05755395683453238,
+              0.1510791366906475
+            ],
+            "clusters": 139,
+            "mean": 0.10071942446043165,
+            "queries": 139
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.19424460431654678,
+              0.34532374100719426
+            ],
+            "clusters": 139,
+            "mean": 0.26618705035971224,
+            "queries": 139
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.1725625214114422,
+              0.2964385634349662
+            ],
+            "clusters": 139,
+            "mean": 0.23404704807582508,
+            "queries": 139
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.2100074056014849,
+              0.3348250523542484
+            ],
+            "clusters": 139,
+            "mean": 0.2733623665274911,
+            "queries": 139
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.11510791366906475,
+              0.2446043165467626
+            ],
+            "clusters": 139,
+            "mean": 0.17985611510791366,
+            "queries": 139
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.31654676258992803,
+              0.48201438848920863
+            ],
+            "clusters": 139,
+            "mean": 0.4028776978417266,
+            "queries": 139
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.17161071143085532,
+              0.29868205435651485
+            ],
+            "clusters": 139,
+            "mean": 0.2359112709832134,
+            "queries": 139
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.2069746488174267,
+              0.33633143246495606
+            ],
+            "clusters": 139,
+            "mean": 0.2726917784257614,
+            "queries": 139
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.1223021582733813,
+              0.2517985611510791
+            ],
+            "clusters": 139,
+            "mean": 0.18705035971223022,
+            "queries": 139
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.30935251798561153,
+              0.4748201438848921
+            ],
+            "clusters": 139,
+            "mean": 0.39568345323741005,
+            "queries": 139
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.1701713629096722,
+              0.2944713514902361
+            ],
+            "clusters": 139,
+            "mean": 0.23321913897453467,
+            "queries": 139
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.21127163312420266,
+              0.3358779656168933
+            ],
+            "clusters": 139,
+            "mean": 0.2755783104737905,
+            "queries": 139
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.11510791366906475,
+              0.2446043165467626
+            ],
+            "clusters": 139,
+            "mean": 0.17985611510791366,
+            "queries": 139
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.33093525179856115,
+              0.49640287769784175
+            ],
+            "clusters": 139,
+            "mean": 0.4172661870503597,
+            "queries": 139
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.170821200182711,
+              0.2963914344714703
+            ],
+            "clusters": 139,
+            "mean": 0.23439248601119106,
+            "queries": 139
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.20997630630423053,
+              0.33510262428416787
+            ],
+            "clusters": 139,
+            "mean": 0.2738774851423477,
+            "queries": 139
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.11510791366906475,
+              0.24466426858513163
+            ],
+            "clusters": 139,
+            "mean": 0.18225419664268586,
+            "queries": 139
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.3213429256594724,
+              0.47961630695443647
+            ],
+            "clusters": 139,
+            "mean": 0.4052757793764988,
+            "queries": 139
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.16936250999200633,
+              0.2948105801073427
+            ],
+            "clusters": 139,
+            "mean": 0.23292223364165807,
+            "queries": 139
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.20463187036718541,
+              0.33074390072328125
+            ],
+            "clusters": 139,
+            "mean": 0.26897701502787225,
+            "queries": 139
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.11510791366906475,
+              0.2446043165467626
+            ],
+            "clusters": 139,
+            "mean": 0.17985611510791366,
+            "queries": 139
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.30935251798561153,
+              0.4676258992805755
+            ],
+            "clusters": 139,
+            "mean": 0.38848920863309355,
+            "queries": 139
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.16562692702980472,
+              0.29073384149822995
+            ],
+            "clusters": 139,
+            "mean": 0.22817460317460317,
+            "queries": 139
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.20209754319449147,
+              0.32819178554218686
+            ],
+            "clusters": 139,
+            "mean": 0.26515918203215405,
+            "queries": 139
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.11510791366906475,
+              0.2446043165467626
+            ],
+            "clusters": 139,
+            "mean": 0.17985611510791366,
+            "queries": 139
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.30935251798561153,
+              0.4676258992805755
+            ],
+            "clusters": 139,
+            "mean": 0.38848920863309355,
+            "queries": 139
+          }
+        }
+      },
+      "vectors_sha256": "e60e573d2340194bb6e46e4464e06cabf04dfa478b31e28eed3307f1307bb54e"
+    },
+    "narrativeqa": {
+      "metadata": {
+        "above_32768": 320,
+        "above_8192": 347,
+        "above_training_leaf_cap_96": 85,
+        "all_encoding_and_tokenization_seconds": 591.9876925629997,
+        "composition_seconds_single_pass_not_benchmark": {
+          "271828": 0.9653462370006309,
+          "314159": 0.9523803249994671,
+          "424242": 1.2400655849996838
+        },
+        "depth_histogram": {
+          "2": 15,
+          "3": 159,
+          "4": 170,
+          "5": 11
+        },
+        "documents": 355,
+        "leaf_encoding_seconds": 373.92787271400084,
+        "leaves": 29882,
+        "max_depth": 5,
+        "max_leaves": 477,
+        "max_tokens": 488429,
+        "merges_per_checkpoint": 10197,
+        "pooling_precision_diagnostics": {
+          "context": {
+            "legacy_nonfinite_vectors": 18,
+            "mean_cosine_with_valid_legacy": 0.9999999780279407,
+            "minimum_cosine_with_valid_legacy": 0.9999999492071363,
+            "valid_legacy_count": 337,
+            "vectors": 355
+          },
+          "leaves": {
+            "legacy_nonfinite_vectors": 0,
+            "mean_cosine_with_valid_legacy": 0.9999999781718221,
+            "minimum_cosine_with_valid_legacy": 0.9999999399855843,
+            "valid_legacy_count": 29882,
+            "vectors": 29882
+          },
+          "queries": {
+            "legacy_nonfinite_vectors": 0,
+            "mean_cosine_with_valid_legacy": 0.9999999607884732,
+            "minimum_cosine_with_valid_legacy": 0.9999999262775916,
+            "valid_legacy_count": 10449,
+            "vectors": 10449
+          }
+        },
+        "positive_document_clusters": 355,
+        "queries": 10449,
+        "query_max_tokens": 63,
+        "tokens": 30413806,
+        "truncated_mean_queries": 0
+      },
+      "scores_sha256": "5cbac3fd7b4639b41314de30235baa717e6875e2cc934089716ce01583b16417",
+      "summaries": {
+        "all": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.2436086053325018,
+              0.29912936085362446
+            ],
+            "clusters": 355,
+            "mean": 0.27114883022146874,
+            "queries": 10449
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.2728534864285861,
+              0.32986643261182036
+            ],
+            "clusters": 355,
+            "mean": 0.30149224408457803,
+            "queries": 10449
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.19162091339988424,
+              0.24505750646858307
+            ],
+            "clusters": 355,
+            "mean": 0.21801129294669347,
+            "queries": 10449
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              0.3666340921377668,
+              0.43313417316417846
+            ],
+            "clusters": 355,
+            "mean": 0.3994640635467509,
+            "queries": 10449
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.040398830194079124,
+              0.05379429233903849
+            ],
+            "clusters": 355,
+            "mean": 0.046922125152099314,
+            "queries": 10449
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.0542152938750448,
+              0.07004854297235762
+            ],
+            "clusters": 355,
+            "mean": 0.06203367797969239,
+            "queries": 10449
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.020864733386151926,
+              0.030843547898615358
+            ],
+            "clusters": 355,
+            "mean": 0.02555268446741315,
+            "queries": 10449
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.09996895293611122,
+              0.12430763966520478
+            ],
+            "clusters": 355,
+            "mean": 0.1120681404919131,
+            "queries": 10449
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.25305046827342936,
+              -0.19381495668042878
+            ],
+            "clusters": 355,
+            "mean": -0.2224765484635447,
+            "queries": 10449
+          },
+          "delta_context_mean": {
+            "ci95": [
+              0.009204758100117809,
+              0.024736055609622734
+            ],
+            "clusters": 355,
+            "mean": 0.01698201764134091,
+            "queries": 10449
+          },
+          "delta_unweighted": {
+            "ci95": [
+              -0.008205680606722726,
+              0.0006117761638153341
+            ],
+            "clusters": 355,
+            "mean": -0.003954904311033586,
+            "queries": 10449
+          },
+          "delta_weighted": {
+            "ci95": [
+              -0.008540132934680726,
+              -9.729143005644135e-05
+            ],
+            "clusters": 355,
+            "mean": -0.004480849872787795,
+            "queries": 10449
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.02683973928505499,
+              0.04055747405773492
+            ],
+            "clusters": 355,
+            "mean": 0.03320356470657935,
+            "queries": 10449
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.03708655644480181,
+              0.05375174150503025
+            ],
+            "clusters": 355,
+            "mean": 0.044870233345434996,
+            "queries": 10449
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.012618244163199985,
+              0.02252968017780157
+            ],
+            "clusters": 355,
+            "mean": 0.017226528854435832,
+            "queries": 10449
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.07088397752145212,
+              0.09766716814254951
+            ],
+            "clusters": 355,
+            "mean": 0.08354866494401378,
+            "queries": 10449
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.051783561991891255,
+              0.06631376475053558
+            ],
+            "clusters": 355,
+            "mean": 0.05903257241902088,
+            "queries": 10449
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.0701689099715615,
+              0.0873067206137136
+            ],
+            "clusters": 355,
+            "mean": 0.07869443307835092,
+            "queries": 10449
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.025072183848758717,
+              0.03573883099868248
+            ],
+            "clusters": 355,
+            "mean": 0.030242128433342903,
+            "queries": 10449
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.12971454833198132,
+              0.1572025432146892
+            ],
+            "clusters": 355,
+            "mean": 0.143267298306058,
+            "queries": 10449
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.05122534688335369,
+              0.06553447038116048
+            ],
+            "clusters": 355,
+            "mean": 0.058351866283247275,
+            "queries": 10449
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.06974811523423417,
+              0.08678420687318038
+            ],
+            "clusters": 355,
+            "mean": 0.07820526537758556,
+            "queries": 10449
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.024018221852217823,
+              0.03451375287464347
+            ],
+            "clusters": 355,
+            "mean": 0.029189396114460715,
+            "queries": 10449
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.13007853401482208,
+              0.15755038567234034
+            ],
+            "clusters": 355,
+            "mean": 0.1435544071202986,
+            "queries": 10449
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.05341136163261567,
+              0.06797590617064402
+            ],
+            "clusters": 355,
+            "mean": 0.06053575416193849,
+            "queries": 10449
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.07163927522428182,
+              0.08912472079832331
+            ],
+            "clusters": 355,
+            "mean": 0.08014738840716343,
+            "queries": 10449
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.026608943049960424,
+              0.03722684254261384
+            ],
+            "clusters": 355,
+            "mean": 0.03167767250454589,
+            "queries": 10449
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.1310075471429112,
+              0.15891250239326057
+            ],
+            "clusters": 355,
+            "mean": 0.14470284237726097,
+            "queries": 10449
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.05212440688458687,
+              0.06659601207032532
+            ],
+            "clusters": 355,
+            "mean": 0.05930673095473555,
+            "queries": 10449
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.07066566187961731,
+              0.08778784749934247
+            ],
+            "clusters": 355,
+            "mean": 0.07901569562103329,
+            "queries": 10449
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.0252462985589948,
+              0.03574769652153905
+            ],
+            "clusters": 355,
+            "mean": 0.030369732350783173,
+            "queries": 10449
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.1302695739331533,
+              0.1578359999223863
+            ],
+            "clusters": 355,
+            "mean": 0.1438415159345392,
+            "queries": 10449
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.056407875831417195,
+              0.07039586055699679
+            ],
+            "clusters": 355,
+            "mean": 0.06314392506611857,
+            "queries": 10449
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.07493956729226535,
+              0.09133845537049705
+            ],
+            "clusters": 355,
+            "mean": 0.08297059993206689,
+            "queries": 10449
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.02899507660446388,
+              0.03945098313827781
+            ],
+            "clusters": 355,
+            "mean": 0.033878840080390465,
+            "queries": 10449
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.13518386861783255,
+              0.16130167554980732
+            ],
+            "clusters": 355,
+            "mean": 0.14833955402430854,
+            "queries": 10449
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.05679407498548159,
+              0.07088110489301441
+            ],
+            "clusters": 355,
+            "mean": 0.06364446662322057,
+            "queries": 10449
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.07537476735499186,
+              0.0919711995105436
+            ],
+            "clusters": 355,
+            "mean": 0.0834965454938211,
+            "queries": 10449
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.029280671245236038,
+              0.03974405213469626
+            ],
+            "clusters": 355,
+            "mean": 0.034357354770791465,
+            "queries": 10449
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.13563227263283348,
+              0.16206366290325938
+            ],
+            "clusters": 355,
+            "mean": 0.14891377165278974,
+            "queries": 10449
+          }
+        },
+        "length_32769_plus": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.22293247042822575,
+              0.28074939193323756
+            ],
+            "clusters": 320,
+            "mean": 0.2518062121610064,
+            "queries": 9428
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.2505050525781542,
+              0.31048607601057515
+            ],
+            "clusters": 320,
+            "mean": 0.2808564804111935,
+            "queries": 9428
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.1746759156360747,
+              0.22902507111473014
+            ],
+            "clusters": 320,
+            "mean": 0.2017394993635978,
+            "queries": 9428
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              0.33928765045604936,
+              0.40914281135182334
+            ],
+            "clusters": 320,
+            "mean": 0.37484089944845145,
+            "queries": 9428
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.03490433499448165,
+              0.045691233223325606
+            ],
+            "clusters": 320,
+            "mean": 0.04009590648591497,
+            "queries": 9428
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.04760910096375435,
+              0.06065706431756108
+            ],
+            "clusters": 320,
+            "mean": 0.05398709641997146,
+            "queries": 9428
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.01694188628650203,
+              0.024984650100014168
+            ],
+            "clusters": 320,
+            "mean": 0.02078913873568095,
+            "queries": 9428
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.08923033468343636,
+              0.11115886891464531
+            ],
+            "clusters": 320,
+            "mean": 0.10002121340687314,
+            "queries": 9428
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.23773724324145837,
+              -0.17614393516059101
+            ],
+            "clusters": 320,
+            "mean": -0.2074589675812892,
+            "queries": 9428
+          },
+          "delta_context_mean": {
+            "ci95": [
+              0.011535043464546507,
+              0.028006271369594698
+            ],
+            "clusters": 320,
+            "mean": 0.019410416409932855,
+            "queries": 9428
+          },
+          "delta_unweighted": {
+            "ci95": [
+              -0.014083497342576828,
+              -0.005684130926901709
+            ],
+            "clusters": 320,
+            "mean": -0.00984620666913897,
+            "queries": 9428
+          },
+          "delta_weighted": {
+            "ci95": [
+              -0.014248495156165334,
+              -0.0059229700810586585
+            ],
+            "clusters": 320,
+            "mean": -0.0100214754695976,
+            "queries": 9428
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.018768334313686685,
+              0.029763876764789362
+            ],
+            "clusters": 320,
+            "mean": 0.02407814278306429,
+            "queries": 9428
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.02732734739899463,
+              0.04099087742178035
+            ],
+            "clusters": 320,
+            "mean": 0.033899523033033625,
+            "queries": 9428
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.0072401466309692086,
+              0.014514865620774768
+            ],
+            "clusters": 320,
+            "mean": 0.010818837505303353,
+            "queries": 9428
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.05449036408682923,
+              0.07921629163363046
+            ],
+            "clusters": 320,
+            "mean": 0.0665040305473059,
+            "queries": 9428
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.047501705995940106,
+              0.06144371703958157
+            ],
+            "clusters": 320,
+            "mean": 0.05399232950145127,
+            "queries": 9428
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.06513263817894868,
+              0.0817755423097996
+            ],
+            "clusters": 320,
+            "mean": 0.07296739491003444,
+            "queries": 9428
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.02144283426639907,
+              0.03156509331202156
+            ],
+            "clusters": 320,
+            "mean": 0.02609249045396691,
+            "queries": 9428
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.12214607861384284,
+              0.14983013647314175
+            ],
+            "clusters": 320,
+            "mean": 0.1352354688162919,
+            "queries": 9428
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.04663365776532977,
+              0.0601514733845011
+            ],
+            "clusters": 320,
+            "mean": 0.05291595955310422,
+            "queries": 9428
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.06421904933052697,
+              0.08074869569638578
+            ],
+            "clusters": 320,
+            "mean": 0.07191810416247423,
+            "queries": 9428
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.020430805603360337,
+              0.030287229798741114
+            ],
+            "clusters": 320,
+            "mean": 0.025031820110309716,
+            "queries": 9428
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.12135607486637116,
+              0.1490594360861857
+            ],
+            "clusters": 320,
+            "mean": 0.13449299957573185,
+            "queries": 9428
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.049891636685212445,
+              0.06365670803434038
+            ],
+            "clusters": 320,
+            "mean": 0.056328498023449226,
+            "queries": 9428
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.06753929531958819,
+              0.08414479497437351
+            ],
+            "clusters": 320,
+            "mean": 0.07530703941720429,
+            "queries": 9428
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.023483699755961436,
+              0.033785383973649004
+            ],
+            "clusters": 320,
+            "mean": 0.028425965210012727,
+            "queries": 9428
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.12476105162639597,
+              0.1526298388484776
+            ],
+            "clusters": 320,
+            "mean": 0.13778107764106914,
+            "queries": 9428
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.048066593183752886,
+              0.061648525304521126
+            ],
+            "clusters": 320,
+            "mean": 0.05441226235933491,
+            "queries": 9428
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.06562992111421566,
+              0.0821790871710139
+            ],
+            "clusters": 320,
+            "mean": 0.07339751282990432,
+            "queries": 9428
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.021769682665213008,
+              0.031807144954513616
+            ],
+            "clusters": 320,
+            "mean": 0.02651675859142978,
+            "queries": 9428
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.12297186092182015,
+              0.15005593420988944
+            ],
+            "clusters": 320,
+            "mean": 0.13583651534436428,
+            "queries": 9428
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.0564343042950092,
+              0.07019915141951442
+            ],
+            "clusters": 320,
+            "mean": 0.06286391094409761,
+            "queries": 9428
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.07564205885611977,
+              0.09180904441316874
+            ],
+            "clusters": 320,
+            "mean": 0.08324371949904329,
+            "queries": 9428
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.027815154091616393,
+              0.03829934062692157
+            ],
+            "clusters": 320,
+            "mean": 0.03266864658464149,
+            "queries": 9428
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.1379308507119282,
+              0.16381245135626582
+            ],
+            "clusters": 320,
+            "mean": 0.15040305473058974,
+            "queries": 9428
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.05669409475773709,
+              0.07065314900698678
+            ],
+            "clusters": 320,
+            "mean": 0.06324802513283632,
+            "queries": 9428
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.07565251169358368,
+              0.09191717803861164
+            ],
+            "clusters": 320,
+            "mean": 0.08341898829950192,
+            "queries": 9428
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.028482602834117056,
+              0.03893833094423888
+            ],
+            "clusters": 320,
+            "mean": 0.03341111582520153,
+            "queries": 9428
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.13753578611721315,
+              0.16355625875812832
+            ],
+            "clusters": 320,
+            "mean": 0.14987271955876114,
+            "queries": 9428
+          }
+        },
+        "length_4097_8192": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.3466903012342926,
+              0.5820500650190367
+            ],
+            "clusters": 8,
+            "mean": 0.4716422466422467,
+            "queries": 234
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.40758275938687666,
+              0.629610250723981
+            ],
+            "clusters": 8,
+            "mean": 0.5260940606739588,
+            "queries": 234
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.2127659574468085,
+              0.4721030042918455
+            ],
+            "clusters": 8,
+            "mean": 0.3504273504273504,
+            "queries": 234
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              0.5811965811965812,
+              0.7922301836094938
+            ],
+            "clusters": 8,
+            "mean": 0.6965811965811965,
+            "queries": 234
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.02222314312504186,
+              0.20934178351841384
+            ],
+            "clusters": 8,
+            "mean": 0.10146520146520147,
+            "queries": 234
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.03444777236194045,
+              0.25014929429125726
+            ],
+            "clusters": 8,
+            "mean": 0.12704226213387135,
+            "queries": 234
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.008403361344537815,
+              0.12121212121212122
+            ],
+            "clusters": 8,
+            "mean": 0.05555555555555555,
+            "queries": 234
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.07172995780590717,
+              0.3826086956521739
+            ],
+            "clusters": 8,
+            "mean": 0.2094017094017094,
+            "queries": 234
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.5673404794784848,
+              -0.32402906645202567
+            ],
+            "clusters": 8,
+            "mean": -0.44930300133212586,
+            "queries": 234
+          },
+          "delta_context_mean": {
+            "ci95": [
+              -0.09810250071753468,
+              -0.01251225830370135
+            ],
+            "clusters": 8,
+            "mean": -0.050251202792038464,
+            "queries": 234
+          },
+          "delta_unweighted": {
+            "ci95": [
+              0.01145972643076519,
+              0.12872166530169413
+            ],
+            "clusters": 8,
+            "mean": 0.06166705853242758,
+            "queries": 234
+          },
+          "delta_weighted": {
+            "ci95": [
+              0.007607073623401951,
+              0.0997789153624694
+            ],
+            "clusters": 8,
+            "mean": 0.048093227361541174,
+            "queries": 234
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.16333821336924173,
+              0.34593308280731305
+            ],
+            "clusters": 8,
+            "mean": 0.24434608601275268,
+            "queries": 234
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.20920600489198363,
+              0.387529522129573
+            ],
+            "clusters": 8,
+            "mean": 0.29004362133153516,
+            "queries": 234
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.09745762711864407,
+              0.26958574360888216
+            ],
+            "clusters": 8,
+            "mean": 0.1752136752136752,
+            "queries": 234
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.35443037974683544,
+              0.5283842794759825
+            ],
+            "clusters": 8,
+            "mean": 0.44017094017094016,
+            "queries": 234
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.0071839080459770105,
+              0.11376626473192997
+            ],
+            "clusters": 8,
+            "mean": 0.04956417039750373,
+            "queries": 234
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.012636419497450032,
+              0.15431765856191715
+            ],
+            "clusters": 8,
+            "mean": 0.07087343150331218,
+            "queries": 234
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.004062500000000006,
+              0.04782608695652174
+            ],
+            "clusters": 8,
+            "mean": 0.021367521367521368,
+            "queries": 234
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.029535864978902954,
+              0.29130434782608694
+            ],
+            "clusters": 8,
+            "mean": 0.14102564102564102,
+            "queries": 234
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.009198355787338838,
+              0.12404143475572048
+            ],
+            "clusters": 8,
+            "mean": 0.05936609686609686,
+            "queries": 234
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.015183462509979465,
+              0.1692454053620108
+            ],
+            "clusters": 8,
+            "mean": 0.08242165593810682,
+            "queries": 234
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.004062500000000006,
+              0.06465517241379311
+            ],
+            "clusters": 8,
+            "mean": 0.029914529914529916,
+            "queries": 234
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.03765690376569038,
+              0.31308377061469245
+            ],
+            "clusters": 8,
+            "mean": 0.1581196581196581,
+            "queries": 234
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.00737277743715512,
+              0.12094095155729141
+            ],
+            "clusters": 8,
+            "mean": 0.05398521231854565,
+            "queries": 234
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.0139424982952981,
+              0.16475299554655698
+            ],
+            "clusters": 8,
+            "mean": 0.07707809058407965,
+            "queries": 234
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.004062500000000006,
+              0.06086956521739131
+            ],
+            "clusters": 8,
+            "mean": 0.02564102564102564,
+            "queries": 234
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.03333333333333333,
+              0.3103448275862069
+            ],
+            "clusters": 8,
+            "mean": 0.15384615384615385,
+            "queries": 234
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.007699775189045576,
+              0.11933665906664807
+            ],
+            "clusters": 8,
+            "mean": 0.054305159860715414,
+            "queries": 234
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.014105306277625641,
+              0.1635013198055025
+            ],
+            "clusters": 8,
+            "mean": 0.07679105934183288,
+            "queries": 234
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.004062500000000006,
+              0.057971014492753624
+            ],
+            "clusters": 8,
+            "mean": 0.02564102564102564,
+            "queries": 234
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.03262411347517731,
+              0.30459770114942525
+            ],
+            "clusters": 8,
+            "mean": 0.15099715099715097,
+            "queries": 234
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.0012691771269177146,
+              0.015660919540229884
+            ],
+            "clusters": 8,
+            "mean": 0.007098765432098765,
+            "queries": 234
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.002806216455339167,
+              0.03347636385485146
+            ],
+            "clusters": 8,
+            "mean": 0.015124000809405307,
+            "queries": 234
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 8,
+            "mean": 0.0,
+            "queries": 234
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.008125000000000012,
+              0.09565217391304348
+            ],
+            "clusters": 8,
+            "mean": 0.042735042735042736,
+            "queries": 234
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.002364066193853428,
+              0.0381280193236715
+            ],
+            "clusters": 8,
+            "mean": 0.015538936372269706,
+            "queries": 234
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.005593507938485135,
+              0.06856058020151606
+            ],
+            "clusters": 8,
+            "mean": 0.02869783198029171,
+            "queries": 234
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 8,
+            "mean": 0.0,
+            "queries": 234
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.016666666666666666,
+              0.16956521739130434
+            ],
+            "clusters": 8,
+            "mean": 0.07264957264957266,
+            "queries": 234
+          }
+        },
+        "length_8193_32768": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.34675784903572554,
+              0.5452203227515309
+            ],
+            "clusters": 27,
+            "mean": 0.4432539682539683,
+            "queries": 787
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.3861582830294915,
+              0.5799605960114376
+            ],
+            "clusters": 27,
+            "mean": 0.4819206492062478,
+            "queries": 787
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.27083366927356284,
+              0.48082900182965355
+            ],
+            "clusters": 27,
+            "mean": 0.3735705209656925,
+            "queries": 787
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              0.5081956928646358,
+              0.7046690548047646
+            ],
+            "clusters": 27,
+            "mean": 0.6060991105463787,
+            "queries": 787
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.07251123782873262,
+              0.1599869641593368
+            ],
+            "clusters": 27,
+            "mean": 0.11248058732175631,
+            "queries": 787
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.09386754352760765,
+              0.19128394432323126
+            ],
+            "clusters": 27,
+            "mean": 0.13909995784369633,
+            "queries": 787
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.03973726114649681,
+              0.11349737244310447
+            ],
+            "clusters": 27,
+            "mean": 0.07369758576874205,
+            "queries": 787
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.16281530089628682,
+              0.29820964730881505
+            ],
+            "clusters": 27,
+            "mean": 0.22744599745870395,
+            "queries": 787
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.4241367391296462,
+              -0.2502235161256117
+            ],
+            "clusters": 27,
+            "mean": -0.33493952506666685,
+            "queries": 787
+          },
+          "delta_context_mean": {
+            "ci95": [
+              -0.019440829584254006,
+              0.03429575504392376
+            ],
+            "clusters": 27,
+            "mean": 0.00788116629588463,
+            "queries": 787
+          },
+          "delta_unweighted": {
+            "ci95": [
+              0.03403321000122034,
+              0.06076798271101554
+            ],
+            "clusters": 27,
+            "mean": 0.04710946586285161,
+            "queries": 787
+          },
+          "delta_weighted": {
+            "ci95": [
+              0.03364665407819141,
+              0.05929834762014528
+            ],
+            "clusters": 27,
+            "mean": 0.046262077768749535,
+            "queries": 787
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.047308476259773864,
+              0.11388690383306842
+            ],
+            "clusters": 27,
+            "mean": 0.07974375264718339,
+            "queries": 787
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.06656951147175183,
+              0.14225826584168882
+            ],
+            "clusters": 27,
+            "mean": 0.10339791318860228,
+            "queries": 787
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.02135611400793175,
+              0.07596922829711161
+            ],
+            "clusters": 27,
+            "mean": 0.04701397712833545,
+            "queries": 787
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.12950840242626271,
+              0.23368440652774689
+            ],
+            "clusters": 27,
+            "mean": 0.18170266836086404,
+            "queries": 787
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.08435976286474076,
+              0.16383909005263603
+            ],
+            "clusters": 27,
+            "mean": 0.12222827292712934,
+            "queries": 787
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.10868989693854196,
+              0.1953384993028793
+            ],
+            "clusters": 27,
+            "mean": 0.1496278895198335,
+            "queries": 787
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.05134064811513948,
+              0.11923076923076924
+            ],
+            "clusters": 27,
+            "mean": 0.08259212198221093,
+            "queries": 787
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.1844027508420945,
+              0.30025453490202253
+            ],
+            "clusters": 27,
+            "mean": 0.24015247776365947,
+            "queries": 787
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.08724782202317131,
+              0.1629990869491927
+            ],
+            "clusters": 27,
+            "mean": 0.12317067021641355,
+            "queries": 787
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.1139060966788685,
+              0.1950458557593359
+            ],
+            "clusters": 27,
+            "mean": 0.15226971333807823,
+            "queries": 787
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.04767730178646114,
+              0.11514205393571496
+            ],
+            "clusters": 27,
+            "mean": 0.07878017789072427,
+            "queries": 787
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.19745140743784673,
+              0.2994860242976264
+            ],
+            "clusters": 27,
+            "mean": 0.24777636594663277,
+            "queries": 787
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.07745905677792744,
+              0.15302772879944507
+            ],
+            "clusters": 27,
+            "mean": 0.11288497609971561,
+            "queries": 787
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.10016554816489928,
+              0.18141765988959743
+            ],
+            "clusters": 27,
+            "mean": 0.13904576956083117,
+            "queries": 787
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.04271089155048425,
+              0.10669186874723686
+            ],
+            "clusters": 27,
+            "mean": 0.0724269377382465,
+            "queries": 787
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.17468203358564977,
+              0.27939411359685207
+            ],
+            "clusters": 27,
+            "mean": 0.22490470139771285,
+            "queries": 787
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.08328514402362927,
+              0.15972929284714796
+            ],
+            "clusters": 27,
+            "mean": 0.11942797308108617,
+            "queries": 787
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.1078084882044786,
+              0.19081527588776973
+            ],
+            "clusters": 27,
+            "mean": 0.14698112413958095,
+            "queries": 787
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.04725601153548167,
+              0.11335461436660567
+            ],
+            "clusters": 27,
+            "mean": 0.07793307920372723,
+            "queries": 787
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.18626588826485374,
+              0.2918537490354462
+            ],
+            "clusters": 27,
+            "mean": 0.23761118170266837,
+            "queries": 787
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.050065721613112124,
+              0.12054809758190181
+            ],
+            "clusters": 27,
+            "mean": 0.08316240091970716,
+            "queries": 787
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.06278563823479034,
+              0.14132914028374544
+            ],
+            "clusters": 27,
+            "mean": 0.09987165827672936,
+            "queries": 787
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.03147509679381456,
+              0.08987593960495914
+            ],
+            "clusters": 27,
+            "mean": 0.05844980940279543,
+            "queries": 787
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.10322149716818517,
+              0.2116718515958059
+            ],
+            "clusters": 27,
+            "mean": 0.15501905972045743,
+            "queries": 787
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.04964500512210437,
+              0.11947518241167428
+            ],
+            "clusters": 27,
+            "mean": 0.0826970008672677,
+            "queries": 787
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.06361700326392875,
+              0.1416747188115407
+            ],
+            "clusters": 27,
+            "mean": 0.10071904637083141,
+            "queries": 787
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.029637270426417194,
+              0.08783211856017854
+            ],
+            "clusters": 27,
+            "mean": 0.05590851334180432,
+            "queries": 787
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.10861352286914085,
+              0.2184412471746542
+            ],
+            "clusters": 27,
+            "mean": 0.16010165184243966,
+            "queries": 787
+          }
+        }
+      },
+      "vectors_sha256": "44271d80aa51c56710673273113400c80db9ba957a0bd8eee3b279260d1636df"
+    },
+    "qmsum": {
+      "metadata": {
+        "above_32768": 1,
+        "above_8192": 155,
+        "above_training_leaf_cap_96": 0,
+        "all_encoding_and_tokenization_seconds": 145.17394420600021,
+        "composition_seconds_single_pass_not_benchmark": {
+          "271828": 0.16650152900001558,
+          "314159": 0.113897292999809,
+          "424242": 0.13781630799985578
+        },
+        "depth_histogram": {
+          "1": 8,
+          "2": 125,
+          "3": 64
+        },
+        "documents": 197,
+        "leaf_encoding_seconds": 42.702065243000106,
+        "leaves": 2781,
+        "max_depth": 3,
+        "max_leaves": 37,
+        "max_tokens": 37555,
+        "merges_per_checkpoint": 1004,
+        "pooling_precision_diagnostics": {
+          "context": {
+            "legacy_nonfinite_vectors": 4,
+            "mean_cosine_with_valid_legacy": 0.9999999738538242,
+            "minimum_cosine_with_valid_legacy": 0.9999999485693309,
+            "valid_legacy_count": 193,
+            "vectors": 197
+          },
+          "leaves": {
+            "legacy_nonfinite_vectors": 0,
+            "mean_cosine_with_valid_legacy": 0.9999999770522614,
+            "minimum_cosine_with_valid_legacy": 0.9999999470048,
+            "valid_legacy_count": 2781,
+            "vectors": 2781
+          },
+          "queries": {
+            "legacy_nonfinite_vectors": 0,
+            "mean_cosine_with_valid_legacy": 0.999999957607763,
+            "minimum_cosine_with_valid_legacy": 0.9999999296013231,
+            "valid_legacy_count": 1527,
+            "vectors": 1527
+          }
+        },
+        "positive_document_clusters": 197,
+        "queries": 1527,
+        "query_max_tokens": 289,
+        "tokens": 2748767,
+        "truncated_mean_queries": 0
+      },
+      "scores_sha256": "453bd54aa5ecdd85fe2d64c1896b5a8eedabc943f6e9b534215a9ee128c3278f",
+      "summaries": {
+        "all": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.304693899378411,
+              0.3949346445146399
+            ],
+            "clusters": 197,
+            "mean": 0.3495137784430515,
+            "queries": 1527
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.36202347211620356,
+              0.45227842382337263
+            ],
+            "clusters": 197,
+            "mean": 0.4068970094090561,
+            "queries": 1527
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.21136249415614772,
+              0.3008606085568833
+            ],
+            "clusters": 197,
+            "mean": 0.2547478716437459,
+            "queries": 1527
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              0.5432554006962571,
+              0.6394632655352681
+            ],
+            "clusters": 197,
+            "mean": 0.5926653569089718,
+            "queries": 1527
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.16224138946041114,
+              0.25689674613133195
+            ],
+            "clusters": 197,
+            "mean": 0.20796665315329363,
+            "queries": 1527
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.20306403615135024,
+              0.30371573489533354
+            ],
+            "clusters": 197,
+            "mean": 0.2524292739406506,
+            "queries": 1527
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.10195684899367442,
+              0.18900921104061452
+            ],
+            "clusters": 197,
+            "mean": 0.14341846758349705,
+            "queries": 1527
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.3367749464340373,
+              0.4589808246048461
+            ],
+            "clusters": 197,
+            "mean": 0.3988212180746562,
+            "queries": 1527
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.1998903037710731,
+              -0.1359545463064014
+            ],
+            "clusters": 197,
+            "mean": -0.16787666283675104,
+            "queries": 1527
+          },
+          "delta_context_mean": {
+            "ci95": [
+              -0.032611311663423063,
+              0.0055273031084484255
+            ],
+            "clusters": 197,
+            "mean": -0.013408927368345562,
+            "queries": 1527
+          },
+          "delta_unweighted": {
+            "ci95": [
+              -0.02382734063678974,
+              -0.004373596997101471
+            ],
+            "clusters": 197,
+            "mean": -0.014320125536192746,
+            "queries": 1527
+          },
+          "delta_weighted": {
+            "ci95": [
+              -0.02981766547528566,
+              -0.010072306648199948
+            ],
+            "clusters": 197,
+            "mean": -0.019949063466936392,
+            "queries": 1527
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.1238248285958143,
+              0.20049686641801853
+            ],
+            "clusters": 197,
+            "mean": 0.16118595440795833,
+            "queries": 1527
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.15778793196074795,
+              0.24199757914097328
+            ],
+            "clusters": 197,
+            "mean": 0.19955302807274936,
+            "queries": 1527
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.06973211509547993,
+              0.1382959481777997
+            ],
+            "clusters": 197,
+            "mean": 0.10281597904387688,
+            "queries": 1527
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.2640035722453171,
+              0.38476199776785713
+            ],
+            "clusters": 197,
+            "mean": 0.3254747871643746,
+            "queries": 1527
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.15102238989437627,
+              0.250949200130918
+            ],
+            "clusters": 197,
+            "mean": 0.1994098294196526,
+            "queries": 1527
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.18763782372246357,
+              0.2930269035310873
+            ],
+            "clusters": 197,
+            "mean": 0.23867862308526566,
+            "queries": 1527
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.09003973660412833,
+              0.18253590731658487
+            ],
+            "clusters": 197,
+            "mean": 0.13490504256712507,
+            "queries": 1527
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.3008031955548827,
+              0.4320544164037855
+            ],
+            "clusters": 197,
+            "mean": 0.3660772757039948,
+            "queries": 1527
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.14818501895734038,
+              0.2504216351684349
+            ],
+            "clusters": 197,
+            "mean": 0.19716427064167732,
+            "queries": 1527
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.18121460657496422,
+              0.2880176669334096
+            ],
+            "clusters": 197,
+            "mean": 0.23306891336733657,
+            "queries": 1527
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.0924535436842587,
+              0.18676166523431573
+            ],
+            "clusters": 197,
+            "mean": 0.13686967910936476,
+            "queries": 1527
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.28126572736932315,
+              0.41526218369616547
+            ],
+            "clusters": 197,
+            "mean": 0.34905042567125083,
+            "queries": 1527
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.1562777221983022,
+              0.25705528240082354
+            ],
+            "clusters": 197,
+            "mean": 0.20491055186536522,
+            "queries": 1527
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.19346646206775656,
+              0.2983277544437278
+            ],
+            "clusters": 197,
+            "mean": 0.2453135032643129,
+            "queries": 1527
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.09503297727848248,
+              0.18896676764037165
+            ],
+            "clusters": 197,
+            "mean": 0.13948919449901767,
+            "queries": 1527
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.3107168208992195,
+              0.4423241753025203
+            ],
+            "clusters": 197,
+            "mean": 0.3765553372626064,
+            "queries": 1527
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.1512477915165548,
+              0.2520501901172703
+            ],
+            "clusters": 197,
+            "mean": 0.20049488397556506,
+            "queries": 1527
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.18741936696047215,
+              0.2930261221710972
+            ],
+            "clusters": 197,
+            "mean": 0.23902034657230506,
+            "queries": 1527
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.09257341635487917,
+              0.1855753742735536
+            ],
+            "clusters": 197,
+            "mean": 0.1370879720585025,
+            "queries": 1527
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.2972824257940883,
+              0.42945981966119884
+            ],
+            "clusters": 197,
+            "mean": 0.3638943462126173,
+            "queries": 1527
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.16487618102796675,
+              0.26856394018202634
+            ],
+            "clusters": 197,
+            "mean": 0.21547774971154143,
+            "queries": 1527
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.20118067461362646,
+              0.3079699922913803
+            ],
+            "clusters": 197,
+            "mean": 0.2533404721084978,
+            "queries": 1527
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.10709112023283804,
+              0.2057263066416646
+            ],
+            "clusters": 197,
+            "mean": 0.15389652914210872,
+            "queries": 1527
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.3115246105113159,
+              0.43984054974220094
+            ],
+            "clusters": 197,
+            "mean": 0.3765553372626064,
+            "queries": 1527
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.17210923944852685,
+              0.2750367724720403
+            ],
+            "clusters": 197,
+            "mean": 0.221853203189156,
+            "queries": 1527
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.20660378356284995,
+              0.3144507425034183
+            ],
+            "clusters": 197,
+            "mean": 0.2589694100392414,
+            "queries": 1527
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.11570247933884298,
+              0.2139704628283624
+            ],
+            "clusters": 197,
+            "mean": 0.16175507531106745,
+            "queries": 1527
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.3141695110058512,
+              0.44251005676498234
+            ],
+            "clusters": 197,
+            "mean": 0.3798297314996726,
+            "queries": 1527
+          }
+        },
+        "length_1_4096": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.17060850694444443,
+              0.39586734693877546
+            ],
+            "clusters": 8,
+            "mean": 0.2812728937728938,
+            "queries": 52
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.21485610046932485,
+              0.4261319930892943
+            ],
+            "clusters": 8,
+            "mean": 0.3242534870127611,
+            "queries": 52
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.09090909090909091,
+              0.34615384615384615
+            ],
+            "clusters": 8,
+            "mean": 0.21153846153846154,
+            "queries": 52
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              0.34615384615384615,
+              0.5535714285714286
+            ],
+            "clusters": 8,
+            "mean": 0.46153846153846156,
+            "queries": 52
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.05639823717948717,
+              0.22838770604395528
+            ],
+            "clusters": 8,
+            "mean": 0.1383241758241758,
+            "queries": 52
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.1027915791305132,
+              0.282559165798893
+            ],
+            "clusters": 8,
+            "mean": 0.1901629863014822,
+            "queries": 52
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.17857142857142858
+            ],
+            "clusters": 8,
+            "mean": 0.07692307692307693,
+            "queries": 52
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.23076923076923078,
+              0.48214285714285715
+            ],
+            "clusters": 8,
+            "mean": 0.36538461538461536,
+            "queries": 52
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.16475324244777612,
+              0.01898317819176088
+            ],
+            "clusters": 8,
+            "mean": -0.071250006999134,
+            "queries": 52
+          },
+          "delta_context_mean": {
+            "ci95": [
+              -0.047231195836625356,
+              0.19840073492595922
+            ],
+            "clusters": 8,
+            "mean": 0.06284049371214485,
+            "queries": 52
+          },
+          "delta_unweighted": {
+            "ci95": [
+              0.04279841819000939,
+              0.22785201013324766
+            ],
+            "clusters": 8,
+            "mean": 0.12414022728040315,
+            "queries": 52
+          },
+          "delta_weighted": {
+            "ci95": [
+              0.045134622785823704,
+              0.22473615173892333
+            ],
+            "clusters": 8,
+            "mean": 0.12202087566385353,
+            "queries": 52
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.011904761904761904,
+              0.09425366300366297
+            ],
+            "clusters": 8,
+            "mean": 0.05074786324786325,
+            "queries": 52
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.01898340270537461,
+              0.14313437127497458
+            ],
+            "clusters": 8,
+            "mean": 0.07454001302286263,
+            "queries": 52
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.057692307692307696
+            ],
+            "clusters": 8,
+            "mean": 0.019230769230769232,
+            "queries": 52
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.03571428571428571,
+              0.3392857142857143
+            ],
+            "clusters": 8,
+            "mean": 0.15384615384615385,
+            "queries": 52
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.0947596153846154,
+              0.3445727040816326
+            ],
+            "clusters": 8,
+            "mean": 0.2036019536019536,
+            "queries": 52
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.1460020731497443,
+              0.40184175177535725
+            ],
+            "clusters": 8,
+            "mean": 0.26080049443489667,
+            "queries": 52
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.25
+            ],
+            "clusters": 8,
+            "mean": 0.09615384615384616,
+            "queries": 52
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.28846153846153844,
+              0.6071428571428571
+            ],
+            "clusters": 8,
+            "mean": 0.4423076923076923,
+            "queries": 52
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.09258814102564102,
+              0.34264880952380905
+            ],
+            "clusters": 8,
+            "mean": 0.20309829059829057,
+            "queries": 52
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.1357606927999045,
+              0.4008678268443392
+            ],
+            "clusters": 8,
+            "mean": 0.2563127199872004,
+            "queries": 52
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.25
+            ],
+            "clusters": 8,
+            "mean": 0.09615384615384616,
+            "queries": 52
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.25,
+              0.6153846153846154
+            ],
+            "clusters": 8,
+            "mean": 0.4230769230769231,
+            "queries": 52
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.08331597222222221,
+              0.33041852678571404
+            ],
+            "clusters": 8,
+            "mean": 0.19022435897435896,
+            "queries": 52
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.12535644676113014,
+              0.387488109182396
+            ],
+            "clusters": 8,
+            "mean": 0.2418972256187842,
+            "queries": 52
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.25
+            ],
+            "clusters": 8,
+            "mean": 0.09615384615384616,
+            "queries": 52
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.25,
+              0.5909090909090909
+            ],
+            "clusters": 8,
+            "mean": 0.40384615384615385,
+            "queries": 52
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.09126367845117844,
+              0.3396061862244896
+            ],
+            "clusters": 8,
+            "mean": 0.1989748677248677,
+            "queries": 52
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.1357468889660978,
+              0.395888077957826
+            ],
+            "clusters": 8,
+            "mean": 0.2530034800136271,
+            "queries": 52
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.25
+            ],
+            "clusters": 8,
+            "mean": 0.09615384615384616,
+            "queries": 52
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.26919642857142856,
+              0.6025641025641024
+            ],
+            "clusters": 8,
+            "mean": 0.4230769230769231,
+            "queries": 52
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.02312271062271062,
+              0.2041720085470085
+            ],
+            "clusters": 8,
+            "mean": 0.10328144078144079,
+            "queries": 52
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.04380619405763173,
+              0.23772292867683922
+            ],
+            "clusters": 8,
+            "mean": 0.1288632527332239,
+            "queries": 52
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.14285714285714285
+            ],
+            "clusters": 8,
+            "mean": 0.057692307692307696,
+            "queries": 52
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.10416666666666667,
+              0.3392857142857143
+            ],
+            "clusters": 8,
+            "mean": 0.21153846153846154,
+            "queries": 52
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.020405982905982906,
+              0.23573660714285702
+            ],
+            "clusters": 8,
+            "mean": 0.11175213675213674,
+            "queries": 52
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.03364402143352641,
+              0.25736741637218813
+            ],
+            "clusters": 8,
+            "mean": 0.13098260434977355,
+            "queries": 52
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.19230769230769232
+            ],
+            "clusters": 8,
+            "mean": 0.07692307692307693,
+            "queries": 52
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.07692307692307693,
+              0.3333333333333333
+            ],
+            "clusters": 8,
+            "mean": 0.19230769230769232,
+            "queries": 52
+          }
+        },
+        "length_32769_plus": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.611111111111111,
+              0.611111111111111
+            ],
+            "clusters": 1,
+            "mean": 0.611111111111111,
+            "queries": 6
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.66452282344658,
+              0.66452282344658
+            ],
+            "clusters": 1,
+            "mean": 0.66452282344658,
+            "queries": 6
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.5,
+              0.5
+            ],
+            "clusters": 1,
+            "mean": 0.5,
+            "queries": 6
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              0.8333333333333334,
+              0.8333333333333334
+            ],
+            "clusters": 1,
+            "mean": 0.8333333333333334,
+            "queries": 6
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.023809523809523808,
+              0.023809523809523808
+            ],
+            "clusters": 1,
+            "mean": 0.023809523809523808,
+            "queries": 6
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.05555555555555555,
+              0.05555555555555555
+            ],
+            "clusters": 1,
+            "mean": 0.05555555555555555,
+            "queries": 6
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.16666666666666666,
+              0.16666666666666666
+            ],
+            "clusters": 1,
+            "mean": 0.16666666666666666,
+            "queries": 6
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.66452282344658,
+              -0.66452282344658
+            ],
+            "clusters": 1,
+            "mean": -0.66452282344658,
+            "queries": 6
+          },
+          "delta_context_mean": {
+            "ci95": [
+              -0.05555555555555555,
+              -0.05555555555555555
+            ],
+            "clusters": 1,
+            "mean": -0.05555555555555555,
+            "queries": 6
+          },
+          "delta_unweighted": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "delta_weighted": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "clusters": 1,
+            "mean": 0.0,
+            "queries": 6
+          }
+        },
+        "length_4097_8192": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.1037747995031346,
+              0.20687174604558223
+            ],
+            "clusters": 34,
+            "mean": 0.15141296406986782,
+            "queries": 239
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.14206421147612874,
+              0.25692236329341256
+            ],
+            "clusters": 34,
+            "mean": 0.1982390038149839,
+            "queries": 239
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.04048174872665535,
+              0.1352545846068352
+            ],
+            "clusters": 34,
+            "mean": 0.08368200836820083,
+            "queries": 239
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              0.27115783451333764,
+              0.43221463161535795
+            ],
+            "clusters": 34,
+            "mean": 0.3514644351464435,
+            "queries": 239
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.03110495205026455,
+              0.09005786724141207
+            ],
+            "clusters": 34,
+            "mean": 0.05882645945407452,
+            "queries": 239
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.053390092295524,
+              0.1262729422115418
+            ],
+            "clusters": 34,
+            "mean": 0.08777726821739701,
+            "queries": 239
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.004273504273504274,
+              0.038135593220338986
+            ],
+            "clusters": 34,
+            "mean": 0.02092050209205021,
+            "queries": 239
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.122347275729224,
+              0.251063829787234
+            ],
+            "clusters": 34,
+            "mean": 0.18410041841004185,
+            "queries": 239
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.15941752209295035,
+              -0.026126293417314542
+            ],
+            "clusters": 34,
+            "mean": -0.09314416074127174,
+            "queries": 239
+          },
+          "delta_context_mean": {
+            "ci95": [
+              -0.006584450294219027,
+              0.046499471440947
+            ],
+            "clusters": 34,
+            "mean": 0.01731757485631515,
+            "queries": 239
+          },
+          "delta_unweighted": {
+            "ci95": [
+              0.0116231452617364,
+              0.04925754180252522
+            ],
+            "clusters": 34,
+            "mean": 0.028667072953179485,
+            "queries": 239
+          },
+          "delta_weighted": {
+            "ci95": [
+              0.015325226833187747,
+              0.04851940264089842
+            ],
+            "clusters": 34,
+            "mean": 0.031020657350773362,
+            "queries": 239
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.015211809121238857,
+              0.06926999966653326
+            ],
+            "clusters": 34,
+            "mean": 0.03919937570565186,
+            "queries": 239
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.024205387000817955,
+              0.09996178355503668
+            ],
+            "clusters": 34,
+            "mean": 0.05798458178220491,
+            "queries": 239
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.00411522633744856,
+              0.03404255319148936
+            ],
+            "clusters": 34,
+            "mean": 0.016736401673640166,
+            "queries": 239
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.05240887096774194,
+              0.20833333333333334
+            ],
+            "clusters": 34,
+            "mean": 0.12133891213389121,
+            "queries": 239
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.03650362672391361,
+              0.13324088916635476
+            ],
+            "clusters": 34,
+            "mean": 0.07826260211197449,
+            "queries": 239
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.05636114147343045,
+              0.16520528157234976
+            ],
+            "clusters": 34,
+            "mean": 0.1046439567761366,
+            "queries": 239
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.008368200836820083,
+              0.09206962908038052
+            ],
+            "clusters": 34,
+            "mean": 0.04184100418410042,
+            "queries": 239
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.11570247933884298,
+              0.27502876569037643
+            ],
+            "clusters": 34,
+            "mean": 0.19246861924686193,
+            "queries": 239
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.03443155180496952,
+              0.1255610354728164
+            ],
+            "clusters": 34,
+            "mean": 0.07438400743840075,
+            "queries": 239
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.05217369299299531,
+              0.15588417243181119
+            ],
+            "clusters": 34,
+            "mean": 0.09870239145056134,
+            "queries": 239
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.012295081967213115,
+              0.08368200836820083
+            ],
+            "clusters": 34,
+            "mean": 0.04184100418410042,
+            "queries": 239
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.10743801652892562,
+              0.2584980675129422
+            ],
+            "clusters": 34,
+            "mean": 0.1799163179916318,
+            "queries": 239
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.03922076530108675,
+              0.1363850468725987
+            ],
+            "clusters": 34,
+            "mean": 0.08158165637245134,
+            "queries": 239
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.061970160155896716,
+              0.1720901624666518
+            ],
+            "clusters": 34,
+            "mean": 0.11193818099443854,
+            "queries": 239
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.008368200836820083,
+              0.09206962908038052
+            ],
+            "clusters": 34,
+            "mean": 0.04184100418410042,
+            "queries": 239
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.13332618025751072,
+              0.3020408163265306
+            ],
+            "clusters": 34,
+            "mean": 0.21338912133891214,
+            "queries": 239
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.03708503697270278,
+              0.13223562164176372
+            ],
+            "clusters": 34,
+            "mean": 0.07807608864094219,
+            "queries": 239
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.057344550450293894,
+              0.16446686333712393
+            ],
+            "clusters": 34,
+            "mean": 0.10509484307371215,
+            "queries": 239
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.009601210955946838,
+              0.08907362548630987
+            ],
+            "clusters": 34,
+            "mean": 0.04184100418410042,
+            "queries": 239
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.11944187242798354,
+              0.2777835408022129
+            ],
+            "clusters": 34,
+            "mean": 0.19525801952580196,
+            "queries": 239
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.025915618315884268,
+              0.08776324385085199
+            ],
+            "clusters": 34,
+            "mean": 0.053827123596998074,
+            "queries": 239
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.041786223858780155,
+              0.11830076411831703
+            ],
+            "clusters": 34,
+            "mean": 0.07642777012053266,
+            "queries": 239
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.004098360655737705,
+              0.04310344827586207
+            ],
+            "clusters": 34,
+            "mean": 0.02092050209205021,
+            "queries": 239
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.08860759493670886,
+              0.2217689446768944
+            ],
+            "clusters": 34,
+            "mean": 0.1506276150627615,
+            "queries": 239
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.023101793553992087,
+              0.09183189554623555
+            ],
+            "clusters": 34,
+            "mean": 0.05351331606561732,
+            "queries": 239
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.03651997951756718,
+              0.11917151031760946
+            ],
+            "clusters": 34,
+            "mean": 0.07407418572293879,
+            "queries": 239
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.0041841004184100415,
+              0.0510747876906218
+            ],
+            "clusters": 34,
+            "mean": 0.02510460251046025,
+            "queries": 239
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.07982358215252627,
+              0.2127659574468085
+            ],
+            "clusters": 34,
+            "mean": 0.14225941422594143,
+            "queries": 239
+          }
+        },
+        "length_8193_32768": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.3380920855018974,
+              0.44043892283967334
+            ],
+            "clusters": 154,
+            "mean": 0.38961543424958056,
+            "queries": 1230
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.3972429381730352,
+              0.49995031612226454
+            ],
+            "clusters": 154,
+            "mean": 0.4496782871467517,
+            "queries": 1230
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.23768991571424675,
+              0.33958532549257625
+            ],
+            "clusters": 154,
+            "mean": 0.2886178861788618,
+            "queries": 1230
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              0.5884737311949034,
+              0.6983284930943116
+            ],
+            "clusters": 154,
+            "mean": 0.6439024390243903,
+            "queries": 1230
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.18464111363086183,
+              0.29456080026504344
+            ],
+            "clusters": 154,
+            "mean": 0.24078848883726936,
+            "queries": 1230
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.22961028864040633,
+              0.3430453224401679
+            ],
+            "clusters": 154,
+            "mean": 0.2880153866523619,
+            "queries": 1230
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.11922738666519578,
+              0.22121946103597756
+            ],
+            "clusters": 154,
+            "mean": 0.17073170731707318,
+            "queries": 1230
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.36955685618729095,
+              0.5131080214048069
+            ],
+            "clusters": 154,
+            "mean": 0.44308943089430897,
+            "queries": 1230
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.21846573996907254,
+              -0.1468204605661283
+            ],
+            "clusters": 154,
+            "mean": -0.18406022148774023,
+            "queries": 1230
+          },
+          "delta_context_mean": {
+            "ci95": [
+              -0.04460002543205399,
+              -0.0002610993714267649
+            ],
+            "clusters": 154,
+            "mean": -0.02239732099335056,
+            "queries": 1230
+          },
+          "delta_unweighted": {
+            "ci95": [
+              -0.03805568062611666,
+              -0.019768840681844462
+            ],
+            "clusters": 154,
+            "mean": -0.028596385323705023,
+            "queries": 1230
+          },
+          "delta_weighted": {
+            "ci95": [
+              -0.045614692643199166,
+              -0.026519290569830257
+            ],
+            "clusters": 154,
+            "mean": -0.03595222971981064,
+            "queries": 1230
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.1461282370645916,
+              0.23732058404959316
+            ],
+            "clusters": 154,
+            "mean": 0.19034423796618918,
+            "queries": 1230
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.1840013001284927,
+              0.2828840359793829
+            ],
+            "clusters": 154,
+            "mean": 0.23331957572679057,
+            "queries": 1230
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.08436029040236152,
+              0.16756777822249375
+            ],
+            "clusters": 154,
+            "mean": 0.12357723577235773,
+            "queries": 1230
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.30528897414033923,
+              0.44329318537687284
+            ],
+            "clusters": 154,
+            "mean": 0.37398373983739835,
+            "queries": 1230
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.1662933205364382,
+              0.2804297559011175
+            ],
+            "clusters": 154,
+            "mean": 0.2237453219770293,
+            "queries": 1230
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.2035966257551038,
+              0.3253529283003928
+            ],
+            "clusters": 154,
+            "mean": 0.2649518098138938,
+            "queries": 1230
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.10406342296071039,
+              0.20803141189126934
+            ],
+            "clusters": 154,
+            "mean": 0.15528455284552845,
+            "queries": 1230
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.3182103838807966,
+              0.47523277574973427
+            ],
+            "clusters": 154,
+            "mean": 0.3983739837398374,
+            "queries": 1230
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.16254252356609003,
+              0.2794468778037086
+            ],
+            "clusters": 154,
+            "mean": 0.22173248161053039,
+            "queries": 1230
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.19462853507788822,
+              0.32093753193851754
+            ],
+            "clusters": 154,
+            "mean": 0.25933178676089785,
+            "queries": 1230
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.10543880989632586,
+              0.21179543566898218
+            ],
+            "clusters": 154,
+            "mean": 0.15772357723577235,
+            "queries": 1230
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.2989517117740583,
+              0.45824232620531835
+            ],
+            "clusters": 154,
+            "mean": 0.3804878048780488,
+            "queries": 1230
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.17365680925367258,
+              0.287125163035969
+            ],
+            "clusters": 154,
+            "mean": 0.23049490256807328,
+            "queries": 1230
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.21110924965720881,
+              0.332604181835511
+            ],
+            "clusters": 154,
+            "mean": 0.27257060040224246,
+            "queries": 1230
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.11082778853982425,
+              0.21527612374245908
+            ],
+            "clusters": 154,
+            "mean": 0.16097560975609757,
+            "queries": 1230
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.32786434113907353,
+              0.4861510419433419
+            ],
+            "clusters": 154,
+            "mean": 0.4089430894308943,
+            "queries": 1230
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.16741452526367293,
+              0.28216208681392707
+            ],
+            "clusters": 154,
+            "mean": 0.22532423538521099,
+            "queries": 1230
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.20336551185319496,
+              0.3260656547005151
+            ],
+            "clusters": 154,
+            "mean": 0.26561806565901136,
+            "queries": 1230
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.10728265380226161,
+              0.21094094779657896
+            ],
+            "clusters": 154,
+            "mean": 0.15799457994579943,
+            "queries": 1230
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.3156273382034263,
+              0.4729111614850548
+            ],
+            "clusters": 154,
+            "mean": 0.3959349593495935,
+            "queries": 1230
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.19011626457960465,
+              0.31242507864860386
+            ],
+            "clusters": 154,
+            "mean": 0.25268228158472056,
+            "queries": 1230
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.22970805843035003,
+              0.35674421115378463
+            ],
+            "clusters": 154,
+            "mean": 0.2942144509827164,
+            "queries": 1230
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.12924692264965687,
+              0.24051042640778195
+            ],
+            "clusters": 154,
+            "mean": 0.18455284552845527,
+            "queries": 1230
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.3511138788096222,
+              0.5042223341731684
+            ],
+            "clusters": 154,
+            "mean": 0.4292682926829268,
+            "queries": 1230
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.1973490859132955,
+              0.3199184417498675
+            ],
+            "clusters": 154,
+            "mean": 0.2603000387146729,
+            "queries": 1230
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.23623303107904803,
+              0.36299170643949596
+            ],
+            "clusters": 154,
+            "mean": 0.301570295378822,
+            "queries": 1230
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.13738307766127097,
+              0.24837146770167942
+            ],
+            "clusters": 154,
+            "mean": 0.1926829268292683,
+            "queries": 1230
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.35995861563617854,
+              0.5100659408214248
+            ],
+            "clusters": 154,
+            "mean": 0.43577235772357725,
+            "queries": 1230
+          }
+        }
+      },
+      "vectors_sha256": "3f6b44a0834c2c367b9f9b1b3708bd8fd2a3251338453e3d561a1ede8faa8b0e"
+    },
+    "summ_screen_fd": {
+      "metadata": {
+        "above_32768": 0,
+        "above_8192": 177,
+        "above_training_leaf_cap_96": 0,
+        "all_encoding_and_tokenization_seconds": 166.936400864,
+        "composition_seconds_single_pass_not_benchmark": {
+          "271828": 0.13672793500018088,
+          "314159": 0.13784707700006038,
+          "424242": 0.16647213199985345
+        },
+        "depth_histogram": {
+          "1": 8,
+          "2": 319,
+          "3": 9
+        },
+        "documents": 336,
+        "leaf_encoding_seconds": 40.3469351409999,
+        "leaves": 3091,
+        "max_depth": 3,
+        "max_leaves": 25,
+        "max_tokens": 24688,
+        "merges_per_checkpoint": 1151,
+        "pooling_precision_diagnostics": {
+          "context": {
+            "legacy_nonfinite_vectors": 10,
+            "mean_cosine_with_valid_legacy": 0.9999999684513555,
+            "minimum_cosine_with_valid_legacy": 0.9999999324443374,
+            "valid_legacy_count": 326,
+            "vectors": 336
+          },
+          "leaves": {
+            "legacy_nonfinite_vectors": 0,
+            "mean_cosine_with_valid_legacy": 0.9999999761922627,
+            "minimum_cosine_with_valid_legacy": 0.999999941460822,
+            "valid_legacy_count": 3091,
+            "vectors": 3091
+          },
+          "queries": {
+            "legacy_nonfinite_vectors": 0,
+            "mean_cosine_with_valid_legacy": 0.9999999579430763,
+            "minimum_cosine_with_valid_legacy": 0.9999999421196503,
+            "valid_legacy_count": 336,
+            "vectors": 336
+          }
+        },
+        "positive_document_clusters": 336,
+        "queries": 336,
+        "query_max_tokens": 585,
+        "tokens": 3001115,
+        "truncated_mean_queries": 0
+      },
+      "scores_sha256": "167cd4a19f0932250f2d470f634d7511348100ca5cb435000e44d369c6b12436",
+      "summaries": {
+        "all": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.8837956172052152,
+              0.9327407525510205
+            ],
+            "clusters": 336,
+            "mean": 0.9100517290249434,
+            "queries": 336
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.9112890720576606,
+              0.9489077541990861
+            ],
+            "clusters": 336,
+            "mean": 0.9314108164429914,
+            "queries": 336
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.8244047619047619,
+              0.8958333333333334
+            ],
+            "clusters": 336,
+            "mean": 0.8630952380952381,
+            "queries": 336
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              0.9910714285714286,
+              1.0
+            ],
+            "clusters": 336,
+            "mean": 0.9970238095238095,
+            "queries": 336
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.5946276809334847,
+              0.6827853363567649
+            ],
+            "clusters": 336,
+            "mean": 0.6396423847316705,
+            "queries": 336
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.6539710263564019,
+              0.7325031198487827
+            ],
+            "clusters": 336,
+            "mean": 0.694223179434681,
+            "queries": 336
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.47619047619047616,
+              0.5833333333333334
+            ],
+            "clusters": 336,
+            "mean": 0.5297619047619048,
+            "queries": 336
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.8303571428571429,
+              0.9017857142857143
+            ],
+            "clusters": 336,
+            "mean": 0.8660714285714286,
+            "queries": 336
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.19256114813021383,
+              -0.12628215047204677
+            ],
+            "clusters": 336,
+            "mean": -0.1585817255104119,
+            "queries": 336
+          },
+          "delta_context_mean": {
+            "ci95": [
+              0.051571837135926814,
+              0.10487033498984134
+            ],
+            "clusters": 336,
+            "mean": 0.0786059114978984,
+            "queries": 336
+          },
+          "delta_unweighted": {
+            "ci95": [
+              -0.034983280620215766,
+              -0.006267772458950052
+            ],
+            "clusters": 336,
+            "mean": -0.020487317869207544,
+            "queries": 336
+          },
+          "delta_weighted": {
+            "ci95": [
+              -0.03892997857139968,
+              -0.014790284865223456
+            ],
+            "clusters": 336,
+            "mean": -0.027004546244337197,
+            "queries": 336
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.443688320814437,
+              0.5311012200018895
+            ],
+            "clusters": 336,
+            "mean": 0.4879877645502646,
+            "queries": 336
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.5144977234683256,
+              0.5945500275538921
+            ],
+            "clusters": 336,
+            "mean": 0.5541342543073029,
+            "queries": 336
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.31547619047619047,
+              0.41964285714285715
+            ],
+            "clusters": 336,
+            "mean": 0.36607142857142855,
+            "queries": 336
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.7202380952380952,
+              0.8095238095238095
+            ],
+            "clusters": 336,
+            "mean": 0.7648809523809523,
+            "queries": 336
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.6807596371882084,
+              0.763189129818594
+            ],
+            "clusters": 336,
+            "mean": 0.722319066515495,
+            "queries": 336
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.7343118194992494,
+              0.8056863962197998
+            ],
+            "clusters": 336,
+            "mean": 0.7703350122962305,
+            "queries": 336
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.5595238095238095,
+              0.6696428571428571
+            ],
+            "clusters": 336,
+            "mean": 0.6160714285714286,
+            "queries": 336
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.8898809523809523,
+              0.9494047619047619
+            ],
+            "clusters": 336,
+            "mean": 0.9196428571428571,
+            "queries": 336
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.6847022333238848,
+              0.7670121173469385
+            ],
+            "clusters": 336,
+            "mean": 0.7258479780801209,
+            "queries": 336
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.7391382553363935,
+              0.8098214753037272
+            ],
+            "clusters": 336,
+            "mean": 0.7746120791782735,
+            "queries": 336
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.5744047619047619,
+              0.6815476190476191
+            ],
+            "clusters": 336,
+            "mean": 0.6279761904761905,
+            "queries": 336
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.8988095238095238,
+              0.9553571428571429
+            ],
+            "clusters": 336,
+            "mean": 0.9285714285714286,
+            "queries": 336
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.686008066421013,
+              0.7686858997071049
+            ],
+            "clusters": 336,
+            "mean": 0.7276171579743009,
+            "queries": 336
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.7364627391316714,
+              0.8086726894948927
+            ],
+            "clusters": 336,
+            "mean": 0.7735401813232345,
+            "queries": 336
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.5773809523809523,
+              0.6845238095238095
+            ],
+            "clusters": 336,
+            "mean": 0.6309523809523809,
+            "queries": 336
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.8839285714285714,
+              0.9464285714285714
+            ],
+            "clusters": 336,
+            "mean": 0.9166666666666666,
+            "queries": 336
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.6840450798374905,
+              0.7659468005952383
+            ],
+            "clusters": 336,
+            "mean": 0.7252614008566389,
+            "queries": 336
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.7369623787815872,
+              0.8077543872489009
+            ],
+            "clusters": 336,
+            "mean": 0.7728290909325795,
+            "queries": 336
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.5723958333333333,
+              0.6776041666666665
+            ],
+            "clusters": 336,
+            "mean": 0.625,
+            "queries": 336
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.8918650793650796,
+              0.9484126984126986
+            ],
+            "clusters": 336,
+            "mean": 0.921626984126984,
+            "queries": 336
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.7046955309901738,
+              0.7844210896164022
+            ],
+            "clusters": 336,
+            "mean": 0.7456136621315193,
+            "queries": 336
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.7594359460727617,
+              0.8266523105292817
+            ],
+            "clusters": 336,
+            "mean": 0.793316408801787,
+            "queries": 336
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.5952380952380952,
+              0.6994047619047619
+            ],
+            "clusters": 336,
+            "mean": 0.6488095238095238,
+            "queries": 336
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.9166666666666666,
+              0.9672619047619048
+            ],
+            "clusters": 336,
+            "mean": 0.9434523809523809,
+            "queries": 336
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.7116496893896445,
+              0.7905782608182159
+            ],
+            "clusters": 336,
+            "mean": 0.7521518329554043,
+            "queries": 336
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.7659120000162191,
+              0.8322746007979249
+            ],
+            "clusters": 336,
+            "mean": 0.7998336371769167,
+            "queries": 336
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.6130952380952381,
+              0.7172619047619048
+            ],
+            "clusters": 336,
+            "mean": 0.6666666666666666,
+            "queries": 336
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.9285714285714286,
+              0.9732142857142857
+            ],
+            "clusters": 336,
+            "mean": 0.9523809523809523,
+            "queries": 336
+          }
+        },
+        "length_1_4096": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.625,
+              1.0
+            ],
+            "clusters": 8,
+            "mean": 0.84375,
+            "queries": 8
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.7192677971076449,
+              1.0
+            ],
+            "clusters": 8,
+            "mean": 0.8827007889556063,
+            "queries": 8
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.375,
+              1.0
+            ],
+            "clusters": 8,
+            "mean": 0.75,
+            "queries": 8
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "clusters": 8,
+            "mean": 1.0,
+            "queries": 8
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.12116071428571429,
+              0.7678571428571428
+            ],
+            "clusters": 8,
+            "mean": 0.4178571428571428,
+            "queries": 8
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.16666666666666666,
+              0.7916666666666666
+            ],
+            "clusters": 8,
+            "mean": 0.46502326757098433,
+            "queries": 8
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.75
+            ],
+            "clusters": 8,
+            "mean": 0.375,
+            "queries": 8
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.25,
+              0.875
+            ],
+            "clusters": 8,
+            "mean": 0.625,
+            "queries": 8
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.5030699376966292,
+              -0.11607292970466485
+            ],
+            "clusters": 8,
+            "mean": -0.30123766623374176,
+            "queries": 8
+          },
+          "delta_context_mean": {
+            "ci95": [
+              -0.15140730641078468,
+              0.41963049563831445
+            ],
+            "clusters": 8,
+            "mean": 0.1164398551508802,
+            "queries": 8
+          },
+          "delta_unweighted": {
+            "ci95": [
+              0.011254922348740343,
+              0.178208535433602
+            ],
+            "clusters": 8,
+            "mean": 0.08594097382646639,
+            "queries": 8
+          },
+          "delta_weighted": {
+            "ci95": [
+              0.015527082912295376,
+              0.12665190110736005
+            ],
+            "clusters": 8,
+            "mean": 0.06813884876863674,
+            "queries": 8
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.0625,
+              0.640625
+            ],
+            "clusters": 8,
+            "mean": 0.328125,
+            "queries": 8
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.11829932879464829,
+              0.6839317223605099
+            ],
+            "clusters": 8,
+            "mean": 0.36829932879464833,
+            "queries": 8
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.625
+            ],
+            "clusters": 8,
+            "mean": 0.25,
+            "queries": 8
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.125,
+              0.875
+            ],
+            "clusters": 8,
+            "mean": 0.5,
+            "queries": 8
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.25416666666666665,
+              0.7916666666666666
+            ],
+            "clusters": 8,
+            "mean": 0.5166666666666667,
+            "queries": 8
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.3583513123321805,
+              0.8310890392971821
+            ],
+            "clusters": 8,
+            "mean": 0.6008559233904859,
+            "queries": 8
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.125,
+              0.75
+            ],
+            "clusters": 8,
+            "mean": 0.375,
+            "queries": 8
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.625,
+              1.0
+            ],
+            "clusters": 8,
+            "mean": 0.875,
+            "queries": 8
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.2398809523809524,
+              0.7916666666666666
+            ],
+            "clusters": 8,
+            "mean": 0.5095238095238095,
+            "queries": 8
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.3452324383928644,
+              0.8288662191964322
+            ],
+            "clusters": 8,
+            "mean": 0.5941659891528348,
+            "queries": 8
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.125,
+              0.75
+            ],
+            "clusters": 8,
+            "mean": 0.375,
+            "queries": 8
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.625,
+              1.0
+            ],
+            "clusters": 8,
+            "mean": 0.875,
+            "queries": 8
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.20982142857142855,
+              0.78125
+            ],
+            "clusters": 8,
+            "mean": 0.48660714285714285,
+            "queries": 8
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.2743358061850149,
+              0.8116335966665537
+            ],
+            "clusters": 8,
+            "mean": 0.549367455622273,
+            "queries": 8
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.125,
+              0.75
+            ],
+            "clusters": 8,
+            "mean": 0.375,
+            "queries": 8
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.375,
+              1.0
+            ],
+            "clusters": 8,
+            "mean": 0.75,
+            "queries": 8
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.2363095238095238,
+              0.7881944444444444
+            ],
+            "clusters": 8,
+            "mean": 0.504265873015873,
+            "queries": 8
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.3278909497319919,
+              0.8266850115401899
+            ],
+            "clusters": 8,
+            "mean": 0.5814631227218646,
+            "queries": 8
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.125,
+              0.75
+            ],
+            "clusters": 8,
+            "mean": 0.375,
+            "queries": 8
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.5833333333333333,
+              1.0
+            ],
+            "clusters": 8,
+            "mean": 0.8333333333333333,
+            "queries": 8
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.175,
+              0.6875
+            ],
+            "clusters": 8,
+            "mean": 0.415625,
+            "queries": 8
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.24988805372238496,
+              0.7455221488953981
+            ],
+            "clusters": 8,
+            "mean": 0.4955221488953982,
+            "queries": 8
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.0,
+              0.625
+            ],
+            "clusters": 8,
+            "mean": 0.25,
+            "queries": 8
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.375,
+              1.0
+            ],
+            "clusters": 8,
+            "mean": 0.75,
+            "queries": 8
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.175,
+              0.7628124999999982
+            ],
+            "clusters": 8,
+            "mean": 0.44375000000000003,
+            "queries": 8
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.24562280748378967,
+              0.7868000315681907
+            ],
+            "clusters": 8,
+            "mean": 0.5133242739532278,
+            "queries": 8
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.125,
+              0.75
+            ],
+            "clusters": 8,
+            "mean": 0.375,
+            "queries": 8
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.375,
+              1.0
+            ],
+            "clusters": 8,
+            "mean": 0.75,
+            "queries": 8
+          }
+        },
+        "length_4097_8192": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.8958364869126461,
+              0.9628666035950804
+            ],
+            "clusters": 151,
+            "mean": 0.9327341532639547,
+            "queries": 151
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.9178392258112421,
+              0.9718823677204694
+            ],
+            "clusters": 151,
+            "mean": 0.9475465705454267,
+            "queries": 151
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.847682119205298,
+              0.9470198675496688
+            ],
+            "clusters": 151,
+            "mean": 0.9006622516556292,
+            "queries": 151
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              0.9799668874172186,
+              1.0
+            ],
+            "clusters": 151,
+            "mean": 0.9933774834437086,
+            "queries": 151
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.5945652659518553,
+              0.721086802270577
+            ],
+            "clusters": 151,
+            "mean": 0.6585409439714075,
+            "queries": 151
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.6502061265743639,
+              0.7675247440406721
+            ],
+            "clusters": 151,
+            "mean": 0.7109509114370719,
+            "queries": 151
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.46357615894039733,
+              0.6225165562913907
+            ],
+            "clusters": 151,
+            "mean": 0.543046357615894,
+            "queries": 151
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.8145695364238411,
+              0.9271523178807947
+            ],
+            "clusters": 151,
+            "mean": 0.8741721854304636,
+            "queries": 151
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.20695317323823187,
+              -0.11387783848385338
+            ],
+            "clusters": 151,
+            "mean": -0.15951498985651816,
+            "queries": 151
+          },
+          "delta_context_mean": {
+            "ci95": [
+              0.04149806534747107,
+              0.11275235834111236
+            ],
+            "clusters": 151,
+            "mean": 0.07708066925183685,
+            "queries": 151
+          },
+          "delta_unweighted": {
+            "ci95": [
+              -0.02108343427792466,
+              0.023519423970039893
+            ],
+            "clusters": 151,
+            "mean": 0.0008989717450634882,
+            "queries": 151
+          },
+          "delta_weighted": {
+            "ci95": [
+              -0.02962583978768677,
+              0.005114176684682175
+            ],
+            "clusters": 151,
+            "mean": -0.012427718467547567,
+            "queries": 151
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.42552007778828976,
+              0.5522035635446231
+            ],
+            "clusters": 151,
+            "mean": 0.4872463996636182,
+            "queries": 151
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.5004112042925414,
+              0.6215095049447606
+            ],
+            "clusters": 151,
+            "mean": 0.5591609974233737,
+            "queries": 151
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.2781456953642384,
+              0.4304635761589404
+            ],
+            "clusters": 151,
+            "mean": 0.3509933774834437,
+            "queries": 151
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.7218543046357616,
+              0.8543046357615894
+            ],
+            "clusters": 151,
+            "mean": 0.7880794701986755,
+            "queries": 151
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.6755072663723325,
+              0.7896541574687269
+            ],
+            "clusters": 151,
+            "mean": 0.7328550404709345,
+            "queries": 151
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.7370722909529956,
+              0.833506999804924
+            ],
+            "clusters": 151,
+            "mean": 0.78531888857015,
+            "queries": 151
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.5298013245033113,
+              0.6887417218543046
+            ],
+            "clusters": 151,
+            "mean": 0.609271523178808,
+            "queries": 151
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.9072847682119205,
+              0.9801324503311258
+            ],
+            "clusters": 151,
+            "mean": 0.9470198675496688,
+            "queries": 151
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.677590928203511,
+              0.7922663723325973
+            ],
+            "clusters": 151,
+            "mean": 0.7373777988016398,
+            "queries": 151
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.7419897547133837,
+              0.8371803748404102
+            ],
+            "clusters": 151,
+            "mean": 0.7912878984758039,
+            "queries": 151
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.5364238410596026,
+              0.7019867549668874
+            ],
+            "clusters": 151,
+            "mean": 0.6225165562913907,
+            "queries": 151
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.9271523178807947,
+              0.9867549668874173
+            ],
+            "clusters": 151,
+            "mean": 0.9602649006622517,
+            "queries": 151
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.6785812178072109,
+              0.7909493587722065
+            ],
+            "clusters": 151,
+            "mean": 0.7360900872490276,
+            "queries": 151
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.7374112085292336,
+              0.8345272994091094
+            ],
+            "clusters": 151,
+            "mean": 0.7874879550207722,
+            "queries": 151
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.543046357615894,
+              0.7019867549668874
+            ],
+            "clusters": 151,
+            "mean": 0.6225165562913907,
+            "queries": 151
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.9072847682119205,
+              0.9801324503311258
+            ],
+            "clusters": 151,
+            "mean": 0.9470198675496688,
+            "queries": 151
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.6783713295840775,
+              0.7900995129471948
+            ],
+            "clusters": 151,
+            "mean": 0.7354409755072007,
+            "queries": 151
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.7393984483935248,
+              0.8337395721905114
+            ],
+            "clusters": 151,
+            "mean": 0.7880315806889087,
+            "queries": 151
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.5386313465783664,
+              0.695364238410596
+            ],
+            "clusters": 151,
+            "mean": 0.6181015452538632,
+            "queries": 151
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.9161147902869757,
+              0.9801324503311258
+            ],
+            "clusters": 151,
+            "mean": 0.9514348785871964,
+            "queries": 151
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.6798946835908757,
+              0.7887624172185431
+            ],
+            "clusters": 151,
+            "mean": 0.7334253127299486,
+            "queries": 151
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.7409545268499765,
+              0.8331612129475553
+            ],
+            "clusters": 151,
+            "mean": 0.7871326089438452,
+            "queries": 151
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.5364238410596026,
+              0.6887417218543046
+            ],
+            "clusters": 151,
+            "mean": 0.609271523178808,
+            "queries": 151
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.9139072847682119,
+              0.9867549668874173
+            ],
+            "clusters": 151,
+            "mean": 0.9536423841059603,
+            "queries": 151
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.6929989882266373,
+              0.8059510669610007
+            ],
+            "clusters": 151,
+            "mean": 0.7498948806895827,
+            "queries": 151
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.7529914049283338,
+              0.8457052871641447
+            ],
+            "clusters": 151,
+            "mean": 0.8004592991564563,
+            "queries": 151
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.5695364238410596,
+              0.7284768211920529
+            ],
+            "clusters": 151,
+            "mean": 0.6490066225165563,
+            "queries": 151
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.9271523178807947,
+              0.9867549668874173
+            ],
+            "clusters": 151,
+            "mean": 0.9602649006622517,
+            "queries": 151
+          }
+        },
+        "length_8193_32768": {
+          "context_cls/mrr_at_10": {
+            "ci95": [
+              0.8560430118375035,
+              0.928862321764864
+            ],
+            "clusters": 177,
+            "mean": 0.8936978746300781,
+            "queries": 177
+          },
+          "context_cls/ndcg_at_10": {
+            "ci95": [
+              0.891212700385993,
+              0.946354766438836
+            ],
+            "clusters": 177,
+            "mean": 0.919846869270287,
+            "queries": 177
+          },
+          "context_cls/recall_at_1": {
+            "ci95": [
+              0.7796610169491526,
+              0.8870056497175142
+            ],
+            "clusters": 177,
+            "mean": 0.8361581920903954,
+            "queries": 177
+          },
+          "context_cls/recall_at_10": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "clusters": 177,
+            "mean": 1.0,
+            "queries": 177
+          },
+          "context_mean/mrr_at_10": {
+            "ci95": [
+              0.5718792036588648,
+              0.6935995090126449
+            ],
+            "clusters": 177,
+            "mean": 0.6335440767644158,
+            "queries": 177
+          },
+          "context_mean/ndcg_at_10": {
+            "ci95": [
+              0.6350155870426782,
+              0.7447695212420834
+            ],
+            "clusters": 177,
+            "mean": 0.6903119464547295,
+            "queries": 177
+          },
+          "context_mean/recall_at_1": {
+            "ci95": [
+              0.4519774011299435,
+              0.5988700564971752
+            ],
+            "clusters": 177,
+            "mean": 0.5254237288135594,
+            "queries": 177
+          },
+          "context_mean/recall_at_10": {
+            "ci95": [
+              0.8192090395480226,
+              0.9152542372881356
+            ],
+            "clusters": 177,
+            "mean": 0.8700564971751412,
+            "queries": 177
+          },
+          "delta_context_cls": {
+            "ci95": [
+              -0.20165088650866111,
+              -0.10078993318705032
+            ],
+            "clusters": 177,
+            "mean": -0.15133782470787696,
+            "queries": 177
+          },
+          "delta_context_mean": {
+            "ci95": [
+              0.037262448506726616,
+              0.12163412901136268
+            ],
+            "clusters": 177,
+            "mean": 0.07819709810768055,
+            "queries": 177
+          },
+          "delta_unweighted": {
+            "ci95": [
+              -0.06288314012590505,
+              -0.023900266845352198
+            ],
+            "clusters": 177,
+            "mean": -0.04354243688231668,
+            "queries": 177
+          },
+          "delta_weighted": {
+            "ci95": [
+              -0.06225884605109282,
+              -0.02667621668959199
+            ],
+            "clusters": 177,
+            "mean": -0.043740411523427725,
+            "queries": 177
+          },
+          "first/mrr_at_10": {
+            "ci95": [
+              0.4334282799748902,
+              0.5604079230562279
+            ],
+            "clusters": 177,
+            "mean": 0.49584566406600306,
+            "queries": 177
+          },
+          "first/ndcg_at_10": {
+            "ci95": [
+              0.5009470815115118,
+              0.617997723877439
+            ],
+            "clusters": 177,
+            "mean": 0.5582452215026393,
+            "queries": 177
+          },
+          "first/recall_at_1": {
+            "ci95": [
+              0.3107344632768362,
+              0.4576271186440678
+            ],
+            "clusters": 177,
+            "mean": 0.384180790960452,
+            "queries": 177
+          },
+          "first/recall_at_10": {
+            "ci95": [
+              0.6949152542372882,
+              0.8192090395480226
+            ],
+            "clusters": 177,
+            "mean": 0.7570621468926554,
+            "queries": 177
+          },
+          "learned_271828/mrr_at_10": {
+            "ci95": [
+              0.6667645278450363,
+              0.7792571294054346
+            ],
+            "clusters": 177,
+            "mean": 0.7226257734732311,
+            "queries": 177
+          },
+          "learned_271828/ndcg_at_10": {
+            "ci95": [
+              0.7166529606746951,
+              0.815745060280176
+            ],
+            "clusters": 177,
+            "mean": 0.76521222921083,
+            "queries": 177
+          },
+          "learned_271828/recall_at_1": {
+            "ci95": [
+              0.559322033898305,
+              0.7062146892655368
+            ],
+            "clusters": 177,
+            "mean": 0.632768361581921,
+            "queries": 177
+          },
+          "learned_271828/recall_at_10": {
+            "ci95": [
+              0.8531073446327684,
+              0.9379943502824851
+            ],
+            "clusters": 177,
+            "mean": 0.8983050847457628,
+            "queries": 177
+          },
+          "learned_314159/mrr_at_10": {
+            "ci95": [
+              0.6684129226078378,
+              0.7823518630616089
+            ],
+            "clusters": 177,
+            "mean": 0.7257891668908618,
+            "queries": 177
+          },
+          "learned_314159/ndcg_at_10": {
+            "ci95": [
+              0.7179951741216086,
+              0.8187111070037082
+            ],
+            "clusters": 177,
+            "mean": 0.7685415707391571,
+            "queries": 177
+          },
+          "learned_314159/recall_at_1": {
+            "ci95": [
+              0.5706214689265536,
+              0.711864406779661
+            ],
+            "clusters": 177,
+            "mean": 0.6440677966101694,
+            "queries": 177
+          },
+          "learned_314159/recall_at_10": {
+            "ci95": [
+              0.8587570621468926,
+              0.943502824858757
+            ],
+            "clusters": 177,
+            "mean": 0.903954802259887,
+            "queries": 177
+          },
+          "learned_424242/mrr_at_10": {
+            "ci95": [
+              0.67468438929244,
+              0.788527206080172
+            ],
+            "clusters": 177,
+            "mean": 0.7312819478073715,
+            "queries": 177
+          },
+          "learned_424242/ndcg_at_10": {
+            "ci95": [
+              0.7216590743463025,
+              0.82107393272807
+            ],
+            "clusters": 177,
+            "mean": 0.7717733337372431,
+            "queries": 177
+          },
+          "learned_424242/recall_at_1": {
+            "ci95": [
+              0.576271186440678,
+              0.7175141242937854
+            ],
+            "clusters": 177,
+            "mean": 0.6497175141242938,
+            "queries": 177
+          },
+          "learned_424242/recall_at_10": {
+            "ci95": [
+              0.8531073446327684,
+              0.943502824858757
+            ],
+            "clusters": 177,
+            "mean": 0.8983050847457628,
+            "queries": 177
+          },
+          "learned_mean/mrr_at_10": {
+            "ci95": [
+              0.6718839117567929,
+              0.7832036551280899
+            ],
+            "clusters": 177,
+            "mean": 0.7265656293904881,
+            "queries": 177
+          },
+          "learned_mean/ndcg_at_10": {
+            "ci95": [
+              0.7194480675464688,
+              0.8181843407119257
+            ],
+            "clusters": 177,
+            "mean": 0.7685090445624101,
+            "queries": 177
+          },
+          "learned_mean/recall_at_1": {
+            "ci95": [
+              0.5706214689265536,
+              0.711864406779661
+            ],
+            "clusters": 177,
+            "mean": 0.6421845574387947,
+            "queries": 177
+          },
+          "learned_mean/recall_at_10": {
+            "ci95": [
+              0.8549905838041432,
+              0.9416195856873824
+            ],
+            "clusters": 177,
+            "mean": 0.9001883239171373,
+            "queries": 177
+          },
+          "unweighted/mrr_at_10": {
+            "ci95": [
+              0.7176350775715181,
+              0.8230053918931037
+            ],
+            "clusters": 177,
+            "mean": 0.7709263743162048,
+            "queries": 177
+          },
+          "unweighted/ndcg_at_10": {
+            "ci95": [
+              0.766774717064027,
+              0.8565346918987455
+            ],
+            "clusters": 177,
+            "mean": 0.8120514814447267,
+            "queries": 177
+          },
+          "unweighted/recall_at_1": {
+            "ci95": [
+              0.6271186440677966,
+              0.768361581920904
+            ],
+            "clusters": 177,
+            "mean": 0.7005649717514124,
+            "queries": 177
+          },
+          "unweighted/recall_at_10": {
+            "ci95": [
+              0.9096045197740112,
+              0.9717514124293786
+            ],
+            "clusters": 177,
+            "mean": 0.943502824858757,
+            "queries": 177
+          },
+          "weighted/mrr_at_10": {
+            "ci95": [
+              0.7148696305264103,
+              0.8210305129584787
+            ],
+            "clusters": 177,
+            "mean": 0.7680163214061518,
+            "queries": 177
+          },
+          "weighted/ndcg_at_10": {
+            "ci95": [
+              0.7662905023767775,
+              0.8569835384639533
+            ],
+            "clusters": 177,
+            "mean": 0.8122494560858379,
+            "queries": 177
+          },
+          "weighted/recall_at_1": {
+            "ci95": [
+              0.6271186440677966,
+              0.7627118644067796
+            ],
+            "clusters": 177,
+            "mean": 0.6949152542372882,
+            "queries": 177
+          },
+          "weighted/recall_at_10": {
+            "ci95": [
+              0.9209039548022598,
+              0.9830508474576272
+            ],
+            "clusters": 177,
+            "mean": 0.9548022598870056,
+            "queries": 177
+          }
+        }
+      },
+      "vectors_sha256": "8106913258dab28373995aedefe15000c18a360faf78193aa55bc02b451107a7"
+    }
+  }
+}

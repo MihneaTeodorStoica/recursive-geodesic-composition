@@ -1,0 +1,45 @@
+study: reconstruction_calibration_v1
+analysis_role: additive_post_review_on_previously_evaluated_documents
+output_dir: results/reconstruction_calibration_v1
+tree_config: configs/recursive_reuse_v1.yaml
+tree_config_sha256: 427850a584f11618d6ec7727162085b4a7cc777e99a677d7b6dee255a0a9b113
+immutable_inputs:
+  results/recursive_reuse_v1/RESULTS.json: 74944d0960b9311ef8b897ef130474b6a04d463cac4ea6222cb8d96aa6614e29
+  results/recursive_reuse_v1/INFERENCE_MANIFEST.json: 395772a890e71c843e60c2a46fe6de75f9ce3318f0549366b3060611b2e391d4
+  reproducibility/ARTIFACT_MANIFEST.json: a6ed0f2b915e4bf1c1a78dfd5451998594e3564b89f894279597daf8ed918082
+  results/v1_k4_matched_pooling/PROBE_MANIFEST.json: 78e24d0455a72fa8e7a47e6959fd5958d19a4b5e20c2989ed888b9de88c0d04a
+seeds: [424242, 271828, 314159]
+methods: [parent_copy, strict_decoder, frozen_probe, weighted_copy, unweighted_copy]
+expected_documents: 606
+exact_children: 4
+primary_contrasts: [strict_minus_parent_copy, probe_minus_parent_copy]
+# All means weight the four target children equally, as in the earlier diagnostic.
+slot_scoring: equal_child_weight_then_equal_document_weight
+shuffle:
+  definition: permute_target_slots_within_each_document_without_recomputing_parent_or_predictions
+  permutations: all_24_including_identity
+  derangements: all_9_without_fixed_slots
+  monte_carlo_draws: 0
+  best_assignment: oracle_diagnostic_not_a_reconstruction_method
+numerical_zero_tolerance: 0.000000000001
+bootstrap:
+  reps: 2000
+  seed: 22092621
+  unit: shared_document_across_methods_metrics_and_checkpoints
+inference:
+  batch_size: 64
+  dtype: float32
+  allow_tf32: false
+  cpu_threads: 4
+independent_replay_batch_size: 17
+independent_replay_max_absolute_tolerance: 0.000002
+historical_mean_diagnostic_tolerance: 0.00001
+geometry:
+  residual_norm_bound: 0.25
+  cap_is_loose_oracle_upper_bound: true
+merger_updates: 0
+decoder_updates: 0
+probe_updates: 0
+teacher_encoding_calls: 0
+classifier_fits: 0
+report_all_outcomes: true

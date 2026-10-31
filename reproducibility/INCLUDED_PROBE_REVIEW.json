@@ -1,0 +1,47 @@
+{
+  "scope": "All included probe bytes SHA-256 verified against immutable manifests; all ZIP member names and complete data.pkl metadata inspected without unpickling; full binary strings scanned for known source identity. No tensor inference or torch.load performed.",
+  "files": [
+    {
+      "filename": "candidate_parent_only_probe_seed424242.pt",
+      "sha256": "a9e30ac9df31af63c525bdf08e812d5562bf2ba7c4c60ea8f439f4e4492e1943",
+      "zip_entries": 12,
+      "pickle_metadata_strings": 50,
+      "known_identity_matches": 0
+    },
+    {
+      "filename": "candidate_parent_only_probe_seed314159.pt",
+      "sha256": "14736e8cbdc623cd004ef031f8af719dffa0e627c37425611e9ede6df2bd514a",
+      "zip_entries": 12,
+      "pickle_metadata_strings": 50,
+      "known_identity_matches": 0
+    },
+    {
+      "filename": "candidate_parent_only_probe_seed271828.pt",
+      "sha256": "7eff7a553a7dc17d2f75127b6622067f2f11add3454884b0c532782428e98fb9",
+      "zip_entries": 12,
+      "pickle_metadata_strings": 50,
+      "known_identity_matches": 0
+    },
+    {
+      "filename": "source_parent_only_probe_seed314159.pt",
+      "sha256": "617cd5430ed9751121e3f222de942ea8f4e5f4164ce9a0514e36ae88bb954497",
+      "zip_entries": 12,
+      "pickle_metadata_strings": 50,
+      "known_identity_matches": 0
+    },
+    {
+      "filename": "source_parent_only_probe_seed271828.pt",
+      "sha256": "b3f422a0cc7c8ff5cb9ce1e066f38b51f004417d6d0d74f4e974f78eeeadbc8e",
+      "zip_entries": 12,
+      "pickle_metadata_strings": 50,
+      "known_identity_matches": 0
+    },
+    {
+      "filename": "source_parent_only_probe_seed424242.pt",
+      "sha256": "7d71e0951ebace7c65dfbae7ca54a23f9c972d63ba308eb7d4b9f727d9a6e830",
+      "zip_entries": 12,
+      "pickle_metadata_strings": 50,
+      "known_identity_matches": 0
+    }
+  ]
+}

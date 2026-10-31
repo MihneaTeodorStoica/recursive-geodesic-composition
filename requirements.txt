@@ -1,0 +1,3 @@
+# Runtime and figure pins are declared in pyproject.toml for the final experiments.
+-e .
+pytest==9.1.1

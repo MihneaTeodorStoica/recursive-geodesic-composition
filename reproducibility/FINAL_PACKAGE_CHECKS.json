@@ -1,0 +1,141 @@
+{
+  "schema_version": 2,
+  "scope": "Independent rebuild validation, not a model-backed experimental rerun. Container integrity is rechecked after final assembly. The external report contains the delivery digest to avoid self-reference.",
+  "checklist": [
+    {
+      "check": "original_scientific_source_and_prior_copy",
+      "status": "PASS",
+      "evidence": "19 full scientific modules compared byte-for-byte and by SHA-256; INDEPENDENT_SCIENTIFIC_CHECKS.json."
+    },
+    {
+      "check": "historical_numeric_values_and_types",
+      "status": "PASS",
+      "evidence": "194 historical JSON files and 2,493,640 typed numeric/boolean leaves compared at their nested paths."
+    },
+    {
+      "check": "saved_scalar_statistics",
+      "status": "PASS",
+      "evidence": "Independent rank-sum replay of 120 AUCs in 60 files; nine pooled bootstrap mean/interval pairs; INDEPENDENT_STATISTICAL_REPLAY.json."
+    },
+    {
+      "check": "included_binary_identity",
+      "status": "PASS",
+      "evidence": "Six probes: complete file SHA-256, size, nested ZIP CRC/member names and complete pickle metadata; INDEPENDENT_PROBE_REVIEW.json."
+    },
+    {
+      "check": "included_image_metadata_and_pixels",
+      "status": "PASS",
+      "evidence": "All five PNG pixel arrays unchanged; no known author metadata; INDEPENDENT_IMAGE_REVIEW.json."
+    },
+    {
+      "check": "known_author_names_handles_affiliations_paths_project_urls",
+      "status": "PASS",
+      "evidence": "Whole-payload bytes/text/SVG/metadata scans and context review found no known author identity."
+    },
+    {
+      "check": "email_credentials_and_secrets",
+      "status": "PASS_SCOPED",
+      "evidence": "Known author-email and high-confidence GitHub/Hugging Face/AWS/private-key patterns absent; not a formal proof that all possible secrets are absent."
+    },
+    {
+      "check": "project_git_history_ids_and_saved_hostnames",
+      "status": "PASS",
+      "evidence": "No Git directories/remotes/authors or known project commit IDs; no saved user/host fields. Third-party input revision pins retained."
+    },
+    {
+      "check": "named_pdfs_and_raw_identity_audit_material",
+      "status": "PASS",
+      "evidence": "No PDF/citation payload or author-only audit/recommendations. Raw identity-bearing evidence remains outside the ZIP."
+    },
+    {
+      "check": "source_mirror_as_anonymous_reviewer_link",
+      "status": "FAIL_EXTERNAL_NOT_LINKED",
+      "evidence": "Actual updated 394-file snapshot retains personal log paths and PNG author metadata. It is not linked; see MIRROR_STATUS.md."
+    },
+    {
+      "check": "omitted_weights_anonymous_access",
+      "status": "BLOCKED_EXTERNAL",
+      "evidence": "60 omitted weights total 8,062,738,309 bytes; no verified anonymous endpoint. See CHECKPOINT_HOSTING_PLAN.md."
+    },
+    {
+      "check": "full_historical_from_scratch_reproduction",
+      "status": "NOT_ESTABLISHED",
+      "evidence": "Historical source training lineage, caches and older weights are incomplete; strict upstream provenance pins remain. These limits are disclosed."
+    },
+    {
+      "check": "inherited_hash_discrepancies",
+      "status": "QUALIFIED",
+      "evidence": "15 presentation differences, three historical recovery versions and one unresolved fingerprint. Original hash evidence preserved; see HASH_DISCREPANCY_AUDIT.md."
+    },
+    {
+      "check": "fresh_extraction_commands_python_compilation_formats_links",
+      "status": "PASS",
+      "evidence": "Real candidate extraction; five commands including compileall passed. JSON/YAML/TOML/SVG parsed; zero broken Markdown/evidence paths. EXTRACTED_COMMAND_EVIDENCE.json."
+    },
+    {
+      "check": "real_weight_placement",
+      "status": "PASS",
+      "evidence": "Six actual included probes placed and hashed at 12 protocol/lookup paths in a disposable copy."
+    },
+    {
+      "check": "supporting_plot_regeneration",
+      "status": "PASS",
+      "evidence": "Two supporting plots generated from saved JSON; zero RGBA pixel differences."
+    },
+    {
+      "check": "perfect_anonymity_against_public_search",
+      "status": "NOT_CLAIMED",
+      "evidence": "Research title, scientific identifiers and artifact hashes remain linkable to public work by deliberate comparison/search."
+    }
+  ],
+  "summary": {
+    "scientific_modules_byte_identical": 19,
+    "historical_json_files": 194,
+    "historical_numeric_leaves": 2493640,
+    "included_probes": 6,
+    "included_probe_bytes": 47334402,
+    "excluded_weight_files": 60,
+    "excluded_weight_bytes": 8062738309,
+    "classifier_auc_points": 120,
+    "classifier_prediction_files": 60,
+    "bootstrap_reps": 2000,
+    "pooled_mean_ci_pairs": 9,
+    "max_auc_error": 2.220446049250313e-16,
+    "max_bootstrap_error": 6.938893903907228e-18,
+    "hash_classifications": {
+      "serialization_difference": 15,
+      "expected_historical_version_difference": 3,
+      "genuine_artifact_discrepancy": 0,
+      "unresolved": 1
+    },
+    "historical_source_copies_added": 5
+  },
+  "container_policy": {
+    "maximum_zip_bytes": 100000000,
+    "root": "TMLR_Supplement/",
+    "timestamp": [
+      2026,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "mode": "regular0644",
+    "zip_comments": false,
+    "zip_extra_fields": false,
+    "symlinks": false,
+    "bytecode_caches": false
+  },
+  "not_executed": [
+    "dependencyinstallationinhistoricalenvironment",
+    "modeltraining",
+    "GPUinference",
+    "teacher/datasetdownload",
+    "cacheregeneration",
+    "fullvectorhistoricalaudit",
+    "accountcreation",
+    "externalupload",
+    "originalrepository/manuscriptmodification"
+  ]
+}

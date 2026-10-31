@@ -1,0 +1,11 @@
+# Predeclared discriminator protocol for future untouched test sets only.
+# Do not tune these values after inspecting a test result.
+protocol_version: 1
+split_seed: 1729
+model_seed: 1729
+test_size: 0.5
+logistic_c: 1.0
+logistic_max_iter: 1000
+rbf_c: 1.0
+# Embeddings are 768-dimensional and standardized before the SVM.
+rbf_gamma: 0.0013020833333333333

@@ -1,0 +1,21 @@
+{
+  "source": "Exact anonymous submission release PDF,40pages,readoutsideZIP and not modified",
+  "pdf_sha256": "169cadc41b17a6664259ef6e87dbf823162499dbf14905e1dd2395213824c96e",
+  "table_captions": [
+    "Table 4: Matched teacher-comparable pre\ufb01x comparison on regenerated inputs for the same 4,000 documents.",
+    "Table 5: Paired contrasts on the same 4,000 documents, averaging the three checkpoint scores within each document.",
+    "Table 6: O\ufb03cial-v6 safe-arm detectability and teacher \ufb01delity. The con\ufb01dence interval in the \ufb01nal row is the",
+    "Table 7: O\ufb03cial-v6 safe-arm results by corpus, averaged across the three seeds with shared-document bootstrap",
+    "Table 8: Matched 606-pre\ufb01x tree/reuse stress test. Learned scores average the three checkpoints; \ufb02at pooling uses",
+    "Table 9: Complete-document population, 1,000 documents per corpus. Token summaries are copied from the frozen",
+    "Table 10: Full-document length counts for the 4,000-document population, not the capped pre\ufb01xes. Counts exclude",
+    "Table 11: Unrestricted full-document recursion. Throughput covers recursive merger and decoder evaluation over",
+    "Table 12: O\ufb03cial-v6 exact-four-child retention diagnostics. Probes and \ufb02oors are \ufb01xed using fresh TRAIN data",
+    "Table 13: Matched reconstruction calibration on 606 four-child pre\ufb01xes. Learned rows average checkpoint scores,",
+    "Table 14: Matched exact-K4 parent-only probe comparison on 606 o\ufb03cial documents. Di\ufb00erence columns are",
+    "Table 15: Matched continuation comparison on regenerated teacher-comparable pre\ufb01xes. Teacher cosine uses all",
+    "Table 16: Complete frozen LongEmbed task corpora; query-weighted nDCG@10 (higher is better). Recursive scores",
+    "Table 17: Matched validation-only arity comparison. Throughput and depth are speci\ufb01c to this scaling protocol"
+  ],
+  "evidence_map_literal_paths_verified": true
+}

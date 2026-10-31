@@ -1,0 +1,61 @@
+{
+  "append_only_post_final_verification": true,
+  "checks": {
+    "all_seed_artifacts": true,
+    "cache_kary4_strict_autoencoder_v6_clean_development_complete": true,
+    "cache_kary4_strict_autoencoder_v6_clean_train_complete": true,
+    "final_done": true
+  },
+  "future_protected_opened": false,
+  "historical_sha256sums_note": "SHA256SUMS preserves the finalize-time hash of the concurrently open FINALIZE_STDOUT.log; POST_FINAL_SHA256SUMS is the authoritative additive manifest after tee completion and post-final checks.",
+  "maximum_source_index_opened_exclusive": 157920,
+  "paper_edited": false,
+  "promotion_passed": true,
+  "protected_data_accessed": false,
+  "protected_work_performed": false,
+  "reserve_buffer_opened": false,
+  "seeds": {
+    "271828": {
+      "checkpoint_hash": true,
+      "checkpoint_ignored": true,
+      "development_pass": true,
+      "evaluation_marker": true,
+      "freeze_marker": true,
+      "probe_hashes": {
+        "candidate": true,
+        "source": true
+      }
+    },
+    "314159": {
+      "checkpoint_hash": true,
+      "checkpoint_ignored": true,
+      "development_pass": true,
+      "evaluation_marker": true,
+      "freeze_marker": true,
+      "probe_hashes": {
+        "candidate": true,
+        "source": true
+      }
+    },
+    "424242": {
+      "checkpoint_hash": true,
+      "checkpoint_ignored": true,
+      "development_pass": true,
+      "evaluation_marker": true,
+      "freeze_marker": true,
+      "probe_hashes": {
+        "candidate": true,
+        "source": true
+      }
+    }
+  },
+  "study": "kary4_strict_autoencoder_v6_clean_development",
+  "tests": {
+    "deselected_missing_legacy_storage_artifact": 1,
+    "initial_full_suite_preserved": "results_kary4_strict_autoencoder_v6_clean_development.FULL_SUITE.log",
+    "post_final_static_checks_passed": true,
+    "recovery_reason": "old encoder checkpoint had been deliberately deleted for storage before v6",
+    "recovery_suite_passed": 200,
+    "warnings": 11
+  }
+}

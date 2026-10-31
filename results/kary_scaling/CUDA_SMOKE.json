@@ -1,0 +1,21 @@
+{
+  "validation_only": true,
+  "official_test_evaluated": false,
+  "configured_batch_size": 8,
+  "max_leaf_counts": [
+    35,
+    34,
+    47,
+    42,
+    43,
+    40,
+    40,
+    38
+  ],
+  "loss": 0.05670512840151787,
+  "finite_roots": true,
+  "fp16_cache_evaluation": true,
+  "saturation_fraction": 0.0,
+  "peak_cuda_bytes": 1482920960,
+  "gpu": "NVIDIA RTX PRO 4000 Blackwell"
+}

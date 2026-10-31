@@ -1,0 +1,42 @@
+[
+  {
+    "path": "figures/fig2_official_per_corpus.png",
+    "dimensions": [
+      2160,
+      1230
+    ],
+    "prior_pixels_match_original_and_live": true
+  },
+  {
+    "path": "figures/fig3_kary_scaling.png",
+    "dimensions": [
+      2160,
+      1605
+    ],
+    "prior_pixels_match_original_and_live": true
+  },
+  {
+    "path": "results/continuation_comparison_v1/continuation_ecdf.png",
+    "dimensions": [
+      1350,
+      558
+    ],
+    "prior_pixels_match_original_and_live": true
+  },
+  {
+    "path": "results/reconstruction_calibration_v1/calibration_ecdf.png",
+    "dimensions": [
+      1350,
+      594
+    ],
+    "prior_pixels_match_original_and_live": true
+  },
+  {
+    "path": "results/recursive_reuse_v1/degradation_ecdf.png",
+    "dimensions": [
+      1260,
+      648
+    ],
+    "prior_pixels_match_original_and_live": true
+  }
+]

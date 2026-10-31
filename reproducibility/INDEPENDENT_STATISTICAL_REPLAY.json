@@ -1,0 +1,1012 @@
+{
+  "documents": 4000,
+  "auc_points": 120,
+  "prediction_files": 60,
+  "auc_algorithm": "Independent rank-sum implementation, not supplied helper",
+  "max_auc_absolute_error": 2.220446049250313e-16,
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 22092601,
+  "pooled_mean_ci_pairs": 9,
+  "bootstrap_max_absolute_error": 6.938893903907228e-18,
+  "bootstrap_source": "Unchanged NumPy-only function bodies from original scientific module; no Torch import or model execution.",
+  "auc_comparisons": [
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__fineweb.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.665158,
+      "expected": 0.665158,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__fineweb.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.676332,
+      "expected": 0.6763320000000002,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__fineweb_edu.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.69213,
+      "expected": 0.6921299999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__fineweb_edu.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.692928,
+      "expected": 0.692928,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__openwebtext.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.708818,
+      "expected": 0.708818,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__openwebtext.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.691068,
+      "expected": 0.691068,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__pooled.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.74488325,
+      "expected": 0.7448832500000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__pooled.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.728293,
+      "expected": 0.7282930000000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__wikipedia_en_20231101.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.796196,
+      "expected": 0.796196,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/first_chunk__wikipedia_en_20231101.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.779236,
+      "expected": 0.779236,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__fineweb.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.56959,
+      "expected": 0.56959,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__fineweb.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.554052,
+      "expected": 0.554052,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__fineweb_edu.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.56745,
+      "expected": 0.56745,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__fineweb_edu.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.556692,
+      "expected": 0.5566920000000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__openwebtext.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.5814,
+      "expected": 0.5813999999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__openwebtext.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.557748,
+      "expected": 0.557748,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__pooled.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.5821715,
+      "expected": 0.5821715000000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__pooled.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.560451,
+      "expected": 0.560451,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__wikipedia_en_20231101.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.632154,
+      "expected": 0.632154,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed271828__wikipedia_en_20231101.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.572092,
+      "expected": 0.572092,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__fineweb.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.572516,
+      "expected": 0.5725159999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__fineweb.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.556752,
+      "expected": 0.556752,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__fineweb_edu.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.569982,
+      "expected": 0.5699820000000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__fineweb_edu.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.555256,
+      "expected": 0.555256,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__openwebtext.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.5828,
+      "expected": 0.5828,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__openwebtext.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.558844,
+      "expected": 0.558844,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__pooled.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.5877675,
+      "expected": 0.5877675000000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__pooled.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.56306175,
+      "expected": 0.56306175,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__wikipedia_en_20231101.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.636116,
+      "expected": 0.636116,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed314159__wikipedia_en_20231101.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.574448,
+      "expected": 0.574448,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__fineweb.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.573656,
+      "expected": 0.5736559999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__fineweb.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.556652,
+      "expected": 0.5566519999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__fineweb_edu.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.562254,
+      "expected": 0.562254,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__fineweb_edu.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.55648,
+      "expected": 0.55648,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__openwebtext.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.586988,
+      "expected": 0.5869880000000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__openwebtext.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.560168,
+      "expected": 0.560168,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__pooled.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.582942625,
+      "expected": 0.5829426249999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__pooled.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.56361425,
+      "expected": 0.5636142500000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__wikipedia_en_20231101.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.641918,
+      "expected": 0.641918,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_parent_seed424242__wikipedia_en_20231101.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.576908,
+      "expected": 0.576908,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__fineweb.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.783448,
+      "expected": 0.7834480000000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__fineweb.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.7447,
+      "expected": 0.7446999999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__fineweb_edu.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.798276,
+      "expected": 0.798276,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__fineweb_edu.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.744248,
+      "expected": 0.744248,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__openwebtext.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.8083,
+      "expected": 0.8083,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__openwebtext.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.74224,
+      "expected": 0.74224,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__pooled.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.8318135,
+      "expected": 0.8318134999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__pooled.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.80447525,
+      "expected": 0.8044752500000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__wikipedia_en_20231101.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.807606,
+      "expected": 0.807606,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed271828__wikipedia_en_20231101.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.752376,
+      "expected": 0.7523759999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__fineweb.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.777906,
+      "expected": 0.777906,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__fineweb.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.741376,
+      "expected": 0.741376,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__fineweb_edu.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.796302,
+      "expected": 0.7963020000000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__fineweb_edu.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.741924,
+      "expected": 0.741924,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__openwebtext.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.804604,
+      "expected": 0.8046039999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__openwebtext.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.73928,
+      "expected": 0.7392799999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__pooled.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.829304125,
+      "expected": 0.8293041250000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__pooled.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.80200825,
+      "expected": 0.80200825,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__wikipedia_en_20231101.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.806116,
+      "expected": 0.8061159999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed314159__wikipedia_en_20231101.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.751688,
+      "expected": 0.7516879999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__fineweb.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.782662,
+      "expected": 0.7826620000000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__fineweb.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.744208,
+      "expected": 0.744208,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__fineweb_edu.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.797406,
+      "expected": 0.797406,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__fineweb_edu.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.743684,
+      "expected": 0.743684,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__openwebtext.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.80895,
+      "expected": 0.8089499999999998,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__openwebtext.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.742,
+      "expected": 0.742,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__pooled.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.831406625,
+      "expected": 0.8314066250000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__pooled.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.80418,
+      "expected": 0.8041799999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__wikipedia_en_20231101.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.807084,
+      "expected": 0.8070839999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/learned_reference_seed424242__wikipedia_en_20231101.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.751844,
+      "expected": 0.751844,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__fineweb.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.78464,
+      "expected": 0.7846400000000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__fineweb.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.745032,
+      "expected": 0.745032,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__fineweb_edu.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.80011,
+      "expected": 0.80011,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__fineweb_edu.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.746392,
+      "expected": 0.746392,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__openwebtext.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.809892,
+      "expected": 0.809892,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__openwebtext.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.744548,
+      "expected": 0.744548,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__pooled.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.833521625,
+      "expected": 0.8335216249999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__pooled.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.8065475,
+      "expected": 0.8065475,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__wikipedia_en_20231101.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.808554,
+      "expected": 0.808554,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/token_weighted_mean__wikipedia_en_20231101.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.753248,
+      "expected": 0.7532479999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__fineweb.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.878124,
+      "expected": 0.878124,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__fineweb.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.844592,
+      "expected": 0.844592,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__fineweb_edu.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.872492,
+      "expected": 0.8724919999999998,
+      "absolute_error": 2.220446049250313e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__fineweb_edu.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.851616,
+      "expected": 0.8516159999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__openwebtext.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.887112,
+      "expected": 0.8871120000000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__openwebtext.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.859932,
+      "expected": 0.859932,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__pooled.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.899688625,
+      "expected": 0.899688625,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__pooled.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.89417825,
+      "expected": 0.89417825,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__wikipedia_en_20231101.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.861944,
+      "expected": 0.8619439999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/safe_baselines_v1/attacks/unweighted_mean__wikipedia_en_20231101.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.809092,
+      "expected": 0.8090920000000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__fineweb.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.57044,
+      "expected": 0.57044,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__fineweb.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.554572,
+      "expected": 0.5545720000000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__fineweb_edu.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.5679,
+      "expected": 0.5679000000000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__fineweb_edu.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.557044,
+      "expected": 0.557044,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__openwebtext.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.581576,
+      "expected": 0.5815759999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__openwebtext.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.558408,
+      "expected": 0.558408,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__pooled.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.582905,
+      "expected": 0.582905,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__pooled.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.560808,
+      "expected": 0.560808,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__wikipedia_en_20231101.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.63249,
+      "expected": 0.63249,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed271828__wikipedia_en_20231101.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.572372,
+      "expected": 0.5723720000000001,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__fineweb.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.573352,
+      "expected": 0.5733519999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__fineweb.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.556956,
+      "expected": 0.556956,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__fineweb_edu.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.569402,
+      "expected": 0.569402,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__fineweb_edu.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.555496,
+      "expected": 0.555496,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__openwebtext.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.583238,
+      "expected": 0.583238,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__openwebtext.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.55922,
+      "expected": 0.55922,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__pooled.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.58819725,
+      "expected": 0.58819725,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__pooled.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.5634135,
+      "expected": 0.5634135,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__wikipedia_en_20231101.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.636056,
+      "expected": 0.636056,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed314159__wikipedia_en_20231101.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.573888,
+      "expected": 0.573888,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__fineweb.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.574094,
+      "expected": 0.5740939999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__fineweb.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.55704,
+      "expected": 0.55704,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__fineweb_edu.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.562496,
+      "expected": 0.562496,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__fineweb_edu.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.556572,
+      "expected": 0.556572,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__openwebtext.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.58712,
+      "expected": 0.58712,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__openwebtext.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.560384,
+      "expected": 0.560384,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__pooled.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.58337925,
+      "expected": 0.58337925,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__pooled.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.563965,
+      "expected": 0.563965,
+      "absolute_error": 0.0
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__wikipedia_en_20231101.json",
+      "family": "standard_scaled_logistic",
+      "raw_auc": 0.641342,
+      "expected": 0.6413419999999999,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "path": "results/continuation_comparison_v1/attacks/source_seed424242__wikipedia_en_20231101.json",
+      "family": "standard_scaled_rbf_svm",
+      "raw_auc": 0.576632,
+      "expected": 0.576632,
+      "absolute_error": 0.0
+    }
+  ],
+  "bootstrap": {
+    "methods": {
+      "first_chunk": {
+        "documents": 4000,
+        "mean": 0.9584531222455586,
+        "std": 0.034833467581964844,
+        "quantiles": {
+          "0": 0.8034528451048802,
+          "0.05": 0.8912423903879244,
+          "0.5": 0.9681776673929988,
+          "0.95": 0.9971191164347789,
+          "1": 0.9999049574007363
+        },
+        "ci95": [
+          0.9573816781671103,
+          0.9595032823204142
+        ]
+      },
+      "unweighted_mean": {
+        "documents": 4000,
+        "mean": 0.9569327776829728,
+        "std": 0.03534133266340146,
+        "quantiles": {
+          "0": 0.7523551703452004,
+          "0.05": 0.8842838355373907,
+          "0.5": 0.968068049095383,
+          "0.95": 0.9873919772856812,
+          "1": 0.9943134096572409
+        },
+        "ci95": [
+          0.9558434511899946,
+          0.9580118293398642
+        ]
+      },
+      "token_weighted_mean": {
+        "documents": 4000,
+        "mean": 0.9829381574051947,
+        "std": 0.01084341041931505,
+        "quantiles": {
+          "0": 0.9032883972604779,
+          "0.05": 0.9631251603709611,
+          "0.5": 0.9847658909166133,
+          "0.95": 0.9971900640407965,
+          "1": 0.9998968555104065
+        },
+        "ci95": [
+          0.9826136903248233,
+          0.9832601632655434
+        ]
+      },
+      "learned_reference": {
+        "documents": 4000,
+        "mean": 0.9831747172953322,
+        "std": 0.010672748259129495,
+        "quantiles": {
+          "0": 0.9126903992522366,
+          "0.05": 0.9635565104535629,
+          "0.5": 0.9850160740739422,
+          "0.95": 0.9972831976532741,
+          "1": 0.9999001967488143
+        },
+        "ci95": [
+          0.9828494311112673,
+          0.9834899795613242
+        ]
+      },
+      "learned_parent": {
+        "documents": 4000,
+        "mean": 0.9850454794397708,
+        "std": 0.009420684815460923,
+        "quantiles": {
+          "0": 0.9227287327392526,
+          "0.05": 0.9675419586786028,
+          "0.5": 0.9867075275336822,
+          "0.95": 0.9972815978486929,
+          "1": 0.9997437333953877
+        },
+        "ci95": [
+          0.9847598845536212,
+          0.9853194360807003
+        ]
+      }
+    },
+    "contrasts": {
+      "parent_minus_weighted": {
+        "documents": 4000,
+        "mean": 0.0021073220345760365,
+        "std": 0.0028399839490701718,
+        "quantiles": {
+          "0": -0.0050447776433990565,
+          "0.05": -0.0005514759035426918,
+          "0.5": 0.0012245441807990365,
+          "0.95": 0.008064575089954923,
+          "1": 0.024637923358417746
+        },
+        "ci95": [
+          0.0020213733188240773,
+          0.0021938847345932214
+        ],
+        "fraction_positive": 0.814,
+        "fraction_zero": 0.0
+      },
+      "parent_minus_unweighted": {
+        "documents": 4000,
+        "mean": 0.02811270175679803,
+        "std": 0.03837154333461837,
+        "quantiles": {
+          "0": -0.017703667889771735,
+          "0.05": 0.0005035215701641007,
+          "0.5": 0.013106238663883107,
+          "0.95": 0.10834491910524648,
+          "1": 0.24723158408093615
+        },
+        "ci95": [
+          0.026939145660340565,
+          0.02931215050348557
+        ],
+        "fraction_positive": 0.96575,
+        "fraction_zero": 0.0
+      },
+      "reference_minus_weighted": {
+        "documents": 4000,
+        "mean": 0.00023655989013756902,
+        "std": 0.001158473589237453,
+        "quantiles": {
+          "0": -0.005929472941976099,
+          "0.05": -0.000903933454759992,
+          "0.5": 3.5218765138178565e-05,
+          "0.95": 0.001896460172000158,
+          "1": 0.015442770070635214
+        },
+        "ci95": [
+          0.00020130770973162795,
+          0.00027396632620493253
+        ],
+        "fraction_positive": 0.57075,
+        "fraction_zero": 0.0
+      },
+      "parent_minus_reference": {
+        "documents": 4000,
+        "mean": 0.0018707621444384675,
+        "std": 0.0025844105313923877,
+        "quantiles": {
+          "0": -0.005031838742260875,
+          "0.05": -0.0004751162351948556,
+          "0.5": 0.001024319226549053,
+          "0.95": 0.0072903836392097425,
+          "1": 0.02125426332952085
+        },
+        "ci95": [
+          0.0017926000266590858,
+          0.0019505944499707897
+        ],
+        "fraction_positive": 0.8075,
+        "fraction_zero": 0.0
+      }
+    }
+  }
+}

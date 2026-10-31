@@ -1,0 +1,408 @@
+{
+  "inspected_remote_weight_metadata_streams": 66,
+  "method": "Complete leading data.pkl pickle opcode streams via HTTP byte ranges; no unpickling, tensor loading or full local SHA verification of omitted files. Release-asset sizes/SHA digests independently matched all66manifest entries.",
+  "known_identifying_metadata_assets": [
+    "review_warm_seed271828.pt",
+    "review_warm_seed314159.pt",
+    "review_warm_seed424242.pt"
+  ],
+  "included_exact_probes": 6,
+  "files": [
+    {
+      "asset_filename": "autoencoder_seed271828.pt",
+      "metadata_bytes": 28807,
+      "metadata_string_count": 718,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "autoencoder_seed314159.pt",
+      "metadata_bytes": 28807,
+      "metadata_string_count": 718,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "autoencoder_seed424242.pt",
+      "metadata_bytes": 28763,
+      "metadata_string_count": 718,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "candidate_parent_only_probe_seed271828.pt",
+      "metadata_bytes": 1735,
+      "metadata_string_count": 50,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "candidate_parent_only_probe_seed314159.pt",
+      "metadata_bytes": 1735,
+      "metadata_string_count": 50,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "candidate_parent_only_probe_seed424242.pt",
+      "metadata_bytes": 1735,
+      "metadata_string_count": 50,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_attached_seed271828.pt",
+      "metadata_bytes": 27446,
+      "metadata_string_count": 686,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_attached_seed314159.pt",
+      "metadata_bytes": 27446,
+      "metadata_string_count": 686,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_attached_seed424242.pt",
+      "metadata_bytes": 27446,
+      "metadata_string_count": 686,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_bounded_731241_learned_271828.pt",
+      "metadata_bytes": 850,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_bounded_731241_learned_314159.pt",
+      "metadata_bytes": 850,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_bounded_731241_learned_424242.pt",
+      "metadata_bytes": 850,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_bounded_731241_unweighted.pt",
+      "metadata_bytes": 846,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_bounded_731241_weighted.pt",
+      "metadata_bytes": 844,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_bounded_731242_learned_271828.pt",
+      "metadata_bytes": 850,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_bounded_731242_learned_314159.pt",
+      "metadata_bytes": 850,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_bounded_731242_learned_424242.pt",
+      "metadata_bytes": 850,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_bounded_731242_unweighted.pt",
+      "metadata_bytes": 846,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_bounded_731242_weighted.pt",
+      "metadata_bytes": 844,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_bounded_731243_learned_271828.pt",
+      "metadata_bytes": 850,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_bounded_731243_learned_314159.pt",
+      "metadata_bytes": 850,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_bounded_731243_learned_424242.pt",
+      "metadata_bytes": 850,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_bounded_731243_unweighted.pt",
+      "metadata_bytes": 846,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_bounded_731243_weighted.pt",
+      "metadata_bytes": 844,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_detached_seed271828.pt",
+      "metadata_bytes": 27446,
+      "metadata_string_count": 686,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_detached_seed314159.pt",
+      "metadata_bytes": 27446,
+      "metadata_string_count": 686,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_detached_seed424242.pt",
+      "metadata_bytes": 27446,
+      "metadata_string_count": 686,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_direct_731241_learned_271828.pt",
+      "metadata_bytes": 849,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_direct_731241_learned_314159.pt",
+      "metadata_bytes": 849,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_direct_731241_learned_424242.pt",
+      "metadata_bytes": 849,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_direct_731241_unweighted.pt",
+      "metadata_bytes": 845,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_direct_731241_weighted.pt",
+      "metadata_bytes": 843,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_direct_731242_learned_271828.pt",
+      "metadata_bytes": 849,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_direct_731242_learned_314159.pt",
+      "metadata_bytes": 849,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_direct_731242_learned_424242.pt",
+      "metadata_bytes": 849,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_direct_731242_unweighted.pt",
+      "metadata_bytes": 845,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_direct_731242_weighted.pt",
+      "metadata_bytes": 843,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_direct_731243_learned_271828.pt",
+      "metadata_bytes": 849,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_direct_731243_learned_314159.pt",
+      "metadata_bytes": 849,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_direct_731243_learned_424242.pt",
+      "metadata_bytes": 849,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_direct_731243_unweighted.pt",
+      "metadata_bytes": 845,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_direct_731243_weighted.pt",
+      "metadata_bytes": 843,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_unbounded_731241_learned_271828.pt",
+      "metadata_bytes": 852,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_unbounded_731241_learned_314159.pt",
+      "metadata_bytes": 852,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_unbounded_731241_learned_424242.pt",
+      "metadata_bytes": 852,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_unbounded_731241_unweighted.pt",
+      "metadata_bytes": 848,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_unbounded_731241_weighted.pt",
+      "metadata_bytes": 846,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_unbounded_731242_learned_271828.pt",
+      "metadata_bytes": 852,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_unbounded_731242_learned_314159.pt",
+      "metadata_bytes": 852,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_unbounded_731242_learned_424242.pt",
+      "metadata_bytes": 852,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_unbounded_731242_unweighted.pt",
+      "metadata_bytes": 848,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_unbounded_731242_weighted.pt",
+      "metadata_bytes": 846,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_unbounded_731243_learned_271828.pt",
+      "metadata_bytes": 852,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_unbounded_731243_learned_314159.pt",
+      "metadata_bytes": 852,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_unbounded_731243_learned_424242.pt",
+      "metadata_bytes": 852,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_unbounded_731243_unweighted.pt",
+      "metadata_bytes": 848,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_unbounded_731243_weighted.pt",
+      "metadata_bytes": 846,
+      "metadata_string_count": 31,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "review_warm_seed271828.pt",
+      "metadata_bytes": 40472,
+      "metadata_string_count": 653,
+      "known_identity_present": true
+    },
+    {
+      "asset_filename": "review_warm_seed314159.pt",
+      "metadata_bytes": 40464,
+      "metadata_string_count": 653,
+      "known_identity_present": true
+    },
+    {
+      "asset_filename": "review_warm_seed424242.pt",
+      "metadata_bytes": 40434,
+      "metadata_string_count": 653,
+      "known_identity_present": true
+    },
+    {
+      "asset_filename": "source_parent_only_probe_seed271828.pt",
+      "metadata_bytes": 1732,
+      "metadata_string_count": 50,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "source_parent_only_probe_seed314159.pt",
+      "metadata_bytes": 1732,
+      "metadata_string_count": 50,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "source_parent_only_probe_seed424242.pt",
+      "metadata_bytes": 1732,
+      "metadata_string_count": 50,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "source_seed271828.pt",
+      "metadata_bytes": 26772,
+      "metadata_string_count": 589,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "source_seed314159.pt",
+      "metadata_bytes": 26772,
+      "metadata_string_count": 589,
+      "known_identity_present": false
+    },
+    {
+      "asset_filename": "source_seed424242.pt",
+      "metadata_bytes": 26686,
+      "metadata_string_count": 589,
+      "known_identity_present": false
+    }
+  ]
+}

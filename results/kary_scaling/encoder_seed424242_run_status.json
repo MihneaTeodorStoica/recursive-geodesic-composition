@@ -1,0 +1,14 @@
+{
+  "status": "rejected",
+  "variant": "encoder",
+  "seed": 424242,
+  "final_step": 1200,
+  "configured_steps": 1200,
+  "rejection_reason": "geodesic_saturation_nonzero_for_1_steps:0.125",
+  "best_checkpoint_preserved": true,
+  "best_checkpoint_selection_value": 0.7129877619136099,
+  "freeze_encoder_steps": 0,
+  "autoencoder_objective_start_step": 0,
+  "autoencoder_objective_ramp_steps": 0,
+  "continued_after_quality_rejection": true
+}

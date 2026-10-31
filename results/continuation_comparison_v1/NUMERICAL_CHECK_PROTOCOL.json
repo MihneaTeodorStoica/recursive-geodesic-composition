@@ -1,0 +1,17 @@
+{
+  "batch_size": 17,
+  "implementation_sha256": "67d903765eb1a23dc46aa109ce9739e44d3c4defbb27eb389221f2aaa4232aba",
+  "inference_manifest_sha256": "9f765452f2a09990f3cbb48ee14ac226c669bc0a966c174ccd268eee32bea3a4",
+  "motivation": "observed teacher contrast below 1e-6",
+  "not_a_new_primary_analysis": true,
+  "packing": "document_order_mixed_arity",
+  "results_sha256": "84c151264e962577a35cd12ad47ace1a63852d5abcc8ddcaa1784827d23b16c1",
+  "retain_all_shifts_without_result_substitution": true,
+  "role": "supplementary_post_result_numerical_validation",
+  "seeds": [
+    424242,
+    271828,
+    314159
+  ],
+  "started_unix": 1790099060.9247444
+}

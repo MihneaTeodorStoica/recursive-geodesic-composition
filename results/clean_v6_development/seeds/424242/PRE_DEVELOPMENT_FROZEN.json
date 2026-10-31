@@ -1,0 +1,132 @@
+{
+  "checkpoint": {
+    "path": "results_kary4_strict_autoencoder_v6_clean_development_seed424242/autoencoder_seed424242.pt",
+    "sha256": "989f9bc496bea484974679cd181e43836caf3283ffdc8e66507046945e0902de",
+    "step": 400
+  },
+  "config": "experiments/kary4_strict_autoencoder_v6_clean_development/configs_train_availability_recovery/seed424242.yaml",
+  "config_sha256": "12bb8580a804c1de07043a0e4eab6a4ca69c28c81d3865f45a7f64af21c1d658",
+  "continued_autoencoder_retraining_not_from_scratch": true,
+  "development_cache_opened": false,
+  "development_only": true,
+  "initialization": {
+    "continued_autoencoder_retraining": true,
+    "initialization_checkpoint": "5/results_kary4_strict_autoencoder_seed424_dev_v2/autoencoder_seed424242.pt",
+    "initialization_checkpoint_sha256": "2365a789f61ba6dab9967041b8dcee2a19dc969fd97b71026bdee970f7ea4797",
+    "initialization_ignored_decoder_key_count": 19,
+    "initialization_key_migrations": [],
+    "initialization_shared_key_count": 113,
+    "initialization_source_selected_step": 400,
+    "initialization_source_variant": "autoencoder"
+  },
+  "matched_probe": {
+    "development_updates": 0,
+    "fit_final": {
+      "candidate": {
+        "cosine_loss": 0.056783437728881836,
+        "loss": 0.05682040750980377,
+        "mse": 0.00014787353575229645
+      },
+      "source": {
+        "cosine_loss": 0.05676710605621338,
+        "loss": 0.05680406466126442,
+        "mse": 0.00014783097140025347
+      }
+    },
+    "fit_role": "fresh_v6_train",
+    "floor_rule": "source_probe_disjoint_train_floor_score_minus_fixed_margin",
+    "frozen_floors": {
+      "fineweb": 0.8919562568664551,
+      "fineweb_edu": 0.8956167569160461,
+      "openwebtext": 0.8993962278366089,
+      "pooled": 0.897565411567688,
+      "wikipedia_en_20231101": 0.9032922854423523
+    },
+    "identical_minibatch_schedule": true,
+    "probe_artifacts": {
+      "candidate": {
+        "path": "results_kary4_strict_autoencoder_v6_clean_development_seed424242/train_fitted_matched_probes/candidate_parent_only.pt",
+        "sha256": "a9e30ac9df31af63c525bdf08e812d5562bf2ba7c4c60ea8f439f4e4492e1943"
+      },
+      "source": {
+        "path": "results_kary4_strict_autoencoder_v6_clean_development_seed424242/train_fitted_matched_probes/source_parent_only.pt",
+        "sha256": "7d71e0951ebace7c65dfbae7ca54a23f9c972d63ba308eb7d4b9f727d9a6e830"
+      }
+    },
+    "schedule_sha256": "60cecddb28cb39f2f775d4fdf888b9c0b068c5af6c652fe0f17fb46c8f222148",
+    "selection_audit": {
+      "fineweb": {
+        "fit_groups": 80,
+        "fit_sha256": "0d040bcf06be0fa37e2a47fbe7d20927bd69141fb00d7ad66cf7bb0a91c98942",
+        "floor_groups": 80,
+        "floor_sha256": "3be390fa1714869aa76e3fd70750c4d8b64ba2985c94c11d18d2469ad7f2edcc"
+      },
+      "fineweb_edu": {
+        "fit_groups": 80,
+        "fit_sha256": "2835d21641433d65e7cb939d17c2f0a3d7e02011046862435c985191dc6a5411",
+        "floor_groups": 80,
+        "floor_sha256": "cf2b44c0e79bee755eea8f1c979bba0b297388f24016734bcfe563d7c8de1680"
+      },
+      "openwebtext": {
+        "fit_groups": 80,
+        "fit_sha256": "7d4a9253d72b43a94c2a80197a9aebbaa5826c000976b4f413bf06e18c4f66c3",
+        "floor_groups": 80,
+        "floor_sha256": "2977fe5250129515ea999163d28fb8843c8ca0d8ba90e90f8e324614d2105ef3"
+      },
+      "wikipedia_en_20231101": {
+        "fit_groups": 80,
+        "fit_sha256": "dc5e6443e4d306895c0a082149e955343fc9e897ea4fb29e0c2c69437ec21f36",
+        "floor_groups": 80,
+        "floor_sha256": "4619234f1d1267a900e0117f4f3b79a8b45c1aef22d398feab1f79efd3048940"
+      }
+    },
+    "tensor_identical_initialization": true,
+    "train_floor_scores": {
+      "candidate": {
+        "fineweb": 0.8929487466812134,
+        "fineweb_edu": 0.8966032862663269,
+        "openwebtext": 0.9003839492797852,
+        "pooled": 0.8985527753829956,
+        "wikipedia_en_20231101": 0.9042752981185913
+      },
+      "source": {
+        "fineweb": 0.8929562568664551,
+        "fineweb_edu": 0.8966167569160461,
+        "openwebtext": 0.9003962278366089,
+        "pooled": 0.898565411567688,
+        "wikipedia_en_20231101": 0.9042922854423523
+      }
+    }
+  },
+  "protected_data_accessed": false,
+  "selection": "fixed_final_step_400_without_validation",
+  "source_checkpoint": {
+    "path": "results_kary4_strict_autoencoder_seed424_dev_v2/autoencoder_seed424242.pt",
+    "sha256": "2365a789f61ba6dab9967041b8dcee2a19dc969fd97b71026bdee970f7ea4797"
+  },
+  "study": "kary4_strict_autoencoder_v6_clean_development_seed424242",
+  "training": {
+    "all_numeric_finite": true,
+    "decoder_change": {
+      "changed_parameter_tensors": 19,
+      "elements": 12077825,
+      "l2_change": 0.9529709058966396,
+      "maximum_absolute_change": 0.0032005393877625465,
+      "nonzero": true,
+      "parameter_tensors": 19
+    },
+    "decoder_only_updates": 300,
+    "encoder_change": {
+      "changed_parameter_tensors": 113,
+      "elements": 111538433,
+      "l2_change": 0.008057470097210757,
+      "maximum_absolute_change": 4.406581865623593e-06,
+      "nonzero": true,
+      "parameter_tensors": 113
+    },
+    "joint_updates": 100,
+    "maximum_geodesic_saturation_fraction": 0.0,
+    "maximum_importance_saturation_fraction": 0.0,
+    "updates": 400
+  }
+}

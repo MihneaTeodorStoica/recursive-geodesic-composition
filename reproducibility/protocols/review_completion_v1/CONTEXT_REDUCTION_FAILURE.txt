@@ -1,0 +1,12 @@
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]Loading weights: 100%|██████████| 134/134 [00:00<00:00, 18711.48it/s]
+2wikimqa: 300 docs, 300 queries, 2682849 tokens, 2768 leaves
+Traceback (most recent call last):
+  File "scripts/evaluate_longembed_review.py", line 148, in <module>
+    if __name__ == "__main__": main()
+                               ^^^^^^
+  File "scripts/evaluate_longembed_review.py", line 103, in main
+    for values in representations.values(): validate_vectors(values.numpy(),unit=True)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/recursive_geodesic_composition/safe_baselines.py", line 56, in validate_vectors
+    raise ValueError(f"{name}: expected finite rank-2 vectors")
+ValueError: vectors: expected finite rank-2 vectors
