@@ -98,8 +98,8 @@ HF_HUB_DISABLE_IMPLICIT_TOKEN=1 hf download \
   caches/cache_kary4_1024_expanded_source_seed424_v1.tar.gz \
   caches/cache_kary4_leaf510_vs1024_v1_leaf1024.tar.gz \
   caches/cache_kary4_1024_validation3_strict_autoencoder_seed424_v2.tar.gz \
-  --local-dir "$CACHE_DOWNLOAD"
-(cd "$CACHE_DOWNLOAD" && sha256sum --check CACHE_SHA256SUMS)
+  --local-dir "$CACHE_DOWNLOAD" || exit 1
+(cd "$CACHE_DOWNLOAD" && sha256sum --check CACHE_SHA256SUMS) || exit 1
 for archive in "$CACHE_DOWNLOAD"/caches/*.tar.gz; do
   tar --keep-old-files --no-same-owner -xzf "$archive" -C "$REVIEW_ROOT" || exit 1
 done
