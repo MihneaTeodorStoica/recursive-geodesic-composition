@@ -1,0 +1,9 @@
+# Python 3.12; cached replay only, not teacher/corpus preparation or training.
+# Install torch from the CPU wheel index first as shown in REPRODUCING.md.
+torch==2.13.0+cpu
+numpy==2.5.4
+scikit-learn==1.9.1
+scipy==1.18.1
+PyYAML==6.0.3
+threadpoolctl==3.7.0
+joblib==1.6.0

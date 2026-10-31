@@ -2,7 +2,7 @@
 
 **Hierarchical Long-Document Representation through Recursive Geodesic Transformer Composition**
 
-This self-contained review copy contains the existing scientific implementation, exact experiment settings, frozen results and supporting audits for the separately submitted manuscript. No scientific source, reported numeric result, model weight or manuscript was changed for this rebuild. Identity/provenance redactions from the earlier package are documented separately.
+This review copy contains the existing scientific implementation, frozen experiment settings/results and supporting audits for the separately submitted manuscript. All 19 scientific modules, historical numeric results, model weights and the manuscript are preserved. New cached-replay entrypoints provide a separate public-input execution contract; they do not rewrite the historical provenance records.
 
 ## Quick start: no GPU, model download or project installation
 
@@ -23,7 +23,7 @@ These standard-library commands verify packaged hashes, replay saved scalar-scor
 | Location | Contents |
 | --- | --- |
 | `src/recursive_geodesic_composition/` | All 19 original scientific modules: spherical/geodesic merger, recursive aggregation, strict parent-only decoder, losses, training, baselines and evaluations; byte-identical to the original source and prior supplement. |
-| `configs/`, `scripts/` | Clean-v6 per-seed continuation, official-v6 evaluation, fixed attacks/bootstrap settings, data/cache preparation, scaling and additional controls. Metadata-only packaging changes are disclosed. |
+| `configs/`, `scripts/` | Historical continuation, official evaluation, attacks/bootstrap, preparation and controls; separately identified public cached-replay configurations and entrypoints. |
 | `results/` | All 12 tracked result namespaces, including aggregate JSON, saved document/query scalar scores, classifier predictions, TeX tables, plots, protocols and historical audits. |
 | `weights/` | Six exact historical candidate/source fitted parent-only probes, 47,334,402 bytes total; **not** full model checkpoints. |
 | `reproducibility/` | Exact weight manifests, historical protocol/recovery records, source mappings, package checksums and independent audit evidence. |
@@ -32,6 +32,13 @@ These standard-library commands verify packaged hashes, replay saved scalar-scor
 [EVIDENCE_MAP.md](EVIDENCE_MAP.md) maps **Tables 4–17**, manuscript Figures 1–4 and order, tree/segmentation, decoder-family and gradient-path controls to verified paths. The current manuscript's Figures 2–4 are the plots under `results/`; top-level `figures/` contains separate supporting official/scaling plots. The manuscript remains authoritative and is not duplicated or rebuilt here.
 
 [REPRODUCING.md](REPRODUCING.md) contains inspected preparation, loading, inference, rendering, audit and continuation recipes. [VALIDATION.md](VALIDATION.md) distinguishes executed checks from retained historical verdicts. [ANONYMIZATION.md](ANONYMIZATION.md) documents transformations and residual linkability.
+
+## Fresh model-backed replay on CPU
+
+Use the **public cached-replay workflow** in [REPRODUCING.md](REPRODUCING.md#public-cached-replay-recommended-reviewer-workflow) to run official evaluation, development evaluation, safe baselines and recursive reuse. It uses the published checkpoints and official/development numeric caches, fits the fixed attacks and recomputes the statistical summaries. No teacher encoding, raw-corpus download, training or GPU is required.
+
+Install the exercised minimal Python 3.12 CPU environment from `requirements-replay.txt`, following the CPU-wheel installation command in that guide. Fresh outputs go under `replays/`, separately from the frozen `results/` records. The baseline replay reads the original official safe tensors, not the unavailable regenerated-safe cache; fresh-versus-archived differences and current-hardware timings are disclosed.
+
 
 ## Install the experimental environment
 
@@ -64,7 +71,7 @@ Use the configuration-specific commands in REPRODUCING.md, not unpinned download
 ## Reproduction levels and public checkpoints
 
 1. **Saved evidence.** Inspect retained JSON/TeX/plots and run the offline quick-start commands. These replay scalar means and 120 classifier AUCs, not fresh neural inference or original official bootstrap predictions.
-2. **Model-backed work.** Download the required checkpoint groups and the separately pinned six recovered numeric caches described in CHECKPOINT_ACCESS.md, then follow REPRODUCING.md. Some study-specific inputs remain absent. Frozen downstream provenance guards and create-only namespaces remain; the official cache's anonymous metadata derivative does not satisfy original-byte guards.
+2. **Model-backed replay.** Download the final/source/historical-probe groups and the published official/development caches, then follow the recommended public cached-replay workflow in REPRODUCING.md. It binds the anonymous release explicitly and freezes fresh downstream outputs. Historical modes retain their original-byte guards; other study-specific inputs remain absent.
 3. **Training.** Clean-v6 is a **300 decoder-only + 100 joint-update continuation from exact source checkpoints**, not random initialization. Fifteen recovered primary records now trace the earlier sources through two encoder stages; earlier tensors and complete historical trainer/execution bindings remain missing. See `reproducibility/RECOVERED_SOURCE_LINEAGE.json`.
 
 **Public weights:** [Hugging Face checkpoint repository](https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints)
@@ -85,7 +92,7 @@ python scripts/download_checkpoints.py --group source --group historical_probes 
 
 **Recovered caches:** six separately pinned bundles contain 8,032 unchanged tensor files, totaling 911,050,856 compressed bytes. `reproducibility/HOSTED_CACHES.json` pins revision `9e4c8e02375f66b3cf9918a20eb81446f996620e`, every extracted-file hash and two explicit official-cache metadata derivatives. No multi-gigabyte weights or caches are added to the supplementary ZIP. CHECKPOINT_ACCESS.md gives download/extraction commands, source attribution and guard limitations.
 
-Nine separately documented older scaling/matched-pooling payloads remain unavailable. Raw corpus/task inputs and some other study-specific token/vector caches remain external. Sanitized warm or official-cache metadata derivatives cannot satisfy their original-byte provenance guards. Never rewrite an old experiment hash or bypass a guard to make a restored-artifact run appear to pass.
+Nine separately documented older scaling/matched-pooling payloads remain unavailable. Raw corpus/task inputs and some other study-specific token/vector caches remain external. Sanitized warm or official-cache metadata derivatives do not satisfy original-byte historical guards. The new cached replay validates a distinct public release contract; never rewrite an old experiment hash or bypass a guard to make a restored-artifact run appear historical.
 
 ## Limitations and anonymity
 
@@ -96,4 +103,4 @@ Nine separately documented older scaling/matched-pooling payloads remain unavail
 - The three original warm checkpoints contain personal location metadata and are not publicly redistributed unchanged. Separately hashed, length-preserving metadata-only derivatives retain all tensor/optimizer state; original-byte provenance guards still reject those derivatives. See CHECKPOINT_ACCESS.md.
 - Git history/remotes from the original source, identifying citation metadata, named PDFs/manuscript sources, personal paths and identifying figure metadata are excluded or sanitized in this review copy. Raw identity-bearing audit evidence and publication reports remain outside the branch. Public titles, scientific identifiers and exact artifact hashes remain searchable; no claim of perfect anonymity is made.
 
-The main branch, existing release tags, submitted manuscript, experimental settings, reported results and original weights are unchanged. This review source is an independently rooted snapshot. The original all-rights-reserved software terms are retained with the copyright holder anonymized; publication or hosting does not change those terms.
+The main branch, existing release tags, submitted manuscript, historical experimental settings, reported results and original weights are unchanged. This review source is an independently rooted snapshot. The original all-rights-reserved software terms are retained with the copyright holder anonymized; publication or hosting does not change those terms.

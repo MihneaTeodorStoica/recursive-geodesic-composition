@@ -1,6 +1,28 @@
-> Earlier packaging-audit sections below are historical. Their failed old-mirror/no-hosting statements are not current availability verdicts. The checkpoint publication checks in the first section and `reproducibility/CHECKPOINT_PUBLICATION_VALIDATION.json` supersede those boundaries without rewriting historical experiment records.
+> The public cached-replay execution evidence below is current. Later checkpoint-publication and packaging sections retain their original audit scope; their no-metric-rerun or failed-old-mirror statements are historical, not verdicts on the separately identified replay. Historical experiment records are not rewritten.
 
 # Validation and preserved historical audit
+
+## Public cached replay: all four CPU workflows PASS
+
+Starting from a clean extraction of the public supplement, the corrected entrypoints were exercised against the pinned, anonymously downloadable checkpoint and cache bytes. Inputs were materialized from prior public downloads, not substituted from a private original cache. This is an explicit `anonymous_cached_replay_v1` execution contract, not a new untouched test collection or satisfaction of the old original-byte provenance guards.
+
+| Workflow | Executed population | Seeds | CPU wall time |
+| --- | --- | --- | --- |
+| Official | 4,000 paired safe/full documents per seed | 3 | 447.59 s |
+| Development | 4,000 paired safe/full documents per seed | 3 | 293.35 s |
+| Safe baselines | All 4,000 official safe prefixes | 3 | 879.86 s |
+| Recursive reuse | All 606 exact-four prefixes; structural accounting of all 4,000 full documents | 3 | 268.56 s |
+
+The official reporting gate passed. Every seed processed all 9,142,043 available full-document tokens across 11,356 leaves, with zero truncated documents. Official/development/baseline fixed attacks were refitted; applicable statistical summaries used the declared 2,000 bootstrap resamples. Recursive reuse verified the completion/configuration/manifest/result/vector hashes of the newly completed baseline run before its own inference.
+
+Actual result JSON copies are under `reproducibility/replay_validation/`; `reproducibility/ANONYMOUS_REPLAY_VALIDATION.json` records commands, runtime, input boundaries, source-preservation checks and fresh-versus-archived comparisons. Official pooled AUC is `0.5841501666666666`, versus archived `0.5842321666666667`; the difference is disclosed, not used to select or replace an archived result.
+
+The baseline and recursive replay read original official safe tensors, **not** the absent historical regenerated-safe cache. Their paired comparisons record the resulting numerical differences. Recursive full-population accounting uses verified token-count metadata and historical histograms; it is not additional neural inference on every full root. The official replay above separately performs actual full-document inference.
+
+The exercised runtime was Python 3.12.14, PyTorch 2.13.0+cpu, NumPy 2.5.4, scikit-learn 1.9.1 and SciPy 1.18.1, with four CPU compute threads. Timings describe the present machine only; baseline execution overlapped part of official execution and is not an isolated latency benchmark or reproduction of archived GPU timing. The minimal install recipe was not separately installed from scratch. Targeted contract/protocol checks passed **24 tests**; no broad suite is claimed. The documented cache recipe also exited before extraction/continuation on checksum-download and checksum-verification failures.
+
+All 19 scientific modules, 194 historical JSON files and 15 historical configuration files remain byte-identical to the previous public delivery; thus all 2,493,640 retained numeric/boolean leaves are preserved. The 25 reused official scientific helper bodies are AST-identical. Execution/provenance I/O is intentionally changed and fresh outputs use `replays/`, never frozen `results/`. No model/probe training, teacher encoding, raw-corpus download, GPU use or manuscript modification occurred. Full from-scratch training and every other manuscript study are not claimed reproduced.
+
 
 ## Current checkpoint publication: PASS
 

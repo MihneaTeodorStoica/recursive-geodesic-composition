@@ -15,6 +15,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(HERE))
+sys.path.insert(0, str(ROOT / "scripts"))
 
 from recursive_geodesic_composition.deployment_regime_study import fixed_attacks  # noqa: E402
 from recursive_geodesic_composition.evaluate_kary_validation import ParentOnlyRetentionProbe, build_model  # noqa: E402
@@ -22,6 +23,7 @@ from protocol import (CORPORA, DEVELOPMENT_SCAN, DEV_CACHE, ROOT, SAFE_RANGE,  #
                       TARGET_DOCUMENTS, atomic_json, load_config, sha256_file,
                       stable_hash)
 from recursive_geodesic_composition.validation_output_calibration import diagnostics  # noqa: E402
+from public_replay import REPLAY_ID, development_freeze, package_file_hash, public_cache_manifest
 
 
 def load_cache(cfg):
@@ -181,17 +183,46 @@ def full_diagnostic(model, full_by, cfg, device):
                                            "internal_merges":telemetry["merges"],"seconds":elapsed}}
 
 
-def run(config_path, device_name):
+def run(config_path, device_name, *, replay=False):
     cfg=load_config(config_path); seed=int(cfg["seed"]); output=ROOT/cfg["output_dir"]
-    freeze_path=output/"PRE_DEVELOPMENT_FROZEN.json"; freeze=json.loads(freeze_path.read_text())
+    replay_provenance = None
+    if replay:
+        config_relative = str(Path(config_path).resolve().relative_to(ROOT))
+        config_digest = package_file_hash(ROOT, config_relative)
+        package_file_hash(ROOT, cfg["attack_config"])
+        freeze, freeze_provenance = development_freeze(ROOT, seed)
+        _, cache_release = public_cache_manifest(ROOT, DEV_CACHE)
+        for artifact in (freeze["checkpoint"], freeze["source_checkpoint"],
+                         *freeze["matched_probe"]["probe_artifacts"].values()):
+            if sha256_file(ROOT / artifact["path"]) != artifact["sha256"]:
+                raise ValueError("public development replay artifact changed")
+        safe_by,full_by,cache_provenance=load_cache(cfg)
+        output = ROOT / "replays" / "development" / str(seed)
+        if output.exists():
+            raise FileExistsError("development replay output is create-only")
+        freeze_path = ROOT / freeze_provenance["normalized_freeze_path"]
+        replay_provenance = {"contract": REPLAY_ID, "freeze": freeze_provenance,
+                             "cache": cache_release, "config_path": config_relative,
+                             "config_sha256": config_digest,
+                             "historical_results_overwritten": False,
+                             "original_collection_ordinal_claimed": False}
+    else:
+        freeze_path=output/"PRE_DEVELOPMENT_FROZEN.json"; freeze=json.loads(freeze_path.read_text())
     checkpoint_path=ROOT/freeze["checkpoint"]["path"]
     if sha256_file(checkpoint_path)!=freeze["checkpoint"]["sha256"]: raise ValueError("checkpoint changed after freeze")
+    if replay and device_name != "cpu" and not torch.cuda.is_available():
+        raise RuntimeError("CUDA requested for replay but unavailable; request --device cpu explicitly")
     result_path=output/"DEVELOPMENT_EVALUATION.json"; started=output/"DEVELOPMENT_EVALUATION_STARTED"
     if result_path.exists() or started.exists(): raise FileExistsError("development evaluation is one-shot")
+    if replay:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.mkdir()
     fd=os.open(started,os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o444)
     with os.fdopen(fd,"w") as h: h.write(f"freeze_sha256={sha256_file(freeze_path)}\n"); h.flush(); os.fsync(h.fileno())
     device=torch.device(device_name if device_name=="cpu" or torch.cuda.is_available() else "cpu")
-    safe_by,full_by,cache_provenance=load_cache(cfg); candidate,_=build_model(checkpoint_path,device)
+    if not replay:
+        safe_by,full_by,cache_provenance=load_cache(cfg)
+    candidate,_=build_model(checkpoint_path,device)
     source_path=ROOT/freeze["source_checkpoint"]["path"]; source,_=build_model(source_path,device)
     data=safe_extract(candidate,safe_by,device,int(cfg["root_batch_size"])); attack_path=ROOT/cfg["attack_config"]
     attack_cfg=yaml.safe_load(attack_path.read_text())
@@ -205,6 +236,30 @@ def run(config_path, device_name):
                           "attack_config":cfg["attack_config"],"attack_config_sha256":sha256_file(attack_path),
                           "evaluator_sha256":sha256_file(__file__),"maximum_source_index_opened_exclusive":max(v["source_index"] for rows in safe_by.values() for v in rows)+1,
                           "reserve_or_future_opened":False}}
+    if replay:
+        result.pop("evaluation_ordinal")
+        result["public_replay"] = replay_provenance
+        result["environment"] = {"python": sys.version, "torch": torch.__version__,
+                                 "numpy": np.__version__, "device_requested": device_name,
+                                 "device_used": str(device), "cpu_threads": torch.get_num_threads()}
+        archived_relative = f"results/clean_v6_development/seeds/{seed}/DEVELOPMENT_EVALUATION.json"
+        archived_digest = package_file_hash(ROOT, archived_relative)
+        archived = json.loads((ROOT / archived_relative).read_text())
+        compared = {}
+        for scope, values in result["safe_direct"]["scopes"].items():
+            old = archived["safe_direct"]["scopes"][scope]
+            for metric, fresh, original in (
+                ("teacher_cosine", values["teacher_cosine"], old["teacher_cosine"]),
+                ("strongest_attack_auc", values["attacks"]["strongest_orientation_safe_auc"],
+                 old["attacks"]["strongest_orientation_safe_auc"]),
+            ):
+                compared[f"{scope}/{metric}"] = {"fresh": fresh, "archived": original,
+                                                "difference": fresh - original}
+        result["comparison_to_archived"] = {
+            "path": archived_relative, "sha256": archived_digest, "metrics": compared,
+            "same_checkpoint_and_cached_tensors": True,
+            "bitwise_runtime_or_timing_equivalence_claimed": False,
+        }
     atomic_json(result_path,result); (output/"DEVELOPMENT_EVALUATION_COMPLETE").write_text(f"{sha256_file(result_path)}  DEVELOPMENT_EVALUATION.json\n")
     return result_path
 
@@ -212,4 +267,5 @@ def run(config_path, device_name):
 if __name__=="__main__":
     import argparse
     parser=argparse.ArgumentParser(); parser.add_argument("--config",required=True); parser.add_argument("--device",default="cuda")
-    args=parser.parse_args(); print(run(Path(args.config).resolve(),args.device))
+    parser.add_argument("--replay", action="store_true", help="Use the pinned anonymous cache/freeze in a fresh replay namespace")
+    args=parser.parse_args(); print(run(Path(args.config).resolve(),args.device,replay=args.replay))

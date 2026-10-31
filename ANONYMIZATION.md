@@ -6,6 +6,9 @@
 
 This is an independently re-audited rebuild of a previous anonymized supplementary ZIP. It is not a byte-identical public-repository mirror. The original research repository, submitted manuscript and original checkpoint files were not modified. All 19 scientific modules under `src/recursive_geodesic_composition/` and all 2,493,640 numeric leaves in the 194 retained historical JSON files were independently checked against the original source and previous archive.
 
+The separately identified public cached replay adds execution/provenance I/O for the released anonymous inputs while preserving those scientific modules and historical records. It validates the published metadata derivatives under their own release identities, keeps the old byte guards intact and writes fresh outputs under `replays/`. Baseline reuse of original official safe tensors is disclosed rather than represented as recovery of the absent historical regenerated-safe cache. Current execution evidence is distinguished from historical audit verdicts in VALIDATION.md.
+
+
 The external source mirror supplied for the audit did not pass the full anonymity/access checks, including after text-redaction updates. This reviewer archive therefore contains the source directly and intentionally does not link to that mirror. Raw identity-bearing audit excerpts, exact author-redaction terms and screenshots are kept outside this ZIP.
 
 ## Existing sanitization retained

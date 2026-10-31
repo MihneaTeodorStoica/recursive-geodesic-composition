@@ -1,4 +1,4 @@
-"""One-shot evaluation of strict-K4 AE official test v6, safe and full arms."""
+"""Historical official-v6 recovery and separately identified cached replay."""
 
 from __future__ import annotations
 
@@ -58,6 +58,22 @@ from official_test_v6_protocol import (
 
 ATTACK_NAMES = ("standard_scaled_logistic", "standard_scaled_rbf_svm")
 SCOPES = ("pooled", *CORPUS_ORDER)
+
+# The anonymous replay is a separate release contract. These are identities of
+# the public inputs and retained historical evidence, not replacement hashes
+# for the pre-access files.
+REPLAY_CONFIG_PATH = "configs/official_v6.yaml"
+REPLAY_CONFIG_SHA256 = "7d32da2950040dcd7f86a863aac5e941db3628cd15aae83288bdb3756c6a1baa"
+REPLAY_INVENTORY_SHA256 = "4b9ab6398cc3dcc1d8ae735ee01b7bcc3f33586a5cf928f37dc5306dd585a435"
+REPLAY_CACHE_SHA256 = "833d3cf216ac6349be0b21b070e92e0f39063d59623d499e5cd67f54d108d0ed"
+REPLAY_ARCHIVE_SHA256 = "b615e66e3f9595d01e4fae0af0dfcb17dfe6a78490c8756982e6886ba7d3dc30"
+REPLAY_CACHE_REVISION = "9e4c8e02375f66b3cf9918a20eb81446f996620e"
+HISTORICAL_RESULT_PATH = "results/official_v6/results.json"
+HISTORICAL_RESULT_SHA256 = "2cabef20750aa0a80148784012a1518ea2d1c1008ac7d617467b68f4b9cfb917"
+PREDECLARATION_PATH = "reproducibility/protocols/official_v6/PREDECLARATION_SHA256SUMS"
+PREDECLARATION_SHA256 = "0b74753c2a42113e924d9dbb7630297dd4e1361440c3906707fb732fa23c068b"
+RECOVERY_PATH = "reproducibility/protocols/official_v6/RECOVERY_SHA256SUMS"
+RECOVERY_SHA256 = "5a80aa7493e603da544ecba3942f33dc54ec4a31952cb0f0d8a5baa9a6b0766b"
 
 
 def require_finite(value, label: str) -> None:
@@ -156,7 +172,225 @@ def validate_cache_layout(cache: Path) -> None:
             )
 
 
-def load_cache(cfg: dict) -> tuple[dict[str, list], dict[str, list], dict]:
+def _pinned_package_input(relative: str, expected: str) -> str:
+    from public_replay import package_file_hash
+
+    actual = package_file_hash(ROOT, relative)
+    if actual != expected:
+        raise ValueError(f"anonymous official replay input identity changed: {relative}")
+    return actual
+
+
+def _checksum_ledger(relative: str, expected: str) -> dict[str, str]:
+    _pinned_package_input(relative, expected)
+    entries = {}
+    for line in (ROOT / relative).read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        digest, path = line.split(maxsplit=1)
+        if (
+            path in entries
+            or len(digest) != 64
+            or any(character not in "0123456789abcdef" for character in digest)
+        ):
+            raise ValueError(f"malformed historical checksum ledger: {relative}")
+        entries[path] = digest
+    return entries
+
+
+def _require_ledger_identity(ledger: dict, path: str, digest: str) -> None:
+    if ledger.get(path) != digest:
+        raise ValueError(f"historical identity is not recorded in its ledger: {path}")
+
+
+def _historical_result() -> dict:
+    _pinned_package_input(HISTORICAL_RESULT_PATH, HISTORICAL_RESULT_SHA256)
+    return json.loads((ROOT / HISTORICAL_RESULT_PATH).read_text())
+
+
+def _validate_public_cache_contract(
+    cfg: dict, manifest: dict, release: dict, normalized: dict
+) -> tuple[dict, dict]:
+    """Bind the derivative cache to both the public inputs and old evidence."""
+    from public_replay import REPLAY_ID, development_freeze, package_file_hash
+
+    config_hash = _pinned_package_input(REPLAY_CONFIG_PATH, REPLAY_CONFIG_SHA256)
+    if cfg != load_config(CONFIG):
+        raise ValueError("replay configuration differs from the pinned public config")
+    if (
+        release.get("replay_contract") != REPLAY_ID
+        or release.get("repository")
+        != "tmlr-embedding-artifacts/recursive-geodesic-checkpoints"
+        or release.get("revision") != REPLAY_CACHE_REVISION
+        or release.get("inventory_sha256") != REPLAY_INVENTORY_SHA256
+        or release.get("archive_path") != f"caches/{cfg['cache_dir']}.tar.gz"
+        or release.get("archive_sha256") != REPLAY_ARCHIVE_SHA256
+        or release.get("manifest_path") != f"{cfg['cache_dir']}/CACHE_MANIFEST.json"
+        or release.get("manifest_sha256") != REPLAY_CACHE_SHA256
+        or release.get("verified_files") != 4010
+        or release.get("historical_identities_rebound") is not False
+    ):
+        raise ValueError("official cache is not the pinned anonymous replay release")
+
+    predeclared = _checksum_ledger(PREDECLARATION_PATH, PREDECLARATION_SHA256)
+    recovery = _checksum_ledger(RECOVERY_PATH, RECOVERY_SHA256)
+    historical = _historical_result()
+    expected_history = {
+        "stage": CACHE_NAMESPACE,
+        "protocol_version": 6,
+        "seed_order": list(SEED_ORDER),
+        "corpus_order": list(CORPUS_ORDER),
+        "declared_scan_window_per_corpus": list(SCAN),
+        "same_accepted_documents_both_arms": True,
+        "attack_config_sha256": cfg["attack_config_sha256"],
+        "bootstrap": json.loads(json.dumps(cfg["bootstrap"])),
+    }
+    for key, expected in expected_history.items():
+        if historical.get(key) != expected:
+            raise ValueError(f"historical official scientific contract changed: {key}")
+
+    old = manifest.get("immutable_provenance")
+    if not isinstance(old, dict) or old != historical.get("immutable_provenance"):
+        raise ValueError("cache and historical result provenance differ")
+    if set(old) != set(normalized):
+        raise ValueError("historical and normalized provenance fields differ")
+    differing_metadata = {
+        "checkpoints",
+        "development_final_results",
+        "development_final_results_sha256",
+        "post_final_verification",
+    }
+    for key in set(old) - differing_metadata:
+        if old[key] != normalized[key]:
+            raise ValueError(f"historical and normalized scientific provenance differ: {key}")
+
+    historical_config = {
+        "path": manifest.get("config_path"),
+        "sha256": manifest.get("config_sha256"),
+    }
+    for ledger in (predeclared, recovery):
+        _require_ledger_identity(
+            ledger, historical_config["path"], historical_config["sha256"]
+        )
+    _require_ledger_identity(
+        predeclared, cfg["attack_config"], cfg["attack_config_sha256"]
+    )
+    metadata = {
+        "historical_config": historical_config,
+        "normalized_config": {"path": REPLAY_CONFIG_PATH, "sha256": config_hash},
+        "historical_result": {
+            "path": HISTORICAL_RESULT_PATH,
+            "sha256": HISTORICAL_RESULT_SHA256,
+        },
+        "predeclaration_ledger": {
+            "path": PREDECLARATION_PATH,
+            "sha256": PREDECLARATION_SHA256,
+        },
+        "recovery_ledger": {"path": RECOVERY_PATH, "sha256": RECOVERY_SHA256},
+        "development_records": {},
+        "seed_freezes": {},
+        "historical_identities_are_evidence_not_rebound_inputs": True,
+    }
+    for name in ("development_final_results", "post_final_verification"):
+        public_name = "final_results" if name == "development_final_results" else name
+        old_path, old_hash = old[name], old[f"{name}_sha256"]
+        for ledger in (predeclared, recovery):
+            _require_ledger_identity(ledger, old_path, old_hash)
+        public_path = cfg["development_provenance"][public_name]
+        public_hash = cfg["development_provenance"][f"{public_name}_sha256"]
+        if (
+            package_file_hash(ROOT, public_path) != public_hash
+            or normalized[name] != public_path
+            or normalized[f"{name}_sha256"] != public_hash
+        ):
+            raise ValueError(f"normalized development identity changed: {name}")
+        metadata["development_records"][name] = {
+            "historical": {"path": old_path, "sha256": old_hash},
+            "normalized": {"path": public_path, "sha256": public_hash},
+        }
+
+    if set(old["checkpoints"]) != {str(seed) for seed in SEED_ORDER}:
+        raise ValueError("historical checkpoint seed set changed")
+    if set(normalized["checkpoints"]) != set(SEED_ORDER):
+        raise ValueError("normalized checkpoint seed set changed")
+    for seed in SEED_ORDER:
+        previous = old["checkpoints"][str(seed)]
+        current = normalized["checkpoints"][seed]
+        if set(previous) != set(current):
+            raise ValueError(f"seed {seed} checkpoint provenance fields differ")
+        for key in set(previous) - {"freeze", "freeze_sha256"}:
+            if previous[key] != current[key]:
+                raise ValueError(f"seed {seed} scientific provenance differs: {key}")
+        _require_ledger_identity(
+            predeclared, previous["freeze"], previous["freeze_sha256"]
+        )
+        for name in ("checkpoint", "source_checkpoint"):
+            _require_ledger_identity(
+                predeclared, previous[name], previous[f"{name}_sha256"]
+            )
+        for probe in previous["train_probes"].values():
+            _require_ledger_identity(predeclared, probe["path"], probe["sha256"])
+        _, freeze_identity = development_freeze(ROOT, seed)
+        if (
+            freeze_identity["normalized_freeze_path"] != current["freeze"]
+            or freeze_identity["normalized_freeze_sha256"] != current["freeze_sha256"]
+            or freeze_identity["public_protocol_sha256"] != config_hash
+        ):
+            raise ValueError(f"seed {seed} normalized freeze identity changed")
+        metadata["seed_freezes"][str(seed)] = {
+            "historical": {
+                "path": previous["freeze"],
+                "sha256": previous["freeze_sha256"],
+            },
+            "normalized": freeze_identity,
+        }
+
+    inventory = json.loads((ROOT / release["inventory_path"]).read_text())
+    bundles = [
+        item
+        for item in inventory["inventory"]["archives"]
+        if item["cache_directory"] == cfg["cache_dir"]
+    ]
+    if len(bundles) != 1:
+        raise ValueError("official cache release inventory is ambiguous")
+    cache_identities = {}
+    for filename in ("CACHE_MANIFEST.json", "COMPLETE"):
+        path = f"{cfg['cache_dir']}/{filename}"
+        entries = [item for item in bundles[0]["files"] if item["path"] == path]
+        if len(entries) != 1:
+            raise ValueError(f"missing cache metadata derivative identity: {filename}")
+        entry = entries[0]
+        cache_identities[filename] = {
+            "historical": {
+                "path": path,
+                "bytes": entry["original_bytes"],
+                "sha256": entry["original_sha256"],
+            },
+            "published": {
+                "path": path,
+                "bytes": entry["bytes"],
+                "sha256": entry["sha256"],
+            },
+            "transformation": entry["transformation"],
+        }
+    old_manifest_hash = cache_identities["CACHE_MANIFEST.json"]["historical"]["sha256"]
+    if (
+        cache_identities["CACHE_MANIFEST.json"]["published"]["sha256"]
+        != release["manifest_sha256"]
+        or historical["cache_provenance"]["manifest_sha256"] != old_manifest_hash
+    ):
+        raise ValueError("historical and published cache manifest identities disagree")
+    _require_ledger_identity(
+        recovery, f"{cfg['cache_dir']}/CACHE_MANIFEST.json", old_manifest_hash
+    )
+    metadata["cache_metadata_derivatives"] = cache_identities
+    return {"release": release, "metadata_identities": metadata}, historical
+
+
+def load_cache(
+    cfg: dict, *, replay_immutable: dict | None = None
+) -> tuple[dict[str, list], dict[str, list], dict]:
     cache = ROOT / cfg["cache_dir"]
     validate_cache_layout(cache)
     manifest_path, complete_path = cache / "CACHE_MANIFEST.json", cache / "COMPLETE"
@@ -182,25 +416,37 @@ def load_cache(cfg: dict) -> tuple[dict[str, list], dict[str, list], dict]:
         "chunk_tokens": CHUNK_TOKENS,
         "safe_arm": cfg["safe_arm"],
         "full_arm": cfg["full_arm"],
-        "config_path": str(CONFIG.relative_to(ROOT)),
-        "config_sha256": sha256_file(CONFIG),
     }
+    if replay_immutable is None:
+        expected["config_path"] = str(CONFIG.relative_to(ROOT))
+        expected["config_sha256"] = sha256_file(CONFIG)
     for key, value in expected.items():
         if manifest.get(key) != value:
             raise ValueError(f"v6 cache manifest mismatch: {key}")
-    immutable = manifest.get("immutable_provenance", {})
-    development = cfg["development_provenance"]
-    if (
-        immutable.get("development_final_results_sha256")
-        != development["final_results_sha256"]
-        or immutable.get("post_final_verification_sha256")
-        != development["post_final_verification_sha256"]
-        or immutable.get("implementation_parent_commit")
-        != cfg["implementation_parent_commit"]
-        or immutable.get("protected_data_accessed_before_freeze") is not False
-    ):
-        raise ValueError(
-            "cache was not prepared under the clean-v6 development provenance"
+    replay_contract, historical = None, None
+    if replay_immutable is None:
+        immutable = manifest.get("immutable_provenance", {})
+        development = cfg["development_provenance"]
+        if (
+            immutable.get("development_final_results_sha256")
+            != development["final_results_sha256"]
+            or immutable.get("post_final_verification_sha256")
+            != development["post_final_verification_sha256"]
+            or immutable.get("implementation_parent_commit")
+            != cfg["implementation_parent_commit"]
+            or immutable.get("protected_data_accessed_before_freeze") is not False
+        ):
+            raise ValueError(
+                "cache was not prepared under the clean-v6 development provenance"
+            )
+    else:
+        from public_replay import public_cache_manifest
+
+        published_manifest, release = public_cache_manifest(ROOT, cfg["cache_dir"])
+        if published_manifest != manifest or release["manifest_sha256"] != manifest_hash:
+            raise ValueError("public cache manifest changed during replay preflight")
+        replay_contract, historical = _validate_public_cache_contract(
+            cfg, manifest, release, replay_immutable
         )
 
     safe_by, full_by, all_groups = {}, {}, set()
@@ -293,6 +539,12 @@ def load_cache(cfg: dict) -> tuple[dict[str, list], dict[str, list], dict]:
             require_hash(
                 shard, full.get("shard_sha256", ""), f"{corpus} full shard {rank}"
             )
+            if replay_immutable is not None:
+                # The inventory has authenticated the bytes; validate every
+                # unrestricted shard before creating the replay output.
+                shard_data = torch.load(shard, map_location="cpu", weights_only=False)
+                validate_full_shard(shard_data, required)
+                del shard_data
             group = str(safe["id"])
             if group in all_groups:
                 raise ValueError(f"duplicate pooled source group: {group}")
@@ -336,6 +588,16 @@ def load_cache(cfg: dict) -> tuple[dict[str, list], dict[str, list], dict]:
     provenance["pooled_document_order_sha256"] = stable_hash(
         [row["id"] for corpus in CORPUS_ORDER for row in safe_by[corpus]]
     )
+    if historical is not None:
+        old_population = historical["cache_provenance"]
+        if (
+            provenance["corpora"] != old_population["corpora"]
+            or provenance["pooled_document_order_sha256"]
+            != old_population["pooled_document_order_sha256"]
+        ):
+            raise ValueError("public cache population differs from historical evidence")
+        provenance["public_replay"] = replay_contract
+        provenance["preparation_throughput_is_historical"] = True
     return safe_by, full_by, provenance
 
 
@@ -1283,11 +1545,193 @@ def reporting_gate(seed_results: list[dict], mean_auc: float, cfg: dict) -> dict
     }
 
 
+def _evaluation_population(safe_by: dict) -> tuple[list, np.ndarray, np.ndarray, np.ndarray]:
+    rows = [row for corpus in CORPUS_ORDER for row in safe_by[corpus]]
+    groups = np.asarray([str(row["id"]) for row in rows])
+    labels = np.asarray(
+        [corpus for corpus in CORPUS_ORDER for _ in safe_by[corpus]]
+    )
+    targets = np.stack(
+        [row["teacher_target"].float().numpy() for row in rows]
+    ).astype(np.float32)
+    if len(rows) != 4 * TARGET_DOCUMENTS or len(set(groups)) != len(groups):
+        raise ValueError("pooled safe source groups are missing/duplicated")
+    require_finite(targets, "safe teacher targets")
+    return rows, groups, labels, targets
+
+
+def _fixed_attack_config(cfg: dict) -> dict:
+    attack_cfg = yaml.safe_load((ROOT / cfg["attack_config"]).read_text())
+    if tuple(attack_cfg) != (
+        "protocol_version",
+        "split_seed",
+        "model_seed",
+        "test_size",
+        "logistic_c",
+        "logistic_max_iter",
+        "rbf_c",
+        "rbf_gamma",
+    ):
+        raise ValueError("fixed logistic/RBF attack config changed")
+    return attack_cfg
+
+
+def _replay_device(device_name: str) -> torch.device:
+    if device_name not in ("cpu", "cuda"):
+        raise ValueError("replay device must be explicitly cpu or cuda")
+    if device_name == "cuda" and not torch.cuda.is_available():
+        raise RuntimeError("CUDA was requested for replay but is unavailable")
+    return torch.device(device_name)
+
+
+def _evaluation_model(entry: dict, seed: int, device: torch.device, *, replay: bool):
+    require_hash(
+        ROOT / entry["checkpoint"],
+        entry["checkpoint_sha256"],
+        f"seed {seed} AE checkpoint",
+    )
+    if replay:
+        # The validation builder rejects "official"/"test" in its path string.
+        # Check the configured artifact's relative path, not an unrelated parent
+        # directory name, while still loading exactly the hash-verified file.
+        original_directory = Path.cwd()
+        try:
+            os.chdir(ROOT)
+            model, checkpoint = build_model(Path(entry["checkpoint"]), device)
+        finally:
+            os.chdir(original_directory)
+    else:
+        model, checkpoint = build_model(ROOT / entry["checkpoint"], device)
+    if (
+        checkpoint.get("variant") != "autoencoder"
+        or model.arity != ARITY
+        or model.strict_decoder is None
+        or model.decoder_mode != "strict"
+    ):
+        raise ValueError(f"seed {seed} is not a decoder-bearing strict-K4 AE")
+    checkpoint_seed = int(
+        checkpoint.get("seed", checkpoint.get("config", {}).get("seed", -1))
+    )
+    if checkpoint_seed != seed:
+        raise ValueError(f"seed {seed} checkpoint seed mismatch")
+    if any(not torch.isfinite(parameter).all() for parameter in model.parameters()):
+        raise FloatingPointError(f"seed {seed} model parameters are nonfinite")
+    return model, checkpoint
+
+
+def _claim_replay_output() -> Path:
+    directory = ROOT / "replays"
+    if directory.is_symlink():
+        raise ValueError("replays namespace must not be a symbolic link")
+    directory.mkdir(exist_ok=True)
+    output = directory / "official_v6"
+    output.mkdir()
+    fsync_directory(directory)
+    return output
+
+
+def _difference(historical, replay) -> dict:
+    return {
+        "historical": historical,
+        "replay": replay,
+        "replay_minus_historical": replay - historical,
+    }
+
+
+def _compare_historical_results(result: dict) -> dict:
+    historical = _historical_result()
+    old_seeds = {int(entry["seed"]): entry for entry in historical["seeds"]}
+    new_seeds = {int(entry["seed"]): entry for entry in result["seeds"]}
+    if set(old_seeds) != set(SEED_ORDER) or set(new_seeds) != set(SEED_ORDER):
+        raise ValueError("cannot compare official results with incomplete seed sets")
+    comparison = {
+        "historical_result": {
+            "path": HISTORICAL_RESULT_PATH,
+            "sha256": HISTORICAL_RESULT_SHA256,
+        },
+        "difference_definition": "replay minus historical; no tolerance or selection",
+        "three_seed_scope_aggregates": {},
+        "seeds": {},
+        "reporting_gate": {
+            "historical": historical["reporting_only_gate"],
+            "replay": result["reporting_only_gate"],
+        },
+    }
+    for scope in SCOPES:
+        old = historical["three_seed_scope_aggregates"][scope]
+        new = result["three_seed_scope_aggregates"][scope]
+        comparison["three_seed_scope_aggregates"][scope] = {
+            "mean_auc": _difference(old["mean_auc"], new["mean_auc"]),
+            "ci95": [
+                _difference(old_value, new_value)
+                for old_value, new_value in zip(old["ci95"], new["ci95"])
+            ],
+        }
+    for seed in SEED_ORDER:
+        old, new = old_seeds[seed], new_seeds[seed]
+        old_safe, new_safe = old["safe_arm"], new["safe_arm"]
+        seed_comparison = {"safe_scopes": {}, "full_document": {}}
+        for scope in SCOPES:
+            old_scope, new_scope = old_safe["scopes"][scope], new_safe["scopes"][scope]
+            old_attacks, new_attacks = old_scope["attacks"], new_scope["attacks"]
+            scope_comparison = {
+                "teacher_cosine": _difference(
+                    old_scope["teacher_cosine"], new_scope["teacher_cosine"]
+                ),
+                "strongest_attack": {
+                    "historical": old_attacks["strongest_attack"],
+                    "replay": new_attacks["strongest_attack"],
+                },
+                "strongest_orientation_safe_auc": _difference(
+                    old_attacks["strongest_orientation_safe_auc"],
+                    new_attacks["strongest_orientation_safe_auc"],
+                ),
+                "fixed_attacks_orientation_safe_auc": {
+                    attack: _difference(
+                        old_attacks["attacks"][attack]["orientation_safe_auc"],
+                        new_attacks["attacks"][attack]["orientation_safe_auc"],
+                    )
+                    for attack in ATTACK_NAMES
+                },
+                "holdout_group_sha256": {
+                    "historical": old_attacks["holdout_group_sha256"],
+                    "replay": new_attacks["holdout_group_sha256"],
+                },
+            }
+            for label, field in (
+                ("builtin_decoder_cosine", "builtin_decoder_exact4"),
+                ("frozen_train_probe_cosine", "frozen_v6_train_probe_retention"),
+            ):
+                scope_comparison[label] = _difference(
+                    old_safe[field]["scopes"][scope]["ordered_child_cosine"],
+                    new_safe[field]["scopes"][scope]["ordered_child_cosine"],
+                )
+            seed_comparison["safe_scopes"][scope] = scope_comparison
+        old_full, new_full = old["full_document_arm"], new["full_document_arm"]
+        for field in ("documents", "tokens", "leaves", "internal_merges"):
+            seed_comparison["full_document"][field] = _difference(
+                old_full["throughput"][field], new_full["throughput"][field]
+            )
+        old_decoder = old_full["builtin_decoder_active_slot_child_cosine"]
+        new_decoder = new_full["builtin_decoder_active_slot_child_cosine"]
+        seed_comparison["full_document"]["active_child_cosine"] = _difference(
+            old_decoder["aggregations"]["aggregate"]["mean"],
+            new_decoder["aggregations"]["aggregate"]["mean"],
+        )
+        comparison["seeds"][str(seed)] = seed_comparison
+    return comparison
+
+
 def render_report(result: dict) -> str:
+    replay = "replay" in result
     lines = [
-        "# Strict-K4 AUTOENCODER official test v6",
+        "# Strict-K4 AUTOENCODER official test v6 cached replay"
+        if replay
+        else "# Strict-K4 AUTOENCODER official test v6",
         "",
-        "This atomic one-shot evaluates the three confirmed decoder-bearing AE checkpoints on one untouched test population. The same first 1000 safe-prefix-length-eligible source documents per corpus feed both mandatory arms. No post-access tuning, selection, rerun, suppression, or updates occur.",
+        "This is a new evaluation of the published official cache, not the original one-shot collection or an untouched new population. It reuses all 4000 paired safe/full documents and three frozen checkpoints, fits the declared fixed attacks, and performs no model or probe updates. Historical outputs remain separate."
+        if replay
+        else "This atomic one-shot evaluates the three confirmed decoder-bearing AE checkpoints on one untouched test population. The same first 1000 safe-prefix-length-eligible source documents per corpus feed both mandatory arms. No post-access tuning, selection, rerun, suppression, or updates occur.",
         "",
         "The sole AUC target is the frozen strict bound `<0.60`; the per-seed guard is derived from that target and its declared margin.",
         "",
@@ -1349,79 +1793,90 @@ def render_report(result: dict) -> str:
         "Checkpoint and source hashes, actual `variant=autoencoder` and strict-decoder state proof, genuine nonzero encoder/decoder change, seed-specific fresh-v6-TRAIN probe identities and frozen TRAIN-only floors, exact source counts and hashes, test role, every cache-shard hash, environment, and timing are in `results.json`.",
         "",
     ]
+    if replay:
+        point = result["historical_comparison"]["three_seed_scope_aggregates"]["pooled"]["mean_auc"]
+        lines += [
+            "## Comparison with the retained historical result",
+            "",
+            f"Historical pooled mean AUC: `{point['historical']:.17g}`; replay: `{point['replay']:.17g}`; replay minus historical: `{point['replay_minus_historical']:.17g}`.",
+            "",
+            "Per-seed and per-corpus attack, cosine, population, and aggregate CI differences are recorded in `results.json`. No tolerance, retuning, or suppression is applied. Different runtime or device numerics need not reproduce the historical bytes.",
+            "",
+            "The cache manifest and completion marker are explicitly identified publication derivatives. Historical and normalized configuration, development, freeze, and cache identities are recorded separately; the original hashes are not rebound.",
+            "",
+        ]
     return "\n".join(lines)
 
 
-def evaluate(config_path: Path = CONFIG, device_name: str = "cuda") -> Path:
+def evaluate(
+    config_path: Path = CONFIG, device_name: str = "cuda", *, replay: bool = False
+) -> Path:
     cfg = load_config(config_path)
+    if replay:
+        scripts = str(ROOT / "scripts")
+        if scripts not in sys.path:
+            sys.path.insert(0, scripts)
+        _pinned_package_input(REPLAY_CONFIG_PATH, REPLAY_CONFIG_SHA256)
+        device = _replay_device(device_name)
     # Must precede cache access and one-shot evaluation claim.
     immutable = validate_immutable_provenance(cfg, check_checkpoint_tensors=True)
-    output = ROOT / cfg["output_dir"]
-    failed_marker = output.with_name(output.name + ".EVALUATION_STARTED")
-    if not failed_marker.is_file() or output.exists():
-        raise FileExistsError(
-            "recovery requires the spent initial evaluation marker and no finalized output"
+    if replay:
+        from public_replay import REPLAY_ID
+
+        safe_by, full_by, cache_provenance = load_cache(
+            cfg, replay_immutable=immutable
         )
-    marker = output.with_name(output.name + ".EVALUATION_RECOVERY_STARTED")
-    claim_once(marker, (output,))
-    staging = output.with_name(output.name + f".staging.{uuid.uuid4().hex}")
-    staging.mkdir(parents=True)
+        rows, groups, labels, targets = _evaluation_population(safe_by)
+        attack_cfg = _fixed_attack_config(cfg)
+        for entry in cfg["seeds"]:
+            probe, _ = load_train_probe(entry, cfg, torch.device("cpu"))
+            del probe
+        required_free = int(cfg["storage"]["result_minimum_free_bytes"])
+        if shutil.disk_usage(ROOT).free < required_free:
+            raise RuntimeError("insufficient storage for official replay results")
+        output = _claim_replay_output()
+        staging = output
+        atomic_text(
+            output / "STARTED.json",
+            json.dumps(
+                {
+                    "replay_id": REPLAY_ID,
+                    "status": "started_not_complete",
+                    "population": "published_official_cache",
+                    "historical_output_overwrite": False,
+                    "new_untouched_test_collection": False,
+                    "public_contract": cache_provenance["public_replay"],
+                },
+                indent=2,
+                sort_keys=True,
+            ) + "\n",
+        )
+    else:
+        output = ROOT / cfg["output_dir"]
+        failed_marker = output.with_name(output.name + ".EVALUATION_STARTED")
+        if not failed_marker.is_file() or output.exists():
+            raise FileExistsError(
+                "recovery requires the spent initial evaluation marker and no finalized output"
+            )
+        marker = output.with_name(output.name + ".EVALUATION_RECOVERY_STARTED")
+        claim_once(marker, (output,))
+        staging = output.with_name(output.name + f".staging.{uuid.uuid4().hex}")
+        staging.mkdir(parents=True)
     started_wall = time.time()
     try:
-        safe_by, full_by, cache_provenance = load_cache(cfg)
-        rows = [row for corpus in CORPUS_ORDER for row in safe_by[corpus]]
-        groups = np.asarray([str(row["id"]) for row in rows])
-        labels = np.asarray(
-            [corpus for corpus in CORPUS_ORDER for _ in safe_by[corpus]]
-        )
-        targets = np.stack(
-            [row["teacher_target"].float().numpy() for row in rows]
-        ).astype(np.float32)
-        if len(rows) != 4 * TARGET_DOCUMENTS or len(set(groups)) != len(groups):
-            raise ValueError("pooled safe source groups are missing/duplicated")
-        require_finite(targets, "safe teacher targets")
-        attack_cfg = yaml.safe_load((ROOT / cfg["attack_config"]).read_text())
-        if tuple(attack_cfg) != (
-            "protocol_version",
-            "split_seed",
-            "model_seed",
-            "test_size",
-            "logistic_c",
-            "logistic_max_iter",
-            "rbf_c",
-            "rbf_gamma",
-        ):
-            raise ValueError("fixed logistic/RBF attack config changed")
-        device = torch.device(
-            device_name if device_name == "cpu" or torch.cuda.is_available() else "cpu"
-        )
+        if not replay:
+            safe_by, full_by, cache_provenance = load_cache(cfg)
+            rows, groups, labels, targets = _evaluation_population(safe_by)
+            attack_cfg = _fixed_attack_config(cfg)
+            device = torch.device(
+                device_name if device_name == "cpu" or torch.cuda.is_available() else "cpu"
+            )
         configured = {int(entry["seed"]): entry for entry in cfg["seeds"]}
         seed_results = []
         shared_bundles = {scope: [] for scope in SCOPES}
         for seed in SEED_ORDER:
             entry = configured[seed]
-            require_hash(
-                ROOT / entry["checkpoint"],
-                entry["checkpoint_sha256"],
-                f"seed {seed} AE checkpoint",
-            )
-            model, checkpoint = build_model(ROOT / entry["checkpoint"], device)
-            if (
-                checkpoint.get("variant") != "autoencoder"
-                or model.arity != ARITY
-                or model.strict_decoder is None
-                or model.decoder_mode != "strict"
-            ):
-                raise ValueError(f"seed {seed} is not a decoder-bearing strict-K4 AE")
-            checkpoint_seed = int(
-                checkpoint.get("seed", checkpoint.get("config", {}).get("seed", -1))
-            )
-            if checkpoint_seed != seed:
-                raise ValueError(f"seed {seed} checkpoint seed mismatch")
-            if any(
-                not torch.isfinite(parameter).all() for parameter in model.parameters()
-            ):
-                raise FloatingPointError(f"seed {seed} model parameters are nonfinite")
+            model, checkpoint = _evaluation_model(entry, seed, device, replay=replay)
             safe_roots, safe_telemetry = infer_safe_direct(
                 model, rows, device, int(cfg["batches"]["safe_root"])
             )
@@ -1449,7 +1904,11 @@ def evaluate(config_path: Path = CONFIG, device_name: str = "cuda") -> Path:
                     "identical_source_order_sha256": cache_provenance[
                         "pooled_document_order_sha256"
                     ],
-                    "official_fits_updates_or_selection": 0,
+                    (
+                        "model_or_probe_updates_or_selection"
+                        if replay
+                        else "official_fits_updates_or_selection"
+                    ): 0,
                     "safe_arm": {
                         "protocol": "teacher_comparable_direct_k4_safe_prefix_v1",
                         "prefix_tokens": [1025, 4096],
@@ -1498,16 +1957,7 @@ def evaluate(config_path: Path = CONFIG, device_name: str = "cuda") -> Path:
             "protocol_version": 6,
             "official_test_evaluated": True,
             "test_role_only": True,
-            "frozen_before_access": True,
-            "atomic_one_shot": True,
-            "evaluator_recovery": {
-                "initial_metrics_produced": False,
-                "initial_failure": "KeyError: 'confirmation'",
-                "reused_prepared_cache_without_source_rescan": True,
-                "recovery_scope": "replace stale v5 provenance-key lookup with frozen clean-v6 provenance-key lookup",
-            },
             "report_all_outcomes": True,
-            "post_access_tuning_selection_rerun_or_suppression": False,
             "same_accepted_documents_both_arms": True,
             "seed_order": list(SEED_ORDER),
             "corpus_order": list(CORPUS_ORDER),
@@ -1538,6 +1988,68 @@ def evaluate(config_path: Path = CONFIG, device_name: str = "cuda") -> Path:
             "started_unix": started_wall,
             "completed_unix": time.time(),
         }
+        if replay:
+            import scipy
+            import sklearn
+
+            result["replay"] = {
+                "replay_id": REPLAY_ID,
+                "output_namespace": "replays/official_v6",
+                "execution_kind": "rerun_of_published_official_cache",
+                "new_untouched_test_collection": False,
+                "original_collection_evaluation_ordinal": None,
+                "frozen_before_original_official_access_claimed_for_replay": False,
+                "historical_outputs_overwritten": False,
+                "model_or_probe_training_updates": 0,
+                "fixed_attacks_refit": True,
+                "cached_population_documents_per_arm": len(rows),
+                "cache_release": cache_provenance["public_replay"],
+                "execution_source_sha256": {
+                    relative: sha256_file(ROOT / relative)
+                    for relative in (
+                        "scripts/replay_official_v6.py",
+                        "scripts/public_replay.py",
+                        "scripts/official_v6/evaluate_official_test_v6_recovery.py",
+                        "scripts/official_v6/official_test_v6_protocol.py",
+                        "scripts/official_v6/prepare_official_test_v6.py",
+                        "src/recursive_geodesic_composition/architecture.py",
+                        "src/recursive_geodesic_composition/evaluate_kary_validation.py",
+                        "src/recursive_geodesic_composition/validation_output_calibration.py",
+                    )
+                },
+            }
+            result["environment"].update(
+                {
+                    "scipy": scipy.__version__,
+                    "scikit_learn": sklearn.__version__,
+                    "pyyaml": yaml.__version__,
+                    "torch_cpu_threads": torch.get_num_threads(),
+                    "torch_interop_threads": torch.get_num_interop_threads(),
+                    "thread_environment": {
+                        name: os.environ.get(name)
+                        for name in (
+                            "OMP_NUM_THREADS",
+                            "OPENBLAS_NUM_THREADS",
+                            "MKL_NUM_THREADS",
+                        )
+                    },
+                }
+            )
+            result["historical_comparison"] = _compare_historical_results(result)
+        else:
+            result.update(
+                {
+                    "frozen_before_access": True,
+                    "atomic_one_shot": True,
+                    "evaluator_recovery": {
+                        "initial_metrics_produced": False,
+                        "initial_failure": "KeyError: 'confirmation'",
+                        "reused_prepared_cache_without_source_rescan": True,
+                        "recovery_scope": "replace stale v5 provenance-key lookup with frozen clean-v6 provenance-key lookup",
+                    },
+                    "post_access_tuning_selection_rerun_or_suppression": False,
+                }
+            )
         require_storage(
             staging,
             int(cfg["storage"]["result_minimum_free_bytes"]),
@@ -1549,15 +2061,36 @@ def evaluate(config_path: Path = CONFIG, device_name: str = "cuda") -> Path:
         hashes = [
             f"{sha256_file(result_path)}  results.json",
             f"{sha256_file(staging / 'REPORT.md')}  REPORT.md",
+            *(
+                [f"{sha256_file(staging / 'STARTED.json')}  STARTED.json"]
+                if replay
+                else []
+            ),
         ]
         atomic_text(staging / "SHA256SUMS", "\n".join(hashes) + "\n")
         atomic_text(staging / "DONE", f"{sha256_file(result_path)}  results.json\n")
         fsync_directory(staging)
-        os.replace(staging, output)
+        if not replay:
+            os.replace(staging, output)
         fsync_directory(output.parent)
         return output
     except BaseException:
-        shutil.rmtree(staging, ignore_errors=True)
+        if replay:
+            (output / "DONE").unlink(missing_ok=True)
+            atomic_text(
+                output / "FAILED.json",
+                json.dumps(
+                    {
+                        "replay_id": REPLAY_ID,
+                        "status": "failed_not_complete",
+                        "failure_type": type(sys.exception()).__name__,
+                    },
+                    indent=2,
+                    sort_keys=True,
+                ) + "\n",
+            )
+        else:
+            shutil.rmtree(staging, ignore_errors=True)
         raise
 
 
@@ -1565,8 +2098,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=CONFIG)
     parser.add_argument("--device", default="cuda")
+    parser.add_argument(
+        "--replay",
+        action="store_true",
+        help="evaluate the pinned anonymous cache in create-only replays/official_v6",
+    )
     args = parser.parse_args()
-    evaluate(args.config, args.device)
+    evaluate(args.config, args.device, replay=args.replay)
 
 
 if __name__ == "__main__":

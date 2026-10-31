@@ -1,6 +1,6 @@
 # Reproducing the supplement
 
-Run commands from the root of a writable extracted supplement, using the paths shown (all are relative to that root). Keep the supplied snapshot immutable; the preparation, training, evaluation and audit namespaces are create-only. Use a separate writable copy for any new cache or result. This guide describes inspected commands and recorded artifacts; it does not claim that this machine downloaded data, trained a model, or reran a GPU evaluation.
+Run commands from the root of a writable extracted supplement; all paths below are relative to that root. Keep supplied historical evidence immutable. The recommended cached replay writes separately under `replays/`; historical preparation/training/evaluation commands retain their original guards. Use a fresh writable copy for a clean rerun rather than deleting markers or overwriting evidence.
 
 ## What is and is not included
 
@@ -29,6 +29,85 @@ python supplement.py materialize weights \
 ```
 
 The helper verifies exact byte size and SHA-256 before placing a selected asset. Use `--mode copy` if hard links are unavailable. These probes do not replace final/source model checkpoints.
+
+## Public cached replay: recommended reviewer workflow
+
+This is a separately identified evaluation of released inputs, not a new untouched population or a reconstruction of the original one-shot collection. It reuses the original scientific inference/statistical functions without model/probe updates. Historical configs, results, checksum ledgers and original-byte guards remain unchanged.
+
+### 1. Install the minimal CPU runtime
+
+Use Python 3.12. The versions in `requirements-replay.txt` record the exercised cached-replay environment, separately from the historical CUDA/training environment:
+
+```bash
+python3.12 -m venv .venv-replay
+source .venv-replay/bin/activate
+python -m pip install --index-url https://download.pytorch.org/whl/cpu 'torch==2.13.0+cpu'
+python -m pip install -r requirements-replay.txt
+```
+
+No editable project install, Transformers, datasets library, teacher weights or dataset account is needed for these cached commands. The dependency installation recipe is provided for reproduction; a fresh dependency installation is not itself part of the reported numerical validation.
+
+### 2. Install the pinned public inputs
+
+The standard-library downloader verifies the three final models, three source models and six fixed historical probes at their configured paths:
+
+```bash
+python scripts/download_checkpoints.py \
+  --group final --group source --group historical_probes --verify
+```
+
+Only the official and development bundles are required for these four workflows. With `curl`, `tar` and `sha256sum`, download their immutable public bytes and verify compressed hashes before extracting:
+
+```bash
+CACHE_BASE=https://huggingface.co/tmlr-embedding-artifacts/recursive-geodesic-checkpoints/resolve/9e4c8e02375f66b3cf9918a20eb81446f996620e
+CACHE_DOWNLOAD="$PWD/artifacts/replay-cache-download"
+mkdir -p "$CACHE_DOWNLOAD/caches"
+curl --fail --location "$CACHE_BASE/CACHE_SHA256SUMS" \
+  --output "$CACHE_DOWNLOAD/CACHE_SHA256SUMS" || exit 1
+for name in cache_kary4_strict_autoencoder_official_test_v6 \
+            cache_kary4_strict_autoencoder_v6_clean_development; do
+  curl --fail --location "$CACHE_BASE/caches/$name.tar.gz" \
+    --output "$CACHE_DOWNLOAD/caches/$name.tar.gz" || exit 1
+done
+(cd "$CACHE_DOWNLOAD" && sha256sum --ignore-missing --check CACHE_SHA256SUMS) || exit 1
+for archive in "$CACHE_DOWNLOAD"/caches/*.tar.gz; do
+  tar --keep-old-files --no-same-owner -xzf "$archive" -C "$PWD" || exit 1
+done
+```
+
+The replay also verifies every extracted cache file against `HOSTED_CACHES.json`, including exact membership, size, SHA-256 and completion identity. Do not regenerate a teacher cache or run create-only preparation over these directories. Attribution and remaining input boundaries are in [CHECKPOINT_ACCESS.md](CHECKPOINT_ACCESS.md).
+
+### 3. Run actual inference and analysis
+
+Run the baseline command before recursive reuse; the latter freezes the hashes of the actual fresh baseline vectors/configuration/manifest/results rather than expecting the unavailable historical vector files.
+
+```bash
+export OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 MKL_NUM_THREADS=4
+
+python scripts/replay_official_v6.py --device cpu
+python scripts/replay_development.py --device cpu --threads 4
+
+python scripts/evaluate_safe_baselines.py all \
+  --config configs/safe_baselines_replay_v1.yaml --device cpu
+python scripts/evaluate_recursive_reuse.py all \
+  --config configs/recursive_reuse_replay_v1.yaml --device cpu
+```
+
+| Workflow | Population and output |
+| --- | --- |
+| Official | All 4,000 paired safe/full documents, three fixed seeds; `replays/official_v6/`. |
+| Development | All 4,000 paired safe/full documents per seed; `replays/development/{seed}/`. |
+| Safe baselines | All 4,000 official safe prefixes; `replays/safe_baselines_v1/`. |
+| Recursive reuse | Fresh direct/recursive inference on all 606 exact-four prefixes; structural accounting of all 4,000 full documents from verified metadata; `replays/recursive_reuse_v1/`. |
+
+The declared fixed attacks are fitted again; applicable bootstrap summaries use all 2,000 declared resamples. Official replay requires neither the intentional initial failure nor a spent historical marker. Development uses the separately pinned normalized freeze records at their published paths. Baselines read the original official safe tensors as a read-only view: these are not claimed byte-identical to the absent regenerated-safe cache used in the archived additive analysis. Recursive reuse binds the completed fresh upstream run.
+
+Fresh results record their input/runtime identities and comparisons with archived numbers. Differences are disclosed, not used for retuning, selection or metric replacement. CPU timing describes the current machine, not a reproduction of published GPU latency. Full-document roots still have no direct teacher target/cosine/AUC. No training, raw-corpus acquisition or teacher re-encoding is performed.
+
+### Historical commands below
+
+The remaining sections preserve original preparation, continuation, one-shot recovery and other study entrypoints. They are **not** the recommended route for the published anonymous cache: original-byte guards intentionally reject the metadata derivative, and some unrelated study inputs remain missing. Use the public cached-replay commands above for these four supported workflows.
+
 
 ## Software and external requirements
 

@@ -1,0 +1,6 @@
+execution_mode: anonymous_cached_replay_v1
+study: safe_baselines_v1
+scientific_config: configs/safe_baselines_v1.yaml
+scientific_config_sha256: 5918162673076915f97aaf639acfac96465cdb8f239d244add5db93eaff30521
+source_cache: cache_kary4_strict_autoencoder_official_test_v6
+output_dir: replays/safe_baselines_v1

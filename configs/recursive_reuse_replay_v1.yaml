@@ -1,0 +1,7 @@
+execution_mode: anonymous_cached_replay_v1
+study: recursive_reuse_v1
+scientific_config: configs/recursive_reuse_v1.yaml
+scientific_config_sha256: 427850a584f11618d6ec7727162085b4a7cc777e99a677d7b6dee255a0a9b113
+baseline_replay_config: configs/safe_baselines_replay_v1.yaml
+baseline_replay_config_sha256: e3d54b3e3e3941b59552e7d6ff2fb4081fbcef19214c31f9fc2b4c9abf010608
+output_dir: replays/recursive_reuse_v1

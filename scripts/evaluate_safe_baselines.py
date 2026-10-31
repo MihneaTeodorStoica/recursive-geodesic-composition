@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 import time
 from pathlib import Path
@@ -14,10 +15,14 @@ import yaml
 from threadpoolctl import threadpool_limits
 
 from safe_baselines_protocol import (
-    DEFAULT_CONFIG, ROOT, PUBLISHED_HASH, atomic_json, atomic_tensor, checkpoint_entries,
-    configure_device, environment, load_protocol, load_safe_cache, require_hash,
-    sha256, source_hashes, stable_hash,
+    DEFAULT_CONFIG, ROOT, PUBLISHED_HASH, REPLAY_ID, atomic_json, atomic_tensor,
+    checkpoint_entries, configure_device, environment, load_protocol, load_safe_cache,
+    replay_source_hashes, require_hash, sha256, source_hashes, stable_hash,
 )
+from public_replay import package_file_hash
+
+sys.path.insert(0, str(ROOT / "src"))
+
 from recursive_geodesic_composition.evaluate_kary_validation import build_model
 from recursive_geodesic_composition.safe_baselines import (
     BASELINES, LEARNED, CONTRASTS, baseline_parent, benchmark, cosine_rows,
@@ -37,6 +42,20 @@ LABELS = {
     "token_weighted_mean": "Token-weighted mean", "learned_reference": "Learned reference",
     "learned_parent": "Final learned parent",
 }
+
+
+def replay_checkpoint_identity(entry):
+    return {key: entry[key] for key in ("seed", "role", "path", "asset_filename", "byte_size", "sha256")}
+
+
+def document_metadata(rows):
+    return [{key: row[key] for key in (
+        "id", "corpus", "source_index", "safe_prefix_token_count", "full_token_count",
+        "safe_prefix_token_ids_sha256")} | {"active_children": len(row["lengths"])} for row in rows]
+
+
+def expected_vector_keys(cfg):
+    return set(BASELINES) | {f"{method}_seed{seed}" for method in LEARNED for seed in cfg["seeds"]}
 
 
 def padded_batches(rows, device, batch_size):
@@ -67,15 +86,28 @@ def infer(config_path, device_name):
         load_inference(cfg)
         print("Verified existing inference; not recomputing.", flush=True)
         return
+    if cfg.get("execution_mode") == REPLAY_ID and output.exists() and any(output.iterdir()):
+        raise FileExistsError("incomplete or contradictory replay inference exists; use a fresh output namespace")
     rows, cache_manifest = load_safe_cache(cfg, published)
     entries = checkpoint_entries(cfg)
     output.mkdir(parents=True, exist_ok=True)
-    atomic_json(output / "ANALYSIS_PROTOCOL.json", {
-        "configuration": cfg, "source_sha256": source_hashes(),
-        "environment": environment(device), "started_unix": time.time(),
+    replay = cfg.get("execution_mode") == REPLAY_ID
+    sources = replay_source_hashes() if replay else source_hashes()
+    runtime = environment(device)
+    if replay:
+        runtime.pop("git_commit", None)
+        atomic_json(output / "INPUT_VIEW.json", cache_manifest)
+    protocol = {
+        "configuration": cfg, "source_sha256": sources,
+        "environment": runtime, "started_unix": time.time(),
         "analysis_role": cfg["analysis_role"], "original_official_results_unchanged": True,
         "cache_manifest_sha256": sha256(ROOT / cfg["cache_dir"] / "CACHE_MANIFEST.json"),
-    })
+    }
+    if replay:
+        protocol.update({"execution_mode": REPLAY_ID,
+                         "input_view_sha256": sha256(output / "INPUT_VIEW.json"),
+                         "teacher_encoding_calls": 0})
+    atomic_json(output / "ANALYSIS_PROTOCOL.json", protocol)
     batches, indices = padded_batches(rows, device, int(cfg["inference"]["batch_size"]))
     vectors, timing, model_provenance = {}, {}, []
     warmup, repeats = cfg["timing"]["warmup_passes"], cfg["timing"]["measured_passes"]
@@ -109,15 +141,12 @@ def infer(config_path, device_name):
             timing[f"learned_parent_seed{seed}"] = measured | {"path": "full_merge_returning_parent_and_reference"}
             timing[f"learned_reference_seed{seed}"] = measured | {"path": "full_forward_diagnostic_extraction", "same_measurement_as_parent": True}
             require_hash(ROOT / entry["path"], entry["sha256"])
-            model_provenance.append(entry)
+            model_provenance.append(replay_checkpoint_identity(entry) if replay else entry)
             print(f"Inferred and timed checkpoint {seed}", flush=True)
             del model, checkpoint
             if device.type == "cuda":
                 torch.cuda.empty_cache()
-    metadata = [{key: row[key] for key in (
-        "id", "corpus", "source_index", "safe_prefix_token_count", "full_token_count",
-        "safe_prefix_token_ids_sha256")} | {"active_children": len(row["lengths"])} for row in rows]
-    atomic_json(output / "DOCUMENT_METADATA.json", metadata)
+    atomic_json(output / "DOCUMENT_METADATA.json", document_metadata(rows))
     payload = {
         "vectors": vectors, "targets": torch.stack([row["teacher_target"] for row in rows]),
         "groups": [row["id"] for row in rows], "labels": [row["corpus"] for row in rows],
@@ -127,16 +156,30 @@ def infer(config_path, device_name):
     atomic_tensor(vector_path, payload)
     manifest = {
         "study": cfg["study"], "analysis_role": cfg["analysis_role"],
-        "config_sha256": cfg["config_sha256"], "source_sha256": source_hashes(),
-        "environment": environment(device), "checkpoints": model_provenance,
+        "config_sha256": cfg["config_sha256"], "source_sha256": sources,
+        "environment": runtime, "checkpoints": model_provenance,
         "cache_manifest_sha256": sha256(ROOT / cfg["cache_dir"] / "CACHE_MANIFEST.json"),
-        "cache_regenerated": True, "original_embedding_bytes_claimed": False,
+        "cache_regenerated": not replay, "original_embedding_bytes_claimed": False,
         "population_order_sha256": stable_hash(payload["groups"]),
         "vectors_sha256": sha256(vector_path), "metadata_sha256": sha256(output / "DOCUMENT_METADATA.json"),
         "timing_protocol": cfg["timing"], "timings": timing,
         "batch_size": cfg["inference"]["batch_size"], "dtype": "float32",
         "documents": len(rows), "merger_updates": 0, "completed_unix": time.time(),
     }
+    if replay:
+        for name, digest in sources.items():
+            require_hash(ROOT / name, digest)
+        for entry in cache_manifest["official_safe_files"].values():
+            require_hash(ROOT / entry["official_safe_path"], entry["official_safe_sha256"])
+        manifest.update({
+            "execution_mode": REPLAY_ID,
+            "input_view_sha256": sha256(output / "INPUT_VIEW.json"),
+            "analysis_protocol_sha256": sha256(output / "ANALYSIS_PROTOCOL.json"),
+            "official_safe_tensor_bytes_from_public_release": True,
+            "historical_regenerated_cache_recovered": False,
+            "teacher_encoding_calls": 0,
+            "timing_interpretation": "current hardware only; not a reproduction or comparison of archived GPU timing",
+        })
     atomic_json(manifest_path, manifest)
     require_hash(ROOT / cfg["published_results"], PUBLISHED_HASH)
 
@@ -151,12 +194,67 @@ def load_inference(cfg):
     payload = torch.load(output / "vectors.pt", map_location="cpu", weights_only=True)
     if stable_hash(payload["groups"]) != manifest["population_order_sha256"]:
         raise ValueError("inference document order changed")
+    if cfg.get("execution_mode") == REPLAY_ID:
+        validate_replay_inference(cfg, payload, manifest)
     payload["vectors"] = {key: validate_vectors(value.numpy(), key, unit=True)
                           for key, value in payload["vectors"].items()}
     payload["targets"] = validate_vectors(payload["targets"].numpy(), "teacher", unit=True)
     for key in ("groups", "labels", "active_children"):
         payload[key] = np.asarray(payload[key])
     return payload, manifest
+
+
+def validate_replay_inference(cfg, payload, manifest):
+    output = ROOT / cfg["output_dir"]
+    if (manifest.get("execution_mode") != REPLAY_ID or manifest.get("documents") != 4000 or
+            manifest.get("merger_updates") != 0 or manifest.get("teacher_encoding_calls") != 0 or
+            manifest.get("historical_regenerated_cache_recovered") is not False or
+            manifest.get("cache_regenerated") is not False or
+            manifest.get("timing_protocol") != cfg["timing"] or
+            manifest.get("batch_size") != cfg["inference"]["batch_size"] or
+            manifest.get("dtype") != "float32"):
+        raise ValueError("incomplete or contradictory replay inference manifest")
+    if manifest["source_sha256"] != replay_source_hashes():
+        raise ValueError("replay inference implementation changed")
+    require_hash(output / "INPUT_VIEW.json", manifest["input_view_sha256"])
+    require_hash(output / "ANALYSIS_PROTOCOL.json", manifest["analysis_protocol_sha256"])
+    protocol = json.loads((output / "ANALYSIS_PROTOCOL.json").read_text())
+    if (protocol.get("configuration") != cfg or protocol.get("execution_mode") != REPLAY_ID or
+            protocol.get("source_sha256") != manifest["source_sha256"] or
+            protocol.get("environment") != manifest["environment"] or
+            protocol.get("input_view_sha256") != manifest["input_view_sha256"] or
+            protocol.get("cache_manifest_sha256") != manifest["cache_manifest_sha256"]):
+        raise ValueError("replay inference freeze disagrees with its manifest")
+    expected_checkpoints = [replay_checkpoint_identity(entry) for entry in checkpoint_entries(cfg)]
+    if manifest["checkpoints"] != expected_checkpoints:
+        raise ValueError("replay checkpoint identities changed")
+    published = json.loads((ROOT / cfg["published_results"]).read_text())
+    require_hash(ROOT / cfg["published_results"], PUBLISHED_HASH)
+    rows, view = load_safe_cache(cfg, published)
+    if (view != json.loads((output / "INPUT_VIEW.json").read_text()) or
+            view["source_official_manifest_sha256"] != manifest["cache_manifest_sha256"]):
+        raise ValueError("replay public input view changed after inference")
+    metadata = json.loads((output / "DOCUMENT_METADATA.json").read_text())
+    if metadata != document_metadata(rows):
+        raise ValueError("replay document metadata differs from the verified input view")
+    if (payload["groups"] != [row["id"] for row in rows] or
+            payload["labels"] != [row["corpus"] for row in rows] or
+            payload["active_children"] != [len(row["lengths"]) for row in rows]):
+        raise ValueError("replay vector population or order differs from the input view")
+    targets = payload["targets"]
+    if (not isinstance(targets, torch.Tensor) or targets.dtype != torch.float32 or
+            targets.shape != (4000, 768) or
+            not torch.equal(targets, torch.stack([row["teacher_target"] for row in rows]))):
+        raise ValueError("replay teacher targets are not the released official targets")
+    keys = expected_vector_keys(cfg)
+    if set(payload["vectors"]) != keys or set(manifest["timings"]) != keys:
+        raise ValueError("replay omitted a method, checkpoint, or timing")
+    for key, value in payload["vectors"].items():
+        if not isinstance(value, torch.Tensor) or value.dtype != torch.float32 or value.shape != (4000, 768):
+            raise ValueError(f"{key}: replay vector shape or dtype changed")
+        duration = manifest["timings"][key]["median_ms_per_document"]
+        if not isinstance(duration, (int, float)) or not math.isfinite(duration) or duration < 0:
+            raise ValueError(f"{key}: invalid current-hardware timing")
 
 
 def attack_result(key, scope, real, fake, groups, cfg, official, published, scope_index):
@@ -193,12 +291,147 @@ def attack_result(key, scope, real, fake, groups, cfg, official, published, scop
     return result
 
 
+def compare_archived_baselines(cfg, groups, labels, active_children, raw_scores, fidelity, attacks):
+    results_path = "results/safe_baselines_v1/RESULTS.json"
+    documents_path = "results/safe_baselines_v1/DOCUMENT_SCORES.json"
+    results_hash = package_file_hash(ROOT, results_path)
+    documents_hash = package_file_hash(ROOT, documents_path)
+    archived = json.loads((ROOT / results_path).read_text())
+    documents = json.loads((ROOT / documents_path).read_text())
+    if (archived["configuration"]["config_sha256"] != cfg["scientific_config_sha256"] or
+            archived["documents"] != 4000 or len(documents) != 4000 or
+            archived["population_order_sha256"] != stable_hash(groups.tolist())):
+        raise ValueError("archived baseline comparison population or scientific protocol changed")
+    for index, row in enumerate(documents):
+        if (row["id"] != groups[index] or row["corpus"] != labels[index] or
+                row["active_children"] != int(active_children[index]) or
+                set(row["cosines"]) != set(raw_scores)):
+            raise ValueError("archived baseline per-document scores are not paired to this replay")
+    masks = {"pooled": np.ones(len(groups), dtype=bool)}
+    masks.update({corpus: labels == corpus for corpus in dict.fromkeys(labels)})
+    masks.update({f"arity_{k}": active_children == k for k in (2, 3, 4)})
+    document_differences = {}
+    for key, values in raw_scores.items():
+        old = np.asarray([row["cosines"][key] for row in documents], dtype=np.float64)
+        if not np.isfinite(old).all():
+            raise ValueError(f"{key}: nonfinite archived document scores")
+        document_differences[key] = {}
+        for scope, mask in masks.items():
+            delta = values[mask] - old[mask]
+            document_differences[key][scope] = {
+                "documents": int(mask.sum()),
+                "replay_mean": float(values[mask].mean()),
+                "archived_mean": float(old[mask].mean()),
+                "mean_signed_difference": float(delta.mean()),
+                "mean_absolute_difference": float(np.abs(delta).mean()),
+                "maximum_absolute_difference": float(np.abs(delta).max()),
+            }
+    fidelity_differences = {}
+    for seed, scopes in fidelity.items():
+        fidelity_differences[seed] = {}
+        for scope, summary in scopes.items():
+            fidelity_differences[seed][scope] = {}
+            for method, new in summary["methods"].items():
+                old = archived["fidelity"][seed][scope]["methods"][method]
+                fidelity_differences[seed][scope][method] = {
+                    "replay_mean": new["mean"], "archived_mean": old["mean"],
+                    "difference": new["mean"] - old["mean"],
+                    "replay_ci95": new["ci95"], "archived_ci95": old["ci95"],
+                }
+    detectability_differences = {}
+    for method, scopes in attacks.items():
+        detectability_differences[method] = {}
+        for scope, new in scopes.items():
+            old = archived["detectability"][method][scope]
+            detectability_differences[method][scope] = {
+                "replay_auc": new["mean_auc"], "archived_auc": old["mean_auc"],
+                "difference": new["mean_auc"] - old["mean_auc"],
+                "replay_ci95": new["ci95"], "archived_ci95": old["ci95"],
+                "replay_selected_families": new["selected_families"],
+                "archived_selected_families": old["selected_families"],
+            }
+    return {
+        "comparison": "cached original official safe tensors versus historical regenerated-safe baseline results",
+        "archived_results_path": results_path, "archived_results_sha256": results_hash,
+        "archived_document_scores_path": documents_path, "archived_document_scores_sha256": documents_hash,
+        "paired_document_identities_verified": True,
+        "fidelity": fidelity_differences, "detectability": detectability_differences,
+        "document_cosine_differences": document_differences,
+        "timings_compared": False,
+    }
+
+
+def load_replay_results(cfg):
+    """Load only a completed replay whose inputs and every output still match."""
+    if cfg.get("execution_mode") != REPLAY_ID:
+        raise ValueError("completed replay loader requires the cached-replay configuration")
+    output = ROOT / cfg["output_dir"]
+    marker = json.loads((output / "COMPLETE.json").read_text())
+    if marker.get("execution_mode") != REPLAY_ID or marker.get("config_sha256") != cfg["config_sha256"]:
+        raise ValueError("baseline replay completion identity changed")
+    require_hash(output / "ARTIFACT_HASHES.json", marker["artifact_hashes_sha256"])
+    require_hash(output / "RESULTS.json", marker["results_sha256"])
+    require_hash(output / "INFERENCE_MANIFEST.json", marker["inference_manifest_sha256"])
+    payload, inference = load_inference(cfg)
+    result = json.loads((output / "RESULTS.json").read_text())
+    if (result.get("execution_mode") != REPLAY_ID or result.get("configuration") != cfg or
+            result.get("documents") != 4000 or result.get("merger_updates") != 0 or
+            result.get("source_sha256") != inference["source_sha256"] or
+            result.get("input_view_sha256") != inference["input_view_sha256"] or
+            result.get("inference_manifest_sha256") != marker["inference_manifest_sha256"] or
+            result.get("population_order_sha256") != inference["population_order_sha256"]):
+        raise ValueError("baseline replay results contradict the completed inference")
+    require_hash(output / "DOCUMENT_SCORES.json", result["document_scores_sha256"])
+    comparison = result["historical_baseline_comparison"]
+    for path_key, hash_key in (("archived_results_path", "archived_results_sha256"),
+                               ("archived_document_scores_path", "archived_document_scores_sha256")):
+        if package_file_hash(ROOT, comparison[path_key]) != comparison[hash_key]:
+            raise ValueError("archived baseline comparison identity changed")
+    if comparison["timings_compared"] is not False:
+        raise ValueError("archived hardware timing must not be treated as reproduced")
+    scopes = ["pooled", *dict.fromkeys(payload["labels"].tolist())]
+    expected_attacks = {f"attacks/{key}__{scope}.json"
+                        for key in expected_vector_keys(cfg) for scope in scopes}
+    if set(result["attack_result_sha256"]) != expected_attacks:
+        raise ValueError("completed baseline replay has missing or unexpected classifier results")
+    expected = expected_attacks | {
+        "ANALYSIS_PROTOCOL.json", "INPUT_VIEW.json", "INFERENCE_MANIFEST.json",
+        "vectors.pt", "DOCUMENT_METADATA.json", "DOCUMENT_SCORES.json", "RESULTS.json",
+        "REPORT.md", "safe_baselines_table.tex",
+    }
+    paths = list(output.rglob("*"))
+    if any(path.is_symlink() for path in paths):
+        raise ValueError("completed baseline replay contains a symbolic link")
+    actual = {str(path.relative_to(output)) for path in paths if path.is_file()}
+    if actual != expected | {"ARTIFACT_HASHES.json", "COMPLETE.json"}:
+        raise ValueError("completed baseline replay has missing or unexpected artifacts")
+    hashes = json.loads((output / "ARTIFACT_HASHES.json").read_text())
+    if set(hashes) != expected:
+        raise ValueError("baseline replay artifact inventory changed")
+    for name, digest in hashes.items():
+        require_hash(output / name, digest)
+    for name, digest in result["attack_result_sha256"].items():
+        if hashes[name] != digest:
+            raise ValueError("baseline classifier result identity changed")
+    return payload, inference, result
+
+
 def evaluate(config_path):
     cfg, official, published = load_protocol(config_path)
     output = ROOT / cfg["output_dir"]
+    replay = cfg.get("execution_mode") == REPLAY_ID
     if (output / "RESULTS.json").exists():
+        if replay:
+            load_replay_results(cfg)
+            print("Verified completed baseline replay; not recomputing.", flush=True)
+            return
         raise FileExistsError("complete analysis already exists; use report, not another evaluation")
     payload, inference_manifest = load_inference(cfg)
+    if replay:
+        expected = {"ANALYSIS_PROTOCOL.json", "INPUT_VIEW.json", "INFERENCE_MANIFEST.json",
+                    "vectors.pt", "DOCUMENT_METADATA.json"}
+        if {path.name for path in output.iterdir()} != expected:
+            raise FileExistsError("incomplete or contradictory baseline analysis exists; use a fresh output namespace")
     vectors, targets = payload["vectors"], payload["targets"]
     groups, labels = payload["groups"], payload["labels"]
     if stable_hash(groups.tolist()) != published["cache_provenance"]["pooled_document_order_sha256"]:
@@ -298,7 +531,7 @@ def evaluate(config_path):
         "documents": len(groups), "population_order_sha256": stable_hash(groups.tolist()),
         "inference_manifest_sha256": sha256(output / "INFERENCE_MANIFEST.json"),
         "document_scores_sha256": sha256(output / "DOCUMENT_SCORES.json"),
-        "source_sha256": source_hashes(), "fidelity": fidelity,
+        "source_sha256": replay_source_hashes() if replay else source_hashes(), "fidelity": fidelity,
         "detectability": aggregate_attacks, "timing": timing,
         "calibration": {"protocol": cfg["calibration"], "permutation_order_sha256": stable_hash(permutations.tolist()), "methods": calibration},
         "published_learned_comparison": comparisons,
@@ -307,21 +540,32 @@ def evaluate(config_path):
         "attack_result_sha256": {str(path.relative_to(output)): sha256(path) for path in sorted((output / "attacks").glob("*.json"))},
         "completed_unix": time.time(), "merger_updates": 0,
     }
+    if replay:
+        result.update({
+            "execution_mode": REPLAY_ID,
+            "input_view_sha256": inference_manifest["input_view_sha256"],
+            "historical_baseline_comparison": compare_archived_baselines(
+                cfg, groups, labels, payload["active_children"], raw_scores, fidelity, aggregate_attacks),
+            "timing_interpretation": "current hardware only; archived GPU timing is not reproduced or compared",
+        })
     atomic_json(output / "RESULTS.json", result)
-    render(config_path)
+    _render_report(config_path)
 
 
-def render(config_path):
+def _render_report(config_path):
     cfg, _, _ = load_protocol(config_path)
     output = ROOT / cfg["output_dir"]
     result = json.loads((output / "RESULTS.json").read_text())
     inference = json.loads((output / "INFERENCE_MANIFEST.json").read_text())
+    replay = cfg.get("execution_mode") == REPLAY_ID
     means = result["fidelity"]["three_seed_mean"]["pooled"]["methods"]
-    lines = ["# Matched safe-arm baselines", "", "Additive post-review analysis of the previously evaluated 4,000 documents. All methods use the same regenerated FP32 leaves and direct teacher targets; no merger retraining.", "",
+    introduction = ("Additive post-review analysis of the same 4,000 documents using a read-only view of cached original official FP32 leaves and teacher targets. This is not the unavailable regenerated-safe baseline cache; no merger retraining or teacher encoding was performed." if replay else
+                    "Additive post-review analysis of the previously evaluated 4,000 documents. All methods use the same regenerated FP32 leaves and direct teacher targets; no merger retraining.")
+    lines = ["# Matched safe-arm baselines", "", introduction, "",
              "| Representation | Teacher cosine | Delta vs weighted | Delta vs unweighted | Source AUC [95% CI] | ms/document |",
              "| --- | ---: | ---: | ---: | --- | ---: |"]
     tex = [r"% Generated by scripts/evaluate_safe_baselines.py report; do not edit numbers.",
-           r"\begin{table}[H]", r"\caption{Matched teacher-comparable prefix comparison on regenerated inputs for the same 4,000 documents. Learned rows average the three final checkpoints; deterministic baselines are evaluated once. $\Delta_w$ and $\Delta_u$ are paired mean teacher-cosine differences against weighted and unweighted pooling. Timings measure device-resident composition only; reference extraction uses the complete forward pass, not an optimized reference-only implementation.}", r"\label{tab:safe-baselines}", r"\centering\small", r"\begin{tabularx}{\linewidth}{Yrrrrr}", r"\toprule",
+           r"\begin{table}[H]", (r"\caption{Matched 4,000-prefix comparison on cached official safe tensors, not the historical regenerated-safe inputs. Learned rows average three checkpoints. Timings are from current hardware, not reproduced GPU timings.}" if replay else r"\caption{Matched teacher-comparable prefix comparison on regenerated inputs for the same 4,000 documents. Learned rows average the three final checkpoints; deterministic baselines are evaluated once. $\Delta_w$ and $\Delta_u$ are paired mean teacher-cosine differences against weighted and unweighted pooling. Timings measure device-resident composition only; reference extraction uses the complete forward pass, not an optimized reference-only implementation.}"), r"\label{tab:safe-baselines}", r"\centering\small", r"\begin{tabularx}{\linewidth}{Yrrrrr}", r"\toprule",
            r"Representation & Teacher cosine & $\Delta_w$ & $\Delta_u$ & $A_{\mathrm{safe}}$ & ms/doc \\", r"\midrule"]
     for method in cfg["methods"]:
         cosine = means[method]["mean"]
@@ -340,11 +584,12 @@ def render(config_path):
         score = result["calibration"]["methods"][method]["pooled"]["mean_cosine"]
         lines.append(f"- {LABELS[method]}: {score:.6f}")
     lines.extend(["", "## Provenance and interpretation", "",
-                  f"- GPU: {inference['environment']['gpu']}",
+                  f"- Device: {inference['environment']['device']}; GPU: {inference['environment']['gpu']}",
                   f"- Timing: {cfg['timing']['boundary']}; float32; batch size {cfg['inference']['batch_size']}; {cfg['timing']['warmup_passes']} warm-up and {cfg['timing']['measured_passes']} measured passes; TF32 disabled.",
                   "- Reference and parent timing use the same measured full-forward call; reference-only speed is not claimed.",
                   "- No teacher encoding, cache loading, transfers, decoder evaluation, or classifier fitting is included in these inference timings.",
-                  "- Original official results remain unchanged. Regenerated tensor byte identity is not claimed; preparation uses safe-only rather than full-document leaf batches.",
+                  ("- Cached original official safe tensors used full-document leaf batches (up to 16); the unavailable historical regenerated-safe cache used safe-only batches (up to four). Its tensor bytes are not claimed recovered. Current-hardware timing is not reproduced or compared to archived GPU timing." if replay else
+                   "- Original official results remain unchanged. Regenerated tensor byte identity is not claimed; preparation uses safe-only rather than full-document leaf batches."),
                   "- Confidence intervals condition on fixed checkpoints, fitted classifiers, split, and selected classifier families. They do not establish downstream utility or uncertainty over arbitrary training seeds.",
                   "", "## Comparison with published learned results", "",
                   "Tolerance checks diagnose numerical reproducibility, not scientific acceptance; all differences are retained.", "",
@@ -353,11 +598,37 @@ def render(config_path):
         for scope, entry in scopes.items():
             passed = entry["cosine_within_declared_tolerance"] and entry["auc_within_declared_tolerance"]
             lines.append(f"| {seed} | {scope} | {entry['teacher_cosine_delta']:+.9f} | {entry['auc_delta']:+.9f} | {passed} |")
+    if replay:
+        comparison = result["historical_baseline_comparison"]
+        lines.extend(["", "## Cached official versus historical regenerated-safe results", "",
+                      "Differences are replay minus the archived regenerated-safe baseline; all populations and prefix token hashes match. The unavailable historical tensors are not reconstructed. Per-document score differences for all representations, checkpoints and scopes are in RESULTS.json.", "",
+                      "| Representation | Replay mean cosine | Archived mean cosine | Cosine difference | Replay AUC | Archived AUC | AUC difference |",
+                      "| --- | ---: | ---: | ---: | ---: | ---: | ---: |"])
+        for method in cfg["methods"]:
+            cosine = comparison["fidelity"]["three_seed_mean"]["pooled"][method]
+            auc = comparison["detectability"][method]["pooled"]
+            lines.append(f"| {LABELS[method]} | {cosine['replay_mean']:.9f} | {cosine['archived_mean']:.9f} | {cosine['difference']:+.9f} | {auc['replay_auc']:.9f} | {auc['archived_auc']:.9f} | {auc['difference']:+.9f} |")
     (output / "REPORT.md").write_text("\n".join(lines) + "\n")
     (output / "safe_baselines_table.tex").write_text("\n".join(tex) + "\n")
     files = [path for path in output.rglob("*") if path.is_file() and path.name != "ARTIFACT_HASHES.json"]
     atomic_json(output / "ARTIFACT_HASHES.json", {str(path.relative_to(output)): sha256(path) for path in sorted(files)})
+    if replay:
+        atomic_json(output / "COMPLETE.json", {
+            "execution_mode": REPLAY_ID, "config_sha256": cfg["config_sha256"],
+            "inference_manifest_sha256": sha256(output / "INFERENCE_MANIFEST.json"),
+            "results_sha256": sha256(output / "RESULTS.json"),
+            "artifact_hashes_sha256": sha256(output / "ARTIFACT_HASHES.json"),
+        })
     print(f"Report written: {output / 'REPORT.md'}", flush=True)
+
+
+def render(config_path):
+    cfg, _, _ = load_protocol(config_path)
+    if cfg.get("execution_mode") == REPLAY_ID:
+        load_replay_results(cfg)
+        print(f"Verified completed report: {ROOT / cfg['output_dir'] / 'REPORT.md'}", flush=True)
+        return
+    _render_report(config_path)
 
 
 if __name__ == "__main__":
